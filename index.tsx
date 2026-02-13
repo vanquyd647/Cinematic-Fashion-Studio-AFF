@@ -77,6 +77,17 @@ const TabButton = ({ active, onClick, icon: Icon, label }: any) => (
    </button>
 );
 
+// 👗 BEFORE OUTFITS — trang phục "trước khi thay" cho try-on / transform / unboxing
+const BEFORE_OUTFITS = [
+   'wearing a seamless yoga set with breathable mesh panels',
+   'wearing a snug pointelle knit lounge set',
+   'a minimalist nude yoga set (tank top and leggings)',
+   'wearing a beige ribbed seamless base layer',
+   'wearing a lightweight crochet lounge set',
+];
+const getRandomBeforeOutfit = () => BEFORE_OUTFITS[Math.floor(Math.random() * BEFORE_OUTFITS.length)];
+const getBeforeOutfitList = () => BEFORE_OUTFITS.map((o, i) => `${i + 1}. ${o}`).join('\n');
+
 const App = () => {
    // State
    const [step, setStep] = useState<'input' | 'director'>('input');
@@ -1794,10 +1805,10 @@ Professional cinematic fashion video với editorial quality.
             const transformMidpoint = Math.floor(transformScenes / 2);
             const getTransformStructure = () => {
                if (transformScenes <= 1) return `- Scene 1 (0-${finalDuration}s): Quick flash — Before pose → sparkle burst → After reveal in ONE scene`;
-               if (transformScenes === 2) return `- Scene 1 (0-8s): \"Before\" outfit — casual attire, neutral expression, \"Wait for it...\" energy\n- Scene 2 (8-${finalDuration}s): TRANSFORMATION + REVEAL — sparkle particles → outfit morphs → confidence glow-up`;
-               if (transformScenes === 3) return `- Scene 1 (0-8s): \"Before\" outfit — casual attire, neutral expression\n- Scene 2 (8-16s): TRANSFORMATION — sparkle particles, magic effect, outfit morphs\n- Scene 3 (16-${finalDuration}s): \"After\" reveal — stunning new outfit, confidence glow-up`;
+               if (transformScenes === 2) return `- Scene 1 (0-8s): \"Before\" outfit — model ${getRandomBeforeOutfit()}, neutral expression, \"Wait for it...\" energy\n- Scene 2 (8-${finalDuration}s): TRANSFORMATION + REVEAL — sparkle particles → outfit morphs → confidence glow-up`;
+               if (transformScenes === 3) return `- Scene 1 (0-8s): \"Before\" outfit — model ${getRandomBeforeOutfit()}, neutral expression\n- Scene 2 (8-16s): TRANSFORMATION — sparkle particles, magic effect, outfit morphs\n- Scene 3 (16-${finalDuration}s): \"After\" reveal — stunning new outfit, confidence glow-up`;
                // 4+ scenes
-               let structure = `- Scene 1 (0-8s): \"Before\" outfit — casual/basic attire, neutral expression\n- Scene 2 (8-16s): Transition prep — model touches outfit/spins, build anticipation`;
+               let structure = `- Scene 1 (0-8s): \"Before\" outfit — model ${getRandomBeforeOutfit()}, neutral expression\n- Scene 2 (8-16s): Transition prep — model touches outfit/spins, build anticipation`;
                for (let i = 3; i <= transformScenes - 1; i++) {
                   const start = (i - 1) * 8;
                   const end = i * 8;
@@ -1965,8 +1976,12 @@ Virtual try-on & outfit change — TikTok trending format, multiple outfits per 
 - LENS: 35-50mm equivalent (natural, no distortion)
 - CONSISTENCY: Same background, lighting, model appearance across all scenes
 
+👗 INITIAL OUTFIT (trước khi thay):
+Model bắt đầu video ${getRandomBeforeOutfit()} — trang phục "base" trước khi try-on.
+Outfit này xuất hiện trong HOOK scene, tạo contrast rõ khi chuyển sang outfit đầu tiên.
+
 🎬 SCENE STRUCTURE (${finalDuration}s — ${tryOnScenes} scenes):
-- Scene 1 (0-8s): HOOK (0-3s) + First outfit try-on
+- Scene 1 (0-8s): HOOK (0-3s) model mặc initial outfit ở trên + First outfit try-on (3-8s)
   Hook examples: "Thử ${outfitCount} set đồ hot nhất!" / "${outfitCount} outfit dưới 300K"
 - Scenes 2-${tryOnScenes - 1}: Individual outfit try-on per scene
   Each: Transition → Outfit reveal → Pose/showcase → Voice review
@@ -2328,12 +2343,13 @@ Impulse trigger: "Tôi cũng muốn có trải nghiệm này!"
 
 👗 OUTFIT LOGIC — CRITICAL:
 ⚠️ Model KHÔNG được mặc sản phẩm trong scenes mở hộp!
-- Scenes 1-4 (Package → Opening → Reveal → Inspection): Model mặc CASUAL OUTFIT (plain tee, basic jeans, comfortable everyday clothes)
+- Scenes 1-4 (Package → Opening → Reveal → Inspection): Model mặc BEFORE OUTFIT — chọn 1 trong các outfit sau:
+${getBeforeOutfitList()}
 - Scene TRY-ON (gần cuối): Model MỚI mặc sản phẩm lần đầu → mirror reaction
 - Scene VERDICT (cuối): Model đã mặc sản phẩm → rating + CTA
-- masterPrompt.outfit PHẢI mô tả CASUAL clothes, KHÔNG phải product
+- masterPrompt.outfit PHẢI mô tả BEFORE OUTFIT (yoga/lounge set), KHÔNG phải product
 - Mỗi scene prompt: specify rõ model đang mặc gì
-  ✅ Scene 1-4: "Model in casual white tee and jeans, holding package / inspecting product"
+  ✅ Scene 1-4: "Model ${getRandomBeforeOutfit()}, holding package / inspecting product"
   ✅ Scene 5: "Model changes into [product from reference image], first time wearing, mirror reveal"
   ✅ Scene 6: "Model now wearing [product], gives verdict"
   ❌ SAI: Model mặc sản phẩm từ scene 1 — phá vỡ logic unboxing`;
