@@ -53,10 +53,10 @@ const CopyButton = ({ text }: { text: string }) => {
    return (
       <button
          onClick={handleCopy}
-         className={`absolute top-3 right-3 p-2 rounded-lg backdrop-blur-md transition-all border z-20
+         className={`absolute top-3 right-3 p-2 rounded-xl backdrop-blur-md transition-all border z-20
         ${copied
-               ? 'bg-green-500/20 border-green-500/50 text-green-400'
-               : 'bg-zinc-800/80 border-zinc-700/50 text-zinc-400 hover:text-white hover:bg-zinc-700'}`}
+               ? 'bg-green-500/15 border-green-500/50 text-green-400 shadow-sm shadow-green-500/10'
+               : 'bg-zinc-900/80 border-zinc-700/40 text-zinc-400 hover:text-white hover:bg-zinc-800/80'}`}
          title="Copy to clipboard"
       >
          {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
@@ -67,10 +67,10 @@ const CopyButton = ({ text }: { text: string }) => {
 const TabButton = ({ active, onClick, icon: Icon, label }: any) => (
    <button
       onClick={onClick}
-      className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-medium transition-all
+      className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-medium transition-all
       ${active
-            ? 'bg-purple-500/20 text-purple-200 border border-purple-500/30'
-            : 'text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800'}`}
+            ? 'bg-purple-500/15 text-purple-200 border border-purple-500/30 shadow-sm shadow-purple-500/5'
+            : 'text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800/60 border border-transparent'}`}
    >
       <Icon className="w-3 h-3" />
       {label}
@@ -3004,127 +3004,130 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
    // --- Render Steps ---
 
    return (
-      <div className="min-h-screen bg-[#09090b] text-zinc-200 selection:bg-purple-500/30 selection:text-purple-200 p-4 md:p-8 flex justify-center font-sans">
-         <div className="max-w-4xl w-full flex flex-col gap-8">
+      <div className="min-h-screen bg-[#09090b] text-zinc-200 selection:bg-purple-500/30 selection:text-purple-200 font-sans">
+         {/* Subtle gradient background */}
+         <div className="fixed inset-0 bg-gradient-to-br from-purple-950/20 via-transparent to-pink-950/10 pointer-events-none" />
+         
+         <div className="relative z-10 max-w-5xl mx-auto px-4 py-6 md:px-8 md:py-10 flex flex-col gap-8">
 
             {/* Top Section: Inputs & Controls */}
             <div className="flex flex-col gap-6">
-               <header className="mb-2">
-                  <div className="flex items-center gap-2 mb-2">
-                     <ShoppingBag className="w-5 h-5 text-purple-400" />
-                     <span className="text-xs font-medium tracking-[0.2em] text-purple-400 uppercase">AI Video Marketing</span>
+               <header className="text-center md:text-left">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 mb-4">
+                     <div className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
+                     <span className="text-[10px] font-semibold tracking-[0.15em] text-purple-300 uppercase">AI Video Marketing Studio</span>
                   </div>
-                  <h1 className="text-3xl md:text-4xl font-display font-bold text-white leading-tight">
-                     Affiliate Video <br />Generator Pro
+                  <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white via-purple-100 to-purple-300 bg-clip-text text-transparent leading-tight">
+                     Affiliate Video Generator Pro
                   </h1>
-                  <p className="text-[10px] text-zinc-500 mt-2">
-                     🎯 Optimized for TikTok & Facebook • 60%+ Completion Rate • CVR-Focused Hooks
+                  <p className="text-xs text-zinc-500 mt-2 max-w-md">
+                     TikTok & Facebook optimized • 60%+ completion rate • CVR-focused hooks • Powered by Gemini + Veo 3.1
                   </p>
                </header>
 
-               <div className="glass-panel rounded-2xl p-6 flex flex-col gap-6 border border-zinc-800 bg-zinc-900/40">
+               <div className="rounded-2xl border border-zinc-800/60 bg-zinc-900/30 backdrop-blur-sm shadow-2xl shadow-black/20 overflow-hidden">
 
-                  {/* API Key Input */}
-                  <div className="space-y-2">
-                     <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-500 flex items-center gap-2">
-                        🔑 Gemini API Key
-                        <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer"
-                           className="text-purple-400 hover:text-purple-300 underline">
-                           (Lấy key)
-                        </a>
-                     </label>
-                     <div className="relative">
-                        <input
-                           type={showApiKey ? "text" : "password"}
-                           value={apiKey}
-                           onChange={(e) => setApiKey(e.target.value)}
-                           placeholder="AIzaSy..."
-                           className="w-full px-3 py-2 pr-20 text-xs bg-zinc-900/70 border border-zinc-700 rounded-lg text-zinc-300 placeholder-zinc-600 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/20"
-                        />
-                        <button
-                           type="button"
-                           onClick={() => setShowApiKey(!showApiKey)}
-                           className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-zinc-500 hover:text-zinc-300 px-2 py-1 rounded bg-zinc-800 border border-zinc-700"
-                        >
-                           {showApiKey ? 'Ẩn' : 'Hiện'}
-                        </button>
+                  {/* ═══════════ SECTION: API & Model ═══════════ */}
+                  <div className="p-5 border-b border-zinc-800/40">
+                     <div className="flex items-center gap-2 mb-4">
+                        <div className="w-6 h-6 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                           <span className="text-xs">🔑</span>
+                        </div>
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-300">Configuration</span>
                      </div>
-                     {!apiKey && (
-                        <p className="text-[10px] text-red-400">⚠️ Cần API Key để sử dụng</p>
-                     )}
-                  </div>
+                     <div className="grid md:grid-cols-2 gap-4">
+                        {/* API Key */}
+                        <div className="space-y-1.5">
+                           <label className="text-[10px] font-medium text-zinc-400 flex items-center gap-1.5">
+                              Gemini API Key
+                              <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer"
+                                 className="text-purple-400 hover:text-purple-300 underline text-[9px]">
+                                 (Get key)
+                              </a>
+                           </label>
+                           <div className="relative">
+                              <input
+                                 type={showApiKey ? "text" : "password"}
+                                 value={apiKey}
+                                 onChange={(e) => setApiKey(e.target.value)}
+                                 placeholder="AIzaSy..."
+                                 className="w-full px-3 py-2.5 pr-16 text-xs bg-zinc-950/60 border border-zinc-700/60 rounded-xl text-zinc-300 placeholder-zinc-600 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/10 transition-all"
+                              />
+                              <button
+                                 type="button"
+                                 onClick={() => setShowApiKey(!showApiKey)}
+                                 className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-zinc-500 hover:text-zinc-300 px-2 py-1 rounded-lg bg-zinc-800/80 border border-zinc-700/50 transition-colors"
+                              >
+                                 {showApiKey ? 'Hide' : 'Show'}
+                              </button>
+                           </div>
+                           {!apiKey && <p className="text-[9px] text-red-400/80">⚠️ Required to generate</p>}
+                        </div>
 
-                  {/* Gemini Model Selector */}
-                  <div className="space-y-2">
-                     <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-500 flex items-center gap-2">
-                        🤖 Gemini Model
-                     </label>
-                     <div className="grid grid-cols-2 gap-2">
-                        <button
-                           onClick={() => setGeminiModel('gemini-2.5-flash')}
-                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all text-left
-                              ${geminiModel === 'gemini-2.5-flash'
-                                 ? 'bg-purple-500/20 border-purple-500 text-purple-200'
-                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
-                        >
-                           <div className="font-bold">2.5 Flash</div>
-                           <div className="text-[8px] text-zinc-500 mt-0.5">Stable • Fast</div>
-                        </button>
-                        <button
-                           onClick={() => setGeminiModel('gemini-3-flash-preview')}
-                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all text-left
-                              ${geminiModel === 'gemini-3-flash-preview'
-                                 ? 'bg-cyan-500/20 border-cyan-500 text-cyan-200'
-                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
-                        >
-                           <div className="font-bold">3.0 Preview</div>
-                           <div className="text-[8px] text-zinc-500 mt-0.5">Experimental</div>
-                        </button>
+                        {/* Gemini Model */}
+                        <div className="space-y-1.5">
+                           <label className="text-[10px] font-medium text-zinc-400">AI Model</label>
+                           <div className="grid grid-cols-2 gap-2">
+                              {[
+                                 { value: 'gemini-2.5-flash', label: '2.5 Flash', desc: 'Stable', color: 'purple' },
+                                 { value: 'gemini-3-flash-preview', label: '3.0 Preview', desc: 'Latest', color: 'cyan' }
+                              ].map(m => (
+                                 <button key={m.value}
+                                    onClick={() => setGeminiModel(m.value)}
+                                    className={`py-2.5 px-3 rounded-xl text-[10px] font-medium border transition-all text-left
+                                       ${geminiModel === m.value
+                                          ? `bg-${m.color}-500/15 border-${m.color}-500/50 text-${m.color}-200 shadow-sm shadow-${m.color}-500/5`
+                                          : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900/60'}`}
+                                 >
+                                    <div className="font-bold text-[11px]">{m.label}</div>
+                                    <div className="text-[8px] opacity-60 mt-0.5">{m.desc}</div>
+                                 </button>
+                              ))}
+                           </div>
+                        </div>
                      </div>
-                     <p className="text-[9px] text-zinc-500">
-                        {geminiModel === 'gemini-2.5-flash'
-                           ? '✅ Mô hình ổn định, đã kiểm chứng'
-                           : '🧪 Mô hình mới nhất, có thể có thay đổi'}
-                     </p>
                   </div>
-
-                  {/* 🎯 Affiliate Optimization Settings */}
-                  <div className="space-y-4 p-4 rounded-xl border border-purple-500/30 bg-purple-500/5">
-                     <div className="flex items-center gap-2 mb-2">
-                        <ShoppingBag className="w-4 h-4 text-purple-400" />
-                        <h3 className="text-xs font-bold uppercase tracking-wider text-purple-300">🎯 Affiliate Video Optimization</h3>
+                  {/* ═══════════ SECTION: Affiliate Strategy ═══════════ */}
+                  <div className="p-5 border-b border-zinc-800/40">
+                     <div className="flex items-center gap-2 mb-4">
+                        <div className="w-6 h-6 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                           <ShoppingBag className="w-3.5 h-3.5 text-purple-400" />
+                        </div>
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-300">Affiliate Strategy</span>
+                        <div className="flex-1 h-px bg-gradient-to-r from-purple-500/20 to-transparent ml-2" />
                      </div>
                      
+                     <div className="grid md:grid-cols-3 gap-4">
                      {/* Platform Target */}
                      <div className="space-y-2">
-                        <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-400">
-                           📱 Platform Target
+                        <label className="text-[9px] font-semibold uppercase tracking-wider text-zinc-500">
+                           Platform
                         </label>
-                        <div className="grid grid-cols-3 gap-2">
+                        <div className="flex flex-col gap-1.5">
                            <button
                               onClick={() => setAffiliatePlatform('tiktok')}
-                              className={`py-2 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              className={`py-2 px-3 rounded-xl text-[10px] font-medium border transition-all
                                  ${affiliatePlatform === 'tiktok'
-                                    ? 'bg-pink-500/20 border-pink-500 text-pink-200'
-                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                    ? 'bg-pink-500/15 border-pink-500/50 text-pink-200 shadow-sm shadow-pink-500/5'
+                                    : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600'}`}
                            >
                               🎵 TikTok
                            </button>
                            <button
                               onClick={() => setAffiliatePlatform('facebook')}
-                              className={`py-2 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              className={`py-2 px-3 rounded-xl text-[10px] font-medium border transition-all
                                  ${affiliatePlatform === 'facebook'
-                                    ? 'bg-blue-500/20 border-blue-500 text-blue-200'
-                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                    ? 'bg-blue-500/15 border-blue-500/50 text-blue-200 shadow-sm shadow-blue-500/5'
+                                    : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600'}`}
                            >
                               👤 Facebook
                            </button>
                            <button
                               onClick={() => setAffiliatePlatform('both')}
-                              className={`py-2 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              className={`py-2 px-3 rounded-xl text-[10px] font-medium border transition-all
                                  ${affiliatePlatform === 'both'
-                                    ? 'bg-purple-500/20 border-purple-500 text-purple-200'
-                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                    ? 'bg-purple-500/15 border-purple-500/50 text-purple-200 shadow-sm shadow-purple-500/5'
+                                    : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600'}`}
                            >
                               🚀 Both
                            </button>
@@ -3133,284 +3136,306 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                      
                      {/* Audience Stage */}
                      <div className="space-y-2">
-                        <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-400">
-                           🎯 Target Audience
+                        <label className="text-[9px] font-semibold uppercase tracking-wider text-zinc-500">
+                           Audience
                         </label>
-                        <div className="grid grid-cols-3 gap-2">
+                        <div className="flex flex-col gap-1.5">
                            <button
                               onClick={() => setAffiliateAudience('cold')}
-                              className={`py-2 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              className={`py-2 px-3 rounded-xl text-[10px] font-medium border transition-all text-left
                                  ${affiliateAudience === 'cold'
-                                    ? 'bg-cyan-500/20 border-cyan-500 text-cyan-200'
-                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                    ? 'bg-cyan-500/15 border-cyan-500/50 text-cyan-200 shadow-sm shadow-cyan-500/5'
+                                    : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600'}`}
                            >
-                              <div className="font-bold">❄️ Cold</div>
-                              <div className="text-[8px] text-zinc-500 mt-0.5">New audience</div>
+                              <span className="font-bold">❄️ Cold</span>
+                              <span className="text-[8px] text-zinc-500 ml-1.5">New audience</span>
                            </button>
                            <button
                               onClick={() => setAffiliateAudience('warm')}
-                              className={`py-2 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              className={`py-2 px-3 rounded-xl text-[10px] font-medium border transition-all text-left
                                  ${affiliateAudience === 'warm'
-                                    ? 'bg-orange-500/20 border-orange-500 text-orange-200'
-                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                    ? 'bg-orange-500/15 border-orange-500/50 text-orange-200 shadow-sm shadow-orange-500/5'
+                                    : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600'}`}
                            >
-                              <div className="font-bold">🔥 Warm</div>
-                              <div className="text-[8px] text-zinc-500 mt-0.5">Engaged</div>
+                              <span className="font-bold">🔥 Warm</span>
+                              <span className="text-[8px] text-zinc-500 ml-1.5">Engaged</span>
                            </button>
                            <button
                               onClick={() => setAffiliateAudience('hot')}
-                              className={`py-2 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              className={`py-2 px-3 rounded-xl text-[10px] font-medium border transition-all text-left
                                  ${affiliateAudience === 'hot'
-                                    ? 'bg-red-500/20 border-red-500 text-red-200'
-                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                    ? 'bg-red-500/15 border-red-500/50 text-red-200 shadow-sm shadow-red-500/5'
+                                    : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600'}`}
                            >
-                              <div className="font-bold">🔥🔥 Hot</div>
-                              <div className="text-[8px] text-zinc-500 mt-0.5">Ready to buy</div>
+                              <span className="font-bold">🔥🔥 Hot</span>
+                              <span className="text-[8px] text-zinc-500 ml-1.5">Ready to buy</span>
                            </button>
                         </div>
                      </div>
                      
                      {/* Goal Metric */}
                      <div className="space-y-2">
-                        <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-400">
-                           🏆 Optimization Goal
+                        <label className="text-[9px] font-semibold uppercase tracking-wider text-zinc-500">
+                           Goal
                         </label>
-                        <div className="grid grid-cols-3 gap-2">
+                        <div className="flex flex-col gap-1.5">
                            <button
                               onClick={() => setAffiliateGoal('views')}
-                              className={`py-2 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              className={`py-2 px-3 rounded-xl text-[10px] font-medium border transition-all text-left
                                  ${affiliateGoal === 'views'
-                                    ? 'bg-green-500/20 border-green-500 text-green-200'
-                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                    ? 'bg-green-500/15 border-green-500/50 text-green-200 shadow-sm shadow-green-500/5'
+                                    : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600'}`}
                            >
-                              <div className="font-bold">👀 Views</div>
-                              <div className="text-[8px] text-zinc-500 mt-0.5">Reach</div>
+                              <span className="font-bold">👀 Views</span>
+                              <span className="text-[8px] text-zinc-500 ml-1.5">Reach</span>
                            </button>
                            <button
                               onClick={() => setAffiliateGoal('engagement')}
-                              className={`py-2 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              className={`py-2 px-3 rounded-xl text-[10px] font-medium border transition-all text-left
                                  ${affiliateGoal === 'engagement'
-                                    ? 'bg-yellow-500/20 border-yellow-500 text-yellow-200'
-                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                    ? 'bg-yellow-500/15 border-yellow-500/50 text-yellow-200 shadow-sm shadow-yellow-500/5'
+                                    : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600'}`}
                            >
-                              <div className="font-bold">👍 Engage</div>
-                              <div className="text-[8px] text-zinc-500 mt-0.5">Likes/Comments</div>
+                              <span className="font-bold">👍 Engage</span>
+                              <span className="text-[8px] text-zinc-500 ml-1.5">Likes/Comments</span>
                            </button>
                            <button
                               onClick={() => setAffiliateGoal('conversion')}
-                              className={`py-2 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              className={`py-2 px-3 rounded-xl text-[10px] font-medium border transition-all text-left
                                  ${affiliateGoal === 'conversion'
-                                    ? 'bg-purple-500/20 border-purple-500 text-purple-200'
-                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                    ? 'bg-purple-500/15 border-purple-500/50 text-purple-200 shadow-sm shadow-purple-500/5'
+                                    : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600'}`}
                            >
-                              <div className="font-bold">💰 Sales</div>
-                              <div className="text-[8px] text-zinc-500 mt-0.5">CVR Max</div>
+                              <span className="font-bold">💰 Sales</span>
+                              <span className="text-[8px] text-zinc-500 ml-1.5">CVR Max</span>
                            </button>
                         </div>
                      </div>
                      
-                     <div className="text-[9px] text-zinc-500 bg-zinc-900/50 p-2 rounded-lg">
-                        {affiliateGoal === 'conversion' && <>💰 <strong>Conversion Mode:</strong> 24s optimal, price hooks, urgency, dual CTAs</>}
-                        {affiliateGoal === 'engagement' && <>👍 <strong>Engagement Mode:</strong> Comment bait, shareability, educational value</>}
-                        {affiliateGoal === 'views' && <>👀 <strong>Views Mode:</strong> Viral hooks, emotional triggers, broad appeal</>}
+                     <div className="text-[8px] text-zinc-500 bg-zinc-950/40 p-2.5 rounded-xl border border-zinc-800/30 mt-1">
+                        {affiliateGoal === 'conversion' && <>💰 <strong>Conversion:</strong> 24s optimal, price hooks, urgency CTAs</>}
+                        {affiliateGoal === 'engagement' && <>👍 <strong>Engagement:</strong> Comment bait, shareability, educational</>}
+                        {affiliateGoal === 'views' && <>👀 <strong>Views:</strong> Viral hooks, emotional triggers, broad appeal</>}
+                     </div>
                      </div>
                   </div>
 
+                  {/* ═══════════ SECTION: Display & Optimization ═══════════ */}
+                  <div className="p-5 border-b border-zinc-800/40">
+                     <div className="flex items-center gap-2 mb-4">
+                        <div className="w-6 h-6 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                           <span className="text-xs">📦</span>
+                        </div>
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-300">Display & Optimization</span>
+                        <div className="flex-1 h-px bg-gradient-to-r from-blue-500/20 to-transparent ml-2" />
+                     </div>
+                     
+                     <div className="grid md:grid-cols-2 gap-5">
                   {/* 📦 PRODUCT DISPLAY TYPE */}
                   <div className="space-y-2">
-                     <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-500">📦 Product Display Type</label>
-                     <div className="grid grid-cols-3 gap-2">
+                     <label className="text-[9px] font-semibold uppercase tracking-wider text-zinc-500">Display Type</label>
+                     <div className="flex flex-col gap-1.5">
                         <button
                            onClick={() => setDisplayType('fashion_model')}
-                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                           className={`py-2.5 px-3 rounded-xl text-[10px] font-medium border transition-all text-left
                               ${displayType === 'fashion_model'
-                                 ? 'bg-blue-500/20 border-blue-500 text-blue-200'
-                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                 ? 'bg-blue-500/15 border-blue-500/50 text-blue-200 shadow-sm shadow-blue-500/5'
+                                 : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600'}`}
                         >
-                           <div className="font-bold">👗 Fashion Model</div>
-                           <div className="text-[8px] text-zinc-500 mt-0.5">Person wearing</div>
+                           <span className="font-bold">👗 Fashion Model</span>
+                           <span className="text-[8px] text-zinc-500 ml-1.5">Person wearing</span>
                         </button>
                         <button
                            onClick={() => setDisplayType('product_focus')}
-                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                           className={`py-2.5 px-3 rounded-xl text-[10px] font-medium border transition-all text-left
                               ${displayType === 'product_focus'
-                                 ? 'bg-pink-500/20 border-pink-500 text-pink-200'
-                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                 ? 'bg-pink-500/15 border-pink-500/50 text-pink-200 shadow-sm shadow-pink-500/5'
+                                 : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600'}`}
                         >
-                           <div className="font-bold">📦 Product Focus</div>
-                           <div className="text-[8px] text-zinc-500 mt-0.5">Mannequin/Close-ups</div>
+                           <span className="font-bold">📦 Product Focus</span>
+                           <span className="text-[8px] text-zinc-500 ml-1.5">Mannequin/Close-ups</span>
                         </button>
                         <button
                            onClick={() => setDisplayType('mixed')}
-                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                           className={`py-2.5 px-3 rounded-xl text-[10px] font-medium border transition-all text-left
                               ${displayType === 'mixed'
-                                 ? 'bg-purple-500/20 border-purple-500 text-purple-200'
-                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                 ? 'bg-purple-500/15 border-purple-500/50 text-purple-200 shadow-sm shadow-purple-500/5'
+                                 : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600'}`}
                         >
-                           <div className="font-bold">🎨 Mixed</div>
-                           <div className="text-[8px] text-zinc-500 mt-0.5">Both styles</div>
+                           <span className="font-bold">🎨 Mixed</span>
+                           <span className="text-[8px] text-zinc-500 ml-1.5">Both styles</span>
                         </button>
                      </div>
-                     <div className="text-[9px] text-zinc-500 bg-zinc-900/50 p-2 rounded-lg">
-                        {displayType === 'fashion_model' && <>👗 Model mặc sản phẩm, đi lại, poses động - phù hợp váy, áo thời trang</>}
-                        {displayType === 'product_focus' && <>📦 Mannequin/flat lay/close-up - tối ưu cho fashion foundations, accessories, details</>}
-                        {displayType === 'mixed' && <>🎨 Kết hợp cả hai - model + product shots - đa dụng nhất</>}
+                     <div className="text-[8px] text-zinc-500 bg-zinc-950/40 p-2 rounded-xl border border-zinc-800/30">
+                        {displayType === 'fashion_model' && <>👗 Model mặc sản phẩm, poses động</>}
+                        {displayType === 'product_focus' && <>📦 Mannequin/flat lay/close-up</>}
+                        {displayType === 'mixed' && <>🎨 Model + product shots kết hợp</>}
                      </div>
                   </div>
 
                   {/* 🚀 OPTIMIZATION LEVEL */}
                   <div className="space-y-2">
-                     <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-500">🚀 Optimization Level</label>
-                     <div className="grid grid-cols-2 gap-3">
+                     <label className="text-[9px] font-semibold uppercase tracking-wider text-zinc-500">Optimization</label>
+                     <div className="flex flex-col gap-1.5">
                         <button
                            onClick={() => setOptimizationLevel('standard')}
-                           className={`py-3 px-3 rounded-lg text-[10px] font-medium border transition-all
+                           className={`py-3 px-3 rounded-xl text-[10px] font-medium border transition-all text-left
                               ${optimizationLevel === 'standard'
-                                 ? 'bg-green-500/20 border-green-500 text-green-200'
-                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                 ? 'bg-green-500/15 border-green-500/50 text-green-200 shadow-sm shadow-green-500/5'
+                                 : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600'}`}
                         >
                            <div className="font-bold text-[11px]">✅ Standard</div>
-                           <div className="text-[8px] text-zinc-500 mt-1">Normal affiliate optimization</div>
-                           <div className="text-[7px] text-zinc-600 mt-1">3-5% CVR, stable sales</div>
+                           <div className="text-[8px] opacity-60 mt-0.5">3-5% CVR, stable sales</div>
                         </button>
                         <button
                            onClick={() => setOptimizationLevel('competitive')}
-                           className={`py-3 px-3 rounded-lg text-[10px] font-medium border transition-all
+                           className={`py-3 px-3 rounded-xl text-[10px] font-medium border transition-all text-left
                               ${optimizationLevel === 'competitive'
-                                 ? 'bg-amber-500/20 border-amber-500 text-amber-200'
-                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                 ? 'bg-amber-500/15 border-amber-500/50 text-amber-200 shadow-sm shadow-amber-500/5'
+                                 : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600'}`}
                         >
                            <div className="font-bold text-[11px]">🏆 Competitive</div>
-                           <div className="text-[8px] text-zinc-500 mt-1">TOP 1 ultra-competitive</div>
-                           <div className="text-[7px] text-zinc-600 mt-1">8-12% CTR, #1 ranking</div>
+                           <div className="text-[8px] opacity-60 mt-0.5">8-12% CTR, #1 ranking</div>
                         </button>
                      </div>
                      
                      {optimizationLevel === 'competitive' && (
-                        <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-2.5 text-[8px] text-amber-200 animate-in fade-in slide-in-from-top-2">
-                           <strong>🏆 Competitive Mode Active:</strong><br/>
-                           ⚡ 3-tier viral hook (0-1.5s) | 💬 Dual CTA (12s + 22s) | 🎁 Comment triggers<br/>
-                           📈 GMV tactics (bundles, variants) | 🚀 Velocity optimization (10+ orders/hr)<br/>
-                           🎯 Target: #1 creator ranking, $1K+ GMV in 48h, 8-12% link CTR
+                        <div className="bg-amber-500/8 border border-amber-500/20 rounded-xl p-2.5 text-[8px] text-amber-200/80">
+                           <strong>🏆 Active:</strong> 3-tier hook • Dual CTA • Comment triggers • GMV tactics
                         </div>
                      )}
                   </div>
-
-                  {/* 📝 PRODUCT INFO */}
-                  <div className="space-y-2">
-                     <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-500">📝 Product Info (Optional)</label>
-                     <textarea
-                        value={productInfo}
-                        onChange={(e) => setProductInfo(e.target.value)}
-                        placeholder="Ví dụ: Váy body xẻ tà, 299K flash sale, chất liệu lụa mềm mại, tôn dáng cực đỉnh. AI sẽ dùng info này để tạo hooks và CTAs phù hợp."
-                        className="w-full bg-zinc-900/50 border border-zinc-700 rounded-lg p-2.5 text-[9px] text-zinc-300 placeholder:text-zinc-600 focus:border-purple-500 focus:outline-none resize-none"
-                        rows={3}
-                     />
-                     <div className="text-[8px] text-zinc-500">
-                        💡 Tip: Càng chi tiết càng tốt (giá, USP, chất liệu) → AI tạo content chính xác hơn
                      </div>
                   </div>
 
-                  {/* 🎬 CINEMATIC STYLE */}
-                  <div className="space-y-2">
-                     <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-500">✨ Cinematic Style</label>
-                     <div className="grid grid-cols-3 gap-2">
+                  {/* ═══════════ SECTION: Product Info ═══════════ */}
+                  <div className="p-5 border-b border-zinc-800/40">
+                     <div className="flex items-center gap-2 mb-3">
+                        <div className="w-6 h-6 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+                           <span className="text-xs">📝</span>
+                        </div>
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-300">Product Info</span>
+                        <span className="text-[8px] text-zinc-500 ml-1">(Optional)</span>
+                        <div className="flex-1 h-px bg-gradient-to-r from-emerald-500/20 to-transparent ml-2" />
+                     </div>
+                     <textarea
+                        value={productInfo}
+                        onChange={(e) => setProductInfo(e.target.value)}
+                        placeholder="Ví dụ: Váy body xẻ tà, 299K flash sale, chất liệu lụa mềm mại..."
+                        className="w-full bg-zinc-950/40 border border-zinc-700/40 rounded-xl p-3 text-[10px] text-zinc-300 placeholder:text-zinc-600 focus:border-emerald-500/40 focus:ring-2 focus:ring-emerald-500/10 focus:outline-none resize-none transition-all"
+                        rows={2}
+                     />
+                     <p className="text-[8px] text-zinc-600 mt-1.5">
+                        💡 Giá, USP, chất liệu → AI tạo content chính xác hơn
+                     </p>
+                  </div>
+
+                  {/* ═══════════ SECTION: Cinematic Style ═══════════ */}
+                  <div className="p-5 border-b border-zinc-800/40">
+                     <div className="flex items-center gap-2 mb-4">
+                        <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
+                           <span className="text-xs">✨</span>
+                        </div>
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-300">Cinematic Style</span>
+                        <div className="flex-1 h-px bg-gradient-to-r from-purple-500/20 via-pink-500/10 to-transparent ml-2" />
+                     </div>
+                     <div className="grid grid-cols-3 md:grid-cols-3 gap-2">
                         <button
                            onClick={() => setCinematicStyle('standard')}
-                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                           className={`py-3 px-3 rounded-xl text-[10px] font-medium border transition-all group
                               ${cinematicStyle === 'standard'
-                                 ? 'bg-blue-500/20 border-blue-500 text-blue-200'
-                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                 ? 'bg-blue-500/15 border-blue-500/50 text-blue-200 shadow-sm shadow-blue-500/5 ring-1 ring-blue-500/20'
+                                 : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                         >
-                           <div className="font-bold">🎬 Standard</div>
-                           <div className="text-[8px] text-zinc-500 mt-0.5">Fashion editorial</div>
+                           <div className="font-bold text-[11px]">🎬 Standard</div>
+                           <div className="text-[7px] opacity-50 mt-0.5">Fashion editorial</div>
                         </button>
                         <button
                            onClick={() => setCinematicStyle('transform_viral')}
-                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                           className={`py-3 px-3 rounded-xl text-[10px] font-medium border transition-all
                               ${cinematicStyle === 'transform_viral'
-                                 ? 'bg-pink-500/20 border-pink-500 text-pink-200'
-                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                 ? 'bg-pink-500/15 border-pink-500/50 text-pink-200 shadow-sm shadow-pink-500/5 ring-1 ring-pink-500/20'
+                                 : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                         >
-                           <div className="font-bold">✨ Biến Hình</div>
-                           <div className="text-[8px] text-zinc-500 mt-0.5">32s viral morph</div>
+                           <div className="font-bold text-[11px]">✨ Biến Hình</div>
+                           <div className="text-[7px] opacity-50 mt-0.5">32s viral morph</div>
                         </button>
                         <button
                            onClick={() => setCinematicStyle('fashion_walkin')}
-                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                           className={`py-3 px-3 rounded-xl text-[10px] font-medium border transition-all
                               ${cinematicStyle === 'fashion_walkin'
-                                 ? 'bg-purple-500/20 border-purple-500 text-purple-200'
-                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                 ? 'bg-purple-500/15 border-purple-500/50 text-purple-200 shadow-sm shadow-purple-500/5 ring-1 ring-purple-500/20'
+                                 : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                         >
-                           <div className="font-bold">👗 Walk-In</div>
-                           <div className="text-[8px] text-zinc-500 mt-0.5">Model walks to camera</div>
+                           <div className="font-bold text-[11px]">👗 Walk-In</div>
+                           <div className="text-[7px] opacity-50 mt-0.5">Model walks to camera</div>
                         </button>
                         <button
                            onClick={() => setCinematicStyle('marketing_intimate')}
-                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                           className={`py-3 px-3 rounded-xl text-[10px] font-medium border transition-all
                               ${cinematicStyle === 'marketing_intimate'
-                                 ? 'bg-rose-500/20 border-rose-500 text-rose-200'
-                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                 ? 'bg-rose-500/15 border-rose-500/50 text-rose-200 shadow-sm shadow-rose-500/5 ring-1 ring-rose-500/20'
+                                 : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                         >
-                           <div className="font-bold">📢 Marketing</div>
-                           <div className="text-[8px] text-zinc-500 mt-0.5">Fashion foundations</div>
+                           <div className="font-bold text-[11px]">📢 Marketing</div>
+                           <div className="text-[7px] opacity-50 mt-0.5">Fashion foundations</div>
                         </button>
                         <button
                            onClick={() => setCinematicStyle('try_on')}
-                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                           className={`py-3 px-3 rounded-xl text-[10px] font-medium border transition-all
                               ${cinematicStyle === 'try_on'
-                                 ? 'bg-emerald-500/20 border-emerald-500 text-emerald-200'
-                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                 ? 'bg-emerald-500/15 border-emerald-500/50 text-emerald-200 shadow-sm shadow-emerald-500/5 ring-1 ring-emerald-500/20'
+                                 : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                         >
-                           <div className="font-bold">👗 Thử Đồ</div>
-                           <div className="text-[8px] text-zinc-500 mt-0.5">Try-on & outfit change</div>
+                           <div className="font-bold text-[11px]">👗 Thử Đồ</div>
+                           <div className="text-[7px] opacity-50 mt-0.5">Try-on & outfit change</div>
                         </button>
                         <button
                            onClick={() => setCinematicStyle('asmr_cinematic')}
-                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                           className={`py-3 px-3 rounded-xl text-[10px] font-medium border transition-all
                               ${cinematicStyle === 'asmr_cinematic'
-                                 ? 'bg-violet-500/20 border-violet-500 text-violet-200'
-                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                 ? 'bg-violet-500/15 border-violet-500/50 text-violet-200 shadow-sm shadow-violet-500/5 ring-1 ring-violet-500/20'
+                                 : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                         >
-                           <div className="font-bold">🎤 ASMR</div>
-                           <div className="text-[8px] text-zinc-500 mt-0.5">Sound & texture focus</div>
+                           <div className="font-bold text-[11px]">🎤 ASMR</div>
+                           <div className="text-[7px] opacity-50 mt-0.5">Sound & texture</div>
                         </button>
                         <button
                            onClick={() => setCinematicStyle('storytelling')}
-                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                           className={`py-3 px-3 rounded-xl text-[10px] font-medium border transition-all
                               ${cinematicStyle === 'storytelling'
-                                 ? 'bg-amber-500/20 border-amber-500 text-amber-200'
-                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                 ? 'bg-amber-500/15 border-amber-500/50 text-amber-200 shadow-sm shadow-amber-500/5 ring-1 ring-amber-500/20'
+                                 : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                         >
-                           <div className="font-bold">📖 Kể Chuyện</div>
-                           <div className="text-[8px] text-zinc-500 mt-0.5">Narrative day-in-life</div>
+                           <div className="font-bold text-[11px]">📖 Kể Chuyện</div>
+                           <div className="text-[7px] opacity-50 mt-0.5">Narrative day-in-life</div>
                         </button>
                         <button
                            onClick={() => setCinematicStyle('unboxing')}
-                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                           className={`py-3 px-3 rounded-xl text-[10px] font-medium border transition-all
                               ${cinematicStyle === 'unboxing'
-                                 ? 'bg-orange-500/20 border-orange-500 text-orange-200'
-                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                 ? 'bg-orange-500/15 border-orange-500/50 text-orange-200 shadow-sm shadow-orange-500/5 ring-1 ring-orange-500/20'
+                                 : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                         >
-                           <div className="font-bold">📦 Mở Hộp</div>
-                           <div className="text-[8px] text-zinc-500 mt-0.5">Cinematic unboxing</div>
+                           <div className="font-bold text-[11px]">📦 Mở Hộp</div>
+                           <div className="text-[7px] opacity-50 mt-0.5">Cinematic unboxing</div>
                         </button>
                         <button
                            onClick={() => setCinematicStyle('review')}
-                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                           className={`py-3 px-3 rounded-xl text-[10px] font-medium border transition-all
                               ${cinematicStyle === 'review'
-                                 ? 'bg-cyan-500/20 border-cyan-500 text-cyan-200'
-                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                 ? 'bg-cyan-500/15 border-cyan-500/50 text-cyan-200 shadow-sm shadow-cyan-500/5 ring-1 ring-cyan-500/20'
+                                 : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                         >
-                           <div className="font-bold">🔍 Review</div>
-                           <div className="text-[8px] text-zinc-500 mt-0.5">Rating & verdict</div>
+                           <div className="font-bold text-[11px]">🔍 Review</div>
+                           <div className="text-[7px] opacity-50 mt-0.5">Rating & verdict</div>
                         </button>
                      </div>
                   </div>
 
                   {/* 🚶 WALK-IN OPTIONS - Only show when fashion_walkin selected */}
                   {cinematicStyle === 'fashion_walkin' && (
-                     <div className="space-y-3 bg-purple-500/5 border border-purple-500/20 rounded-lg p-3 animate-in fade-in slide-in-from-top-2">
+                     <div className="mx-5 mb-3 space-y-3 bg-purple-500/5 border border-purple-500/15 rounded-xl p-4 animate-in fade-in slide-in-from-top-2">
                         <div className="text-[9px] font-semibold text-purple-300 flex items-center gap-1">
                            <span className="text-xs">👗</span> Walk-In Configuration
                         </div>
@@ -3427,10 +3452,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                  <button
                                     key={opt.value}
                                     onClick={() => setWalkinVariant(opt.value as any)}
-                                    className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all
+                                    className={`py-1.5 px-2 rounded-xl text-[9px] font-medium border transition-all
                                        ${walkinVariant === opt.value
-                                          ? 'bg-purple-500/30 border-purple-400 text-purple-200'
-                                          : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
+                                          ? 'bg-purple-500/15 border-purple-500/50 text-purple-200 shadow-sm shadow-purple-500/5'
+                                          : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                                  >
                                     {opt.icon} {opt.label}
                                  </button>
@@ -3456,10 +3481,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                  <button
                                     key={opt.value}
                                     onClick={() => setWalkinTimeOfDay(opt.value as any)}
-                                    className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all
+                                    className={`py-1.5 px-2 rounded-xl text-[9px] font-medium border transition-all
                                        ${walkinTimeOfDay === opt.value
-                                          ? 'bg-amber-500/30 border-amber-400 text-amber-200'
-                                          : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
+                                          ? 'bg-amber-500/15 border-amber-500/50 text-amber-200 shadow-sm shadow-amber-500/5'
+                                          : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                                  >
                                     {opt.icon}
                                  </button>
@@ -3488,10 +3513,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                  <button
                                     key={opt.value}
                                     onClick={() => setWalkinVibe(opt.value as any)}
-                                    className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all
+                                    className={`py-1.5 px-2 rounded-xl text-[9px] font-medium border transition-all
                                        ${walkinVibe === opt.value
-                                          ? 'bg-pink-500/30 border-pink-400 text-pink-200'
-                                          : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
+                                          ? 'bg-pink-500/15 border-pink-500/50 text-pink-200 shadow-sm shadow-pink-500/5'
+                                          : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                                  >
                                     {opt.icon}
                                  </button>
@@ -3517,10 +3542,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                  <button
                                     key={opt.value}
                                     onClick={() => setWalkinPersonality(opt.value as any)}
-                                    className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all
+                                    className={`py-1.5 px-2 rounded-xl text-[9px] font-medium border transition-all
                                        ${walkinPersonality === opt.value
-                                          ? 'bg-teal-500/30 border-teal-400 text-teal-200'
-                                          : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
+                                          ? 'bg-teal-500/15 border-teal-500/50 text-teal-200 shadow-sm shadow-teal-500/5'
+                                          : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                                  >
                                     {opt.icon}
                                  </button>
@@ -3536,7 +3561,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
 
                   {/* 👗 TRY-ON OPTIONS - Only show when try_on selected */}
                   {cinematicStyle === 'try_on' && (
-                     <div className="space-y-3 bg-emerald-500/5 border border-emerald-500/20 rounded-lg p-3 animate-in fade-in slide-in-from-top-2">
+                     <div className="mx-5 mb-3 space-y-3 bg-emerald-500/5 border border-emerald-500/15 rounded-xl p-4 animate-in fade-in slide-in-from-top-2">
                         <div className="text-[9px] font-semibold text-emerald-300 flex items-center gap-1">
                            <span className="text-xs">👗</span> Try-On Configuration
                         </div>
@@ -3557,10 +3582,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                  <button
                                     key={opt.value}
                                     onClick={() => setTryOnVariant(opt.value as any)}
-                                    className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all
+                                    className={`py-1.5 px-2 rounded-xl text-[9px] font-medium border transition-all
                                        ${tryOnVariant === opt.value
-                                          ? 'bg-emerald-500/30 border-emerald-400 text-emerald-200'
-                                          : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
+                                          ? 'bg-emerald-500/15 border-emerald-500/50 text-emerald-200 shadow-sm shadow-emerald-500/5'
+                                          : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                                  >
                                     {opt.icon} {opt.label}
                                  </button>
@@ -3593,10 +3618,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                  <button
                                     key={opt.value}
                                     onClick={() => setTryOnTransition(opt.value as any)}
-                                    className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all
+                                    className={`py-1.5 px-2 rounded-xl text-[9px] font-medium border transition-all
                                        ${tryOnTransition === opt.value
-                                          ? 'bg-cyan-500/30 border-cyan-400 text-cyan-200'
-                                          : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
+                                          ? 'bg-cyan-500/15 border-cyan-500/50 text-cyan-200 shadow-sm shadow-cyan-500/5'
+                                          : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                                  >
                                     {opt.icon} {opt.label}
                                  </button>
@@ -3617,10 +3642,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                  <button
                                     key={opt.value}
                                     onClick={() => setTryOnPacing(opt.value as any)}
-                                    className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all
+                                    className={`py-1.5 px-2 rounded-xl text-[9px] font-medium border transition-all
                                        ${tryOnPacing === opt.value
-                                          ? 'bg-amber-500/30 border-amber-400 text-amber-200'
-                                          : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
+                                          ? 'bg-amber-500/15 border-amber-500/50 text-amber-200 shadow-sm shadow-amber-500/5'
+                                          : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                                  >
                                     {opt.icon} {opt.label}
                                  </button>
@@ -3638,7 +3663,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
 
                   {/* 🎨 AESTHETIC OPTIONS - Show for fashion_model displayType */}
                   {displayType === 'fashion_model' && cinematicStyle === 'standard' && (
-                     <div className="space-y-3 bg-blue-500/5 border border-blue-500/20 rounded-lg p-3">
+                     <div className="mx-5 mb-3 space-y-3 bg-blue-500/5 border border-blue-500/15 rounded-xl p-4">
                         <div className="text-[9px] font-semibold text-blue-300 flex items-center gap-1">
                            <span className="text-xs">👗</span> Fashion Model Aesthetics
                         </div>
@@ -3658,10 +3683,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                  <button
                                     key={opt.value}
                                     onClick={() => setAestheticVibe(opt.value as any)}
-                                    className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all
+                                    className={`py-1.5 px-2 rounded-xl text-[9px] font-medium border transition-all
                                        ${aestheticVibe === opt.value
-                                          ? 'bg-pink-500/30 border-pink-400 text-pink-200'
-                                          : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
+                                          ? 'bg-pink-500/15 border-pink-500/50 text-pink-200 shadow-sm shadow-pink-500/5'
+                                          : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                                  >
                                     {opt.icon} {opt.label}
                                  </button>
@@ -3683,10 +3708,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                  <button
                                     key={opt.value}
                                     onClick={() => setModelPersonality(opt.value as any)}
-                                    className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all
+                                    className={`py-1.5 px-2 rounded-xl text-[9px] font-medium border transition-all
                                        ${modelPersonality === opt.value
-                                          ? 'bg-teal-500/30 border-teal-400 text-teal-200'
-                                          : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
+                                          ? 'bg-teal-500/15 border-teal-500/50 text-teal-200 shadow-sm shadow-teal-500/5'
+                                          : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                                  >
                                     {opt.icon} {opt.label}
                                  </button>
@@ -3696,7 +3721,15 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                      </div>
                   )}
 
-                  {/* Reference Images */}
+                  {/* ═══════════ SECTION: References ═══════════ */}
+                  <div className="p-5 border-b border-zinc-800/40">
+                     <div className="flex items-center gap-2 mb-4">
+                        <div className="w-6 h-6 rounded-lg bg-pink-500/10 flex items-center justify-center">
+                           <Camera className="w-3.5 h-3.5 text-pink-400" />
+                        </div>
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-300">Reference Images</span>
+                        <div className="flex-1 h-px bg-gradient-to-r from-pink-500/20 to-transparent ml-2" />
+                     </div>
 
                   <div className="grid grid-cols-2 gap-4">
                      {[
@@ -3704,11 +3737,11 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                         { label: "Outfit Reference", state: outfitImage, setter: setOutfitImage, ref: fileInputOutfitRef, icon: ImageIcon }
                      ].map((item, idx) => (
                         <div key={idx} className="space-y-2">
-                           <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-500">{item.label}</label>
+                           <label className="text-[9px] font-semibold uppercase tracking-wider text-zinc-500">{item.label}</label>
                            <div
                               onClick={() => item.ref.current?.click()}
-                              className={`aspect-[3/4] rounded-xl border border-dashed flex items-center justify-center cursor-pointer transition-all overflow-hidden relative group
-                      ${item.state ? 'border-purple-500/50 bg-purple-900/10' : 'border-zinc-700 hover:border-zinc-500 bg-zinc-900/50'}`}
+                              className={`aspect-[3/4] rounded-xl border-2 border-dashed flex items-center justify-center cursor-pointer transition-all overflow-hidden relative group
+                      ${item.state ? 'border-purple-500/40 bg-purple-900/10' : 'border-zinc-700/60 hover:border-zinc-500 bg-zinc-950/40'}`}
                            >
                               {item.state ? (
                                  <img src={item.state} alt="Ref" className="w-full h-full object-cover" />
@@ -3736,9 +3769,9 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                               <button
                                  key={preset.value}
                                  onClick={() => setFacePreset(preset.value)}
-                                 className={`px-1.5 py-2 rounded-lg border text-center transition-all ${facePreset === preset.value
-                                    ? 'bg-purple-500/20 border-purple-500/50 text-purple-200'
-                                    : 'bg-zinc-900/40 border-zinc-800 text-zinc-500 hover:border-zinc-600 hover:text-zinc-300'}`}
+                                 className={`px-1.5 py-2 rounded-xl border text-center transition-all ${facePreset === preset.value
+                                    ? 'bg-purple-500/15 border-purple-500/50 text-purple-200 shadow-sm shadow-purple-500/5'
+                                    : 'bg-zinc-950/40 border-zinc-800/40 text-zinc-500 hover:border-zinc-600 hover:text-zinc-300'}`}
                                  title={preset.desc}
                               >
                                  <span className="text-sm block">{preset.emoji}</span>
@@ -3752,28 +3785,33 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                      </div>
                   )}
                   {faceImage && (
-                     <p className="text-[9px] text-green-500/80 flex items-center gap-1">
+                     <p className="text-[9px] text-green-500/80 flex items-center gap-1 px-5 pb-3">
                         <Check className="w-3 h-3" /> Sử dụng khuôn mặt từ ảnh đã upload
                      </p>
                   )}
+                  </div>
 
-                  {/* Configuration Groups */}
+                  {/* ═══════════ SECTION: Model & Product ═══════════ */}
+                  <div className="p-5 border-b border-zinc-800/40">
+                     <div className="flex items-center gap-2 mb-4">
+                        <div className="w-6 h-6 rounded-lg bg-indigo-500/10 flex items-center justify-center">
+                           <Ruler className="w-3.5 h-3.5 text-indigo-400" />
+                        </div>
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-300">Model & Product</span>
+                        <div className="flex-1 h-px bg-gradient-to-r from-indigo-500/20 to-transparent ml-2" />
+                     </div>
                   <div className="space-y-5">
 
                      {/* 1. Body & Subject - Simplified for Affiliate */}
                      <div className="space-y-3">
-                        <div className="flex items-center justify-between text-xs">
-                           <span className="font-semibold text-zinc-400 flex items-center gap-1.5"><Ruler className="w-3.5 h-3.5" /> Model Type</span>
-                        </div>
-
                         <div className="space-y-3">
                            <select value={gender} onChange={(e) => setGender(e.target.value)}
-                              className="w-full bg-zinc-900/80 border border-zinc-700 rounded-lg px-2 py-2 text-xs text-zinc-300 focus:outline-none focus:border-purple-500">
+                              className="w-full bg-zinc-950/60 border border-zinc-700/50 rounded-xl px-3 py-2.5 text-xs text-zinc-300 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/10 transition-all">
                               <option>Female</option> <option>Male</option>
                            </select>
 
                            <select value={bodyType} onChange={(e) => setBodyType(e.target.value)}
-                              className="w-full bg-zinc-900/80 border border-zinc-700 rounded-lg px-2 py-2 text-xs text-zinc-300 focus:outline-none focus:border-purple-500">
+                              className="w-full bg-zinc-950/60 border border-zinc-700/50 rounded-xl px-3 py-2.5 text-xs text-zinc-300 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/10 transition-all">
                               <option>Slim (Model)</option> <option>Athletic</option> <option>Balanced</option> <option>Curvy</option>
                            </select>
 
@@ -3797,10 +3835,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                     { value: 'combo', emoji: '🎀', label: 'Combo/Mix', desc: 'Nhiều món kết hợp' }
                                  ].map((pt) => (
                                     <button key={pt.value} onClick={() => setProductType(pt.value)}
-                                       className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all flex items-center gap-2
+                                       className={`py-1.5 px-2 rounded-xl text-[9px] font-medium border transition-all flex items-center gap-2
                                           ${productType === pt.value
-                                             ? 'bg-green-500/20 border-green-500 text-green-200'
-                                             : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}>
+                                             ? 'bg-green-500/15 border-green-500/50 text-green-200 shadow-sm shadow-green-500/5'
+                                             : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-500 hover:bg-zinc-900/40'}`}>
                                        <span className="text-sm">{pt.emoji}</span>
                                        <div className="text-left"><div>{pt.label}</div><div className="text-[7px] opacity-60">{pt.desc}</div></div>
                                     </button>
@@ -3818,10 +3856,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                        <div className="grid grid-cols-3 gap-1 ml-4 mt-1 mb-1">
                                           {group.items.map((item) => (
                                              <button key={item.value} onClick={() => setProductType(item.value)}
-                                                className={`py-1 px-1.5 rounded text-[8px] font-medium border transition-all text-left truncate
+                                                className={`py-1 px-1.5 rounded-xl text-[8px] font-medium border transition-all text-left truncate
                                                    ${productType === item.value
-                                                      ? 'bg-purple-500/20 border-purple-500 text-purple-200'
-                                                      : 'bg-zinc-900/30 border-zinc-800 text-zinc-500 hover:border-zinc-600 hover:text-zinc-300'}`}>
+                                                      ? 'bg-purple-500/15 border-purple-500/50 text-purple-200 shadow-sm shadow-purple-500/5'
+                                                      : 'bg-zinc-950/40 border-zinc-800/40 text-zinc-500 hover:border-zinc-600 hover:text-zinc-300'}`}>
                                                 {item.emoji} {item.label}
                                              </button>
                                           ))}
@@ -3848,7 +3886,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                     <input
                                        type="text"
                                        placeholder="e.g., Premium cotton, Silk blend, Stretch fabric..."
-                                       className="w-full bg-zinc-900/80 border border-zinc-700 rounded-lg px-2 py-2 text-xs text-zinc-300 focus:outline-none focus:border-purple-500 placeholder:text-zinc-600"
+                                       className="w-full bg-zinc-950/60 border border-zinc-700/50 rounded-xl px-3 py-2.5 text-xs text-zinc-300 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/10 placeholder:text-zinc-600 transition-all"
                                        value={fabricMaterial}
                                        onChange={(e) => setFabricMaterial(e.target.value)}
                                     />
@@ -3858,7 +3896,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                     <input
                                        type="text"
                                        placeholder="e.g., Flattering fit, Breathable, Easy care..."
-                                       className="w-full bg-zinc-900/80 border border-zinc-700 rounded-lg px-2 py-2 text-xs text-zinc-300 focus:outline-none focus:border-purple-500 placeholder:text-zinc-600"
+                                       className="w-full bg-zinc-950/60 border border-zinc-700/50 rounded-xl px-3 py-2.5 text-xs text-zinc-300 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/10 placeholder:text-zinc-600 transition-all"
                                        value={productHighlights}
                                        onChange={(e) => setProductHighlights(e.target.value)}
                                     />
@@ -3868,7 +3906,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                     <input
                                        type="text"
                                        placeholder="e.g., S-XXL, One size, XS to 3XL..."
-                                       className="w-full bg-zinc-900/80 border border-zinc-700 rounded-lg px-2 py-2 text-xs text-zinc-300 focus:outline-none focus:border-purple-500 placeholder:text-zinc-600"
+                                       className="w-full bg-zinc-950/60 border border-zinc-700/50 rounded-xl px-3 py-2.5 text-xs text-zinc-300 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/10 placeholder:text-zinc-600 transition-all"
                                        value={availableSizes}
                                        onChange={(e) => setAvailableSizes(e.target.value)}
                                     />
@@ -3888,7 +3926,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                  </label>
                                  <textarea
                                     placeholder="Add any special requests or notes for your affiliate video...\ne.g., Focus on waist area, warm tones, model smiling, slower transitions, add slow motion in scene 2..."
-                                    className="w-full bg-zinc-900/80 border border-zinc-700 rounded-lg px-3 py-2.5 text-xs text-zinc-300 focus:outline-none placeholder:text-zinc-600 min-h-[70px] resize-y focus:border-purple-500"
+                                    className="w-full bg-zinc-950/60 border border-zinc-700/50 rounded-xl px-3 py-2.5 text-xs text-zinc-300 focus:outline-none placeholder:text-zinc-600 min-h-[70px] resize-y focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/10 transition-all"
                                     value={additionalDescription}
                                     onChange={(e) => setAdditionalDescription(e.target.value)}
                                     rows={3}
@@ -3917,10 +3955,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                     <button
                                        key={region.value}
                                        onClick={() => setLocationRegion(region.value)}
-                                       className={`py-1.5 px-2 rounded text-left border transition-all flex items-center gap-1.5
+                                       className={`py-1.5 px-2 rounded-xl text-left border transition-all flex items-center gap-1.5
                                     ${locationRegion === region.value
-                                             ? 'bg-emerald-500/20 border-emerald-500 text-emerald-200'
-                                             : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                             ? 'bg-emerald-500/15 border-emerald-500/50 text-emerald-200 shadow-sm shadow-emerald-500/5'
+                                             : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-500 hover:bg-zinc-900/40'}`}
                                     >
                                        <span className="text-sm">{region.emoji}</span>
                                        <span className="text-[9px] font-medium truncate">{region.label}</span>
@@ -3939,10 +3977,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                        <button
                                           key={region.value}
                                           onClick={() => setLocationRegion(region.value)}
-                                          className={`py-1.5 px-2 rounded text-left border transition-all flex items-center gap-1.5
+                                          className={`py-1.5 px-2 rounded-xl text-left border transition-all flex items-center gap-1.5
                                        ${locationRegion === region.value
-                                                ? 'bg-emerald-500/20 border-emerald-500 text-emerald-200'
-                                                : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                                ? 'bg-emerald-500/15 border-emerald-500/50 text-emerald-200 shadow-sm shadow-emerald-500/5'
+                                                : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-500 hover:bg-zinc-900/40'}`}
                                        >
                                           <span className="text-sm">{region.emoji}</span>
                                           <span className="text-[9px] font-medium truncate">{region.label}</span>
@@ -3953,7 +3991,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
 
                               {/* Selected Region Info */}
                               {locationRegion !== 'auto' && (
-                                 <div className="mt-2 p-2 bg-emerald-900/10 border border-emerald-500/20 rounded text-[9px] text-emerald-300/80">
+                                 <div className="mt-2 p-2 bg-emerald-950/20 border border-emerald-500/20 rounded-xl text-[9px] text-emerald-300/80">
                                     <span className="font-bold">{LOCATION_REGIONS.find(r => r.value === locationRegion)?.label}:</span>{' '}
                                     {LOCATION_REGIONS.find(r => r.value === locationRegion)?.desc}
                                     {getSuggestedLocations(locationRegion, 10).length > 0 && (
@@ -3966,7 +4004,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
 
                               {/* Auto Mode Info */}
                               {locationRegion === 'auto' && (
-                                 <div className="mt-2 p-2 bg-blue-900/10 border border-blue-500/20 rounded text-[9px] text-blue-300/80">
+                                 <div className="mt-2 p-2 bg-blue-950/20 border border-blue-500/20 rounded-xl text-[9px] text-blue-300/80">
                                     <span className="font-bold">🎲 AI Tự Chọn Ngẫu Nhiên:</span>{' '}
                                     AI sẽ random từ tất cả các vùng dựa trên loại sản phẩm
                                     <p className="mt-1 text-blue-400/60">
@@ -3979,10 +4017,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                               <div className="mt-3 pt-3 border-t border-zinc-800/30">
                                  <button
                                        onClick={() => setEditorialMode(!editorialMode)}
-                                       className={`w-full py-2 px-3 rounded-lg border transition-all flex items-center justify-between
+                                       className={`w-full py-2 px-3 rounded-xl border transition-all flex items-center justify-between
                                     ${editorialMode
-                                             ? 'bg-rose-500/20 border-rose-500/50 text-rose-200'
-                                             : 'bg-zinc-900/30 border-zinc-700/50 text-zinc-500 hover:border-zinc-600'}`}
+                                             ? 'bg-rose-500/15 border-rose-500/50 text-rose-200 shadow-sm shadow-rose-500/5'
+                                             : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                                     >
                                        <div className="flex items-center gap-2">
                                           <span className="text-base">🔞</span>
@@ -4004,10 +4042,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                     {/* Wallpaper Mode Toggle */}
                                     <button
                                        onClick={() => setWallpaperMode(!wallpaperMode)}
-                                       className={`w-full mt-2 py-2 px-3 rounded-lg border transition-all flex items-center justify-between
+                                       className={`w-full mt-2 py-2 px-3 rounded-xl border transition-all flex items-center justify-between
                                     ${wallpaperMode
-                                             ? 'bg-violet-500/20 border-violet-500/50 text-violet-200'
-                                             : 'bg-zinc-900/30 border-zinc-700/50 text-zinc-500 hover:border-zinc-600'}`}
+                                             ? 'bg-violet-500/15 border-violet-500/50 text-violet-200 shadow-sm shadow-violet-500/5'
+                                             : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                                     >
                                        <div className="flex items-center gap-2">
                                           <span className="text-base">🖼️</span>
@@ -4029,10 +4067,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                     {/* Lookbook Mode Toggle */}
                                     <button
                                        onClick={() => setLookbookMode(!lookbookMode)}
-                                       className={`w-full mt-2 py-2 px-3 rounded-lg border transition-all flex items-center justify-between
+                                       className={`w-full mt-2 py-2 px-3 rounded-xl border transition-all flex items-center justify-between
                                     ${lookbookMode
-                                             ? 'bg-amber-500/20 border-amber-500/50 text-amber-200'
-                                             : 'bg-zinc-900/30 border-zinc-700/50 text-zinc-500 hover:border-zinc-600'}`}
+                                             ? 'bg-amber-500/15 border-amber-500/50 text-amber-200 shadow-sm shadow-amber-500/5'
+                                             : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                                     >
                                        <div className="flex items-center gap-2">
                                           <span className="text-base">📸</span>
@@ -4054,10 +4092,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                     {/* Seductive Mode Toggle */}
                                     <button
                                        onClick={() => setSeductiveMode(!seductiveMode)}
-                                       className={`w-full mt-2 py-2 px-3 rounded-lg border transition-all flex items-center justify-between
+                                       className={`w-full mt-2 py-2 px-3 rounded-xl border transition-all flex items-center justify-between
                                     ${seductiveMode
-                                             ? 'bg-pink-500/20 border-pink-500/50 text-pink-200'
-                                             : 'bg-zinc-900/30 border-zinc-700/50 text-zinc-500 hover:border-zinc-600'}`}
+                                             ? 'bg-pink-500/15 border-pink-500/50 text-pink-200 shadow-sm shadow-pink-500/5'
+                                             : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                                     >
                                        <div className="flex items-center gap-2">
                                           <span className="text-base">💋</span>
@@ -4079,10 +4117,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                     {/* Sexy Mode Toggle - Private */}
                                     <button
                                        onClick={() => setSexyMode(!sexyMode)}
-                                       className={`w-full mt-2 py-2 px-3 rounded-lg border transition-all flex items-center justify-between
+                                       className={`w-full mt-2 py-2 px-3 rounded-xl border transition-all flex items-center justify-between
                                     ${sexyMode
-                                             ? 'bg-red-500/20 border-red-500/50 text-red-200'
-                                             : 'bg-zinc-900/30 border-zinc-700/50 text-zinc-500 hover:border-zinc-600'}`}
+                                             ? 'bg-red-500/15 border-red-500/50 text-red-200 shadow-sm shadow-red-500/5'
+                                             : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                                     >
                                        <div className="flex items-center gap-2">
                                           <span className="text-base">🔥</span>
@@ -4104,10 +4142,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                     {/* Studio Mode Toggle - Professional TikTok Affiliate backgrounds */}
                                     <button
                                        onClick={() => setStudioMode(!studioMode)}
-                                       className={`w-full mt-2 py-2 px-3 rounded-lg border transition-all flex items-center justify-between
+                                       className={`w-full mt-2 py-2 px-3 rounded-xl border transition-all flex items-center justify-between
                                     ${studioMode
-                                             ? 'bg-indigo-500/20 border-indigo-500/50 text-indigo-200'
-                                             : 'bg-zinc-900/30 border-zinc-700/50 text-zinc-500 hover:border-zinc-600'}`}
+                                             ? 'bg-indigo-500/15 border-indigo-500/50 text-indigo-200 shadow-sm shadow-indigo-500/5'
+                                             : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                                     >
                                        <div className="flex items-center gap-2">
                                           <span className="text-base">🎬</span>
@@ -4123,7 +4161,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                     {studioMode && (
                                        <div className="mt-2 space-y-2 animate-in fade-in slide-in-from-top-2">
                                           {/* Studio Category Selector */}
-                                          <div className="p-2 bg-indigo-900/10 border border-indigo-500/20 rounded">
+                                          <div className="p-2 bg-indigo-950/20 border border-indigo-500/20 rounded-xl">
                                              <div className="flex items-center justify-between mb-2">
                                                 <span className="text-[9px] text-indigo-300 font-medium">🎬 Chọn loại Studio</span>
                                                 {studioVault.length > 0 && (
@@ -4140,10 +4178,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                                    <button
                                                       key={cat.value}
                                                       onClick={() => setStudioCategory(cat.value)}
-                                                      className={`py-1 px-2 rounded text-left border transition-all flex items-center gap-1
+                                                      className={`py-1 px-2 rounded-xl text-left border transition-all flex items-center gap-1
                                                          ${studioCategory === cat.value
-                                                            ? 'bg-indigo-500/20 border-indigo-500 text-indigo-200'
-                                                            : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                                            ? 'bg-indigo-500/15 border-indigo-500/50 text-indigo-200 shadow-sm shadow-indigo-500/5'
+                                                            : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-500 hover:bg-zinc-900/40'}`}
                                                    >
                                                       <span className="text-xs">{cat.emoji}</span>
                                                       <span className="text-[8px] font-medium truncate">{cat.label.replace(' Studios', '').replace(' Tết & Hội', '')}</span>
@@ -4164,7 +4202,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                           </div>
                                           {/* Studio Vault History */}
                                           {studioVault.length > 0 && (
-                                             <div className="p-2 bg-zinc-800/30 border border-zinc-700/30 rounded">
+                                             <div className="p-2 bg-zinc-800/20 border border-zinc-700/20 rounded-xl">
                                                 <div className="flex items-center justify-between mb-1">
                                                    <span className="text-[8px] text-zinc-400 flex items-center gap-1">
                                                       <History className="w-2.5 h-2.5" />
@@ -4184,7 +4222,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                              </div>
                                           )}
                                           {/* 🎨 Product Color for Color Contrast */}
-                                          <div className="p-2 bg-gradient-to-r from-pink-900/10 to-orange-900/10 border border-pink-500/20 rounded">
+                                          <div className="p-2 bg-gradient-to-r from-pink-950/20 to-orange-950/20 border border-pink-500/20 rounded-xl">
                                              <div className="flex items-center gap-2 mb-1.5">
                                                 <span className="text-[9px] text-pink-300 font-medium">🎨 Màu sản phẩm (Studio Contrast)</span>
                                              </div>
@@ -4193,7 +4231,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                                 value={productColor}
                                                 onChange={(e) => setProductColor(e.target.value)}
                                                 placeholder="VD: đỏ, xanh navy, vàng gold..."
-                                                className="w-full px-2 py-1.5 bg-zinc-900/50 border border-zinc-700 rounded text-[9px] text-white placeholder:text-zinc-600 focus:border-pink-500/50 focus:outline-none"
+                                                className="w-full px-2 py-1.5 bg-zinc-950/60 border border-zinc-700/40 rounded-xl text-[9px] text-white placeholder:text-zinc-600 focus:border-pink-500/50 focus:outline-none"
                                              />
                                              <p className="mt-1 text-[7px] text-pink-300/50">
                                                 Nhập màu để lọc studio tương phản (để trống = AI tự detect)
@@ -4210,10 +4248,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                        <div className="grid grid-cols-2 gap-2">
                                           <button
                                              onClick={() => setAspectRatio('9:16')}
-                                             className={`py-2 px-3 rounded-lg border transition-all flex flex-col items-center gap-1
+                                             className={`py-2 px-3 rounded-xl border transition-all flex flex-col items-center gap-1
                                           ${aspectRatio === '9:16'
-                                                   ? 'bg-blue-500/20 border-blue-500/50 text-blue-200'
-                                                   : 'bg-zinc-900/30 border-zinc-700/50 text-zinc-500 hover:border-zinc-600'}`}
+                                                   ? 'bg-blue-500/15 border-blue-500/50 text-blue-200 shadow-sm shadow-blue-500/5'
+                                                   : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                                           >
                                              <div className="w-4 h-6 border-2 rounded-sm ${aspectRatio === '9:16' ? 'border-blue-400' : 'border-zinc-500'}" />
                                              <span className="text-[9px] font-medium">9:16 Dọc</span>
@@ -4221,10 +4259,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                           </button>
                                           <button
                                              onClick={() => setAspectRatio('16:9')}
-                                             className={`py-2 px-3 rounded-lg border transition-all flex flex-col items-center gap-1
+                                             className={`py-2 px-3 rounded-xl border transition-all flex flex-col items-center gap-1
                                           ${aspectRatio === '16:9'
-                                                   ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-200'
-                                                   : 'bg-zinc-900/30 border-zinc-700/50 text-zinc-500 hover:border-zinc-600'}`}
+                                                   ? 'bg-emerald-500/15 border-emerald-500/50 text-emerald-200 shadow-sm shadow-emerald-500/5'
+                                                   : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                                           >
                                              <div className="w-6 h-4 border-2 rounded-sm ${aspectRatio === '16:9' ? 'border-emerald-400' : 'border-zinc-500'}" />
                                              <span className="text-[9px] font-medium">16:9 Ngang</span>
@@ -4248,7 +4286,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                            </div>
                            <span className="text-[9px] uppercase tracking-wider text-purple-400/80 font-medium">AI Active</span>
                         </div>
-                        <div className="p-3 bg-purple-900/10 border border-purple-500/20 rounded-lg">
+                        <div className="p-3 bg-purple-950/20 border border-purple-500/20 rounded-xl">
                            <p className="text-[10px] text-purple-200/70 leading-relaxed">
                               🎯 Real-life production script: AI Director creates optimized {videoDuration}s affiliate video with motion prompts, Vietnamese sales hooks, and production notes for your team.
                            </p>
@@ -4269,7 +4307,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                  </div>
                                  <div className="space-y-1 max-h-24 overflow-y-auto">
                                     {locationVault.slice(0, 5).map((item) => (
-                                       <div key={item.id} className="flex items-center gap-2 text-[9px] p-1.5 bg-zinc-900/50 rounded group">
+                                       <div key={item.id} className="flex items-center gap-2 text-[9px] p-1.5 bg-zinc-950/40 rounded-xl group">
                                           <span className="text-zinc-600">
                                              {LOCATION_REGIONS.find(r => r.value === item.region)?.emoji || '📍'}
                                           </span>
@@ -4307,7 +4345,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                  </div>
                                  <div className="space-y-1 max-h-20 overflow-y-auto">
                                     {scriptVault.slice(0, 4).map((item) => (
-                                       <div key={item.id} className="text-[9px] p-1.5 bg-zinc-900/50 rounded text-zinc-500 truncate" title={item.hook}>
+                                       <div key={item.id} className="text-[9px] p-1.5 bg-zinc-950/40 rounded-xl text-zinc-500 truncate" title={item.hook}>
                                           "{item.hook.slice(0, 50)}..."
                                        </div>
                                     ))}
@@ -4350,10 +4388,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                               <button 
                                  key={opt.dur} 
                                  onClick={() => setVideoDuration(opt.dur)}
-                                 className={`py-2 px-2 rounded border transition-all text-center
+                                 className={`py-2 px-2 rounded-xl border transition-all text-center
                                     ${videoDuration === opt.dur
-                                       ? 'bg-purple-600/20 border-purple-500 text-purple-200'
-                                       : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                       ? 'bg-purple-600/15 border-purple-500/50 text-purple-200 shadow-sm shadow-purple-500/5'
+                                       : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-500 hover:bg-zinc-900/40'}`}
                               >
                                  <div className="text-[11px] font-bold">{opt.icon} {opt.dur}s</div>
                                  <div className="text-[8px] opacity-70">{opt.label}</div>
@@ -4371,7 +4409,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                               step="2"
                               value={videoDuration}
                               onChange={(e) => setVideoDuration(parseInt(e.target.value))}
-                              className="w-full h-1 bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-purple-500"
+                              className="w-full h-1 bg-zinc-700/50 rounded-xl appearance-none cursor-pointer accent-purple-500"
                            />
                            <div className="flex items-center gap-2">
                               <input
@@ -4384,14 +4422,14 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                     const val = parseInt(e.target.value);
                                     if (val >= 8 && val <= 54) setVideoDuration(val);
                                  }}
-                                 className="w-16 px-2 py-1 bg-zinc-900/50 border border-zinc-700 rounded text-[10px] text-center text-zinc-300 focus:border-purple-500 focus:outline-none"
+                                 className="w-16 px-2 py-1 bg-zinc-950/60 border border-zinc-700/40 rounded-xl text-[10px] text-center text-zinc-300 focus:border-purple-500 focus:outline-none"
                               />
                               <span className="text-[9px] text-zinc-500">seconds (8-54s, tuỳ chỉnh tự do)</span>
                            </div>
                         </div>
                         
                         {/* Dynamic affiliate tip based on selected duration */}
-                        <div className="text-[9px] bg-zinc-900/30 border border-zinc-800/50 rounded p-2 space-y-0.5">
+                        <div className="text-[9px] bg-zinc-950/40 border border-zinc-800/30 rounded-xl p-2 space-y-0.5">
                            {videoDuration <= 8 && <>
                               <p className="text-orange-400 font-semibold">⚡ Flash Ad (8s): 1 scene duy nhất</p>
                               <p className="text-zinc-500">Hook mạnh + giá shock + CTA ngay. Dùng cho retargeting, story ads.</p>
@@ -4445,10 +4483,10 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                            <button
                               key={opt.value}
                               onClick={() => setVoiceStyle(opt.value)}
-                              className={`py-2 px-1 rounded border transition-all text-center
+                              className={`py-2 px-1 rounded-xl border transition-all text-center
                                  ${voiceStyle === opt.value
-                                    ? 'bg-emerald-600/20 border-emerald-500 text-emerald-200'
-                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                    ? 'bg-emerald-600/15 border-emerald-500/50 text-emerald-200 shadow-sm shadow-emerald-500/5'
+                                    : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-500 hover:bg-zinc-900/40'}`}
                            >
                               <div className="text-[11px]">{opt.icon}</div>
                               <div className="text-[8px] font-medium mt-0.5">{opt.label}</div>
@@ -4463,13 +4501,15 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                      </p>
                   </div>
 
+                  {/* ═══════════ SECTION: Generate ═══════════ */}
+                  <div className="p-5">
                   {/* Brief Input */}
-                  <div className="relative">
+                  <div className="relative mb-4">
                      <textarea
                         value={brief}
                         onChange={(e) => setBrief(e.target.value)}
-                        className="w-full h-20 bg-zinc-900/50 border border-zinc-700 rounded-lg px-3 py-2 text-xs text-zinc-300 focus:outline-none focus:border-purple-500 resize-none"
-                        placeholder="Additional creative details... (e.g., mood, specific styling, special requests)"
+                        className="w-full h-20 bg-zinc-950/40 border border-zinc-700/40 rounded-xl px-3 py-2.5 text-xs text-zinc-300 focus:outline-none focus:border-purple-500/40 focus:ring-2 focus:ring-purple-500/10 resize-none transition-all"
+                        placeholder="Additional creative details... (mood, styling, special requests)"
                      />
                   </div>
 
@@ -4477,21 +4517,21 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                   <button
                      onClick={runDirector}
                      disabled={!outfitImage || directorThinking}
-                     className={`w-full py-3 rounded-xl font-bold text-sm tracking-wide transition-all flex items-center justify-center gap-2
+                     className={`w-full py-3.5 rounded-xl font-bold text-sm tracking-wide transition-all flex items-center justify-center gap-2.5
                         ${outfitImage && !directorThinking
-                           ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-[1.01]'
-                           : 'bg-zinc-800 text-zinc-500 cursor-not-allowed'}`}
+                           ? 'bg-gradient-to-r from-purple-600 via-purple-500 to-pink-600 text-white shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 hover:scale-[1.01] active:scale-[0.99]'
+                           : 'bg-zinc-800/60 text-zinc-500 cursor-not-allowed border border-zinc-700/30'}`}
                   >
                      {directorThinking ? <><RefreshCcw className="w-4 h-4 animate-spin" /> Generating...</> : <><Wand2 className="w-4 h-4" /> Generate Affiliate Video</>}
                   </button>
+                  </div>
 
                </div>
-            </div>
             </div>
 
             {/* Bottom Section: Results Output */}
             <div className="flex flex-col min-h-[600px]">
-               <div className="glass-panel rounded-2xl h-full flex flex-col relative overflow-hidden border border-zinc-800 bg-black/20">
+               <div className="rounded-2xl h-full flex flex-col relative overflow-hidden border border-zinc-800/60 bg-zinc-900/30 backdrop-blur-sm shadow-2xl shadow-black/20">
 
                   {/* 1. Director View */}
                   {step === 'director' && (
@@ -4543,7 +4583,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                         ) : (
                            <>
                               {/* Tab Header */}
-                              <div className="flex items-center gap-2 p-4 border-b border-zinc-800 bg-zinc-900/50 backdrop-blur flex-wrap">
+                              <div className="flex items-center gap-1.5 p-4 border-b border-zinc-800/40 bg-zinc-900/60 backdrop-blur-sm flex-wrap">
                                  <>
                                     <TabButton active={activeTab === 'master'} onClick={() => setActiveTab('master')} icon={Camera} label="Master Prompt" />
                                     <TabButton active={activeTab === 'keyframes'} onClick={() => setActiveTab('keyframes')} icon={Layers} label="Keyframes" />
@@ -4565,7 +4605,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                        <div className="animate-in fade-in slide-in-from-bottom-2 space-y-6 relative">
                                           <div>
                                              <h4 className="text-purple-400 mb-2 text-xs font-bold uppercase tracking-widest">Common Master Prompt</h4>
-                                             <div className="bg-zinc-900/50 p-6 rounded-lg border border-zinc-800/50 whitespace-pre-wrap relative group">
+                                             <div className="bg-zinc-950/40 p-6 rounded-xl border border-zinc-800/30 whitespace-pre-wrap relative group">
                                                 {directorOutput?.sections.master}
                                                 <CopyButton text={directorOutput?.sections.master || ''} />
                                              </div>
@@ -4579,8 +4619,8 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                        <div className="animate-in fade-in slide-in-from-bottom-2 space-y-4">
                                           <h4 className="text-blue-400 mb-2 text-xs font-bold uppercase tracking-widest">Image Sequence</h4>
                                           {parseSegments(directorOutput?.sections.keyframes || '', 'image').map((segment, idx) => (
-                                             <div key={idx} className="bg-zinc-900/50 rounded-lg border border-zinc-800/50 overflow-hidden relative group">
-                                                <div className="bg-zinc-900/80 px-4 py-2 border-b border-zinc-800/50 flex justify-between items-center">
+                                             <div key={idx} className="bg-zinc-950/40 rounded-xl border border-zinc-800/30 overflow-hidden relative group">
+                                                <div className="bg-zinc-900/80 px-4 py-2 border-b border-zinc-800/30 flex justify-between items-center">
                                                    <span className="text-[10px] font-bold text-blue-300 uppercase tracking-wider">{segment.title}</span>
                                                 </div>
                                                 <div className="p-4 pr-12 whitespace-pre-wrap text-xs text-zinc-300">
@@ -4600,15 +4640,15 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                              Scene Prompts & Vietnamese Script
                                           </h4>
                                           {directorOutput?.sections.refinedScenes && (
-                                             <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/30 rounded-lg p-3 mb-4">
+                                             <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/30 rounded-xl p-3 mb-4">
                                                 <p className="text-xs text-purple-300">
                                                    💡 <strong>Tip:</strong> Check the <span className="text-pink-400 font-bold">✨ Refined Scenes</span> tab for improved video continuity!
                                                 </p>
                                              </div>
                                           )}
                                           {parseSegments(directorOutput?.sections.scenes || '', 'scene').map((segment, idx) => (
-                                             <div key={idx} className="bg-zinc-900/50 rounded-lg border border-zinc-800/50 overflow-hidden relative group">
-                                                <div className="bg-zinc-900/80 px-4 py-2 border-b border-zinc-800/50 flex justify-between items-center">
+                                             <div key={idx} className="bg-zinc-950/40 rounded-xl border border-zinc-800/30 overflow-hidden relative group">
+                                                <div className="bg-zinc-900/80 px-4 py-2 border-b border-zinc-800/30 flex justify-between items-center">
                                                    <span className="text-[10px] font-bold text-green-300 uppercase tracking-wider">{segment.title}</span>
                                                 </div>
                                                 <div className="p-4 pr-12 whitespace-pre-wrap text-xs text-zinc-300">
@@ -4633,7 +4673,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                                 AI-Enhanced Continuity
                                              </span>
                                           </div>
-                                          <div className="bg-gradient-to-r from-purple-900/20 to-pink-900/20 border border-purple-500/30 rounded-lg p-4 mb-4">
+                                          <div className="bg-gradient-to-r from-purple-900/20 to-pink-900/20 border border-purple-500/30 rounded-xl p-4 mb-4">
                                              <p className="text-xs text-purple-200 leading-relaxed">
                                                 <strong>✨ Phase 2 Refinement:</strong> These scene prompts have been analyzed by AI to ensure:
                                              </p>
@@ -4645,7 +4685,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                                 <li>✓ <strong>Fabric Physics:</strong> Consistent outfit behavior during motion</li>
                                              </ul>
                                           </div>
-                                          <div className="bg-zinc-900/50 rounded-lg border border-pink-800/30 overflow-hidden relative group">
+                                          <div className="bg-zinc-950/40 rounded-xl border border-pink-800/30 overflow-hidden relative group">
                                              <div className="bg-gradient-to-r from-purple-900/40 to-pink-900/40 px-4 py-3 border-b border-pink-800/30 flex justify-between items-center">
                                                 <span className="text-[10px] font-bold text-pink-300 uppercase tracking-wider">Full Refined Scene Prompts</span>
                                              </div>
@@ -4662,7 +4702,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                     {activeTab === 'production' && (
                                        <div className="animate-in fade-in slide-in-from-bottom-2 space-y-4">
                                           <h4 className="text-orange-400 mb-2 text-xs font-bold uppercase tracking-widest">Production Notes</h4>
-                                          <div className="bg-zinc-900/50 rounded-lg border border-zinc-800/50 overflow-hidden relative">
+                                          <div className="bg-zinc-950/40 rounded-xl border border-zinc-800/30 overflow-hidden relative">
                                              <div className="bg-orange-900/20 px-4 py-2 border-b border-orange-800/30 flex justify-between items-center">
                                                 <span className="text-[10px] font-bold text-orange-300 uppercase tracking-wider">Shooting Guide</span>
                                              </div>
@@ -4672,7 +4712,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                              <CopyButton text={directorOutput?.sections.production || ''} />
                                           </div>
                                           {directorOutput?.sections.metadata && (
-                                             <div className="bg-zinc-900/50 rounded-lg border border-zinc-800/50 overflow-hidden relative mt-4">
+                                             <div className="bg-zinc-950/40 rounded-xl border border-zinc-800/30 overflow-hidden relative mt-4">
                                                 <div className="bg-purple-900/20 px-4 py-2 border-b border-purple-800/30">
                                                    <span className="text-[10px] font-bold text-purple-300 uppercase tracking-wider">Metadata & Batch Info</span>
                                                 </div>
@@ -4691,11 +4731,11 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                               </div>
 
                               {/* Footer Actions */}
-                              <div className="p-4 border-t border-zinc-800 bg-zinc-900/80 backdrop-blur flex justify-between items-center">
-                                 <button onClick={reset} className="text-xs text-zinc-500 hover:text-white transition-colors">CLEAR OUTPUT</button>
+                              <div className="p-4 border-t border-zinc-800/40 bg-zinc-900/60 backdrop-blur-sm flex justify-between items-center">
+                                 <button onClick={reset} className="text-xs text-zinc-500 hover:text-white transition-colors px-3 py-1.5 rounded-xl hover:bg-zinc-800/50">CLEAR</button>
                                  <button
                                     onClick={runDirector}
-                                    className="bg-zinc-800 text-zinc-300 border border-zinc-700 px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-zinc-700 hover:text-white transition-all flex items-center gap-2"
+                                    className="bg-zinc-800/60 text-zinc-300 border border-zinc-700/50 px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-zinc-700/60 hover:text-white transition-all flex items-center gap-2"
                                  >
                                     <RotateCcw className="w-4 h-4" /> Regenerate Prompts
                                  </button>
@@ -4708,14 +4748,21 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                   {/* 3. Placeholder */}
                   {step === 'input' && (
                      <div className="absolute inset-0 flex flex-col items-center justify-center text-zinc-700 space-y-4">
-                        <Film className="w-12 h-12 opacity-20" />
-                        <p className="text-xs uppercase tracking-widest opacity-50">Studio Idle</p>
+                        <div className="w-16 h-16 rounded-2xl bg-zinc-800/30 flex items-center justify-center">
+                           <Film className="w-8 h-8 opacity-20" />
+                        </div>
+                        <div className="text-center">
+                           <p className="text-xs uppercase tracking-widest opacity-40 font-semibold">Studio Ready</p>
+                           <p className="text-[9px] opacity-30 mt-1">Upload outfit & generate to begin</p>
+                        </div>
                      </div>
                   )}
 
                </div>
             </div>
          </div>
+      </div>
+      </div>
       </div>
       </div>
    );
