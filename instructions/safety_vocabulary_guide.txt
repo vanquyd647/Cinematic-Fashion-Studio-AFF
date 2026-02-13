@@ -1,0 +1,348 @@
+═══════════════════════════════════════════════════════════════════════════════════
+🛡️ UNIFIED SAFE VOCABULARY GUIDE — NANO BANANA PRO + VEO 3.1 + VOICE SCRIPTS
+═══════════════════════════════════════════════════════════════════════════════════
+Version: 3.0 | POSITIVE-ONLY FORMAT (No flagged terms in this file)
+This file is injected into AI prompts — ONLY safe vocabulary allowed here.
+
+═══════════════════════════════════════════════════════════════════════════════════
+1️⃣ NGUYÊN TẮC CỐT LÕI (CORE PRINCIPLES)
+═══════════════════════════════════════════════════════════════════════════════════
+
+A. POSITIVE-ONLY VOCABULARY:
+   - Mô tả THỜI TRANG (fashion), KHÔNG mô tả CƠ THỂ (body)
+   - Dùng từ chuyên ngành (couture, editorial, architectural) thay từ đời thường
+   - Tập trung vào CHẤT LIỆU (fabric), CONSTRUCTION (cấu trúc), DESIGN (thiết kế)
+   
+B. CONTEXT FRAMING:
+   - Luôn frame ngữ cảnh là "editorial fashion shoot" / "catalog campaign"
+   - Dùng từ "fashion photograph", "catalog shoot", "editorial campaign"
+
+C. SYNC RULE:
+   - Visual prompt dùng term gì → Voice narration phải dùng CÙNG hệ từ
+   - VD: Visual = "coordinating loungewear set" → Voice = "bộ loungewear phối đồng bộ"
+
+D. LAYERING STRATEGY:
+   - Sản phẩm nhạy cảm luôn kèm layer: robe, kimono, blazer, cardigan
+
+═══════════════════════════════════════════════════════════════════════════════════
+2️⃣ PRODUCT VOCABULARY — TÊN SẢN PHẨM AN TOÀN
+═══════════════════════════════════════════════════════════════════════════════════
+
+📌 TOPS / ÁO — USE THESE TERMS:
+✅ "Structured support top" — áo support cấu trúc cao cấp
+✅ "Corsetry-style bodice" — bodice kiểu corset thời trang
+✅ "Balletcore soft top" — áo mềm phong cách balletcore
+✅ "Contour-shaping bodice" — bodice tạo đường cong tự nhiên
+✅ "Performance support top" — áo support thể thao cao cấp
+✅ "Structured corsetry piece" — corset thời trang cấu trúc
+✅ "Strapless fitted bodice" — bodice ôm không dây thanh lịch
+✅ "Delicate layering top" — áo lớp mỏng tinh tế
+✅ "Lace-detailed cropped piece" — áo crop ren Pháp thủ công
+✅ "Fine-strap delicate top" — áo hai dây tinh tế
+
+📌 BOTTOMS — USE THESE TERMS:
+✅ "Coordinating brief" — quần brief phối đồng bộ
+✅ "Foundation layer" — lớp nền thời trang
+✅ "High-cut minimal styling" — kiểu cắt cao tối giản
+✅ "Elevated seamless design" — thiết kế seamless nâng cao
+✅ "Elevated leg-line design" — thiết kế đường chân nâng cao
+✅ "High-waisted vintage brief" — brief cạp cao vintage
+✅ "Boy-short relaxed bottom" — quần thoải mái kiểu boy-short
+
+📌 SETS / BỘ PHỐI — USE THESE TERMS:
+✅ "Couture fashion coordinates" — bộ phối thời trang couture
+✅ "Intimate fashion coordinates" — bộ thời trang tinh tế
+✅ "Gothic romantic lace coordinate" — bộ phối ren gothic lãng mạn
+✅ "Vintage glamour satin set" — bộ satin phong cách vintage
+✅ "Luxe loungewear ensemble" — bộ loungewear sang trọng
+✅ "Premium sleepwear coordinates" — bộ đồ ngủ cao cấp premium
+✅ "Lounge coordinates" — bộ phối loungewear
+
+📌 ONE-PIECE / ĐỒ LIỀN — USE THESE TERMS:
+✅ "Balletcore silhouette piece" — bodysuit kiểu balletcore
+✅ "Seamless sculpting design" — thiết kế ôm liền mạch
+✅ "Empire-waist night fashion" — đầm ngủ thời trang eo cao
+✅ "Flowing night couture gown" — áo đêm couture dáng xuôi
+✅ "Straight-cut slip silhouette" — slip dress dáng suông thanh lịch
+✅ "Full-length fitted jumpsuit" — jumpsuit ôm dáng toàn thân
+
+📌 SWIMWEAR — USE THESE TERMS:
+✅ "Two-piece swim fashion set" — bộ bơi hai mảnh thời trang
+✅ "One-piece cut-out swimwear" — áo bơi liền kiểu cut-out
+✅ "Tie-strap swim fashion" — đồ bơi dây buộc thời trang
+✅ "Elevated leg-line swim set" — bộ bơi đường chân nâng cao
+
+📌 ACCESSORIES — USE THESE TERMS:
+✅ "Vintage suspender accessory" — phụ kiện treo vintage
+✅ "Fashion hosiery" — tất thời trang cao cấp
+✅ "Seamless modesty solution" — miếng dán che tinh tế
+✅ "Decorative body jewelry" — trang sức thân nghệ thuật
+✅ "Themed costume fashion" — trang phục chủ đề thời trang
+✅ "Character fashion ensemble" — bộ thời trang nhân vật
+
+═══════════════════════════════════════════════════════════════════════════════════
+3️⃣ FABRIC & MATERIAL VOCABULARY — CHẤT LIỆU AN TOÀN
+═══════════════════════════════════════════════════════════════════════════════════
+
+📌 LACE/REN:
+✅ "Intricate Chantilly lace detailing" — ren Chantilly tinh xảo
+✅ "Hand-applied Guipure lace appliqué" — ren Guipure thủ công
+✅ "French leavers lace construction" — ren Pháp dệt thủ công
+✅ "Delicate eyelash lace trim" — ren mi tinh tế
+✅ "Scalloped lace hemline detail" — viền ren sóng lượn
+
+📌 LIGHTWEIGHT FABRIC:
+✅ "Lightweight diaphanous fabric" — vải mỏng nhẹ tinh tế
+✅ "Semi-translucent textile overlay" — lớp phủ vải bán trong suốt
+✅ "Gossamer fabric layering" — lớp vải mỏng tựa sương
+✅ "Strategic fabric placement" — thiết kế bố trí vải chiến lược
+✅ "Fine textile with tonal lining" — vải mỏng mịn có lót tông
+
+📌 SILK/SATIN:
+✅ "Lustrous mulberry silk finish" — lụa tơ tằm ánh mượt
+✅ "High-sheen charmeuse draping" — satin charmeuse bóng mướt
+✅ "Liquid silk fabric flow" — lụa mềm rủ như nước
+✅ "Delicate silk georgette" — lụa georgette nhẹ bay
+
+📌 MESH/TULLE:
+✅ "Fine power mesh construction" — lưới powernet cao cấp
+✅ "Gossamer tulle layering" — tulle mỏng tựa mây
+✅ "Delicate Swiss dot mesh" — lưới Swiss dot tinh xảo
+✅ "Structured performance mesh" — lưới cấu trúc chuyên dụng
+
+📌 CONSTRUCTION:
+✅ "Architectural support structure" — cấu trúc support kiến trúc
+✅ "Contour-enhancing engineering" — kỹ thuật tạo đường cong
+✅ "Precision closure system" — hệ thống khóa chính xác
+✅ "Adjustable shoulder engineering" — dây đeo điều chỉnh kỹ thuật
+✅ "Structured architectural support" — xương cứng tạo dáng kiến trúc
+✅ "Molded contour panel" — panel tạo form ôm sát
+
+═══════════════════════════════════════════════════════════════════════════════════
+4️⃣ BODY & FIT VOCABULARY — MÔ TẢ AN TOÀN
+═══════════════════════════════════════════════════════════════════════════════════
+
+📌 MÔ TẢ PHONG CÁCH:
+✅ "Sophisticated" / "Refined elegance" — thanh lịch / tinh tế
+✅ "Stunning" / "Striking" — ấn tượng / nổi bật
+✅ "Captivating" / "Magnetic presence" — thu hút / sức hấp dẫn từ trường
+✅ "Graceful" / "Poised" — duyên dáng / thanh thoát
+✅ "Warm confident energy" — năng lượng tự tin ấm áp
+✅ "Fashion-forward" / "Bold" — phong cách tiên phong
+✅ "Haute couture aesthetic" — thẩm mỹ haute couture
+✅ "Elegant presence" — phong thái thanh lịch
+
+📌 MÔ TẢ HÌNH THỂ:
+✅ "Classic hourglass silhouette" — dáng đồng hồ cát cổ điển
+✅ "Elegant figure" — vóc dáng thanh lịch
+✅ "Refined neckline depth" — đường cổ thanh lịch
+✅ "Elegant décolletage line" — đường ngực thanh tao
+✅ "Architectural design lines" — đường thiết kế kiến trúc
+✅ "Fashion-forward construction" — cấu trúc tiên phong
+✅ "Focus on fabric textures" — tập trung vào chất liệu
+✅ "Textile craftsmanship showcase" — triển lãm nghệ thuật vải
+✅ "Graceful lower silhouette" — đường dáng dưới thanh thoát
+✅ "Defined waistline silhouette" — đường eo rõ nét
+✅ "Long elegant lines" — đường nét dài thanh lịch
+
+📌 BODY TYPE DESCRIPTIONS:
+✅ "Generous figure" — dáng đầy đặn
+✅ "Elegant curves" — đường cong thanh lịch
+✅ "Sculpted proportions" — tỷ lệ đầy đặn
+✅ "Generous upper frame" — phần trên đầy đặn
+✅ "Full-figured elegance" — vẻ đẹp tròn đầy
+✅ "Upper body silhouette" — phom dáng phần trên
+
+📌 FIT & FORM:
+✅ "Precisely tailored fit" — form may chuẩn vóc dáng
+✅ "Silhouette-defining drape" — vải rủ tôn dáng
+✅ "Sculpted architectural fit" — form kiến trúc điêu khắc
+✅ "Second-skin precision" — ôm sát như lớp da thứ hai
+
+═══════════════════════════════════════════════════════════════════════════════════
+5️⃣ ACTION & MOTION — VEO 3.1 SAFE VOCABULARY
+═══════════════════════════════════════════════════════════════════════════════════
+
+📌 WALKING (SAFE):
+✅ "Walking with editorial poise" — đi với phong thái editorial
+✅ "Fashion runway walk, professional pace" — đi catwalk chuyên nghiệp
+✅ "Natural stride with relaxed hip movement" — bước đi tự nhiên
+✅ "Confident stride, outfit moving with body" — bước đi tự tin
+✅ "Gentle rhythmic movement, fabric responding" — chuyển động nhịp nhàng
+
+📌 TURNING (SAFE):
+✅ "Turning slowly to show outfit from all angles" — xoay để khoe outfit
+✅ "Gentle torso rotation showing garment fit" — xoay nhẹ khoe form áo
+✅ "Spinning gracefully, skirt expanding" — xoay duyên dáng, váy xoè
+✅ "Fluid editorial movement" — chuyển động editorial mượt mà
+
+📌 POSING (SAFE):
+✅ "Editorial confident pose" — tư thế tự tin editorial
+✅ "Graceful forward lean, fabric draping naturally" — cúi nhẹ, vải rủ tự nhiên
+✅ "Gentle backbend highlighting garment structure" — cong lưng nhẹ tôn cấu trúc
+✅ "Hand tracing garment seam lines" — tay lướt theo đường may
+✅ "Adjusting fabric, smoothing collar naturally" — chỉnh vải tự nhiên
+✅ "Gradual silhouette emergence into frame" — silhouette xuất hiện dần
+✅ "Garment layering transition" — chuyển đổi lớp trang phục
+
+📌 FASHION FOUNDATIONS SPECIFIC:
+✅ "Robe falling open to reveal coordinating set" — robe mở khoe bộ phối
+✅ "Presenting loungewear coordinates, catalog style" — trình diễn kiểu catalog
+✅ "Editorial standing in fashion foundation pieces" — đứng editorial trong outfit
+✅ "Robe draping transition, coordinating top visible" — robe chuyển khoe phần trên
+✅ "Layering sequence: outer to loungewear coordinates" — chuyển từ lớp ngoài → phối set
+
+═══════════════════════════════════════════════════════════════════════════════════
+6️⃣ VOICE NARRATION — SYNCHRONIZED VOCABULARY
+═══════════════════════════════════════════════════════════════════════════════════
+
+📌 MÔ TẢ SẢN PHẨM (Voice — Vietnamese):
+✅ "Bộ thời trang tinh tế từ ren Pháp" — cho fashion coordinates
+✅ "Bodice cao cấp với cấu trúc support hoàn hảo" — cho support top
+✅ "Bộ phối ren Chantilly thủ công Pháp" — cho lace coordinates
+✅ "Brief phối đồng bộ kiểu vintage" — cho coordinating bottom
+✅ "Loungewear premium cho giấc ngủ sang trọng" — cho sleepwear
+✅ "Set bơi thời trang hai mảnh" — cho swim set
+✅ "Bodysuit kiểu balletcore thanh lịch" — cho bodysuit
+
+📌 MÔ TẢ CHẤT LIỆU (Voice — Vietnamese):
+✅ "Ren Chantilly Pháp dệt thủ công tinh xảo"
+✅ "Vải mỏng nhẹ với lớp lót tông da tinh tế"
+✅ "Satin charmeuse mướt như nước"
+✅ "Lụa tơ tằm mulberry mềm rủ tự nhiên"
+✅ "Lưới Swiss dot tinh xảo nhập khẩu"
+✅ "Tulle mỏng phủ nhẹ tựa sương mai"
+
+📌 HOOK & CTA (Voice — Vietnamese):
+✅ "Sang trọng chưa nè?" — thay cho hook kích thích
+✅ "Đẹp xuất sắc luôn!" — thay cho hook quá đà
+✅ "Tinh tế thế này ai mà cưỡng lại được" — nhấn chất lượng
+✅ "Thu hút mọi ánh nhìn" — thay cho hook cường điệu
+✅ "Mặc vào là thăng hạng phong cách liền" — CTA an toàn
+✅ "Dáng nào mặc cũng đẹp" — inclusive CTA
+
+═══════════════════════════════════════════════════════════════════════════════════
+7️⃣ STYLE & MOOD — CONTEXT KEYWORDS
+═══════════════════════════════════════════════════════════════════════════════════
+
+📌 STYLE KEYWORDS (frame context):
+✅ "Editorial fashion photograph" — ảnh thời trang biên tập
+✅ "High-end catalog shoot" — buổi chụp catalog cao cấp
+✅ "Couture ensemble campaign" — chiến dịch bộ sưu tập couture
+✅ "Vintage glamour lookbook" — lookbook cổ điển thu hút
+✅ "Professional studio photography" — nhiếp ảnh studio chuyên nghiệp
+✅ "Wellness fashion shoot" — buổi chụp thời trang wellness
+✅ "Balletcore aesthetic shoot" — buổi chụp thẩm mỹ balletcore
+✅ "Gothic romantic fashion" — thời trang lãng mạn gothic
+✅ "Corsetry-style editorial" — biên tập phong cách corset
+
+📌 MOOD KEYWORDS:
+✅ "Magnetic confident energy" — năng lượng tự tin cuốn hút
+✅ "Fashion editorial tension" — kịch tính thời trang
+✅ "Luxurious sophisticated ambiance" — không gian sang trọng
+✅ "Premium private setting" — không gian riêng tư cao cấp
+✅ "Warm elegant romance" — lãng mạn thanh lịch ấm áp
+
+📌 EXPRESSION & VIBE:
+✅ "Magnetic presence" — sự hiện diện thu hút
+✅ "Captivating aura" — hào quang cuốn hút
+✅ "Effortless allure" — sức hút tự nhiên
+✅ "Confident knowing gaze" — ánh mắt tự tin am hiểu
+✅ "Half-lidded dreamy gaze" — ánh mắt mơ màng
+✅ "Mysterious elegance" — vẻ bí ẩn thanh lịch
+✅ "Quiet allure" — sức hút nhẹ nhàng
+✅ "Understated elegance" — thanh lịch tinh tế
+✅ "Haute couture presence" — sự hiện diện haute couture
+
+═══════════════════════════════════════════════════════════════════════════════════
+8️⃣ LIGHTING & SETTING
+═══════════════════════════════════════════════════════════════════════════════════
+
+📌 PROFESSIONAL LIGHTING:
+✅ "Professional studio lighting with beauty dish"
+✅ "Soft diffused window light, morning ambiance"
+✅ "Gentle rim lighting emphasizing garment silhouette"
+✅ "Flattering beauty lighting, catchlights in eyes"
+✅ "Natural morning light ambiance, warm tones"
+✅ "Warm amber key light with soft fill"
+✅ "Chiaroscuro dramatic fashion lighting"
+
+📌 SAFE SETTINGS:
+✅ "Minimalist white studio with seamless backdrop"
+✅ "Luxurious hotel suite, editorial ambiance"
+✅ "High-end boutique interior, velvet and marble"
+✅ "Elegant vanity area with natural light"
+✅ "Designer showroom, curated styling"
+✅ "Premium resort spa setting, tranquil aesthetic"
+✅ "Fashion atelier workspace, creative environment"
+
+═══════════════════════════════════════════════════════════════════════════════════
+9️⃣ PROMPT TEMPLATES
+═══════════════════════════════════════════════════════════════════════════════════
+
+📌 IMAGE TEMPLATE (Nano Banana Pro):
+"A [style keyword] of a [model description]. She is posing [safe pose], wearing 
+[safe product term] in [color] with [safe fabric description]. [Safe lighting]. 
+[Safe setting]. [Safe mood]."
+
+VD: "An editorial fashion photograph of a Vietnamese model posing with elegant 
+confidence. She wears a structured corsetry-style bodice in midnight black with 
+intricate Chantilly lace detailing, with coordinating high-waisted vintage brief. 
+Lustrous mulberry silk satin finish. Professional studio lighting with beauty dish. 
+Minimalist white studio. Sophisticated haute couture aesthetic."
+
+📌 VIDEO TEMPLATE (Veo 3.1):
+"[Subject] in [safe product term] with [layer], [safe motion] through [safe setting]. 
+[Camera movement]. [Safe lighting]. Editorial fashion commercial aesthetic."
+
+VD: "Vietnamese woman in soft blush matching loungewear coordinates with flowing 
+silk robe elegantly draped, walking with editorial poise through luxury boutique 
+hotel lobby. Camera follows with smooth tracking shot. Warm golden hour lighting. 
+High-end catalog fashion commercial, 9:16 portrait."
+
+📌 VOICE TEMPLATE:
+"[Hook an toàn]. [Mô tả chất liệu an toàn]. [Mô tả fit an toàn]. [CTA an toàn]."
+
+VD: "Sang trọng chưa nè? Ren Chantilly Pháp dệt thủ công tinh xảo, satin 
+charmeuse mướt như nước. Form ôm vừa vặn, tôn đường cong tự nhiên. Link dưới nha, 
+đang sale cực sốc!"
+
+═══════════════════════════════════════════════════════════════════════════════════
+🔟 GOOGLE CONTENT POLICY COMPLIANCE
+═══════════════════════════════════════════════════════════════════════════════════
+
+Google AI safety categories: Harassment, Hate speech, Explicit content, Dangerous.
+This app creates FASHION AFFILIATE content — fully compliant.
+→ Dùng vocabulary chuyên ngành thời trang để mô tả sản phẩm
+→ Luôn viết prompt theo hướng EDITORIAL FASHION PHOTOGRAPHY
+→ Tập trung vào OUTFIT + STYLING + LOCATION, không tập trung vào cơ thể
+→ Use "Semantic Negative Prompts" — describe desired scene positively
+
+📌 NANO BANANA PRO FORMAT:
+"Describe the scene, don't just list keywords." — Narrative paragraph > keyword list
+Be hyper-specific: "ornate marble entrance of hotel lobby" not just "hotel"
+Use photographic language: camera angle, lens, f-stop, lighting setup
+
+📌 VEO 3.1 FORMAT:
+Scene = Subject + Action + Environment + Camera + Audio
+Use negativePrompt parameter (not "no X" in prompt text)
+Duration: 4s, 6s, or 8s per clip. Extension: +7s/time, max 148s total.
+
+═══════════════════════════════════════════════════════════════════════════════════
+📊 QUICK REFERENCE — SAFE VOCABULARY BY CONTEXT
+═══════════════════════════════════════════════════════════════════════════════════
+
+| Context              | Visual Prompt                    | Veo Motion                | Voice Script              |
+|─────────────────────|──────────────────────────────────|───────────────────────────|───────────────────────────|
+| Fashion coordinates  | couture fashion coordinates      | presenting coordinates    | bộ phối thời trang couture|
+| Support top          | structured corsetry-style bodice | robe revealing coordinated| bodice cao cấp cấu trúc  |
+| Coordinating bottom  | coordinating vintage brief       | outfit settling naturally | brief phối đồng bộ vintage|
+| Lace fabric          | Chantilly lace construction      | lace catching light       | ren Chantilly thủ công    |
+| Lightweight fabric   | diaphanous fabric layering       | fabric flowing naturally  | vải mỏng nhẹ tựa sương   |
+| Confident pose       | editorial confident pose         | editorial poise movement  | tư thế tự tin thanh lịch  |
+| Showcasing outfit    | showcasing outfit angles         | fluid editorial movement  | khoe trọn vẹn thiết kế   |
+| Sales hook           | curated fashion presentation     | catalog-style showcase    | sang trọng / đẹp xuất sắc|
+
+═══════════════════════════════════════════════════════════════════════════════════
+END OF GUIDE — POSITIVE-ONLY FORMAT
+═══════════════════════════════════════════════════════════════════════════════════

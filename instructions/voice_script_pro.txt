@@ -1,0 +1,455 @@
+================================================
+🎙️ VOICE & SCRIPT PROFESSIONAL — TỪ VỰNG VOICE CHUYÊN NGHIỆP CHO TIẾP THỊ LIÊN KẾT
+================================================
+Bộ từ vựng chuyên sâu về giọng nói, kịch bản, ngôn ngữ bán hàng chuyên nghiệp
+Dành cho Veo 3.1 Audio + TTS/Voice-over generation
+Cập nhật: 2026-06
+
+================================================
+🎯 TRIẾT LÝ VOICE AFFILIATE
+================================================
+
+**NGUYÊN TẮC CỐT LÕI:**
+> "Giọng nói tự nhiên + chuyên nghiệp = Tin tưởng = Chuyển đổi"
+> Không sến, không bán hàng nhạt, không robot.
+> Nói như đang chia sẻ với bạn thân — nhưng có chiến lược.
+
+**3 TẦNG VOICE QUALITY:**
+
+1. **AMATEUR (Tránh):** Robot, đọc script, monotone, quá hype
+2. **GOOD (Chấp nhận):** Tự nhiên, rõ ràng, có năng lượng
+3. **PRO (Target):** Tự nhiên + chiến lược, có nhịp, có cảm xúc, có timing
+
+================================================
+🗣️ VOICE PROFILE LIBRARY — BỘ HỒ SƠ GIỌNG NÓI
+================================================
+
+**PROFILE 1: BẠN THÂN CHIA SẺ (Best for: TikTok, Gen-Z, casual products)**
+```json
+{
+  "voice_profile": "Young Vietnamese female 20-28, Southern accent (Saigon)",
+  "vocal_tone": "Warm, friendly, like sharing with close friend",
+  "speech_pace": "Medium-fast (160-180 words/min), natural pauses",
+  "energy_level": "7/10 — enthusiastic but not screaming",
+  "key_trait": "Authentic, genuine excitement, relatable",
+  "breathing_pattern": "Natural conversational breaths between phrases",
+  "filler_words": "Occasional 'nè', 'á', 'nha' for authenticity"
+}
+```
+- **Khi dùng:** Budget products, everyday fashion, younger audience
+- **Ví dụ:** "Ê mọi người ơi, cái áo này hot lắm nè! Mình mới mua xong mà mặc lên xinh quá trời luôn á 🥰"
+
+---
+
+**PROFILE 2: CHỊ ĐẸP TƯ VẤN (Best for: Premium, 25-40F, trust-building)**
+```json
+{
+  "voice_profile": "Vietnamese female 28-38, clear standard accent",
+  "vocal_tone": "Confident, warm, authoritative yet approachable",
+  "speech_pace": "Medium (140-160 words/min), deliberate pauses for emphasis",
+  "energy_level": "6/10 — calm confidence, not rushed",
+  "key_trait": "Expertise with warmth, trustworthy advisor",
+  "breathing_pattern": "Controlled, measured breaths showing composure",
+  "emphasis_pattern": "Key words stressed: quality, fabric, fit, value"
+}
+```
+- **Khi dùng:** Quality products, premium fashion, professional audience
+- **Ví dụ:** "Chị em xem nè, chất liệu lụa này mướt tay lắm. Mình đã test qua 5 lần giặt rồi, không nhăn, không phai. Với giá này thì quá xứng đáng."
+
+---
+
+**PROFILE 3: REVIEWER TRUNG THỰC (Best for: High-value products, comparison)**
+```json
+{
+  "voice_profile": "Vietnamese female/male 25-35, neutral accent",
+  "vocal_tone": "Objective, analytical, honest with positive bias",
+  "speech_pace": "Medium-slow (130-150 words/min), thoughtful",
+  "energy_level": "5/10 — measured, credible, not salesy",
+  "key_trait": "Credibility through objectivity, balanced opinion",
+  "breathing_pattern": "Deliberate pauses before key points",
+  "structure": "Pros first → Minor con (if any) → Overall recommendation"
+}
+```
+- **Khi dùng:** High-price products, comparison reviews, trust-critical
+- **Ví dụ:** "OK mình nói thật nha. Ưu điểm: chất vải rất tốt, form chuẩn, mặc thoải mái. Nhược điểm nhỏ là hơi ít màu lựa chọn. Nhưng tổng thể, giá này thì rất đáng mua."
+
+---
+
+**PROFILE 4: CHỊ BÁN HÀNG SÀNH ĐỎ (Best for: TikTok Shop, live-selling vibe)**
+```json
+{
+  "voice_profile": "Vietnamese female 28-45, Southern warmth",
+  "vocal_tone": "Energetic, persuasive, street-smart, urgent but honest",
+  "speech_pace": "Fast (170-200 words/min), rhythmic selling cadence",
+  "energy_level": "8/10 — high energy without being annoying",
+  "key_trait": "Experienced seller confidence, deal-maker energy",
+  "breathing_pattern": "Quick breaths between selling points",
+  "signature_phrases": "Rapid-fire benefits, price emphasis, urgency"
+}
+```
+- **Khi dùng:** Flash sales, budget deals, mass-market products
+- **Ví dụ:** "Nhanh nhanh chị em ơi! Giá này chỉ hôm nay thôi nha! Lụa thật 100%, mặc mát, form chuẩn, ship free toàn quốc! Chỉ còn 30 cái cuối!"
+
+---
+
+**PROFILE 5: MINIMALIST LUXURY (Best for: Quiet luxury, premium brands)**
+```json
+{
+  "voice_profile": "Vietnamese female 25-35, soft elegant tone",
+  "vocal_tone": "Understated, refined, whisper-confident",
+  "speech_pace": "Slow (100-130 words/min), deliberate pauses",
+  "energy_level": "4/10 — quiet power, luxurious restraint",
+  "key_trait": "Less is more, implies exclusivity through tone",
+  "breathing_pattern": "Long pauses between sentences, contemplative",
+  "audio_aesthetic": "Soft ambient, minimal music, focus on voice clarity"
+}
+```
+- **Khi dùng:** High-end products, luxury aesthetic, quiet luxury trend
+- **Ví dụ:** "Mềm mại... Tự nhiên... Không cần logo nào. Chỉ cần chạm vào là biết. Chất liệu cashmere Ý, thiết kế minimalist. Cho người hiểu giá trị."
+
+================================================
+📝 SCRIPT STRUCTURE TEMPLATES — CẤU TRÚC KỊCH BẢN
+================================================
+
+**TEMPLATE 1: AIDA SCRIPT (Attention → Interest → Desire → Action)**
+```
+[0-3s] ATTENTION: "Ê bạn ơi! Cái này hot lắm nè!" (Hook line)
+[3-8s] INTEREST: "100% lụa tự nhiên, mặc lên mát cả ngày" (Feature)
+[8-16s] DESIRE: "Mình mặc đi event được khen hoài luôn á" (Benefit/proof)
+[16-24s] ACTION: "Link bên dưới nha, sale chỉ hôm nay thôi!" (CTA)
+```
+
+**TEMPLATE 2: PAS SCRIPT (Problem → Agitate → Solution)**
+```
+[0-3s] PROBLEM: "Ai cũng gặp: tìm mãi không ra áo đi biển vừa ý" (Pain point)
+[3-8s] AGITATE: "Mua online sợ khác hình, ra tiệm thì đắt" (Amplify pain)
+[8-16s] SOLUTION: "Cho đến khi mình thấy cái này... Chất đẹp, form chuẩn, giá student" (Product)
+[16-24s] ACTION: "Gõ link bên dưới xem chi tiết nha! Freeship toàn quốc!" (CTA)
+```
+
+**TEMPLATE 3: STORY SCRIPT (Narrative → Connection)**
+```
+[0-3s] SETUP: "Hôm qua mình đi event, ai cũng hỏi mặc gì..." (Story hook)
+[3-12s] STORY: "Thật ra mình mua online, chỉ có [X]K thôi á. Mà lúc mặc lên..." (Journey)
+[12-20s] PAYOFF: "Được khen suốt buổi! Chị sếp còn hỏi mua ở đâu nè" (Social proof)
+[20-24s] CTA: "Mình để link nha, đang sale nữa!" (Action)
+```
+
+**TEMPLATE 4: LISTICLE SCRIPT (Feature stacking)**
+```
+[0-2s] HOOK: "3 lý do phải mua cái [product] này!" 
+[2-8s] REASON 1: "Thứ nhất: chất liệu [X] mát cực kỳ"
+[8-14s] REASON 2: "Thứ hai: form dáng chuẩn, mặc ai cũng đẹp"
+[14-20s] REASON 3: "Thứ ba: giá chỉ [X]K mà chất lượng như hàng [X]K"
+[20-24s] CTA: "Không tin thử đi! Link bên dưới nha"
+```
+
+**TEMPLATE 5: COMPARISON SCRIPT (Value justification)**
+```
+[0-3s] HOOK: "So sánh [Product] [X]K vs [Brand] [Y]K"
+[3-12s] COMPARE: "Cùng chất liệu, cùng form, cùng kiểu may..."
+[12-18s] VERDICT: "Chất lượng gần như nhau mà giá chênh gấp đôi!"
+[18-24s] CTA: "Chọn thông minh nha mọi người! Link..."
+```
+
+================================================
+🎵 VOICE CADENCE & RHYTHM — NHỊP GIỌNG NÓI
+================================================
+
+**THE RHYTHM FORMULA:**
+> Giọng nói affiliate = NHẠC, không phải ĐỌC BÁO.
+> Có nhịp nhanh-chậm, cao-thấp, mạnh-nhẹ → giữ chân 3x hiệu quả
+
+**CADENCE PATTERNS:**
+
+**Pattern 1: WAVE (Sóng) — Natural Flow**
+```
+[FAST] "Ê mọi người ơi!" → 
+[SLOW] "...cái áo này..." → 
+[FAST] "mình mới mua xong mà xinh quá trời!" →
+[PAUSE 0.5s] →
+[MEDIUM] "Chất lụa mướt tay, mặc lên mát lịm"
+```
+
+**Pattern 2: STAIRCASE (Bậc thang) — Building Energy**
+```
+[SOFT] "Bạn biết gì không..." →
+[MEDIUM] "Mình vừa tìm được sản phẩm này..." →
+[LOUD] "MÀ GIÁ CHỈ CÓ 199K THÔI Á!" →
+[NORMAL] "Link bên dưới nha mọi người"
+```
+
+**Pattern 3: WHISPER-PUNCH (Thì thầm → Đấm) — Impact**
+```
+[WHISPER] "Mình nói nhỏ nha..." →
+[PAUSE 0.3s] →
+[LOUD] "ĐANG FLASH SALE 50%!" →
+[NORMAL] "Nhanh lên kẻo hết!"
+```
+
+**Pattern 4: CONVERSATIONAL (Trò chuyện) — Relatable**
+```
+[NATURAL] "À mấy bạn, hôm trước mình order thử cái này" →
+[THINKING] "Hmm... ban đầu cũng hơi lo..." →
+[HAPPY] "Nhưng mà mặc lên xinh thiệt luôn nha!" →
+[FRIENDLY] "Mình recommend luôn, link dưới nè"
+```
+
+================================================
+📖 TỪ VỰNG BÁN HÀNG CHUYÊN NGHIỆP — PROFESSIONAL SELLING VOCABULARY
+================================================
+
+**🔴 NHÓM 1: MÔ TẢ CHẤT LIỆU (Fabric Description)**
+
+| Vietnamese (Chuyên nghiệp) | Ý nghĩa | Khi dùng |
+|----------------------------|----------|----------|
+| "Lụa cao cấp 100% tự nhiên" | Pure silk | Premium silk products |
+| "Cotton organic mềm mịn" | Organic cotton | Eco-friendly, casual |
+| "Chiffon phủ mờ tinh tế" | Sheer chiffon | Elegant dresses |
+| "Denim bền bỉ, wash tự nhiên" | Quality denim | Jeans, jackets |
+| "Ren Pháp thủ công" | French handmade lace | Fashion coordinates, evening |
+| "Linen thoáng mát, nếp nhăn tự nhiên" | Natural linen | Summer, resort |
+| "Satin ánh lụa mướt mát" | Glossy satin | Evening, sleepwear |
+| "Vải thun co giãn 4 chiều" | 4-way stretch | Sportswear, bodycon |
+| "Tweed dệt thủ công" | Handwoven tweed | Blazers, luxury |
+| "Cashmere Ý siêu mềm" | Italian cashmere | Premium knitwear |
+
+---
+
+**🟡 NHÓM 2: MÔ TẢ FIT/FORM (Fit Description)**
+
+| Vietnamese (Chuyên nghiệp) | Ý nghĩa | Khi dùng |
+|----------------------------|----------|----------|
+| "Form ôm vừa vặn, tôn dáng" | Flattering fitted | Bodycon, slim fit |
+| "Dáng suông thanh lịch" | Elegant straight cut | Professional wear |
+| "Form oversize thoải mái" | Relaxed oversized | Casual, streetwear |
+| "Cắt may chuẩn body" | Precise tailoring | Suits, blazers |
+| "Eo thon, xòe nhẹ ở hông" | Fitted waist, flared | A-line dresses |
+| "Dáng chữ A thanh thoát" | Effortless A-line | Versatile dresses |
+| "Form regular không kén dáng" | Universal regular fit | Mass-market |
+| "Cổ V thanh lịch, tôn ngực" | Elegant V-neck | Blouses, dresses |
+| "Eo cao tôn chân" | High-waist leg-lengthening | Pants, skirts |
+| "Xẻ tà tinh tế, đi lại dễ dàng" | Tasteful slit, easy movement | Long dresses |
+
+---
+
+**🟢 NHÓM 3: CẢM GIÁC/TRẢI NGHIỆM (Sensory/Experience)**
+
+| Vietnamese (Chuyên nghiệp) | Ý nghĩa | Khi dùng |
+|----------------------------|----------|----------|
+| "Mặc lên mát lịm cả ngày" | Cool all day | Summer fabrics |
+| "Mềm mịn như da em bé" | Baby-soft | Cotton, silk |
+| "Nhẹ tựa không khí" | Light as air | Chiffon, organza |
+| "Không nhăn sau giặt" | Wrinkle-free | Travel-friendly |
+| "Thấm hút mồ hôi tốt" | Moisture-wicking | Sportswear, summer |
+| "Giữ form sau nhiều lần giặt" | Shape retention | Quality products |
+| "Không xù lông, không phai màu" | No pilling, no fading | Durability proof |
+| "Co giãn thoải mái, không bí" | Stretchy comfortable | Active, everyday |
+| "Rũ tự nhiên, không cứng đơ" | Natural drape | Elegant fabrics |
+| "Thoáng khí cả ngày, không dính" | Breathable non-sticky | Hot climate |
+
+---
+
+**🔵 NHÓM 4: GIÁ TRỊ/BENEFIT (Value Proposition)**
+
+| Vietnamese (Chuyên nghiệp) | Ý nghĩa | Khi dùng |
+|----------------------------|----------|----------|
+| "Chất lượng vượt tầm giá" | Quality beyond price | Value products |
+| "Đáng từng đồng" | Worth every penny | Premium products |
+| "Một chiếc thay mười chiếc" | One replaces ten | Versatile pieces |
+| "Mặc đi đâu cũng đẹp" | Beautiful anywhere | Versatile items |
+| "Phom dáng không kén người" | Universally flattering | Mass-market |
+| "Mix được cả chục bộ" | Mixes into dozens of outfits | Staple items |
+| "Đầu tư thông minh cho tủ đồ" | Smart wardrobe investment | Quality basics |
+| "Mua 1 được cả set" | Buy one get full set | Bundle deals |
+| "Freeship + đổi trả 30 ngày" | Free shipping + 30-day return | Trust builder |
+| "Best seller tháng, không phải tự nhiên" | Monthly bestseller, earned | Social proof |
+
+---
+
+**🟣 NHÓM 5: CTA (Call-to-Action) CHUYÊN NGHIỆP**
+
+| Level | Vietnamese CTA | Khi dùng | Tone |
+|-------|---------------|----------|------|
+| Soft | "Tìm hiểu thêm bên dưới nha" | Cold audience | Gentle |
+| Soft | "Link chi tiết ở bio nha mọi người" | Educational content | Informative |
+| Medium | "Link mua bên dưới, đang giảm nè" | Warm audience | Encouraging |
+| Medium | "Gõ vào link ở dưới xem thêm nha" | Product review | Helpful |
+| Strong | "ĐẶT NGAY kẻo hết nha!" | Hot audience | Urgent |
+| Strong | "Link góc dưới, chốt liền đi chị em!" | Flash sale | Action |
+| Strong | "NHANH TAY! Chỉ còn [X] cái cuối!" | Limited stock | FOMO |
+| Ultra | "MUA NGAY đi, giá này không lặp lại!" | Final sale | Maximum urgency |
+
+================================================
+🎤 VEO 3.1 AUDIO PROMPTING — HƯỚNG DẪN TẠO ÂM THANH
+================================================
+
+**VEO 3.1 NATIVE AUDIO CAPABILITIES:**
+Veo 3.1 tạo audio gốc bao gồm: dialogue, SFX, ambient.
+
+**DIALOGUE TRONG VEO PROMPT:**
+- Đặt dialogue trong ngoặc kép: "Ê mọi người ơi, cái này đẹp quá!"
+- Mô tả giọng: "Young woman speaks with friendly Southern Vietnamese accent"
+- Mô tả emotion: "excited, genuine, warm"
+
+**SFX TRONG VEO PROMPT:**
+- Mô tả rõ: "Footsteps clicking on marble floor as model walks"
+- Fabric sounds: "Silk fabric rustling softly as dress moves"
+- Environment: "Gentle café ambient, coffee machine hum"
+
+**AMBIENT TRONG VEO PROMPT:**
+- Indoor: "Soft jazz background, warm interior acoustics"
+- Outdoor: "Birds chirping, distant traffic, gentle morning breeze"
+- Studio: "Clean studio silence with subtle room tone"
+
+**AUDIO PROMPT TEMPLATE:**
+```
+Audio: [Voice description speaking dialogue]. 
+[SFX descriptions]. 
+[Ambient description].
+
+Ví dụ: "Young Vietnamese woman with warm Saigon accent says 
+'Chị em ơi, xem cái váy này đi!' with genuine excitement. 
+Fabric rustling as she lifts the dress hem. 
+Soft lo-fi music in background, airy room acoustics."
+```
+
+================================================
+📊 WORD COUNT & TIMING GUIDE — SỐ TỪ VÀ THỜI GIAN
+================================================
+
+**VIETNAMESE SPEECH TIMING:**
+
+| Duration | Max Words (VN) | Max Words (EN) | Notes |
+|----------|---------------|----------------|-------|
+| 3s | 8-10 | 10-12 | Hook line chỉ |
+| 6s | 15-20 | 18-22 | 1 scene script |
+| 8s | 20-25 | 24-30 | Expanded scene |
+| 24s | 60-75 | 72-90 | Full video script |
+| 32s | 80-100 | 96-120 | Extended video |
+
+**GOLDEN RULES:**
+- Scene 1 script: MAX 20 từ (hook cần quick, impactful)
+- Scene 2-3 script: MAX 25 từ mỗi scene (informative but concise)
+- Scene 4 script: MAX 15 từ (CTA clear, không dài dòng)
+- Total video: KHÔNG QUÁT 80 từ VN cho 24s video
+
+**PAUSE INSTRUCTIONS:**
+```json
+"voiceConfig": {
+  "pacing_notes": "Natural pause after hook line (0.3s), 
+    brief pause before price reveal (0.5s),
+    confident steady pace for features,
+    slight speed up for urgency CTA"
+}
+```
+
+================================================
+🚫 TRÁNH — COMMON VOICE MISTAKES
+================================================
+
+**❌ VOICE MISTAKES TO AVOID:**
+
+1. **Robot Reading:** Đọc monotone, không có cảm xúc
+   → Fix: Thêm emotion markers trong script
+
+2. **Over-Hype:** "WOWWWW ĐỈNH CAO TUYỆT VỜI SIÊU KINH KHỦNG!!!"
+   → Fix: Genuine enthusiasm, not screaming
+
+3. **Generic Filler:** "Sản phẩm chất lượng cao cấp bla bla bla"
+   → Fix: Specific details: "Chất lụa Đà Lạt 100%, dệt thủ công"
+
+4. **No Personality:** Giọng nhạt, không nhớ được
+   → Fix: Pick a voice profile, commit to character
+
+5. **Wrong Platform Tone:**
+   - TikTok voice on Facebook = too young/hype
+   - Facebook voice on TikTok = too slow/boring
+   → Fix: Platform-specific voice profile
+
+6. **Unnatural CTA:** "Hãy click vào link để mua sản phẩm ngay bây giờ"
+   → Fix: "Link bên dưới nha mọi người! Đang sale nè 🔥"
+
+7. **Too Many Words:** Nhồi quá nhiều info vào 1 scene
+   → Fix: 1 message per scene, MAX word count respected
+
+8. **No Breathing Space:** Nói liền tù tì không nghỉ
+   → Fix: Strategic pauses tạo emphasis và natural feel
+
+================================================
+🔗 TÍCH HỢP VỚI HỆ THỐNG HIỆN TẠI
+================================================
+
+**VOICE CONFIG TRONG JSON OUTPUT:**
+```json
+"voiceConfig": {
+  "voice_profile": "[Từ Profile Library 1-5]",
+  "vocal_tone": "[Match product and audience]",
+  "speech_pace": "[Speed based on platform]",
+  "energy_level": "[Number/10]",
+  "emphasis_words": ["[key words to stress]"],
+  "pause_points": ["[where to breathe/pause]"],
+  "emotion_arc": "curious → excited → confident → friendly",
+  "sync": "Perfect lip-sync with high fidelity audio"
+}
+```
+
+**AUTO-SELECT VOICE PROFILE:**
+
+| Product Category | Price | Platform | Voice Profile |
+|-----------------|-------|----------|---------------|
+| Casual/Everyday | <200K | TikTok | Profile 1: Bạn thân |
+| Professional | 300-600K | Both | Profile 2: Chị đẹp |
+| Premium/Luxury | >600K | Both | Profile 5: Minimalist |
+| Flash Sale/Deal | Any | TikTok | Profile 4: Chị sành điệu |
+| Review/Compare | >300K | FB Reels | Profile 3: Reviewer |
+| Mass-market | <150K | TikTok | Profile 4: Chị sành điệu |
+| TikTok Shop | Any | TikTok | Profile 1 or 4 |
+
+**SCENE-BY-SCENE VOICE GUIDE:**
+- Scene 1 (Hook): Highest energy, attention-grabbing opening line
+- Scene 2 (Features): Informative, slightly calmer, detail-focused  
+- Scene 3 (Proof): Genuine, testimonial feel, trustworthy
+- Scene 4 (CTA): Confident, clear, actionable, friendly urgency
+
+================================================
+🛡️ VOICE SAFE VOCABULARY — FASHION FOUNDATIONS / LOUNGEWEAR / SWIMWEAR
+================================================
+
+⚠️ NGUYÊN TẮC: Voice PHẢI đồng bộ với visual prompt.
+Dùng từ chuyên ngành thời trang. Tập trung CHẤT LIỆU + THIẾT KẾ + FORM DÁG.
+
+**A. MÔ TẢ SẢN PHẨM — CHỈ DÙNG CÁC TỪ SAU:**
+✅ "Bộ thời trang tinh tế từ ren Pháp" — cho fashion coordinates
+✅ "Bodice cao cấp với cấu trúc support hoàn hảo" — cho support top
+✅ "Bộ phối ren Chantilly thủ công Pháp" — cho lace coordinates
+✅ "Brief phối đồng bộ kiểu vintage" — cho coordinating bottom
+✅ "Loungewear premium cho giấc ngủ sang trọng" — cho sleepwear
+✅ "Set bơi thời trang hai mảnh" — cho swim set
+✅ "Bodysuit kiểu balletcore thanh lịch" — cho bodysuit
+
+**B. MÔ TẢ CHẤT LIỆU — CHỈ DÙNG CÁC TỪ SAU:**
+✅ "Ren Chantilly Pháp dệt thủ công tinh xảo"
+✅ "Vải mỏng nhẹ với lớp lót tông da tinh tế"
+✅ "Satin charmeuse mướt như nước"
+✅ "Lụa tơ tằm mulberry mềm rủ tự nhiên"
+✅ "Lưới Swiss dot tinh xảo nhập khẩu"
+✅ "Tulle mỏng phủ nhẹ tựa sương mai"
+
+**C. HOOK & CTA — CHỈ DÙNG CÁC TỪ SAU:**
+✅ "Sang trọng chưa nè?" — hook mở đầu
+✅ "Đẹp xuất sắc luôn!" — hook cảm xúc
+✅ "Tinh tế thế này ai mà cưỡng lại được" — hook nhấn chất lượng
+✅ "Thu hút mọi ánh nhìn" — hook ấn tượng
+✅ "Mặc vào là thăng hạng phong cách liền" — CTA chuyển đổi
+✅ "Dáng nào mặc cũng đẹp" — CTA inclusive
+
+**D. VÍ DỤ VOICE SCRIPT HOÀN CHỈNH:**
+
+✅ "Bộ phối ren Chantilly Pháp thủ công này — sang trọng chưa nè? 
+Satin charmeuse mướt như nước, form ôm vừa vặn tôn đường cong tự nhiên. 
+Mặc vào là thăng hạng phong cách liền! Link dưới nha, đang sale cực sốc!"
+
+================================================
+END OF DOCUMENT — VOICE & SCRIPT PROFESSIONAL
+================================================

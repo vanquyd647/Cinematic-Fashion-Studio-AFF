@@ -1,0 +1,2920 @@
+﻿# Studio Mode Guide for AI
+
+## Purpose
+When STUDIO_MODE is ON, use professional themed studio backgrounds instead of real-world locations for TikTok affiliate product videos.
+
+## ⚠️ CRITICAL: STUDIO ≠ REAL LOCATION (QUAN TRỌNG NHẤT)
+
+**STUDIO LÀ GÌ?**
+- Một PHÒNG CHỤP ẢNH chuyên nghiệp
+- Có BACKDROP (phông nền như giấy, vải, canvas)
+- Có ĐẠO CỤ (props) đặt trong studio để MÔ PHỎNG theme
+- KHÔNG PHẢI địa điểm thật!
+
+**❌ SAI - Đây là REAL LOCATION (không dùng cho Studio Mode):**
+```
+"Elegant ballroom with crystal chandeliers, marble floors, golden pillars"
+"Royal palace interior with velvet curtains and antique furniture"
+"French château living room with fireplace and oil paintings"
+```
+→ Đây là MÔ TẢ ĐỊA ĐIỂM THẬT, AI sẽ tạo ra bối cảnh siêu thực!
+
+**✅ ĐÚNG - Đây là STUDIO với props mô phỏng:**
+```
+"Professional photography studio. 9ft cream seamless paper backdrop on stand. 
+Props (background only): gilded mirror frame (leaning against wall), crystal vase 
+with white roses, velvet chair edge visible. Softbox at 3200K. Polished parquet 
+studio floor. - STUDIO FIXED"
+```
+→ Đây là PHÒNG CHỤP với đạo cụ tạo không khí sang trọng!
+
+**SỰ KHÁC BIỆT:**
+| Yếu tố | Real Location | Studio |
+|--------|---------------|--------|
+| Background | Thật (tường thật, cửa sổ thật) | BACKDROP (giấy, vải, canvas) |
+| Đồ nội thất | Đầy đủ như phòng thật | CHỈ 1-3 PROPS ở background |
+| Ánh sáng | Tự nhiên từ cửa sổ | THIẾT BỊ STUDIO (softbox, LED) |
+| Sàn nhà | Sàn thật của địa điểm | SÀN STUDIO (gỗ, vinyl, thảm) |
+| Kết quả AI | Bối cảnh siêu thực | Phòng chụp chuyên nghiệp |
+
+**TEMPLATE CHUẨN CHO MỌI STUDIO:**
+```
+"Professional photography studio. [BACKDROP TYPE] backdrop [COLOR/PATTERN]. 
+Props (background only, out of focus): [PROP 1], [PROP 2], [PROP 3 max]. 
+[LIGHTING EQUIPMENT] at [TEMPERATURE]K. [STUDIO FLOOR TYPE]. 
+[Theme aesthetic] professional studio. - STUDIO FIXED"
+```
+
+## Benefits
+- 0% AI artifact risk (studio background never changes)
+- Professional, consistent, clean look
+- Perfect for TikTok affiliate batch video creation
+- Scalable (same setup for multiple products)
+
+---
+
+
+## When Studio Mode is Active
+
+**System will inject:** `STUDIO_MODE: ON`
+
+**Your task:**
+1. Detect product category from outfit image
+2. Select appropriate studio from database
+3. Use studio description as environment (instead of real location)
+
+---
+
+## Product Category → Studio Mapping
+
+| Product Type | Studio Category | Default Studio |
+|--------------|----------------|----------------|
+| Áo dài | `aodai` | Traditional Cultural |
+| Blazers, Office Dress, Dress Pants | `professional` | Corporate Minimal |
+| Jeans, T-Shirts, Casual | `casual` | Urban Cool |
+| Cocktail/Evening Dress | `evening` | Glamorous Bokeh |
+| Sports Bra, Leggings, Athletic | `sportswear` | Clean Active |
+| Sleepwear, Robes, Loungewear | `sleepwear` | Cozy Minimal |
+| Bags, Jewelry, Shoes, Sunglasses | `accessories` | Product Showcase |
+| Maxi, Mini, Bodycon Dress | `dress` | Beach Flowing |
+| Blouse, Crop Top, Sweater | `top` | Street Style |
+| Bikini, Swimwear | `bikini` | Infinity Pool |
+| Inner, Foundation | `lingerie` | Vanity Mirror |
+| Pants, Jeans, Skirts | `bottom` | Denim Story |
+| Jumpsuit, Set, Suit | `set` | Power Suit |
+| Jacket, Coat, Blazer | `outerwear` | Winter Cozy |
+| Skincare, Makeup, Hair | `beauty` | Skincare Lab |
+| Fine Jewelry, Watches | `expanded_accessories` | Jewelry Close-up |
+
+---
+
+## Studio Database Structure
+
+Each category has 5-7 diverse styles. Pick the DEFAULT (⭐) or randomly select for variety.
+
+**Studio describes:**
+- Background (color, texture, gradient)
+- Props (1-3 items, background only, minimal)
+- Lighting (temperature, style, simulation)
+- Floor (material, color)
+- Vibe (overall mood/aesthetic)
+
+---
+
+## How to Use Studio in Prompts
+
+### Environment Description Format:
+
+```
+"Professional photography studio with [THEME]. [Background description]. [Props description - minimal, background]. [Lighting description]. [Floor description]. - STUDIO FIXED"
+```
+
+### Example - Áo Dài (Traditional Cultural):
+
+```json
+{
+  "masterPrompt": {
+    "environmentBase": "Professional photography studio with Vietnamese cultural theme. Soft ivory-to-warm-beige gradient seamless backdrop. Small ceramic vase with apricot blossoms on wooden pedestal in soft-focus background right, traditional wooden folding screen (1 panel) partially visible background left. Warm golden hour lighting simulation (2700K-3200K) with soft rim light from behind. Light polished wooden floor. Elegant traditional meets modern aesthetic. - STUDIO FIXED"
+  }
+}
+```
+
+### Example - Professional Wear (Corporate Minimal):
+
+```json
+{
+  "masterPrompt": {
+    "environmentBase": "Professional photography studio with corporate aesthetic. Light gray gradient to white seamless backdrop. Modern minimalist desk corner visible background left with closed notebook and coffee cup. Bright clean daylight simulation (5000K-6000K). Polished concrete gray floor. CEO professional aspirational vibe. - STUDIO FIXED"
+  }
+}
+```
+
+### Example - Casual Wear (Urban Cool):
+
+```json
+{
+  "masterPrompt": {
+    "environmentBase": "Professional photography studio with urban street aesthetic. Light gray seamless backdrop with subtle concrete texture. Decorative industrial pipe visible frame edge background, small potted succulent on minimalist shelf out of focus. Natural bright daylight with soft shadows. Concrete-look smooth floor. Instagram-worthy urban vibe. - STUDIO FIXED"
+  }
+}
+```
+
+---
+
+##  Critical Rules
+
+### 1. Always End with "- STUDIO FIXED"
+This tag indicates controlled studio environment (different from real locations which use location name + "FIXED")
+
+### 2. Props Must Be:
+- Minimal (1-3 items maximum)
+- In background (out of focus)
+- NOT blocking model
+- Theme-matched to product
+
+### 3. Use SAME Studio Throughout Video
+- masterPrompt.environmentBase = source of truth
+- All keyframes inherit exact same environment
+- Scenes can elaborate on lighting/atmosphere but NOT change physical studio
+
+### 4. Lighting is SIMULATED
+- Say "golden hour simulation" not "golden hour"
+- Say "daylight simulation" not "natural daylight"
+- Specify color temperature when relevant (2700K-6000K)
+
+### 5. NO Realistic Rooms
+- ❌ NOT: "Living room", "Bedroom", "Kitchen"
+- ✅ YES: "Studio with cozy home aesthetic"
+
+Studio = Backdrop + Minimal props, NOT full realistic room
+
+---
+
+## 📍 STUDIO PROP PLACEMENT SYSTEM (Hệ Thống Vị Trí Đạo Cụ)
+
+⚠️ **MỤC ĐÍCH:** Đảm bảo mỗi prop được đặt ở vị trí LOGIC và PHÙ HỢP với studio photography thực tế.
+
+---
+
+### 🗺️ SPATIAL POSITION CODES (Mã Vị Trí)
+
+| Code | EN Position | VN Vị Trí | Visibility | Best For |
+|------|-------------|-----------|------------|----------|
+| **BG-L** | Background Left | Nền trái | Out-of-focus, visible | Cây lớn, ghế, bàn |
+| **BG-C** | Background Center | Nền giữa | ⚠️ Hạn chế, che model | Chỉ dùng cho backdrop texture |
+| **BG-R** | Background Right | Nền phải | Out-of-focus, visible | Đối xứng với BG-L |
+| **BG-UL** | Background Upper Left | Nền trên trái | Gợi không gian | Đèn treo, đèn lồng, cây cao |
+| **BG-UR** | Background Upper Right | Nền trên phải | Gợi không gian | Chandelier, string lights |
+| **MG-L** | Midground Left | Vùng giữa trái | Rõ hơn, composition | Ghế nhỏ, bàn nhỏ cho model tương tác |
+| **MG-R** | Midground Right | Vùng giữa phải | Rõ hơn, composition | Đối xứng với MG-L |
+| **FG-L** | Foreground Left | Tiền cảnh trái | Bokeh blur strong | Tạo depth, frame shot |
+| **FG-R** | Foreground Right | Tiền cảnh phải | Bokeh blur strong | Tạo depth, frame shot |
+| **FL-S** | Floor Scatter | Rải trên sàn | Không che model | Cánh hoa, confetti, thảm nhỏ |
+| **W-H** | Wall Hanging | Treo tường | Backdrop decor | Tranh, macramé, đèn, nón lá |
+| **TB-L** | Table/Surface Left | Bàn trái | Chi tiết visible | Ly, sách, đạo cụ nhỏ |
+| **TB-R** | Table/Surface Right | Bàn phải | Chi tiết visible | Đối xứng với TB-L |
+| **CEIL** | Ceiling/Above | Trần/Phía trên | Gợi không gian | Chandelier, đèn lồng, fairy lights |
+
+---
+
+### 🏢 STUDIO LAYOUT ZONES (Sơ Đồ Vùng Studio)
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        WALL / BACKDROP                           │
+│  ┌─────────┐         ┌─────────┐         ┌─────────┐            │
+│  │ BG-UL   │         │ CEIL    │         │ BG-UR   │   HANGING  │
+│  │Đèn treo │         │Chandelier│        │Đèn treo │   ZONE     │
+│  └─────────┘         └─────────┘         └─────────┘            │
+├─────────────────────────────────────────────────────────────────┤
+│  ┌─────────┐                             ┌─────────┐            │
+│  │  BG-L   │                             │  BG-R   │  BACKGROUND│
+│  │Cây lớn  │         (TRÁNH ĐỂ)          │Gương    │  ZONE      │
+│  │Ghế lớn  │          BG-C               │Kệ       │            │
+│  └─────────┘                             └─────────┘            │
+├─────────────────────────────────────────────────────────────────┤
+│  ┌─────────┐     ╔═══════════════╗       ┌─────────┐            │
+│  │  MG-L   │     ║               ║       │  MG-R   │  MIDGROUND │
+│  │Bàn nhỏ  │     ║    MODEL      ║       │Ghế nhỏ  │  ZONE      │
+│  │TB-L     │     ║    ZONE       ║       │TB-R     │            │
+│  └─────────┘     ║   (TRỐNG)     ║       └─────────┘            │
+│                  ╚═══════════════╝                              │
+├─────────────────────────────────────────────────────────────────┤
+│  ┌─────────┐     ┌───────────────┐       ┌─────────┐            │
+│  │  FG-L   │     │    FL-S       │       │  FG-R   │  FOREGROUND│
+│  │Blur prop│     │ Floor scatter │       │Blur prop│  ZONE      │
+│  └─────────┘     │(petals, rug)  │       └─────────┘            │
+│                  └───────────────┘                              │
+└─────────────────────────────────────────────────────────────────┘
+
+⚠️ MODEL ZONE Ở GIỮA PHẢI LUÔN TRỐNG - KHÔNG ĐẶT PROP!
+```
+
+---
+
+### 📦 PLACEMENT RULES BY PROP TYPE (Quy Tắc Theo Loại Đạo Cụ)
+
+| Loại Đạo Cụ | ✅ Vị Trí Đúng | ❌ Vị Trí Sai | Lý Do |
+|-------------|---------------|--------------|-------|
+| 🌸 **Hoa/Vase** | BG-L, BG-R, TB-L, TB-R | BG-C | Không che model, tạo depth |
+| 🪞 **Gương lớn** | BG-L, BG-R (nghiêng) | BG-C, MG | Tránh reflection phức tạp |
+| 🪑 **Ghế/Stool** | BG-L, BG-R, MG-L, MG-R | FG, CENTER | Anchor không gian, model có thể dùng |
+| 🕯️ **Nến/Candle** | TB-L, TB-R (trên holder) | FL, đặt không | Phải có bề mặt đỡ |
+| 📚 **Sách/Magazine** | TB-L, TB-R, BG on shelf | FL (scattered) | Đặt trên bề mặt phẳng |
+| 🌿 **Cây cảnh nhỏ** | BG-L, BG-R, MG corner | BG-C, FG | Điểm nhấn góc |
+| 🌳 **Cây cảnh lớn** | BG-L hoặc BG-R (chỉ 1) | BG-C, nhiều cây | Chiếm không gian, chỉ 1 bên |
+| 🖼️ **Tranh/Frame** | W-H (treo tường) | FL, TB, sàn | Treo mới đúng cách |
+| 🧣 **Vải/Drape** | W-H (rủ), BG (flowing) | FL (trừ setup cố ý) | Treo hoặc drape tự nhiên |
+| ☕ **Ly/Cup/Glass** | TB-L, TB-R (trên bề mặt) | BG xa (không thấy) | Phải trên bàn/bề mặt |
+| 👜 **Túi xách** | MG-L, MG-R, TB | FL (lộn xộn) | Prop phụ kiện, gần model |
+| 🎍 **Cây mai/đào/tre** | BG-L hoặc BG-R (1 cành) | BG-C, nhiều cành | Cây lớn, tránh che |
+| 🏮 **Đèn lồng** | BG-UL, BG-UR, CEIL | FL, TB, sàn | Đèn phải treo cao |
+| 💐 **Hoa cầm tay** | MG gần model | BG xa | Cần model tương tác được |
+| 🪹 **Thảm/Rug** | FL-S (dưới chân model) | BG, wall | Đặt sàn là đúng |
+| 🎄 **Cây Noel/lớn** | BG-L hoặc BG-R (1 cây) | BG-C, 2 cây | Chiếm không gian lớn |
+
+---
+
+### 🎨 THEME-SPECIFIC PLACEMENT (Quy Tắc Theo Chủ Đề)
+
+#### 🌸 ÁO DÀI / TRUYỀN THỐNG
+```
+✅ ĐÚNG LOGIC:
+• Mai/Đào lớn → BG-L hoặc BG-R (1 bên, không che)
+• Đèn lồng → BG-UL hoặc BG-UR (treo cao tự nhiên)
+• Bàn trà → MG-L hoặc MG-R (model có thể ngồi cạnh)
+• Nón lá → W-H (treo tường) hoặc TB gần model (để cầm)
+• Bình sen → TB-L hoặc TB-R (thấy chi tiết hoa)
+• Bình phong → BG-L (1 panel, góc nghiêng)
+
+❌ KHÔNG LOGIC:
+• Đèn lồng trên sàn → Không ai đặt vậy
+• Cây mai ở BG-C → Che model
+• Bình sen ở BG xa → Không thấy chi tiết đẹp
+• Nhiều cây mai 2 bên → Quá đông, che model
+```
+
+#### 💼 CÔNG SỞ / PROFESSIONAL
+```
+✅ ĐÚNG LOGIC:
+• Bàn làm việc → MG-L hoặc MG-R (để model dựa hoặc ngồi)
+• Laptop → TB (gập hoặc mở trên bàn)
+• Sách/Portfolio → TB (xếp gọn trên bàn)
+• Cây xanh nhỏ → BG-corner hoặc TB (góc bàn)
+• Ghế văn phòng → MG (cho model ngồi nếu cần)
+• Đồng hồ/Frame → W-H hoặc BG shelf
+
+❌ KHÔNG LOGIC:
+• Laptop ở background xa → Không thấy
+• Ghế ở foreground → Che model
+• Sách rải trên sàn → Không professional
+• Cây lớn ở BG-C → Che model
+```
+
+#### ✨ DẠ HỘI / EVENING
+```
+✅ ĐÚNG LOGIC:
+• Chandelier → CEIL hoặc BG-upper (treo cao, gợi ý)
+• Champagne → TB trên bàn nhỏ MG (model có thể cầm)
+• Nến → TB với candle holder (có giá đỡ)
+• Gương lớn → BG-L hoặc BG-R (nghiêng, tạo depth)
+• Velvet drape → W-H hoặc BG (rủ từ trên)
+• Hoa hồng → TB vase hoặc FL-S (petals scattered)
+
+❌ KHÔNG LOGIC:
+• Champagne trên sàn → Phi thực tế
+• Nến không có holder → Nguy hiểm, phi logic
+• Chandelier thấp ngang người → Phi logic
+• Gương flat đối diện camera → Reflection issue
+```
+
+#### 🌻 BOHEMIAN / TỰ DO
+```
+✅ ĐÚNG LOGIC:
+• Macramé → W-H (treo tường - đúng cách dùng macramé)
+• Cây cảnh → BG corner, MG corner (nhiều cây OK)
+• Thảm boho → FL-S (dưới chân model)
+• Gối → MG scatter hoặc trên ghế/sofa
+• Fairy lights → BG-upper string (treo cao)
+• Rattan furniture → BG-L hoặc MG-L
+
+❌ KHÔNG LOGIC:
+• Macramé trên sàn → Không ai làm vậy
+• Cây ở foreground → Che view
+• Cushion treo tường → Phi logic
+```
+
+#### 🏃 SPORTSWEAR / ACTIVE
+```
+✅ ĐÚNG LOGIC:
+• Gym equipment → BG-L hoặc BG-R (1 item)
+• Yoga mat → FL-S (cuộn hoặc trải)
+• Towel → TB hoặc MG (treo hoặc xếp)
+• Water bottle → TB (trên bề mặt)
+• Resistance band → TB hoặc MG gần model
+
+❌ KHÔNG LOGIC:
+• Heavy equipment ở foreground → Che view
+• Mat treo tường → Phi logic
+• Nhiều equipment → Quá đông
+```
+
+---
+
+### ✅ PROP PLACEMENT VALIDATION CHECKLIST
+
+Trước khi output studio description, KIỂM TRA:
+
+```
+☐ Mỗi prop có position code rõ ràng? (BG-L, TB-R, etc.)
+☐ Props lớn ở BG, không che model?
+☐ Props nhỏ cần thấy chi tiết ở MG hoặc TB?
+☐ MODEL ZONE center hoàn toàn trống?
+☐ Props phù hợp với theme sản phẩm?
+☐ Vị trí đặt logic trong studio thực tế?
+☐ Props treo (đèn, tranh, macramé) → W-H hoặc CEIL?
+☐ Props đặt (ly, sách, nến) → TB trên bề mặt?
+☐ Props sàn (thảm, petals) → FL-S không che model?
+☐ Không có props floating/magic?
+```
+
+---
+
+### 📝 UPDATED PROP DESCRIPTION FORMAT
+
+**❌ Format cũ (không rõ vị trí):**
+```
+- Props: Champagne flute on table (background), jewelry box open
+```
+
+**✅ Format mới (có position code):**
+```
+- Props: 
+  • [TB-R] Small marble side table with champagne flute
+  • [MG-L] Velvet jewelry box on pedestal, lid open, catching rim light
+  • [FL-S] Sparse rose petals scattered on dark floor
+```
+
+**Output cho AI prompt:**
+```
+"Professional photography studio. Gray gradient seamless backdrop.
+Props: [TB-R] champagne flute on small marble table out of focus,
+[MG-L] open jewelry box on velvet pedestal catching rim light,
+[FL-S] sparse rose petals on polished dark wood floor.
+Warm luxury lighting 3200K. - STUDIO FIXED"
+```
+
+---
+
+
+
+### 6. 🎨 STUDIO COLOR CONTRAST RULE (BẮT BUỘC)
+
+**Studio backdrop PHẢI tương phản với màu sản phẩm để sản phẩm nổi bật!**
+
+**COLOR CONTRAST GUIDE:**
+| Màu sản phẩm | ❌ TRÁNH backdrop | ✅ NÊN chọn backdrop |
+|--------------|-------------------|---------------------|
+| Đỏ / Red | Đỏ, hồng đậm, cam | Xanh lá, trắng, xám nhạt, cream |
+| Xanh dương / Blue | Xanh dương, tím | Cam nhẹ, vàng nhạt, trắng, beige |
+| Xanh lá / Green | Xanh lá, cyan | Hồng nhạt, cream, nâu, trắng |
+| Vàng / Yellow | Vàng, cam | Xám, navy, trắng, lavender |
+| Hồng / Pink | Hồng, đỏ | Xanh mint, trắng, gray, cream |
+| Đen / Black | Đen, xám đậm | Trắng, cream, pastel, gold highlight |
+| Trắng / White | Trắng thuần, ngà | Xám, màu nền có texture, màu nhẹ |
+| Nâu / Brown | Nâu đậm | Cream, trắng, xanh lá nhạt, beige |
+
+**CONTRAST LOGIC FOR AI:**
+```
+IF product_color == backdrop_dominant_color:
+   → REJECT → Choose contrasting studio
+   
+IF product_color is WARM (red, orange, yellow):
+   → Prefer COOL backdrops (blue-gray, sage, mint)
+   
+IF product_color is COOL (blue, green, purple):
+   → Prefer WARM backdrops (cream, beige, ivory, warm gray)
+   
+IF product_color is NEUTRAL (black, white, gray):
+   → Prefer SUBTLE COLOR backdrops (soft pastels, warm neutrals)
+```
+
+**VÍ DỤ:**
+- ❌ SAI: Áo dài ĐỎ + Studio đỏ Tết → Sản phẩm chìm
+- ✅ ĐÚNG: Áo dài ĐỎ + Studio cream/trắng với điểm nhấn mai vàng → Nổi bật
+
+- ❌ SAI: Sườn xám XANH + Studio Đỏ Sang Trọng → Quá clash
+- ✅ ĐÚNG: Sườn xám XANH + Studio cream Thượng Hải → Hài hòa, nổi sản phẩm
+
+---
+
+## 🎯 PROFESSIONAL STUDIO REALISM RULES (BẮT BUỘC)
+
+================================================
+⚠️ STUDIO PHẢI TRÔNG NHƯ STUDIO CHUYÊN NGHIỆP THẬT
+================================================
+
+**VẤN ĐỀ:** AI tạo studio trông ảo, fantasy, không giống studio thật
+**MỤC TIÊU:** Mọi studio output PHẢI nhìn như chụp trong studio photography thật
+
+---
+
+### 🔴 MANDATORY REALISM REQUIREMENTS
+
+**1. REAL PHYSICAL STUDIO STRUCTURE:**
+```
+✅ PHẢI CÓ:
+- "Professional photography studio with physical backdrop stand"
+- "Actual seamless paper backdrop (9ft wide roll)"
+- "Professional studio ambient sound (quiet, controlled)"
+
+❌ KHÔNG ĐƯỢC LỘ TRONG KHUNG HÌNH:
+- Máy ảnh, chân máy
+- Đèn studio, softbox, strobe
+- Reflector, V-flat
+- Backdrop stand, khung phông
+→ Chỉ thấy BACKDROP + PROPS + MODEL
+```
+
+**2. REAL STUDIO BACKDROP TYPES (Chọn 1):**
+| Type | Description | When to Use |
+|------|-------------|-------------|
+| **Seamless Paper** | "9ft seamless paper roll on backdrop stand, [color]" | Most common, clean look |
+| **Muslin Fabric** | "Muslin fabric backdrop with natural wrinkles and texture" | Vintage, textured look |
+| **Vinyl Backdrop** | "Vinyl backdrop with [pattern], smooth no-crease surface" | Pattern backgrounds |
+| **Painted Canvas** | "Hand-painted canvas backdrop with [gradient/texture]" | Artistic, editorial |
+| **Cyclorama** | "Infinity cyclorama wall, white curved floor-to-wall" | High-end product |
+
+**3. LIGHTING DESCRIPTION (Equipment NOT visible):**
+```
+✅ DESCRIBE HIỆU ỨNG ÁNH SÁNG (không thấy thiết bị):
+- "Soft diffused key light from camera-left" (không nói softbox)
+- "Rim light glow from behind" (không nói strip light)
+- "Gentle fill light reducing shadows" (không nói reflector)
+- "Warm [temperature]K studio lighting"
+
+❌ KHÔNG MÔ TẢ THIẾT BỊ LỘ TRONG FRAME:
+- KHÔNG: "softbox visible", "strobe in frame"
+- KHÔNG: "lighting equipment at edge"
+→ Chỉ mô tả HIỆU ỨNG ánh sáng, KHÔNG mô tả thiết bị
+```
+
+**4. REAL STUDIO FLOOR OPTIONS:**
+| Floor Type | Description | Style |
+|------------|-------------|-------|
+| **Studio Concrete** | "Polished concrete studio floor, gray, professional" | Industrial |
+| **White Vinyl** | "White vinyl studio flooring, easy clean, seamless" | Clean product |
+| **Wood Laminate** | "Light wood studio flooring, natural warm" | Cozy, lifestyle |
+| **Paper Sweep** | "Seamless paper sweeps onto floor, no visible seam" | Editorial |
+| **Posing Mat** | "Black rubber posing mat area, practical" | Fashion |
+
+---
+
+### 🚫 FORBIDDEN FANTASY ELEMENTS
+
+**❌ TUYỆT ĐỐI CẤM những từ/hiệu ứng sau:**
+
+| ❌ FORBIDDEN | ✅ THAY BẰNG |
+|--------------|--------------|
+| "Magical glow" | "Softbox diffused light" |
+| "Ethereal atmosphere" | "Clean studio ambient" |
+| "Floating petals in air" | "Scattered petals on floor (pre-placed)" |
+| "Mystical fog" | "Fog machine haze (optional, controlled)" |
+| "Dreamy blur everywhere" | "Shallow depth of field, f/1.8" |
+| "Heavenly light beams" | "Softbox with grid spot pattern" |
+| "Fantasy castle backdrop" | "Painted canvas with architectural pattern" |
+| "Glowing aura around subject" | "Rim light from behind creating edge highlight" |
+| "Stars twinkling" | "Christmas lights bokeh in background (real props)" |
+| "Smoke swirling artistically" | "Fog machine effect behind backdrop" |
+
+**❌ CẤM các từ AI-fantasy:**
+- "magical", "mystical", "ethereal", "enchanted", "fantastical"
+- "glowing", "radiating", "luminous" (unless describing actual light source)
+- "floating" (for objects that can't float)
+- "swirling", "dancing" (for static objects)
+- "otherworldly", "dreamlike", "surreal"
+
+---
+
+### 📷 REAL PHOTOGRAPHY TERMINOLOGY (BẮT BUỘC SỬ DỤNG)
+
+**Mô tả như photographer thực sự:**
+
+**Lighting Setup:**
+```
+✅ "Key light: 48" octabox camera-left at 45°, f/5.6 power"
+✅ "Fill: Silver reflector camera-right, 1-stop below key"
+✅ "Hair light: Strip box behind subject camera-right"
+✅ "Background light: Gel blue, low power for separation"
+```
+
+**Camera & Lens:**
+```
+✅ "Shot at 85mm f/2.0, medium compression"
+✅ "Full-length shot requires wider lens, 35mm"
+✅ "Shallow DOF isolates subject from backdrop"
+```
+
+**Studio Practical Details:**
+```
+✅ "Apple box for height adjustment"
+✅ "C-stand with arm holding reflector"
+✅ "Gaffer tape marks on floor for positioning"
+✅ "Tethered shooting to laptop visible at studio edge"
+```
+
+---
+
+### 🎨 PROFESSIONAL STUDIO AESTHETIC GUIDE
+
+**REALISTIC STUDIO LOOKS:**
+
+**1. HIGH-KEY (Bright, Clean):**
+```
+"White seamless backdrop, lit evenly with two large softboxes.
+Minimal shadows. Clean product photography aesthetic.
+Floor: white vinyl sweep seamless with backdrop."
+```
+
+**2. LOW-KEY (Dramatic, Moody):**
+```
+"Black seamless backdrop absorbing all spill light.
+Single key light creating dramatic shadows.
+Negative fill (black V-flat) deepening contrasts.
+Floor: Black posing mat, matte finish."
+```
+
+**3. LIFESTYLE STUDIO:**
+```
+"Gray muslin backdrop with painted texture.
+Warm tungsten key light mixing with cool fill.
+Props: Real furniture pieces (chair, side table) in background.
+Floor: Warm wood studio flooring, practical."
+```
+
+**4. FASHION EDITORIAL:**
+```
+"Painted canvas backdrop with subtle gradient.
+Beauty dish overhead for catchlights.
+Edge lighting from both sides for definition.
+Floor: Paper sweep matching backdrop color."
+```
+
+---
+
+### ✅ REALISM VERIFICATION CHECKLIST
+
+**Trước khi output studio description, KIỂM TRA:**
+
+☐ **Backdrop type specified?** (seamless paper/muslin/vinyl/canvas/cyclorama)
+☐ **Lighting equipment named?** (softbox/strobe/LED/reflector)
+☐ **Floor type realistic?** (concrete/vinyl/wood/paper sweep)
+☐ **No fantasy words?** (magical, ethereal, glowing, floating)
+☐ **Props are real physical objects?** (pre-placed, not floating)
+☐ **Camera/lens reference realistic?** (focal length, aperture)
+☐ **Overall: Could this exist in real photo studio?** YES required
+
+**Quick Test:** Đọc lại description - nếu nghe như fantasy novel → VIẾT LẠI
+Nếu nghe như photographer mô tả setup → ĐẠT
+
+---
+
+### 📋 TEMPLATE: Professional Studio Prompt
+
+```
+"Professional photography studio. [BACKDROP_TYPE] backdrop in [COLOR/PATTERN], mounted on heavy-duty backdrop stand. [LIGHTING_SETUP] lighting at [TEMPERATURE]K color temperature. [FLOOR_TYPE] studio floor. [PROPS - minimal, 1-3 real items in soft focus background]. Clean controlled studio environment. - STUDIO FIXED"
+```
+
+**Example Output:**
+```
+"Professional photography studio. 9ft white seamless paper backdrop mounted on heavy-duty backdrop stand. 48-inch octabox key light camera-left at 5500K, strip light for rim lighting behind subject. Polished gray concrete studio floor. Small artificial plant on wooden apple box in soft focus background right. Clean controlled studio environment. - STUDIO FIXED"
+```
+
+---
+
+## Selection Logic
+
+**When STUDIO_MODE: ON**
+
+```
+1. Analyze outfit image
+2. Determine product category:
+   - Is it áo dài? → aodai
+   - Blazer/office? → professional
+   - Dress (evening/cocktail)? → evening
+   - Casual (jeans/tee)? → casual
+   - Sportswear? → sportswear
+   - Sleepwear? → sleepwear
+   - Accessory? → accessories
+
+3. Select studio:
+   - Use DEFAULT (⭐) for first/standard choice
+   - OR randomly pick from category for variety
+   
+4. Build environment description using studio specs
+5. Apply to masterPrompt.environmentBase
+6. Use EXACT SAME in all keyframes
+7. End with "- STUDIO FIXED"
+```
+
+---
+
+## 210+ Studio Options Summary (132 Regular + 80 Tết/Festival)
+
+### **Regular Studios (132 total)**
+
+
+### Áo Dài (10 styles)
+- Traditional Cultural ⭐
+- Modern Fusion
+- Heritage Minimalist
+- Garden Poetry
+- Royal Palace
+- Countryside Charm
+- Studio Trắng Tinh Khôi (Pure white)
+- Phòng Trà Huế (Huế tea room)
+- Biệt Thự Pháp (French Colonial)
+- Ánh Trăng Dịu (Soft Moonlight)
+
+### Áo Dài Tết (40 styles) 🌸
+**Mai Vàng/Đào/Hội Theme (20):****
+- Mai Vàng Miền Nam ⭐ (Southern apricot)
+- Mai Vàng Hoàng Cung (Imperial apricot)
+- Mai Vàng Đơn Giản (Minimalist)
+- Mai Vàng Sân Vườn (Garden)
+- Mai Vàng Modern Fusion
+
+**Đào Hồng Theme (5):**
+- Đào Miền Bắc ⭐ (Northern peach)
+- Đào Hồng Thắm (Deep pink)
+- Đào Nhạt Thanh Tao (Soft blush)
+- Đào Sân Thượng (Rooftop)
+- Đào Modern Chic
+
+**Tết Combo Theme (5):**
+- Mai Đào Song Hỷ ⭐ (Double blessing)
+- Tết Truyền Thống Đầy Đủ (Full traditional)
+- Tết Đồng Quê Việt (Rural countryside)
+- Tết Phố Hội Náo Nhiệt (Market street)
+- Tết Sang Trọng VIP (Luxury)
+
+### Váy Cưới / Wedding Dress (10 styles) 👰
+- Chapel Elegance ⭐, Garden Romance, Royal Ballroom, Minimalist Pure White
+- Vintage Manor, Sunset Terrace, French Château, Dreamy Cloud, Rustic Barn, Coastal Breeze
+
+### Sườn Xám / Cheongsam (10 styles) 🥻
+- Thượng Hải Cổ Điển ⭐, Phòng Trà Trung Hoa, Modern Oriental, Hoa Mẫu Đơn
+- Nhà Cổ Hội An, Phòng Đọc Sách Á Đông, Sân Vườn Trúc, Đêm Trăng Rằm, Tiệm Vàng Cổ, Studio Đỏ Sang Trọng
+
+### Evening / Dạ Hội (10 styles)
+- Glamorous Bokeh ⭐, Art Deco Glam, Modern Elegance, Red Carpet, Garden Party
+- Ballroom Classic, Penthouse Night, Candlelit Romance, Minimalist Luxury, Champagne Lounge
+
+### 👗 Dress / Đầm (15 styles) NEW
+- Beach Flowing ⭐, Garden Breeze, Boho Festival, Club Night, Rooftop Party
+- Date Night, Mirror Glam, Neon Night, Minimalist Chic, Executive Lady
+- Meeting Room, Corporate Chic, Flower Field, Romantic Sunset, Spring Garden
+
+### 👚 Top / Áo (10 styles) NEW
+- Street Style ⭐, Minimalist White, Artistic Colorful, Industrial Chic, Cozy Knit
+- Office Elegant, Boho Free, Neon Pop, Vintage 90s, K-Fashion
+
+### Professional (10 styles)
+- Corporate Minimal ⭐, Tech Startup, Law Firm Classic, Creative Agency, Medical Healthcare
+- Finance Banking, Architect Studio, Executive Lounge, Consulting Firm, Academic Scholar
+
+### Casual (10 styles)
+- Urban Cool ⭐, Scandinavian Minimal, Vintage Retro, Bohemian Free, Industrial Loft
+- Coastal Beach, Coffee Shop, Streetwear Edge, Garden Relaxed, Art Gallery
+
+### Sportswear (10 styles)
+- Clean Active ⭐, Gym Minimal, Yoga Studio, Outdoor Active, Dance Studio
+- Crossfit Gym, Boxing Gym, Pool Deck, Running Track, Pilates Studio
+
+### Sleepwear (10 styles)
+- Cozy Minimal ⭐, Luxury Hotel, Spa Retreat, Reading Nook, Scandinavian Hygge
+- Morning Sunshine, Cloud Dreamy, Romantic Elegance, Minimalist Rest, Countryside Morning
+
+### Accessories (10 styles)
+- Product Showcase ⭐, Luxury Boutique, Modern Geometric, Vintage Display, Editorial Magazine
+- Marble Elegance, Natural Organic, Neon Glow, Pastel Dream, Minimalist Black
+
+### 👙 Bikini / Đồ Bơi (10 styles) NEW
+- Infinity Pool ⭐, Beach Sunset, Tropical Paradise, Pool Party, Private Villa
+- Yacht Deck, Lagoon Blue, Cabana Chic, Ocean Breeze, Underwater Fantasy
+
+### 🎀 Inner / Fashion Foundations (10 styles) NEW - TikTok-Safe
+- Vanity Mirror ⭐, Silk Sheets, Bridal Suite, Pastel Cloud, Dressing Room
+- Soft Morning, Rose Petals, Pearl Elegance, Parisian Chic, Lace Pattern
+
+### 👖 Bottom / Quần & Chân Váy (10 styles) NEW
+- Denim Story ⭐, Wide Leg Flow, Office Tailored, Active Motion, Pleated Elegance
+- Mini Modern, Culottes Chic, Cargo Street, Leather Edge, Palazzo Glam
+
+### 🥻 Set / Jumpsuit (8 styles) NEW
+- Power Suit ⭐, Jumpsuit Glamour, Matching Set, Utility Chic
+- Romper Fun, Two-Piece Elegant, Loungewear Cozy, Pajama Party
+
+### 🧥 Outerwear / Áo Khoác (8 styles) NEW
+- Winter Cozy ⭐, Trench Classic, Biker Edge, Blazer Boss
+- Cardigan Soft, Puffer Street, Cape Dramatic, Denim Casual
+
+### 💆 Beauty / Chăm Sóc (10 styles) NEW
+- Skincare Lab ⭐, Makeup Vanity, Spa Zen, Hair Salon, Bathroom Bright
+- Beauty Counter, Nail Art, Body Care, Mirror Selfie Beauty, Clean Beauty
+
+### 💎 Expanded Accessories (8 styles) NEW
+- Jewelry Close-up ⭐, Bag Showcase, Shoes Gallery, Sunglasses Vibe
+- Hat Collection, Scarf Elegance, Watch Luxury, Belt Display
+
+**⭐ = Default/Most Popular**
+
+---
+
+### **Tết & Festival Studios (60 total)**
+- 🌸 Áo Dài Tết & Hội: 20 studios
+- 👔 Sườn Xám Tết & Hội: 20 studios  
+- 👗 Đầm Váy Tết & Hội: 20 studios
+
+---
+
+## Validation Checklist
+
+Before outputting, verify:
+- [ ] Studio selected matches product category
+- [ ] Environment description includes all 5 elements (background, props, lighting, floor, vibe)
+- [ ] Props are minimal (1-3 items) and in background
+- [ ] Lighting describes simulation (not claiming real conditions)
+- [ ] Ends with "- STUDIO FIXED"
+- [ ] SAME studio used in all keyframes
+- [ ] No realistic room names (living room, bedroom, etc.)
+
+---
+
+## Studio vs Real Location
+
+**Studio Mode (ON):**
+```
+"Professional photography studio with... - STUDIO FIXED"
+```
+
+**Real Location Mode (OFF - default):**
+```
+"Shot on location at Nguyen Hue Walking Street Saigon... - FIXED"
+```
+
+Both are FIXED (no drift) but studio is controlled/themed, real is actual place.
+
+---
+
+
+## 🎨 DETAILED REGULAR STUDIOS (43 Enhanced Theatrical)
+
+---
+
+### 👘 ÁO DÀI REGULAR STUDIOS (10 Studios - Đơn Giản, Phối Đẹp)
+
+**1. Traditional Cultural ⭐** (Default)
+- Background: Soft ivory seamless paper backdrop with warm beige gradient
+- Props: Small ceramic vase with apricot blooms (background right), wooden folding screen 1 panel (background left)
+- Lighting: Warm golden hour simulation (3000K) with soft rim light
+- Floor: Natural light wood floor
+- Vibe: Simple elegance, traditional Vietnamese, clean professional
+
+**2. Modern Fusion**
+- Background: Clean white seamless with light gray gradient
+- Props: Minimalist sculptural vase with single stem (background center)
+- Lighting: Bright clean daylight (5500K)
+- Floor: Polished concrete gray
+- Vibe: Contemporary Vietnamese, modern minimal, editorial clean
+
+**3. Heritage Minimalist**
+- Background: Muted sage seamless paper, soft cream gradient
+- Props: Simple wooden tea table (background corner), ceramic tea cup
+- Lighting: Soft natural light (4500K) zen mood
+- Floor: Natural bamboo mat
+- Vibe: Understated heritage, quiet elegance, peaceful
+
+**4. Garden Poetry**
+- Background: Soft green-cream gradient seamless
+- Props: Lotus bloom in simple bowl (background), small bonsai
+- Lighting: Natural garden daylight (4800K)
+- Floor: Stone texture vinyl with moss hint
+- Vibe: Vietnamese garden, nature elegance, peaceful contemplation
+
+**5. Royal Palace**
+- Background: Rich burgundy-gold gradient seamless
+- Props: Ornate gold frame mirror (background left), silk drape
+- Lighting: Warm regal (3200K) with rim light
+- Floor: Dark polished wood
+- Vibe: Imperial elegance, royal heritage, refined luxury
+
+**6. Countryside Charm**
+- Background: Warm earth-cream gradient
+- Props: Conical hat hanging (background), bamboo basket
+- Lighting: Natural warm daylight (4200K)
+- Floor: Natural bamboo mat
+- Vibe: Rural heritage, authentic simplicity, Vietnamese village
+
+**7. Studio Trắng Tinh Khôi** (Pure White)
+- Background: Pure white seamless cyclorama
+- Props: Single white orchid in minimalist vase
+- Lighting: Bright clean daylight (6000K)
+- Floor: White sweep seamless
+- Vibe: Pure elegance, bridal clean, maximum product focus
+
+**8. Phòng Trà Huế** (Huế Tea Room) - NEW
+- Background: Warm cream with subtle wood texture
+- Props: Traditional tea set on wooden tray, ceramic jar
+- Lighting: Warm afternoon (3500K) cozy
+- Floor: Light wood with simple mat
+- Vibe: Huế refinement, tea culture, gentle sophistication
+
+**9. Biệt Thự Pháp** (French Colonial) - NEW
+- Background: Soft cream with vintage tile pattern hint
+- Props: Antique wooden chair (background), sheer curtain drape
+- Lighting: Natural window light (4500K)
+- Floor: Vintage tile pattern vinyl
+- Vibe: French-Vietnamese fusion, colonial elegance, nostalgic charm
+
+**10. Ánh Trăng Dịu** (Soft Moonlight) - NEW
+- Background: Deep blue-silver gradient seamless
+- Props: Silver moon-shaped mirror (background), silk lantern
+- Lighting: Cool soft moonlight simulation (4000K) with silver rim
+- Floor: Dark wood with soft reflection
+- Vibe: Evening elegance, romantic moonlit, dreamy sophistication
+
+---
+
+### 💼 PROFESSIONAL STUDIOS (10 Studios - Đơn Giản, Phối Đẹp)
+
+**1. Corporate Minimal ⭐** (Default)
+- Background: Light gray gradient to white seamless
+- Props: Modern desk corner with closed notebook (background left), small indoor plant
+- Lighting: Bright clean daylight (5500K)
+- Floor: Polished concrete gray
+- Vibe: Professional corporate, clean aspirational, CEO confidence
+
+**2. Tech Startup**
+- Background: Fresh mint-to-white gradient seamless
+- Props: Standing desk with laptop (background), whiteboard edge hint
+- Lighting: Bright innovative (5500K)
+- Floor: Light wood planks
+- Vibe: Startup energy, innovation culture, modern workspace
+
+**3. Law Firm Classic**
+- Background: Deep navy-charcoal gradient seamless
+- Props: Leather chair arm visible (background), brass desk lamp
+- Lighting: Warm professional (3800K)
+- Floor: Dark wood classic
+- Vibe: Legal authority, traditional gravitas, trustworthy
+
+**4. Creative Agency**
+- Background: Clean white with soft colorful accent hints
+- Props: Mood board (background), art supplies on shelf
+- Lighting: Bright creative (5500K)
+- Floor: Polished concrete
+- Vibe: Creative energy, design innovation, artistic workspace
+
+**5. Medical Healthcare**
+- Background: Clean white-light-blue gradient seamless
+- Props: Medical chart organizer (background wall), indoor plant
+- Lighting: Clinical bright (6000K)
+- Floor: White vinyl clean
+- Vibe: Medical trust, professional care, hygienic clean
+
+**6. Finance Banking**
+- Background: Navy-gold gradient seamless
+- Props: Executive leather portfolio (background), gold pen on desk
+- Lighting: Warm premium (3800K)
+- Floor: Dark marble
+- Vibe: Wealth management, financial success, premium service
+
+**7. Architect Studio**
+- Background: White-concrete gradient with subtle grid
+- Props: Drafting table with blueprints (background), architectural model
+- Lighting: Bright architectural (5000K)
+- Floor: Polished concrete
+- Vibe: Design precision, professional creativity, clean modern
+
+**8. Executive Lounge** - NEW
+- Background: Warm taupe-cream gradient
+- Props: Leather armchair (background), small coffee table
+- Lighting: Warm ambient (3500K)
+- Floor: Rich wood
+- Vibe: C-suite elegance, executive comfort, refined success
+
+**9. Consulting Firm** - NEW
+- Background: Soft gray seamless
+- Props: Minimalist bookshelf (background), business magazine
+- Lighting: Balanced daylight (5000K)
+- Floor: Light wood
+- Vibe: Strategic thinking, professional advisory, intellectual
+
+**10. Academic Scholar** - NEW
+- Background: Warm cream with wood accent
+- Props: Book stack (background), reading glasses on desk
+- Lighting: Soft natural (4500K)
+- Floor: Worn wood natural
+- Vibe: Academic wisdom, scholarly, intellectual warmth
+
+---
+
+### 👖 CASUAL STUDIOS (10 Studios - Đơn Giản, Phối Đẹp)
+
+**1. Urban Cool ⭐** (Default)
+- Background: Light gray seamless with subtle concrete texture
+- Props: Industrial pipe visible (background edge), small potted plant on shelf
+- Lighting: Natural bright daylight (5000K)
+- Floor: Concrete-look smooth
+- Vibe: Urban street style, Instagram-worthy, casual cool
+
+**2. Scandinavian Minimal**
+- Background: Pure white-light-wood gradient seamless
+- Props: Simple wooden bench (background), ceramic vase with single branch
+- Lighting: Soft diffused daylight (5500K)
+- Floor: Light blonde wood
+- Vibe: Nordic hygge, minimalist clean, peaceful
+
+**3. Vintage Retro**
+- Background: Warm cream-tan gradient with subtle texture
+- Props: Vintage radio (background), old camera on shelf
+- Lighting: Warm tungsten (3200K)
+- Floor: Worn wood
+- Vibe: Retro nostalgia, throwback style, vintage charm
+
+**4. Bohemian Free**
+- Background: Warm earth-cream gradient
+- Props: Macramé wall hanging (background), potted plant
+- Lighting: Warm natural (4000K)
+- Floor: Natural jute rug
+- Vibe: Boho chic, free-spirited, artistic
+
+**5. Industrial Loft**
+- Background: Exposed brick red-charcoal gradient
+- Props: Metal shelving unit (background), Edison bulb hint
+- Lighting: Warm Edison (3000K)
+- Floor: Polished concrete
+- Vibe: Urban loft, industrial edge, modern warehouse
+
+**6. Coastal Beach**
+- Background: Soft blue-sand gradient seamless
+- Props: Driftwood piece (background), shells in bowl
+- Lighting: Bright coastal daylight (5500K)
+- Floor: Light weathered wood
+- Vibe: Beach casual, seaside lifestyle, relaxed vacation
+
+**7. Coffee Shop**
+- Background: Warm brown-cream gradient
+- Props: Coffee grinder vintage (background), espresso cup
+- Lighting: Warm cafe (3500K)
+- Floor: Worn wood cafe style
+- Vibe: Coffee culture, cozy artisan, creative casual
+
+**8. Streetwear Edge** - NEW
+- Background: Dark gray-black gradient
+- Props: Graffiti art poster (background), sneaker display
+- Lighting: Cool contrast (4500K)
+- Floor: Dark concrete
+- Vibe: Street fashion, urban edge, hypebeast
+
+**9. Garden Relaxed** - NEW
+- Background: Soft green-cream gradient
+- Props: Potted fern (background), wooden bench edge
+- Lighting: Natural garden (5000K)
+- Floor: Stone texture
+- Vibe: Outdoor casual, garden relaxed, natural comfort
+
+**10. Art Gallery** - NEW
+- Background: Pure white seamless
+- Props: Minimal art frame (background), sculptural piece
+- Lighting: Gallery bright (5500K)
+- Floor: Light wood
+- Vibe: Artistic casual, gallery aesthetic, sophisticated relaxed
+
+---
+
+### ✨ EVENING STUDIOS (10 Studios - Đơn Giản, Phối Đẹp)
+
+**1. Glamorous Bokeh ⭐** (Default)
+- Background: Deep black-charcoal gradient with golden bokeh lights
+- Props: Champagne flute on table (background), jewelry box open
+- Lighting: Warm luxurious (3200K) with bokeh effect
+- Floor: Glossy black with gold accent
+- Vibe: Evening glamour, red carpet elegance, luxury night
+
+**2. Art Deco Glam**
+- Background: Rich gold-black gradient with geometric pattern
+- Props: Art Deco mirror frame (background), vintage champagne bucket
+- Lighting: Warm golden (3000K)
+- Floor: Black and gold geometric tile
+- Vibe: Gatsby luxury, 1920s elegance, vintage glamour
+
+**3. Modern Elegance**
+- Background: Sleek gray-white gradient seamless
+- Props: Modern sculptural piece (background), minimalist orchid
+- Lighting: Bright modern (4500K)
+- Floor: Polished marble white
+- Vibe: Contemporary luxury, sleek sophistication, modern evening
+
+**4. Red Carpet**
+- Background: Deep burgundy velvet curtain
+- Props: Award statue gold (background), velvet rope hint
+- Lighting: Bright spotlight (5500K)
+- Floor: Red carpet runner
+- Vibe: Hollywood premiere, celebrity glamour, star treatment
+
+**5. Garden Party**
+- Background: Twilight lavender-pink gradient
+- Props: String fairy lights (background), champagne glass
+- Lighting: Warm fairy light (3000K)
+- Floor: Stone patio texture
+- Vibe: Garden evening, twilight romance, outdoor elegance
+
+**6. Ballroom Classic**
+- Background: Elegant ivory-gold gradient
+- Props: Chandelier visible (background upper), classical column hint
+- Lighting: Warm ballroom (3300K)
+- Floor: Polished parquet
+- Vibe: Classical elegance, grand ball, timeless beauty
+
+**7. Penthouse Night** - NEW
+- Background: City skyline bokeh through window
+- Props: Floor-to-ceiling window hint, champagne on tray
+- Lighting: Cool city lights (4000K)
+- Floor: Dark polished marble
+- Vibe: Urban luxury, penthouse glamour, city nights
+
+**8. Candlelit Romance** - NEW
+- Background: Deep warm burgundy seamless
+- Props: Candelabra (background), rose petals scattered
+- Lighting: Warm candlelight (2800K)
+- Floor: Rich dark wood
+- Vibe: Romantic evening, refined elegance, warm passion
+
+**9. Minimalist Luxury** - NEW
+- Background: Pure black seamless
+- Props: Single spotlight, minimal gold accent
+- Lighting: Dramatic single key (4000K)
+- Floor: Black matte
+- Vibe: High fashion, editorial drama, minimalist chic
+
+**10. Champagne Lounge** - NEW
+- Background: Soft champagne-cream gradient
+- Props: Champagne bucket on stand, elegant chairs edge
+- Lighting: Warm ambient (3500K)
+- Floor: Cream marble
+- Vibe: Luxury lounge, celebration, refined festive
+
+---
+
+### 👗 DRESS / ĐẦM STUDIOS (15 Studios - Đa Dạng Phong Cách)
+
+**1. Beach Flowing ⭐** (Default for Maxi)
+- Background: Soft sky blue-white gradient airy seamless
+- Props: Flowing sheer curtain (background), dried palm fan
+- Lighting: Bright natural daylight (5500K) with wind feel
+- Floor: Light sand or weathered wood
+- Vibe: Maxi dress flowing, beach vacation, effortless elegance
+
+**2. Garden Breeze**
+- Background: Fresh green-cream gradient natural
+- Props: White garden bench (background), wild flowers in vase
+- Lighting: Natural filtered (5000K) garden light
+- Floor: Stone path with grass hint
+- Vibe: Garden party, spring dress, romantic outdoor
+
+**3. Boho Festival**
+- Background: Warm earth-terracotta gradient
+- Props: Macramé hanging (background), potted succulents
+- Lighting: Golden afternoon (4000K)
+- Floor: Woven jute rug
+- Vibe: Bohemian festival, free spirit, maxi dress flowing
+
+**4. Club Night**
+- Background: Deep purple-black gradient with neon hints
+- Props: Disco ball reflection (background), cocktail glass
+- Lighting: Cool neon accent (4000K) with party lights
+- Floor: Glossy dark
+- Vibe: Mini dress party, nightclub glamour, confident bold
+
+**5. Rooftop Party**
+- Background: Twilight orange-navy gradient city view
+- Props: String lights (background), champagne flute
+- Lighting: Warm evening (3500K) with city glow
+- Floor: Modern concrete terrace
+- Vibe: Cocktail dress, rooftop vibes, urban sophistication
+
+**6. Date Night**
+- Background: Romantic deep red-cream gradient
+- Props: Candle on table (background), red roses
+- Lighting: Warm refined (3200K)
+- Floor: Dark polished wood
+- Vibe: Date night dress, romantic evening, elegant allure
+
+**7. Mirror Glam**
+- Background: Soft pink-gold gradient reflective
+- Props: Full-length ornate mirror (background), velvet stool
+- Lighting: Soft flattering (4000K) with ring light
+- Floor: Plush cream carpet
+- Vibe: Bodycon selfie, mirror moment, confident beauty
+
+**8. Neon Night**
+- Background: Black with neon pink-blue accent lines
+- Props: LED neon sign (background), reflective surface
+- Lighting: Cool neon (4500K) with dramatic contrast
+- Floor: Glossy black
+- Vibe: Bodycon party, club aesthetic, bold statement
+
+**9. Minimalist Chic**
+- Background: Pure white-light gray seamless clean
+- Props: Single sculptural vase (background), minimal art
+- Lighting: Bright clean (5500K)
+- Floor: White seamless
+- Vibe: Bodycon editorial, high fashion, minimalist power
+
+**10. Executive Lady**
+- Background: Warm taupe-cream gradient professional
+- Props: Leather armchair arm (background), business magazine
+- Lighting: Bright office (5000K)
+- Floor: Light wood executive
+- Vibe: Office dress, power meeting, professional elegance
+
+**11. Meeting Room**
+- Background: Light gray-white gradient corporate clean
+- Props: Conference table edge (background), notebook, pen
+- Lighting: Bright professional (5500K)
+- Floor: Gray carpet corporate
+- Vibe: Corporate dress, presentation ready, confident professional
+
+**12. Corporate Chic**
+- Background: Navy-cream gradient polished
+- Props: Cityscape window hint (background), desk accessory
+- Lighting: Bright modern (5000K)
+- Floor: Polished marble
+- Vibe: Power dress, CEO style, ambitious elegance
+
+**13. Flower Field**
+- Background: Soft lavender-cream gradient floral
+- Props: Fresh flower bunches (background), wicker basket
+- Lighting: Natural afternoon (4500K) golden
+- Floor: Grass with petal scatter
+- Vibe: Floral maxi, spring romance, feminine charm
+
+**14. Romantic Sunset**
+- Background: Warm peach-pink gradient sunset glow
+- Props: Sheer drape flowing (background), fairy lights
+- Lighting: Golden hour (3500K) romantic
+- Floor: Light wood deck
+- Vibe: Romantic dress, sunset photo, dreamy elegance
+
+**15. Spring Garden** 
+- Background: Fresh pink-white gradient cherry blossom
+- Props: Blossom branch (background), bird cage decorative
+- Lighting: Bright spring (5000K) fresh
+- Floor: Light stone path
+- Vibe: Spring dress, fresh start, feminine awakening
+
+---
+
+### 🌸 FLORAL DRESS STUDIOS (25 Studios - By Dress Type)
+
+**Hướng dẫn chọn:** AI tự động match studio dựa trên loại váy được detect từ outfit image.
+
+---
+
+#### 🌼 MINI DRESS / ĐẦM NGẮN (5 Studios)
+*Cho váy ngắn, playful, năng động*
+
+**1. Daisy Fresh ⭐** (Default for Mini)
+- Background: Fresh white-yellow gradient cheerful
+- Props: Daisy bouquet in mason jar (background), picnic blanket edge
+- Lighting: Bright summer daylight (5500K)
+- Floor: Fresh grass texture
+- Vibe: Youthful, casual chic, summer fresh, picnic ready
+
+**2. Poppy Pop**
+- Background: Vibrant coral-cream gradient bold
+- Props: Red poppy arrangement (background), woven basket
+- Lighting: Bright warm (5000K)
+- Floor: Rustic wood
+- Vibe: Bold summer, vibrant energy, statement mini
+
+**3. Cherry Blossom Party**
+- Background: Soft pink-white K-beauty gradient
+- Props: Sakura branch in cute vase (background), pastel accessories
+- Lighting: Soft flattering (4500K) Korean style
+- Floor: Light pink tile
+- Vibe: Sweet playful, K-fashion, idol aesthetic, spring party
+
+**4. Sunflower Festival**
+- Background: Warm golden-cream gradient summer
+- Props: Tall sunflower stems (background), straw hat
+- Lighting: Bright golden (5000K)
+- Floor: Rustic wood planks
+- Vibe: Festival fun, boho summer, sunshine happy
+
+**5. Wildflower Picnic**
+- Background: Soft green-cream meadow gradient
+- Props: Mixed wildflower bunch in basket (background), vintage blanket
+- Lighting: Natural afternoon (4500K)
+- Floor: Grass with scattered petals
+- Vibe: Cottagecore, casual romantic, meadow picnic
+
+---
+
+#### 🌷 MIDI DRESS / A-LINE (5 Studios)
+*Cho váy midi, thanh lịch, office-friendly*
+
+**6. Rose Garden Office ⭐** (Default for Midi)
+- Background: Soft blush-cream gradient professional
+- Props: Elegant rose arrangement (background), minimalist desk
+- Lighting: Bright clean (5000K)
+- Floor: Light wood professional
+- Vibe: Professional feminine, office chic, meeting ready
+
+**7. Tulip Elegance**
+- Background: Soft coral-white gradient Dutch spring
+- Props: Tulip arrangement in glass vase (background), art book
+- Lighting: Bright spring (5000K) editorial
+- Floor: White marble
+- Vibe: Dutch elegance, spring editorial, sophisticated casual
+
+**8. Peony Business**
+- Background: Soft pink-gray gradient refined
+- Props: Lush peony in ceramic vase (background), leather portfolio
+- Lighting: Professional daylight (5000K)
+- Floor: Polished marble
+- Vibe: Sophisticated meeting, feminine power, refined elegance
+
+**9. Magnolia Grace**
+- Background: Warm cream-white Southern gradient
+- Props: Magnolia branch in tall vase (background), vintage frame
+- Lighting: Warm natural (4200K)
+- Floor: Aged wood elegant
+- Vibe: Southern charm, graceful elegance, classic feminine
+
+**10. Hydrangea Tea**
+- Background: Soft blue-lavender-cream gradient
+- Props: Blue hydrangea in porcelain vase (background), tea cup
+- Lighting: Soft afternoon (4500K)
+- Floor: Light marble
+- Vibe: Afternoon tea elegant, garden party, refined casual
+
+---
+
+#### 🌺 MAXI DRESS / FLOWING (5 Studios)
+*Cho váy dài xòe, romantic, resort*
+
+**11. Lavender Fields ⭐** (Default for Maxi)
+- Background: Soft purple-cream Provence gradient
+- Props: Dried lavender bundles in basket (background), rustic chair
+- Lighting: Warm French afternoon (4000K)
+- Floor: Rustic stone
+- Vibe: French Provence, lavender dreamy, romantic flowing
+
+**12. Tropical Hibiscus**
+- Background: Warm coral-teal gradient tropical
+- Props: Hibiscus arrangement (background), palm leaf, rattan
+- Lighting: Warm tropical (4200K)
+- Floor: White sand texture
+- Vibe: Island paradise, resort luxury, tropical romance
+
+**13. Wisteria Cascade**
+- Background: Soft purple-pink Japanese gradient
+- Props: Wisteria vine hanging (background), zen stones
+- Lighting: Soft diffused (4500K) dreamy
+- Floor: Light stone path
+- Vibe: Japanese garden, romantic cascade, ethereal flowing
+
+**14. Meadow Breeze**
+- Background: Soft green-gold meadow gradient
+- Props: Wild grass and flowers (background), wooden fence hint
+- Lighting: Golden hour (4000K)
+- Floor: Natural grass
+- Vibe: Boho flowing, free spirit, meadow romance
+
+**15. Bougainvillea Sunset**
+- Background: Warm magenta-coral-cream Mediterranean gradient
+- Props: Bougainvillea branch (background), terracotta pot
+- Lighting: Warm sunset (3800K)
+- Floor: Terracotta tile
+- Vibe: Mediterranean romance, sunset flowing, Greek island
+
+---
+
+#### 💃 BODYCON / ĐẦM ÔM (5 Studios)
+*Cho váy ôm body, bold, night out*
+
+**16. Red Rose Noir ⭐** (Default for Bodycon)
+- Background: Deep burgundy-black dramatic gradient
+- Props: Dark red roses in black vase (background), velvet drape
+- Lighting: Warm dramatic (3200K) with rim light
+- Floor: Dark marble
+- Vibe: Dramatic allure, red carpet, femme fatale
+
+**17. Black Orchid**
+- Background: Deep purple-black mysterious gradient
+- Props: Dark orchid in minimalist pot (background), candle
+- Lighting: Moody warm (3500K) dramatic
+- Floor: Black marble
+- Vibe: Mysterious luxury, dark elegance, enigmatic night
+
+**18. Calla Lily Glam**
+- Background: Sleek white-silver modern gradient
+- Props: White calla lilies in tall vase (background), mirror
+- Lighting: Bright clean (5000K) editorial
+- Floor: White marble polished
+- Vibe: Sleek modern, minimalist glam, gallery opening
+
+**19. Dark Dahlia**
+- Background: Deep plum-charcoal artistic gradient
+- Props: Dark dahlia arrangement (background), art frame
+- Lighting: Warm moody (3500K)
+- Floor: Dark wood
+- Vibe: Bold artistic, gallery night, creative edge
+
+**20. Velvet Peony**
+- Background: Rich burgundy-cream gradient luxe
+- Props: Deep pink peonies in velvet setting (background), silk
+- Lighting: Warm romantic (3500K)
+- Floor: Rich carpet
+- Vibe: Rich romantic, date night, sophisticated elegance
+
+---
+
+#### 👰 ROMANTIC / WEDDING GUEST (5 Studios)
+*Cho váy dự tiệc, wedding guest, dreamy*
+
+**21. Peony Blush ⭐** (Default for Romantic)
+- Background: Soft blush-cream bridal gradient
+- Props: Blush peony arrangement (background), sheer drape
+- Lighting: Soft romantic (4000K) glowing
+- Floor: White marble
+- Vibe: Wedding guest, romantic feminine, celebration ready
+
+**22. White Rose Dream**
+- Background: Pure white-cream classic gradient
+- Props: White roses in silver vase (background), pearl accents
+- Lighting: Soft bright (4500K) dreamy
+- Floor: White marble
+- Vibe: Classic wedding, timeless elegance, bridal party
+
+**23. Cherry Blossom Romance**
+- Background: Soft pink-lavender spring gradient
+- Props: Sakura branches (background), silk ribbon
+- Lighting: Soft spring (4500K)
+- Floor: Light wood with petals
+- Vibe: Spring wedding, romantic dreamy, cherry blossom season
+
+**24. Garden Party Roses**
+- Background: Soft mixed pastels garden gradient
+- Props: Mixed rose arrangement (background), garden arch hint
+- Lighting: Natural bright (5000K) outdoor feel
+- Floor: Stone garden path
+- Vibe: Outdoor wedding, garden party, celebration elegance
+
+**25. French Cottage Florals**
+- Background: Soft cream with subtle floral wallpaper hint
+- Props: Vintage flower bucket (background), lace curtain
+- Lighting: Soft morning (4500K) romantic
+- Floor: Aged wood planks
+- Vibe: Provence wedding, vintage romantic, cottage charm
+
+---
+
+### 🌸 FLORAL STUDIO AUTO-DETECTION
+
+**AI tự động chọn studio dựa trên:**
+
+| Dress Type Detected | Category | Default Studio |
+|---------------------|----------|----------------|
+| Mini/Short dress | Mini Dress | Daisy Fresh |
+| Midi/A-line dress | Midi Dress | Rose Garden Office |
+| Maxi/Flowing dress | Maxi Dress | Lavender Fields |
+| Bodycon/Fitted dress | Bodycon | Red Rose Noir |
+| Formal/Party dress | Romantic | Peony Blush |
+| Floral pattern (any) | Match dress length | By length category |
+
+---
+
+### 👚 TOP / ÁO STUDIOS (10 Studios - Street to Office)
+
+
+**1. Street Style ⭐** (Default)
+- Background: Urban gray concrete texture seamless
+- Props: Graffiti art hint (background), skateboard lean
+- Lighting: Natural street (5000K) with contrast
+- Floor: Concrete sidewalk
+- Vibe: Street fashion, crop top casual, urban cool
+
+**2. Minimalist White**
+- Background: Pure white seamless clean backdrop
+- Props: Single green plant (background), white ceramic
+- Lighting: Bright clean (5500K)
+- Floor: White seamless sweep
+- Vibe: White shirt editorial, clean beauty, minimalist chic
+
+**3. Artistic Colorful**
+- Background: Splashed paint abstract color gradient
+- Props: Art supplies (background), colorful fabric drape
+- Lighting: Bright artistic (5000K)
+- Floor: Paint-splattered studio
+- Vibe: Printed top, artistic vibe, creative expression
+
+**4. Industrial Chic**
+- Background: Exposed brick red-gray gradient
+- Props: Metal pipe shelving (background), Edison bulb
+- Lighting: Warm industrial (3500K)
+- Floor: Polished concrete
+- Vibe: Jacket style, industrial edge, urban loft
+
+**5. Cozy Knit**
+- Background: Warm cream-beige gradient soft
+- Props: Knit blanket draped (background), hot cocoa mug
+- Lighting: Warm cozy (3500K)
+- Floor: Fluffy cream rug
+- Vibe: Sweater weather, cozy warmth, autumn comfort
+
+**6. Office Elegant**
+- Background: Soft gray-blush gradient professional
+- Props: Desk organizer (background), fresh flowers
+- Lighting: Bright office (5000K)
+- Floor: Light wood professional
+- Vibe: Blouse work, office chic, professional feminine
+
+**7. Boho Free**
+- Background: Earth-cream gradient natural
+- Props: Dreamcatcher (background), terracotta pot
+- Lighting: Warm natural (4000K)
+- Floor: Woven natural fiber
+- Vibe: Boho top, free spirit, ethnic craft
+
+**8. Neon Pop**
+- Background: Bright neon gradient (pink-yellow-blue)
+- Props: Neon accessories (background), bold props
+- Lighting: Bright vibrant (5500K)
+- Floor: White with color reflection
+- Vibe: Neon top, Gen-Z energy, bold statement
+
+**9. Vintage 90s**
+- Background: Retro pastel gradient nostalgic
+- Props: Vintage cassette (background), retro poster
+- Lighting: Soft vintage (4000K)
+- Floor: Checkered tile 90s
+- Vibe: Retro top, 90s throwback, nostalgic cool
+
+**10. K-Fashion**
+- Background: Soft pink-white Korean aesthetic
+- Props: Korean beauty products (background), cherry blossom
+- Lighting: Soft flattering (4500K)
+- Floor: Light pastel tile
+- Vibe: Korean style, K-fashion trendy, idol aesthetic
+
+---
+
+###  SPORTSWEAR STUDIOS (10 Studios - Đơn Giản, Phối Đẹp)
+
+**1. Clean Active ⭐** (Default)
+- Background: Fresh white-light-gray gradient seamless
+- Props: Yoga mat rolled (background), water bottle
+- Lighting: Bright clean daylight (5500K)
+- Floor: Rubber athletic mat texture
+- Vibe: Clean fitness, athletic lifestyle, energetic wellness
+
+**2. Gym Minimal**
+- Background: Industrial gray-white gradient
+- Props: Dumbbell set (background), gym towel
+- Lighting: Bright gym (5500K)
+- Floor: Black rubber gym flooring
+- Vibe: Workout focus, fitness dedication, gym culture
+
+**3. Yoga Studio**
+- Background: Serene sage-cream gradient seamless
+- Props: Yoga blocks (background), meditation cushion
+- Lighting: Soft diffused (4000K)
+- Floor: Light wood natural
+- Vibe: Zen wellness, mindful practice, peaceful fitness
+
+**4. Outdoor Active**
+- Background: Fresh blue-green gradient nature hint
+- Props: Hiking backpack (background), water bottle
+- Lighting: Bright outdoor daylight (5500K)
+- Floor: Natural wood texture
+- Vibe: Adventure lifestyle, outdoor fitness, nature athletic
+
+**5. Dance Studio**
+- Background: Light wood-mirror gradient
+- Props: Ballet barre (background), dance shoes hint
+- Lighting: Bright studio (5000K)
+- Floor: Polished wood dance floor
+- Vibe: Dance energy, movement grace, performance prep
+
+**6. Crossfit Gym**
+- Background: Industrial gray-concrete gradient
+- Props: Kettlebell rack (background), pull-up bar hint
+- Lighting: Bright industrial (5500K)
+- Floor: Rubber gym flooring
+- Vibe: High intensity fitness, crossfit culture, functional training
+
+**7. Boxing Gym** - NEW
+- Background: Dark charcoal-red gradient
+- Props: Boxing gloves hanging (background), punching bag hint
+- Lighting: Dramatic contrast (4500K)
+- Floor: Dark rubber mat
+- Vibe: Fighter energy, boxing culture, intense workout
+
+**8. Pool Deck** - NEW
+- Background: Bright turquoise-white gradient
+- Props: Pool edge hint (background), swim goggles
+- Lighting: Bright poolside (6000K)
+- Floor: White wet-look tile
+- Vibe: Swim fitness, aquatic sport, refreshing athletic
+
+**9. Running Track** - NEW
+- Background: Soft blue-gray gradient
+- Props: Running shoes (background), stopwatch
+- Lighting: Clean daylight (5500K)
+- Floor: Track texture red-brown
+- Vibe: Runner lifestyle, track and field, speed athletic
+
+**10. Pilates Studio** - NEW
+- Background: Soft cream-white gradient
+- Props: Pilates ring (background), foam roller
+- Lighting: Soft bright (5000K)
+- Floor: Light wood with mat
+- Vibe: Core fitness, controlled movement, elegant athletic
+
+---
+
+###  SLEEPWEAR STUDIOS (10 Studios - Đơn Giản, Phối Đẹp)
+
+**1. Cozy Minimal ⭐** (Default)
+- Background: Soft cream-warm-beige gradient seamless
+- Props: Plush throw blanket draped (background), bedside lamp
+- Lighting: Warm evening (3000K)
+- Floor: Warm carpet soft
+- Vibe: Cozy comfort, relaxation lifestyle, homey warmth
+
+**2. Luxury Hotel**
+- Background: Elegant white-champagne gradient
+- Props: Plush robe on hook (background), flowers in vase
+- Lighting: Warm luxury (3200K)
+- Floor: Plush hotel carpet
+- Vibe: 5-star comfort, premium hospitality, luxury rest
+
+**3. Spa Retreat**
+- Background: Serene lavender-white gradient
+- Props: Spa candles (background), rolled white towels
+- Lighting: Dim spa (2800K)
+- Floor: Smooth spa tile
+- Vibe: Wellness escape, tranquil sanctuary, relaxation
+
+**4. Reading Nook**
+- Background: Warm wood-cream gradient
+- Props: Bookshelf (background), reading lamp
+- Lighting: Warm reading (3500K)
+- Floor: Warm wood
+- Vibe: Cozy study, book lover, peaceful retreat
+
+**5. Scandinavian Hygge**
+- Background: Pure white-light-wood gradient
+- Props: Chunky knit blanket (background), simple candles
+- Lighting: Soft diffused (4000K)
+- Floor: Light Nordic wood
+- Vibe: Nordic hygge, minimalist cozy, peaceful
+
+**6. Morning Sunshine** - NEW
+- Background: Soft warm yellow-cream gradient
+- Props: Sheer curtain drape (background), coffee cup
+- Lighting: Bright morning (5000K)
+- Floor: Light wood natural
+- Vibe: Fresh morning, Sunday vibes, gentle wake
+
+**7. Cloud Dreamy** - NEW
+- Background: Soft white-baby-blue gradient
+- Props: Fluffy pillows (background), soft blanket
+- Lighting: Soft diffused (4500K)
+- Floor: Plush white carpet
+- Vibe: Dreamy comfort, cloud soft, peaceful sleep
+
+**8. Romantic Elegance** - NEW
+- Background: Soft blush pink-cream gradient
+- Props: Silk drape (background), vanity mirror edge
+- Lighting: Warm romantic (3200K)
+- Floor: Plush carpet
+- Vibe: Feminine elegance, romantic warmth, soft luxury
+
+**9. Minimalist Rest** - NEW
+- Background: Pure white seamless
+- Props: Single plant (background), simple bedside table
+- Lighting: Clean bright (5000K)
+- Floor: Light wood
+- Vibe: Clean rest, zen bedroom, minimalist comfort
+
+**10. Countryside Morning** - NEW
+- Background: Warm cream with wood hints
+- Props: Wooden window frame (background), cotton curtain
+- Lighting: Natural morning (4500K)
+- Floor: Rustic wood
+- Vibe: Rural charm, countryside rest, natural comfort
+
+---
+
+###  ACCESSORIES STUDIOS (10 Studios - Đơn Giản, Phối Đẹp)
+
+**1. Product Showcase ⭐** (Default)
+- Background: Pure white seamless
+- Props: Display pedestal modern (background), geometric riser
+- Lighting: Bright clean product (6000K)
+- Floor: White seamless sweep
+- Vibe: Professional showcase, commercial clean, product focus
+
+**2. Luxury Boutique**
+- Background: Rich black-gold gradient
+- Props: Velvet display cushion (background), jewelry box
+- Lighting: Warm luxury (3200K)
+- Floor: Black marble
+- Vibe: High-end retail, premium shopping, luxury display
+
+**3. Modern Geometric**
+- Background: Bold geometric pattern (customizable)
+- Props: Geometric pedestal (background), modern sculpture
+- Lighting: Bright architectural (5000K)
+- Floor: Polished concrete
+- Vibe: Contemporary design, architectural showcase, modern art
+
+**4. Vintage Display**
+- Background: Warm sepia-cream gradient
+- Props: Vintage display case (background), antique mirror
+- Lighting: Warm vintage (3200K)
+- Floor: Worn wood
+- Vibe: Antique charm, nostalgic showcase, vintage elegance
+
+**5. Editorial Magazine**
+- Background: Clean white-light-gray gradient
+- Props: Fashion magazines (background), editorial flowers
+- Lighting: Bright editorial (5500K)
+- Floor: White seamless
+- Vibe: Fashion photography, magazine spread, professional styling
+
+**6. Marble Elegance** - NEW
+- Background: White marble texture
+- Props: Gold tray (background), single rose
+- Lighting: Bright clean (5500K)
+- Floor: Marble seamless
+- Vibe: Elegant luxury, jewelry display, refined beauty
+
+**7. Natural Organic** - NEW
+- Background: Soft cream-green gradient
+- Props: Wooden block (background), small plant
+- Lighting: Natural soft (5000K)
+- Floor: Light wood
+- Vibe: Eco-friendly, organic brand, natural beauty
+
+**8. Neon Glow** - NEW
+- Background: Dark charcoal seamless
+- Props: LED neon accent (background), reflective surface
+- Lighting: Cool neon accent (4500K)
+- Floor: Dark glossy
+- Vibe: Modern edge, youth fashion, urban style
+
+**9. Pastel Dream** - NEW
+- Background: Soft pastel gradient (pink-lilac)
+- Props: Gentle fabric drape (background), flowers
+- Lighting: Soft bright (5000K)
+- Floor: Light pastel
+- Vibe: Feminine beauty, soft aesthetic, kawaii style
+
+**10. Minimalist Black** - NEW
+- Background: Pure matte black seamless
+- Props: Simple white pedestal (background)
+- Lighting: Dramatic contrast (4500K)
+- Floor: Black matte
+- Vibe: High contrast, bold minimal, dramatic showcase
+
+---
+
+### 💆 BEAUTY / CHĂM SÓC STUDIOS (10 Studios)
+
+**1. Skincare Lab ⭐** (Default)
+- Background: Clean white-mint gradient clinical
+- Props: Serum bottles (background), lab equipment hint
+- Lighting: Bright clinical (6000K) clean
+- Floor: White clean tile
+- Vibe: Skincare science, beauty lab, product efficacy
+
+**2. Makeup Vanity**
+- Background: Soft pink-cream gradient glamorous
+- Props: Vanity mirror with lights (background), makeup brushes
+- Lighting: Soft flattering (4000K) ring light
+- Floor: Plush pink carpet
+- Vibe: Makeup moment, beauty routine, glam preparation
+
+**3. Spa Zen**
+- Background: Serene sage-cream gradient peaceful
+- Props: Hot stones (background), candles, orchid
+- Lighting: Warm spa (3200K) relaxing
+- Floor: Smooth stone
+- Vibe: Spa relaxation, massage device, wellness quiet
+
+**4. Hair Salon**
+- Background: Modern gray-white gradient stylish
+- Props: Salon chair hint (background), styling tools
+- Lighting: Bright salon (5500K) professional
+- Floor: Checkered tile salon
+- Vibe: Hair styling, professional salon, glamour prep
+
+**5. Bathroom Bright**
+- Background: Clean white-blue gradient fresh
+- Props: Bathroom shelf (background), towels, soap
+- Lighting: Bright bathroom (5500K) clean
+- Floor: White tile clean
+- Vibe: Morning routine, facial cleanse, fresh start
+
+**6. Beauty Counter**
+- Background: Soft cream-marble gradient luxury
+- Props: Skincare set display (background), decorative tray
+- Lighting: Bright retail (5000K) appealing
+- Floor: Marble elegant
+- Vibe: Skincare collection, beauty shopping, premium display
+
+**7. Nail Art**
+- Background: Bright coral-white gradient playful
+- Props: Nail polish bottles (background), nail tools
+- Lighting: Bright focused (5500K)
+- Floor: White clean surface
+- Vibe: Nail beauty, manicure moment, colorful expression
+
+**8. Body Care**
+- Background: Fresh cream-peach gradient warm
+- Props: Body lotion bottles (background), bath items
+- Lighting: Warm care (4000K) comforting
+- Floor: Bamboo mat
+- Vibe: Body care routine, self-care, wellness ritual
+
+**9. Mirror Selfie Beauty**
+- Background: Soft pink-white gradient flattering
+- Props: Phone ring light (background), beauty products
+- Lighting: Soft selfie (4000K) flattering angles
+- Floor: Light modern tile
+- Vibe: Beauty selfie, makeup demo, before-after
+
+**10. Clean Beauty**
+- Background: Natural green-cream gradient organic
+- Props: Plant-based products (background), leaves, wood
+- Lighting: Natural soft (5000K)
+- Floor: Bamboo sustainable
+- Vibe: Organic beauty, clean skincare, eco-conscious
+
+---
+
+### 💎 EXPANDED ACCESSORIES STUDIOS (8 Studios)
+
+**1. Jewelry Close-up ⭐** (Default)
+- Background: Rich velvet black-navy gradient luxurious
+- Props: Velvet display stand (background), ring box, pearls
+- Lighting: Spotlight focused (5000K) with sparkle
+- Floor: Velvet surface
+- Vibe: Fine jewelry, close-up detail, luxury sparkle
+
+**2. Bag Showcase**
+- Background: Soft cream-taupe gradient boutique
+- Props: Fashion magazines (background), scarf draped
+- Lighting: Bright retail (5000K) product focus
+- Floor: Light marble
+- Vibe: Designer bag, boutique display, fashion investment
+
+**3. Shoes Gallery**
+- Background: Clean white-gray gradient modern
+- Props: Shoe box stack (background), shoe horn
+- Lighting: Bright gallery (5500K) clean
+- Floor: Reflective white
+- Vibe: Shoe collection, footwear gallery, step up style
+
+**4. Sunglasses Vibe**
+- Background: Bright beach-sky blue gradient sunny
+- Props: Beach accessories (background), tropical leaf
+- Lighting: Bright sunny (6000K) outdoor feel
+- Floor: Light wood deck
+- Vibe: Summer shades, beach ready, cool protection
+
+**5. Hat Collection**
+- Background: Neutral beige-cream gradient timeless
+- Props: Hat stand (background), vintage elements
+- Lighting: Natural soft (4500K)
+- Floor: Natural wood
+- Vibe: Hat style, headwear collection, personality accent
+
+**6. Scarf Elegance**
+- Background: Soft silk gradient flowing colors
+- Props: Scarf draped artistic (background), jewelry hint
+- Lighting: Soft elegant (4500K) fabric highlight
+- Floor: Light marble
+- Vibe: Scarf styling, elegant wrap, versatile accessory
+
+**7. Watch Luxury**
+- Background: Deep charcoal-gold gradient premium
+- Props: Watch box (background), leather strap, gold accent
+- Lighting: Warm luxury (3800K) with focus spot
+- Floor: Dark leather surface
+- Vibe: Luxury timepiece, watch collection, premium craftsmanship
+
+**8. Belt Display**
+- Background: Warm leather-brown gradient classic
+- Props: Belt coiled (background), leather goods
+- Lighting: Warm classic (4000K)
+- Floor: Rich wood
+- Vibe: Belt accessory, leather craft, waist definition
+
+---
+
+**END OF REGULAR STUDIOS - TOTAL 122 STUDIOS**
+
+(Original 43 + Bikini 10 + Inner 10 + Dress 15 + Top 10 + Bottom 10 + Set 8 + Outerwear 8 + Beauty 10 + Expanded Accessories 8 = 132 Regular Studios)
+
+
+---
+
+### 👙 BIKINI / ĐỒ BƠI STUDIOS (10 Studios - Đơn Giản, Phối Đẹp)
+
+**1. Infinity Pool ⭐** (Default)
+- Background: Bright turquoise-white gradient seamless mimicking water horizon
+- Props: Pool edge hint (background), tropical drink on ledge
+- Lighting: Bright noon sunlight (6000K) with water reflection
+- Floor: Wet-look white tile with pool edge
+- Vibe: Resort luxury, infinity pool edge, vacation aspirational
+
+**2. Beach Sunset**
+- Background: Warm orange-pink gradient seamless sunset glow
+- Props: Driftwood piece (background), seashells scattered
+- Lighting: Golden hour warm (3000K) with silhouette potential
+- Floor: Sand texture natural
+- Vibe: Romantic beach sunset, golden silhouette, vacation dreamy
+
+**3. Tropical Paradise**
+- Background: Bright blue-turquoise gradient with palm shadow hints
+- Props: Tropical palm frond (background edge), coconut half
+- Lighting: Bright tropical daylight (5500K)
+- Floor: White sand with palm shadow
+- Vibe: Caribbean paradise, tropical escape, summer vibes
+
+**4. Pool Party**
+- Background: Vibrant teal-white gradient energetic
+- Props: Pool float hint (background), sunglasses, cocktail
+- Lighting: Bright party daylight (5500K) with fun vibe
+- Floor: Pool deck tile blue hint
+- Vibe: Pool party fun, summer celebration, youthful energy
+
+**5. Private Villa**
+- Background: Soft cream-blue gradient luxury resort
+- Props: Daybed fabric edge (background), orchid in vase
+- Lighting: Warm resort afternoon (4500K)
+- Floor: Teak wood deck
+- Vibe: Private villa luxury, exclusive resort, honeymoon elegance
+
+**6. Yacht Deck**
+- Background: Navy-white gradient with ocean horizon hint
+- Props: Rope coil nautical (background), champagne glass
+- Lighting: Bright sea daylight (5500K) with wind feel
+- Floor: Teak deck yacht pattern
+- Vibe: Yacht luxury, sailing lifestyle, nautical elegance
+
+**7. Lagoon Blue**
+- Background: Crystal turquoise-aqua gradient water colors
+- Props: Coral decoration (background), starfish
+- Lighting: Bright tropical (5500K) with water sparkle
+- Floor: Light sand with water edge hint
+- Vibe: Clear lagoon, snorkeling paradise, pristine waters
+
+**8. Cabana Chic**
+- Background: Natural linen-cream gradient relaxed
+- Props: Cabana curtain drape (background), straw hat
+- Lighting: Filtered afternoon (4500K) shade relaxed
+- Floor: Beach mat natural fiber
+- Vibe: Beach cabana, relaxed luxury, resort shade
+
+**9. Ocean Breeze**
+- Background: Soft blue-white gradient airy fresh
+- Props: Flowing sheer fabric (background), shell wind chime
+- Lighting: Bright fresh (5500K) with wind feel
+- Floor: Light weathered wood
+- Vibe: Ocean breeze, hair flowing, fresh coastal
+
+**10. Underwater Fantasy**
+- Background: Deep blue-teal gradient with light rays
+- Props: Bubble effects hint (background), coral silhouette
+- Lighting: Diffused underwater (4500K) with caustic hints
+- Floor: Sandy ocean floor aesthetic
+- Vibe: Underwater dreamy, mermaid aesthetic, fantasy aquatic
+
+---
+
+### 🎀 INNER / FASHION FOUNDATIONS STUDIOS (10 Studios - TikTok-Safe, Elegant)
+
+**IMPORTANT: Inner studios designed for TikTok-safe content. Focus on elegance, not suggestiveness.**
+
+**1. Vanity Mirror ⭐** (Default)
+- Background: Soft blush pink-cream gradient elegant
+- Props: Vanity mirror edge (background), perfume bottle, jewelry box
+- Lighting: Soft flattering (4000K) with ring light hint
+- Floor: Plush cream carpet
+- Vibe: Getting ready, feminine elegance, beauty routine
+
+**2. Silk Sheets**
+- Background: Pearl white-champagne gradient luxurious
+- Props: Silk fabric drape (background), fresh flowers in vase
+- Lighting: Soft romantic (3500K) gentle
+- Floor: Cream plush carpet
+- Vibe: Luxury silk, bridal elegance, premium quality focus
+
+**3. Bridal Suite**
+- Background: Pure white-ivory gradient pristine
+- Props: Wedding dress hem hint (background), rose bouquet, pearl string
+- Lighting: Bright clean (5000K) bridal
+- Floor: White carpet luxurious
+- Vibe: Bridal fashion foundations, wedding day, pure romance
+
+**4. Pastel Cloud**
+- Background: Soft pink-lavender gradient dreamy
+- Props: Fluffy cloud-like cushion (background), soft ribbon
+- Lighting: Diffused soft (4500K) ethereal
+- Floor: White fluffy texture
+- Vibe: Soft dreamy, cloud comfort, gentle feminine
+
+**5. Dressing Room**
+- Background: Soft gray-blush gradient boutique style
+- Props: Clothing rack hint (background), shopping bag, mirror
+- Lighting: Retail bright (5000K) flattering
+- Floor: Light herringbone wood
+- Vibe: Boutique fitting, shopping therapy, fashion moment
+
+**6. Soft Morning**
+- Background: Warm cream-white gradient morning light
+- Props: Sheer curtain drape (background), coffee cup, book
+- Lighting: Natural morning (4500K) through blinds
+- Floor: Light natural wood
+- Vibe: Morning routine, gentle wake, lifestyle elegant
+
+**7. Rose Petals**
+- Background: Romantic blush-cream gradient
+- Props: Scattered rose petals (background floor), candle
+- Lighting: Warm romantic (3200K)
+- Floor: Cream with petal scatter
+- Vibe: Romantic gift, Valentine, anniversary elegance
+
+**8. Pearl Elegance**
+- Background: Oyster white-champagne gradient lustrous
+- Props: Pearl string draped (background), oyster shell, silk
+- Lighting: Soft luminous (4000K) with pearl glow
+- Floor: Cream marble
+- Vibe: Pearl luxury, timeless elegance, premium gift
+
+**9. Parisian Chic**
+- Background: Soft mauve-cream gradient French style
+- Props: Ornate mirror frame (background), fresh peonies, silk robe edge
+- Lighting: Warm flattering (3500K)
+- Floor: Light parquet
+- Vibe: French elegance, chic feminine, sophisticated refinement
+
+**10. Lace Pattern**
+- Background: Cream with subtle lace shadow pattern overlay
+- Props: Decorative lace fabric (background), ceramic dish
+- Lighting: Soft elegant (4000K)
+- Floor: Light elegant carpet
+- Vibe: Lace detail focus, delicate craftsmanship, feminine artistry
+
+---
+
+### 👖 BOTTOM / QUẦN & CHÂN VÁY STUDIOS (10 Studios)
+
+**1. Denim Story ⭐** (Default)
+- Background: Light blue-white gradient casual seamless
+- Props: Denim jacket draped (background), leather belt
+- Lighting: Natural casual (5000K) with lifestyle feel
+- Floor: Light wood casual
+- Vibe: Jeans lifestyle, denim culture, casual American
+
+**2. Wide Leg Flow**
+- Background: Soft neutral-cream gradient flowing
+- Props: Flowing fabric hint (background), minimalist decor
+- Lighting: Soft diffused (4500K) with movement
+- Floor: Light natural wood
+- Vibe: Wide pants elegance, movement freedom, modern feminine
+
+**3. Office Tailored**
+- Background: Professional gray-cream gradient clean
+- Props: Desk edge hint (background), briefcase
+- Lighting: Bright office (5000K) professional
+- Floor: Gray corporate carpet
+- Vibe: Dress pants work, tailored professional, CEO ready
+
+**4. Active Motion**
+- Background: Fresh mint-white gradient energetic
+- Props: Yoga mat edge (background), water bottle
+- Lighting: Bright active (5500K) with energy
+- Floor: Rubber gym mat
+- Vibe: Leggings workout, active lifestyle, fitness motivated
+
+**5. Pleated Elegance**
+- Background: Soft blush-cream gradient feminine
+- Props: Fresh flowers in vase (background), elegant accessories
+- Lighting: Soft flattering (4500K)
+- Floor: Light marble
+- Vibe: Pleated skirt, feminine grace, elegant lady
+
+**6. Mini Modern**
+- Background: Bold color-white gradient trendy
+- Props: Trendy accessories (background), mirror hint
+- Lighting: Bright fashion (5500K)
+- Floor: Light modern tile
+- Vibe: Mini skirt style, young fashion, confident trendy
+
+**7. Culottes Chic**
+- Background: Neutral sage-cream gradient relaxed
+- Props: Woven basket (background), natural elements
+- Lighting: Natural daylight (5000K)
+- Floor: Natural fiber rug
+- Vibe: Culottes casual, relaxed elegance, weekend style
+
+**8. Cargo Street**
+- Background: Urban gray-olive gradient street
+- Props: Industrial elements (background), sneakers display
+- Lighting: Natural street (5000K) with urban contrast
+- Floor: Concrete urban
+- Vibe: Cargo pants street, utilitarian style, urban adventure
+
+**9. Leather Edge**
+- Background: Deep charcoal-black gradient edgy
+- Props: Metal accessories (background), motorcycle gloves
+- Lighting: Dramatic contrast (4500K)
+- Floor: Dark polished concrete
+- Vibe: Leather pants edgy, rock style, bold statement
+
+**10. Palazzo Glam**
+- Background: Soft champagne-cream gradient flowing luxe
+- Props: Crystal vase (background), elegant drape
+- Lighting: Soft golden (4000K)
+- Floor: Cream marble
+- Vibe: Palazzo pants, flowing elegance, resort luxury
+
+---
+
+### 🥻 SET / JUMPSUIT STUDIOS (8 Studios)
+
+**1. Power Suit ⭐** (Default)
+- Background: Professional navy-gray gradient powerful
+- Props: Leather briefcase (background), city view hint
+- Lighting: Bright confident (5000K)
+- Floor: Polished marble executive
+- Vibe: Power suit woman, boss lady, corporate confidence
+
+**2. Jumpsuit Glamour**
+- Background: Deep burgundy-gold gradient party
+- Props: Champagne on tray (background), elegant lighting
+- Lighting: Warm glamorous (3500K)
+- Floor: Glossy dark elegant
+- Vibe: Jumpsuit party, one-piece glamour, statement entrance
+
+**3. Matching Set**
+- Background: Soft coral-cream gradient cohesive
+- Props: Fashion magazine (background), shopping bag
+- Lighting: Bright trendy (5000K)
+- Floor: Light herringbone wood
+- Vibe: Matching set, coordinated style, Instagram ready
+
+**4. Utility Chic**
+- Background: Olive-khaki gradient utilitarian
+- Props: Canvas bag (background), outdoor elements
+- Lighting: Natural outdoor (5000K)
+- Floor: Concrete industrial
+- Vibe: Utility jumpsuit, workwear chic, practical fashion
+
+**5. Romper Fun**
+- Background: Bright coral-white gradient playful
+- Props: Beach accessories (background), sunglasses
+- Lighting: Bright summer (5500K)
+- Floor: Light natural wood
+- Vibe: Romper casual, summer fun, youthful energy
+
+**6. Two-Piece Elegant**
+- Background: Soft lavender-cream gradient sophisticated
+- Props: Fresh flowers (background), elegant jewelry display
+- Lighting: Soft elegant (4500K)
+- Floor: Light marble
+- Vibe: Two-piece elegance, coordinated sophistication, polished lady
+
+**7. Loungewear Cozy**
+- Background: Warm cream-beige gradient homey
+- Props: Fuzzy throw blanket (background), candles
+- Lighting: Warm cozy (3500K)
+- Floor: Soft fluffy carpet
+- Vibe: Loungewear set, home comfort, cozy relaxation
+
+**8. Pajama Party**
+- Background: Soft pink-lavender gradient playful
+- Props: Pillows (background), sleep mask, bedside lamp
+- Lighting: Soft evening (3500K)
+- Floor: Plush carpet
+- Vibe: Pajama set, slumber party, cute comfortable
+
+---
+
+### 🧥 OUTERWEAR / ÁO KHOÁC STUDIOS (8 Studios)
+
+**1. Winter Cozy ⭐** (Default)
+- Background: Soft cream-white gradient winter warmth
+- Props: Warm scarf draped (background), hot drink
+- Lighting: Warm cozy (3500K)
+- Floor: Fluffy white rug
+- Vibe: Winter coat, warm layers, cozy cold weather
+
+**2. Trench Classic**
+- Background: Rainy gray-blue gradient sophisticated
+- Props: Vintage umbrella (background), leather bag
+- Lighting: Soft overcast (4500K)
+- Floor: Wet cobblestone hint
+- Vibe: Trench coat, Parisian chic, timeless elegance
+
+**3. Biker Edge**
+- Background: Dark charcoal-black gradient rebel
+- Props: Motorcycle helmet (background), chain accessories
+- Lighting: Dramatic edge (4000K)
+- Floor: Dark concrete
+- Vibe: Leather jacket, biker rebel, rock attitude
+
+**4. Blazer Boss**
+- Background: Professional taupe-cream gradient powerful
+- Props: Office desk corner (background), coffee cup
+- Lighting: Bright professional (5000K)
+- Floor: Light wood office
+- Vibe: Boss blazer, power jacket, meeting confident
+
+**5. Cardigan Soft**
+- Background: Warm honey-cream gradient gentle
+- Props: Stack of books (background), tea cup
+- Lighting: Soft natural (4000K)
+- Floor: Natural wood warm
+- Vibe: Cardigan cozy, intellectual warmth, gentle layers
+
+**6. Puffer Street**
+- Background: Urban gray-white gradient street winter
+- Props: Street sign (background), sneakers
+- Lighting: Natural overcast (4500K)
+- Floor: Concrete sidewalk
+- Vibe: Puffer jacket, street winter, urban warmth
+
+**7. Cape Dramatic**
+- Background: Deep burgundy-charcoal gradient theatrical
+- Props: Dramatic curtain drape (background), candelabra
+- Lighting: Dramatic warm (3500K)
+- Floor: Rich dark wood
+- Vibe: Cape elegance, dramatic entrance, theatrical fashion
+
+**8. Denim Casual**
+- Background: Light blue-white gradient casual friendly
+- Props: Vintage camera (background), casual accessories
+- Lighting: Natural casual (5000K)
+- Floor: Light worn wood
+- Vibe: Denim jacket, casual cool, everyday style
+
+---
+
+
+## 🏮 TẾT & FESTIVAL STUDIOS (60 Options)
+
+For **Tết Nguyên Đán, Hội, and Vietnamese Festival themes**, use these specialized studios:
+
+### **When to Use:**
+- User uploads outfit during **Tết season** (late January - February)
+- User mentions **festival, Hội, celebration, Tết** keywords
+- User wants **traditional Vietnamese cultural theme**
+- Product is **áodài, ceremonial dress, or formal Vietnamese wear**
+
+### **Selection Priority:**
+1. **Tết Specific** (if near Lunar New Year): Mai Vàng Xuân, Đào Hồng Tết, Lồng Đèn Hội
+2. **Festival Generic** (year-round): Hội Chùa Xuân, Phố Cổ Hà Nội, Đình Làng Cổ
+3. **Cultural Heritage**: Lụa Bảo Lộc, Gấm Vóc Huế, Cồng Chiêng Tây Nguyên
+4. **Modern Celebration**: Chợ Tết Sài Gòn, Pháo Hoa Xuân, Vũ Hội Xuân
+
+---
+
+### 🌸 ÁO DÀI TẾT & HỘI (40 Studios - Enhanced Theatrical)
+
+**1. Mai Vàng Xuân ⭐** (Apricot Blossom Spring)
+- Background: Warm cream-to-gold gradient with hand-painted apricot branch motif, soft floating petal effect
+- Props: Ornate ceramic vase with yellow apricot branches (background right), carved wooden pedestal with traditional motifs, red envelope display on lacquerware tray (soft focus left), silk scroll with calligraphy hanging, small bronze incense holder, scattered golden petals on floor, bamboo screen panel backdrop
+- Lighting: Golden hour simulation (2800K) with warm overhead glow, dramatic rim light from behind creating halo effect, soft fill from front
+- Floor: Light bamboo mat texture with traditional rug overlay, natural warm tone, petal scatter
+- Vibe: Traditional Tet prosperity, theatrical spring renewal, optimistic mini-stage
+
+**2. Đào Hồng Tết** (Pink Peach Blossom Tet)
+- Background: Soft pink-to-ivory gradient with delicate hand-painted peach blossoms, scattered pink petals floating
+- Props: Tall ceramic vase with pink cherry blossom branches (background center), traditional red lantern hanging upper left, wooden folding screen with floral pattern, silk tassel hanging decoration, tea set on carved tray, embroidered cushion on floor, bamboo brushes in holder
+- Lighting: Soft daylight simulation (4000K) with pink gel hint, diffused romantic glow, backlight for petal effect
+- Floor: Polished light wood with traditional mat, warm peachy undertone, petal scatter around base
+- Vibe: Northern Tet charm, romantic spring theatrical stage, feminine grace editorial
+
+**3. Lồng Đèn Hội** (Festival Lantern)
+- Background: Deep red-to-burgundy gradient with embossed gold dragon pattern, theatrical festival atmosphere
+- Props: Large round red lantern hanging (background upper corner), gold tassel decorations multiple, brass incense burner on stand, traditional wooden drum miniature, red silk drapes framing sides, fortune coins scattered, calligraphy banner, carved wooden stool
+- Lighting: Warm amber simulation (2700K) mimicking lantern glow, dramatic shadows, rim light creating festival mood
+- Floor: Dark polished wood with lacquer finish, red rug with gold pattern, theatrical richness
+- Vibe: Mid-Autumn festival stage, traditional celebration drama, warm nostalgia editorial
+
+**4. Vàng Hoàng Gia** (Royal Gold)
+- Background: Rich gold-to-champagne gradient with subtle imperial dragon pattern texture, palace aesthetic
+- Props: Golden folding fan on ornate stand (background left), brass incense holder with carved details, miniature throne chair prop, silk brocade fabric draped, gold-framed mirror, royal seal on cushion, phoenix figurine, crown on velvet pillow
+- Lighting: Bright gold simulation (3000K) with dramatic rim light creating regal glow, spotlight effect from above
+- Floor: Glossy dark wood with inlay pattern, mirror-like polish, gold-tasseled rug
+- Vibe: Imperial palace stage, royal ceremony theatrical, majestic elegance editorial
+
+**5. Hội Chùa Xuân** (Spring Temple Festival)
+- Background: Saffron yellow-to-cream gradient with temple wall texture, peaceful spiritual atmosphere
+- Props: Small Buddha statue on carved altar (far background), incense holder with smoke wisp effect, lotus offerings in bowl, prayer beads draped, wooden temple bell miniature, saffron silk drapes, stone lantern, meditation cushion
+- Lighting: Soft warm daylight (3500K) through temple window simulation, spiritual glow, gentle shadows
+- Floor: Stone tile texture with worn patina, aged temple floor aesthetic, meditation mat
+- Vibe: Spiritual Tet visit theatrical, peaceful blessing stage, cultural reverence editorial
+
+**6. Phố Cổ Hà Nội** (Hanoi Old Quarter Festival)
+- Background: Aged brick red-to-terracotta gradient with vintage plaster texture, peeling paint effect for authenticity
+- Props: Traditional wooden window shutters (background left), ceramic pot with vintage plants, old bicycle wheel, conical hat hanging, vintage street lamp, market basket with flowers, aged signage, terracotta jars
+- Lighting: Natural daylight (5000K) with historical architecture shadows, street festival brightness
+- Floor: Old mosaic tile pattern with worn authenticity, charming aged patina, vintage rug
+- Vibe: Heritage festival theatrical stage, nostalgic Hanoi mini-set, cultural authenticity editorial
+
+**7. Sen Hồng Thánh** (Sacred Pink Lotus)
+- Background: Soft blush pink-to-white gradient with watercolor lotus pattern, ethereal pure atmosphere
+- Props: Large lotus flower in decorative bowl (center background), prayer beads draped on stand, Buddha figurine small, white silk draping, floating candles in water bowl, incense holder, meditation bells, sacred scrolls
+- Lighting: Heavenly soft daylight (5500K) with diffused peaceful glow, backlight for ethereal effect
+- Floor: White marble with subtle pink veining, pristine clean theatrical, meditation cushion
+- Vibe: Buddhist festival theatrical stage, spiritual purity editorial, serene devotion mini-set
+
+**8. Rồng Vàng Tết** (Golden Dragon Tet)
+- Background: Vibrant red with embossed gold dragon scale pattern texture, powerful dramatic
+- Props: Gold dragon figurine on pedestal (background corner), prosperity gold coins scattered decoratively, red silk banner with dragon, traditional drums, gold tassel hanging, incense burner, lucky bamboo in gold pot, red lanterns multiple
+- Lighting: Bright festival (4500K) with gold reflective highlights, dramatic theatrical spotlights
+- Floor: Red lacquer wood high gloss with gold pattern inlay, dragon rug, theatrical richness
+- Vibe: Dragon dance festival theatrical, powerful prosperity stage, dynamic celebration editorial
+
+**9. Lụa Bảo Lộc** (Bao Loc Silk)
+- Background: Iridescent silk texture gradient peacock blue-to-emerald, luxurious sheen
+- Props: Silk fabrics draped on rack (background), embroidery hoop with traditional pattern, wooden loom miniature, silk thread spools colorful, weaving tools on table, textile samples hanging, scissors vintage, pattern drawings
+- Lighting: Soft side lighting (4000K) highlighting silk sheen, studio workshop atmosphere
+- Floor: Natural wood weaving studio aesthetic with traditional mat, silk scraps artfully scattered
+- Vibe: Silk heritage theatrical workshop, artisan craft festival stage, luxurious tradition editorial
+
+**10. Phượng Đỏ Hè** (Red Phoenix Summer)
+- Background: Flame red-to-orange gradient with phoenix feather pattern, summer festival energy
+- Props: Large phoenix feather decoration (background center), red paper fans multiple on display, silk ribbon hanging, traditional drums, festival banners, fire-inspired props, gold ornaments, lanterns
+- Lighting: Bright warm simulation (3800K) with vibrant summer feel, energetic theatrical lights
+- Floor: Terracotta tiles with summer heat aesthetic, traditional rug with phoenix motif
+- Vibe: Summer festival theatrical stage, phoenix rebirth drama, passionate celebration editorial
+
+**11. Cúc Vàng Thu** (Yellow Chrysanthemum Autumn)
+- Background: Golden yellow-to-amber gradient with painted chrysanthemum pattern, autumn harvest warmth
+- Props: Large ceramic pot with yellow chrysanthemums (center background), autumn leaves decorative scatter, harvest basket, golden wheat stalks, traditional tea set, wooden crates vintage, clay pots, dried flower arrangements
+- Lighting: Harvest golden hour (3300K) with abundant warm glow, sunset theatrical mood
+- Floor: Warm honey wood harvest season, traditional mat with autumn colors, leaf scatter
+- Vibe: Autumn festival theatrical stage, harvest gratitude editorial, mellow abundance mini-set
+
+**12. Trúc Xanh Thanh** (Green Bamboo Purity)
+- Background: Fresh bamboo green-to-sage gradient with painted bamboo motif, natural zen theatrical
+- Props: Tall bamboo stalks in corner (background), stone water basin with floating flowers, bamboo rake, zen garden sand tray, wooden bench, bamboo fence panel, stone lantern, meditation stones
+- Lighting: Cool natural daylight (5000K) forest fresh feeling with zen temple mood
+- Floor: Natural bamboo slats with stone path, eco aesthetic theatrical, zen garden sand
+- Vibe: Eco festival theatrical stage, natural purity zen editorial, simplicity mini-set
+
+**13. Đình Làng Cổ** (Ancient Village Communal House)
+- Background: Weathered wood brown-to-beige gradient with aged temple texture, rustic patina
+- Props: Carved wooden pillar section (background), traditional offering tray with fruits, ancestral altar miniature, wooden drums, village lanterns, old wooden furniture, ceramic jars, woven baskets
+- Lighting: Dim ambient temple light (2500K) with historical atmosphere, candlelight simulation
+- Floor: Worn brick with village heritage patina, traditional mat aged, theatrical authenticity
+- Vibe: Village festival theatrical stage, ancestral worship drama, community roots editorial
+
+**14. Hoa Đăng Sông** (River Lantern Festival)
+- Background: Deep indigo-to-navy gradient with night river shimmer, romantic evening atmosphere
+- Props: Multiple floating lanterns silhouette (background various heights), candle holders creating bokeh, lotus-shaped lanterns, wooden boat miniature, river willows, silk drapes blue, prayer papers, incense holders
+- Lighting: Warm candlelight simulation (2200K) with romantic night glow, golden bokeh effects
+- Floor: Dark reflective surface mimicking water with gentle ripple effect, theatrical river mood
+- Vibe: Evening river festival theatrical stage, wish-making romantic editorial, nostalgia mini-set
+
+**15. Gấm Vóc Huế** (Hue Royal Brocade)
+- Background: Royal purple-to-plum gradient with intricate brocade pattern texture, imperial sophistication
+- Props: Embroidered fabric on ornate stand (background), gold thread spools decorative, weaving loom miniature, royal textile samples, wooden frames, palace lanterns, gold tassels, brocade cushions
+- Lighting: Regal warm light (3200K) with imperial craftsmanship glow, palace theatrical mood
+- Floor: Dark polished wood palace aesthetic with royal rug, brocade fabric accent, theatrical richness
+- Vibe: Hue festival theatrical stage, royal textile heritage editorial, sophisticated craftsmanship mini-set
+
+**16. Cồng Chiêng Tây Nguyên** (Central Highlands Gong)
+- Background: Earthy brown-to-rust gradient with tribal pattern texture, highland cultural drama
+- Props: Bronze gong on wooden stand (far background), tribal pattern fabric draping, wooden percussion instruments, ethnic jewelry display, bamboo containers, highland baskets, traditional hats, clay pots
+- Lighting: Fire glow simulation (2600K) with tribal ceremony warmth, dramatic shadows
+- Floor: Earth-tone stone with highland cultural carpet, tribal pattern mat, theatrical authenticity
+- Vibe: Highland festival theatrical stage, ethnic heritage drama, powerful tradition editorial
+
+**17. Áo Tứ Thân Xưa** (Ancient Four-Panel Dress)
+- Background: Indigo blue-to-navy gradient with vintage fabric texture pattern, heritage museum mood
+- Props: Antique wooden chest ornate (background), vintage fabrics draped artfully, old sewing tools, traditional dress form, heritage photos framed, brass locks, wooden boxes, silk samples aged
+- Lighting: Soft museum lighting (4500K) with preservation aesthetic, gentle spotlights
+- Floor: Old wood planks with historical authenticity, vintage rug, museum-quality theatrical
+- Vibe: Heritage museum fest theatrical, ancient fashion stage, nostalgic preservation editorial
+
+**18. Chợ Tết Sài Gòn** (Saigon Tet Market)
+- Background: Vibrant red-to-pink gradient with market energy, bustling celebration atmosphere
+- Props: Market basket with flowers (background), price tags decorative, vendor umbrella, kumquat trees in pots, market goods displays, traditional scales, fabric bolts, lanterns hanging
+- Lighting: Bright market daylight (5500K) with lively shopping atmosphere, energetic theatrical
+- Floor: Concrete with colorful market accents, urban celebration scattered goods, theatrical bustle
+- Vibe: Southern Tet market theatrical stage, joyful shopping editorial, urban celebration mini-set
+
+**19. Bánh Chưng Xanh** (Green Square Rice Cake)
+- Background: Fresh leaf green-to-lime gradient with banana leaf pattern, Tet food tradition theatrical
+- Props: Banana leaves bundled artfully (background), traditional cake molds, bamboo strings, clay pots, cooking utensils vintage, wooden cutting board, rice baskets, traditional kitchen tools
+- Lighting: Kitchen natural light (5000K) with homey preparation vibe, warm family atmosphere
+- Floor: Clay tile traditional kitchen with mat, ingredient scatter theatrical, cooking setup
+- Vibe: Tet cooking tradition theatrical stage, family bonding editorial, culinary heritage mini-set
+
+**20. Pháo Hoa Xuân** (Spring Fireworks)
+- Background: Midnight blue-to-black gradient with gold sparkle effects, silver stars, celebration sky
+- Props: Sparkler holders decorative (background, safe), celebration confetti artistic scatter, champagne glasses, party poppers, gold ribbons, decorative fireworks (safe props), countdown clock, festive banners
+- Lighting: Cool night (6000K) with warm gold burst simulation, celebratory theatrical spotlights
+- Floor: Dark polished surface reflecting sparkles dramatically, gold confetti scatter, party mood
+- Vibe: New Year countdown theatrical stage, explosive joy editorial, modern celebration mini-set
+
+---
+
+### 🏠 ÁO DÀI TẾT - GIA ĐÌNH (5 Studios - Family Theme)
+
+**21. Phòng Khách Sum Họp** (Family Living Room Reunion)
+- Background: Warm cream-to-beige gradient with subtle wood panel texture, cozy home atmosphere
+- Props: Wooden sofa corner with cushions (background left), mai vàng in ceramic pot on coffee table, traditional tea set, red envelopes on tray
+- Lighting: Warm natural daylight (3500K) through window simulation, homey comfort glow
+- Floor: Polished light wood Vietnamese home flooring, traditional mat accent
+- Vibe: Family reunion theatrical stage, warm gathering editorial, Tet homecoming mini-set
+
+**22. Hiên Nhà Ngoại** (Grandmother's Porch)
+- Background: Rustic beige-to-brown gradient with aged wood texture, countryside nostalgia
+- Props: Bamboo bench corner (background right), potted kumquat tree, conical hat hanging, bird cage decorative
+- Lighting: Morning golden hour (3200K) streaming through porch, nostalgic warmth
+- Floor: Aged brick tiles with moss patina, traditional Vietnamese home, village aesthetic
+- Vibe: Countryside homecoming theatrical stage, grandmother's warmth editorial, nostalgic roots mini-set
+
+**23. Bếp Xưa Ấm Áp** (Warm Traditional Kitchen)
+- Background: Earthy terracotta-to-cream gradient with kitchen tile texture, cooking tradition atmosphere
+- Props: Copper pot on stove (background center), banana leaves bundled, traditional cutting board, ceramic jars
+- Lighting: Warm fire glow simulation (2800K), kitchen comfort atmosphere
+- Floor: Terracotta tile traditional kitchen, worn authentic patina, cooking tradition aesthetic
+- Vibe: Bánh chưng making theatrical stage, family cooking editorial, culinary heritage mini-set
+
+**24. Bàn Tiệc Tất Niên** (Year-End Feast Table)
+- Background: Festive red-to-gold gradient with celebration texture, dining abundance atmosphere
+- Props: Round dining table edge with feast setting (background center), mai vàng centerpiece, wine glasses, red lantern hanging
+- Lighting: Warm dining (3000K) with festive celebration glow, abundance atmosphere
+- Floor: Dark polished wood dining room, red carpet accent, feast celebration theatrical
+- Vibe: Tất niên feast theatrical stage, family abundance editorial, prosperity dinner mini-set
+
+**25. Bàn Thờ Gia Tiên** (Ancestral Altar)
+- Background: Deep burgundy-to-gold gradient with sacred reverence texture, spiritual atmosphere
+- Props: Traditional altar with incense holder (background center), fruit offerings artfully arranged, ancestor photos framed, silk drapes red
+- Lighting: Dim warm candlelight (2500K) with spiritual glow, reverent atmosphere
+- Floor: Dark polished wood sacred space, traditional rug with heritage pattern
+- Vibe: Ancestral worship theatrical stage, spiritual reverence editorial, family roots mini-set
+
+---
+
+### 🌸 ÁO DÀI TẾT - THIÊN NHIÊN XUÂN (5 Studios - Spring Nature)
+
+**26. Vườn Đào Mộng Mơ** (Dreamy Peach Garden)
+- Background: Soft pink-to-white gradient with painted peach blossom pattern, romantic spring atmosphere
+- Props: Peach blossom branches in tall vase (background center), wooden garden bench, scattered pink petals, stone lantern
+- Lighting: Soft diffused daylight (4500K) spring morning glow, romantic dreamy atmosphere
+- Floor: Natural stone path with grass texture, spring garden aesthetic, petal scatter
+- Vibe: Nhật Tân peach garden theatrical stage, romantic spring editorial, dreamy blossom mini-set
+
+**27. Cánh Đồng Lúa Xuân** (Spring Rice Paddy)
+- Background: Fresh green-to-golden gradient with rice terrace texture, rural beauty atmosphere
+- Props: Conical hat on wooden post (background left), rice stalks bundle, bamboo basket, water reflection hint
+- Lighting: Golden afternoon (3800K) harvest light simulation, abundant countryside glow
+- Floor: Muddy path texture with grass edges, authentic rice field aesthetic
+- Vibe: Rice harvest theatrical stage, rural prosperity editorial, Vietnamese countryside mini-set
+
+**28. Suối Nguồn Thanh Bình** (Peaceful Spring Stream)
+- Background: Clear blue-to-sage gradient with water ripple effect, zen tranquility atmosphere
+- Props: Smooth river stones arrangement (background center), bamboo water spout, lotus leaf floating, moss on rocks
+- Lighting: Natural forest light (4800K) dappled through trees, peaceful cool glow
+- Floor: Natural stone with water edge, stream bank aesthetic, serene nature theatrical
+- Vibe: Mountain stream theatrical stage, peaceful nature editorial, zen tranquility mini-set
+
+**29. Rừng Tre Xào Xạc** (Rustling Bamboo Forest)
+- Background: Fresh bamboo green-to-cream gradient with bamboo stalk pattern, natural zen atmosphere
+- Props: Tall bamboo stalks (background multiple), bamboo mat on ground, stone path, small bird figure
+- Lighting: Filtered forest light (5000K) through bamboo canopy, green-tinted peaceful glow
+- Floor: Bamboo leaf scatter on earth tone, forest floor aesthetic, natural tranquility theatrical
+- Vibe: Bamboo forest theatrical stage, zen nature editorial, peaceful simplicity mini-set
+
+**30. Cầu Tre Làng Quê** (Village Bamboo Bridge)
+- Background: Warm brown-to-green gradient with rustic village texture, pastoral nostalgia atmosphere
+- Props: Bamboo bridge railing section (background center), lotus pond hint, water buffalo figure small, rice paddy edge
+- Lighting: Late afternoon golden (3500K) countryside warmth, nostalgic village glow
+- Floor: Weathered bamboo bridge planks, water reflection below, village aesthetic theatrical
+- Vibe: Vietnamese village theatrical stage, pastoral nostalgia editorial, roots homecoming mini-set
+
+---
+
+### 👑 ÁO DÀI TẾT - HOÀNG GIA & DI SẢN (5 Studios - Royal Heritage)
+
+**31. Cung Đình Huế** (Huế Imperial Palace)
+- Background: Royal red-to-gold gradient with imperial dragon motif, palace grandeur atmosphere
+- Props: Ornate throne arm visible (background left), golden dragon pillar, imperial silk banner, bronze incense holder
+- Lighting: Imperial warm (3200K) with regal rim light, palace majesty glow
+- Floor: Dark polished wood with imperial carpet, gold dragon pattern, palace theatrical
+- Vibe: Imperial court theatrical stage, royal heritage editorial, Huế majesty mini-set
+
+**32. Lăng Tẩm Hoàng Hôn** (Royal Tomb at Sunset)
+- Background: Deep amber-to-purple gradient with ancient stone texture, sunset memorial atmosphere
+- Props: Stone pillar weathered (background center), temple gate silhouette, incense holder, lotus offerings
+- Lighting: Sunset golden hour (2800K) with dramatic shadows, peaceful memorial glow
+- Floor: Ancient stone tiles with moss, heritage patina, royal memorial theatrical
+- Vibe: Royal tomb theatrical stage, heritage sunset editorial, peaceful reverence mini-set
+
+**33. Phố Cổ Hội An Đêm** (Hội An Ancient Town Night)
+- Background: Warm yellow-to-amber gradient with lantern glow effect, magical night atmosphere
+- Props: Colorful silk lanterns multiple sizes (background hanging), wooden window shutters, flower pots, river reflection hint
+- Lighting: Warm lantern glow (2700K) colorful romantic, magical night atmosphere
+- Floor: Aged yellow stone Hội An streets, lantern light pools, ancient town theatrical
+- Vibe: Hội An night theatrical stage, magical lantern editorial, heritage romance mini-set
+
+**34. Biệt Thự Sài Gòn Xưa** (Old Saigon Colonial Villa)
+- Background: Cream-to-beige gradient with French colonial texture, vintage elegance atmosphere
+- Props: Ornate wooden window frame (background left), antique clock, vintage ceramic vase, lace curtain hint
+- Lighting: Natural afternoon (4200K) through tall windows, colonial elegance glow
+- Floor: Vintage patterned tile (gạch bông) classic, colonial villa aesthetic theatrical
+- Vibe: French colonial theatrical stage, vintage Saigon editorial, elegant nostalgia mini-set
+
+**35. Chùa Một Cột Thiêng** (Sacred One Pillar Pagoda)
+- Background: Saffron-to-cream gradient with temple wall texture, spiritual serenity atmosphere
+- Props: Lotus pond with floating blooms (background center), incense smoke wisps, prayer beads, small Buddha figure
+- Lighting: Soft spiritual light (4500K) temple morning, peaceful devotion glow
+- Floor: Stone temple courtyard weathered, lotus petal scatter, sacred space theatrical
+- Vibe: Buddhist temple theatrical stage, spiritual Tết editorial, sacred blessing mini-set
+
+---
+
+### 🏙️ ÁO DÀI TẾT - HIỆN ĐẠI & FUSION (5 Studios - Modern Fusion)
+
+**36. Rooftop Sài Gòn** (Saigon Rooftop)
+- Background: Deep navy-to-gold gradient with city skyline silhouette, modern celebration atmosphere
+- Props: Modern planters with mai vàng (background left), champagne on table, city lights bokeh, contemporary lanterns
+- Lighting: City night (4000K) with warm accent lights, modern celebration glow
+- Floor: Contemporary terrace tile, reflective dark surface, rooftop party theatrical
+- Vibe: Modern Tết party theatrical stage, urban celebration editorial, contemporary prosperity mini-set
+
+**37. Gallery Nghệ Thuật Tết** (Tết Art Gallery)
+- Background: Clean white-to-cream gradient with gallery texture, contemporary art atmosphere
+- Props: Abstract Tết artwork frames (background wall), sculptural mai vàng modern, gallery lighting tracks
+- Lighting: Gallery bright (5500K) contemporary art spotlight, modern creative glow
+- Floor: Polished concrete gallery, minimalist clean, art exhibition theatrical
+- Vibe: Contemporary art theatrical stage, modern cultural editorial, artistic Tết mini-set
+
+**38. Cafe Fusion Xuân** (Spring Fusion Cafe)
+- Background: Sage green-to-white gradient with modern cafe texture, trendy relaxed atmosphere
+- Props: Minimalist coffee bar edge (background right), single mai branch in modern vase, latte art cup, succulent plant
+- Lighting: Natural cafe (4500K) Instagram-worthy glow, trendy relaxed atmosphere
+- Floor: Light herringbone wood modern cafe, contemporary comfort theatrical
+- Vibe: Trendy cafe theatrical stage, modern lifestyle editorial, fusion comfort mini-set
+
+**39. Studio Photography Pro** (Professional Photography Studio)
+- Background: Neutral gray seamless backdrop with professional studio texture, controlled atmosphere
+- Props: Backdrop stand visible (background edge), professional reflector, mai vàng in simple vase, apple boxes stacked
+- Lighting: Professional studio (5500K) controlled perfect lighting, photographer setup glow
+- Floor: Studio concrete gray, c-stand base visible, professional workspace theatrical
+- Vibe: Professional photoshoot theatrical stage, commercial quality editorial, studio perfection mini-set
+
+**40. Penthouse Đón Xuân** (Penthouse Spring Welcome)
+- Background: Luxury cream-to-champagne gradient with modern luxury texture, sophisticated atmosphere
+- Props: Designer furniture arm visible (background left), premium mai arrangement in crystal vase, panoramic window view hint, champagne bucket
+- Lighting: Luxury soft (3800K) with city glow, sophisticated penthouse atmosphere
+- Floor: Premium marble with contemporary rug, luxury apartment theatrical
+- Vibe: Luxury living theatrical stage, sophisticated prosperity editorial, modern success mini-set
+
+---
+
+### 👔 SƯỜN XÁM TẾT & HỘI (20 Studios - Enhanced Theatrical Casual/Professional)
+
+**1. Văn Phòng Tết Sang ⭐** (Elegant Tet Office)
+- Background: Warm beige-to-cream gradient with subtle gold accents, professional office texture
+- Props: Modern desk with red envelope display (background center), small kumquat tree in ceramic pot, desk organizer with pens, laptop closed, coffee mug with Tet motif, wall calendar showing New Year, prosperity plant, desk lamp modern
+- Lighting: Bright office daylight (5000K) with warm Tet atmosphere, professional workspace glow
+- Floor: Light wood laminate modern professional, office chair mat, clean corporate
+- Vibe: Corporate Tet celebration theatrical, professional prosperity stage, elegant workplace editorial
+
+**2. Cafe Xuân Vintage** (Vintage Spring Cafe)
+- Background: Soft cream-to-tan gradient with vintage plaster texture, old cafe aesthetic
+- Props: Retro wooden cafe chair (background corner), apricot branch in repurposed coffee can vase, vintage radio on shelf, old coffee grinder, ceramic cups hanging, vintage poster on wall, sugar jar antique, newspapers stacked
+- Lighting: Warm cafe ambiance (3500K) with cozy spring morning glow, nostalgic mood
+- Floor: Checkerboard black-white tile vintage 70s Vietnam cafe, worn charming theatrical
+- Vibe: Nostalgic spring cafe theatrical stage, relaxed Tet morning editorial, retro charm mini-set
+
+**3. Phố Đi Bộ Tết** (Tet Walking Street)
+- Background: Light gray-to-white gradient with subtle exposed brick texture, urban modern
+- Props: Large potted plant with red ribbon decorations (background left), decorative street lamp hint, bench with festival banners, flower vendor cart miniature, lanterns hanging, street art backdrop, sidewalk cafe table
+- Lighting: Outdoor daylight simulation (5500K) fresh street festival air, urban energy bright
+- Floor: Smooth concrete pavement urban pedestrian, decorative street tiles, festival atmosphere
+- Vibe: Modern street festival theatrical stage, urban Tet celebration editorial, youthful energy mini-set
+
+**4. Thư Viện Xuân** (Spring Library)
+- Background: Sage green-to-cream gradient with bookshelf pattern, intellectual peaceful atmosphere
+- Props: Book stack with apricot blossom bookmark (background center), vintage reading lamp, wooden bookends, reading glasses on book, tea cup on saucer, library card catalog drawer, potted succulent, leather chair arm visible
+- Lighting: Soft reading light (4000K) with tranquil study atmosphere, scholar's glow
+- Floor: Warm oak wood library quiet flooring, traditional rug scholarly, book-lined theatrical
+- Vibe: Scholarly Tet theatrical stage, intellectual renewal editorial, peaceful reflection mini-set
+
+**5. Studio Nhiếp Ảnh Tết** (Tet Photography Studio)
+- Background: Soft gray gradient with professional photography backdrop texture, studio seamless
+- Props: Professional camera on tripod (background left), studio lights with red gel filters hint, reflector disc, backdrop stand with Tet theme, light meter, camera bag, softbox lights, photography props box
+- Lighting: Studio lighting (5500K) with warm fill light, professional photography setup theatrical
+- Floor: Polished concrete modern studio with cables neat, professional photographer workspace
+- Vibe: Professional Tet photoshoot theatrical stage, creative industry editorial, festive documentation mini-set
+
+**6. Homestay Xuân** (Spring Homestay)
+- Background: Warm ivory-to-peach gradient with cozy home texture, welcoming atmosphere
+- Props: Woven basket with spring flowers (background right), cushion with Tet pattern on chair, small bookshelf, vintage suitcase, potted herbs, tea tray set, framed family photos, traditional calendar hanging
+- Lighting: Natural window light simulation (4500K) welcoming homey glow, Airbnb warmth
+- Floor: Warm terracotta tile comfortable home flooring, woven mat accent, homey theatrical
+- Vibe: Airbnb Tet hosting theatrical stage, homey celebration editorial, welcoming warmth mini-set
+
+**7. Boutique Thời Trang Tết** (Tet Fashion Boutique)
+- Background: Blush pink-to-white gradient with chic retail aesthetic, fashion boutique texture
+- Props: Clothing rack with red sale tags (background center), mannequin torso with Tet flowers, mirror full-length, shopping bags decorative, fashion magazines stacked, jewelry display stand, boutique lighting fixtures, price tag display
+- Lighting: Retail bright (5000K) with accent spotlights, shopping atmosphere energetic theatrical
+- Floor: Light herringbone wood boutique sophistication flooring, modern retail clean
+- Vibe: Fashion retail Tet theatrical stage, trendy shopping editorial, stylish prosperity mini-set
+
+**8. Quán Trà Xuân** (Spring Tea House)
+- Background: Bamboo green-to-cream gradient with zen tea house texture, peaceful aesthetic
+- Props: Traditional tea set on low wooden table (background center), lotus tea flower in bowl, bamboo whisk for matcha, tea canister antique, stone water basin, meditation cushion, incense holder, tea scrolls hanging
+- Lighting: Soft diffused daylight (4200K) meditative calm atmosphere, zen peaceful glow
+- Floor: Tatami-style mat traditional tea ceremony flooring, natural bamboo slats, zen theatrical
+- Vibe: Tea ceremony celebration theatrical stage, mindful Tet editorial, cultural refinement mini-set
+
+**9. Showroom Xe Tết** (Tet Car Showroom)
+- Background: Sleek gray-to-charcoal gradient with modern luxury automotive texture, premium showroom
+- Props: Red ribbon decoration large (background corner), polished metal accents on display, car key on velvet cushion, champagne glasses, showroom plant luxury, promotional banner, spotlight stands, car brochures display
+- Lighting: Bright showroom (6000K) luxury retail professional, automotive premium theatrical
+- Floor: Glossy epoxy premium automotive flooring mirror-finish, high-end dealership
+- Vibe: Luxury Tet purchase theatrical stage, prosperity symbol editorial, modern success mini-set
+
+**10. Gym Năm Mới** (New Year Gym)
+- Background: Energetic orange-to-red gradient with motivational athletic texture, fitness energy
+- Props: Dumbbell with red ribbon (background center), new year resolution banner visible, yoga mat rolled, water bottle with towel, gym bag, motivational poster, resistance bands, gym timer clock
+- Lighting: Bright athletic (5500K) energizing workout vibe, fitness motivation theatrical
+- Floor: Rubber mat texture fitness facility flooring, gym equipment area, athletic theatrical
+- Vibe: New year fitness goals theatrical stage, healthy start editorial, energetic renewal mini-set
+
+**11. Ngân Hàng VIP Tết** (Tet VIP Banking)
+- Background: Luxury navy-to-gold gradient with wealthy sophisticated texture, premium banking
+- Props: Gold ingot display on pedestal (background center), prosperity plant in marble pot, leather chair arm, financial documents folder, gold pen set, premium clock, banking certificates framed, crystal paperweight
+- Lighting: Warm premium (3800K) wealth management elegance, VIP banking theatrical glow
+- Floor: Marble tiles high-end banking flooring, luxury carpet accent, premium theatrical
+- Vibe: Financial prosperity Tet theatrical stage, wealth celebration editorial, VIP exclusive mini-set
+
+**12. Coworking Xuân** (Spring Coworking)
+- Background: Fresh mint-to-white gradient with startup modern vibe texture, creative workspace
+- Props: Laptop with Tet sticker (background left), potted succulent with ribbon, whiteboard with ideas, coffee station, motivational quotes poster, desk organizer modern, smartphone on charger, notebook stack
+- Lighting: Bright productive (5000K) creative workspace energy, startup hustle theatrical
+- Floor: Light concrete modern shared office flooring, industrial chic, collaborative theatrical
+- Vibe: Startup Tet hustle theatrical stage, entrepreneurial spirit editorial, modern workforce mini-set
+
+**13. Spa Thư Giãn Tết** (Tet Relaxation Spa)
+- Background: Serene lavender-to-cream gradient with calming wellness texture, spa tranquility
+- Props: Aromatherapy candles multiple (background arranged), rolled white towels with orchid flower, essential oil bottles display, spa stones heated, bamboo tray, lotus floating in bowl, meditation music player, robe hanging
+- Lighting: Dim relaxation (3000K) spa tranquility atmosphere, wellness calm theatrical glow
+- Floor: Smooth stone tile spa luxury flooring, heated floor hint, zen spa theatrical
+- Vibe: Tet self-care theatrical stage, wellness renewal editorial, luxurious relaxation mini-set
+
+**14. Salon Tóc Xuân** (Spring Hair Salon)
+- Background: Peachy pink-to-ivory gradient with beauty industry chic texture, salon glamorous
+- Props: Professional styling tools on counter (background center), mirror with ring lights bright, hair dryer, styling products bottles, salon cape on hook, flowers in vase, beauty magazines, combs decorative display
+- Lighting: Bright beauty (5500K) glamorous makeover vibe, salon professional theatrical
+- Floor: White tile with geometric pattern salon professional flooring, clean modern theatrical
+- Vibe: Tet beauty prep theatrical stage, glamorous transformation editorial, confidence boost mini-set
+
+**15. Phòng Họp Năm Mới** (New Year Meeting Room)
+- Background: Professional gray-to-white gradient with corporate serious texture, business meeting
+- Props: Whiteboard with goals written (background wall), red marker in holder, laptop on table, meeting notes, projector screen, water pitcher with glasses, office plant, wall clock modern
+- Lighting: Bright meeting (5500K) focused professional atmosphere, corporate planning theatrical
+- Floor: Carpet tile corporate office flooring, professional conference room, business theatrical
+- Vibe: New year planning theatrical stage, goal setting editorial, professional ambition mini-set
+
+**16. Tiệm Bánh Tết** (Tet Bakery)
+- Background: Warm yellow-to-cream gradient with bakery cozy texture, fresh baked goods atmosphere
+- Props: Display case hint (background glass), bánh chưng wrapped in banana leaves, banh tet traditional, flour bags stacked, rolling pin, baking tray, apron hanging, recipe cards, traditional cake molds
+- Lighting: Warm bakery (4000K) fresh baked goods glow, kitchen warmth theatrical
+- Floor: Clean white tile food safety professional flooring, bakery workspace theatrical
+- Vibe: Tet food tradition theatrical stage, bakery celebration editorial, homemade warmth mini-set
+
+**17. Khách Sạn Tết Cao Cấp** (Tet Luxury Hotel)
+- Background: Rich burgundy-to-gold gradient with 5-star hospitality texture, luxury hotel lobby
+- Props: Large flower arrangement on console table (background center), hospitality bell service, key card display, luggage cart hint, chandelier visible above, hotel brochures, welcome champagne tray, plush seating arm
+- Lighting: Luxury ambient (3500K) hotel lobby sophistication, premium hospitality theatrical glow
+- Floor: Marble with gold veining premium hospitality flooring, luxury carpet runner, 5-star theatrical
+- Vibe: Luxury Tet getaway theatrical stage, hotel celebration editorial, lavish comfort mini-set
+
+**18. Shop Giầy Xuân** (Spring Shoe Shop)
+- Background: Clean white-to-beige gradient with retail minimalist texture, boutique shoe shop
+- Props: Shoe display pedestal multiple (background arranged), red shoebox stack decorative, mirror floor-length, shoe horn silver, shoe care products, shopping bags branded, bench for trying shoes, size measurement tool
+- Lighting: Retail bright (5500K) product showcase clear, boutique shopping theatrical
+- Floor: Herringbone wood boutique retail flooring, modern clean, shopping theatrical
+- Vibe: Tet shopping spree theatrical stage, new shoes tradition editorial, retail therapy mini-set
+
+**19. Phòng Khám Y Tế Tết** (Tet Health Clinic)
+- Background: Medical white-to-light blue gradient with clean health texture, clinical professional
+- Props: Medical chart on wall (background organized), health plant snake plant in corner, stethoscope on desk, hand sanitizer dispenser, medical pamphlets display, examination lamp, blood pressure cuff, calendar appointment
+- Lighting: Clinical bright (6000K) hygienic professional atmosphere, medical facility theatrical
+- Floor: White vinyl medical facility flooring, hospital clean, healthcare theatrical
+- Vibe: Health checkup Tet theatrical stage, wellness priority editorial, professional care mini-set
+
+**20. Nhà Hàng Tất Niên** (Year-End Feast Restaurant)
+- Background: Festive red-to-gold gradient with celebration dining texture, restaurant feast atmosphere
+- Props: Table setting hint elegant (background partial), decorative lantern hanging, wine glasses, chopsticks in holder, menu stand, flower centerpiece, red napkins folded, candle holders, lazy susan center
+- Lighting: Warm dining (3200K) feast atmosphere glow, celebration dining theatrical
+- Floor: Dark wood restaurant flooring, elegant dining, feast celebration theatrical
+- Vibe: Year-end feast theatrical stage, celebration dining editorial, abundance prosperity mini-set
+
+---
+
+### 👗 ĐẦM VÁY TẾT & HỘI (20 Studios - Enhanced Theatrical Evening/Dresses)
+
+**1. Vũ Hội Xuân ⭐** (Spring Ball)
+- Background: Champagne gold-to-ivory gradient with soft glitter shimmer effect, ballroom elegance
+- Props: Ornate candelabra with candles (background center), flower garland draped elegantly, grand piano corner hint, champagne flutes on table, silk drapes framing, decorative columns, crystal chandelier above, rose petals scattered
+- Lighting: Elegant ballroom chandelier simulation (3500K) with gala glow, romantic spotlights
+- Floor: Polished white marble ballroom dance floor with gold inlay, theatrical elegance
+- Vibe: Spring gala theatrical stage, elegant ball editorial, sophisticated celebration mini-set
+
+**3. Đám Cưới Xuân** (Spring Wedding)
+- Background: Romantic blush-to-white gradient with watercolor floral pattern, bridal luxury theatrical
+- Props: Floral arch elaborate (background center), wedding guest book on stand, candles in holders, white rose bouquets, satin ribbon decorations, unity candle set, wedding bells hanging, love letters display
+- Lighting: Soft romantic (4000K) wedding day glow, dreamy bridal theatrical atmosphere
+- Floor: White carpet runner wedding aisle flooring, rose petals scattered, bridal theatrical
+- Vibe: Spring wedding theatrical stage, romantic union editorial, joyful matrimony mini-set
+
+**4. Dạ Hội Từ Thiện** (Charity Gala)
+- Background: Deep emerald-to-black gradient with subtle charity theme, high-society philanthropy theatrical
+- Props: Auction item on display stand (background left), elegant donation box, charity program booklets, fundraising thermometer, champagne service, silk banners with cause, plush seating, flower arrangements luxury
+- Lighting: Sophisticated dim (3000K) charity event elegance, philanthropic theatrical glow
+- Floor: Black marble gala venue flooring with emerald carpet runner, charity theatrical
+- Vibe: Philanthropic celebration theatrical stage, giving spirit editorial, elite charity mini-set
+
+**5. Tiệc Champagne Tết** (Tet Champagne Party)
+- Background: Sparkling gold-to-champagne gradient with bubble effects, effervescent luxury theatrical
+- Props: Champagne tower elaborate (background center), celebration crystal glasses, ice bucket with bottles, gold confetti scatter, party poppers, champagne cork collection, bar cart elegant, cheese platter display
+- Lighting: Bright festive (4500K) with gold highlights sparkle, party theatrical glow
+- Floor: Gold-veined marble luxury party flooring, confetti scatter decorative, celebration theatrical
+- Vibe: Upscale Tet toast theatrical stage, champagne celebration editorial, effervescent joy mini-set
+
+**6. Nhạc Hội Mùa Xuân** (Spring Music Concert)
+- Background: Deep purple-to-magenta gradient with sound wave pattern, concert stage vibe theatrical
+- Props: Music stand with sheet music (background left), stage curtain elegant, microphone on stand, stage monitors, concert posters, instrument cases, stage lights rigging, sound equipment
+- Lighting: Concert stage (4000K) with color gel wash purple/magenta, performance energy theatrical
+- Floor: Stage wood concert venue flooring, cables neat organized, performance theatrical
+- Vibe: Spring concert theatrical stage, musical celebration editorial, artistic performance mini-set
+
+**7. Liên Hoan Phim Tết** (Tet Film Festival)
+- Background: Classic red velvet curtain texture gradient with film reel pattern, cinema theatrical
+- Props: Film reel decoration large (background center), vintage movie poster frames, director's chair, clapperboard prop, film camera vintage, popcorn stand classic, red carpet ropes, movie tickets display
+- Lighting: Theater warm (3200K) cinema premiere atmosphere, Hollywood theatrical glow
+- Floor: Velvet carpet film festival red carpet flooring, star walk theatrical
+- Vibe: Movie premiere Tet theatrical stage, cinematic glamour editorial, star treatment mini-set
+
+**8. Triển Lãm Nghệ Thuật** (Art Exhibition Opening)
+- Background: Gallery white-to-cream gradient with subtle art pattern, museum clean theatrical
+- Props: Artwork frames on wall (background various sizes), exhibition labels, sculpture pedestal, gallery lighting tracks, champagne service art opening, artist palette, easel with painting, museum catalog
+- Lighting: Museum gallery (5000K) art showcase bright, contemporary theatrical illumination
+- Floor: Polished concrete contemporary gallery flooring, minimalist clean, art theatrical
+- Vibe: Art opening Tet theatrical stage, cultural sophistication editorial, creative elite mini-set
+
+
+
+**10. Khiêu Vũ Xã Giao** (Social Ballroom Dance)
+- Background: Elegant cream-to-peach gradient with dance motif pattern, ballroom romance theatrical
+- Props: Grand piano silhouette (background corner), music sheet stand elegant, dance trophy, ballroom chandelier hint, velvet ropes, dance floor markers, mirror ball hanging, dance card display
+- Lighting: Warm ballroom (3300K) waltz atmosphere romantic, classic theatrical glow
+- Floor: Parquet dance floor classic ballroom pattern, polished theatrical
+- Vibe: Ballroom dancing Tet theatrical stage, elegant partnering editorial, refined social mini-set
+
+**11. Lễ Trao Giải Cuối Năm** (Year-End Awards)
+- Background: Prestigious gold-to-bronze gradient with award emblem, trophy ceremony theatrical
+- Props: Award trophy on podium (background center), winner plaque display, envelope with results, microphone stand, cameras filming, press backdrop, flower bouquets winner, champagne congratulations
+- Lighting: Award show (5000K) with dramatic spotlight, recognition moment theatrical
+- Floor: Dark wood stage ceremony platform flooring, winner spotlight area theatrical
+- Vibe: Achievement celebration theatrical stage, winner recognition editorial, prestigious honor mini-set
+
+**12. Dạ Tiệc Sân Vườn** (Garden Evening Party)
+- Background: Twilight indigo-to-lavender gradient with garden silhouette, outdoor elegance theatrical
+- Props: String lights elaborate hanging (background overhead), potted topiaries shaped, garden lanterns, outdoor furniture elegant, flower arrangements wild, bird bath decorative, garden arch, candles outdoor
+- Lighting: Warm evening (3000K) with fairy lights twinkle, garden party magic theatrical
+- Floor: Stone patio garden venue flooring with moss accent, outdoor theatrical
+- Vibe: Outdoor gala theatrical stage, garden romance editorial, twilight charm mini-set
+
+**13. Cocktail VIP Tết** (Tet VIP Cocktail)
+- Background: Sophisticated navy-to-silver gradient with art deco pattern, exclusive lounge theatrical
+- Props: Bar counter edge modern (background right), cocktail glass variety, bartool elegant, bottle display backlit, ice sculpture, cocktail shaker, garnish tray, lounge seating plush
+- Lighting: Lounge dim (2800K) with neon accent cyan/magenta, upscale nightlife theatrical
+- Floor: Dark polished wood exclusive venue flooring, lounge carpet theatrical
+- Vibe: VIP cocktail party theatrical stage, elite networking editorial, sophisticated nightlife mini-set
+
+**14. Sinh Nhật Hoàng Gia** (Royal Birthday)
+- Background: Regal purple-to-gold gradient with crown pattern embossed, birthday royalty theatrical
+- Props: Multi-tier birthday cake elaborate (background center), crown decoration gold, presents wrapped luxury, balloons gold/purple, birthday banner elegant, champagne tower, confetti cannons, throne chair hint
+- Lighting: Celebratory bright (4000K) with birthday sparkle spots, royal theatrical glow
+- Floor: Royal carpet purple with gold trim flooring, majestic celebration theatrical
+- Vibe: Royal birthday Tet theatrical stage, majestic party editorial, grand celebration mini-set
+
+**15. Khai Trương Xa Hoa** (Grand Opening Luxury)
+- Background: Opulent red-to-gold gradient with ribbon-cutting ceremony, elegant theatrical
+- Props: Ribbon-cutting setup ceremonial (background center), grand opening flower stands multiple, champagne service, guest registry book, brand logos display, ceremonial scissors gold, red carpet entrance, promotional banners
+- Lighting: Event bright (5500K) celebratory launch atmosphere, grand opening theatrical
+- Floor: Marble entrance grand venue flooring with red carpet, business theatrical
+- Vibe: Luxury brand opening theatrical stage, grand launch editorial, business milestone mini-set
+
+**16. Đêm Hội Ánh Sáng** (Festival of Lights Evening)
+- Background: Deep blue-to-black gradient with colorful bokeh light effects, festival theatrical
+- Props: Lantern installation art elaborate (background multiple levels), LED light sculptures, projection mapping backdrop, illuminated orbs, neon signs artistic, light tubes, festival banners, reflection panels
+- Lighting: Colorful LED (4000K) with rainbow gel effects, festival lights theatrical magic
+- Floor: Reflective dark surface night festival flooring with light pools, illuminated theatrical
+- Vibe: Light festival night theatrical stage, modern celebration editorial, illuminated wonder mini-set
+
+**17. Dạ Tiệc Sang Trọng** (Elegant Evening Gala)
+- Background: Deep navy-to-gold gradient with elegant texture, formal evening theatrical
+- Props: Grand floral arrangement (background center), crystal champagne glasses, elegant candelabra, formal table setting hint, silk drapes, gold accent details, sparkling chandelier hint
+- Lighting: Warm golden (3200K) with elegant gala atmosphere, sophisticated glow
+- Floor: Polished marble with gold accents, formal event theatrical
+- Vibe: Sophisticated evening gala theatrical stage, formal celebration editorial, elegant night mini-set
+
+**18. Hòa Nhạc Giao Hưởng** (Symphony Concert)
+- Background: Classic burgundy-to-black gradient with musical notes, orchestra hall theatrical
+- Props: Orchestra chair hint (background left), music notation decor elegant, conductor's stand, music stands multiple, cello case, violin on stand, symphony program booklets, roses for performers
+- Lighting: Concert hall (3500K) classical sophistication warm, symphony theatrical glow
+- Floor: Polished stage wood symphony venue flooring, performance theatrical
+- Vibe: Classical music Tet theatrical stage, symphony elegance editorial, refined culture mini-set
+
+**19. Tiệc Mask Bí Ẩn** (Masquerade Mystery)
+- Background: Mysterious deep violet-to-black gradient with mask motifs, masked ball theatrical
+- Props: Ornate masks on stands (background multiple styles), masquerade decorations feathered, candelabra gothic, velvet drapes purple, mystery boxes, champagne service, invitation cards elegant, venetian props
+- Lighting: Dim mysterious (2500K) with dramatic shadows theatrical, intrigue candlelight glow
+- Floor: Dark parquet mystery ball flooring with purple runner, enigmatic theatrical
+- Vibe: Masquerade Tet theatrical stage, mysterious elegance editorial, enigmatic celebration mini-set
+
+**⭐ = Default/Most Popular for each category**
+
+---
+
+### 🎉 ĐẦM VÁY TIỆC CUỐI NĂM (15 Studios - End-of-Year Party)
+
+**Hướng dẫn chọn:** AI tự động match studio khi detect từ khóa: countdown, year-end party, tất niên, company party, gala, New Year Eve.
+
+---
+
+#### 🎆 COUNTDOWN & NEW YEAR EVE (5 Studios)
+
+**1. Countdown Midnight ⭐** (Default for Countdown/New Year)
+- Background: Deep midnight blue-to-black gradient with gold sparkle stars, New Year anticipation
+- Props: Large countdown clock display (background center), champagne tower decorative, gold balloons cluster, confetti cannons artistic, sparklers in holders
+- Lighting: Cool night (4500K) with gold burst accents, celebration energy
+- Floor: Glossy black reflective with gold confetti scatter, party theatrical
+- Vibe: Midnight countdown theatrical stage, New Year anticipation editorial, celebration explosion mini-set
+
+**2. Firework Viewing Party**
+- Background: Night sky navy-to-purple gradient with distant firework bokeh effects
+- Props: Champagne bucket on stand (background right), sparkler holders decorative, sheer curtain flowing, gold ribbon decorations
+- Lighting: Night outdoor (3500K) with colorful firework reflection simulation
+- Floor: Rooftop terrace tile textured, outdoor celebration theatrical
+- Vibe: Firework party theatrical stage, sky celebration editorial, magical night mini-set
+
+**3. Luxury Countdown Suite**
+- Background: Champagne gold-to-cream gradient with glitter shimmer effect, penthouse luxury
+- Props: Floor-to-ceiling window with city lights bokeh (background), champagne on ice stand, velvet chair edge, decorative mirror
+- Lighting: Warm luxurious (3200K) with city glow reflection, sophisticated atmosphere
+- Floor: Premium marble with plush rug, penthouse elegance theatrical
+- Vibe: VIP countdown theatrical stage, penthouse celebration editorial, elite New Year mini-set
+
+**4. Neon Countdown Club**
+- Background: Deep black with neon pink/blue/purple accent strips, club energy
+- Props: LED "2026" sign (background center), disco ball hanging, neon cocktail glass decorative, laser light hint, DJ booth silhouette
+- Lighting: Neon party (4000K) with color gel wash, club energy theatrical
+- Floor: Glossy black dance floor with neon reflections, nightclub theatrical
+- Vibe: Club countdown theatrical stage, party energy editorial, youth celebration mini-set
+
+**5. Rooftop City Countdown**
+- Background: City skyline silhouette with warm bokeh lights, urban New Year
+- Props: Modern lounge chair (background left), champagne stand elegant, heater lamp decorative, countdown banner hanging
+- Lighting: Night urban (4000K) with warm accent from city lights
+- Floor: Contemporary rooftop deck wood, outdoor elegant theatrical
+- Vibe: Rooftop party theatrical stage, urban sophistication editorial, city celebration mini-set
+
+---
+
+#### 🏢 COMPANY YEAR-END PARTY (5 Studios)
+
+**6. Corporate Gala Night ⭐** (Default for Company Party)
+- Background: Professional navy-to-silver gradient with elegant texture, company celebration
+- Props: Award podium (background left), company banner elegant, stage mic stand, crystal vase with flowers, champagne flutes on display
+- Lighting: Event bright (5000K) with spotlight accents, corporate celebration theatrical
+- Floor: Hotel ballroom carpet navy with gold pattern, professional theatrical
+- Vibe: Company gala theatrical stage, corporate celebration editorial, professional achievement mini-set
+
+**7. Year-End Awards Ceremony**
+- Background: Prestigious gold-to-bronze gradient with award motifs, recognition ceremony
+- Props: Trophy display multiple (background center), winner podium elegant, certificate frames, champagne tower, flower wreaths decorative
+- Lighting: Award show (5500K) with dramatic spotlight moments, recognition theatrical
+- Floor: Dark stage wood with gold runner, awards ceremony theatrical
+- Vibe: Achievement awards theatrical stage, recognition celebration editorial, excellence honor mini-set
+
+**8. Office After-Party**
+- Background: Modern gray-to-white gradient with festive touches, casual corporate
+- Props: Photo backdrop decorative (background), balloon arch colorful, party banner across, confetti display, festive hat props
+- Lighting: Office bright (5000K) with colorful party accents, fun corporate theatrical
+- Floor: Modern office carpet with party confetti, casual celebration theatrical
+- Vibe: Office party theatrical stage, team celebration editorial, corporate fun mini-set
+
+**9. Executive Lounge Celebration**
+- Background: Rich burgundy-to-gold gradient with premium texture, executive elegance
+- Props: Velvet lounge chair (background left), champagne service on stand, crystal vase flowers, gold accent mirror, silk drape
+- Lighting: Warm elegant (3200K) with sophisticated glow, premium atmosphere
+- Floor: Dark polished wood with premium carpet runner, executive theatrical
+- Vibe: Executive celebration theatrical stage, VIP elegance editorial, business sophistication mini-set
+
+**10. Team Building Celebration**
+- Background: Energetic coral-to-yellow gradient with fun casual vibe, team spirit
+- Props: Trophy casual decorative (background), congratulations banner, balloon cluster, party props display, photo frame oversized
+- Lighting: Bright fun (5500K) with warm energy, team celebration theatrical
+- Floor: Modern venue flooring light, celebration energy theatrical
+- Vibe: Team celebration theatrical stage, casual bonding editorial, year-end fun mini-set
+
+---
+
+#### 🌟 TẤT NIÊN & YEAR-END CELEBRATION (5 Studios)
+
+**11. Tất Niên Sang Trọng ⭐** (Default for Tất Niên)
+- Background: Warm red-to-gold gradient with prosperity theme, Vietnamese celebration
+- Props: Mai vàng in premium vase (background center), red envelope display decorative, lantern hanging, silk drape red, gold accent pieces
+- Lighting: Warm festive (3200K) with prosperity glow, Vietnamese celebration theatrical
+- Floor: Dark polished wood with red carpet accent, elegant theatrical
+- Vibe: Tất niên theatrical stage, Vietnamese prosperity editorial, elegant celebration mini-set
+
+**12. Tất Niên Modern Fusion**
+- Background: Festive red-to-cream gradient with contemporary touch, modern Vietnamese
+- Props: Kumquat tree small (background left), modern lantern design, red envelope artistic display, minimalist flower arrangement
+- Lighting: Bright festive (4500K) with modern Vietnamese atmosphere
+- Floor: Light marble with red accent rug, modern elegant theatrical
+- Vibe: Modern tất niên theatrical stage, contemporary Vietnamese editorial, fusion celebration mini-set
+
+**13. VIP Celebration Lounge**
+- Background: Deep navy-to-silver gradient with luxury texture, premium celebration
+- Props: Elegant bar cart (background right), champagne on ice, crystal glasses display, fresh flower arrangement, decorative candles
+- Lighting: Warm dim (3000K) with elegant spotlight, premium atmosphere theatrical
+- Floor: Dark marble with silver accent, luxury theatrical
+- Vibe: VIP celebration theatrical stage, luxury party editorial, exclusive elegance mini-set
+
+**14. Đêm Tiệc Cuối Năm** (Year-End Party Night)
+- Background: Sparkling navy-to-silver gradient with celebration energy, elegant night
+- Props: Balloon arch gold/silver (background left), champagne tower display, confetti pile decorative, sparkler holders, party banner elegant
+- Lighting: Evening elegant (3500K) with silver accent highlights, sophisticated night theatrical
+- Floor: Polished floor with confetti scatter, elegant party theatrical
+- Vibe: Year-end party theatrical stage, sophisticated celebration editorial, elegant transition mini-set
+
+**15. Romantic New Year Welcome**
+- Background: Soft rose gold-to-blush gradient with romantic sparkle, couples celebration
+- Props: Champagne for two on stand (background center), rose bouquet elegant, candles multiple, heart balloons subtle, city view bokeh hint
+- Lighting: Romantic warm (2800K) with soft candlelight glow, elegant atmosphere theatrical
+- Floor: Elegant marble with rose petal scatter, romantic theatrical
+- Vibe: Romantic New Year theatrical stage, couples celebration editorial, love-filled welcome mini-set
+
+---
+
+**Total Studios Available: 138 (123 regular/festival + 15 End-of-Year Party)**
+
+---
+
+**Remember:** Studio Mode = Professional affiliate seller vibe. Rich theatrical decorations create editorial mini-stage aesthetic!

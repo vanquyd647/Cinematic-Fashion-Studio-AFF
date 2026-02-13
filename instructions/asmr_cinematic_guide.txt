@@ -1,0 +1,178 @@
+# 🎤 ASMR CINEMATIC GUIDE — Sound-Driven Affiliate Video
+# Optimized for Nano Banana Pro (4K Image) + Veo 3.1 (8s Video + Native Audio)
+
+## OVERVIEW
+
+ASMR Cinematic = Video bán hàng tập trung vào ÂM THANH + CẬN CẢNH.
+Fabric rustling, zipper sounds, nails tapping, package crinkling → trigger thính giác → HIGH watch time → HIGH conversion.
+
+**Khác biệt với các mode khác:**
+- **Standard**: Visual-first, cinematic camera → ASMR: Audio-first, macro close-ups, sound triggers
+- **Try-On**: Full body outfit showcase → ASMR: Extreme close-up textures, sounds of wearing
+- **Unboxing**: Package → reveal story → ASMR: Sound of EVERY step is the star
+
+---
+
+## 🎙️ ASMR SOUND CATEGORIES
+
+### FABRIC SOUNDS (Vải)
+- Rustling: Tay vuốt nhẹ trên bề mặt vải → "soft fabric rustling sounds"
+- Scratching: Móng tay gãi nhẹ trên vải → "nails gently scratching fabric surface"
+- Folding: Gấp vải, xếp áo → "soft folding sounds, fabric layers"
+- Draping: Vải rơi, treo → "fabric cascading, soft landing sounds"
+- Buttons: Cài nút → "button clicking sounds, one by one"
+- Zipper: Kéo khóa → "zipper sliding sound, slow and satisfying"
+- Velcro: Dán velcro → "velcro peeling sound"
+- Snap: Bấm nút bấm → "snap button clicking"
+
+### PACKAGE SOUNDS (Đóng gói)
+- Paper: Giấy gói, tissue → "tissue paper crinkling"
+- Tape: Mở băng keo → "tape peeling off box"
+- Box: Mở hộp → "cardboard box opening"
+- Bag: Túi giấy/nilon → "paper bag rustling"
+- Bubble wrap: Pop bubble → "bubble wrap popping"
+
+### DETAIL SOUNDS (Chi tiết)
+- Hanger: Treo/gỡ mắc → "hanger clicking on rack"
+- Tag: Cắt tag → "scissors cutting price tag"
+- Mirror: Đặt lên bàn → "item placed on smooth surface"
+- Spray: Xịt nước hoa → "spray mist sound"
+
+---
+
+## 📹 CAMERA & PRODUCTION
+
+### Lens & Framing
+- **PRIMARY**: Macro lens equivalent — EXTREME close-up (fabric weave visible)
+- **SECONDARY**: Medium close-up — hands interacting with product
+- **TERTIARY**: Medium shot — product in context (occasional, brief)
+- Most shots: 70% macro/extreme close-up, 20% medium close-up, 10% medium/full
+
+### Lighting
+- Soft, warm directional light (side/back lighting creates texture depth)
+- NO harsh overhead (kills texture detail)
+- Rim light on fabric edges (enhances tactile feel)
+- Background: Dark or neutral blur (attention on product)
+
+### Camera Movement
+- STATIC or very slow push-in (stability = quality feel)
+- Slow orbit around product detail
+- Focus pulls: macro detail → slightly wider (reveal product)
+- NO fast movement, NO quick cuts (ASMR = slow, deliberate)
+
+### Audio (Veo 3.1 Native)
+- ⚠️ CRITICAL: Audio is the PRIMARY content, NOT secondary
+- NO background music in ASMR scenes (music kills ASMR effect)
+- Voice: Whisper or soft-spoken ONLY (if any voice)
+- Ambient: Minimal room tone (quiet environment)
+- Veo 3.1 prompt MUST include sound descriptors: "sounds of fabric rustling", "audible zipper", etc.
+
+---
+
+## 🎬 SCENE STRUCTURES
+
+### 24s (3 scenes) — Quick ASMR
+```
+Scene 1 (0-8s): HOOK SOUND + Product intro
+- 0-2s: Satisfying sound hook (zipper, snap, tap) — grab attention
+- 2-8s: Close-up product reveal, hands touching fabric
+
+Scene 2 (8-16s): TEXTURE SHOWCASE
+- Extreme macro: fabric weave, stitching, material quality
+- Multiple touch interactions: scratch, rub, fold
+
+Scene 3 (16-24s): WEARING + CTA
+- Quick wear demo (close-up adjustments, not full body)
+- Final satisfying sound + whisper CTA
+```
+
+### 32s (4 scenes) — Standard ASMR
+```
+Scene 1 (0-8s): SOUND HOOK + Unpackaging
+- Opening package sounds: tape, paper, tissue
+- First product reveal from package
+
+Scene 2 (8-16s): FABRIC EXPLORATION
+- Run fingers across fabric surface
+- Scratch/rub texture — different parts of garment
+- Focus: material quality, softness, weave
+
+Scene 3 (16-24s): DETAIL SOUNDS
+- Buttons, zipper, snap, velcro (whatever applicable)
+- Each hardware element gets individual close-up + sound
+- Tag cutting (satisfying scissors sound)
+
+Scene 4 (24-32s): WEARING ASMR + CTA
+- Close-up of putting on: zip up, button, drape
+- Final fabric adjustment sounds
+- Whisper CTA: link/price
+```
+
+### 48s (6 scenes) — Full ASMR Experience
+```
+Scene 1 (0-8s): PACKAGE ASMR (hook)
+Scene 2 (8-16s): REVEAL + First touch
+Scene 3 (16-24s): FABRIC DEEP DIVE (macro textures)
+Scene 4 (24-32s): HARDWARE SOUNDS (zip/button/snap)
+Scene 5 (32-40s): WEARING CLOSE-UP (adjustments, fitting)
+Scene 6 (40-48s): STYLING + whisper CTA
+```
+
+---
+
+## 🎯 ASMR × PRODUCT TYPE
+
+| Product Type | Primary Sound | Secondary Sound | Signature Shot |
+|---|---|---|---|
+| Dress | Fabric cascade/fall | Zipper | Fabric falling off hanger |
+| Blouse/Shirt | Button clicking | Collar fold | Buttons closing one by one |
+| T-shirt | Cotton stretch/rub | Tag cut | Hands stretching fabric |
+| Jacket | Zipper slide | Pocket snap | Slow zipper close |
+| Jeans/Pants | Denim scratch | Belt buckle | Nails on denim texture |
+| Sweater/Knit | Knit scratch/rub | - | Fingers running through knit weave |
+| Suit | Fabric smooth | Button | Hand smoothing lapel |
+| Skirt | Ruffle/swish | Zipper | Pleats fanning out |
+| Sleepwear | Soft silk/satin slide | - | Silk sliding through fingers |
+| Bikini | Elastic snap | Tag cut | Strap elastic snap |
+| Sport | Stretch elastic | Zipper | Fabric stretch & rebound |
+| Shoes | Tap on surface | Lace tie | Sole tapping on hard floor |
+| Bag | Clasp/lock | Zipper pocket | Bag clasp clicking |
+| Accessory | Metal clink | Chain | Jewelry touching surface |
+
+---
+
+## 💬 VOICE PATTERNS (Whisper Mode)
+
+- Opening: "(whisper) Mở xem nào..." / "(whisper) Chất vải này..."
+- Texture: "(whisper) Mềm lắm..." / "(whisper) Nghe tiếng vải nè..."
+- Rating: "(whisper) 10 trên 10 luôn..."
+- CTA: "(whisper) Link ghim phía trên nha..."
+- NO SHOUTING, NO excited reactions (breaks ASMR mood)
+
+---
+
+## 📊 VEO 3.1 PROMPT PATTERNS
+
+### Sound-First Prompts
+⚠️ Veo prompt MUST describe sounds explicitly for native audio generation:
+
+"Extreme close-up of hands slowly unzipping [jacket], audible zipper sound in quiet room, warm side lighting on metal zipper, smooth fabric visible, ASMR style"
+
+"Close-up of fingers gently running across [silk dress] fabric surface, soft rustling sound, fabric texture visible under warm directional light, slow deliberate movement"
+
+"Hands carefully unbuttoning [blouse] one button at a time, each click audible, macro lens showing button detail, quiet ambient, professional product showcase"
+
+"Nails gently scratching [denim jeans] surface, satisfying scratching sound, extreme macro showing weave pattern, dark background, soft rim light"
+
+---
+
+## ⚠️ ASMR RULES
+
+1. SOUND IS KING — mọi shot phải có sound purpose
+2. 70%+ shots must be macro/extreme close-up
+3. NO background music (kills ASMR effect) — chỉ ambient sound
+4. Movements: SLOW, DELIBERATE, CONTROLLED
+5. Voice (nếu có): Whisper only
+6. Editing: Longer takes (3-5s per shot minimum), NO rapid cuts
+7. Lighting: Soft, directional, warm — emphasize texture
+8. AVOID: Fast motion, loud sounds, busy backgrounds, text overlays

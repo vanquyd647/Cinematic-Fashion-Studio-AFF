@@ -1,0 +1,264 @@
+# 🔍 REVIEW CINEMATIC GUIDE — Authority-Driven Affiliate Video
+# Optimized for Nano Banana Pro (4K Image) + Veo 3.1 (8s Video + Voice)
+
+## OVERVIEW
+
+Review Cinematic = Video đánh giá chuyên nghiệp → BUILD TRUST → DRIVE DECISION.
+Structured scoring system, evidence-based assessment, honest pros/cons.
+Viewer coi xong = đủ thông tin để quyết định mua.
+
+**Khác biệt với các mode khác:**
+- **Standard**: Visual editorial → REVIEW: Information-dense, structured rating
+- **Try-On**: Multiple outfits parade → REVIEW: Deep-dive 1-2 items, quality analysis
+- **Unboxing**: First impression drama → REVIEW: Long-term/thorough assessment
+- **Storytelling**: Narrative emotional → REVIEW: Analytical, data-driven, objective
+
+---
+
+## 📊 REVIEW FRAMEWORKS
+
+### 1. SCORING GRID (Bảng Chấm Điểm)
+- Rate product on 4-5 criteria (X/10 each)
+- Criteria: Chất vải / Form dáng / Giá trị / Thiết kế / Thoải mái
+- Show evidence for each score (close-up proof)
+- Final overall score
+- Visual: Score card overlay or voice-announced
+- Best for: Any product, especially first-time reviews
+
+### 2. PROS & CONS (Ưu Nhược Điểm)
+- Structured list: 3-5 pros, 2-3 cons (always honest)
+- Show evidence for each point
+- Weigh pros vs cons → recommendation
+- "Ưu điểm: Vải mềm, form đẹp, giá OK. Nhược: Size hơi nhỏ, dễ nhăn"
+- Best for: Honest reviews, building credibility
+
+### 3. COMPARISON TEST (So Sánh)
+- Side-by-side: Product A vs Product B (or vs old version)
+- Same criteria, same conditions
+- Close-up comparison shots
+- Clear winner at end
+- Best for: Similar products, brand vs brand, cheap vs expensive
+
+### 4. DURABILITY TEST (Test Bền)
+- Wash test, stretch test, wear test over time
+- Before vs after (wash, wear, etc.)
+- Show real usage evidence
+- "Mặc 2 tuần rồi, review thật nè..."
+- Best for: Trust-building, long-term content
+
+### 5. HONEST VERDICT (Phán Quyết Thật)
+- Quick, straight-to-point review
+- "Nên mua hay không? Trả lời thẳng."
+- No fluff, no lengthy intro
+- Clear recommendation with reason
+- Best for: Follow-up reviews, repeat products
+
+---
+
+## 🎬 SCENE STRUCTURES
+
+### 24s (3 scenes) — Quick Review
+```
+Scene 1 (0-8s): INTRO + FIRST LOOK
+- 0-2s: Hook ("Review thật [product] — nên mua không?")
+- 2-8s: Product overview — hold up, basic info (price, brand, type)
+- Quick touch/feel first impression
+
+Scene 2 (8-16s): EVIDENCE
+- 2-3 quick assessment points with close-up proof
+- Fabric quality, fit check, detail inspection
+- Voice: Rapid scoring or quick pros/cons
+
+Scene 3 (16-24s): VERDICT + CTA
+- Final score / recommendation
+- "Overall [X]/10 — [VERDICT]"
+- CTA woven into recommendation
+```
+
+### 32s (4 scenes) — Standard Review
+```
+Scene 1 (0-8s): HOOK + CONTEXT
+- "Review chi tiết [product] — [price]K có đáng?"
+- Show product, state brand/price/source
+- Set expectation: "Chấm 5 tiêu chí nha"
+
+Scene 2 (8-16s): CRITERIA 1-2
+- Criterion 1: Chất vải → close-up fabric, touch, feel
+- Score: "[X]/10"
+- Criterion 2: Form dáng → wearing, side view, fit
+- Score: "[X]/10"
+
+Scene 3 (16-24s): CRITERIA 3-4 + TRY-ON
+- Criterion 3: Thiết kế → detail, pattern, color
+- Criterion 4: Thoải mái → movement test, stretch, sit
+- Full body wearing shot — real use demo
+
+Scene 4 (24-32s): FINAL SCORE + VERDICT
+- Recap scores visually
+- Overall: "[Total]/10"
+- "Nên mua: [YES/NO] — because [reason]"
+- CTA + link
+```
+
+### 48s (6 scenes) — Deep Review
+```
+Scene 1 (0-8s): INTRO — Hook, product overview, review promise
+Scene 2 (8-16s): QUALITY — Fabric, stitching, construction close-ups
+Scene 3 (16-24s): FIT — Wearing, multiple angles, movement test
+Scene 4 (24-32s): DESIGN — Style, color, detail, versatility
+Scene 5 (32-40s): VALUE — Price analysis, comparison, worth?
+Scene 6 (40-48s): VERDICT — Final score, pros/cons summary, recommendation + CTA
+```
+
+---
+
+## 📹 CAMERA & PRODUCTION
+
+### Camera Style
+- **Evidence shots**: Clean, well-lit close-ups (proof of quality claims)
+- **Fit shots**: Standard tripod full-body (fair representation)
+- **Detail shots**: Macro lens, 45° angle (texture/stitching visible)
+- **Talking head**: Medium shot, product visible, eye contact with camera
+- Higher production quality = more authority
+
+### Lighting
+- BRIGHT, ACCURATE color rendering (product must look real)
+- Daylight or daylight-balanced lights (5000-5500K)
+- Avoid warm/cool bias that distorts product color
+- Shadow-free for detail close-ups
+- Consistent lighting across ALL assessment shots
+
+### Visual Scoring (Overlay Concept)
+- Each criterion: Show name + score visually in frame
+- Progress bar or star rating style
+- Font: Clean, readable, professional
+- Position: Lower third or side panel
+- Note: Veo 3.1 doesn't do text overlays — voice announces scores, Nano generates keyframe with score card
+
+### Background
+- Clean, neutral (white/grey preferred for accuracy)
+- Comparison shots: Same background, same lighting (fairness)
+- Try-on: Simple background (focus on fit, not setting)
+- Detail: Dark or contrasting background (item pops)
+
+---
+
+## 📊 REVIEW CRITERIA BY PRODUCT TYPE
+
+### Fashion (Quần Áo)
+| Criteria | What to Check | Close-up Evidence |
+|---|---|---|
+| Chất Vải (Fabric) | Softness, thickness, stretch, feel | Macro fabric weave, hand squeeze |
+| Form Dáng (Fit) | True to size, flattering, comfort | Full body side view, movement |
+| Thiết Kế (Design) | Color accuracy, pattern, detail | Detail close-ups vs product photo |
+| Độ Bền (Durability) | Stitching, seams, construction | Macro stitch lines, stress points |
+| Giá Trị (Value) | Price vs quality, worth buying | Comparison to similar products |
+
+### Beauty & Skincare
+| Criteria | What to Check | Close-up Evidence |
+|---|---|---|
+| Texture | Consistency, feel on skin | Product on hand/skin macro |
+| Scent | Pleasant/unpleasant, intensity | Reaction face, describe |
+| Effectiveness | Before/after, visible results | Side-by-side skin/face |
+| Packaging | Design, pump/tube function | Product hardware close-up |
+| Value | ml per price, lasts how long | Size comparison |
+
+### Smart Home / Devices
+| Criteria | What to Check | Close-up Evidence |
+|---|---|---|
+| Build Quality | Materials, weight, finish | Close-up build, tap test |
+| Performance | Does it work well? Test demo | In-use footage, results |
+| Ease of Use | Setup, controls, app | Screen recording, hands demo |
+| Noise Level | Silent/loud operation | Audio capture during use |
+| Value | Price vs alternatives | Feature comparison |
+
+---
+
+## 💬 VOICE STYLE — REVIEWER AUTHORITY
+
+### Tone
+- CONFIDENT but HONEST — not salesy, not negative
+- Data-driven — always back up opinion with evidence
+- Professional but approachable — "friend who knows stuff"
+- Clear pronunciation of scores and key points
+
+### Voice Templates
+
+**Opening:**
+- "Review thật [product] — [brand] [price]K, có đáng tiền không?"
+- "Chấm điểm chi tiết [product] — 5 tiêu chí, 10 điểm mỗi cái"
+- "[Product] có thực sự tốt như quảng cáo? Kiểm tra nha"
+
+**Per Criterion:**
+- "Đầu tiên: chất vải. [Assessment]. Cho [X] trên 10."
+- "Tiêu chí 2: form dáng. [Wearing + assessment]. [X] điểm."
+- "Về thiết kế... [Detail + opinion]. Cho [X]."
+
+**Honest Moments:**
+- "Nói thật là... [negative point] — nên trừ [X] điểm"
+- "Cái này so với giá thì... [honest comparison]"
+- "Nhược điểm duy nhất là... [honest con]"
+
+**Verdict:**
+- "Tổng kết: [Total]/50 — [VERDICT LEVEL]"
+- "Nên mua hay không? [Clear YES/NO + reason]"
+- "Nếu budget [range] thì recommend nha. Link ghim phía trên."
+
+### Verdict Levels
+- 45-50/50: "MUST BUY — Xuất sắc, không chê được gì"
+- 40-44/50: "NÊN MUA — Rất tốt, vài điểm nhỏ thôi"
+- 35-39/50: "OKAY — Tạm ổn, tùy nhu cầu"
+- 30-34/50: "CÂN NHẮC — Có issues, xem kỹ trước khi mua"
+- <30/50: "PASS — Không recommend, có lựa chọn tốt hơn"
+
+---
+
+## 🔄 REVIEW × VARIANT COMBINATIONS
+
+### Comparison Review Setup
+- 2 products same category, same framing
+- Review both with IDENTICAL criteria
+- Close-up detail side by side
+- Clear winner announcement at end
+- "Brand A vs Brand B — brand nào đáng tiền hơn?"
+
+### Follow-Up Review
+- "Review sau 2 tuần sử dụng — có thay đổi gì?"
+- Update scores based on real usage
+- Wash test results, pilling check, color fade
+- Enhanced credibility through long-term honesty
+
+---
+
+## 🎯 CONVERSION OPTIMIZATION (REVIEW-NATIVE)
+
+### Trust = Conversion
+1. **Honest negative points** → "Nói thật là..." → builds credibility
+2. **Evidence-based** → Close-up proof for every claim → viewer trusts
+3. **Structured scoring** → Easy to understand → reduces decision anxiety
+4. **Clear recommendation** → "Nên mua / Không nên" → removes doubt
+
+### Affiliate Integration
+- Price mention: Natural part of value assessment ("[X]K — so với chất thì đáng")
+- Link placement: After verdict recommendation
+- Discount: "Code [X] giảm thêm" after positive verdict
+- Comparison: Naturally leads to "buy winner" CTA
+
+### Engagement Drivers
+- "Bạn cho mấy điểm? Comment nha" (participation)
+- "Muốn review thêm brand nào?" (future content promise)
+- "Set tiêu chí nào bạn quan tâm nhất?" (audience research)
+
+---
+
+## ⚠️ REVIEW RULES
+
+1. HONESTY IS MANDATORY — fake positive reviews destroy credibility long-term
+2. EVIDENCE for every claim — close-up proof, demonstration, comparison
+3. CONSISTENT criteria — same standards across all reviews (trust building)
+4. STRUCTURED format — viewer knows what to expect (score card, pros/cons)
+5. FAIR comparison — same conditions, same lighting, same criteria
+6. NO fake negatives for drama — be constructive, not destructive
+7. CLEAR verdict — never leave viewer confused about recommendation
+8. VALUE assessment required — always mention price vs quality ratio
+9. CTA after verdict ONLY — not mid-review (breaks trust)

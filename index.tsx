@@ -1,0 +1,4694 @@
+import React, { useState, useRef, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+import { GoogleGenAI, HarmCategory, HarmBlockThreshold } from "@google/genai";
+import { Upload, Image as ImageIcon, Sparkles, Film, ArrowRight, Wand2, RefreshCcw, Download, X, Ruler, Clock, Camera, Aperture, Lightbulb, ChevronRight, ChevronDown, FileText, Video, BrainCircuit, Copy, Check, Layers, Clapperboard, RotateCcw, Music, History, Trash2, ShoppingBag, MapPin } from 'lucide-react';
+
+// --- Import all constants from modular files ---
+import {
+   JSON_OUTPUT_SCHEMA,
+   TIKTOK_SHOP_SYSTEM_INSTRUCTION,
+   VIDEO_REFINEMENT_INSTRUCTION,
+   STUDIO_MODE_GUIDE,
+   TRENDING_INTELLIGENCE,
+   CINEMATIC_FASHION_SCENES,
+   SPORTSWEAR_RULES,
+   EMOTIONAL_ARC_GUIDE,
+   WALKIN_CINEMATIC_RULES,
+   PRODUCT_PHYSICS_RULES,
+   TRANSFORMATION_SCENES,
+   MARKETING_INTIMATE_SCENES,
+   VEO_SAFE_MOTION_KEYWORDS,
+   AFFILIATE_OPTIMIZATION,
+   SAFETY_VOCABULARY_GUIDE,
+   VIRAL_HOOKS_MASTERY,
+   VOICE_SCRIPT_PRO,
+   TRY_ON_MODE_GUIDE,
+   ASMR_CINEMATIC_GUIDE,
+   STORYTELLING_CINEMATIC_GUIDE,
+   UNBOXING_CINEMATIC_GUIDE,
+   REVIEW_CINEMATIC_GUIDE,
+   INITIAL_BRIEF,
+   BODY_TEMPLATES,
+   PRODUCT_TYPE_GROUPS,
+   LOCATION_REGIONS,
+   STUDIO_CATEGORIES,
+   FACE_PRESETS,
+} from './constants';
+
+// --- Components ---
+
+const CopyButton = ({ text }: { text: string }) => {
+   const [copied, setCopied] = useState(false);
+
+   const handleCopy = async () => {
+      try {
+         await navigator.clipboard.writeText(text);
+         setCopied(true);
+         setTimeout(() => setCopied(false), 2000);
+      } catch (err) {
+         console.error('Failed to copy', err);
+      }
+   };
+
+   return (
+      <button
+         onClick={handleCopy}
+         className={`absolute top-3 right-3 p-2 rounded-lg backdrop-blur-md transition-all border z-20
+        ${copied
+               ? 'bg-green-500/20 border-green-500/50 text-green-400'
+               : 'bg-zinc-800/80 border-zinc-700/50 text-zinc-400 hover:text-white hover:bg-zinc-700'}`}
+         title="Copy to clipboard"
+      >
+         {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+      </button>
+   );
+};
+
+const TabButton = ({ active, onClick, icon: Icon, label }: any) => (
+   <button
+      onClick={onClick}
+      className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-medium transition-all
+      ${active
+            ? 'bg-purple-500/20 text-purple-200 border border-purple-500/30'
+            : 'text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800'}`}
+   >
+      <Icon className="w-3 h-3" />
+      {label}
+   </button>
+);
+
+const App = () => {
+   // State
+   const [step, setStep] = useState<'input' | 'director'>('input');
+   
+   // 🎯 AFFILIATE MODE - Unified Optimization (DUY NHẤT)
+   const [affiliatePlatform, setAffiliatePlatform] = useState<'tiktok' | 'facebook' | 'both'>('both');
+   const [affiliateAudience, setAffiliateAudience] = useState<'cold' | 'warm' | 'hot'>('hot');
+   const [affiliateGoal, setAffiliateGoal] = useState<'views' | 'engagement' | 'conversion'>('conversion');
+   
+   // 📦 PRODUCT DISPLAY TYPE (cách trình bày sản phẩm)
+   const [displayType, setDisplayType] = useState<'fashion_model' | 'product_focus' | 'mixed'>('fashion_model');
+   
+   // 🚀 OPTIMIZATION LEVEL (mức độ tối ưu)
+   const [optimizationLevel, setOptimizationLevel] = useState<'standard' | 'competitive'>('standard');
+   
+   // 📝 PRODUCT INFO (tùy chọn - cho AI phân tích tốt hơn)
+   const [productInfo, setProductInfo] = useState<string>(''); // Tên SP, giá, chất liệu, USP
+   
+   const [activeTab, setActiveTab] = useState<'master' | 'keyframes' | 'scenes' | 'refined' | 'production'>('master');
+
+   // 🔒 UNIFIED AFFILIATE VIDEO MODE - Duy nhất 1 mode
+
+   const [faceImage, setFaceImage] = useState<string | null>(null);
+   const [facePreset, setFacePreset] = useState<string>('douyin_doll');
+   const [outfitImage, setOutfitImage] = useState<string | null>(null);
+
+   // Body Configuration
+   const [gender, setGender] = useState('Female');
+   const [bodyMode, setBodyMode] = useState<'preset' | 'custom'>('preset');
+   const [bodyType, setBodyType] = useState('Balanced');
+   const [measurements, setMeasurements] = useState({
+      height: '175',
+      weight: '55',
+      bust: '86',
+      waist: '60',
+      hips: '90',
+      size: 'M'
+   });
+
+   // Product type for TikTok Shop (default to auto-detect)
+   const [productType, setProductType] = useState<string>('auto');
+
+   // Video style for TikTok Shop (including Beauty & Personal Care styles + Mirror OOTD + Handheld Voice + Viral Trending 2025-2026 + Áo Dài + Transformation + Fashion Walk-In + Trending 2026 Mid-Year)
+   const [videoStyle, setVideoStyle] = useState<'body_real' | 'before_after' | 'before_after_fashion_show' | 'ao_dai_traditional' | 'ao_dai_transition' | 'ao_dai_catwalk' | 'ao_dai_modern' | 'fabric_focus' | 'sleepwear_cozy' | 'editorial_inner' | 'flatlay_inner' | 'handheld_inner' | 'handheld_voice' | 'mannequin_inner' | 'asmr_fabric' | 'floor_display' | 'beauty_demo' | 'device_review' | 'body_shaper_demo' | 'skincare_routine' | 'makeup_tutorial' | 'mirror_ootd' | 'ootd_novoice' | 'grwm' | 'outfit_change_viral' | 'ootd_grwm' | 'try_on_haul' | 'personal_branding' | 'fit_check' | 'style_challenge' | 'unbox_demo' | 'problem_solution' | 'feature_showcase' | 'before_after_home' | 'day_in_life' | 'comparison_test' | 'installation_guide' | 'smart_home_tour' | 'transform_viral' | 'transform_glowup' | 'transform_day_night' | 'fashion_walkin' | 'fashion_walkin_beauty' | 'cinematic_hook_reveal' | 'aesthetic_grwm' | 'outfit_challenge' | 'reaction_reveal' | 'coquette_aesthetic' | 'office_siren' | 'quiet_luxury' | 'trend_mashup' | 'pov_storytelling' | 'split_screen_compare' | 'asmr_unbox' | 'speed_styling' | 'closet_raid' | 'price_reveal_game' | 'mini_vlog_style' | 'rating_review' | 'hack_tutorial' | 'side_by_side' | 'aesthetic_flatlay' | 'countdown_reveal' | 'overlay_demo' | 'overlay_compare' | 'overlay_size'>('body_real');
+
+   // Product Details for TikTok Shop (user input)
+   const [fabricMaterial, setFabricMaterial] = useState<string>('');
+   const [productHighlights, setProductHighlights] = useState<string>('');
+   const [availableSizes, setAvailableSizes] = useState<string>('S-XXL');
+
+   // Product Color for Studio Color Contrast validation
+   const [productColor, setProductColor] = useState<string>('');
+
+   // Additional Description - User custom notes
+   const [additionalDescription, setAdditionalDescription] = useState<string>('');
+
+   // Video Duration - Flexible 8-54s, default 24s optimal for affiliate
+   const [videoDuration, setVideoDuration] = useState<number>(24);
+
+   const [brief, setBrief] = useState(INITIAL_BRIEF);
+
+   // Location Region preference
+   const [locationRegion, setLocationRegion] = useState<string>('auto');
+
+   // Studio Mode - Professional themed studio backgrounds for TikTok affiliate
+   const [studioMode, setStudioMode] = useState<boolean>(false);
+
+   // 🎬 CINEMA FEATURES - Integrated into Affiliate Mode
+   // Cinematic Style - hoàn toàn compatible với displayType
+   const [cinematicStyle, setCinematicStyle] = useState<'standard' | 'transform_viral' | 'fashion_walkin' | 'marketing_intimate' | 'try_on' | 'asmr_cinematic' | 'storytelling' | 'unboxing' | 'review'>('standard');
+   
+   // Walk-In Options (chỉ active khi cinematicStyle === 'fashion_walkin')
+   const [walkinVariant, setWalkinVariant] = useState<'auto' | 'classical' | 'digital'>('auto');
+   const [walkinTimeOfDay, setWalkinTimeOfDay] = useState<'auto' | 'golden_hour' | 'blue_hour' | 'city_night'>('auto');
+   const [walkinVibe, setWalkinVibe] = useState<'auto' | 'romantic' | 'power' | 'goddess' | 'minimal' | 'allure'>('auto');
+   const [walkinPersonality, setWalkinPersonality] = useState<'auto' | 'casual_natural' | 'shy_timid' | 'confident_bold' | 'playful_flirty'>('auto');
+   
+   // Try-On Options (chỉ active khi cinematicStyle === 'try_on')
+   const [tryOnVariant, setTryOnVariant] = useState<'auto' | 'fitting_room' | 'home_tryon' | 'haul_review' | 'mix_match' | 'outfit_battle' | 'loosely_draped'>('auto');
+   const [tryOnTransition, setTryOnTransition] = useState<'auto' | 'door_reveal' | 'curtain_pull' | 'spin_change' | 'mirror_turn' | 'snap_cut' | 'fabric_slide'>('auto');
+   const [tryOnPacing, setTryOnPacing] = useState<'auto' | 'quick_fire' | 'detailed_review' | 'storytelling'>('auto');
+   
+   // Aesthetic options - áp dụng cho fashion_model displayType
+   const [aestheticVibe, setAestheticVibe] = useState<'auto' | 'romantic' | 'power' | 'goddess' | 'minimal' | 'allure'>('auto');
+   const [modelPersonality, setModelPersonality] = useState<'auto' | 'casual_natural' | 'shy_timid' | 'confident_bold' | 'playful_flirty'>('auto');
+
+   // 🎙️ Voice Style - Consistent voice across all scenes for Veo 3.1 native audio
+   const [voiceStyle, setVoiceStyle] = useState<'saigon_female' | 'saigon_male' | 'hanoi_female' | 'hanoi_male' | 'no_voice'>('saigon_female');
+
+   // Editorial Mode (18+) - foundation-free silhouette
+   const [editorialMode, setEditorialMode] = useState<boolean>(false);
+
+   // Wallpaper Mode - phone wallpaper friendly composition
+   const [wallpaperMode, setWallpaperMode] = useState<boolean>(false);
+
+   // Lookbook Mode - 10 images only, no video
+   const [lookbookMode, setLookbookMode] = useState<boolean>(false);
+
+   // Seductive Mode - TikTok safe alluring style
+   const [seductiveMode, setSeductiveMode] = useState<boolean>(false);
+
+   // Sexy Mode - Private mode for Nano Banana Pro & Veo 3.1
+   const [sexyMode, setSexyMode] = useState<boolean>(false);
+
+   // Auto-disable Seductive when Sexy Mode is ON (vocabulary conflict)
+   React.useEffect(() => {
+      if (sexyMode && seductiveMode) {
+         setSeductiveMode(false);
+      }
+   }, [sexyMode]);
+
+   // Reset sub-mode state when switching cinematicStyle
+   React.useEffect(() => {
+      if (cinematicStyle !== 'fashion_walkin') {
+         setWalkinVariant('auto');
+         setWalkinTimeOfDay('auto');
+         setWalkinVibe('auto');
+         setWalkinPersonality('auto');
+      }
+      if (cinematicStyle !== 'try_on') {
+         setTryOnVariant('auto');
+         setTryOnTransition('auto');
+         setTryOnPacing('auto');
+      }
+      if (cinematicStyle !== 'standard') {
+         setAestheticVibe('auto');
+         setModelPersonality('auto');
+      }
+   }, [cinematicStyle]);
+
+   // Aspect Ratio - 9:16 (vertical) or 16:9 (horizontal)
+   const [aspectRatio, setAspectRatio] = useState<'9:16' | '16:9'>('9:16');
+
+   // API Key - Gemini API key with localStorage persistence
+   const [apiKey, setApiKey] = useState<string>(() => {
+      if (typeof window !== 'undefined') {
+         return localStorage.getItem('gemini_api_key') || 'AIzaSyAuU0dc583Vhq-6eEiEdNyvSb_n0_P0kvo';
+      }
+      return 'AIzaSyAuU0dc583Vhq-6eEiEdNyvSb_n0_P0kvo';
+   });
+   const [showApiKey, setShowApiKey] = useState(false);
+
+   // Gemini Model Selection - with localStorage persistence
+   const [geminiModel, setGeminiModel] = useState<'gemini-2.5-flash' | 'gemini-3-flash-preview'>(() => {
+      if (typeof window !== 'undefined') {
+         const saved = localStorage.getItem('gemini_model');
+         return (saved === 'gemini-3-flash-preview' ? 'gemini-3-flash-preview' : 'gemini-2.5-flash') as 'gemini-2.5-flash' | 'gemini-3-flash-preview';
+      }
+      return 'gemini-2.5-flash';
+   });
+
+   // Persist API Key
+   useEffect(() => {
+      if (apiKey) {
+         localStorage.setItem('gemini_api_key', apiKey);
+      }
+   }, [apiKey]);
+
+   // Persist Gemini Model
+   useEffect(() => {
+      localStorage.setItem('gemini_model', geminiModel);
+   }, [geminiModel]);
+
+   // 🎯 SMART VIDEO STYLE AUTO-MAPPING — Covers ALL product types with style pools for rotation
+   // Each product type has a pool of suitable styles → random pick prevents repetition
+   const VIDEO_STYLE_POOLS: Record<string, string[]> = {
+      // === DRESSES ===
+      dress: ['body_real', 'grwm', 'cinematic_hook_reveal', 'ootd_grwm', 'mirror_ootd', 'aesthetic_grwm', 'closet_raid', 'outfit_challenge', 'transform_day_night'],
+      maxi_dress: ['body_real', 'fashion_walkin', 'cinematic_hook_reveal', 'before_after_fashion_show', 'ootd_novoice', 'mini_vlog_style'],
+      mini_dress: ['fit_check', 'mirror_ootd', 'outfit_change_viral', 'body_real', 'reaction_reveal', 'coquette_aesthetic', 'trend_mashup'],
+      bodycon: ['body_real', 'fit_check', 'mirror_ootd', 'before_after', 'cinematic_hook_reveal', 'side_by_side', 'transform_viral'],
+      // === TOPS ===
+      top: ['mirror_ootd', 'ootd_novoice', 'grwm', 'fit_check', 'try_on_haul', 'closet_raid', 'speed_styling'],
+      blouse: ['mirror_ootd', 'office_siren', 'quiet_luxury', 'grwm', 'aesthetic_grwm', 'ootd_grwm', 'transform_day_night'],
+      tshirt: ['fit_check', 'ootd_novoice', 'body_real', 'mirror_ootd', 'try_on_haul', 'side_by_side'],
+      croptop: ['fit_check', 'mirror_ootd', 'outfit_change_viral', 'body_real', 'coquette_aesthetic', 'speed_styling', 'trend_mashup'],
+      sweater: ['grwm', 'ootd_grwm', 'mirror_ootd', 'aesthetic_grwm', 'closet_raid', 'mini_vlog_style'],
+      jacket: ['before_after', 'outfit_change_viral', 'body_real', 'mirror_ootd', 'cinematic_hook_reveal', 'style_challenge'],
+      // === BOTTOMS ===
+      pants: ['fit_check', 'mirror_ootd', 'body_real', 'try_on_haul', 'side_by_side', 'speed_styling'],
+      jeans: ['fit_check', 'mirror_ootd', 'body_real', 'before_after', 'try_on_haul', 'side_by_side'],
+      wide_pants: ['fashion_walkin', 'body_real', 'mirror_ootd', 'fit_check', 'ootd_novoice', 'cinematic_hook_reveal'],
+      shorts: ['fit_check', 'mirror_ootd', 'body_real', 'ootd_novoice', 'speed_styling', 'closet_raid'],
+      skirt: ['body_real', 'mirror_ootd', 'fit_check', 'grwm', 'coquette_aesthetic', 'outfit_change_viral'],
+      // === SETS ===
+      set: ['body_real', 'try_on_haul', 'grwm', 'ootd_grwm', 'aesthetic_grwm', 'closet_raid', 'speed_styling', 'outfit_challenge', 'floor_display'],
+      suit: ['office_siren', 'quiet_luxury', 'fashion_walkin', 'cinematic_hook_reveal', 'body_real', 'personal_branding', 'transform_day_night'],
+      jumpsuit: ['body_real', 'fashion_walkin', 'fit_check', 'mirror_ootd', 'cinematic_hook_reveal', 'before_after'],
+      // === SPECIAL ===
+      aodai: ['ao_dai_traditional', 'ao_dai_transition', 'ao_dai_catwalk', 'ao_dai_modern', 'fabric_focus'],
+      bikini: ['editorial_inner', 'flatlay_inner', 'overlay_demo', 'handheld_inner', 'asmr_fabric', 'overlay_size', 'fabric_focus'],
+      sleepwear: ['sleepwear_cozy', 'asmr_fabric', 'flatlay_inner', 'handheld_voice', 'aesthetic_flatlay', 'fabric_focus', 'floor_display'],
+      lingerie: ['editorial_inner', 'mannequin_inner', 'flatlay_inner', 'handheld_inner', 'handheld_voice', 'overlay_demo', 'overlay_compare', 'overlay_size', 'fabric_focus'],
+      sport: ['body_real', 'fit_check', 'before_after', 'grwm', 'speed_styling', 'try_on_haul', 'transform_viral'],
+      bigsize: ['try_on_haul', 'body_real', 'fit_check', 'mirror_ootd', 'grwm', 'reaction_reveal', 'side_by_side', 'transform_viral'],
+      // === BEAUTY & PERSONAL CARE ===
+      facial_device: ['beauty_demo', 'device_review', 'skincare_routine', 'before_after', 'hack_tutorial', 'rating_review', 'transform_glowup', 'pov_storytelling'],
+      serum: ['beauty_demo', 'skincare_routine', 'before_after', 'asmr_unbox', 'rating_review', 'hack_tutorial', 'pov_storytelling'],
+      makeup: ['makeup_tutorial', 'beauty_demo', 'grwm', 'aesthetic_grwm', 'before_after', 'rating_review', 'transform_glowup', 'fashion_walkin_beauty'],
+      body_shaper: ['body_shaper_demo', 'before_after', 'overlay_demo', 'overlay_compare', 'side_by_side', 'hack_tutorial', 'split_screen_compare'],
+      massage_device: ['device_review', 'beauty_demo', 'asmr_unbox', 'problem_solution', 'rating_review', 'hack_tutorial', 'pov_storytelling'],
+      skincare_set: ['skincare_routine', 'beauty_demo', 'asmr_unbox', 'try_on_haul', 'aesthetic_flatlay', 'countdown_reveal', 'transform_glowup'],
+      hair_device: ['device_review', 'beauty_demo', 'before_after', 'hack_tutorial', 'rating_review', 'problem_solution'],
+      nail_beauty: ['beauty_demo', 'asmr_fabric', 'aesthetic_flatlay', 'hack_tutorial', 'speed_styling', 'rating_review'],
+      // === SMART HOME ===
+      robot_vacuum: ['unbox_demo', 'before_after_home', 'problem_solution', 'comparison_test', 'day_in_life', 'rating_review'],
+      air_purifier: ['unbox_demo', 'feature_showcase', 'problem_solution', 'comparison_test', 'day_in_life', 'rating_review'],
+      smart_kitchen: ['unbox_demo', 'feature_showcase', 'hack_tutorial', 'day_in_life', 'problem_solution', 'asmr_unbox'],
+      water_purifier: ['unbox_demo', 'comparison_test', 'feature_showcase', 'problem_solution', 'installation_guide', 'rating_review'],
+      smart_fan: ['unbox_demo', 'feature_showcase', 'comparison_test', 'day_in_life', 'problem_solution', 'rating_review'],
+      smart_light: ['unbox_demo', 'smart_home_tour', 'before_after_home', 'feature_showcase', 'installation_guide', 'aesthetic_flatlay'],
+      security_cam: ['unbox_demo', 'installation_guide', 'feature_showcase', 'problem_solution', 'smart_home_tour', 'comparison_test'],
+      smart_lock: ['unbox_demo', 'installation_guide', 'feature_showcase', 'problem_solution', 'comparison_test', 'rating_review'],
+      cleaning_device: ['unbox_demo', 'before_after_home', 'problem_solution', 'comparison_test', 'hack_tutorial', 'asmr_unbox', 'split_screen_compare'],
+      steam_device: ['unbox_demo', 'before_after', 'feature_showcase', 'hack_tutorial', 'problem_solution', 'comparison_test'],
+      organizer: ['before_after_home', 'unbox_demo', 'hack_tutorial', 'aesthetic_flatlay', 'smart_home_tour', 'problem_solution'],
+      pet_device: ['unbox_demo', 'day_in_life', 'feature_showcase', 'problem_solution', 'asmr_unbox', 'rating_review'],
+      // === FALLBACK ===
+      auto: ['body_real', 'mirror_ootd', 'grwm', 'fit_check', 'cinematic_hook_reveal', 'aesthetic_grwm', 'try_on_haul', 'outfit_challenge', 'trend_mashup'],
+      combo: ['try_on_haul', 'body_real', 'grwm', 'ootd_grwm', 'speed_styling', 'closet_raid', 'aesthetic_grwm', 'price_reveal_game'],
+   };
+
+   // Style Vault - tracks recently used styles to prevent repetition  
+   const [styleVault, setStyleVault] = useState<string[]>(() => {
+      if (typeof window !== 'undefined') {
+         const saved = localStorage.getItem('style_vault');
+         return saved ? JSON.parse(saved) : [];
+      }
+      return [];
+   });
+
+   // Persist style vault
+   useEffect(() => {
+      localStorage.setItem('style_vault', JSON.stringify(styleVault.slice(-20)));
+   }, [styleVault]);
+
+   // Smart style picker: random from pool, avoiding recently used styles
+   const pickSmartStyle = (pool: string[]): string => {
+      // Filter out recently used styles (last 5 uses per product type)
+      const available = pool.filter(s => !styleVault.slice(-5).includes(s));
+      // If all filtered out, use full pool
+      const finalPool = available.length > 0 ? available : pool;
+      return finalPool[Math.floor(Math.random() * finalPool.length)];
+   };
+
+   // Auto-select Video Style based on Product Type (Affiliate Optimized - Smart Rotation)
+   React.useEffect(() => {
+      const pool = VIDEO_STYLE_POOLS[productType] || VIDEO_STYLE_POOLS['auto'];
+      const selected = pickSmartStyle(pool);
+      setVideoStyle(selected as any);
+      
+      // Track used style
+      setStyleVault(prev => [...prev.slice(-19), selected]);
+
+      // Special: Áo Dài always sets location
+      if (productType === 'aodai') {
+         setLocationRegion('for_aodai');
+      }
+   }, [productType]);
+
+   // Location Vault State - now stores detailed location history
+   const [locationVault, setLocationVault] = useState<{
+      id: string;
+      location: string;
+      region: string;
+      timestamp: number;
+      productType?: string;
+   }[]>(() => {
+      if (typeof window !== 'undefined') {
+         try {
+            const saved = localStorage.getItem('cinematic_location_vault_v2');
+            return saved ? JSON.parse(saved) : [];
+         } catch (e) {
+            return [];
+         }
+      }
+      return [];
+   });
+
+   // Script Vault State - stores script hooks to avoid repetition
+   const [scriptVault, setScriptVault] = useState<{
+      id: string;
+      hook: string; // Scene 1 script (the unique opener)
+      productType: string;
+      timestamp: number;
+   }[]>(() => {
+      if (typeof window !== 'undefined') {
+         try {
+            const saved = localStorage.getItem('tiktok_script_vault');
+            return saved ? JSON.parse(saved) : [];
+         } catch (e) {
+            return [];
+         }
+      }
+      return [];
+   });
+
+   // Persist Location Vault
+   useEffect(() => {
+      localStorage.setItem('cinematic_location_vault_v2', JSON.stringify(locationVault));
+   }, [locationVault]);
+
+   // Persist Script Vault
+   useEffect(() => {
+      localStorage.setItem('tiktok_script_vault', JSON.stringify(scriptVault));
+   }, [scriptVault]);
+
+   // Add script hook to vault
+   const addToScriptVault = (hook: string, productType: string) => {
+      const newEntry = {
+         id: Date.now().toString(),
+         hook: hook.trim(),
+         productType,
+         timestamp: Date.now()
+      };
+      setScriptVault(prev => [newEntry, ...prev].slice(0, 30)); // Keep last 30 hooks
+   };
+
+   // Clear script vault
+   const clearScriptVault = () => {
+      if (confirm("Xóa lịch sử script? AI có thể tạo script tương tự.")) {
+         setScriptVault([]);
+         localStorage.removeItem('tiktok_script_vault');
+      }
+   };
+
+   // Get script hooks blocklist
+   const getScriptBlocklist = () => {
+      return scriptVault.map(item => item.hook);
+   };
+
+   // Studio Category preference (for Studio Mode)
+   const [studioCategory, setStudioCategory] = useState<string>('auto');
+
+   // Studio Vault State - stores used studios to avoid repetition
+   const [studioVault, setStudioVault] = useState<{
+      id: string;
+      studio: string;
+      category: string;
+      timestamp: number;
+      productType?: string;
+   }[]>(() => {
+      if (typeof window !== 'undefined') {
+         try {
+            const saved = localStorage.getItem('studio_vault');
+            return saved ? JSON.parse(saved) : [];
+         } catch (e) {
+            return [];
+         }
+      }
+      return [];
+   });
+
+   // Persist Studio Vault
+   useEffect(() => {
+      localStorage.setItem('studio_vault', JSON.stringify(studioVault));
+   }, [studioVault]);
+
+   // Add studio to vault
+   const addToStudioVault = (studio: string, category: string, productType?: string) => {
+      const newEntry = {
+         id: Date.now().toString(),
+         studio: studio.trim().slice(0, 100), // Store only first 100 chars for comparison
+         category,
+         timestamp: Date.now(),
+         productType
+      };
+      setStudioVault(prev => [newEntry, ...prev].slice(0, 50)); // Keep last 50
+   };
+
+   // Get studio blocklist
+   const getStudioBlocklist = () => {
+      return studioVault.map(item => item.studio);
+   };
+
+   // Get random studios from category (excluding used ones and filtering by color contrast)
+   const getRandomStudios = (category: string, count: number = 5, productColorInput?: string) => {
+      const usedStudios = getStudioBlocklist();
+
+      if (category === 'auto') {
+         // Collect studios from all categories
+         const allStudios: string[] = [];
+         STUDIO_CATEGORIES.forEach(cat => {
+            if (cat.value !== 'auto' && cat.studios) {
+               allStudios.push(...cat.studios);
+            }
+         });
+
+         // Filter used studios
+         let available = allStudios.filter(studio => {
+            const studioShort = studio.split(' | ')[0].toLowerCase();
+            return !usedStudios.some(used =>
+               used.toLowerCase().includes(studioShort) ||
+               studioShort.includes(used.toLowerCase().slice(0, 30))
+            );
+         });
+
+         // Apply color contrast filter if product color is provided
+         if (productColorInput) {
+            available = filterStudiosByColorContrast(available, productColorInput);
+         }
+
+         // Fisher-Yates shuffle
+         const shuffled = [...available];
+         for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+         }
+         return shuffled.slice(0, count);
+      }
+
+      // For specific category
+      const categoryData = STUDIO_CATEGORIES.find(c => c.value === category);
+      if (!categoryData || !categoryData.studios) return [];
+
+      let available = categoryData.studios.filter(studio => {
+         const studioShort = studio.split(' | ')[0].toLowerCase();
+         return !usedStudios.some(used =>
+            used.toLowerCase().includes(studioShort) ||
+            studioShort.includes(used.toLowerCase().slice(0, 30))
+         );
+      });
+
+      // Apply color contrast filter if product color is provided
+      if (productColorInput) {
+         available = filterStudiosByColorContrast(available, productColorInput);
+      }
+
+      // Fisher-Yates shuffle
+      const shuffled = [...available];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+         const j = Math.floor(Math.random() * (i + 1));
+         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled.slice(0, count);
+   };
+
+   // Clear studio vault
+   const clearStudioVault = () => {
+      if (confirm("Xóa lịch sử studio? AI có thể tái sử dụng các studio cũ.")) {
+         setStudioVault([]);
+         localStorage.removeItem('studio_vault');
+      }
+   };
+
+   // ================================================
+   // 🎯 POSE DIRECTION VAULT (Video Mode Only)
+   // ================================================
+   // Tracks used camera angles to avoid pose direction repetition
+   type PoseDirection = 'front' | 'back' | '3/4-front-left' | '3/4-front-right' | '3/4-back-left' | '3/4-back-right' | 'side-left' | 'side-right';
+
+   const [poseDirectionVault, setPoseDirectionVault] = useState<{
+      id: string;
+      direction: PoseDirection;
+      keyframeIndex: number;
+      productType?: string;
+      timestamp: number;
+   }[]>(() => {
+      if (typeof window !== 'undefined') {
+         try {
+            const saved = localStorage.getItem('pose_direction_vault');
+            return saved ? JSON.parse(saved) : [];
+         } catch (e) {
+            return [];
+         }
+      }
+      return [];
+   });
+
+   // Persist Pose Direction Vault
+   useEffect(() => {
+      localStorage.setItem('pose_direction_vault', JSON.stringify(poseDirectionVault));
+   }, [poseDirectionVault]);
+
+   // Add pose direction to vault
+   const addToPoseVault = (direction: PoseDirection, keyframeIndex: number, productType?: string) => {
+      const newEntry = {
+         id: Date.now().toString(),
+         direction,
+         keyframeIndex,
+         timestamp: Date.now(),
+         productType
+      };
+      setPoseDirectionVault(prev => [newEntry, ...prev].slice(0, 30)); // Keep last 30
+   };
+
+   // Clear pose direction vault
+   const clearPoseVault = () => {
+      if (confirm("Xóa lịch sử hướng pose? AI có thể tái sử dụng các góc camera cũ.")) {
+         setPoseDirectionVault([]);
+         localStorage.removeItem('pose_direction_vault');
+      }
+   };
+
+   // Get pose direction blocklist (for AI prompt)
+   const getPoseBlocklist = (): string[] => {
+      return poseDirectionVault.map(item => item.direction);
+   };
+
+   // Get unique used directions for display
+   const getUsedPoseDirections = (): PoseDirection[] => {
+      return [...new Set(poseDirectionVault.map(item => item.direction))] as PoseDirection[];
+   };
+
+
+   // ================================================
+
+   // 🎨 STUDIO COLOR CONTRAST VALIDATION
+   // ================================================
+   const WARM_COLORS = ['red', 'đỏ', 'pink', 'hồng', 'orange', 'cam', 'yellow', 'vàng', 'coral', 'rose', 'gold', 'burgundy', 'magenta', 'salmon', 'peach'];
+   const COOL_COLORS = ['blue', 'xanh dương', 'green', 'xanh lá', 'purple', 'tím', 'teal', 'navy', 'sage', 'mint', 'lavender', 'cyan', 'turquoise', 'emerald', 'olive'];
+   const NEUTRAL_COLORS = ['black', 'đen', 'white', 'trắng', 'gray', 'xám', 'cream', 'beige', 'ivory', 'brown', 'nâu', 'taupe', 'charcoal'];
+
+   // Filter studios by color contrast with product
+   const filterStudiosByColorContrast = (studios: string[], productColor: string): string[] => {
+      if (!productColor || productColor === 'auto') return studios;
+
+      const colorLower = productColor.toLowerCase();
+      const isProductWarm = WARM_COLORS.some(c => colorLower.includes(c));
+      const isProductCool = COOL_COLORS.some(c => colorLower.includes(c));
+      const isProductBlack = colorLower.includes('black') || colorLower.includes('đen');
+      const isProductWhite = colorLower.includes('white') || colorLower.includes('trắng');
+
+      return studios.filter(studio => {
+         const studioLower = studio.toLowerCase();
+
+         // If product is WARM, reject studios with dominant WARM backdrop
+         if (isProductWarm) {
+            const hasWarmBackdrop = WARM_COLORS.some(c =>
+               studioLower.includes(`backdrop ${c}`) ||
+               studioLower.includes(`${c} backdrop`) ||
+               studioLower.includes(`${c} gradient`) ||
+               studioLower.includes(`deep ${c}`) ||
+               (studioLower.includes(c) && studioLower.indexOf(c) < 50) // Color in studio name
+            );
+            if (hasWarmBackdrop) return false;
+         }
+
+         // If product is COOL, reject studios with dominant COOL backdrop
+         if (isProductCool) {
+            const hasCoolBackdrop = COOL_COLORS.some(c =>
+               studioLower.includes(`backdrop ${c}`) ||
+               studioLower.includes(`${c} backdrop`) ||
+               studioLower.includes(`${c} gradient`) ||
+               studioLower.includes(`deep ${c}`)
+            );
+            if (hasCoolBackdrop) return false;
+         }
+
+         // If product is BLACK, reject dark backdrops
+         if (isProductBlack) {
+            if (studioLower.includes('charcoal') || studioLower.includes('dark') || studioLower.includes('black backdrop')) {
+               return false;
+            }
+         }
+
+         // If product is WHITE, reject pure white backdrops
+         if (isProductWhite) {
+            if (studioLower.includes('pure white') || studioLower.includes('white infinity') || studioLower.includes('white cyclorama')) {
+               return false;
+            }
+         }
+
+         return true;
+      });
+   };
+
+   // Color contrast rules for AI prompt injection (optimized)
+   const COLOR_CONTRAST_STUDIO_RULES = `
+🎨 BACKDROP COLOR CONTRAST (MANDATORY):
+Product WARM (red/pink/orange/yellow) → Backdrop COOL/NEUTRAL (grey/cream/blue)
+Product COOL (blue/purple/green) → Backdrop WARM/NEUTRAL (beige/cream/yellow)
+Product DARK (black/navy) → Backdrop LIGHT (white/cream/pastel)
+Product LIGHT (white/cream) → Backdrop with texture/color (grey/color)
+→ Ensure product POPS from background for max affiliate conversion`;
+
+
+   // Add new location to vault
+   const addToLocationVault = (location: string, region: string, productType?: string) => {
+      const newEntry = {
+         id: Date.now().toString(),
+         location: location.trim(),
+         region,
+         timestamp: Date.now(),
+         productType
+      };
+      setLocationVault(prev => [newEntry, ...prev].slice(0, 50)); // Keep last 50
+   };
+
+   // Remove specific location from vault
+   const removeFromVault = (id: string) => {
+      setLocationVault(prev => prev.filter(item => item.id !== id));
+   };
+
+   const clearLocationVault = () => {
+      if (confirm("Xóa toàn bộ lịch sử bối cảnh? AI có thể tái sử dụng các bối cảnh cũ.")) {
+         setLocationVault([]);
+         localStorage.removeItem('cinematic_location_vault_v2');
+      }
+   };
+
+   // Get unique locations as blocklist
+   const getLocationBlocklist = () => {
+      return locationVault.map(item => item.location);
+   };
+
+   // Get suggested locations based on region (excluding used ones) - RANDOM selection
+   const getSuggestedLocations = (region: string, count: number = 10) => {
+      const regionData = LOCATION_REGIONS.find(r => r.value === region);
+      if (!regionData || region === 'auto') return [];
+
+      const usedLocations = getLocationBlocklist();
+      const availableLocations = regionData.locations.filter(loc =>
+         !usedLocations.some(used =>
+            used.toLowerCase().includes(loc.toLowerCase().slice(0, 20)) ||
+            loc.toLowerCase().includes(used.toLowerCase().slice(0, 20))
+         )
+      );
+
+      // Shuffle array randomly using Fisher-Yates algorithm
+      const shuffled = [...availableLocations];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+         const j = Math.floor(Math.random() * (i + 1));
+         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+
+      return shuffled.slice(0, count);
+   };
+
+   // Get random locations from multiple regions for AI Auto mode
+   const getRandomLocationsForAuto = (count: number = 5) => {
+      const allLocations: string[] = [];
+      const usedLocations = getLocationBlocklist();
+
+      // Collect all locations from all regions
+      LOCATION_REGIONS.forEach(region => {
+         if (region.value !== 'auto' && region.locations) {
+            const available = region.locations.filter(loc =>
+               !usedLocations.some(used =>
+                  used.toLowerCase().includes(loc.toLowerCase().slice(0, 20)) ||
+                  loc.toLowerCase().includes(used.toLowerCase().slice(0, 20))
+               )
+            );
+            allLocations.push(...available);
+         }
+      });
+
+      // Shuffle and return random selection
+      const shuffled = [...allLocations];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+         const j = Math.floor(Math.random() * (i + 1));
+         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+
+      return shuffled.slice(0, count);
+   };
+
+   // Processing State
+   const [directorThinking, setDirectorThinking] = useState(false);
+   const [videoRefining, setVideoRefining] = useState(false);
+   const [directorOutput, setDirectorOutput] = useState<{
+      fullText: string;
+      sections: {
+         master: string;
+         keyframes: string;
+         scenes: string;
+         production: string;
+         metadata: string;
+         refinedScenes?: string;
+      };
+      jsonData?: any;
+   } | null>(null);
+
+   const fileInputFaceRef = useRef<HTMLInputElement>(null);
+   const fileInputOutfitRef = useRef<HTMLInputElement>(null);
+
+   // --- Handlers ---
+
+   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>, setter: (s: string) => void) => {
+      const file = e.target.files?.[0];
+      if (file) {
+         const reader = new FileReader();
+         reader.onloadend = () => {
+            setter(reader.result as string);
+         };
+         reader.readAsDataURL(file);
+      }
+   };
+
+   const applyTemplate = (template: typeof BODY_TEMPLATES[0]) => {
+      setGender(template.gender);
+      setBodyMode(template.mode);
+      setBodyType(template.bodyType);
+      setMeasurements(template.measurements);
+   };
+
+   const parseDirectorOutput = (text: string) => {
+      // ================================================
+      // TRY JSON FORMAT FIRST (Nano Banana Pro / Veo 3.1 optimized)
+      // ================================================
+      try {
+         // Extract JSON from response (may be wrapped in ```json ... ```)
+         let jsonText = text;
+         const jsonMatch = text.match(/```json\s*([\s\S]*?)\s*```/);
+         if (jsonMatch) {
+            jsonText = jsonMatch[1];
+         } else {
+            // Try to find raw JSON object
+            const rawJsonMatch = text.match(/\{[\s\S]*"masterPrompt"[\s\S]*\}/);
+            if (rawJsonMatch) {
+               jsonText = rawJsonMatch[0];
+            }
+         }
+
+         const jsonData = JSON.parse(jsonText);
+
+         // Support both video mode (keyframes) and lookbook mode (images only)
+         if (jsonData.masterPrompt && (jsonData.keyframes || jsonData.images)) {
+            // Successfully parsed JSON - convert to display format
+
+            // Build Master Prompt string from JSON
+            const mp = jsonData.masterPrompt;
+            const masterContent = [
+               // CRITICAL: Face preservation MUST be first
+               mp.facePreservation || "Exact facial features of the reference image, mirroring the subject's unique facial structure, eye shape, nose bridge, lip contour, and skin tone with photorealistic fidelity",
+               mp.subject,
+               mp.outfit,
+               mp.pose,
+               `Shot on location at ${mp.environment}`,
+               mp.lighting,
+               mp.camera,
+               mp.style
+            ].filter(Boolean).join('. ');
+
+            // Build Keyframes string from JSON array (support both 'keyframes' and 'images')
+            const keyframesArray = jsonData.keyframes || jsonData.images || [];
+            const keyframesContent = keyframesArray.map((kf: any, index: number) => {
+               // Defensive: handle missing fields gracefully
+               const id = kf.id || (index + 1);
+               const timestamp = kf.timestamp || `${index * 8}s`;
+
+               // PRIORITY 1: Check if AI returned full prompt in single field (most common for lookbook)
+               const fullPrompt = kf.imagePrompt || kf.prompt || kf.description;
+               if (fullPrompt) {
+                  return `Image ${id} (${timestamp}): ${fullPrompt}`;
+               }
+
+               // PRIORITY 2: Structured fields - display each field on labeled lines for clarity
+               const subject = kf.subject || '';
+               const action = kf.action || '';
+               const environment = kf.environment || '';
+               const backgroundPrompt = kf.backgroundPrompt || '';
+               const lighting = kf.lighting || '';
+               const camera = kf.camera || '';
+               const style = kf.style || '';
+
+               // PRIORITY 3: Fallback if no data
+               if (!subject && !action && !environment && !camera) {
+                  return `Image ${id} (${timestamp}): [Data missing - check Full Output]`;
+               }
+
+               // Build structured display with clear labels
+               const lines = [`Image ${id} (${timestamp}):`];
+               if (subject) lines.push(`  SUBJECT: ${subject}`);
+               if (action) lines.push(`  ACTION: ${action}`);
+               if (environment) lines.push(`  LOCATION: ${environment}`);
+               else lines.push(`  ⚠️ LOCATION: [MISSING - should specify exact position in scene]`);
+               if (camera) lines.push(`  CAMERA: ${camera}`);
+               else lines.push(`  ⚠️ CAMERA: [MISSING - should specify angle + lens]`);
+               if (lighting) lines.push(`  LIGHTING: ${lighting}`);
+               if (backgroundPrompt) lines.push(`  BG_PROMPT: ${backgroundPrompt}`);
+               if (style) lines.push(`  STYLE: ${style}`);
+
+               return lines.join('\n');
+            }).join('\n\n');
+
+            // Build Scenes string from JSON array
+            const scenesContent = jsonData.scenes ? jsonData.scenes.map((sc: any) => {
+               // PRIORITY 1: Simplified format with single prompt field
+               if (sc.prompt) {
+                  let sceneText = `Scene ${sc.id} (${sc.timeRange}): ${sc.prompt}`;
+                  if (sc.startPose) sceneText += `\nSTART_POSE: ${sc.startPose}`;
+                  if (sc.endPose) sceneText += `\nEND_POSE: ${sc.endPose}`;
+                  if (sc.script) sceneText += `\nSCRIPT: "${sc.script}"`;
+                  if (sc.voiceConfig) {
+                     if (sc.voiceConfig.voice_profile) {
+                        sceneText += `\nVOICE: ${sc.voiceConfig.voice_profile} | Tone: ${sc.voiceConfig.vocal_tone || 'natural'}${sc.voiceConfig.dialogue_style ? ` | Style: ${sc.voiceConfig.dialogue_style}` : ''} | Sync: ${sc.voiceConfig.sync || 'voiceover'}`;
+                     }
+                  } else {
+                     sceneText += `\n⚠️ VOICE: [MISSING - voiceConfig should be present for ALL scenes]`;
+                  }
+                  return sceneText;
+               }
+
+               // PRIORITY 2: Legacy format with separate fields
+               let sceneText = `Scene ${sc.id} (${sc.timeRange}):`;
+               if (sc.shotType) sceneText += ` ${sc.shotType}.`;
+               if (sc.subjectMotion) sceneText += ` ${sc.subjectMotion}.`;
+               if (sc.cameraMotion) sceneText += ` Camera: ${sc.cameraMotion}.`;
+               if (sc.atmosphere) sceneText += ` Atmosphere: ${sc.atmosphere}.`;
+               if (sc.startPose) sceneText += `\nSTART_POSE: ${sc.startPose}`;
+               if (sc.endPose) sceneText += `\nEND_POSE: ${sc.endPose}`;
+               if (sc.script) {
+                  sceneText += `\nSCRIPT: "${sc.script}"`;
+               }
+               if (sc.voiceConfig) {
+                  // Support new Veo 3.1 voice anchor format + legacy fallbacks
+                  if (sc.voiceConfig.voice_profile) {
+                     sceneText += `\nVOICE: ${sc.voiceConfig.voice_profile} | Tone: ${sc.voiceConfig.vocal_tone || 'natural'}${sc.voiceConfig.dialogue_style ? ` | Style: ${sc.voiceConfig.dialogue_style}` : ''} | Sync: ${sc.voiceConfig.sync || 'voiceover'}`;
+                  } else if (sc.voiceConfig.voice) {
+                     // Legacy format fallback
+                     sceneText += `\nVOICE: ${sc.voiceConfig.voice}${sc.voiceConfig.accent ? ` | Accent: ${sc.voiceConfig.accent}` : ''} | Speed: ${sc.voiceConfig.speed} | Pitch: ${sc.voiceConfig.pitch}`;
+                  }
+               } else {
+                  sceneText += `\n⚠️ VOICE: [MISSING - voiceConfig required for ALL scenes, not just Scene 1]`;
+               }
+               return sceneText;
+            }).join('\n\n') : '';
+
+            // Build Metadata string
+            const meta = jsonData.metadata || {};
+            const metadataContent = [
+               meta.location ? `Specific Location: ${meta.location}` : '',
+               meta.duration ? `Duration: ${meta.duration}s` : '',
+               meta.aspectRatio ? `Aspect Ratio: ${meta.aspectRatio}` : '',
+               meta.productType ? `Product Type: ${meta.productType}` : '',
+               meta.musicVibe ? `Music Vibe: ${meta.musicVibe}` : ''
+            ].filter(Boolean).join('\n');
+
+            console.log(`✅ JSON format parsed successfully (${jsonData.images ? 'Lookbook Mode' : 'Video Mode'} - Nano Banana Pro / Veo 3.1 optimized)`);
+
+            return {
+               master: masterContent,
+               keyframes: keyframesContent,
+               scenes: scenesContent,
+               production: '',
+               metadata: metadataContent,
+               refinedScenes: '', // Will be populated by Phase 2
+               jsonData: jsonData // Keep original JSON for advanced usage
+            };
+         }
+      } catch (e) {
+         // JSON parsing failed, fall back to text parsing
+         console.log('ℹ️ JSON parsing failed, using text format parser');
+      }
+
+      // ================================================
+      // FALLBACK: TEXT FORMAT PARSING (Legacy support)
+      // ================================================
+      // Robust parsing based on sections - support multiple formats
+      // Try SECTION X: format first
+      let masterMatch = text.match(/SECTION 1:[\s\S]*?(?=SECTION 2:|Image 1|SCENE 1|$)/i);
+      let keyframesMatch = text.match(/SECTION 2:[\s\S]*?(?=SECTION 3:|SCENE 1|$)/i);
+      let scenesMatch = text.match(/SECTION 3:[\s\S]*?(?=SECTION 4:|SECTION 5:|PRODUCTION|$)/i);
+      let productionMatch = text.match(/SECTION 4:[\s\S]*?(?=SECTION 5:|METADATA|$)/i);
+      let metadataMatch = text.match(/SECTION 5:[\s\S]*$/i) || text.match(/SECTION 4:\s*METADATA[\s\S]*$/i);
+
+      // If SECTION format not found, try alternative formats
+      if (!masterMatch) {
+         masterMatch = text.match(/(?:MASTER PROMPT|COMMON MASTER PROMPT)[:\s]*[\s\S]*?(?=KEYFRAME|IMAGE 1|SCENE 1|$)/i);
+      }
+      if (!keyframesMatch) {
+         // Try Image 1, Image 2... format (common in TikTok Shop mode)
+         keyframesMatch = text.match(/(?:KEYFRAME PROMPTS?|IMAGE SEQUENCE)[:\s]*[\s\S]*?(?=SCENE|VEO|$)/i);
+         if (!keyframesMatch) {
+            // Try to find Image 1 through Image 5 directly
+            const imageMatch = text.match(/Image 1[\s\S]*?(?=SCENE 1|\*\*\*VOICE|$)/i);
+            if (imageMatch) keyframesMatch = imageMatch;
+         }
+      }
+      if (!scenesMatch) {
+         // Try SCENE 1, SCENE 2... format (TikTok Shop mode)
+         scenesMatch = text.match(/(?:SCENE PROMPTS?|VEO SCENE|SCENES? & SCRIPT)[:\s]*[\s\S]*?(?=PRODUCTION|METADATA|SECTION 4|$)/i);
+         if (!scenesMatch) {
+            // Try to find SCENE 1 through SCENE 4 directly
+            const sceneMatch = text.match(/(?:\*\*\*VOICE SETTING|\bSCENE 1\b)[\s\S]*?(?=SECTION 4:|PRODUCTION|METADATA|$)/i);
+            if (sceneMatch) scenesMatch = sceneMatch;
+         }
+      }
+      if (!productionMatch) {
+         productionMatch = text.match(/(?:PRODUCTION NOTES?|SECTION 4:\s*PRODUCTION)[:\s]*[\s\S]*?(?=METADATA|SECTION 5|$)/i);
+      }
+      if (!metadataMatch) {
+         metadataMatch = text.match(/(?:METADATA|Specific Location:)[:\s]*[\s\S]*$/i);
+      }
+
+      const cleanSection = (raw: string, sectionHeaderRegex: RegExp) => {
+         if (!raw) return "";
+         // Remove the main section header (e.g. "SECTION 1: ...")
+         let content = raw.replace(sectionHeaderRegex, '').trim();
+
+         // Remove common redundant sub-headers that models sometimes add
+         const redundantHeaders = [
+            /^SECTION \d+:?\s*[^\n]*\n?/i,
+            /^Common Master Prompt:?\s*/i,
+            /^Master Prompt:?\s*/i,
+            /^Keyframe Prompts?:?\s*/i,
+            /^Image Sequence:?\s*/i,
+            /^Veo Scene Prompts?:?\s*/i,
+            /^Scene Prompts?.*?:?\s*/i,
+            /^Scenes? & Script.*?:?\s*/i,
+            /^Production Notes?:?\s*/i,
+            /^Prompts?:?\s*/i,
+            /^Output:?\s*/i,
+            /^\*+[^\n]*\*+\s*/i,
+            /^---+\s*/i,
+         ];
+
+         for (const regex of redundantHeaders) {
+            content = content.replace(regex, '');
+         }
+         return content.trim();
+      };
+
+      // If still no master prompt found, try to extract first substantial paragraph
+      let masterContent = masterMatch ? cleanSection(masterMatch[0], /SECTION 1:.*?\n?|MASTER PROMPT:?\s*|COMMON MASTER PROMPT:?\s*/i) : "";
+      if (!masterContent && text.includes("Exact facial features")) {
+         const exactMatch = text.match(/Exact facial features[\s\S]*?(?=\n\n|Image 1|SCENE 1|$)/i);
+         if (exactMatch) masterContent = exactMatch[0].trim();
+      }
+
+      // Extract keyframes - handle both Image X format and SECTION 2 format
+      let keyframesContent = "";
+      if (keyframesMatch) {
+         keyframesContent = cleanSection(keyframesMatch[0], /SECTION 2:.*?\n?|KEYFRAME PROMPTS?:?\s*|IMAGE SEQUENCE:?\s*/i);
+      }
+      if (!keyframesContent || keyframesContent === "Keyframes unavailable") {
+         // Try to extract Image 1, Image 2... directly from text
+         const allImages = text.match(/Image \d+\s*\([^)]+\):[\s\S]*?(?=Image \d+|SCENE 1|\*\*\*VOICE|SECTION|$)/gi);
+         if (allImages && allImages.length > 0) {
+            keyframesContent = allImages.join('\n\n');
+         }
+      }
+
+      // Extract scenes - handle SCENE 1, SCENE 2... format
+      let scenesContent = "";
+      if (scenesMatch) {
+         scenesContent = cleanSection(scenesMatch[0], /SECTION 3:.*?\n?|SCENE PROMPTS?.*?:?\s*|VEO SCENE.*?:?\s*/i);
+      }
+      if (!scenesContent || scenesContent === "Scenes unavailable") {
+         // Try to extract SCENE 1, SCENE 2... directly
+         const allScenes = text.match(/SCENE \d+\s*\([^)]+\)[\s\S]*?(?=SCENE \d+\s*\(|SECTION 4|PRODUCTION|METADATA|$)/gi);
+         if (allScenes && allScenes.length > 0) {
+            scenesContent = allScenes.join('\n\n');
+         }
+      }
+
+      return {
+         master: masterContent || "Master prompt unavailable - AI may have used different format. Check full output.",
+         keyframes: keyframesContent || "Keyframes unavailable",
+         scenes: scenesContent || "Scenes unavailable",
+         production: productionMatch ? cleanSection(productionMatch[0], /SECTION 4:.*?\n?|PRODUCTION NOTES?:?\s*/i) : "",
+         metadata: metadataMatch ? cleanSection(metadataMatch[0], /SECTION 5:.*?\n?|METADATA:?\s*/i) : "",
+         refinedScenes: '' // Will be populated by Phase 2
+      };
+   };
+
+   // Improved parser for Keyframes and Scenes to handle individual copying
+   const parseSegments = (text: string, type: 'image' | 'scene') => {
+      const segments: { title: string; content: string }[] = [];
+
+      // Multiple regex patterns to match various AI output formats
+      const patterns = type === 'image'
+         ? [
+            /(Image \d+[^:\n]*:)/gi,           // "Image 1 (00s):" or "Image 1:"
+            /(\d+s\s*:)/gi,                     // "00s:" or "08s :"
+            /(\(\d+s\)\s*:)/gi,                 // "(00s):" 
+            /(Keyframe \d+[^:\n]*:)/gi,        // "Keyframe 1:"
+         ]
+         : [
+            /(Scene \d+[^:\n]*:)/gi,           // "Scene 1 (00s-08s):"
+            /(\d+s\s*-\s*\d+s\s*:)/gi,         // "00s-08s:"
+            /(\(\d+s-\d+s\)\s*:)/gi,           // "(00s-08s):"
+         ];
+
+      let matches: { match: string; index: number }[] = [];
+
+      // Try each pattern until we find matches
+      for (const regex of patterns) {
+         matches = [];
+         let match;
+         // Reset regex
+         regex.lastIndex = 0;
+         while ((match = regex.exec(text)) !== null) {
+            matches.push({ match: match[0], index: match.index });
+         }
+         if (matches.length >= 2) break; // Found valid segments
+      }
+
+      // If still no matches, try line-by-line split for numbered format
+      if (matches.length < 2) {
+         const lines = text.split('\n').filter(line => line.trim());
+         const lineMatches: { match: string; index: number; content: string }[] = [];
+
+         for (const line of lines) {
+            // Match patterns like "00s: content" or "1. (00s): content"
+            const lineMatch = line.match(/^(\d+s|\d+\.\s*\(?\d+s\)?|Image \d+[^:]*)\s*:\s*(.+)$/i);
+            if (lineMatch) {
+               lineMatches.push({
+                  match: lineMatch[1],
+                  index: 0,
+                  content: lineMatch[2].trim()
+               });
+            }
+         }
+
+         if (lineMatches.length >= 2) {
+            return lineMatches.map((m, idx) => ({
+               title: type === 'image' ? `Image ${idx + 1} (${m.match})` : `Scene ${idx + 1} (${m.match})`,
+               content: m.content
+            }));
+         }
+      }
+
+      // If still no matches, return as single block
+      if (matches.length === 0) {
+         return [{ title: type === 'image' ? 'All Keyframes' : 'All Scenes', content: text.trim() }];
+      }
+
+      // Extract content between matches
+      for (let i = 0; i < matches.length; i++) {
+         const currentMatch = matches[i];
+         const nextMatch = matches[i + 1];
+
+         let title = currentMatch.match.replace(/:$/, '').trim();
+         // Make title more readable
+         if (/^\d+s$/.test(title)) {
+            title = `Image ${i + 1} (${title})`;
+         }
+
+         const startIndex = currentMatch.index + currentMatch.match.length;
+         const endIndex = nextMatch ? nextMatch.index : text.length;
+         const content = text.slice(startIndex, endIndex).trim();
+
+         if (title && content) {
+            segments.push({ title, content });
+         }
+      }
+
+      return segments.length > 0
+         ? segments
+         : [{ title: type === 'image' ? 'All Keyframes' : 'All Scenes', content: text.trim() }];
+   };
+
+   const getBase64AndMime = (dataUrl: string) => {
+      const matches = dataUrl.match(/^data:(.+);base64,(.+)$/);
+      if (!matches) {
+         return { mimeType: 'image/png', data: dataUrl.split(',')[1] || '' };
+      }
+      return { mimeType: matches[1], data: matches[2] };
+   };
+
+   // ================================================
+   // 🎬 VIDEO REFINEMENT FUNCTION (PHASE 2)
+   // ================================================
+   // Đọc lại keyframe prompts và tạo scene prompts liền mạch hơn
+   const refineVideoScenes = async (masterPrompt: string, keyframes: string, existingScenes: string, jsonData?: any) => {
+      setVideoRefining(true);
+
+      try {
+         const ai = new GoogleGenAI({ apiKey });
+
+         // Extract beatSync info from jsonData if available
+         let beatSyncInfo = "";
+         if (jsonData?.beatSync) {
+            beatSyncInfo = `
+BEAT SYNC INFO:
+BPM: ${jsonData.beatSync.bpm || 128}
+Pattern: ${jsonData.beatSync.beatPattern || 'remix-drop-pattern'}
+Music Mood: ${jsonData.beatSync.musicMood || 'EDM-remix-high-energy'}
+Drop Timestamps: ${jsonData.beatSync.dropTimestamps?.join(', ') || '12.0s, 24.0s'}
+`;
+         } else {
+            // Default remix pattern
+            beatSyncInfo = `
+BEAT SYNC INFO:
+BPM: 128 (default remix)
+Pattern: remix-drop-pattern
+Music Mood: EDM-remix-high-energy
+Drop Timestamps: 12.0s, 16.0s, 24.0s, 28.0s (typical remix structure)
+`;
+         }
+
+         const refinementPrompt = `
+PHASE 2: VIDEO REFINEMENT
+=========================
+
+Analyze the keyframe prompts below and create SEAMLESS, REFINED scene prompts for Veo 3.1.
+
+**YOUR TASK:**
+1. Read the MASTER PROMPT for character/outfit/environment details
+2. Analyze each KEYFRAME (frozen pose) 
+3. Create REFINED SCENES that animate between keyframes with perfect continuity
+4. Ensure CHARACTER, OUTFIT, and ENVIRONMENT are 100% consistent
+5. Sync all motions to the BEAT pattern
+
+---
+
+MASTER PROMPT:
+${masterPrompt}
+
+---
+
+KEYFRAMES (Static Images - Frozen Poses):
+${keyframes}
+
+---
+
+EXISTING SCENES (for reference - IMPROVE these):
+${existingScenes}
+
+---
+
+${beatSyncInfo}
+
+---
+
+**OUTPUT FORMAT:**
+Create refined scene prompts that are MORE DETAILED and MORE SEAMLESS than the existing ones.
+
+For each scene, output:
+
+REFINED SCENE X (XXs-XXs):
+CHARACTER: [Brief identifier - SAME in all scenes]
+OUTFIT: [Exact outfit description - IDENTICAL in all scenes]
+START_POSE: [EXACT match to previous keyframe end pose]
+MOTION: [Detailed continuous motion with beat markers]
+  - Beat 1 (XX.0s): [specific action - e.g., "sharp hip snap to right"]
+  - Beat 3 (XX.5s): [specific action - e.g., "hair begins flowing left"]
+  - Beat 5 (XX.0s): [specific action - e.g., "fabric catches air peak"]
+  - Beat 7 (XX.5s): [specific action - e.g., "weight shifts to front foot"]
+END_POSE: [EXACT position for next scene start]
+CAMERA: [Movement synced to music - e.g., "slow orbit then crash zoom on drop"]
+ENVIRONMENT: [Location + AMBIENT MOTION - wind, light, background movement]
+FABRIC_PHYSICS: [How outfit behaves - silk flows, hem rises, etc.]
+TRANSITION_TO_NEXT: [How this flows to next scene]
+
+---
+
+**CRITICAL RULES:**
+1. CHARACTER must be IDENTICAL in every scene description
+2. OUTFIT details must be EXACTLY THE SAME - no color/pattern drift
+3. END_POSE of Scene N MUST equal START_POSE of Scene N+1
+4. Every scene MUST have AMBIENT MOTION in environment
+5. BEAT MARKERS must align with BPM and drop timestamps
+6. Use: "smoothly," "fluidly," "gradually" - NOT "suddenly," "cuts to"
+
+Now create the REFINED SCENES:
+`;
+
+         const response = await ai.models.generateContent({
+            model: "gemini-2.5-flash",
+            contents: { parts: [{ text: refinementPrompt }] },
+            config: {
+               systemInstruction: VIDEO_REFINEMENT_INSTRUCTION,
+               safetySettings: [
+                  { category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH },
+                  { category: HarmCategory.HARM_CATEGORY_HATE_SPEECH, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH },
+                  { category: HarmCategory.HARM_CATEGORY_HARASSMENT, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH },
+                  { category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH }
+               ]
+            }
+         });
+
+         const refinedText = response.text;
+
+         if (refinedText) {
+            console.log('✅ Video scenes refined successfully (Phase 2)');
+            return refinedText;
+         }
+
+         return null;
+      } catch (error) {
+         console.error('❌ Video refinement failed:', error);
+         return null;
+      } finally {
+         setVideoRefining(false);
+      }
+   };
+
+   const runDirector = async () => {
+      if (!outfitImage) {
+         alert("Please upload outfit reference image. (Face reference is optional - will use default Douyin style face if not provided)");
+         return;
+      }
+
+      setStep('director');
+      setDirectorThinking(true);
+      setDirectorOutput(null);
+
+      try {
+         const ai = new GoogleGenAI({ apiKey });
+
+         let bodyDataString = "";
+         if (bodyMode === 'preset') {
+            bodyDataString = `Body Preset: ${bodyType}`;
+         } else {
+            bodyDataString = `Exact Measurements: Height ${measurements.height}cm, Bust ${measurements.bust}cm, Waist ${measurements.waist}cm, Hips ${measurements.hips}cm`;
+         }
+
+         // User Additional Description for ALL MODES
+         const userAdditionalDescText = additionalDescription ? `\n\n📝 USER CUSTOM REQUIREMENTS / YÊU CẦU TÙY CHỈNH TỪ NGƯỜI DÙNG:
+"""${additionalDescription}"""
+⚠️ AI PHẢI đọc kỹ và tích hợp các yêu cầu trên vào video/ảnh (nếu hợp lý và không vi phạm rules).
+- Ưu tiên thực hiện theo yêu cầu người dùng nếu khả thi
+- Nếu yêu cầu mâu thuẫn với rules an toàn → bỏ qua và dùng phiên bản safe
+- Nếu yêu cầu về layering/styling → áp dụng cho TẤT CẢ scenes/images` : '';
+
+         // For TikTok Shop, use product details instead of personal measurements
+         const isAutoDetect = productType === 'auto';
+         const isComboMode = productType === 'combo';
+         const shopModelInfo = `\n\nPRODUCT INFO FOR VIETNAMESE SCRIPT (USE THESE DETAILS):
+- Product Type: ${isAutoDetect ? '🤖 AUTO-DETECT (AI phân tích từ ảnh sản phẩm)' : isComboMode ? '🎀 COMBO/MIX (Nhiều món kết hợp)' : productType.toUpperCase()}
+- Video Style: ${videoStyle.toUpperCase()}
+- Fabric/Material: ${fabricMaterial || (isAutoDetect || isComboMode ? '🤖 AUTO-DETECT từ ảnh' : 'Analyze from image')}
+- Key Highlights: ${productHighlights || (isAutoDetect || isComboMode ? '🤖 AUTO-DETECT từ ảnh' : 'Analyze from image')}
+- Available Sizes: ${availableSizes}
+
+${isAutoDetect ? `🤖 AUTO-DETECTION MODE ACTIVATED (NÂNG CAO):
+AI PHẢI phân tích ẢNH SẢN PHẨM KỸ LƯỠNG và xác định:
+
+📦 1. LOẠI SẢN PHẨM (Product Category):
+   - Phân loại chính xác: Đầm (maxi/midi/mini/bodycon/A-line/wrap/slip) / Áo (sơ mi/thun/crop/hai dây/structured bodice) / Quần (dài/ống rộng/skinny/short) / Đặc biệt (áo dài/jumpsuit/swim set/loungewear)
+   - Ghi cả tiếng Việt và EN term
+   
+   👙 NẾU PHÁT HIỆN LÀ FASHION FOUNDATIONS/DELICATE WEAR:
+   → TỰ ĐỘNG ÁP DỤNG FASHION-SAFE VOCABULARY (xem section riêng)
+   → PHẢI dùng từ: "Corsetry-style bodice", "Fitted bodice", "Vintage glamour coordinates", "Balletcore set"
+   → Dùng: "intimate fashion coordinates", "lounge coordinates", "foundation garment"
+   → Mô tả như buổi chụp catalog thời trang chuyên nghiệp
+
+🧵 2. CHẤT LIỆU VẢI (Fabric Analysis):
+   - Độ bóng: Bóng láng (satin/silk) / Bóng mờ (polyester) / Mờ (cotton/linen)
+   - Độ dày: Rất mỏng xuyên sáng (chiffon) / Mỏng rủ (silk) / Trung bình (cotton) / Dày (denim/velvet)
+   - Texture: Trơn / Ren lỗ / Nhăn tự nhiên / Gân ribbed / Hoa văn nổi
+   - Co giãn: Cao (ôm sát body) / Trung bình / Không co giãn
+   
+   👙 NẾU LÀ FASHION FOUNDATIONS - CHẤT LIỆU ĐẶC BIỆT:
+   - Ren: "Intricate Chantilly lace" / "Delicate eyelash lace" / "Guipure lace appliqué"
+   - Satin: "Lustrous satin finish" / "High-sheen charmeuse"
+   - Silk: "Mulberry silk draping" / "Liquid silk fabric"
+   - Mesh: "Fine power mesh" / "Diaphanous tulle overlay"
+
+📐 3. KÍCH CỠ & FIT:
+   - Fit: Ôm sát (slim) / Ôm vừa (regular) / Rộng (relaxed) / Oversize
+   - Chiều dài: Mini/Midi/Maxi (váy) | Cropped/Regular/Longline (áo)
+   - Kiểu tay: Sleeveless/Short/3-4/Long/Puff/Bell
+
+🎨 4. MÀU SẮC (Cụ thể):
+   - KHÔNG dùng "đỏ" → Dùng "đỏ rượu vang/cherry/coral"
+   - KHÔNG dùng "xanh" → Dùng "navy/cobalt/mint/emerald"
+   - Ghi cả tone: Warm/Cool/Neutral
+
+🔍 5. CHI TIẾT THIẾT KẾ:
+   - Kiểu cổ: V-neck/Round/Square/Halter/Off-shoulder/Sweetheart
+   - Chi tiết đặc biệt: Xẻ tà/Hở lưng/Cut-out/Bèo nhún/Nơ/Xếp ly
+
+🔗 6. COMBO CHECK:
+   - Có nhiều món đồ trong ảnh không?
+   - Nếu có: Liệt kê item chính + item phụ + kiểu kết hợp
+
+👙 7. FASHION FOUNDATIONS AUTO-APPLY (TỰ ĐỘNG ÁP DỤNG NẾU DETECT DELICATE WEAR):
+   Khi phát hiện sản phẩm là: Soft top, Structured bodice, Bodysuit, Loungewear, Swimwear...
+   
+   ✅ TỰ ĐỘNG LÀM:
+   - Dùng "Editorial fashion photograph for fashion coordinates catalog"
+   - Dùng "Elegant confident pose", "Editorial pose"
+   - Dùng "Professional studio lighting" / "Luxury setting"
+   - Mô tả chất liệu chi tiết: Chantilly lace, charmeuse satin, mulberry silk, Swiss dot mesh
+   - Script tiếng Việt: "Soft top ren tinh tế", "Set thời trang thanh lịch"
+   - Dùng vocabulary: "couture fashion coordinates", "lounge coordinates", "fitted bodice"
+   - Phong cách: professional catalog editorial photography
+
+📝 GHI KẾT QUẢ VÀO METADATA SECTION theo format chuẩn.` : ''}
+
+${isComboMode ? `🎀 COMBO/MIX MODE ACTIVATED (CHI TIẾT):
+Ảnh sản phẩm có NHIỀU MÓN ĐỒ kết hợp. AI PHẢI:
+
+📦 1. NHẬN DIỆN TẤT CẢ CÁC MÓN:
+   - Item chính (outer/main): [Loại + Màu + Chất liệu]
+   - Item phụ (inner/accessory): [Loại + Màu + Chất liệu]
+
+🧵 2. PHÂN TÍCH TỪNG MÓN RIÊNG:
+   - Mô tả chi tiết từng item (không gộp chung)
+   - Xác định chất liệu riêng cho mỗi item
+
+🔗 3. XÁC ĐỊNH KIỂU KẾT HỢP:
+   - Layering: Mặc lớp ngoài + lớp trong
+   - Lightweight overlay: Vải mỏng nhẹ phủ item bên trong
+   - Matching set: Bộ đồng bộ thiết kế
+   - Mix & Match: Phối đồ khác style
+
+📝 4. SCRIPT PHẢI NHẮC ĐẾN TẤT CẢ:
+   - Ví dụ: "Váy ren đi kèm soft top bên trong, an tâm không lo!"
+   - Ví dụ: "Set này có áo crop và quần ống rộng, mua về là mặc liền!"
+
+Các kiểu combo phổ biến:
+- 👗 Váy/Đầm lightweight overlay + Inner (soft top/slip) bên trong
+- 🧥 Áo khoác/Blazer + Áo trong (croptop/structured bodice)
+- 🌙 Loungewear silk + Coordinating set matching
+- 👙 Swim set + Kimono/Cover-up phủ ngoài
+- 👚 Áo sơ mi cài hở + Soft layering top bên trong
+- 👖 Set quần + áo đồng bộ (co-ord set)` : ''}
+
+⚠️ IMPORTANT: This is AI-generated video. DO NOT say "Mình cao X nặng Y" - instead describe the PRODUCT and how it looks on the MODEL's body type.`;
+
+         // 🎬 VIDEO STYLE CHOREOGRAPHY — Detailed style-specific instructions for AI
+         const getVideoStyleChoreography = (): string => {
+            const styleMap: Record<string, string> = {
+               // Fashion basics
+               body_real: '💪 BODY REAL: Model mặc thử + xoay 360° | Scene flow: Outfit reveal → Front pose → Spin showcase → Detail close-up | Camera: Medium tracking, low angle power shot | Must show: Fit on body, fabric movement, full silhouette',
+               before_after: '✨ BEFORE-AFTER: Cầm đồ → Mặc vào → Wow | Scene flow: Holding product → Quick transition → Full outfit styled | Camera: Static → jump cut → tracking | Hook: "Wait for it..."',
+               before_after_fashion_show: '👗 BEFORE-AFTER FASHION SHOW: Biến hình + Catwalk | Scene flow: Casual look → transition → runway walk | Camera: Static → slow-mo → tracking | NO voice, pure visual',
+               mirror_ootd: '🪞 MIRROR OOTD: Phone selfie mirror style | Scene flow: Walk to mirror → Show outfit → Pose → Detail | Camera: Simulated phone-held, mirror reflection | Voice: Commentary on outfit',
+               fit_check: '✅ FIT CHECK: Quick outfit beats | Scene flow: Front snap → Side → Back → Full | Camera: Quick cuts on beat drop | NO voice, music-synced, trending beat',
+               grwm: '💅 GRWM: Getting ready narrative | Scene flow: Base → Makeup/Hair → Outfit selection → Full look reveal | Camera: Close-up → medium → full body | Voice: Storytelling, casual',
+               try_on_haul: '🛍️ TRY-ON HAUL: Multi-piece showcase | Scene flow: Unpack → Try each piece → Rate/Review → Best pick | Camera: Mix close-up + full body | Voice: Honest review commentary',
+               ootd_novoice: '📸 OOTD PURE: Clean outfit showcase | Scene flow: Full look → Movement → Detail → Pose | Camera: Cinematic, clean cuts | NO voice/text, raw aesthetic footage',
+               ootd_grwm: '👗 OOTD+GRWM: Lifestyle getting ready | Scene flow: Morning routine → Outfit pick → Get dressed → Final reveal + exit | Camera: Lifestyle vlog | Voice: Day story',
+               personal_branding: '⭐ PERSONAL BRANDING: Day in life + style | Scene flow: Morning → Work/Activity → Style moment → Signature pose | Camera: Vlog + cinematic | Voice: Brand story',
+               style_challenge: '🎯 STYLE CHALLENGE: Themed outfit series | Scene flow: Challenge reveal → Attempt → Showcase → Rate | Camera: Dynamic, split possible | Voice: Engaging commentary',
+               outfit_change_viral: '🔄 OUTFIT CHANGE: Beat-synced changes | Scene flow: Pose → Kick/Jump/Spin → New outfit → Repeat | Camera: Static, quick cuts on beat | NO voice, trending music MUST',
+               // Viral 2026
+               cinematic_hook_reveal: '🎬 CINEMATIC REVEAL: Mystery → Reveal | Scene flow: Silhouette/blur → Build curiosity → Beat drop → Full stunning reveal | Camera: Slow push-in → pull-back reveal | Hook: Maximum curiosity in 2s',
+               aesthetic_grwm: '✨ AESTHETIC GRWM: Soft girl prep | Scene flow: Soft wake up → Skincare → Makeup → Outfit → Mirror check | Camera: Warm tones, dreamy | Voice: Soft, ASMR-adjacent',
+               outfit_challenge: '🔥 OUTFIT CHALLENGE: Style comparison | Scene flow: Challenge prompt → Option A → Option B → Option C → Vote/Pick | Camera: Clean cuts, comparison frames | Hook: "3 ways to style..."',
+               reaction_reveal: '😱 REACTION REVEAL: Social proof | Scene flow: Unbox/Get dressed → Show to friend/family → Capture reaction → Confidence | Camera: Split/POV | Hook: Genuine surprise reaction',
+               coquette_aesthetic: '🎀 COQUETTE: Soft girl energy | Scene flow: Pastel setup → Bow ribbon details → Soft pose → Romantic finish | Camera: Warm soft filter, close-up details | Vibe: Bows, pastels, feminine',
+               office_siren: '💼 OFFICE SIREN: Work→Party transform | Scene flow: Morning office look → "5pm hits" → Transformation → Night look | Camera: Split/transition | Hook: "9-5 me vs 6pm me"',
+               quiet_luxury: '🤍 QUIET LUXURY: No-logo premium | Scene flow: Detail textures → Slow reveal → Editorial poses → Lifestyle | Camera: Slow, deliberate, minimal | Vibe: Whisper luxury, quality fabric focus',
+               trend_mashup: '🔀 TREND MASHUP: Multi-trend combo | Scene flow: Trend 1 element → Trend 2 overlay → Combined result → Street test | Camera: Fast cuts + slow-mo mix | Hook: "Mixing every trend..."',
+               // New 2026 mid-year
+               pov_storytelling: '📖 POV: First-person narrative | Scene flow: "POV: bạn là..." text → Immersive product experience → Emotional payoff → CTA | Camera: POV angles, first-person | Hook: Strong POV text',
+               split_screen_compare: '📱 SPLIT SCREEN: Visual proof | Scene flow: Before/After side by side OR 2 products compared → Winner reveal | Camera: Fixed split | Hook: "Cái nào TỐT hơn?"',
+               asmr_unbox: '🎧 ASMR UNBOX: Satisfying unbox | Scene flow: Package close-up → Slow open → Texture sounds → Product reveal | Camera: Macro close-ups | NO voice, ASMR sounds only',
+               speed_styling: '⚡ SPEED STYLING: Timelapse dress-up | Scene flow: Basic start → Sped-up styling → Real-time final reveal → Pose | Camera: Static → speed up → slow-mo reveal | Music: Upbeat',
+               closet_raid: '👗 CLOSET RAID: Wardrobe browse | Scene flow: Open closet → Browse → Pull out pieces → Try on → Final look | Camera: POV + mirror | Voice: Natural decision process',
+               price_reveal_game: '💰 PRICE REVEAL: Guess the price | Scene flow: Show product → "Đoán giá?" text → Build tension → Price shock reveal | Camera: Close-up → reveal | Hook: Engaging question, max engagement',
+               mini_vlog_style: '📹 MINI VLOG: Day snippet | Scene flow: Wake/Go out → Activity + outfit context → Product moment → Natural ending | Camera: Handheld vlog | Voice: Authentic, diary',
+               rating_review: '⭐ HONEST RATING: X/10 format | Scene flow: First impression → Test/Use → Pros & Cons → Final rating | Camera: Mix close-up + full | Voice: Honest, credible',
+               hack_tutorial: '💡 STYLE HACK: Educational viral | Scene flow: "Mẹo mà ít ai biết..." → Demo hack → Before/After → Mind blown | Camera: Clear tutorial | Hook: Hack/tip revelation',
+               side_by_side: '🔄 SIDE BY SIDE: Expect vs Reality | Scene flow: Website/Ad image → Real product → Honest comparison → Verdict | Camera: Split screen | Hook: Trust-building format',
+               aesthetic_flatlay: '🎨 AESTHETIC FLATLAY: Product arrangement | Scene flow: Layout setup → Overhead reveal → Detail zoom → Styled shot | Camera: Top-down, bird eye | NO model needed, aesthetic focus',
+               countdown_reveal: '⏰ COUNTDOWN: Top N reveal | Scene flow: "#3..." → "#2..." → "#1 Hero product" → Final showcase | Camera: Quick cuts + hero shot | Hook: Countdown tension builder',
+               // Product/intimate
+               fabric_focus: '🔍 FABRIC FOCUS: Texture close-up | Scene flow: Wide shot → Macro texture → Stretch/drape test → Quality proof | Camera: Macro lens | ASMR fabric sounds',
+               asmr_fabric: '🎧 ASMR FABRIC: Satisfying textures | Scene flow: Touch → Stretch → Fold → Smooth | Camera: Extreme close-up | NO voice, pure fabric ASMR',
+               floor_display: '🪵 FLOOR DISPLAY: Flat product layout | Scene flow: Top-down arrange → Detail zoom → Styling props → Complete set | Camera: Overhead | NO model',
+               // Beauty
+               beauty_demo: '💄 BEAUTY DEMO: Real-time application | Scene flow: Before skin → Apply product → Wait/massage → After reveal | Camera: Face close-up | Voice: Product explanation',
+               device_review: '🔌 DEVICE REVIEW: Gadget showcase | Scene flow: Unbox → Features tour → Real demo on skin/body → Results | Camera: Close-up + medium | Voice: Review commentary',
+               skincare_routine: '🧴 SKINCARE ROUTINE: Full regimen | Scene flow: Cleanse → Tone → Serum → Moisturize → Sunscreen → Final glow | Camera: Mirror/close-up | ASMR-optional',
+               makeup_tutorial: '💋 MAKEUP TUTORIAL: Step-by-step | Scene flow: Base → Eyes → Lips → Contour → Final look | Camera: Extreme close-up + reveal | Voice: Tutorial guide',
+               // Smart home  
+               unbox_demo: '📦 UNBOX & DEMO: Classic unboxing | Scene flow: Package → Open → Show components → Power on → Demo use | Camera: POV hands + wide | Voice: First impression',
+               problem_solution: '💡 PROBLEM→SOLUTION: Pain point hook | Scene flow: Show problem (dirty/messy/broken) → Product intro → Live demo → Clean result | Camera: Before/After | Hook: Relatable problem',
+               feature_showcase: '⚡ FEATURE SHOWCASE: Wow features | Scene flow: Feature 1 demo → Feature 2 demo → Feature 3 demo → Full capability | Camera: Close-up per feature | Voice: Excited showcase',
+               before_after_home: '🏠 HOME BEFORE-AFTER: Transformation | Scene flow: Messy/dirty before → Using product → Clean/organized after → Satisfaction | Camera: Static compare | Hook: Satisfying cleanup',
+               comparison_test: '⚔️ COMPARISON TEST: Proof format | Scene flow: Traditional method → Product method → Side-by-side results → Winner clear | Camera: Split screen | Hook: Scientific proof feel',
+               // Áo Dài styles
+               ao_dai_traditional: '🏮 ÁO DÀI TRUYỀN THỐNG: Heritage beauty | Scene flow: Wide establishing shot → Model standing gracefully → Wind-blown fabric → Walking elegance → Detail embroidery close-up | Camera: Slow tracking, golden hour | Vibe: Timeless Vietnamese beauty, gentle movement',
+               ao_dai_transition: '✨ ÁO DÀI TRANSITION: Modern meets tradition | Scene flow: Casual outfit → Magic transition → Áo dài reveal → Confident walk → Pose | Camera: Static → jump cut → tracking | Hook: "Biến hình áo dài" dramatic change',
+               ao_dai_catwalk: '👠 ÁO DÀI CATWALK: Runway elegance | Scene flow: End-of-runway pose → Turn → Walk toward camera → Fabric flow → Final pose | Camera: Low angle, tracking | NO voice, cinematic music, slow-mo fabric',
+               ao_dai_modern: '🌸 ÁO DÀI MODERN: Contemporary styled | Scene flow: Street/cafe setting → Casual pose → Movement showcase → Detail styling (belt/accessories) → Lifestyle moment | Camera: Handheld vlog style | Voice: Modern styling tips',
+               // Intimate/Sleepwear styles
+               sleepwear_cozy: '🌙 SLEEPWEAR COZY: Comfort showcase | Scene flow: Cozy bedroom setting → Fabric touch → Stretch/move freely → Relaxed pose → Material close-up | Camera: Warm soft lighting | Vibe: Soothing comfort, ASMR-adjacent',
+               editorial_inner: '📸 EDITORIAL INNER: High-fashion intimate | Scene flow: Dramatic lighting setup → Model pose → Angle change → Shadow play → Product detail | Camera: Studio editorial, dramatic shadows | NO voice, luxe magazine feel',
+               flatlay_inner: '🎨 FLATLAY INNER: Artistic product layout | Scene flow: Top-down arrangement → Props styling → Product reveal → Detail zoom → Full set | Camera: Overhead bird-eye | NO model, aesthetic arrangement focus',
+               handheld_inner: '📱 HANDHELD INNER: Authentic review | Scene flow: Product in hand → Fabric texture demo → Quality close-up → Packaging detail → Final display | Camera: Handheld POV, natural | Voice: Honest texture review',
+               handheld_voice: '🎙️ HANDHELD VOICE: Review commentary | Scene flow: Product intro → Touch/feel demo → Detail inspection → Pros highlight → Final recommendation | Camera: Handheld, natural lighting | Voice: Authentic product talk',
+               mannequin_inner: '👗 MANNEQUIN DISPLAY: Clean product view | Scene flow: Full mannequin reveal → 360° rotation → Detail focus → Fabric drape → Size reference | Camera: Clean studio, rotating | NO model, pure product display',
+               overlay_demo: '📐 OVERLAY DEMO: Product visualization | Scene flow: Product flat → Overlay measurement graphics → Size reference → Fit guide → Shopping info | Camera: Static top-down | Text overlay with key specs',
+               overlay_compare: '🔄 OVERLAY COMPARE: Visual comparison | Scene flow: Product A display → Product B display → Side-by-side overlay → Key differences highlighted → Winner pick | Camera: Static, split | Text: Comparison data points',
+               overlay_size: '📏 SIZE GUIDE OVERLAY: Sizing help | Scene flow: Product flat → Measurement overlay → Size chart reference → Fit on body type → Recommendation | Camera: Static, info-graphic | Text: Size data, measurement numbers',
+               // Body shaper
+               body_shaper_demo: '⏳ BODY SHAPER DEMO: Before-after fit | Scene flow: Before silhouette → Put on shaper → Smoothing demo → Outfit over → Side comparison | Camera: Medium, static compare | Hook: Visible transformation proof',
+               // Transform styles
+               transform_viral: '🔥 TRANSFORM VIRAL: Trending transformation | Scene flow: "Ordinary" opening → Beat drop → Instant glam transformation → Confident walk → Pose | Camera: Static → beat-synced cut → tracking | Hook: Maximum wow factor transition',
+               transform_glowup: '💎 GLOW UP: Full makeover journey | Scene flow: No-makeup/plain start → Step-by-step glow up → Hair → Makeup → Outfit → Final stunning reveal | Camera: Time-lapse feel → slow-mo reveal | Hook: "Glow up challenge"',
+               transform_day_night: '🌙 DAY TO NIGHT: Outfit transition | Scene flow: Daytime office/casual look → "5pm hits..." → Quick change → Night out look → Going out | Camera: Split/jump cut | Hook: "Same pieces, 2 vibes"',
+               // Walk-In styles
+               fashion_walkin: '🚶‍♀️ FASHION WALK-IN: Entrance moment | Scene flow: Door/corridor → Confident walk toward camera → Slow-mo fabric movement → Pause + pose → Turn | Camera: Low angle tracking, slow-mo | Music-driven, NO voice',
+               fashion_walkin_beauty: '💄 FASHION WALK-IN BEAUTY: Glam entrance | Scene flow: Beauty close-up (lips/eyes) → Pull back → Full outfit walking → Hair flip → Confident pose | Camera: Macro → wide tracking | Glamorous, makeup focus + fashion',
+               // Smart Home/Lifestyle styles
+               day_in_life: '📅 DAY IN LIFE: Product integration | Scene flow: Morning routine → Product usage moment → Afternoon activity → Evening use → Natural lifestyle | Camera: Vlog handheld | Voice: Natural narration, product woven into daily story',
+               installation_guide: '🔧 INSTALLATION GUIDE: Easy setup | Scene flow: Unbox → Step 1 setup → Step 2 connect → Step 3 configure → Working demo | Camera: Clear tutorial POV, overhead | Voice: Clear step instructions, reassuring',
+               smart_home_tour: '🏠 SMART HOME TOUR: Connected living | Scene flow: Room entry → Device 1 demo → Device 2 demo → All working together → Lifestyle wow | Camera: Smooth tracking through rooms | Voice: Tour guide, excited showcase',
+            };
+            const instruction = styleMap[videoStyle];
+            return instruction ? `\n\n🎬 VIDEO STYLE CHOREOGRAPHY — ${videoStyle.toUpperCase()}:\n${instruction}` : '';
+         };
+         const videoStyleChoreography = getVideoStyleChoreography();
+
+         // Video duration - user configurable 8-54s
+         const finalDuration = videoDuration;
+         const scenes = Math.floor(finalDuration / 8);
+
+         // Duration-specific affiliate strategy
+         const getAffiliateDurationStrategy = (dur: number): string => {
+            if (dur <= 8) return `
+
+💰 AFFILIATE DURATION STRATEGY: FLASH AD (${dur}s)
+- 1 scene duy nhất, tối ưu cho retargeting & story ads
+- 0-2s: Product hero shot + PRICE SHOCK overlay (giá gạch + giá sale)
+- 2-5s: 1 USP mạnh nhất + social proof flash ("12K+ đã mua")
+- 5-${dur}s: CTA trực tiếp ("Link ghim 👆") + urgency ("Còn 2h")
+- Script: MAX 15 từ, giá PHẢI xuất hiện trong 1.5s đầu
+- Rewatch trigger: Price blur 0.5s → force replay`;
+            if (dur <= 16) return `
+
+💰 AFFILIATE DURATION STRATEGY: QUICK SELL (${dur}s)
+- 2 scenes, Hook → Immediate CTA
+- Scene 1 (0-8s): HOOK + PRICE — Product flash + giá shock + 1 USP
+- Scene 2 (8-${dur}s): PROOF + CTA — Social proof + Urgency + "Link ghim 👆"
+- Script: MAX 30 từ, price reveal trong 2s đầu
+- Dual element: Price tease (blur) ở 1.5s → Clear price ở 8s
+- Target: Completion rate 70%+, CTR 8%+`;
+            if (dur <= 24) return `
+
+💰 AFFILIATE DURATION STRATEGY: CONVERSION MODE (${dur}s) ⭐ OPTIMAL
+- 3 scenes, chuẩn affiliate framework CVR 3-6%
+- Scene 1 (0-8s): HOOK + PRICE TEASE — Scroll-stop visual + giá shock overlay + rewatch trigger
+- Scene 2 (8-16s): USP SHOWCASE — 2-3 USPs nhanh + social proof ("XK+ đã mua")
+- Scene 3 (16-${dur}s): CTA + URGENCY — Strong CTA + countdown/scarcity + link direction
+- Script structure: Price hook → Value proof → Action push
+- Dual CTA: Soft @12s ("Comment MUỐN") + Hard @20s ("Link ghim 👆")
+- Rewatch triggers: Price blur + multi-info overload
+- Target: Completion 60%+, CVR 3-6%, CTR 5-10%`;
+            if (dur <= 32) return `
+
+💰 AFFILIATE DURATION STRATEGY: VIRAL MODE (${dur}s)
+- 4 scenes, story-driven với dual CTA placement
+- Scene 1 (0-8s): HOOK — Curiosity/price shock + product flash
+- Scene 2 (8-16s): USP DEMO — Feature showcase + quick demos
+- Scene 3 (16-24s): SOCIAL PROOF — Before/After hoặc comparison + trust signals
+- Scene 4 (24-${dur}s): URGENCY + CTA — Scarcity + strong CTA + link
+- Dual CTA: @16s engagement ("Ai muốn?") + @28s conversion ("Link ghim 👆")
+- Comment bait: Question/game tại scene 2-3
+- Target: Algorithm boost từ engagement + CVR 2-4%`;
+            if (dur <= 40) return `
+
+💰 AFFILIATE DURATION STRATEGY: DEEP SELL (${dur}s)
+- 5 scenes, tối ưu cho sản phẩm cần demo chi tiết
+- Scene 1 (0-8s): HOOK — Problem amplification hoặc price shock
+- Scene 2 (8-16s): PRODUCT INTRO — Unboxing feel + first impression
+- Scene 3 (16-24s): DETAIL DEMO — Close-up features, fabric, quality proof
+- Scene 4 (24-32s): BEFORE/AFTER — Transformation + social proof + reviews
+- Scene 5 (32-${dur}s): TRUST + CTA — Guarantee + urgency + link direction
+- Triple CTA: @12s tease + @24s social + @36s conversion
+- Target: Cho sản phẩm >300K cần build trust, CVR 2-3%`;
+            return `
+
+💰 AFFILIATE DURATION STRATEGY: STORYTELLING (${dur}s)
+- ${scenes} scenes, full customer journey narrative
+- ACT 1 (0-16s): HOOK + PROBLEM — Relatable pain point + curiosity builder
+- ACT 2 (16-32s): SOLUTION + DEMO — Product reveal + detailed showcase + USPs
+- ACT 3 (32-${dur}s): PROOF + CTA — Social proof + before/after + urgency + strong CTA
+- Multi-CTA: @16s curiosity + @32s social proof + @${dur - 8}s final conversion
+- Comment triggers: Storytelling hooks throughout
+- Best for: Premium products, complex features, brand storytelling
+- Target: Watch time priority, CVR 1.5-2.5% (but higher AOV)`;
+         };
+         const affiliateDurationStrategy = getAffiliateDurationStrategy(finalDuration);
+
+         // � AFFILIATE PLATFORM STRATEGY
+         const getAffiliatePlatformStrategy = (): string => {
+            if (affiliatePlatform === 'tiktok') return `\n\n📱 PLATFORM: TIKTOK\n- Format: 9:16 vertical, auto-play with sound ON\n- Hook: 0-1.5s scroll-stop (pattern interrupt / text hook / sound hook)\n- Music: Trending sound/remix, beat-sync quan trọng\n- CTA: "Link ghim comment 👆" / "Link trong bio" / "Inbox mình nè"\n- Hashtags: #TikTokMadeMeBuyIt #ReviewThật #Viral\n- Algorithm priority: Completion rate > Like > Comment > Share\n- Optimize: Watch time + replay + save\n- Tone: Casual gen-Z, dùng "nè/hen/luôn/quá trời"\n- Trending: Duet-friendly structure, stitch hooks`;
+            if (affiliatePlatform === 'facebook') return `\n\n📱 PLATFORM: FACEBOOK\n- Format: Reels 9:16 hoặc Feed, auto-play MUTED by default\n- ⚠️ TEXT OVERLAY bắt buộc (80%+ viewers xem không bật tiếng)\n- CTA: "Comment MUỐN để nhận link" / "Inbox shop" / "Link bình luận đầu tiên"\n- Algorithm priority: Share > Comment > Reaction > Watch time\n- Optimize: Shareability, comment bait, community engagement\n- Tone: Thân thiện chị em, dùng "ạ/nhé", mature hơn TikTok\n- Đặc biệt: Captions + text overlays CRITICAL vì auto-mute\n- Group sharing: Content dễ share vào group mua sắm`;
+            return `\n\n📱 PLATFORM: TIKTOK + FACEBOOK (ĐA NỀN TẢNG)\n- Tạo content phù hợp CẢ HAI platform\n- Hook: Visual hook (hoạt động cả có/không tiếng) + Text overlay\n- CTA đa dạng: "Link ghim" (TikTok) + "Comment MUỐN" (Facebook)\n- Tone: Cân bằng casual (TT) và thân thiện (FB)\n- Beat-sync cho TikTok + Text overlay cho Facebook muted viewers\n- Optimize: Watch time (TikTok) + Shareability (Facebook)`;
+         };
+
+         // 🎯 AFFILIATE AUDIENCE STRATEGY
+         const getAffiliateAudienceStrategy = (): string => {
+            if (affiliateAudience === 'cold') return `\n\n❄️ AUDIENCE: COLD (CHƯA BIẾT SẢN PHẨM)\n- Approach: EDUCATION + CURIOSITY — Giới thiệu vấn đề trước, sản phẩm sau\n- Hook: Problem-first ("Bạn có bị...?") hoặc Curiosity ("Cái này thay đổi cuộc đời mình")\n- Trust: Social proof BẮT BUỘC ("12K+ đã mua", "Rating 4.9⭐")\n- Price: SO SÁNH giá gốc gạch → giá sale (giảm resistance)\n- CTA: Soft — "Tìm hiểu thêm" / "Xem review" / không push mua ngay\n- Script: Informative, educational, build awareness\n- Phân bổ: 60% USP + social proof, 40% CTA`;
+            if (affiliateAudience === 'warm') return `\n\n🔥 AUDIENCE: WARM (ĐÃ QUAN TÂM, CHƯA MUA)\n- Approach: CONVINCE + URGENCY — Biết SP rồi, cần lý do mua NGAY\n- Hook: Comparison ("So sánh với hàng 500K") hoặc Demo ("Mặc thử luôn nè")\n- Trust: Before/After, user reviews, unboxing real\n- Price: Flash sale, countdown, limited stock → FOMO\n- CTA: Medium push — "Hôm nay giảm thêm 20%" / "Còn 50 cái cuối"\n- Script: Persuasive, address objections\n- Phân bổ: 40% demo, 30% benefits, 30% urgency+CTA`;
+            return `\n\n🔥🔥 AUDIENCE: HOT (SẴN SÀNG MUA)\n- Approach: DIRECT SELL + MAX URGENCY — Đẩy hành động ngay\n- Hook: Price shock ("199K HÔM NAY!") hoặc Scarcity ("Còn 2 tiếng!")\n- Trust: Không cần build nhiều — họ đã tin\n- Price: Deal/discount focus, bundle offers, freebies\n- CTA: STRONG push ngay từ scene 1 — "Mua ngay kẻo hết!" / "Link ghim 👆"\n- Script: Urgent, exciting, action-oriented\n- Phân bổ: 30% hook+price, 30% benefits remind, 40% CTA+urgency\n- Dual CTA: CTA sớm (@8s) + CTA mạnh (@cuối)`;
+         };
+
+         // 🎯 AFFILIATE GOAL STRATEGY
+         const getAffiliateGoalStrategy = (): string => {
+            if (affiliateGoal === 'views') return `\n\n🏆 GOAL: MAXIMIZE VIEWS (REACH)\n- Priority: Algorithm-friendly → nhiều người thấy video\n- Hook: MUST scroll-stop trong 1s (pattern interrupt, shock, curiosity gap)\n- Content: Emotional triggers, relatable, shareable\n- Engagement bait: "Tag người bạn cần cái này!"\n- Music: Trending sounds → algorithm boost\n- CTA: Soft — focus entertainment value, không push bán\n- Metrics: View-through rate 40%+, share rate 3%+\n- Script: Short, punchy, gây cảm xúc`;
+            if (affiliateGoal === 'engagement') return `\n\n🏆 GOAL: MAXIMIZE ENGAGEMENT (LIKES + COMMENTS)\n- Priority: Interaction → algorithm push → organic reach\n- Hook: Question/Poll ("Chọn A hay B?" / "Ai thích style này?")\n- Comment triggers BẮT BUỘC (≥2):\n  • "Comment MUỐN để nhận link!"\n  • "Bạn mặc size gì? Comment để tư vấn"\n  • "Đoán giá đi? 👇"\n- Engagement: Quiz, comparison, debate ("Cái này hay cái kia?")\n- CTA: Engage-first → "Comment/Like trước khi mua"\n- Metrics: Engagement rate 8%+, comment rate 3%+`;
+            return `\n\n🏆 GOAL: MAXIMIZE CONVERSION (SALES/CVR)\n- Priority: Mỗi element phải push gần HÀNH ĐỘNG MUA\n- Hook: Price/Value ("399K→199K HÔM NAY!" / "Rẻ hơn 1 ly trà sữa")\n- Urgency: Countdown, limited stock, flash sale\n- Social proof sớm: "12K+ đã mua" → reduce hesitation\n- Price psychology: Anchor cao → reveal thấp, bundle savings\n- CTA: STRONG + MULTIPLE — Dual CTA (@giữa + @cuối)\n  • "Link ghim comment 👆"\n  • "Inbox MUỐN để nhận link giảm thêm"\n- Objection handling: Size guide, return policy, quality proof\n- Metrics: CVR 3-6%, link CTR 5-10%, add-to-cart 15%+`;
+         };
+
+         const affiliatePlatformStrategy = getAffiliatePlatformStrategy();
+         const affiliateAudienceStrategy = getAffiliateAudienceStrategy();
+         const affiliateGoalStrategy = getAffiliateGoalStrategy();
+
+         // �🎙️ Voice Anchor Instruction - Consistent voice across all scenes
+         const getVoiceAnchorInstruction = (): string => {
+            if (voiceStyle === 'no_voice') return `
+
+🎙️ VOICE MODE: NO VOICE (MUSIC ONLY)
+- KHÔNG tạo voiceConfig cho bất kỳ scene nào
+- KHÔNG dialogue, KHÔNG narration
+- Chỉ có ambient sound + music
+- masterPrompt.voiceAnchor = null`;
+
+            const voiceProfiles: Record<string, { profile: string; characteristics: string; accent: string; emotional: string }> = {
+               'saigon_female': {
+                  profile: 'Young Vietnamese woman, 22-25 years old, Southern Ho Chi Minh City accent (giọng Sài Gòn chuẩn), warm and naturally friendly',
+                  characteristics: 'Medium-high pitch, slightly fast natural pace, clear pronunciation, soft breathiness on sentence endings, melodic rising intonation',
+                  accent: 'Southern Vietnamese Saigon accent (giọng miền Nam Sài Gòn) - soft consonants (d/gi/r merged), melodic tonal flow, casual friendly register, natural "dạ/vâng" softness, uses "nè/hen/nghen" particles',
+                  emotional: 'Warm, enthusiastic, trustworthy - like a close friend (chị em) sharing a great find. Natural excitement without being fake. Slightly playful.'
+               },
+               'saigon_male': {
+                  profile: 'Young Vietnamese man, 24-28 years old, Southern Ho Chi Minh City accent (giọng Sài Gòn), confident and approachable',
+                  characteristics: 'Medium pitch, steady natural pace, clear deep voice, relaxed articulation, casual but polished',
+                  accent: 'Southern Vietnamese Saigon accent (giọng miền Nam Sài Gòn) - soft consonants, relaxed tonal flow, friendly register, uses "nè/hen" particles naturally',
+                  emotional: 'Confident, genuine, knowledgeable - like a trusted friend recommending something. Calm energy with conviction.'
+               },
+               'hanoi_female': {
+                  profile: 'Young Vietnamese woman, 22-25 years old, Northern Hanoi accent (giọng Hà Nội chuẩn), elegant and clear',
+                  characteristics: 'Clear high pitch, measured pace, crisp pronunciation, distinct tonal accuracy, polished articulation',
+                  accent: 'Northern Vietnamese Hanoi accent (giọng miền Bắc Hà Nội) - clear consonant distinction (d/gi/r separate), precise tones, formal-casual register, uses "ạ/vâng" naturally',
+                  emotional: 'Elegant, trustworthy, articulate - refined and persuasive. Warm but maintains clarity and authority.'
+               },
+               'hanoi_male': {
+                  profile: 'Young Vietnamese man, 24-28 years old, Northern Hanoi accent (giọng Hà Nội), authoritative and warm',
+                  characteristics: 'Medium-deep pitch, clear measured pace, precise pronunciation, strong articulation, polished delivery',
+                  accent: 'Northern Vietnamese Hanoi accent (giọng miền Bắc Hà Nội) - clear consonant distinction, precise tonal accuracy, professional register',
+                  emotional: 'Authoritative yet warm, knowledgeable, trustworthy - professional recommendation style.'
+               }
+            };
+
+            const v = voiceProfiles[voiceStyle];
+            if (!v) return '';
+
+            return `
+
+🎙️ VOICE ANCHOR - VEO 3.1 NATIVE AUDIO (BẮT BUỘC)
+⚠️ CRITICAL: Dùng CÙNG MỘT GIỌNG cho TẤT CẢ scenes để video liền mạch!
+
+masterPrompt.voiceAnchor PHẢI chứa:
+- voice_profile: "${v.profile}"
+- vocal_characteristics: "${v.characteristics}"
+- accent_details: "${v.accent}"
+- emotional_range: "${v.emotional}"
+
+📋 RULES CHO MỖI SCENE (BẮT BUỘC - TẤT CẢ SCENES):
+1. voiceConfig.voice_profile = COPY NGUYÊN VĂN từ masterPrompt.voiceAnchor.voice_profile (GIỐNG NHAU cho Scene 1, 2, 3, 4...)
+2. voiceConfig.vocal_tone = Chỉ thay đổi EMOTION theo context scene (excited/calm/urgent), KHÔNG đổi giọng
+3. voiceConfig.dialogue_style = Cách nói trong scene: "voiceover" | "lip-sync" | "whisper" | "exclaim"
+4. voiceConfig.sync = "lip-sync" (khi model quay mặt vào camera) hoặc "voiceover" (khi quay lưng/close-up sản phẩm)
+5. script = Vietnamese script BẮT BUỘC cho mỗi scene (15-25 từ)
+
+⚠️ CRITICAL: voiceConfig phải có trong TẤT CẢ scenes, KHÔNG CHỈ Scene 1!
+❌ SAI: Scene 1 có voiceConfig, Scene 2-4 không có
+✅ ĐÚNG: Scene 1, 2, 3, 4 đều có voiceConfig với CÙNG voice_profile
+
+🎤 LIP-SYNC vs VOICEOVER GUIDE:
+- Model QUAY MẶT vào camera + đang nói → sync: "lip-sync" (miệng chuyển động khớp script)
+- Model QUAY LƯNG / Close-up sản phẩm → sync: "voiceover" (giọng nền, model không nói)
+- Model NGHIÊNG MẶT / 3/4 angle → sync: "lip-sync" (vẫn thấy miệng)
+- Mặc định: "lip-sync" cho hầu hết scenes (model thường đối diện camera)
+
+🎬 VEO 3.1 AUDIO PROMPTING TIPS:
+- Mô tả voice trong scene prompt: "A young woman with a warm Southern Vietnamese accent narrates..."
+- Dialogue dùng dấu ngoặc kép: Model nói: "Chị em ơi, set này xinh quá luôn nè!"
+- Ambient sound: Mô tả rõ background audio (cafe noise, street sounds, music beat)
+- QUAN TRỌNG: Mỗi scene prompt PHẢI nhắc lại voice description để Veo 3.1 giữ consistency
+- Vietnamese script: Viết tự nhiên, ${voiceStyle.includes('saigon') ? 'giọng miền Nam - dùng "nè", "hen", "nghen", "luôn", "quá trời"' : 'giọng miền Bắc - dùng "nhé", "ạ", "cực kỳ", "tuyệt vời"'}`;
+         };
+         const voiceAnchorInstruction = getVoiceAnchorInstruction();
+
+         const faceData = faceImage ? getBase64AndMime(faceImage) : null;
+         const outfitData = getBase64AndMime(outfitImage);
+
+         // Prepare Blocklist - use location strings from vault
+         const historyBlocklist = locationVault.length > 0
+            ? locationVault.map(item => item.location).join(", ")
+            : "None (Fresh Start)";
+
+         // Prepare Location Region preference
+         const selectedRegionData = LOCATION_REGIONS.find(r => r.value === locationRegion);
+         const regionName = selectedRegionData?.label || 'Auto';
+         const regionDescription = selectedRegionData?.desc || 'AI chọn tự do';
+
+         // Get RANDOM suggested locations for the region (excluding used ones)
+         const suggestedLocs = locationRegion === 'auto'
+            ? getRandomLocationsForAuto(5)  // Random from all regions for Auto mode
+            : getSuggestedLocations(locationRegion, 5);  // Random from selected region
+
+         const suggestedLocationsText = suggestedLocs.length > 0
+            ? `\n\n🎲 SUGGESTED LOCATIONS (Random selection - Pick ONE):\n${suggestedLocs.map((loc, i) => `${i + 1}. ${loc}`).join('\n')}\n\n⚠️ IMPORTANT: Choose RANDOMLY from above list. Do NOT always pick #1.`
+            : '';
+
+         const locationPreferenceText = locationRegion !== 'auto'
+            ? `\n\nPREFERRED LOCATION REGION: ${regionName}\nRegion Description: ${regionDescription}${suggestedLocationsText}`
+            : `\n\nLOCATION MODE: AI Auto (Random from all regions)${suggestedLocationsText}`;
+
+         // Editorial Mode (18+) flag
+         const editorialModeText = editorialMode
+            ? `\n\n🔞 EDITORIAL_MODE: ON\nApply foundation-free silhouette vocabulary. Use visual descriptions like "seamless foundation-free silhouette," "uninterrupted natural fabric drape," "clean garment lines without undergarment interference."`
+            : '';
+
+         // Wallpaper Mode flag
+         const wallpaperModeText = wallpaperMode
+            ? `\n\n📱 WALLPAPER_MODE: ON\nCreate phone wallpaper-friendly composition:\n⚠️ CRITICAL: DO NOT draw any UI elements (clock, icons, notifications) in the image!\n⚠️ FRAMING: Model MUST occupy 90% of frame HEIGHT (same as Lookbook Mode)\n- Model full-body from head to toe, 90% frame height\n- Head near top edge (5-10% margin) - phone clock will overlay this area\n- Feet near bottom edge (5% margin) - phone dock will overlay this area\n- Use beautiful gradient backgrounds: sunset, twilight, bokeh city lights\n- Background around head/feet should be simple for UI overlay\n- Soft rim lighting, dreamy aesthetic\n- Colors: warm golden, soft pastels, or dramatic twilight tones\n- Output is PURE IMAGE only - no interface elements, no text overlays\n\n⚠️ BODY TYPE VOCABULARY STILL APPLIES:\n- If CURVY/PLUS body type: MUST include "generous upper proportions" + additional terms\n- Follow all body type mapping rules from director.txt\n- Wallpaper mode affects FRAMING only, NOT body descriptions`
+            : '';
+
+         // Lookbook Mode flag
+         const lookbookModeText = lookbookMode
+            ? `\n\n📸 LOOKBOOK_MODE: ON\n⚠️ CHỈ TẠO IMAGE PROMPTS - KHÔNG TẠO VIDEO/SCENES\n\n🔧 JSON OUTPUT FORMAT FOR LOOKBOOK (CONCRETE EXAMPLE):\n\`\`\`json\n{\n  "masterPrompt": {\n    "facePreservation": "Exact facial features...",\n    "subject": "Elegant Vietnamese model...",\n    "outfit": "Flowing silk ao dai...",\n    "environment": "Shot on location at...",\n    "lighting": "Golden hour...",\n    "camera": "Full body...",\n    "style": "Photorealistic"\n  },\n  "images": [\n    {\n      "id": 1,\n      "timestamp": "00s",\n      "imagePrompt": "Elegant Vietnamese model in flowing silk ao dai, standing gracefully with vạt panels draped naturally. Shot on location at ancient temple courtyard. Golden hour lighting, warm amber glow. Full body shot, 85mm f/1.4, 90% frame height. Photorealistic fashion photography"\n    },\n    {\n      "id": 2,\n      "timestamp": "08s",\n      "imagePrompt": "Same model in ao dai, seated on ornate wooden chair, panels spread elegantly. Environment unchanged. Soft window light from left. Medium shot capturing upper body and vạt details. Natural color grading"\n    }\n  ],\n  "metadata": {\n    "location": "Văn Miếu Quốc Tử Giám, Hanoi",\n    "aspectRatio": "9:16"\n  }\n}\n\`\`\`\n\n⚠️ CRITICAL: Each image object MUST have:\n- "imagePrompt" field (FULL prompt describing the entire image in ONE string)\n- OR "prompt" field (alternative field name)\n- DO NOT split into subject/action/environment - combine ALL into imagePrompt\n\n⛔ KHÔNG BAO GỒM:\n- "scenes" array (lãng phí tài nguyên)\n- "beatSync" object (không cần cho ảnh tĩnh)\n- "emotionalJourney" object (không cần cho ảnh tĩnh)\n- "referenceAngles" array (không cần cho lookbook)\n- "keyframes" array (dùng "images" thay thế)\n\n✅ CHỈ CẦN: masterPrompt + images + metadata${aspectRatio === '16:9' ? `\n\n📐 LOOKBOOK 16:9 OPTIMIZATION:\n- BỐ CỤC NGANG: Model chiếm 60-80% chiều CAO frame (không phải 90% như 9:16)\n- MODEL VỊ TRÍ: Đặt model ở 1/3 trái hoặc phải theo rule of thirds\n- BACKGROUND: Rõ nét hơn, có storytelling, environment quan trọng\n- LYING POSES: ƯU TIÊN - Model nằm ngang chiếm trọn chiều RỘNG frame\n- SQUAT/KNEELING: Phù hợp vì model thấp hơn, background visible\n- STANDING: Camera xa hơn (2-4m) để capture full body + bối cảnh\n- DEPTH OF FIELD: Sâu hơn (f/4-f/8), không blur background quá mạnh\n- USE CASE: Desktop wallpaper, YouTube thumbnail, Website banner, Print\n- YOGA POSES: Samakonasana (xoạc ngang 180°) RẤT PHÙ HỢP cho 16:9 vì chân mở rộng theo chiều ngang` : `\n\n📱 LOOKBOOK 9:16 OPTIMIZATION:\n- BỐ CỤC DỌC: Model chiếm 90% chiều CAO frame (head-to-toe visible)\n- STANDING POSES: ƯU TIÊN - Tận dụng chiều dọc\n- LYING POSES: Model nằm chéo hoặc dọc trong frame\n- USE CASE: Phone wallpaper, Instagram Story, TikTok thumbnail`}\n\n🚫 QUY TẮC BẮT BUỘC CHO ÁO DÀI (NẾU LÀ ÁO DÀI):\n- KHÔNG XẺ TÀ: Vạt áo LIỀN MẠCH từ eo xuống, KHÔNG có đường xẻ dọc trên vạt\n- KHÔNG XẺ VẠT: Vạt trước và vạt sau RIÊNG BIỆT, KHÔNG rách, KHÔNG xẻ\n- GIỮ NGUYÊN VẠT TRƯỚC: Phủ từ ngực đến đầu gối, có thể bay nhẹ\n- GIỮ NGUYÊN VẠT SAU: Phủ từ lưng đến đầu gối, có thể kéo sang bên\n- CHỈ CÓ XẺ HÔNG: Xẻ ở hai bên hông (từ eo xuống) để thấy quần lụa\n- EN: "ao dai with INTACT panels, NO slits on panels, side openings at hip only"\n\n🌸 NẾU OUTFIT LÀ ÁO DÀI: TẠO 52 IMAGE PROMPTS theo Áo Dài Special Sequence MỞ RỘNG:\n- Image 1-4: Standing + Vạt Áo (Flow, Butterfly, Walking, Back Walking)\n- Image 5-7: Seated poses (Chair, Back Glance, Side Profile)\n- Image 8-10: Deep Squat poses (3/4 Back, Full Back, Side)\n- Image 11-12: Dynamic poses (Wind, Spin)\n- Image 13-14: Elegant Squat poses\n- Image 15-17: Artistic + Lifestyle (Vạt Frame, Leaning, Table Lean)\n- Image 18-22: Hair Touch, Low Angle, Detail, Environment, Closing Hero\n- Image 23-27: Upper Body poses (Arms Up, Crossed Arms, Hand on Chest, Shoulder Glance, Neck)\n- Image 28: Squat 3/4 Back Vạt Không Che\n- Image 29: Kneeling 3/4 Back Ưỡn Hông Vạt Không Che\n- Image 30-39: Lying poses ${aspectRatio === '16:9' ? 'TỐI ƯU cho 16:9' : 'cho 16:9'} (Side, Dreamy, Mermaid, Head Support, Cross Legs, Knees Up, Reading, Vạt Spread)\n- Image 40-43: UPPER SILHOUETTE (Bodice Architecture, Corsetry Lean, Vintage Profile, Balletcore Arch)\n- Image 44-48: LOWER SILHOUETTE (Hip Architecture Back, Gothic Squat, Kneeling Sweep, S-Curve Profile, Floor Silhouette)\n- Image 49: HOURGLASS FINALE (Closing Power Pose)\n- Image 50-52: YOGA FLEXIBILITY (Samakonasana Side Split 180°${aspectRatio === '16:9' ? ' - RẤT PHÙ HỢP 16:9' : ''}, Supta Baddha Konasana Hip Opener, Upavistha Konasana Forward Fold - Lower Silhouette Focus)\n\n📷 NẾU KHÔNG PHẢI ÁO DÀI: TẠO 35 IMAGE PROMPTS MỞ RỘNG (SAFE VOCABULARY):\n- Image 1-6: Standing poses (front, side, back, 3/4, over-shoulder, full back)\n- Image 7-10: Dynamic poses (walk, spin, wind, runway)\n- Image 11-14: Seated poses (chair, floor, side, back)\n- Image 15-17: Squat poses (3/4 curves, back, low angle)\n- Image 18-22: Bodice & Silhouette Focus (décolletage architecture, S-line, hip architecture, balletcore lean, vintage profile)\n- Image 23-24: Fabric Detail (hair touch, texture)\n- Image 25-28: Lower Silhouette Focus (gothic squat, kneeling, back hip, floor curves)\n- Image 29-32: Upper Architecture Focus (arms up, lean forward, crossed arms, shoulder drop)\n- Image 33: Closing Hero (hip pop finale)\n- Image 34-35: YOGA FLEXIBILITY (Samakonasana Side Split 180°${aspectRatio === '16:9' ? ' - RẤT PHÙ HỢP 16:9' : ''}, Supta Baddha Konasana Hip Opener)\n\n🔐 SAFE VOCABULARY (BẮT BUỘC):\n- UPPER: "fitted bodice architecture", "elegant décolletage line", "corsetry-style construction", "refined neckline"\n- LOWER: "graceful lower silhouette", "sweeping hip line", "hip architecture", "elegant lower contour"\n- STYLE: "balletcore", "gothic romantic", "vintage glamour", "corsetry-style", "classic hourglass silhouette"`
+            : '';
+
+         // Seductive Mode flag (TikTok safe alluring style)
+         // Note: Auto-disabled when sexyMode is ON (vocabulary conflict)
+         const seductiveModeText = seductiveMode && !sexyMode
+            ? `\n\n💋 ALLURE_LITE_MODE: ON (TIKTOK-SAFE VOCABULARY)\nTạo video/hình ảnh quyến rũ, thu hút nhưng AN TOÀN cho TikTok.\n\n✅ TIKTOK SAFE VOCABULARY - CHỈ DÙNG CÁC TỪ NÀY:\n- magnetic presence, captivating aura, effortless allure, mysterious mystique\n- intoxicating elegance, hypnotic charm, irresistible confidence\n\n😏 EXPRESSION & GAZE:\n- Smoldering gaze, dreamy half-lidded gaze, inviting confident look\n- Piercing eye contact, languid gaze, soft gaze through lashes\n- Slight knowing smile, confident smirk, mischievous grin\n\n💃 BODY LANGUAGE:\n- Slow deliberate movements, languid stretching, confident strut\n- Hip sway with purpose, shoulder drop revealing collarbone\n- Neck tilt, graceful back arch\n- Hair toss in slow motion, hand flowing through hair slowly\n\n🎭 POSES (TIKTOK SAFE):\n- Standing: Wall Lean, The Turn, Power Stance, Arms Up Stretch\n- Sitting: Throne Pose, Elegant Recline, Edge Sit\n- Movement: Runway Walk, Spin Around, Hair Play${lookbookMode ? '' : `\n\n🎬 CAMERA WORK (VIDEO ONLY):\n- Slow push-in on face, circling orbit shot, low angle power shot\n- Soft focus transition, lingering close-up, slow pan from toe to face\n- Over-shoulder mystery shot, silhouette rim lighting`}\n\n💡 LIGHTING:\n- Warm golden hour glow, dramatic chiaroscuro, soft candlelight ambiance\n- Neon glow reflection, backlit silhouette, rim light defining elegant silhouette`
+            : '';
+
+         // Sexy Mode flag (Private mode for Nano Banana Pro & Veo 3.1)
+         // Adapts to: Wallpaper Mode (elegant sexy), Lookbook Mode (no scene flow)
+         // ⚠️ SFW VOCABULARY - Optimized for Nano Banana Pro content filters
+         // CHỈ DÙNG YOGA SANSKRIT cho POSES KHÓ hoặc DỄ BỊ FLAG
+         const sexyModeText = sexyMode
+            ? `\n\n🔥 ALLURE_MODE: ON (FASHION-SAFE VOCABULARY - NANO BANANA PRO OPTIMIZED)\nChế độ tạo nội dung thời trang quyến rũ - DÙNG VOCABULARY CHUYÊN NGÀNH.\n\n✅ CHỈ DÙNG FASHION VOCABULARY:\n📌 UPPER BODY: décolletage line, V-neckline, neckline depth, upper body silhouette, bodice architecture, heart opening, fitted bodice\n📌 FULL BODY: alluring, captivating, magnetic, confident gaze, magnetic presence, self-assured elegance\n📌 FABRIC: lightweight fabric, flowing material, glossy finish, reflective surface\n📌 GAZE: half-lidded dreamy gaze, confident knowing gaze, soft gaze through lashes\n📌 OUTFIT: lounge coordinates, loungewear set, two-piece swimwear, swim fashion set, intimate fashion coordinates${wallpaperMode ? `\n\n📱 WALLPAPER + ALLURE COMBINATION:\n- Tạo hình nền elegant nhưng TINH TẾ, phù hợp làm lock screen\n- Poses: elegant standing, confident lean, soft recline\n- Expression: half-lidded gaze, knowing smile - confident not intense\n- Background: dreamy gradient, bokeh lights - beautiful for wallpaper\n- Model 90% frame như Wallpaper Mode yêu cầu` : ''}\n\n⚠️ QUY TẮC ÁO DÀI:\n- Áo dài VẪN PHẢI tuân thủ: KHÔNG XẺ TÀ, VẠT LIỀN MẠCH\n- Allure qua: form-fitting silhouette, thin silk fabric, deep back scoop, wind-blown panels\n- EN: "ao dai INTACT panels, elegant via fitted silhouette and flowing fabric, NO panel slits"\n\n💃 BODY VOCABULARY:\n- Graceful silhouette, elegant figure, hourglass silhouette\n- Generous figure, elegant curves, slender waist\n- Smooth radiant skin, long elegant lines\n\n👗 OUTFIT VOCABULARY:\n- Form-fitting dress, bodycon, deep V-neckline, backless\n- High slit, lightweight fabric, lace overlay, strapless\n- Loungewear set, silk robe, two-piece swimwear\n- ⚠️ NGOẠI TRỪ ÁO DÀI: chỉ form-fitting, thin silk, NO slits on panels\n\n🧘 YOGA POSES CHO TƯ THẾ KHÓ/DỄ FLAG:\n| Pose | Yoga Sanskrit | Dùng Khi |\n|------|--------------|----------|\n| Xoạc ngang 180° | Samakonasana (Straight Angle) | Thay "180° splits" |\n| Xoạc cúi trước | Upavistha Konasana (Wide-Angle Forward Bend) | Wide-angle seated forward |\n| Nằm mở hông | Supta Baddha Konasana (Reclined Bound Angle) | Reclined hip opener |\n| Cong lưng sâu | Bhujangasana/Ustrasana (Cobra/Camel) | Deep backbend |\n\n🎭 ELEGANT POSES:${wallpaperMode ? `\n- Elegant standing with hip tilt, confident lean\n- Graceful back arch, hand on hip, over-shoulder glance\n- Hair toss, subtle fabric touch - tinh tế cho wallpaper` : `\n- Graceful back arch, hip tilt, leaning forward\n- Wall lean, confident arch, styled poses\n- Elegant recline, relaxed poses, dynamic movement\n- Hair styling, fabric draping, strap adjusting`}\n\n📸 CAMERA:\n- Low angle looking up, bird's eye view\n- Slow pan up body, circling orbit, push-in close\n\n💡 LIGHTING:\n- Warm amber key light, strong rim/backlight glow\n- Single spotlight, candle flicker, neon glow\n- Pattern shadows, dramatic chiaroscuro${lookbookMode ? '' : `\n\n🎬 SCENE FLOW (VIDEO ONLY):\n- Scene 1: Introduction - elegant silhouette emerging\n- Scene 2: Reveal - full body spotlight showcase\n- Scene 3: Highlight - peak captivating moment\n- Scene 4: Finale - confident elegant close, smile`}`
+            : '';
+
+         // � DISPLAY TYPE INSTRUCTIONS - Unified affiliate mode
+         let displayInstructions = '';
+         
+         if (displayType === 'product_focus') {
+            displayInstructions = `
+📦 PRODUCT-FOCUSED DISPLAY MODE:
+Tập trung vào sản phẩm, không cần model đầy đủ. Phù hợp cho: fashion foundations, phụ kiện, giày dép.
+
+🎥 CAMERA ANGLES:
+- Scene 1 (0-8s): Split-screen front/back hoặc 360° rotation
+- Scene 2 (8-16s): Macro fabric close-up, texture detail
+- Scene 3 (16-24s): Side profile 90°, tilt-up showing shape/fit
+- Scene 4 (24-32s): Full reveal, overhead flatlay hoặc mannequin front
+
+🧍 MANNEQUIN SETUP (nếu dùng):
+- Professional white torso mannequin (thân người trắng mờ)
+- 3-point lighting: 5000K key + 4500K fill + rim backlight
+- 9ft seamless white/grey backdrop
+- Rotate 15-30° giữa các scenes
+- 85mm f/8 lens, ISO 100, product focus sharp
+
+📝 TEXT OVERLAYS (tự động tạo):
+- Scene 1: Hook (giá shock, social proof, mystery)
+- Scene 2: Feature (chất liệu, công nghệ đặc biệt)
+- Scene 3: Benefit (tôn dáng, che khuyết điểm, thoải mái)
+- Scene 4: CTA (link, flash sale, giảm giá)
+
+📦 FASHION FOUNDATIONS VOCABULARY (nếu là delicate wear):
+✅ USE: "corsetry-style bodice", "fitted architecture", "supportive construction", "shaping technology"
+✅ USE: "couture fashion coordinates", "lounge coordinates", "editorial catalog pose"
+✅ STYLE: Professional catalog editorial, confident elegant posing, luxury fabric detail
+`;
+         } else if (displayType === 'fashion_model') {
+            displayInstructions = `
+👗 FASHION MODEL DISPLAY MODE:
+Model mặc sản phẩm, di chuyển tự nhiên, poses động. Phù hợp cho: váy, áo, quần thời trang.
+${studioMode 
+   ? '\n🎬 STUDIO: Lifestyle themed backdrop, 2-3 props (chair/plant/frame), warm aesthetic lighting' 
+   : '\n📍 LOCATION: Natural environment (street/park/café), lifestyle context, ambient light'}
+
+
+🎬 SCENE STRUCTURE (24s):
+- Scene 1 (0-8s): Entrance/reveal - model xuất hiện tự tin, viral hook
+- Scene 2 (8-16s): Movement - đi lại, xoay người, váy bay tự nhiên
+- Scene 3 (16-24s): Details - close-up fabric, body movement, curves
+
+💃 MOVEMENT RULES:
+- Natural walking (KHÔNG catwalk cứng nhắc)
+- Hip sway nhẹ, shoulders relaxed
+- Hands: chạm váy/tóc, KHÔNG cứng đờ
+- Expression: Tự tin, thoải mái (KHÔNG cười giả)
+
+📷 CAMERA:
+- Tracking shot mượt (slow follow)
+- Medium-wide framing (model 75-85% frame height)
+- Shallow DoF f/2.0-2.8 (background blur)
+- NO zoom, NO low angle, NO static poses
+`;
+         } else {
+            displayInstructions = `
+🎨 MIXED DISPLAY MODE:
+Kết hợp model + product shots. Đa dụng nhất.
+${studioMode 
+   ? '\n🎬 STUDIO: Versatile setup - có thể switch backdrop giữa scenes (model scenes + product scenes)' 
+   : '\n📍 LOCATION: Flexible - model scenes outdoor, product scenes indoor cho đa dạng'}
+
+
+🎬 SCENE MIX:
+- Scene 1-2: Model wearing (fashion context)
+- Scene 3: Product close-up (detail/quality)  
+- Scene 4: Model + CTA (conversion)
+
+Lấy ưu điểm của cả 2 modes.
+`;
+         }
+
+         // 🛡️ PHẦN CŨ ĐÃ BỊ LOẠI BỎ - bắt đầu phần code tiếp theo
+         // REMOVED - All old mode text generation (walkinModeText2, walkinModeText, marketingModeText, walkin16_9Text)
+         // Replaced by displayInstructions (fashion_model / product_focus / mixed)
+
+         // 🎬 CINEMATIC STYLE INSTRUCTIONS - Integrated with Affiliate Mode
+         let cinematicStyleInstructions = '';
+         
+         if (cinematicStyle === 'standard') {
+            cinematicStyleInstructions = `\n\n🎬 CINEMATIC STYLE: Standard Fashion Editorial (${finalDuration}s)
+Professional cinematic fashion video với editorial quality.
+- Smooth camera movements (dolly, crane, gimbal)
+- Elegant transitions between scenes
+- Color grading: Professional with brand consistency
+- Pacing: 8s per scene (${scenes} scenes for ${finalDuration}s video)
+- Style: High-end fashion editorial cinematography`;
+         } else if (cinematicStyle === 'transform_viral') {
+            const transformScenes = scenes;
+            const transformMidpoint = Math.floor(transformScenes / 2);
+            const getTransformStructure = () => {
+               if (transformScenes <= 1) return `- Scene 1 (0-${finalDuration}s): Quick flash — Before pose → sparkle burst → After reveal in ONE scene`;
+               if (transformScenes === 2) return `- Scene 1 (0-8s): \"Before\" outfit — casual attire, neutral expression, \"Wait for it...\" energy\n- Scene 2 (8-${finalDuration}s): TRANSFORMATION + REVEAL — sparkle particles → outfit morphs → confidence glow-up`;
+               if (transformScenes === 3) return `- Scene 1 (0-8s): \"Before\" outfit — casual attire, neutral expression\n- Scene 2 (8-16s): TRANSFORMATION — sparkle particles, magic effect, outfit morphs\n- Scene 3 (16-${finalDuration}s): \"After\" reveal — stunning new outfit, confidence glow-up`;
+               // 4+ scenes
+               let structure = `- Scene 1 (0-8s): \"Before\" outfit — casual/basic attire, neutral expression\n- Scene 2 (8-16s): Transition prep — model touches outfit/spins, build anticipation`;
+               for (let i = 3; i <= transformScenes - 1; i++) {
+                  const start = (i - 1) * 8;
+                  const end = i * 8;
+                  structure += `\n- Scene ${i} (${start}s-${end}s): TRANSFORMATION — sparkle particles, magic effect, outfit morphing`;
+               }
+               structure += `\n- Scene ${transformScenes} (${(transformScenes - 1) * 8}s-${finalDuration}s): \"After\" reveal — stunning new outfit, confidence glow-up`;
+               return structure;
+            };
+            cinematicStyleInstructions = `\n\n✨ CINEMATIC STYLE: Biến Hình Viral (${finalDuration}s)
+AI morph outfit transformation - TikTok viral trend format.
+
+🎬 STRUCTURE (${finalDuration}s — ${transformScenes} scenes):
+${getTransformStructure()}
+
+✨ TRANSFORMATION EFFECTS:
+- Sparkle particles bursting from center
+- Soft golden glow during transition
+- Quick cut or smooth morph between outfits
+- Camera slightly push-in during reveal
+
+🎯 VIRAL ELEMENTS:
+- Hook: \"Wait for it...\" energy in Scene 1
+- Peak: Transformation at ~${transformMidpoint * 8}s (mid-video retention)
+- Payoff: Wow reveal in final scene
+- KHÔNG có voice/text overlays - pure visual magic
+
+📹 CAMERA:
+- Early scenes: Static or slow push
+- Transform scene: Quick zoom in during sparkle
+- Final scene: Pull back to reveal full transformation`;
+         } else if (cinematicStyle === 'fashion_walkin') {
+            // Walk-In Mode với các tùy chọn chi tiết
+            const walkinVariantText = walkinVariant === 'auto' ? 'AI Auto-select phù hợp với outfit' :
+                                       walkinVariant === 'classical' ? 'Nàng thơ đi dạo - Classical elegance, no hook, natural fade' :
+                                       'Digital Modern - Urban energy, TikTok trending';
+            
+            const timeOfDayText = walkinTimeOfDay === 'auto' ? 'AI Auto-select lighting' :
+                                  walkinTimeOfDay === 'golden_hour' ? 'Golden Hour (5-7PM) - Warm amber rim light' :
+                                  walkinTimeOfDay === 'blue_hour' ? 'Blue Hour (6-7AM/7-8PM) - Cool twilight glow' :
+                                  'City Night - Urban neon lights, bokeh background';
+            
+            const vibeText = walkinVibe === 'auto' ? 'AI detect outfit → auto vibe' :
+                             walkinVibe === 'romantic' ? 'Romantic - Soft, dreamy, feminine energy' :
+                             walkinVibe === 'power' ? 'Power - Strong, confident, boss energy' :
+                             walkinVibe === 'goddess' ? 'Goddess - Ethereal, majestic, divine presence' :
+                             walkinVibe === 'minimal' ? 'Minimal - Clean, modern, understated elegance' :
+                             'Allure - Magnetic, captivating, subtle intrigue';
+            
+            const personalityText = walkinPersonality === 'auto' ? 'AI detect outfit → auto personality' :
+                                    walkinPersonality === 'casual_natural' ? 'Casual Natural - Relaxed smile, easy-going walk' :
+                                    walkinPersonality === 'shy_timid' ? 'Shy Timid - Gentle gaze down, soft movements' :
+                                    walkinPersonality === 'confident_bold' ? 'Confident Bold - Direct eye contact, powerful stride' :
+                                    'Playful Flirty - Mischievous smile, light bounce';
+
+            cinematicStyleInstructions = `\n\n👗 CINEMATIC STYLE: Fashion Walk-In
+Model bước về phía camera - Cinematic fashion approach - Quiet allure, confident energy.
+
+🎬 VARIANT: ${walkinVariantText}
+☀️ LIGHTING: ${timeOfDayText}
+🎨 VIBE: ${vibeText}
+👤 PERSONALITY: ${personalityText}
+
+📹 CAMERA SETUP:
+- ANGLE: Eye-level to slightly low (flattering)
+- FRAMING: Start full-body, end medium shot
+- MOVEMENT: Slow push-in OR static with model approaching
+- DISTANCE: Start 4-5m, end 1.5-2m (intimate but safe)
+- LENS: 50-85mm equivalent (natural compression)
+
+🚶 WALK CHOREOGRAPHY:
+- Scene 1 (0-8s): Model starts walking from distance, establishing shot
+- Scene 2 (8-16s): Medium shot, confident stride, fabric movement visible
+- Scene 3 (16-24s): Medium-close, upper body focus, expression clear
+- Scene 4 (24-32s): Close-up face/outfit detail OR final pose
+
+💃 MODEL BEHAVIOR:
+- Natural walking pace (NOT fashion runway speed)
+- Arms swing naturally at sides
+- Occasional hair touch or outfit adjustment
+- Gaze: Straight to camera (confident) OR slightly away (mysterious)
+- Expression: Subtle smile or calm confidence (không cười giả)
+
+${walkinVariant === 'classical' ? `\n🌸 CLASSICAL VARIANT SPECIFIC:
+- NO viral hooks, NO CTA, NO text overlays
+- Pure cinematic beauty, artistic approach
+- Fade out naturally at end (không cần closing CTA)
+- Focus on elegance, grace, timeless aesthetics
+- Music suggestion: Classical piano, ambient strings` : ''}
+
+${walkinVariant === 'digital' ? `\n⚡ DIGITAL VARIANT SPECIFIC:
+- Optional: Subtle digital glitch effects
+- Modern color grading (teal-orange, high contrast)
+- Urban backgrounds preferred
+- Trending TikTok-style energy
+- Music suggestion: Electronic, modern beats` : ''}`;
+         } else if (cinematicStyle === 'marketing_intimate') {
+            cinematicStyleInstructions = `\n\n📢 CINEMATIC STYLE: Marketing Fashion Foundations
+Professional fashion foundations advertising - TikTok-safe approach for delicate wear.
+
+⚠️ TIKTOK-SAFE PRIORITIES:
+1. Professional styling (không phản cảm)
+2. Focus on comfort, fit, quality (không focus vào body)
+3. Use safe vocabulary (elegant silhouette, supportive design, comfortable fit)
+
+🎬 SHOT TYPES:
+- Scene 1: Product showcase (mannequin hoặc flatlay) - establish quality
+- Scene 2: Fit demonstration (model wearing under sheer robe/shirt) - TikTok safe
+- Scene 3: Fabric/detail close-up (ren, dây, material quality)
+- Scene 4: Lifestyle context (getting ready, bedroom aesthetic but SFW)
+
+📦 PRODUCT FOCUS:
+- Lighting: Soft, flattering but not moody
+- Background: Clean, professional (white studio hoặc minimal setting)
+- Props: Minimal (mirror, hanger, packaging)
+- Model behavior: Confident, checking fit in mirror (editorial poses only)
+
+💬 MARKETING APPROACH:
+- Hook: "Support top tốt nhất cho mọi outfit" / "Gen nịt eo size nào cũng vừa"
+- USP: Comfortable, invisible under clothes, affordable luxury
+- Social proof: Reviews, before-after fit comparison
+- CTA: Link ghim, discount code, bundle deals
+
+✅ SAFE VOCABULARY:
+- Elegant silhouette, supportive construction, comfortable design
+- Flattering fit, invisible lines, breathable fabric
+- Fashion-forward, editorial quality, professional catalog aesthetic`;
+         } else if (cinematicStyle === 'try_on') {
+            const tryOnScenes = scenes;
+            const tryOnVariantText = tryOnVariant === 'auto' ? 'AI Auto-select phù hợp với product type' :
+                                    tryOnVariant === 'fitting_room' ? 'Fitting Room — Phòng thử đồ, door/curtain reveal' :
+                                    tryOnVariant === 'home_tryon' ? 'Home Try-On — Thử đồ ở nhà, cozy lifestyle' :
+                                    tryOnVariant === 'haul_review' ? 'Haul Review — Review nhiều món, rating format' :
+                                    tryOnVariant === 'mix_match' ? 'Mix & Match — 1 item nhiều cách phối' :
+                                    tryOnVariant === 'outfit_battle' ? 'Outfit Battle — So sánh 2+ outfit, vote engagement' :
+                                    'Loosely Draped — Mặc hờ / thả hờ, effortless chic editorial';
+            
+            const tryOnTransitionText = tryOnTransition === 'auto' ? 'AI selects best transition for variant' :
+                                       tryOnTransition === 'door_reveal' ? 'Door Reveal — Mở cửa phòng thử, step out' :
+                                       tryOnTransition === 'curtain_pull' ? 'Curtain Pull — Kéo rèm reveal' :
+                                       tryOnTransition === 'spin_change' ? 'Spin Change — Xoay 360° đổi outfit' :
+                                       tryOnTransition === 'mirror_turn' ? 'Mirror Turn — Quay từ gương về camera' :
+                                       tryOnTransition === 'snap_cut' ? 'Snap Cut — Búng tay/vỗ tay jump cut' :
+                                       'Fabric Slide — Vải trượt rơi khỏi vai, drape on mới';
+
+            const tryOnPacingText = tryOnPacing === 'auto' ? 'AI selects based on duration & number of outfits' :
+                                   tryOnPacing === 'quick_fire' ? 'Quick Fire — ~4s/outfit, 2 outfits per scene, beat-synced, minimal voice' :
+                                   tryOnPacing === 'detailed_review' ? 'Detailed Review — 8s/outfit, full commentary, rating format' :
+                                   'Storytelling — 8-16s/outfit, narrative weaving outfits into context';
+
+            const outfitCount = tryOnPacing === 'quick_fire' ? tryOnScenes * 2 :
+                               tryOnPacing === 'storytelling' ? Math.max(2, Math.ceil(tryOnScenes * 0.7)) :
+                               tryOnScenes;
+
+            cinematicStyleInstructions = `\n\n👗 CINEMATIC STYLE: Thử Đồ / Try-On (${finalDuration}s)
+Virtual try-on & outfit change — TikTok trending format, multiple outfits per video.
+
+🎭 VARIANT: ${tryOnVariantText}
+🔄 TRANSITION: ${tryOnTransitionText}
+⏱️ PACING: ${tryOnPacingText}
+👗 ESTIMATED OUTFITS: ${outfitCount} outfits in ${finalDuration}s (${tryOnScenes} scenes)
+
+📹 CAMERA SETUP:
+- POSITION: Tripod, eye-level to slightly above (flattering)
+- FRAME: Full body visible, ~20% headroom, SAME framing for ALL outfits
+- LENS: 35-50mm equivalent (natural, no distortion)
+- CONSISTENCY: Same background, lighting, model appearance across all scenes
+
+🎬 SCENE STRUCTURE (${finalDuration}s — ${tryOnScenes} scenes):
+- Scene 1 (0-8s): HOOK (0-3s) + First outfit try-on
+  Hook examples: "Thử ${outfitCount} set đồ hot nhất!" / "${outfitCount} outfit dưới 300K"
+- Scenes 2-${tryOnScenes - 1}: Individual outfit try-on per scene
+  Each: Transition → Outfit reveal → Pose/showcase → Voice review
+- Scene ${tryOnScenes} (last 8s): BEST PICK highlight + CTA
+
+🔄 TRANSITION CHOREOGRAPHY:
+${tryOnTransition === 'door_reveal' || tryOnVariant === 'fitting_room' ? '- Door opens outward → model steps out in new outfit → confident pause → mirror check' : ''}
+${tryOnTransition === 'curtain_pull' ? '- Hand pulls curtain aside → model revealed → pose → twirl' : ''}
+${tryOnTransition === 'spin_change' || tryOnVariant === 'home_tryon' ? '- Model spins 360° → cut on back-facing → new outfit on completion' : ''}
+${tryOnTransition === 'mirror_turn' ? '- Model checks mirror → turns to camera → full outfit reveal' : ''}
+${tryOnTransition === 'snap_cut' || tryOnVariant === 'haul_review' ? '- Model snaps fingers → instant jump cut → new outfit' : ''}
+${tryOnTransition === 'fabric_slide' || tryOnVariant === 'loosely_draped' ? '- Fabric slides off shoulder in slow-mo → cut → new garment draped on, shallow depth-of-field' : ''}
+${tryOnTransition === 'auto' ? '- AI selects natural transition matching variant and outfit type' : ''}
+
+💬 VOICE PATTERN:
+${tryOnPacing === 'quick_fire' ? '- SHORT reactions per outfit: "Yêu!", "Hmm...", "9 điểm!", "YES!"' : ''}
+${tryOnPacing === 'detailed_review' || tryOnVariant === 'haul_review' ? '- FULL review per outfit: Fabric comment → Fit comment → Rating X/10' : ''}
+${tryOnPacing === 'storytelling' ? '- NARRATIVE: "Sáng đi làm set này...", "Chiều đi cafe...", "Tối đi date..."' : ''}
+${tryOnPacing === 'auto' ? '- Voice matches pacing: quick reactions for fast pace, detailed reviews for slow pace' : ''}
+
+${tryOnVariant === 'mix_match' ? `\n🔀 MIX & MATCH SPECIFIC:
+- Show base item(s) first → then combine with different pieces each scene
+- Voice: "Cùng 1 chiếc [item] mà phối ${outfitCount} set khác nhau!"
+- Show versatility: casual → office → date → party` : ''}
+
+${tryOnVariant === 'outfit_battle' ? `\n⚔️ OUTFIT BATTLE SPECIFIC:
+- IDENTICAL framing for fair comparison
+- Voice: "Team 1 hay Team 2?" / "Set nào đẹp hơn?"
+- End with vote CTA: "Comment bên nào bạn chọn!"
+- Each outfit gets equal screen time` : ''}
+
+${tryOnVariant === 'loosely_draped' ? `\n👘 MẶC HỜ / LOOSELY DRAPED SPECIFIC:
+- DRAPING STYLES: Shoulder drape (khoác hờ 1 vai), Open layer (mở không cài), Half-tuck (nhét hờ 1 bên), Wrap casual (quấn lỏng), Thrown-on (quăng lên người)
+- CAMERA: Shallow depth-of-field (fabric detail sharp, background soft), warm morning/golden light
+- MOTION: Slow gentle movements — fabric naturally sliding, catching light, cascading
+- FOCUS PULL: Face → fabric drape detail → full silhouette
+- EACH SCENE: Different draping style with same OR different garment
+- FABRIC SOUNDS: Veo 3.1 native audio — fabric rustling, soft sliding sounds
+- MOOD: Nonchalant elegance, effortless editorial
+- DO: Natural casual gestures (adjust collar, run hand through hair, hold coffee)
+- PRODUCT FOCUS: Show how fabric drapes, falls, moves — selling point is the "effortless" look` : ''}
+
+${(() => {
+   const pt = productType.toLowerCase();
+   // Garment-specific try-on choreography
+   const garmentChoreography: Record<string, string> = {
+      // DRESS GROUP
+      dress: `👗 GARMENT CHOREOGRAPHY — DRESS:
+- REVEAL: Model bước ra, hai tay nhẹ nắm vạt váy
+- SHOWCASE: Twirl 360° (fabric tung bay), walk 3-4 bước (xem flow), đứng yên để vải rơi tự nhiên
+- DETAIL CLOSE-UP: Hem flutter, fabric drape, waist seam, neckline
+- FIT TEST: Walk (vải có vướng?), Sit (dài/ngắn ok?), Spin (fabric flow)
+- ANGLES: Full-body front → side walk → back reveal → twirl medium shot
+- Veo: "Model twirls gracefully, flowing skirt catches light, fabric cascading, walks forward showing dress movement"`,
+      maxi_dress: `👗 GARMENT CHOREOGRAPHY — MAXI DRESS:
+- REVEAL: Model bước ra, vải dài chạm sàn, tay nắm nhẹ vạt
+- SHOWCASE: Walk chậm (xem fabric trail), twirl (vải bay rộng), stand yên (drape tự nhiên)
+- DETAIL CLOSE-UP: Hem length floor-touch, fabric cascade, waist, neckline
+- FIT TEST: Walk (hem có quét sàn?), Spin slow (flow test), Sit (bunching?)
+- ANGLES: Full body → walk side (trail) → twirl → hem close-up
+- Veo: "Model in maxi dress walks slowly, fabric trailing gracefully, then twirls showing full skirt volume"`,
+      mini_dress: `👗 GARMENT CHOREOGRAPHY — MINI DRESS:
+- REVEAL: Confident step out — hands on hips, energy cao
+- SHOWCASE: Side profile (silhouette), hip sway nhẹ, turn show back, walk 2-3 bước
+- DETAIL CLOSE-UP: Hem length, stretch fabric, seam lines, side view
+- FIT TEST: Sit-stand (có bị vén?), Arm raise (có kéo lên?), Side view (body curve)
+- ANGLES: Medium front → side profile → back → sit check
+- Veo: "Model in mini dress turns slowly showing side silhouette, runs hand along hip, walks confidently"`,
+      bodycon: `👗 GARMENT CHOREOGRAPHY — BODYCON:
+- REVEAL: Bước ra từ từ, confident — focus silhouette
+- SHOWCASE: 90° turn (side profile — QUAN TRỌNG), slow walk, mirror check, smooth hand along body
+- DETAIL CLOSE-UP: Body curve silhouette, fabric stretch, waist fit, neckline
+- FIT TEST: Breathe deep (stretch), arm raise, sit-stand, squat test
+- ANGLES: Front medium → side profile (CRITICAL!) → back → mirror reflection
+- Veo: "Model in bodycon stands side-on showing fitted silhouette, turns forward, runs hand along waistline"`,
+      // TOP GROUP
+      top: `👚 GARMENT CHOREOGRAPHY — TOP/BLOUSE:
+- REVEAL: Cầm áo trước ngực → cut → đã mặc, chỉnh cổ/tay
+- SHOWCASE: Collar adjust, tuck-in/untuck demo, sleeve roll, back turn
+- DETAIL CLOSE-UP: Collar shape, button line, fabric texture, sleeve, back fit
+- FIT TEST: Arm raise (fit nách/vai?), tuck in (dáng tucked?), lean forward (rộng/chật?)
+- ANGLES: Front bust-up → full body tucked → untucked → back
+- Veo: "Model adjusts collar, tucks front into waistband showing both styled looks, touches sleeve cuff detail"`,
+      blouse: `👔 GARMENT CHOREOGRAPHY — BLOUSE/SƠ MI:
+- REVEAL: Đã mặc sẵn, chỉnh cổ áo, tay áo
+- SHOWCASE: Collar adjust, button open/close 1 nút, tuck-in demo, sleeve roll up
+- DETAIL CLOSE-UP: Collar shape, button line, cuff detail, fabric texture
+- FIT TEST: Arm raise, tuck in, lean forward, side view (form)
+- ANGLES: Bust-up front → tucked full body → untucked → side
+- Veo: "Model in blouse adjusts collar, rolls sleeves to elbow, tucks front showing styled look"`,
+      tshirt: `👕 GARMENT CHOREOGRAPHY — T-SHIRT:
+- REVEAL: Pull on (overhead) hoặc casual step out
+- SHOWCASE: Front print/logo show, tug hem, sleeve fit pat, casual arm cross
+- DETAIL CLOSE-UP: Print/logo, neckline ribbing, sleeve fit, fabric weight
+- FIT TEST: Arm raise (độ dài?), pull hem (stretch?), side view (form?)
+- ANGLES: Front focus print → side (fit) → casual pose
+- Veo: "Model wearing tshirt casually tugs at hem, shows front graphic, crosses arms with relaxed smile"`,
+      croptop: `👙 GARMENT CHOREOGRAPHY — CROPTOP:
+- REVEAL: Confident — hand on waist, midriff visible
+- SHOWCASE: Arm raise (show crop length), pair demo high-waist bottom, dance sway
+- DETAIL CLOSE-UP: Crop hem line, neckline, back detail, midriff line
+- FIT TEST: Arm up (ride-up?), dance sway, pair different bottoms
+- ANGLES: Medium front → close crop line → full body with bottom → fun pose
+- Veo: "Model in croptop raises arms showing crop length, pairs with high-waist jeans, hands on hips"`,
+      sweater: `🧥 GARMENT CHOREOGRAPHY — SWEATER/ÁO LEN:
+- REVEAL: Đang ôm sweater → cut → đã mặc, kéo tay áo dài
+- SHOWCASE: Cozy hug gesture, sleeve stretch over hands, collar detail, layer demo
+- DETAIL CLOSE-UP: Knit texture, weave pattern, ribbing, cuff detail, thickness
+- FIT TEST: Arm stretch (chất liệu?), layer over shirt, hug self (cozy fit)
+- ANGLES: Front cozy → close-up knit → layering demo → full body
+- Veo: "Model in sweater pulls sleeves over hands cozy gesture, hugs self, shows knit texture to camera"`,
+      jacket: `🧥 GARMENT CHOREOGRAPHY — JACKET/ÁO KHOÁC:
+- REVEAL: Khoác từ sau → zip/button → spread arms
+- SHOWCASE: Open-close (cài/mở), shoulder check, collar pop, arms out, drape off 1 shoulder
+- DETAIL CLOSE-UP: Zipper/button, collar, pocket, lining (lật ra), shoulder seam
+- FIT TEST: Zip up/down (snug?), arm raise (mobility?), reach behind (fit vai?)
+- ANGLES: Front open → front closed → side shoulder → back
+- Veo: "Model puts on jacket, zips up, pats shoulders checking fit, unzips showing inner layer, turns showing back"`,
+      // BOTTOM GROUP
+      pants: `👖 GARMENT CHOREOGRAPHY — QUẦN DÀI:
+- REVEAL: Camera focus eo xuống → pan up full body
+- SHOWCASE: Walk 4-5 bước (drape/leg), side profile (form), pocket pat, waistband pull
+- DETAIL CLOSE-UP: Waistband fit, pocket stitching, hem break, knee area
+- FIT TEST: Squat test (stretch?), walk (baggy/tight?), sit (waist gap?), side view (thigh fit?)
+- ANGLES: Front full body → side profile (CRITICAL cho quần) → back pocket → walk-away
+- Veo: "Model in pants walks forward, camera shows leg drape, turns side-on showing fit, pats front pockets"`,
+      jeans: `👖 GARMENT CHOREOGRAPHY — JEANS:
+- REVEAL: Confident walk in, denim texture visible
+- SHOWCASE: Walk (xem drape), side profile, pocket detail, waistband, back pocket
+- DETAIL CLOSE-UP: Denim wash, pocket stitching, waistband, hem/ankle, distress detail
+- FIT TEST: Squat deep (stretch?), walk (stiff/flexible?), sit (waist gap?), side (thigh fit?)
+- ANGLES: Front → side profile → back (pocket stitching) → squat test
+- Veo: "Model in jeans walks showing denim drape, turns for side profile, does squat test demonstrating stretch"`,
+      wide_pants: `👖 GARMENT CHOREOGRAPHY — QUẦN ỐNG RỘNG:
+- REVEAL: Walk in — ống quần tung bay
+- SHOWCASE: Walk stride (ống rộng sway), spin nhẹ (fabric flow), stand wide
+- DETAIL CLOSE-UP: Leg width, fabric drape, waistband, hem length
+- FIT TEST: Walk with purpose (flow?), spin (fan effect?), stand still (fall/drape?)
+- ANGLES: Front full body → walking side → spin → close-up leg flow
+- Veo: "Model in wide-leg pants walks with long strides, wide legs flowing naturally, spins showing full width"`,
+      shorts: `🩳 GARMENT CHOREOGRAPHY — SHORTS:
+- REVEAL: Casual step out, hands in pockets
+- SHOWCASE: Walk, one knee up on ledge, sit casual, leg movement
+- DETAIL CLOSE-UP: Hem length, waistband, pocket, fit
+- FIT TEST: Sit (ride-up?), walk (comfortable?), step up (length?)
+- ANGLES: Front full body → side (length) → casual pose
+- Veo: "Model in shorts walks casually, steps up on ledge showing length, stands with hands in pockets"`,
+      skirt: `👗 GARMENT CHOREOGRAPHY — CHÂN VÁY:
+- REVEAL: Bước ra, tay nhẹ nắm vạt váy
+- SHOWCASE: Mini twirl (flow), walk (movement), sit-cross legs, slit reveal (nếu có)
+- DETAIL CLOSE-UP: Waistband, hem line, pleats/folds, fabric drape
+- FIT TEST: Walk (twist?), twirl (flow?), sit (coverage?), side view (shape?)
+- ANGLES: Front full body → twirl medium → side sit → back
+- Veo: "Model in skirt does gentle half-twirl, skirt sways, walks showing movement, checks waistband fit"`,
+      // SET GROUP
+      set: `🎽 GARMENT CHOREOGRAPHY — BỘ ĐỒ/SET:
+- REVEAL: Show top alone → bottom alone → cut → full set
+- SHOWCASE: Point top → point bottom, 360° full body, separate demo, mix suggestion
+- DETAIL CLOSE-UP: Top-bottom junction, individual piece, color coordination
+- FIT TEST: Top fit → bottom fit → overall proportion → walk full set
+- ANGLES: Top half → bottom half → full body front → full body 360°
+- Veo: "Model first shows top piece, then bottom, then wearing complete set spins 360 showing coordination"`,
+      suit: `🤵 GARMENT CHOREOGRAPHY — SUIT/VEST:
+- REVEAL: Button jacket walking in, power stance
+- SHOWCASE: Button/unbutton jacket, lapel touch, straighten collar, power walk
+- DETAIL CLOSE-UP: Lapel shape, button, pocket square, shoulder line, trouser crease
+- FIT TEST: Button test (snug?), sit (wrinkle?), arm raise (shoulder?), walk (drape?)
+- ANGLES: Front power pose → side shoulder → back → walking
+- Veo: "Model in suit buttons jacket confidently, adjusts lapels, takes power-walk steps, sharp tailored silhouette"`,
+      jumpsuit: `🥻 GARMENT CHOREOGRAPHY — JUMPSUIT:
+- REVEAL: Zip up one motion
+- SHOWCASE: Walk (silhouette), belt adjust, turn back detail, arms out
+- DETAIL CLOSE-UP: Zipper, waist area, neckline, back detail, belt/sash
+- FIT TEST: Walk (drape?), sit (comfort?), arm raise (stretch?), bend (waist?)
+- ANGLES: Front full body → side silhouette → back closure → walk
+- Veo: "Model in jumpsuit walks forward showing silhouette, adjusts belt at waist, turns showing back detail"`,
+      // SPECIAL GROUP
+      aodai: `🌸 GARMENT CHOREOGRAPHY — ÁO DÀI:
+- REVEAL: Walk in — vạt áo dài bay nhẹ, tay nắm nhẹ 1 vạt
+- SHOWCASE: Walk chậm (panels flutter), stand gió nhẹ, thả 2 tay sang 2 bên, quay 90°
+- DETAIL CLOSE-UP: Panel length, embroidery, collar (cổ tàu), waist fit, fabric flow
+- FIT TEST: Walk straight (panels bay?), arm raise (fit body?), side view (silhouette?)
+- ANGLES: Full body front → walking panels flutter → side → embroidery detail
+- Veo: "Model in ao dai walks slowly, traditional panels flowing with each step, hand gently holding panel edge"`,
+      sport: `🏃 GARMENT CHOREOGRAPHY — ĐỒ THỂ THAO:
+- REVEAL: Active entrance — jog in, jump, dynamic
+- SHOWCASE: Stretch arm/leg, jog in place, squat, jump, active pose
+- DETAIL CLOSE-UP: Fabric stretch, breathability mesh, elastic band, reflective detail
+- FIT TEST: Squat deep (stretch?), arm raise (mobility?), jump (support?), run (comfort?)
+- ANGLES: Action front → stretch close-up → active side → full body dynamic
+- Veo: "Model in sportswear does warm-up stretches, squats showing fabric stretch, jogs with energetic smile"`,
+      sleepwear: `🌙 GARMENT CHOREOGRAPHY — ĐỒ NGỦ/LOUNGEWEAR:
+- REVEAL: Just woke up vibe — stretch, yawn gesture, cozy walk
+- SHOWCASE: Stretch arms up, cozy wrap, sit on bed edge, coffee hold
+- DETAIL CLOSE-UP: Fabric softness, lace/trim, tie/belt, button detail
+- FIT TEST: Stretch (comfortable?), sit lounge (drape?), walk lazy (cozy?)
+- ANGLES: Medium cozy → full body standing → lounging → fabric detail
+- Veo: "Model in sleepwear stretches lazily, sits on bed edge with coffee, touches soft fabric with content smile"`,
+      bikini: `👙 GARMENT CHOREOGRAPHY — BIKINI/ĐỒ BƠI:
+- REVEAL: Confident walk in, resort editorial style
+- SHOWCASE: Confident pose, light turn, hand on hip, walk 2-3 steps
+- DETAIL CLOSE-UP: Strap design, pattern, hardware, coverage line
+- FIT TEST: Arm raise (support?), walk (comfortable?), turn (back?)
+- ANGLES: Front medium → side → back (tasteful) → strap detail
+- Veo: "Model in swimwear walks poolside, confident hand-on-hip pose, turns showing side silhouette"`,
+      bigsize: `✨ GARMENT CHOREOGRAPHY — BIG SIZE:
+- REVEAL: Confident entrance — smile, comfortable body language
+- SHOWCASE: Comfortable walk, twirl (flow cho loose items), confidence pose
+- DETAIL CLOSE-UP: Fabric drape, size-inclusive fit, comfort, stretch panels
+- FIT TEST: Walk (drape?), sit (không bó?), arm raise (mobility?), smile (confidence!)
+- ANGLES: Full body front → flattering 3/4 angle → side → comfortable pose
+- Veo: "Model walks confidently, shows comfortable fit, genuine smile, twirls showing fabric drape beautifully"`,
+      lingerie: `🎀 GARMENT CHOREOGRAPHY — INNER/FOUNDATION:
+- REVEAL: Outfit as shown in reference (tasteful editorial)
+- SHOWCASE: Smooth silhouette check, fabric quality, construction detail
+- DETAIL CLOSE-UP: Construction, fabric quality, support structure
+- FIT TEST: Comfortable posture, smooth lines under clothing demo
+- ANGLES: Medium front → side → detail construction
+- Veo: "Model showcases supportive construction, smooth silhouette, professional catalog aesthetic"`
+   };
+   // Map aliases
+   garmentChoreography['combo'] = garmentChoreography['set'];
+   
+   const choreo = garmentChoreography[pt];
+   if (pt === 'auto') {
+      return `\n👗 GARMENT CHOREOGRAPHY: AUTO-DETECT
+- AI detect loại trang phục từ outfit reference image
+- Map vào choreography phù hợp (dress → twirl, pants → squat test, jacket → open/close...)
+- Nếu combo → ưu tiên item chính (dress > top > bottom) hoặc dùng set choreography
+- MINIMUM mỗi outfit: walk + side profile + 1 detail close-up`;
+   }
+   return choreo ? `\n${choreo}` : `\n👗 GARMENT CHOREOGRAPHY: AI detect từ ảnh, minimum: walk + side profile + detail close-up`;
+})()}
+
+🎯 CONVERSION HOOKS:
+- Price shock: "Toàn bộ chỉ [X]K!"
+- Rating bait: "Có set chỉ 2/10... đoán xem set nào?"
+- Vote: "Bạn chọn set mấy? Comment ngay!"
+- Urgency: "Set [X] đang sale, chỉ còn [N] cái!"`;
+         } else if (cinematicStyle === 'asmr_cinematic') {
+            cinematicStyleInstructions = `\n\n🎤 CINEMATIC STYLE: ASMR (${finalDuration}s)
+Sound-driven affiliate content — fabric rustling, zipper sounds, texture close-ups.
+Veo 3.1 native audio is PRIMARY content, visuals support the sound experience.
+
+📹 CAMERA:
+- 70% macro/extreme close-up (fabric weave, stitching, hardware)
+- 20% medium close-up (hands interacting with product)
+- 10% medium shot (product in context)
+- Movement: STATIC or very slow push-in (stability = quality feel)
+- Lighting: Soft warm directional, rim light on edges (texture depth)
+
+🔊 AUDIO (CRITICAL — This is the star!):
+- ⚠️ NO background music — sounds are the content
+- Voice: Whisper/soft-spoken ONLY (nếu có)
+- Each scene Veo prompt MUST describe sounds explicitly:
+  "audible fabric rustling", "zipper sliding sound", "nails gently scratching surface"
+- Sounds matching product type (see guide)
+
+🎬 STRUCTURE (${finalDuration}s — ${scenes} scenes):
+- Scene 1: SOUND HOOK (0-3s satisfying sound) + Product intro
+- Scenes 2-${scenes - 1}: TEXTURE/DETAIL/SOUND exploration
+  Each scene: Different sound trigger + macro close-up
+- Scene ${scenes}: WEARING ASMR (close-up adjustments) + whisper CTA
+
+🎯 ASMR RULES:
+- SLOW, DELIBERATE movements only
+- Each shot minimum 3-5s (NO rapid cuts)
+- Sound purpose for EVERY shot
+- Whisper CTA: "(soft) Link ghim phía trên nha..."
+- Background: Dark or neutral blur`;
+         } else if (cinematicStyle === 'storytelling') {
+            const storyScenes = scenes;
+            const storyAct2End = storyScenes - 1;
+            cinematicStyleInstructions = `\n\n📖 CINEMATIC STYLE: Storytelling (${finalDuration}s)
+Narrative-driven affiliate — product appears naturally in a STORY.
+Not "quảng cáo" but "cuộc sống có sản phẩm" — trust-building → organic conversion.
+
+📖 3-ACT NARRATIVE:
+ACT 1 — SETUP (Scene 1, ~8s):
+- Establish relatable context (where, when, why)
+- Plant the NEED ("Hôm nay có hẹn, mặc gì nhỉ?")
+- Camera: Wider establishing shots, lifestyle context
+
+ACT 2 — JOURNEY (Scenes 2-${storyAct2End}, ${(storyAct2End - 1) * 8}s):
+- Product discovery / getting ready / experiencing
+- Show product IN CONTEXT — living, not just wearing
+- Emotional peak: "The moment it clicks"
+- Camera: Mix lifestyle + product detail close-ups
+
+ACT 3 — RESOLUTION (Scene ${storyScenes}, ~8s):
+- Beautiful payoff: confidence achieved through product
+- Soft CTA woven into narrative closure
+- Camera: Beautiful closing shot, editorial quality
+
+📹 CAMERA:
+- 60% handheld (authentic, following a real person)
+- 30% steady cam (product highlight shots)
+- 10% detail close-ups
+- Lighting: NATURAL preferred (window, outdoor ambient)
+- Settings: REAL locations (bedroom, cafe, street)
+
+💬 VOICE:
+- ESSENTIAL in storytelling mode
+- Tone: Best friend telling about their day (conversational)
+- Language: First person casual Vietnamese
+- AVOID: "Mua ngay!", "Flash sale!" (too salesy, breaks story)
+
+🎯 STORYTELLING RULES:
+- Story FIRST — product is a character IN the story
+- Pace: Slower than standard, let moments breathe
+- CTA: SOFT ONLY — woven into narrative, never break story
+- Product screen time: ~50-60% (rest is story context)
+- Emotional arc REQUIRED`;
+         } else if (cinematicStyle === 'unboxing') {
+            cinematicStyleInstructions = `\n\n📦 CINEMATIC STYLE: Unboxing (${finalDuration}s)
+Cinematic unboxing — package arrival → dramatic opening → product reveal → first impression.
+Not bình thường unbox — đây là PREMIUM REVEAL EXPERIENCE.
+Impulse trigger: "Tôi cũng muốn có trải nghiệm này!"
+
+📦 UNBOXING FLOW:
+1. PACKAGE (0-2s): Show package exterior, build anticipation
+2. OPENING: Slow deliberate — tape peeling, tissue crinkling, each layer
+3. REVEAL: Product hero moment — lift out, first full view, genuine reaction
+4. INSPECTION: Close-up quality — stitching, fabric, hardware, color accuracy
+5. TRY-ON: First time wearing — mirror reaction, fit check
+6. VERDICT: Rating + recommendation + CTA
+
+🎬 STRUCTURE (${finalDuration}s — ${scenes} scenes):
+- Scene 1 (0-8s): HOOK + Package opening
+  Hook: "Shopee ship về!" / "Haul [price]K có gì?"
+  Satisfying opening sounds (Veo native audio)
+- Scenes 2-${Math.max(2, scenes - 2)}: REVEAL + DETAIL INSPECTION
+  Lift product → touch fabric → quality close-ups
+  Genuine reactions throughout
+- Scene ${scenes - 1 > 1 ? scenes - 1 : scenes}: TRY-ON first impression
+  Quick wear, mirror check, fit assessment
+- Scene ${scenes}: VERDICT + CTA
+  "Overall [X]/10 — đáng tiền!"
+
+📹 CAMERA:
+- Opening: Top-down (bird's eye for clean package angle)
+- Reveal: Eye-level or slightly below (hero shot)
+- Detail: Macro close-up at 45° (texture visible)
+- Try-on: Full body mirror or tripod front
+- Lighting: Bright, accurate color (product looks real)
+
+🔊 AUDIO:
+- Phase 1-2: Packaging sounds AMPLIFIED (tape, paper, box)
+- Phase 3-4: Fabric interaction sounds
+- NO music during opening (sounds are content)
+- Music OK during try-on/verdict scenes
+
+🎯 UNBOXING RULES:
+- BUILD ANTICIPATION — không mở ngay
+- Sound matters — Veo prompt MUST describe opening sounds
+- GENUINE reactions (honest if product disappoints)
+- Close-up quality shots MANDATORY
+- Try-on is REQUIRED (unbox without try-on = incomplete)`;
+         } else if (cinematicStyle === 'review') {
+            cinematicStyleInstructions = `\n\n🔍 CINEMATIC STYLE: Review (${finalDuration}s)
+Authority-driven affiliate — structured scoring, evidence-based, honest pros/cons.
+Viewer xem xong = đủ thông tin quyết định mua. TRUST → CONVERSION.
+
+📊 REVIEW FRAMEWORK:
+- Rate on 4-5 criteria: Chất vải / Form dáng / Thiết kế / Thoải mái / Giá trị
+- Each criterion: Score X/10 + close-up EVIDENCE
+- Final overall score + clear recommendation
+
+🎬 STRUCTURE (${finalDuration}s — ${scenes} scenes):
+- Scene 1 (0-8s): HOOK + Product overview
+  "Review thật [product] — [price]K có đáng?"
+  Show product, state brand/price/source
+${scenes >= 4 ? `- Scene 2 (8-16s): CRITERIA 1-2
+  Chất vải → close-up fabric, touch. Score: X/10
+  Form dáng → wearing, side view. Score: X/10
+- Scene 3 (16-24s): CRITERIA 3-4 + TRY-ON
+  Thiết kế → detail, pattern, color. Score: X/10
+  Thoải mái → movement test, stretch. Score: X/10
+- Scene ${scenes} (last 8s): FINAL SCORE + VERDICT
+  Overall: "[Total]/50" → "Nên mua: YES/NO"
+  CTA + link` : `- Scene 2 (8-16s): QUALITY + FIT assessment
+  Close-up evidence, wearing demo, scores
+- Scene ${scenes} (last 8s): VERDICT + SCORE + CTA`}
+
+📹 CAMERA:
+- Evidence shots: Clean, well-lit close-ups (proof of claims)
+- Fit shots: Tripod full-body (fair representation)
+- Detail: Macro 45° angle (texture/stitching visible)
+- Talking: Medium shot, product visible, eye contact camera
+- Lighting: BRIGHT, ACCURATE color (5000-5500K daylight)
+
+💬 VOICE — REVIEWER AUTHORITY:
+- Tone: Confident, honest, data-driven
+- Back every opinion with evidence
+- "Professional friend who knows stuff"
+- Honest negatives BUILD trust: "Nói thật là... trừ [X] điểm"
+
+📊 VERDICT SCALE:
+- 45-50/50: MUST BUY — Xuất sắc
+- 40-44/50: NÊN MUA — Rất tốt
+- 35-39/50: OKAY — Tạm ổn, tùy nhu cầu
+- 30-34/50: CÂN NHẮC — Có issues
+- <30/50: PASS — Không recommend
+
+🎯 REVIEW RULES:
+- HONESTY mandatory — fake reviews destroy credibility
+- EVIDENCE for every claim (close-up proof)
+- CONSISTENT criteria (same standards across reviews)
+- CTA after verdict ONLY (not mid-review)`;
+         }
+
+         // 🎨 AESTHETIC VIBE & MODEL PERSONALITY - For fashion_model displayType
+         let aestheticInstructions = '';
+         if (displayType === 'fashion_model' && (aestheticVibe !== 'auto' || modelPersonality !== 'auto')) {
+            if (aestheticVibe !== 'auto') {
+               const vibeDetails = {
+                  romantic: '💕 Romantic Vibe - Soft pastels, dreamy lighting, flowing fabrics, gentle movements',
+                  power: '💪 Power Vibe - Bold colors, strong poses, confident stride, boss energy',
+                  goddess: '✨ Goddess Vibe - Ethereal glow, majestic posture, divine presence, regal elegance',
+                  minimal: '◻️ Minimal Vibe - Clean lines, neutral tones, understated elegance, modern simplicity',
+                  allure: '🌙 Allure Vibe - Magnetic presence, subtle intrigue, mysterious elegance, captivating aura'
+               };
+               aestheticInstructions += `\n\n🎨 AESTHETIC VIBE: ${vibeDetails[aestheticVibe] || 'Auto'}`;
+            }
+            
+            if (modelPersonality !== 'auto') {
+               const personalityDetails = {
+                  casual_natural: '🌸 Casual Natural - Relaxed smile, easy-going walk, friendly approachable energy',
+                  shy_timid: '🌷 Shy Timid - Gentle gaze down/away, soft movements, delicate gestures, innocent charm',
+                  confident_bold: '💎 Confident Bold - Direct eye contact, powerful stride, assertive presence, fearless',
+                  playful_flirty: '✨ Playful Flirty - Mischievous smile, light bounce in step, teasing glances, fun energy'
+               };
+               aestheticInstructions += `\n\n👤 MODEL PERSONALITY: ${personalityDetails[modelPersonality] || 'Auto'}`;
+            }
+         }
+
+
+         // 🎬 STUDIO MODE - Optimized for Affiliate (token-efficient)
+         const studioSuggestions = studioMode ? getRandomStudios(studioCategory, 5, productColor || undefined) : [];
+         
+         // Affiliate-specific studio recommendations based on displayType
+         const getStudioAffiliateGuidance = () => {
+            if (displayType === 'product_focus') {
+               return '\n💡 PRODUCT_FOCUS → Clean studio: White/grey/cream seamless backdrop, minimal props, even lighting';
+            } else if (displayType === 'fashion_model') {
+               return '\n💡 FASHION_MODEL → Lifestyle studio: Themed backdrop, 2-3 props (chair/plant/frame), warm lighting';
+            } else {
+               return '\n💡 MIXED → Versatile studio: Neutral backdrop, flexible props, balanced lighting';
+            }
+         };
+         
+         const studioModeText = studioMode
+            ? `\n\n🎬 STUDIO MODE: ${studioCategory === 'auto' ? 'Auto' : STUDIO_CATEGORIES.find(c => c.value === studioCategory)?.label}${getStudioAffiliateGuidance()}
+
+⚠️ CRITICAL: STUDIO = Phòng chụp ảnh (backdrop + props) ≠ Địa điểm thật
+❌ NO: "Real ballroom", "actual hotel lobby" (siêu thực)
+✅ YES: "Professional studio with [backdrop type]" + "Props (background): [1-3 items]" + "[Light temp]K lighting" + "- STUDIO FIXED" tag
+
+📐 TEMPLATE: "Professional photography studio. [Backdrop color/type]. Props (background): [vase/chair/frame]. [3000-5000K] lighting. [Floor type]. [Theme] aesthetic. - STUDIO FIXED"
+
+🎯 SUGGESTED (Random ${studioSuggestions.length}):
+${studioSuggestions.length > 0 ? studioSuggestions.map((s, i) => `${i + 1}. ${s}`).join('\n') : 'All used - AI pick from database'}
+
+⚠️ RULES: Choose 1 from list | Props minimal (1-3, out of focus) | Same studio all keyframes | No equipment visible | Color contrast with product
+${COLOR_CONTRAST_STUDIO_RULES}`
+            : '';
+
+         // Aspect Ratio flag - Enhanced with mode-specific 16:9 rules
+         const aspectRatioText = aspectRatio === '16:9'
+            ? `\n\n📐 ASPECT_RATIO: 16:9 (HORIZONTAL - CINEMATIC WIDESCREEN)
+
+🎬 CORE 16:9 RULES (BẮT BUỘC CHO TẤT CẢ MODES):
+- Model chiếm 50-70% chiều CAO frame (nhỏ hơn so với 9:16)
+- Background rõ nét, có depth và storytelling
+- Camera xa hơn (2-4m) để capture người + bối cảnh
+- Depth of field: f/4-f/8 (sâu hơn 9:16)
+- Rule of thirds: Model ở 1/3 trái hoặc phải
+- Horizontal movement ưu tiên (đi ngang qua frame)
+- Use case: YouTube, Desktop wallpaper, Website banner, Print
+
+🚶 WALK-IN MODE 16:9 SPECIFIC:
+- MOVEMENT: Đi NGANG qua frame (left-to-right hoặc right-to-left)
+- FRAMING: Model bắt đầu từ edge, kết thúc ở opposite edge
+- ENVIRONMENT: Background chiếm 40-50% tầm quan trọng
+- CAMERA: Tracking shot ngang, dolly horizontal
+- Scene 1: Model enter từ 1 edge, walk across
+- Scene 2: Side tracking với panoramic background
+- Scene 3: Mid-body trong cinematic wide shot
+- Scene 4: Model exit hoặc center với final pose
+
+🪄 TRANSFORMATION MODE 16:9 SPECIFIC:
+- SPLIT COMPOSITION: Before (left) → After (right) possible
+- TRANSITION: Horizontal wipe/slide phù hợp hơn vertical
+- SCENE 1-2: Model ở 1/3 trái với "before" outfit
+- SCENE 3-4: Model ở center hoặc 1/3 phải với "after" outfit
+- Particles/sparkles spread HORIZONTALLY across frame
+
+🛍️ TIKTOK SHOP 16:9 SPECIFIC:
+- PRODUCT VISIBILITY: Show product + model + context cùng lúc
+- TEXT SAFE ZONE: 15% top/bottom cho overlay text
+- DEMO SHOTS: Wider context cho sử dụng thực tế
+- SPLIT SCREEN: So sánh trước-sau dễ dàng hơn`
+            : '';
+
+         // Prepare Script Blocklist (Affiliate Mode)
+         const scriptBlocklist = scriptVault.length > 0
+            ? `\n\nPREVIOUSLY USED SCRIPTS (BLOCKLIST - DO NOT USE SIMILAR HOOKS):\n${scriptVault.slice(0, 15).map(s => `- "${s.hook}"`).join('\n')}`
+            : '';
+
+         // Prepare Pose Direction Blocklist (Video Mode only - NOT Lookbook)
+         const poseBlocklistText = !lookbookMode && poseDirectionVault.length > 0
+            ? `\n\n🎯 POSE DIRECTION HISTORY (TRÁNH LẶP LẠI):
+PREVIOUSLY USED POSES: ${getUsedPoseDirections().join(', ')}
+⚠️ TRY TO USE DIFFERENT ANGLES for variety. Prioritize angles NOT in this list.
+
+📐 180° TURN PREVENTION (WARNING):
+Khi tạo scene transitions, LƯU Ý:
+- Keyframe images chỉ có data cho góc được chụp
+- Nếu Scene yêu cầu xoay 180° (front → back), Veo 3.1 sẽ "hallucinate" phần không có image data
+- ⚠️ MAX ROTATION: 90° giữa 2 keyframes liên tiếp
+- ✅ SAFE: front→3/4, side→front, 3/4-front→3/4-back (có overlap)
+- ❌ AVOID: front→back (180°), side-left→side-right (180°)`
+            : '';
+
+         // Keyframe count reminder based on duration
+
+         const keyframeCountText = `\n\n⚠️ KEYFRAME COUNT REQUIREMENT:\n- Video ${finalDuration}s = ${Math.floor(finalDuration / 8) + 1} KEYFRAMES bắt buộc\n- Timestamps: ${Array.from({ length: Math.floor(finalDuration / 8) + 1 }, (_, i) => `${i * 8}s`).join(', ')}\n- PHẢI OUTPUT ĐỦ ${Math.floor(finalDuration / 8) + 1} KEYFRAMES, KHÔNG ĐƯỢC THIẾU!\n\n📸 KEYFRAME QUALITY RULES (BẮT BUỘC):\n⚠️ Mỗi keyframe PHẢI là prompt HOÀN CHỈNH, KHÔNG được chỉ có action!\n\n❌ SAI (thiếu location + camera):\n{ "id": 1, "action": "standing with hand on hip" }\n\n✅ ĐÚNG (đầy đủ):\n{\n  "id": 1, "timestamp": "00s",\n  "subject": "The model with exact facial features preserved from reference",\n  "action": "Standing confidently with right hand on hip, left hand touching hair, warm smile",\n  "environment": "Standing at the ornate marble entrance of Caravelle Hotel lobby, vintage brass-framed glass doors behind",\n  "lighting": "Warm tungsten lobby chandelier light with soft fill from left, golden ambient glow",\n  "camera": "Full body shot, 35mm wide angle f/2.8, low angle from hip level, 3/4 front facing",\n  "style": "Photorealistic fashion photography, editorial quality, natural skin texture"\n}\n\n🎯 RULES:\n- environment: VỊ TRÍ CỤ THỂ trong location (không chỉ tên location)\n- camera: GÓC CHỤP + LENS + FRAMING (phải KHÁC nhau giữa các keyframes)\n- lighting: ÁNH SÁNG cụ thể cho frame này\n- KHÔNG ĐƯỢC để trống bất kỳ field nào!`;
+
+         // Real-World Photography Mode (ALWAYS ON)
+         const realWorldPhotoText = `\n\n📸 REAL-WORLD PHOTOGRAPHY MODE (BẮT BUỘC):
+⚠️ OUTPUT PHẢI LÀ ẢNH/VIDEO CHỤP THỰC TẾ - KHÔNG PHẢI CGI/3D RENDER!
+
+✅ BẮT BUỘC:
+- Bối cảnh THẬT có thể tìm trên Google Maps
+- Phong cách như photographer chuyên nghiệp chụp ON-LOCATION
+- Ánh sáng tự nhiên với bóng đổ thật
+- Texture thực của environment (sàn, tường, nội thất)
+- Perspective như camera thật (DSLR/smartphone)
+
+❌ TUYỆT ĐỐI KHÔNG:
+- CGI / 3D rendered environments
+- Fantasy / Surreal / Fictional locations
+- Overly perfect studio look (trông fake)
+- AI-generated unrealistic backgrounds
+- Floating objects / Impossible physics
+
+🎯 PROMPT KEYWORDS (THÊM VÀO MỌI PROMPT):
+"Shot on location at [Địa điểm], professional fashion photography, authentic real-world environment, natural available light, DSLR camera aesthetic"
+
+⚠️ OUTPUT FORMAT: STRICT JSON (cho Nano Banana Pro & Veo 3.1)
+AI PHẢI output định dạng JSON để tối ưu workflow Image-to-Video.`;
+
+         // Build parts array with CLEAR LABELS for images
+         // Lookup selected face preset
+         const selectedFacePreset = FACE_PRESETS.find(p => p.value === facePreset) || FACE_PRESETS[0];
+
+         const faceReferenceText = faceImage
+            ? `\n\n🔴 FACE REFERENCE: UPLOADED ✅
+⚠️ CRITICAL: Face Reference image is attached FIRST (before outfit).
+- Use EXACT facial features from Face Reference image
+- OVERRIDE any default face preset - DO NOT USE DEFAULT
+- Preserve: Face shape, eyes, nose, lips, skin tone, hair style/color
+- Do NOT add any default makeup descriptions
+- Do NOT change hair color/style from reference
+- Only describe what you SEE in the Face Reference
+
+✅ CORRECT: "Faithful character likeness from reference: [describe actual features seen]"
+❌ WRONG: Using any default face description when face is uploaded`
+            : `\n\n⚠️ FACE REFERENCE: NOT UPLOADED
+→ Use SELECTED FACE PRESET: ${selectedFacePreset.label}
+→ FACE DESCRIPTION: ${selectedFacePreset.promptEN}
+→ MUST use this exact face description for ALL scenes/images. Do NOT deviate.`;
+
+         // 👙 FASHION FOUNDATIONS DETECTION - Không mô tả chi tiết, chỉ reference ảnh
+         // Bao gồm: fashion foundations, swim set, loungewear thời trang, coordinates
+         const isIntimateApparel = [
+            'lingerie', 'bikini', 'sleepwear', 'underwear', 'bralette', 'bodysuit',
+            // Loungewear thời trang - cần FASHION FOUNDATIONS RULE
+            'sexy_sleepwear', 'lace_sleepwear', 'nightgown', 'chemise', 'babydoll',
+            'teddy', 'camisole', 'slip', 'negligee', 'pyjama_set'
+         ].includes(productType.toLowerCase()) ||
+            // Cũng detect từ Additional Description nếu có keywords fashion foundations
+            (productType === 'sleepwear' && userAdditionalDescText.toLowerCase().match(/(ren|lace|tinh tế|2 mảnh|hai mảnh|mỏng|lightweight|sheer)/));
+
+         // Outfit image label - thay đổi dựa trên loại sản phẩm
+         const getOutfitLabel = () => {
+            if (isIntimateApparel) {
+               // Fashion foundations: KHÔNG mô tả chi tiết, chỉ reference từ ảnh
+               return faceImage
+                  ? `\n\n📸 IMAGE 2 & 3 - OUTFIT REFERENCE (FASHION FOUNDATIONS MODE):
+⚠️ CRITICAL - FASHION FOUNDATIONS - KHÔNG MÔ TẢ CHI TIẾT:
+- Sử dụng "trang phục chính xác như trong ảnh sản phẩm"
+- KHÔNG liệt kê chi tiết: cup, dây, chất liệu cụ thể
+- AI chỉ cần nhìn ảnh và sao chép y nguyên outfit
+- Dùng từ chung: "elegant loungewear set", "couture fashion coordinates", "editorial fashion piece"
+- Mô tả màu sắc + overall vibe ONLY
+
+✅ ĐÚNG: "Model wearing the exact outfit shown in product image - elegant lace coordinates in soft blush tone"
+
+→ CHỈ CẦN: "outfit as shown in reference image" + color/vibe`
+                  : `\n\n📸 OUTFIT REFERENCE (FASHION FOUNDATIONS MODE):
+⚠️ CRITICAL - FASHION FOUNDATIONS - KHÔNG MÔ TẢ CHI TIẾT:
+- Sử dụng "trang phục chính xác như trong ảnh sản phẩm"
+- KHÔNG liệt kê chi tiết cấu trúc
+- Dùng từ an toàn: "loungewear", "couture coordinates", "editorial fashion piece"
+→ CHỈ CẦN: "outfit as shown in reference image" + màu sắc/vibe`;
+            }
+            // Sản phẩm thông thường: mô tả bình thường
+            return faceImage
+               ? '\n\n📸 IMAGE 2 - OUTFIT/PRODUCT REFERENCE (Use this product):'
+               : '\n\n📸 OUTFIT/PRODUCT REFERENCE:';
+         };
+
+         // 👙 FASHION FOUNDATIONS MASTERPROMPT INSTRUCTION - Tell AI to reference product image only
+         const intimateApparelInstruction = isIntimateApparel
+            ? `\n\n👙 FASHION FOUNDATIONS MODE - MASTERPROMPT.OUTFIT RULE:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️ CRITICAL: Product là FASHION FOUNDATIONS/SWIM/LOUNGEWEAR - CHỈ tham chiếu ảnh sản phẩm!
+
+✅ LUÔN LUÔN viết masterPrompt.outfit theo cách:
+- "Outfit as shown in product reference image - [màu_sắc] [vibe_chung]"
+- Mô tả COLOR + OVERALL AESTHETIC + VIBE only
+- Dùng từ: "couture fashion coordinates", "lounge coordinates", "editorial fashion piece"
+- Để AI nhìn ảnh sản phẩm và tái tạo outfit y nguyên
+
+✅ VÍ DỤ ĐÚNG (masterPrompt.outfit format):
+- "Outfit as shown in product reference image - black minimalist swimwear with elegant silhouette"
+- "Exact outfit from reference - soft blush couture coordinates, feminine aesthetic"
+- "Product outfit as pictured - navy loungewear set, relaxed sophisticated vibe"
+
+🎯 FORMULA: "Outfit as shown in reference image - [COLOR] [GENERAL_STYLE] with [VIBE]"
+
+Lý do: Mô tả chi tiết fashion foundations = trigger safety filters. Chỉ reference ảnh = safe.`
+            : '';
+
+         // 👗 PRODUCT PHYSICS INSTRUCTION - Motion behavior validation
+         const getPhysicsInstruction = () => {
+            const pt = productType.toLowerCase();
+            // Skip physics rule for fashion foundations (already has its own rule)
+            if (isIntimateApparel) return '';
+
+            // Structured products that CANNOT flow
+            const noFlowProducts = ['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop'];
+            const isNoFlow = noFlowProducts.includes(pt);
+
+            if (pt === 'bodycon') {
+               return `\n\n👗 PRODUCT PHYSICS - BODYCON/VÁY ÔM:
+❌ KHÔNG DÙNG: "flowing", "flutter", "hem flying", "fabric cascade", "billowing"
+✅ CHỈ DÙNG: "form-hugging silhouette", "curves highlighted", "stretch visible with movement"
+Lý do: Váy ôm sát cơ thể, không thể bay/flutter.`;
+            }
+
+            if (pt === 'jeans') {
+               return `\n\n👗 PRODUCT PHYSICS - JEANS/DENIM:
+❌ KHÔNG DÙNG: "soft drape", "flowing fabric", "gentle sway", "flutter"
+✅ CHỈ DÙNG: "structured denim", "rigid fit", "classic wash visible"
+Lý do: Denim là vải cứng, không có drape.`;
+            }
+
+            if (pt === 'tshirt') {
+               return `\n\n👗 PRODUCT PHYSICS - T-SHIRT/ÁO THUN:
+❌ KHÔNG DÙNG: "flowing", "drape", "flutter", "liquid"
+✅ CHỈ DÙNG: "casual fit", "relaxed silhouette", "cotton texture"
+Lý do: Áo thun cotton không có flow.`;
+            }
+
+            if (pt === 'sweater') {
+               return `\n\n👗 PRODUCT PHYSICS - SWEATER/ÁO LEN:
+❌ KHÔNG DÙNG: "flowing", "flutter", "light drape"
+✅ CHỈ DÙNG: "cozy knit texture", "chunky weave", "warm layers"
+Lý do: Len nặng và có texture, không flow.`;
+            }
+
+            if (pt === 'suit' || pt === 'jacket') {
+               return `\n\n👗 PRODUCT PHYSICS - SUIT/BLAZER:
+❌ KHÔNG DÙNG: "soft drape", "flowing", "flutter"
+✅ CHỈ DÙNG: "sharp tailoring", "structured silhouette", "crisp lines"
+Lý do: Vest/Blazer là structured garment.`;
+            }
+
+            if (pt === 'aodai') {
+               return `\n\n👗 PRODUCT PHYSICS - ÁO DÀI:
+⚠️ CHỈ VẠT ÁO được flow, THÂN ÁO không flow
+✅ ĐÚNG: "ao dai panels trailing elegantly", "vạt áo bay nhẹ", "fitted bodice maintained"
+❌ SAI: "ao dai flowing freely" (toàn bộ áo dài không thể flow)`;
+            }
+
+            if (pt === 'wide_pants') {
+               return `\n\n👗 PRODUCT PHYSICS - WIDE PANTS/ỐNG RỘNG:
+✅ ĐÚNG: "wide leg sways with movement", "palazzo flow", "dramatic leg width"
+Loại quần này flow được do ống rộng.`;
+            }
+
+            if (pt === 'maxi_dress' || pt === 'skirt') {
+               return `\n\n👗 PRODUCT PHYSICS - MAXI/SKIRT:
+✅ ĐÚNG: "skirt flowing gracefully", "fabric cascade", "ethereal flutter"
+Váy xòe/maxi có thể flow tự nhiên.`;
+            }
+
+            // General reminder for other products
+            if (isNoFlow) {
+               return `\n\n👗 PRODUCT PHYSICS REMINDER:
+Product type "${pt}" = STRUCTURED fabric
+❌ Tránh: "flowing", "flutter", "cascade"
+✅ Dùng motion phù hợp với loại sản phẩm`;
+            }
+
+            return '';
+         };
+
+         const productPhysicsInstruction = getPhysicsInstruction();
+
+         // Background Consistency: Unified Affiliate Logic
+         const getBackgroundContinuityInstruction = () => {
+            // Affiliate mode always uses DYNAMIC_VIBE for energy and variety
+            return `\n\n🎨 BACKGROUND CONTINUITY MODE: DYNAMIC_VIBE
+⚠️ You MUST generate:
+1. masterPrompt.environment = Consistent color palette and lighting atmosphere.
+2. keyframes[].backgroundPrompt = Vibe-consistent backgrounds (same tone/mood, can vary location for energy).
+3. metadata.visualLogicType = "dynamic_vibe"
+Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but visual tone should be cohesive.
+⚠️ MODEL FRAMING: Model MUST occupy 75-85% of frame HEIGHT. Background supports product without overwhelming.`;
+         };
+
+         const backgroundContinuityInstruction = getBackgroundContinuityInstruction();
+
+         const parts = [
+            { text: `Mode: UNIFIED AFFILIATE\nPlatform: ${affiliatePlatform.toUpperCase()} | Audience: ${affiliateAudience.toUpperCase()} | Goal: ${affiliateGoal.toUpperCase()}\nDisplay: ${displayType.toUpperCase()} | Optimization: ${optimizationLevel.toUpperCase()} | Cinematic: ${cinematicStyle.toUpperCase()}${cinematicStyle === 'fashion_walkin' ? `\n  ↳ Walk-In: ${walkinVariant} | ${walkinTimeOfDay} | ${walkinVibe} | ${walkinPersonality}` : ''}${cinematicStyle === 'try_on' ? `\n  ↳ Try-On: ${tryOnVariant} | Transition: ${tryOnTransition} | Pacing: ${tryOnPacing}` : ''}\nGender: ${gender}\n${bodyDataString}${shopModelInfo}${userAdditionalDescText}${productInfo && productInfo.trim() ? `\n\n📦 PRODUCT INFO:\n${productInfo}` : ''}\n\nTarget: ${finalDuration}s (${scenes} scenes) | Ratio: ${aspectRatio}${keyframeCountText}${affiliateDurationStrategy}${affiliatePlatformStrategy}${affiliateAudienceStrategy}${affiliateGoalStrategy}${voiceAnchorInstruction}${realWorldPhotoText}${locationPreferenceText}${editorialModeText}${wallpaperModeText}${lookbookModeText}${seductiveModeText}${sexyModeText}${cinematicStyleInstructions}${aestheticInstructions}${studioModeText}${aspectRatioText}${poseBlocklistText}${intimateApparelInstruction}${productPhysicsInstruction}${backgroundContinuityInstruction}${videoStyleChoreography}${displayInstructions}\n\nPREVIOUSLY USED LOCATIONS (COLLISION AVOIDANCE):\n${historyBlocklist}${scriptBlocklist}\n\n🎯 OUTPUT: JSON (Nano Banana Pro & Veo 3.1 optimized)\nCreative Brief:\n${brief}${faceReferenceText}` },
+
+
+            // Face Reference image FIRST (with label)
+            ...(faceImage ? [{ text: '\n\n📸 IMAGE 1 - FACE REFERENCE (Use this face):' }, { inlineData: { mimeType: faceData.mimeType, data: faceData.data } }] : []),
+            // Outfit Reference image SECOND (with label) - FASHION FOUNDATIONS AWARE
+            { text: getOutfitLabel() },
+            { inlineData: { mimeType: outfitData.mimeType, data: outfitData.data } }
+         ];
+
+         // Optimized system instruction assembly (reduced token usage)
+         const baseModules = [
+            TIKTOK_SHOP_SYSTEM_INSTRUCTION,
+            SPORTSWEAR_RULES,
+            PRODUCT_PHYSICS_RULES,
+            VEO_SAFE_MOTION_KEYWORDS,
+            SAFETY_VOCABULARY_GUIDE,
+            TRENDING_INTELLIGENCE,
+            CINEMATIC_FASHION_SCENES,
+            EMOTIONAL_ARC_GUIDE,
+            AFFILIATE_OPTIMIZATION,
+            VIRAL_HOOKS_MASTERY,
+            VOICE_SCRIPT_PRO
+         ];
+         let systemInstruction = baseModules.join('\n\n');
+         
+         // 🏆 COMPETITIVE OPTIMIZATION - Compact version for token efficiency
+         if (optimizationLevel === 'competitive') {
+            systemInstruction += `\n\n🏆 COMPETITIVE MODE: #1 Ranking Target
+
+🔥 3-TIER HOOK (0-1.5s): Universal curiosity → Product flash → Value promise ("399K→199K!")
+💬 DUAL CTA: @12s engagement ("Comment MUỐN") + @22s conversion ("Link ghim 👆")
+🎁 COMMENT TRIGGER: Question/game/opinion bait (must include 1+)
+📈 GMV TACTICS: Bundles, variants display, urgency ("50 sets left")
+✅ TARGETS: 10+ orders/hr, $1K+ GMV/48h, 8-12% CTR\n#1 = 70% traffic | #2-5 = 20% | Winner-take-all`;
+         }
+         
+         // Optional Modules (token-efficient concatenation)
+         if (studioMode) systemInstruction += '\n\n' + STUDIO_MODE_GUIDE;
+
+         // Cinematic mode-specific instruction modules
+         if (cinematicStyle === 'fashion_walkin') systemInstruction += '\n\n' + WALKIN_CINEMATIC_RULES;
+         if (cinematicStyle === 'transform_viral') systemInstruction += '\n\n' + TRANSFORMATION_SCENES;
+         if (cinematicStyle === 'marketing_intimate') systemInstruction += '\n\n' + MARKETING_INTIMATE_SCENES;
+         if (cinematicStyle === 'try_on') systemInstruction += '\n\n' + TRY_ON_MODE_GUIDE;
+         if (cinematicStyle === 'asmr_cinematic') systemInstruction += '\n\n' + ASMR_CINEMATIC_GUIDE;
+         if (cinematicStyle === 'storytelling') systemInstruction += '\n\n' + STORYTELLING_CINEMATIC_GUIDE;
+         if (cinematicStyle === 'unboxing') systemInstruction += '\n\n' + UNBOXING_CINEMATIC_GUIDE;
+         if (cinematicStyle === 'review') systemInstruction += '\n\n' + REVIEW_CINEMATIC_GUIDE;
+
+         // 🔴 VIRAL HOOK ENFORCEMENT — Compact version for token efficiency
+         if (!lookbookMode) {
+            systemInstruction += `\n\n🔴 VIRAL HOOK (MANDATORY): First 3s = 80% success\nScene 1 MUST have 0-3s hook element. JSON must include "viralHooks" field.\nAffiliate hooks: Price shock/Social proof/Problem-solution/Quick mystery (CVR focused)\n❌ NO: Static poses, no hook element, slow starts`;
+         }
+
+         const response = await ai.models.generateContent({
+            model: geminiModel,
+            contents: { parts },
+            config: {
+               systemInstruction: systemInstruction,
+               safetySettings: [
+                  { category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH },
+                  { category: HarmCategory.HARM_CATEGORY_HATE_SPEECH, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH },
+                  { category: HarmCategory.HARM_CATEGORY_HARASSMENT, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH },
+                  { category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH }
+               ]
+            }
+         });
+
+         const text = response.text;
+
+         if (!text) {
+            console.error("Director Response Missing Text. Full Response:", response);
+            if (response.candidates && response.candidates.length > 0) {
+               const reason = response.candidates[0].finishReason;
+               if (reason === 'SAFETY') {
+                  throw new Error("The Director could not generate the prompt due to Safety Filters. Please try a different image or description.");
+               }
+            }
+            throw new Error("No text response from Director. The model might be overloaded or the input was blocked.");
+         }
+
+         // Extract Metadata (Specific Location) - Support both JSON and text format
+         let extractedLocation = null;
+
+         // Try JSON format first
+         try {
+            const jsonMatch = text.match(/```json\s*([\s\S]*?)\s*```/) || text.match(/\{[\s\S]*"metadata"[\s\S]*\}/);
+            if (jsonMatch) {
+               const jsonText = jsonMatch[1] || jsonMatch[0];
+               const jsonData = JSON.parse(jsonText);
+               if (jsonData.metadata && jsonData.metadata.location) {
+                  extractedLocation = jsonData.metadata.location;
+               }
+            }
+         } catch (e) {
+            // JSON parsing failed, try text format
+         }
+
+         // Fallback to text format
+         if (!extractedLocation) {
+            const metaMatch = text.match(/Specific Location:\s*(.+)/i);
+            if (metaMatch && metaMatch[1]) {
+               extractedLocation = metaMatch[1].trim();
+            }
+         }
+
+         if (extractedLocation) {
+            const alreadyExists = locationVault.some(item =>
+               item.location.toLowerCase() === extractedLocation.toLowerCase()
+            );
+            if (!alreadyExists) {
+               addToLocationVault(extractedLocation, locationRegion, productType);
+            }
+         }
+
+         // Extract Studio from AI response (for Studio Mode) - save to vault
+         if (studioMode) {
+            let extractedStudio = null;
+
+            // Try JSON format - look in masterPrompt.environment
+            try {
+               const jsonMatch = text.match(/```json\s*([\s\S]*?)\s*```/) || text.match(/\{[\s\S]*"masterPrompt"[\s\S]*\}/);
+               if (jsonMatch) {
+                  const jsonText = jsonMatch[1] || jsonMatch[0];
+                  const jsonData = JSON.parse(jsonText);
+                  if (jsonData.masterPrompt && jsonData.masterPrompt.environment) {
+                     extractedStudio = jsonData.masterPrompt.environment;
+                  }
+               }
+            } catch (e) {
+               // JSON parsing failed
+            }
+
+            // Fallback: look for "STUDIO FIXED" tag
+            if (!extractedStudio) {
+               const studioMatch = text.match(/([^.]+)\s*-\s*STUDIO FIXED/i);
+               if (studioMatch && studioMatch[1]) {
+                  extractedStudio = studioMatch[1].trim();
+               }
+            }
+
+            if (extractedStudio) {
+               const studioShort = extractedStudio.slice(0, 100);
+               const studioExists = studioVault.some(s =>
+                  s.studio.toLowerCase().slice(0, 30) === studioShort.toLowerCase().slice(0, 30)
+               );
+               if (!studioExists && studioShort.length > 10) {
+                  addToStudioVault(studioShort, studioCategory, productType);
+                  console.log('🎬 Studio saved to vault:', studioShort.slice(0, 50) + '...');
+               }
+            }
+         }
+
+         // Extract Scene 1 Script (Hook) for TikTok Shop - save to vault
+         // Support both JSON and text format
+         {
+            let extractedHook = null;
+
+            // Try JSON format
+            try {
+               const jsonMatch = text.match(/```json\s*([\s\S]*?)\s*```/) || text.match(/\{[\s\S]*"scenes"[\s\S]*\}/);
+               if (jsonMatch) {
+                  const jsonText = jsonMatch[1] || jsonMatch[0];
+                  const jsonData = JSON.parse(jsonText);
+                  if (jsonData.scenes && jsonData.scenes[0] && jsonData.scenes[0].script) {
+                     extractedHook = jsonData.scenes[0].script;
+                  }
+               }
+            } catch (e) {
+               // JSON parsing failed
+            }
+
+            // Fallback to text format
+            if (!extractedHook) {
+               const scene1Match = text.match(/SCENE 1[\s\S]*?SCRIPT:\s*["""]?([^"""]+)["""]?/i);
+               if (scene1Match && scene1Match[1]) {
+                  extractedHook = scene1Match[1].trim();
+               }
+            }
+
+            if (extractedHook) {
+               const hook = extractedHook.slice(0, 100);
+               const hookExists = scriptVault.some(s =>
+                  s.hook.toLowerCase().slice(0, 30) === hook.toLowerCase().slice(0, 30)
+               );
+               if (!hookExists && hook.length > 10) {
+                  addToScriptVault(hook, productType);
+               }
+            }
+         }
+
+         const sections = parseDirectorOutput(text);
+
+         // ================================================
+         // 🎬 PHASE 2: AUTO VIDEO REFINEMENT
+         // ================================================
+         // Tự động gọi AI lần 2 để refine scenes liền mạch hơn
+         // SKIP for Lookbook Mode (images only, no video)
+         let refinedScenesText = null;
+
+         if (sections.keyframes && sections.master && !lookbookMode) {
+            console.log('🎬 Starting Phase 2: Video Refinement...');
+
+            // Extract jsonData for beatSync info
+            let jsonData = null;
+            try {
+               const jsonMatch = text.match(/```json\s*([\s\S]*?)\s*```/);
+               if (jsonMatch) {
+                  jsonData = JSON.parse(jsonMatch[1]);
+               }
+            } catch (e) {
+               // JSON parsing failed, proceed without it
+            }
+
+            refinedScenesText = await refineVideoScenes(
+               sections.master,
+               sections.keyframes,
+               sections.scenes || '',
+               jsonData || (sections as any).jsonData
+            );
+
+            if (refinedScenesText) {
+               console.log('✅ Phase 2 completed: Refined scenes ready');
+               sections.refinedScenes = refinedScenesText;
+            }
+         } else if (lookbookMode) {
+            console.log('⏭️ Phase 2 skipped: Lookbook mode (images only, no video refinement needed)');
+         }
+
+         setDirectorOutput({
+            fullText: text,
+            sections: sections,
+            jsonData: (sections as any).jsonData
+         });
+
+         setActiveTab('master');
+
+      } catch (error: any) {
+         console.error("Director Error:", error);
+
+         let message = error.message || "An unexpected error occurred.";
+
+         if (typeof message === 'string' && (message.includes('{') || message.includes('429') || message.includes('404'))) {
+            if (message.includes("429") || message.includes("RESOURCE_EXHAUSTED") || message.includes("quota")) {
+               message = "API Quota Exceeded (429). You have reached the usage limit for the Gemini API. Please wait a moment or check your billing details in Google AI Studio.";
+            } else if (message.includes("404") || message.includes("NOT_FOUND")) {
+               message = "Model Not Found (404). The selected Gemini model is not available. Please try again later or contact support.";
+            } else {
+               try {
+                  const jsonMatch = message.match(/\{.*\}/);
+                  if (jsonMatch) {
+                     const parsed = JSON.parse(jsonMatch[0]);
+                     if (parsed.error && parsed.error.message) {
+                        message = parsed.error.message;
+                     }
+                  }
+               } catch (e) { }
+            }
+         }
+
+         alert(`Director Error: ${message}`);
+         setStep('input');
+      } finally {
+         setDirectorThinking(false);
+      }
+   };
+
+
+
+   const reset = () => {
+      setStep('input');
+      setDirectorOutput(null);
+   };
+
+   // --- Render Steps ---
+
+   return (
+      <div className="min-h-screen bg-[#09090b] text-zinc-200 selection:bg-purple-500/30 selection:text-purple-200 p-4 md:p-8 flex justify-center font-sans">
+         <div className="max-w-4xl w-full flex flex-col gap-8">
+
+            {/* Top Section: Inputs & Controls */}
+            <div className="flex flex-col gap-6">
+               <header className="mb-2">
+                  <div className="flex items-center gap-2 mb-2">
+                     <ShoppingBag className="w-5 h-5 text-purple-400" />
+                     <span className="text-xs font-medium tracking-[0.2em] text-purple-400 uppercase">AI Video Marketing</span>
+                  </div>
+                  <h1 className="text-3xl md:text-4xl font-display font-bold text-white leading-tight">
+                     Affiliate Video <br />Generator Pro
+                  </h1>
+                  <p className="text-[10px] text-zinc-500 mt-2">
+                     🎯 Optimized for TikTok & Facebook • 60%+ Completion Rate • CVR-Focused Hooks
+                  </p>
+               </header>
+
+               <div className="glass-panel rounded-2xl p-6 flex flex-col gap-6 border border-zinc-800 bg-zinc-900/40">
+
+                  {/* API Key Input */}
+                  <div className="space-y-2">
+                     <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-500 flex items-center gap-2">
+                        🔑 Gemini API Key
+                        <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer"
+                           className="text-purple-400 hover:text-purple-300 underline">
+                           (Lấy key)
+                        </a>
+                     </label>
+                     <div className="relative">
+                        <input
+                           type={showApiKey ? "text" : "password"}
+                           value={apiKey}
+                           onChange={(e) => setApiKey(e.target.value)}
+                           placeholder="AIzaSy..."
+                           className="w-full px-3 py-2 pr-20 text-xs bg-zinc-900/70 border border-zinc-700 rounded-lg text-zinc-300 placeholder-zinc-600 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/20"
+                        />
+                        <button
+                           type="button"
+                           onClick={() => setShowApiKey(!showApiKey)}
+                           className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-zinc-500 hover:text-zinc-300 px-2 py-1 rounded bg-zinc-800 border border-zinc-700"
+                        >
+                           {showApiKey ? 'Ẩn' : 'Hiện'}
+                        </button>
+                     </div>
+                     {!apiKey && (
+                        <p className="text-[10px] text-red-400">⚠️ Cần API Key để sử dụng</p>
+                     )}
+                  </div>
+
+                  {/* Gemini Model Selector */}
+                  <div className="space-y-2">
+                     <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-500 flex items-center gap-2">
+                        🤖 Gemini Model
+                     </label>
+                     <div className="grid grid-cols-2 gap-2">
+                        <button
+                           onClick={() => setGeminiModel('gemini-2.5-flash')}
+                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all text-left
+                              ${geminiModel === 'gemini-2.5-flash'
+                                 ? 'bg-purple-500/20 border-purple-500 text-purple-200'
+                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                        >
+                           <div className="font-bold">2.5 Flash</div>
+                           <div className="text-[8px] text-zinc-500 mt-0.5">Stable • Fast</div>
+                        </button>
+                        <button
+                           onClick={() => setGeminiModel('gemini-3-flash-preview')}
+                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all text-left
+                              ${geminiModel === 'gemini-3-flash-preview'
+                                 ? 'bg-cyan-500/20 border-cyan-500 text-cyan-200'
+                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                        >
+                           <div className="font-bold">3.0 Preview</div>
+                           <div className="text-[8px] text-zinc-500 mt-0.5">Experimental</div>
+                        </button>
+                     </div>
+                     <p className="text-[9px] text-zinc-500">
+                        {geminiModel === 'gemini-2.5-flash'
+                           ? '✅ Mô hình ổn định, đã kiểm chứng'
+                           : '🧪 Mô hình mới nhất, có thể có thay đổi'}
+                     </p>
+                  </div>
+
+                  {/* 🎯 Affiliate Optimization Settings */}
+                  <div className="space-y-4 p-4 rounded-xl border border-purple-500/30 bg-purple-500/5">
+                     <div className="flex items-center gap-2 mb-2">
+                        <ShoppingBag className="w-4 h-4 text-purple-400" />
+                        <h3 className="text-xs font-bold uppercase tracking-wider text-purple-300">🎯 Affiliate Video Optimization</h3>
+                     </div>
+                     
+                     {/* Platform Target */}
+                     <div className="space-y-2">
+                        <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-400">
+                           📱 Platform Target
+                        </label>
+                        <div className="grid grid-cols-3 gap-2">
+                           <button
+                              onClick={() => setAffiliatePlatform('tiktok')}
+                              className={`py-2 px-3 rounded-lg text-[10px] font-medium border transition-all
+                                 ${affiliatePlatform === 'tiktok'
+                                    ? 'bg-pink-500/20 border-pink-500 text-pink-200'
+                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                           >
+                              🎵 TikTok
+                           </button>
+                           <button
+                              onClick={() => setAffiliatePlatform('facebook')}
+                              className={`py-2 px-3 rounded-lg text-[10px] font-medium border transition-all
+                                 ${affiliatePlatform === 'facebook'
+                                    ? 'bg-blue-500/20 border-blue-500 text-blue-200'
+                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                           >
+                              👤 Facebook
+                           </button>
+                           <button
+                              onClick={() => setAffiliatePlatform('both')}
+                              className={`py-2 px-3 rounded-lg text-[10px] font-medium border transition-all
+                                 ${affiliatePlatform === 'both'
+                                    ? 'bg-purple-500/20 border-purple-500 text-purple-200'
+                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                           >
+                              🚀 Both
+                           </button>
+                        </div>
+                     </div>
+                     
+                     {/* Audience Stage */}
+                     <div className="space-y-2">
+                        <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-400">
+                           🎯 Target Audience
+                        </label>
+                        <div className="grid grid-cols-3 gap-2">
+                           <button
+                              onClick={() => setAffiliateAudience('cold')}
+                              className={`py-2 px-3 rounded-lg text-[10px] font-medium border transition-all
+                                 ${affiliateAudience === 'cold'
+                                    ? 'bg-cyan-500/20 border-cyan-500 text-cyan-200'
+                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                           >
+                              <div className="font-bold">❄️ Cold</div>
+                              <div className="text-[8px] text-zinc-500 mt-0.5">New audience</div>
+                           </button>
+                           <button
+                              onClick={() => setAffiliateAudience('warm')}
+                              className={`py-2 px-3 rounded-lg text-[10px] font-medium border transition-all
+                                 ${affiliateAudience === 'warm'
+                                    ? 'bg-orange-500/20 border-orange-500 text-orange-200'
+                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                           >
+                              <div className="font-bold">🔥 Warm</div>
+                              <div className="text-[8px] text-zinc-500 mt-0.5">Engaged</div>
+                           </button>
+                           <button
+                              onClick={() => setAffiliateAudience('hot')}
+                              className={`py-2 px-3 rounded-lg text-[10px] font-medium border transition-all
+                                 ${affiliateAudience === 'hot'
+                                    ? 'bg-red-500/20 border-red-500 text-red-200'
+                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                           >
+                              <div className="font-bold">🔥🔥 Hot</div>
+                              <div className="text-[8px] text-zinc-500 mt-0.5">Ready to buy</div>
+                           </button>
+                        </div>
+                     </div>
+                     
+                     {/* Goal Metric */}
+                     <div className="space-y-2">
+                        <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-400">
+                           🏆 Optimization Goal
+                        </label>
+                        <div className="grid grid-cols-3 gap-2">
+                           <button
+                              onClick={() => setAffiliateGoal('views')}
+                              className={`py-2 px-3 rounded-lg text-[10px] font-medium border transition-all
+                                 ${affiliateGoal === 'views'
+                                    ? 'bg-green-500/20 border-green-500 text-green-200'
+                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                           >
+                              <div className="font-bold">👀 Views</div>
+                              <div className="text-[8px] text-zinc-500 mt-0.5">Reach</div>
+                           </button>
+                           <button
+                              onClick={() => setAffiliateGoal('engagement')}
+                              className={`py-2 px-3 rounded-lg text-[10px] font-medium border transition-all
+                                 ${affiliateGoal === 'engagement'
+                                    ? 'bg-yellow-500/20 border-yellow-500 text-yellow-200'
+                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                           >
+                              <div className="font-bold">👍 Engage</div>
+                              <div className="text-[8px] text-zinc-500 mt-0.5">Likes/Comments</div>
+                           </button>
+                           <button
+                              onClick={() => setAffiliateGoal('conversion')}
+                              className={`py-2 px-3 rounded-lg text-[10px] font-medium border transition-all
+                                 ${affiliateGoal === 'conversion'
+                                    ? 'bg-purple-500/20 border-purple-500 text-purple-200'
+                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                           >
+                              <div className="font-bold">💰 Sales</div>
+                              <div className="text-[8px] text-zinc-500 mt-0.5">CVR Max</div>
+                           </button>
+                        </div>
+                     </div>
+                     
+                     <div className="text-[9px] text-zinc-500 bg-zinc-900/50 p-2 rounded-lg">
+                        {affiliateGoal === 'conversion' && <>💰 <strong>Conversion Mode:</strong> 24s optimal, price hooks, urgency, dual CTAs</>}
+                        {affiliateGoal === 'engagement' && <>👍 <strong>Engagement Mode:</strong> Comment bait, shareability, educational value</>}
+                        {affiliateGoal === 'views' && <>👀 <strong>Views Mode:</strong> Viral hooks, emotional triggers, broad appeal</>}
+                     </div>
+                  </div>
+
+                  {/* 📦 PRODUCT DISPLAY TYPE */}
+                  <div className="space-y-2">
+                     <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-500">📦 Product Display Type</label>
+                     <div className="grid grid-cols-3 gap-2">
+                        <button
+                           onClick={() => setDisplayType('fashion_model')}
+                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              ${displayType === 'fashion_model'
+                                 ? 'bg-blue-500/20 border-blue-500 text-blue-200'
+                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                        >
+                           <div className="font-bold">👗 Fashion Model</div>
+                           <div className="text-[8px] text-zinc-500 mt-0.5">Person wearing</div>
+                        </button>
+                        <button
+                           onClick={() => setDisplayType('product_focus')}
+                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              ${displayType === 'product_focus'
+                                 ? 'bg-pink-500/20 border-pink-500 text-pink-200'
+                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                        >
+                           <div className="font-bold">📦 Product Focus</div>
+                           <div className="text-[8px] text-zinc-500 mt-0.5">Mannequin/Close-ups</div>
+                        </button>
+                        <button
+                           onClick={() => setDisplayType('mixed')}
+                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              ${displayType === 'mixed'
+                                 ? 'bg-purple-500/20 border-purple-500 text-purple-200'
+                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                        >
+                           <div className="font-bold">🎨 Mixed</div>
+                           <div className="text-[8px] text-zinc-500 mt-0.5">Both styles</div>
+                        </button>
+                     </div>
+                     <div className="text-[9px] text-zinc-500 bg-zinc-900/50 p-2 rounded-lg">
+                        {displayType === 'fashion_model' && <>👗 Model mặc sản phẩm, đi lại, poses động - phù hợp váy, áo thời trang</>}
+                        {displayType === 'product_focus' && <>📦 Mannequin/flat lay/close-up - tối ưu cho fashion foundations, accessories, details</>}
+                        {displayType === 'mixed' && <>🎨 Kết hợp cả hai - model + product shots - đa dụng nhất</>}
+                     </div>
+                  </div>
+
+                  {/* 🚀 OPTIMIZATION LEVEL */}
+                  <div className="space-y-2">
+                     <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-500">🚀 Optimization Level</label>
+                     <div className="grid grid-cols-2 gap-3">
+                        <button
+                           onClick={() => setOptimizationLevel('standard')}
+                           className={`py-3 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              ${optimizationLevel === 'standard'
+                                 ? 'bg-green-500/20 border-green-500 text-green-200'
+                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                        >
+                           <div className="font-bold text-[11px]">✅ Standard</div>
+                           <div className="text-[8px] text-zinc-500 mt-1">Normal affiliate optimization</div>
+                           <div className="text-[7px] text-zinc-600 mt-1">3-5% CVR, stable sales</div>
+                        </button>
+                        <button
+                           onClick={() => setOptimizationLevel('competitive')}
+                           className={`py-3 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              ${optimizationLevel === 'competitive'
+                                 ? 'bg-amber-500/20 border-amber-500 text-amber-200'
+                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                        >
+                           <div className="font-bold text-[11px]">🏆 Competitive</div>
+                           <div className="text-[8px] text-zinc-500 mt-1">TOP 1 ultra-competitive</div>
+                           <div className="text-[7px] text-zinc-600 mt-1">8-12% CTR, #1 ranking</div>
+                        </button>
+                     </div>
+                     
+                     {optimizationLevel === 'competitive' && (
+                        <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-2.5 text-[8px] text-amber-200 animate-in fade-in slide-in-from-top-2">
+                           <strong>🏆 Competitive Mode Active:</strong><br/>
+                           ⚡ 3-tier viral hook (0-1.5s) | 💬 Dual CTA (12s + 22s) | 🎁 Comment triggers<br/>
+                           📈 GMV tactics (bundles, variants) | 🚀 Velocity optimization (10+ orders/hr)<br/>
+                           🎯 Target: #1 creator ranking, $1K+ GMV in 48h, 8-12% link CTR
+                        </div>
+                     )}
+                  </div>
+
+                  {/* 📝 PRODUCT INFO */}
+                  <div className="space-y-2">
+                     <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-500">📝 Product Info (Optional)</label>
+                     <textarea
+                        value={productInfo}
+                        onChange={(e) => setProductInfo(e.target.value)}
+                        placeholder="Ví dụ: Váy body xẻ tà, 299K flash sale, chất liệu lụa mềm mại, tôn dáng cực đỉnh. AI sẽ dùng info này để tạo hooks và CTAs phù hợp."
+                        className="w-full bg-zinc-900/50 border border-zinc-700 rounded-lg p-2.5 text-[9px] text-zinc-300 placeholder:text-zinc-600 focus:border-purple-500 focus:outline-none resize-none"
+                        rows={3}
+                     />
+                     <div className="text-[8px] text-zinc-500">
+                        💡 Tip: Càng chi tiết càng tốt (giá, USP, chất liệu) → AI tạo content chính xác hơn
+                     </div>
+                  </div>
+
+                  {/* 🎬 CINEMATIC STYLE */}
+                  <div className="space-y-2">
+                     <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-500">✨ Cinematic Style</label>
+                     <div className="grid grid-cols-3 gap-2">
+                        <button
+                           onClick={() => setCinematicStyle('standard')}
+                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              ${cinematicStyle === 'standard'
+                                 ? 'bg-blue-500/20 border-blue-500 text-blue-200'
+                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                        >
+                           <div className="font-bold">🎬 Standard</div>
+                           <div className="text-[8px] text-zinc-500 mt-0.5">Fashion editorial</div>
+                        </button>
+                        <button
+                           onClick={() => setCinematicStyle('transform_viral')}
+                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              ${cinematicStyle === 'transform_viral'
+                                 ? 'bg-pink-500/20 border-pink-500 text-pink-200'
+                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                        >
+                           <div className="font-bold">✨ Biến Hình</div>
+                           <div className="text-[8px] text-zinc-500 mt-0.5">32s viral morph</div>
+                        </button>
+                        <button
+                           onClick={() => setCinematicStyle('fashion_walkin')}
+                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              ${cinematicStyle === 'fashion_walkin'
+                                 ? 'bg-purple-500/20 border-purple-500 text-purple-200'
+                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                        >
+                           <div className="font-bold">👗 Walk-In</div>
+                           <div className="text-[8px] text-zinc-500 mt-0.5">Model walks to camera</div>
+                        </button>
+                        <button
+                           onClick={() => setCinematicStyle('marketing_intimate')}
+                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              ${cinematicStyle === 'marketing_intimate'
+                                 ? 'bg-rose-500/20 border-rose-500 text-rose-200'
+                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                        >
+                           <div className="font-bold">📢 Marketing</div>
+                           <div className="text-[8px] text-zinc-500 mt-0.5">Fashion foundations</div>
+                        </button>
+                        <button
+                           onClick={() => setCinematicStyle('try_on')}
+                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              ${cinematicStyle === 'try_on'
+                                 ? 'bg-emerald-500/20 border-emerald-500 text-emerald-200'
+                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                        >
+                           <div className="font-bold">👗 Thử Đồ</div>
+                           <div className="text-[8px] text-zinc-500 mt-0.5">Try-on & outfit change</div>
+                        </button>
+                        <button
+                           onClick={() => setCinematicStyle('asmr_cinematic')}
+                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              ${cinematicStyle === 'asmr_cinematic'
+                                 ? 'bg-violet-500/20 border-violet-500 text-violet-200'
+                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                        >
+                           <div className="font-bold">🎤 ASMR</div>
+                           <div className="text-[8px] text-zinc-500 mt-0.5">Sound & texture focus</div>
+                        </button>
+                        <button
+                           onClick={() => setCinematicStyle('storytelling')}
+                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              ${cinematicStyle === 'storytelling'
+                                 ? 'bg-amber-500/20 border-amber-500 text-amber-200'
+                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                        >
+                           <div className="font-bold">📖 Kể Chuyện</div>
+                           <div className="text-[8px] text-zinc-500 mt-0.5">Narrative day-in-life</div>
+                        </button>
+                        <button
+                           onClick={() => setCinematicStyle('unboxing')}
+                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              ${cinematicStyle === 'unboxing'
+                                 ? 'bg-orange-500/20 border-orange-500 text-orange-200'
+                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                        >
+                           <div className="font-bold">📦 Mở Hộp</div>
+                           <div className="text-[8px] text-zinc-500 mt-0.5">Cinematic unboxing</div>
+                        </button>
+                        <button
+                           onClick={() => setCinematicStyle('review')}
+                           className={`py-2.5 px-3 rounded-lg text-[10px] font-medium border transition-all
+                              ${cinematicStyle === 'review'
+                                 ? 'bg-cyan-500/20 border-cyan-500 text-cyan-200'
+                                 : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                        >
+                           <div className="font-bold">🔍 Review</div>
+                           <div className="text-[8px] text-zinc-500 mt-0.5">Rating & verdict</div>
+                        </button>
+                     </div>
+                  </div>
+
+                  {/* 🚶 WALK-IN OPTIONS - Only show when fashion_walkin selected */}
+                  {cinematicStyle === 'fashion_walkin' && (
+                     <div className="space-y-3 bg-purple-500/5 border border-purple-500/20 rounded-lg p-3 animate-in fade-in slide-in-from-top-2">
+                        <div className="text-[9px] font-semibold text-purple-300 flex items-center gap-1">
+                           <span className="text-xs">👗</span> Walk-In Configuration
+                        </div>
+                        
+                        {/* Walk-In Variant */}
+                        <div className="space-y-1.5">
+                           <label className="text-[8px] uppercase tracking-wider font-semibold text-zinc-400">🎭 Walk-In Variant</label>
+                           <div className="grid grid-cols-3 gap-1.5">
+                              {[
+                                 { value: 'auto', icon: '🤖', label: 'Auto' },
+                                 { value: 'classical', icon: '🌸', label: 'Classical' },
+                                 { value: 'digital', icon: '⚡', label: 'Digital' }
+                              ].map(opt => (
+                                 <button
+                                    key={opt.value}
+                                    onClick={() => setWalkinVariant(opt.value as any)}
+                                    className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all
+                                       ${walkinVariant === opt.value
+                                          ? 'bg-purple-500/30 border-purple-400 text-purple-200'
+                                          : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
+                                 >
+                                    {opt.icon} {opt.label}
+                                 </button>
+                              ))}
+                           </div>
+                           <div className="text-[7px] text-zinc-500">
+                              {walkinVariant === 'classical' && '🌸 Nàng thơ đi dạo — No hook, fade out tự nhiên'}
+                              {walkinVariant === 'digital' && '⚡ Urban energy, TikTok trending vibe'}
+                              {walkinVariant === 'auto' && '🤖 AI auto-select based on outfit'}
+                           </div>
+                        </div>
+
+                        {/* Time of Day */}
+                        <div className="space-y-1.5">
+                           <label className="text-[8px] uppercase tracking-wider font-semibold text-zinc-400">🌅 Thời Gian (Lighting)</label>
+                           <div className="grid grid-cols-4 gap-1.5">
+                              {[
+                                 { value: 'auto', icon: '✨', label: 'Auto' },
+                                 { value: 'golden_hour', icon: '🌅', label: 'Golden' },
+                                 { value: 'blue_hour', icon: '🌆', label: 'Blue' },
+                                 { value: 'city_night', icon: '🌃', label: 'Night' }
+                              ].map(opt => (
+                                 <button
+                                    key={opt.value}
+                                    onClick={() => setWalkinTimeOfDay(opt.value as any)}
+                                    className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all
+                                       ${walkinTimeOfDay === opt.value
+                                          ? 'bg-amber-500/30 border-amber-400 text-amber-200'
+                                          : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
+                                 >
+                                    {opt.icon}
+                                 </button>
+                              ))}
+                           </div>
+                           <div className="text-[7px] text-zinc-500">
+                              {walkinTimeOfDay === 'golden_hour' && '🌅 Hoàng hôn 5-7PM - Ánh vàng ấm, rim light'}
+                              {walkinTimeOfDay === 'blue_hour' && '🌆 Blue hour twilight - Cool tones'}
+                              {walkinTimeOfDay === 'city_night' && '🌃 City night - Neon bokeh'}
+                              {walkinTimeOfDay === 'auto' && '✨ AI selects best lighting'}
+                           </div>
+                        </div>
+
+                        {/* Aesthetic Vibe */}
+                        <div className="space-y-1.5">
+                           <label className="text-[8px] uppercase tracking-wider font-semibold text-zinc-400">🎨 Aesthetic Vibe</label>
+                           <div className="grid grid-cols-3 gap-1.5">
+                              {[
+                                 { value: 'auto', icon: '✨', label: 'Auto' },
+                                 { value: 'romantic', icon: '💕', label: 'Romantic' },
+                                 { value: 'power', icon: '💪', label: 'Power' },
+                                 { value: 'goddess', icon: '✨', label: 'Goddess' },
+                                 { value: 'minimal', icon: '◻️', label: 'Minimal' },
+                                 { value: 'allure', icon: '🌙', label: 'Allure' }
+                              ].map(opt => (
+                                 <button
+                                    key={opt.value}
+                                    onClick={() => setWalkinVibe(opt.value as any)}
+                                    className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all
+                                       ${walkinVibe === opt.value
+                                          ? 'bg-pink-500/30 border-pink-400 text-pink-200'
+                                          : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
+                                 >
+                                    {opt.icon}
+                                 </button>
+                              ))}
+                           </div>
+                           <div className="text-[7px] text-zinc-500">
+                              {walkinVibe === 'auto' && 'AI detect outfit → auto chọn vibe "đời thật" phù hợp nhất'}
+                              {walkinVibe !== 'auto' && `${walkinVibe.charAt(0).toUpperCase() + walkinVibe.slice(1)} vibe selected`}
+                           </div>
+                        </div>
+
+                        {/* Model Personality */}
+                        <div className="space-y-1.5">
+                           <label className="text-[8px] uppercase tracking-wider font-semibold text-zinc-400">👤 Model Personality</label>
+                           <div className="grid grid-cols-3 gap-1.5">
+                              {[
+                                 { value: 'auto', icon: '✨', label: 'Auto' },
+                                 { value: 'casual_natural', icon: '🌸', label: 'Casual' },
+                                 { value: 'shy_timid', icon: '🌷', label: 'Shy' },
+                                 { value: 'confident_bold', icon: '💎', label: 'Confident' },
+                                 { value: 'playful_flirty', icon: '✨', label: 'Playful' }
+                              ].map(opt => (
+                                 <button
+                                    key={opt.value}
+                                    onClick={() => setWalkinPersonality(opt.value as any)}
+                                    className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all
+                                       ${walkinPersonality === opt.value
+                                          ? 'bg-teal-500/30 border-teal-400 text-teal-200'
+                                          : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
+                                 >
+                                    {opt.icon}
+                                 </button>
+                              ))}
+                           </div>
+                           <div className="text-[7px] text-zinc-500">
+                              {walkinPersonality === 'auto' && 'AI detect outfit → auto chọn personality phù hợp nhất'}
+                              {walkinPersonality !== 'auto' && `${walkinPersonality.replace('_', ' ')} personality`}
+                           </div>
+                        </div>
+                     </div>
+                  )}
+
+                  {/* 👗 TRY-ON OPTIONS - Only show when try_on selected */}
+                  {cinematicStyle === 'try_on' && (
+                     <div className="space-y-3 bg-emerald-500/5 border border-emerald-500/20 rounded-lg p-3 animate-in fade-in slide-in-from-top-2">
+                        <div className="text-[9px] font-semibold text-emerald-300 flex items-center gap-1">
+                           <span className="text-xs">👗</span> Try-On Configuration
+                        </div>
+                        
+                        {/* Try-On Variant */}
+                        <div className="space-y-1.5">
+                           <label className="text-[8px] uppercase tracking-wider font-semibold text-zinc-400">🎭 Kiểu Thử Đồ</label>
+                           <div className="grid grid-cols-3 gap-1.5">
+                              {[
+                                 { value: 'auto', icon: '🤖', label: 'Auto' },
+                                 { value: 'fitting_room', icon: '🚪', label: 'Phòng Thử' },
+                                 { value: 'home_tryon', icon: '🏠', label: 'Ở Nhà' },
+                                 { value: 'haul_review', icon: '🛍️', label: 'Haul Review' },
+                                 { value: 'mix_match', icon: '🔀', label: 'Mix & Match' },
+                                 { value: 'outfit_battle', icon: '⚔️', label: 'Đọ Outfit' },
+                                 { value: 'loosely_draped', icon: '👘', label: 'Mặc Hờ' }
+                              ].map(opt => (
+                                 <button
+                                    key={opt.value}
+                                    onClick={() => setTryOnVariant(opt.value as any)}
+                                    className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all
+                                       ${tryOnVariant === opt.value
+                                          ? 'bg-emerald-500/30 border-emerald-400 text-emerald-200'
+                                          : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
+                                 >
+                                    {opt.icon} {opt.label}
+                                 </button>
+                              ))}
+                           </div>
+                           <div className="text-[7px] text-zinc-500">
+                              {tryOnVariant === 'auto' && '🤖 AI tự chọn kiểu phù hợp với sản phẩm'}
+                              {tryOnVariant === 'fitting_room' && '🚪 Phòng thử đồ — mở cửa reveal từng outfit'}
+                              {tryOnVariant === 'home_tryon' && '🏠 Thử đồ ở nhà — cozy, order online về thử'}
+                              {tryOnVariant === 'haul_review' && '🛍️ Review haul — unbox + thử + chấm điểm'}
+                              {tryOnVariant === 'mix_match' && '🔀 1 item nhiều cách phối — capsule wardrobe'}
+                              {tryOnVariant === 'outfit_battle' && '⚔️ So sánh outfit — vote engagement cao'}
+                              {tryOnVariant === 'loosely_draped' && '👘 Mặc hờ / thả hờ — effortless chic, editorial'}
+                           </div>
+                        </div>
+
+                        {/* Transition Style */}
+                        <div className="space-y-1.5">
+                           <label className="text-[8px] uppercase tracking-wider font-semibold text-zinc-400">🔄 Chuyển Outfit</label>
+                           <div className="grid grid-cols-4 gap-1.5">
+                              {[
+                                 { value: 'auto', icon: '✨', label: 'Auto' },
+                                 { value: 'door_reveal', icon: '🚪', label: 'Mở Cửa' },
+                                 { value: 'curtain_pull', icon: '🎭', label: 'Kéo Rèm' },
+                                 { value: 'spin_change', icon: '🔄', label: 'Xoay Đổi' },
+                                 { value: 'mirror_turn', icon: '🪞', label: 'Quay Gương' },
+                                 { value: 'snap_cut', icon: '👋', label: 'Búng Tay' },
+                                 { value: 'fabric_slide', icon: '🪨', label: 'Trượt Vải' }
+                              ].map(opt => (
+                                 <button
+                                    key={opt.value}
+                                    onClick={() => setTryOnTransition(opt.value as any)}
+                                    className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all
+                                       ${tryOnTransition === opt.value
+                                          ? 'bg-cyan-500/30 border-cyan-400 text-cyan-200'
+                                          : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
+                                 >
+                                    {opt.icon} {opt.label}
+                                 </button>
+                              ))}
+                           </div>
+                        </div>
+
+                        {/* Pacing */}
+                        <div className="space-y-1.5">
+                           <label className="text-[8px] uppercase tracking-wider font-semibold text-zinc-400">⏱️ Tốc Độ</label>
+                           <div className="grid grid-cols-4 gap-1.5">
+                              {[
+                                 { value: 'auto', icon: '✨', label: 'Auto' },
+                                 { value: 'quick_fire', icon: '⚡', label: 'Nhanh' },
+                                 { value: 'detailed_review', icon: '📝', label: 'Chi Tiết' },
+                                 { value: 'storytelling', icon: '📖', label: 'Kể Chuyện' }
+                              ].map(opt => (
+                                 <button
+                                    key={opt.value}
+                                    onClick={() => setTryOnPacing(opt.value as any)}
+                                    className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all
+                                       ${tryOnPacing === opt.value
+                                          ? 'bg-amber-500/30 border-amber-400 text-amber-200'
+                                          : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
+                                 >
+                                    {opt.icon} {opt.label}
+                                 </button>
+                              ))}
+                           </div>
+                           <div className="text-[7px] text-zinc-500">
+                              {tryOnPacing === 'auto' && '✨ AI chọn tốc độ phù hợp với duration & số outfit'}
+                              {tryOnPacing === 'quick_fire' && '⚡ ~4s/outfit, beat-synced, minimal voice'}
+                              {tryOnPacing === 'detailed_review' && '📝 8s/outfit, review chi tiết, chấm điểm'}
+                              {tryOnPacing === 'storytelling' && '📖 8-16s/outfit, kể chuyện theo ngày/tình huống'}
+                           </div>
+                        </div>
+                     </div>
+                  )}
+
+                  {/* 🎨 AESTHETIC OPTIONS - Show for fashion_model displayType */}
+                  {displayType === 'fashion_model' && cinematicStyle === 'standard' && (
+                     <div className="space-y-3 bg-blue-500/5 border border-blue-500/20 rounded-lg p-3">
+                        <div className="text-[9px] font-semibold text-blue-300 flex items-center gap-1">
+                           <span className="text-xs">👗</span> Fashion Model Aesthetics
+                        </div>
+                        
+                        {/* Aesthetic Vibe */}
+                        <div className="space-y-1.5">
+                           <label className="text-[8px] uppercase tracking-wider font-semibold text-zinc-400">🎨 Vibe</label>
+                           <div className="grid grid-cols-3 gap-1.5">
+                              {[
+                                 { value: 'auto', icon: '✨', label: 'Auto' },
+                                 { value: 'romantic', icon: '💕', label: 'Romantic' },
+                                 { value: 'power', icon: '💪', label: 'Power' },
+                                 { value: 'goddess', icon: '✨', label: 'Goddess' },
+                                 { value: 'minimal', icon: '◻️', label: 'Minimal' },
+                                 { value: 'allure', icon: '🌙', label: 'Allure' }
+                              ].map(opt => (
+                                 <button
+                                    key={opt.value}
+                                    onClick={() => setAestheticVibe(opt.value as any)}
+                                    className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all
+                                       ${aestheticVibe === opt.value
+                                          ? 'bg-pink-500/30 border-pink-400 text-pink-200'
+                                          : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
+                                 >
+                                    {opt.icon} {opt.label}
+                                 </button>
+                              ))}
+                           </div>
+                        </div>
+
+                        {/* Model Personality */}
+                        <div className="space-y-1.5">
+                           <label className="text-[8px] uppercase tracking-wider font-semibold text-zinc-400">👤 Personality</label>
+                           <div className="grid grid-cols-3 gap-1.5">
+                              {[
+                                 { value: 'auto', icon: '✨', label: 'Auto' },
+                                 { value: 'casual_natural', icon: '🌸', label: 'Casual' },
+                                 { value: 'shy_timid', icon: '🌷', label: 'Shy' },
+                                 { value: 'confident_bold', icon: '💎', label: 'Confident' },
+                                 { value: 'playful_flirty', icon: '✨', label: 'Playful' }
+                              ].map(opt => (
+                                 <button
+                                    key={opt.value}
+                                    onClick={() => setModelPersonality(opt.value as any)}
+                                    className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all
+                                       ${modelPersonality === opt.value
+                                          ? 'bg-teal-500/30 border-teal-400 text-teal-200'
+                                          : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-600'}`}
+                                 >
+                                    {opt.icon} {opt.label}
+                                 </button>
+                              ))}
+                           </div>
+                        </div>
+                     </div>
+                  )}
+
+                  {/* Reference Images */}
+
+                  <div className="grid grid-cols-2 gap-4">
+                     {[
+                        { label: "Face Reference", state: faceImage, setter: setFaceImage, ref: fileInputFaceRef, icon: Upload },
+                        { label: "Outfit Reference", state: outfitImage, setter: setOutfitImage, ref: fileInputOutfitRef, icon: ImageIcon }
+                     ].map((item, idx) => (
+                        <div key={idx} className="space-y-2">
+                           <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-500">{item.label}</label>
+                           <div
+                              onClick={() => item.ref.current?.click()}
+                              className={`aspect-[3/4] rounded-xl border border-dashed flex items-center justify-center cursor-pointer transition-all overflow-hidden relative group
+                      ${item.state ? 'border-purple-500/50 bg-purple-900/10' : 'border-zinc-700 hover:border-zinc-500 bg-zinc-900/50'}`}
+                           >
+                              {item.state ? (
+                                 <img src={item.state} alt="Ref" className="w-full h-full object-cover" />
+                              ) : (
+                                 <div className="text-center p-4">
+                                    <item.icon className="w-5 h-5 mx-auto mb-2 text-zinc-500 group-hover:text-zinc-300" />
+                                    <span className="text-[10px] text-zinc-500 group-hover:text-zinc-300">Upload</span>
+                                 </div>
+                              )}
+                              {item.state && <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"><span className="text-xs font-medium">Change</span></div>}
+                           </div>
+                           <input type="file" ref={item.ref} onChange={(e) => handleFileUpload(e, item.setter)} className="hidden" accept="image/*" />
+                        </div>
+                     ))}
+                  </div>
+
+                  {/* Face Preset Selection - Only show when no face image uploaded */}
+                  {!faceImage && (
+                     <div className="space-y-2">
+                        <label className="text-[10px] uppercase tracking-wider font-semibold text-zinc-500 flex items-center gap-1.5">
+                           <Sparkles className="w-3 h-3" /> Khuôn Mặt Mặc Định
+                        </label>
+                        <div className="grid grid-cols-4 gap-1.5">
+                           {FACE_PRESETS.map((preset) => (
+                              <button
+                                 key={preset.value}
+                                 onClick={() => setFacePreset(preset.value)}
+                                 className={`px-1.5 py-2 rounded-lg border text-center transition-all ${facePreset === preset.value
+                                    ? 'bg-purple-500/20 border-purple-500/50 text-purple-200'
+                                    : 'bg-zinc-900/40 border-zinc-800 text-zinc-500 hover:border-zinc-600 hover:text-zinc-300'}`}
+                                 title={preset.desc}
+                              >
+                                 <span className="text-sm block">{preset.emoji}</span>
+                                 <span className="text-[8px] leading-tight block mt-0.5 truncate">{preset.label}</span>
+                              </button>
+                           ))}
+                        </div>
+                        <p className="text-[9px] text-zinc-600 italic">
+                           {FACE_PRESETS.find(p => p.value === facePreset)?.desc || ''}
+                        </p>
+                     </div>
+                  )}
+                  {faceImage && (
+                     <p className="text-[9px] text-green-500/80 flex items-center gap-1">
+                        <Check className="w-3 h-3" /> Sử dụng khuôn mặt từ ảnh đã upload
+                     </p>
+                  )}
+
+                  {/* Configuration Groups */}
+                  <div className="space-y-5">
+
+                     {/* 1. Body & Subject - Simplified for Affiliate */}
+                     <div className="space-y-3">
+                        <div className="flex items-center justify-between text-xs">
+                           <span className="font-semibold text-zinc-400 flex items-center gap-1.5"><Ruler className="w-3.5 h-3.5" /> Model Type</span>
+                        </div>
+
+                        <div className="space-y-3">
+                           <select value={gender} onChange={(e) => setGender(e.target.value)}
+                              className="w-full bg-zinc-900/80 border border-zinc-700 rounded-lg px-2 py-2 text-xs text-zinc-300 focus:outline-none focus:border-purple-500">
+                              <option>Female</option> <option>Male</option>
+                           </select>
+
+                           <select value={bodyType} onChange={(e) => setBodyType(e.target.value)}
+                              className="w-full bg-zinc-900/80 border border-zinc-700 rounded-lg px-2 py-2 text-xs text-zinc-300 focus:outline-none focus:border-purple-500">
+                              <option>Slim (Model)</option> <option>Athletic</option> <option>Balanced</option> <option>Curvy</option>
+                           </select>
+
+                           {/* Product Type Selector - Full PRODUCT_TYPE_GROUPS for Smart Style Pools */}
+                           <div className="mt-3 pt-3 border-t border-zinc-800/50 animate-in fade-in">
+                              <div className="flex items-center justify-between mb-2">
+                                 <label className="text-[9px] uppercase font-bold ml-1 text-purple-400">
+                                    🛍️ Product Category
+                                 </label>
+                                 {productType === 'auto' && (
+                                    <span className="text-[8px] bg-green-500/20 text-green-400 px-1.5 py-0.5 rounded flex items-center gap-1">
+                                       🤖 AI Auto-detect
+                                    </span>
+                                 )}
+                              </div>
+
+                              {/* Auto + Combo quick buttons */}
+                              <div className="grid grid-cols-2 gap-1.5 mb-2">
+                                 {[
+                                    { value: 'auto', emoji: '🤖', label: 'Auto Detect', desc: 'AI phân tích từ ảnh' },
+                                    { value: 'combo', emoji: '🎀', label: 'Combo/Mix', desc: 'Nhiều món kết hợp' }
+                                 ].map((pt) => (
+                                    <button key={pt.value} onClick={() => setProductType(pt.value)}
+                                       className={`py-1.5 px-2 rounded text-[9px] font-medium border transition-all flex items-center gap-2
+                                          ${productType === pt.value
+                                             ? 'bg-green-500/20 border-green-500 text-green-200'
+                                             : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}>
+                                       <span className="text-sm">{pt.emoji}</span>
+                                       <div className="text-left"><div>{pt.label}</div><div className="text-[7px] opacity-60">{pt.desc}</div></div>
+                                    </button>
+                                 ))}
+                              </div>
+
+                              {/* Product Type Groups - Expandable */}
+                              <div className="space-y-1.5">
+                                 {PRODUCT_TYPE_GROUPS.map((group) => (
+                                    <details key={group.group} className="group" open={PRODUCT_TYPE_GROUPS.flatMap(g => g.items).some(i => i.value === productType && group.items.some(gi => gi.value === productType))}>
+                                       <summary className="text-[9px] font-semibold text-zinc-400 cursor-pointer hover:text-zinc-200 flex items-center gap-1 py-1">
+                                          <ChevronDown className="w-3 h-3 transition-transform group-open:rotate-180" />
+                                          {group.label}
+                                       </summary>
+                                       <div className="grid grid-cols-3 gap-1 ml-4 mt-1 mb-1">
+                                          {group.items.map((item) => (
+                                             <button key={item.value} onClick={() => setProductType(item.value)}
+                                                className={`py-1 px-1.5 rounded text-[8px] font-medium border transition-all text-left truncate
+                                                   ${productType === item.value
+                                                      ? 'bg-purple-500/20 border-purple-500 text-purple-200'
+                                                      : 'bg-zinc-900/30 border-zinc-800 text-zinc-500 hover:border-zinc-600 hover:text-zinc-300'}`}>
+                                                {item.emoji} {item.label}
+                                             </button>
+                                          ))}
+                                       </div>
+                                    </details>
+                                 ))}
+                              </div>
+
+                              {productType === 'auto' && (
+                                 <p className="text-[9px] text-green-400/70 mt-2 ml-1">
+                                    ✨ AI will analyze your product image to determine category, material, and features automatically
+                                 </p>
+                              )}
+                           </div>
+
+                           {/* Product Details - Collapsed Optional for Affiliate */}
+                           <details className="mt-3 pt-3 border-t border-zinc-800/50">
+                              <summary className="text-[9px] uppercase text-purple-400 font-bold ml-1 cursor-pointer hover:text-purple-300 flex items-center gap-1">
+                                 <ChevronDown className="w-3 h-3" /> 📝 Product Details (Optional)
+                              </summary>
+                              <div className="mt-2 space-y-2 animate-in fade-in">
+                                 <div className="space-y-1">
+                                    <label className="text-[9px] text-zinc-500 ml-1">Material / Fabric</label>
+                                    <input
+                                       type="text"
+                                       placeholder="e.g., Premium cotton, Silk blend, Stretch fabric..."
+                                       className="w-full bg-zinc-900/80 border border-zinc-700 rounded-lg px-2 py-2 text-xs text-zinc-300 focus:outline-none focus:border-purple-500 placeholder:text-zinc-600"
+                                       value={fabricMaterial}
+                                       onChange={(e) => setFabricMaterial(e.target.value)}
+                                    />
+                                 </div>
+                                 <div className="space-y-1">
+                                    <label className="text-[9px] text-zinc-500 ml-1">Key Features</label>
+                                    <input
+                                       type="text"
+                                       placeholder="e.g., Flattering fit, Breathable, Easy care..."
+                                       className="w-full bg-zinc-900/80 border border-zinc-700 rounded-lg px-2 py-2 text-xs text-zinc-300 focus:outline-none focus:border-purple-500 placeholder:text-zinc-600"
+                                       value={productHighlights}
+                                       onChange={(e) => setProductHighlights(e.target.value)}
+                                    />
+                                 </div>
+                                 <div className="space-y-1">
+                                    <label className="text-[9px] text-zinc-500 ml-1">Available Sizes</label>
+                                    <input
+                                       type="text"
+                                       placeholder="e.g., S-XXL, One size, XS to 3XL..."
+                                       className="w-full bg-zinc-900/80 border border-zinc-700 rounded-lg px-2 py-2 text-xs text-zinc-300 focus:outline-none focus:border-purple-500 placeholder:text-zinc-600"
+                                       value={availableSizes}
+                                       onChange={(e) => setAvailableSizes(e.target.value)}
+                                    />
+                                 </div>
+                                 <p className="text-[8px] text-purple-400/60 ml-1">
+                                    ✨ These details help AI create more accurate and compelling hooks
+                                 </p>
+                              </div>
+                           </details>
+
+                           {/* Additional Notes - Unified for Affiliate Mode */}
+                           <div className="mt-3 pt-3 border-t border-zinc-800/50 animate-in fade-in">
+                              <div className="space-y-1">
+                                 <label className="text-[9px] ml-1 flex items-center gap-1 text-purple-400">
+                                    <span>✏️</span>
+                                    Additional Notes / Special Requirements
+                                 </label>
+                                 <textarea
+                                    placeholder="Add any special requests or notes for your affiliate video...\ne.g., Focus on waist area, warm tones, model smiling, slower transitions, add slow motion in scene 2..."
+                                    className="w-full bg-zinc-900/80 border border-zinc-700 rounded-lg px-3 py-2.5 text-xs text-zinc-300 focus:outline-none placeholder:text-zinc-600 min-h-[70px] resize-y focus:border-purple-500"
+                                    value={additionalDescription}
+                                    onChange={(e) => setAdditionalDescription(e.target.value)}
+                                    rows={3}
+                                 />
+                                 <p className="text-[8px] text-zinc-600 ml-1">
+                                    💡 AI will integrate these notes into the video. More details = better results!
+                                 </p>
+                              </div>
+                           </div>
+
+
+                           {/* Location Region Selector */}
+                           <div className="mt-3 pt-3 border-t border-zinc-800/50 animate-in fade-in">
+                              <div className="flex items-center justify-between mb-2">
+                                 <label className="text-[9px] uppercase text-emerald-400 font-bold ml-1 flex items-center gap-1">
+                                    📍 Bối cảnh / Location
+                                 </label>
+                                 {locationVault.length > 0 && (
+                                    <span className="text-[9px] text-zinc-500">{locationVault.length} đã dùng</span>
+                                 )}
+                              </div>
+
+                              {/* Region Grid */}
+                              <div className="grid grid-cols-2 gap-1.5 mb-2">
+                                 {LOCATION_REGIONS.slice(0, 6).map((region) => (
+                                    <button
+                                       key={region.value}
+                                       onClick={() => setLocationRegion(region.value)}
+                                       className={`py-1.5 px-2 rounded text-left border transition-all flex items-center gap-1.5
+                                    ${locationRegion === region.value
+                                             ? 'bg-emerald-500/20 border-emerald-500 text-emerald-200'
+                                             : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                    >
+                                       <span className="text-sm">{region.emoji}</span>
+                                       <span className="text-[9px] font-medium truncate">{region.label}</span>
+                                    </button>
+                                 ))}
+                              </div>
+
+                              {/* More Regions Dropdown */}
+                              <details className="group">
+                                 <summary className="text-[9px] text-zinc-500 cursor-pointer hover:text-zinc-300 flex items-center gap-1">
+                                    <ChevronDown className="w-3 h-3 group-open:rotate-180 transition-transform" />
+                                    Thêm bối cảnh khác
+                                 </summary>
+                                 <div className="grid grid-cols-2 gap-1.5 mt-2 animate-in fade-in slide-in-from-top-2">
+                                    {LOCATION_REGIONS.slice(6).map((region) => (
+                                       <button
+                                          key={region.value}
+                                          onClick={() => setLocationRegion(region.value)}
+                                          className={`py-1.5 px-2 rounded text-left border transition-all flex items-center gap-1.5
+                                       ${locationRegion === region.value
+                                                ? 'bg-emerald-500/20 border-emerald-500 text-emerald-200'
+                                                : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                       >
+                                          <span className="text-sm">{region.emoji}</span>
+                                          <span className="text-[9px] font-medium truncate">{region.label}</span>
+                                       </button>
+                                    ))}
+                                 </div>
+                              </details>
+
+                              {/* Selected Region Info */}
+                              {locationRegion !== 'auto' && (
+                                 <div className="mt-2 p-2 bg-emerald-900/10 border border-emerald-500/20 rounded text-[9px] text-emerald-300/80">
+                                    <span className="font-bold">{LOCATION_REGIONS.find(r => r.value === locationRegion)?.label}:</span>{' '}
+                                    {LOCATION_REGIONS.find(r => r.value === locationRegion)?.desc}
+                                    {getSuggestedLocations(locationRegion, 10).length > 0 && (
+                                       <p className="mt-1 text-emerald-400/60">
+                                          🎲 {getSuggestedLocations(locationRegion, 10).length} bối cảnh ngẫu nhiên sẵn sàng
+                                       </p>
+                                    )}
+                                 </div>
+                              )}
+
+                              {/* Auto Mode Info */}
+                              {locationRegion === 'auto' && (
+                                 <div className="mt-2 p-2 bg-blue-900/10 border border-blue-500/20 rounded text-[9px] text-blue-300/80">
+                                    <span className="font-bold">🎲 AI Tự Chọn Ngẫu Nhiên:</span>{' '}
+                                    AI sẽ random từ tất cả các vùng dựa trên loại sản phẩm
+                                    <p className="mt-1 text-blue-400/60">
+                                       ✓ {getRandomLocationsForAuto(20).length} bối cảnh khả dụng từ tất cả vùng
+                                    </p>
+                                 </div>
+                              )}
+
+                              {/* Mode Toggles - Always available in unified Affiliate Mode */}
+                              <div className="mt-3 pt-3 border-t border-zinc-800/30">
+                                 <button
+                                       onClick={() => setEditorialMode(!editorialMode)}
+                                       className={`w-full py-2 px-3 rounded-lg border transition-all flex items-center justify-between
+                                    ${editorialMode
+                                             ? 'bg-rose-500/20 border-rose-500/50 text-rose-200'
+                                             : 'bg-zinc-900/30 border-zinc-700/50 text-zinc-500 hover:border-zinc-600'}`}
+                                    >
+                                       <div className="flex items-center gap-2">
+                                          <span className="text-base">🔞</span>
+                                          <div className="text-left">
+                                             <span className="text-[10px] font-medium block">Editorial Mode</span>
+                                             <span className="text-[8px] opacity-70">Foundation-free silhouette</span>
+                                          </div>
+                                       </div>
+                                       <div className={`w-8 h-4 rounded-full transition-all relative ${editorialMode ? 'bg-rose-500' : 'bg-zinc-700'}`}>
+                                          <div className={`absolute top-0.5 w-3 h-3 rounded-full bg-white transition-all ${editorialMode ? 'left-4' : 'left-0.5'}`} />
+                                       </div>
+                                    </button>
+                                    {editorialMode && (
+                                       <p className="mt-1.5 text-[8px] text-rose-300/60 px-1">
+                                          ⚠️ Mô tả trang phục với silhouette tự nhiên, không có lớp foundation bên trong
+                                       </p>
+                                    )}
+
+                                    {/* Wallpaper Mode Toggle */}
+                                    <button
+                                       onClick={() => setWallpaperMode(!wallpaperMode)}
+                                       className={`w-full mt-2 py-2 px-3 rounded-lg border transition-all flex items-center justify-between
+                                    ${wallpaperMode
+                                             ? 'bg-violet-500/20 border-violet-500/50 text-violet-200'
+                                             : 'bg-zinc-900/30 border-zinc-700/50 text-zinc-500 hover:border-zinc-600'}`}
+                                    >
+                                       <div className="flex items-center gap-2">
+                                          <span className="text-base">🖼️</span>
+                                          <div className="text-left">
+                                             <span className="text-[10px] font-medium block">Wallpaper Mode</span>
+                                             <span className="text-[8px] opacity-70">Hình nền điện thoại</span>
+                                          </div>
+                                       </div>
+                                       <div className={`w-8 h-4 rounded-full transition-all relative ${wallpaperMode ? 'bg-violet-500' : 'bg-zinc-700'}`}>
+                                          <div className={`absolute top-0.5 w-3 h-3 rounded-full bg-white transition-all ${wallpaperMode ? 'left-4' : 'left-0.5'}`} />
+                                       </div>
+                                    </button>
+                                    {wallpaperMode && (
+                                       <p className="mt-1.5 text-[8px] text-violet-300/60 px-1">
+                                          📱 Background đẹp cho lock screen - chừa chỗ cho đồng hồ & icons
+                                       </p>
+                                    )}
+
+                                    {/* Lookbook Mode Toggle */}
+                                    <button
+                                       onClick={() => setLookbookMode(!lookbookMode)}
+                                       className={`w-full mt-2 py-2 px-3 rounded-lg border transition-all flex items-center justify-between
+                                    ${lookbookMode
+                                             ? 'bg-amber-500/20 border-amber-500/50 text-amber-200'
+                                             : 'bg-zinc-900/30 border-zinc-700/50 text-zinc-500 hover:border-zinc-600'}`}
+                                    >
+                                       <div className="flex items-center gap-2">
+                                          <span className="text-base">📸</span>
+                                          <div className="text-left">
+                                             <span className="text-[10px] font-medium block">Lookbook Mode</span>
+                                             <span className="text-[8px] opacity-70">20 ảnh, không video</span>
+                                          </div>
+                                       </div>
+                                       <div className={`w-8 h-4 rounded-full transition-all relative ${lookbookMode ? 'bg-amber-500' : 'bg-zinc-700'}`}>
+                                          <div className={`absolute top-0.5 w-3 h-3 rounded-full bg-white transition-all ${lookbookMode ? 'left-4' : 'left-0.5'}`} />
+                                       </div>
+                                    </button>
+                                    {lookbookMode && (
+                                       <p className="mt-1.5 text-[8px] text-amber-300/60 px-1">
+                                          📷 Tạo 33 ảnh lookbook: standing, dynamic, seated, squat, bodice/hip focus (safe vocabulary)
+                                       </p>
+                                    )}
+
+                                    {/* Seductive Mode Toggle */}
+                                    <button
+                                       onClick={() => setSeductiveMode(!seductiveMode)}
+                                       className={`w-full mt-2 py-2 px-3 rounded-lg border transition-all flex items-center justify-between
+                                    ${seductiveMode
+                                             ? 'bg-pink-500/20 border-pink-500/50 text-pink-200'
+                                             : 'bg-zinc-900/30 border-zinc-700/50 text-zinc-500 hover:border-zinc-600'}`}
+                                    >
+                                       <div className="flex items-center gap-2">
+                                          <span className="text-base">💋</span>
+                                          <div className="text-left">
+                                             <span className="text-[10px] font-medium block">Seductive Mode</span>
+                                             <span className="text-[8px] opacity-70">Quyến rũ TikTok-safe</span>
+                                          </div>
+                                       </div>
+                                       <div className={`w-8 h-4 rounded-full transition-all relative ${seductiveMode ? 'bg-pink-500' : 'bg-zinc-700'}`}>
+                                          <div className={`absolute top-0.5 w-3 h-3 rounded-full bg-white transition-all ${seductiveMode ? 'left-4' : 'left-0.5'}`} />
+                                       </div>
+                                    </button>
+                                    {seductiveMode && (
+                                       <p className="mt-1.5 text-[8px] text-pink-300/60 px-1">
+                                          💃 Video quyến rũ: smoldering gaze, magnetic presence, slow movements
+                                       </p>
+                                    )}
+
+                                    {/* Sexy Mode Toggle - Private */}
+                                    <button
+                                       onClick={() => setSexyMode(!sexyMode)}
+                                       className={`w-full mt-2 py-2 px-3 rounded-lg border transition-all flex items-center justify-between
+                                    ${sexyMode
+                                             ? 'bg-red-500/20 border-red-500/50 text-red-200'
+                                             : 'bg-zinc-900/30 border-zinc-700/50 text-zinc-500 hover:border-zinc-600'}`}
+                                    >
+                                       <div className="flex items-center gap-2">
+                                          <span className="text-base">🔥</span>
+                                          <div className="text-left">
+                                             <span className="text-[10px] font-medium block">Sexy Mode</span>
+                                             <span className="text-[8px] opacity-70">Nano Banana Pro & Veo 3.1</span>
+                                          </div>
+                                       </div>
+                                       <div className={`w-8 h-4 rounded-full transition-all relative ${sexyMode ? 'bg-red-500' : 'bg-zinc-700'}`}>
+                                          <div className={`absolute top-0.5 w-3 h-3 rounded-full bg-white transition-all ${sexyMode ? 'left-4' : 'left-0.5'}`} />
+                                       </div>
+                                    </button>
+                                    {sexyMode && (
+                                       <p className="mt-1.5 text-[8px] text-red-300/60 px-1">
+                                          🔞 Chế độ riêng tư: nội dung sexy cho AI video tools
+                                       </p>
+                                    )}
+
+                                    {/* Studio Mode Toggle - Professional TikTok Affiliate backgrounds */}
+                                    <button
+                                       onClick={() => setStudioMode(!studioMode)}
+                                       className={`w-full mt-2 py-2 px-3 rounded-lg border transition-all flex items-center justify-between
+                                    ${studioMode
+                                             ? 'bg-indigo-500/20 border-indigo-500/50 text-indigo-200'
+                                             : 'bg-zinc-900/30 border-zinc-700/50 text-zinc-500 hover:border-zinc-600'}`}
+                                    >
+                                       <div className="flex items-center gap-2">
+                                          <span className="text-base">🎬</span>
+                                          <div className="text-left">
+                                             <span className="text-[10px] font-medium block">Studio Mode</span>
+                                             <span className="text-[8px] opacity-70">Professional themed backgrounds</span>
+                                          </div>
+                                       </div>
+                                       <div className={`w-8 h-4 rounded-full transition-all relative ${studioMode ? 'bg-indigo-500' : 'bg-zinc-700'}`}>
+                                          <div className={`absolute top-0.5 w-3 h-3 rounded-full bg-white transition-all ${studioMode ? 'left-4' : 'left-0.5'}`} />
+                                       </div>
+                                    </button>
+                                    {studioMode && (
+                                       <div className="mt-2 space-y-2 animate-in fade-in slide-in-from-top-2">
+                                          {/* Studio Category Selector */}
+                                          <div className="p-2 bg-indigo-900/10 border border-indigo-500/20 rounded">
+                                             <div className="flex items-center justify-between mb-2">
+                                                <span className="text-[9px] text-indigo-300 font-medium">🎬 Chọn loại Studio</span>
+                                                {studioVault.length > 0 && (
+                                                   <button
+                                                      onClick={clearStudioVault}
+                                                      className="text-[8px] text-red-400 hover:text-red-300 flex items-center gap-1"
+                                                   >
+                                                      <Trash2 className="w-2.5 h-2.5" /> Xóa vault
+                                                   </button>
+                                                )}
+                                             </div>
+                                             <div className="grid grid-cols-2 gap-1">
+                                                {STUDIO_CATEGORIES.map((cat) => (
+                                                   <button
+                                                      key={cat.value}
+                                                      onClick={() => setStudioCategory(cat.value)}
+                                                      className={`py-1 px-2 rounded text-left border transition-all flex items-center gap-1
+                                                         ${studioCategory === cat.value
+                                                            ? 'bg-indigo-500/20 border-indigo-500 text-indigo-200'
+                                                            : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                                                   >
+                                                      <span className="text-xs">{cat.emoji}</span>
+                                                      <span className="text-[8px] font-medium truncate">{cat.label.replace(' Studios', '').replace(' Tết & Hội', '')}</span>
+                                                   </button>
+                                                ))}
+                                             </div>
+                                             {/* Selected Category Info */}
+                                             <div className="mt-2 text-[8px] text-indigo-300/70">
+                                                {studioCategory === 'auto' ? (
+                                                   <span>🎲 AI tự chọn từ {STUDIO_CATEGORIES.reduce((acc, c) => acc + (c.studios?.length || 0), 0)} studios</span>
+                                                ) : (
+                                                   <span>
+                                                      {STUDIO_CATEGORIES.find(c => c.value === studioCategory)?.studios?.length || 0} studios -
+                                                      {getRandomStudios(studioCategory, 10).length} khả dụng
+                                                   </span>
+                                                )}
+                                             </div>
+                                          </div>
+                                          {/* Studio Vault History */}
+                                          {studioVault.length > 0 && (
+                                             <div className="p-2 bg-zinc-800/30 border border-zinc-700/30 rounded">
+                                                <div className="flex items-center justify-between mb-1">
+                                                   <span className="text-[8px] text-zinc-400 flex items-center gap-1">
+                                                      <History className="w-2.5 h-2.5" />
+                                                      {studioVault.length} studio đã dùng
+                                                   </span>
+                                                </div>
+                                                <div className="text-[7px] text-zinc-500 space-y-0.5 max-h-16 overflow-y-auto">
+                                                   {studioVault.slice(0, 3).map((item, i) => (
+                                                      <div key={item.id} className="truncate">
+                                                         • {item.studio.split(' | ')[0]}
+                                                      </div>
+                                                   ))}
+                                                   {studioVault.length > 3 && (
+                                                      <div className="text-zinc-600">...và {studioVault.length - 3} khác</div>
+                                                   )}
+                                                </div>
+                                             </div>
+                                          )}
+                                          {/* 🎨 Product Color for Color Contrast */}
+                                          <div className="p-2 bg-gradient-to-r from-pink-900/10 to-orange-900/10 border border-pink-500/20 rounded">
+                                             <div className="flex items-center gap-2 mb-1.5">
+                                                <span className="text-[9px] text-pink-300 font-medium">🎨 Màu sản phẩm (Studio Contrast)</span>
+                                             </div>
+                                             <input
+                                                type="text"
+                                                value={productColor}
+                                                onChange={(e) => setProductColor(e.target.value)}
+                                                placeholder="VD: đỏ, xanh navy, vàng gold..."
+                                                className="w-full px-2 py-1.5 bg-zinc-900/50 border border-zinc-700 rounded text-[9px] text-white placeholder:text-zinc-600 focus:border-pink-500/50 focus:outline-none"
+                                             />
+                                             <p className="mt-1 text-[7px] text-pink-300/50">
+                                                Nhập màu để lọc studio tương phản (để trống = AI tự detect)
+                                             </p>
+                                          </div>
+                                       </div>
+                                    )}
+
+                                    {/* Aspect Ratio Selector */}
+                                    <div className="mt-3 pt-2 border-t border-zinc-800/50">
+                                       <div className="text-[9px] text-zinc-500 mb-2 flex items-center gap-1">
+                                          📐 Tỷ lệ khung hình
+                                       </div>
+                                       <div className="grid grid-cols-2 gap-2">
+                                          <button
+                                             onClick={() => setAspectRatio('9:16')}
+                                             className={`py-2 px-3 rounded-lg border transition-all flex flex-col items-center gap-1
+                                          ${aspectRatio === '9:16'
+                                                   ? 'bg-blue-500/20 border-blue-500/50 text-blue-200'
+                                                   : 'bg-zinc-900/30 border-zinc-700/50 text-zinc-500 hover:border-zinc-600'}`}
+                                          >
+                                             <div className="w-4 h-6 border-2 rounded-sm ${aspectRatio === '9:16' ? 'border-blue-400' : 'border-zinc-500'}" />
+                                             <span className="text-[9px] font-medium">9:16 Dọc</span>
+                                             <span className="text-[7px] opacity-60">TikTok, Reels</span>
+                                          </button>
+                                          <button
+                                             onClick={() => setAspectRatio('16:9')}
+                                             className={`py-2 px-3 rounded-lg border transition-all flex flex-col items-center gap-1
+                                          ${aspectRatio === '16:9'
+                                                   ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-200'
+                                                   : 'bg-zinc-900/30 border-zinc-700/50 text-zinc-500 hover:border-zinc-600'}`}
+                                          >
+                                             <div className="w-6 h-4 border-2 rounded-sm ${aspectRatio === '16:9' ? 'border-emerald-400' : 'border-zinc-500'}" />
+                                             <span className="text-[9px] font-medium">16:9 Ngang</span>
+                                             <span className="text-[7px] opacity-60">Desktop, YouTube</span>
+                                          </button>
+                                       </div>
+                                       {aspectRatio === '16:9' && (
+                                          <p className="mt-1.5 text-[8px] text-emerald-300/60 px-1">
+                                             🖥️ Khung hình ngang - model nhỏ hơn, background rõ hơn, cinematic
+                                          </p>
+                                       )}
+                                    </div>
+                                 </div>
+                              </div>
+
+                     {/* 2. Cinematography (Auto) & Location Vault */}
+                     <div className="space-y-3 pt-3 border-t border-zinc-800/50">
+                        <div className="flex items-center justify-between text-xs">
+                           <div className="flex items-center text-xs font-semibold text-zinc-400 gap-1.5">
+                              <BrainCircuit className="w-3.5 h-3.5 text-purple-400" /> Auto-Director
+                           </div>
+                           <span className="text-[9px] uppercase tracking-wider text-purple-400/80 font-medium">AI Active</span>
+                        </div>
+                        <div className="p-3 bg-purple-900/10 border border-purple-500/20 rounded-lg">
+                           <p className="text-[10px] text-purple-200/70 leading-relaxed">
+                              🎯 Real-life production script: AI Director creates optimized {videoDuration}s affiliate video with motion prompts, Vietnamese sales hooks, and production notes for your team.
+                           </p>
+
+                           {/* Location History Panel */}
+                           {locationVault.length > 0 && (
+                              <div className="mt-3 pt-2 border-t border-purple-500/10">
+                                 <div className="flex items-center justify-between mb-2">
+                                    <span className="text-[9px] text-zinc-500 flex items-center gap-1">
+                                       <History className="w-3 h-3" /> Lịch sử bối cảnh
+                                    </span>
+                                    <button
+                                       onClick={clearLocationVault}
+                                       className="text-[8px] text-red-400/70 hover:text-red-300 flex items-center gap-0.5"
+                                    >
+                                       <Trash2 className="w-2.5 h-2.5" /> Xóa tất cả
+                                    </button>
+                                 </div>
+                                 <div className="space-y-1 max-h-24 overflow-y-auto">
+                                    {locationVault.slice(0, 5).map((item) => (
+                                       <div key={item.id} className="flex items-center gap-2 text-[9px] p-1.5 bg-zinc-900/50 rounded group">
+                                          <span className="text-zinc-600">
+                                             {LOCATION_REGIONS.find(r => r.value === item.region)?.emoji || '📍'}
+                                          </span>
+                                          <span className="flex-1 text-zinc-400 truncate" title={item.location}>
+                                             {item.location.slice(0, 40)}...
+                                          </span>
+                                          <button
+                                             onClick={() => removeFromVault(item.id)}
+                                             className="opacity-0 group-hover:opacity-100 text-red-400/50 hover:text-red-400 transition-opacity"
+                                          >
+                                             <X className="w-3 h-3" />
+                                          </button>
+                                       </div>
+                                    ))}
+                                    {locationVault.length > 5 && (
+                                       <p className="text-[8px] text-zinc-600 text-center">+{locationVault.length - 5} khác</p>
+                                    )}
+                                 </div>
+                              </div>
+                           )}
+
+                           {/* Script History Panel - TikTok Shop only */}
+                           {scriptVault.length > 0 && (
+                              <div className="mt-3 pt-2 border-t border-orange-500/10">
+                                 <div className="flex items-center justify-between mb-2">
+                                    <span className="text-[9px] text-zinc-500 flex items-center gap-1">
+                                       <FileText className="w-3 h-3" /> Script đã dùng ({scriptVault.length})
+                                    </span>
+                                    <button
+                                       onClick={clearScriptVault}
+                                       className="text-[8px] text-red-400/70 hover:text-red-300 flex items-center gap-0.5"
+                                    >
+                                       <Trash2 className="w-2.5 h-2.5" /> Xóa
+                                    </button>
+                                 </div>
+                                 <div className="space-y-1 max-h-20 overflow-y-auto">
+                                    {scriptVault.slice(0, 4).map((item) => (
+                                       <div key={item.id} className="text-[9px] p-1.5 bg-zinc-900/50 rounded text-zinc-500 truncate" title={item.hook}>
+                                          "{item.hook.slice(0, 50)}..."
+                                       </div>
+                                    ))}
+                                    {scriptVault.length > 4 && (
+                                       <p className="text-[8px] text-zinc-600 text-center">+{scriptVault.length - 4} khác</p>
+                                    )}
+                                 </div>
+                                 <p className="text-[8px] text-orange-400/60 mt-1.5">AI sẽ tránh các hook tương tự</p>
+                              </div>
+                           )}
+                        </div>
+                     </div>
+
+                     {/* 3. Duration - Affiliate Optimized */}
+                     <div className="space-y-3 pt-3 border-t border-zinc-800/50">
+                        <div className="flex items-center justify-between text-xs">
+                           <span className="font-semibold text-zinc-400 flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> Video Duration</span>
+                           <span className={`text-[9px] px-2 py-0.5 rounded ${
+                              videoDuration <= 8 ? 'text-orange-400 bg-orange-500/10' :
+                              videoDuration <= 16 ? 'text-blue-400 bg-blue-500/10' :
+                              videoDuration <= 24 ? 'text-green-400 bg-green-500/10' :
+                              videoDuration <= 32 ? 'text-pink-400 bg-pink-500/10' :
+                              videoDuration <= 40 ? 'text-amber-400 bg-amber-500/10' :
+                              'text-purple-400 bg-purple-500/10'
+                           }`}>
+                              {videoDuration}s {videoDuration === 24 && '⭐ Best CVR'}
+                           </span>
+                        </div>
+                        
+                        {/* Affiliate Presets */}
+                        <div className="grid grid-cols-3 gap-1.5">
+                           {[
+                              { dur: 8, label: 'Flash Ad', desc: 'Reels hook', icon: '⚡' },
+                              { dur: 16, label: 'Quick Sell', desc: 'Hook+CTA', icon: '🛒' },
+                              { dur: 24, label: 'Conversion', desc: 'Best CVR ⭐', icon: '💰' },
+                              { dur: 32, label: 'Viral', desc: 'Story+CTA', icon: '🔥' },
+                              { dur: 40, label: 'Deep Sell', desc: 'Demo+Trust', icon: '🎯' },
+                              { dur: 48, label: 'Storytelling', desc: 'Full journey', icon: '🎬' }
+                           ].map((opt) => (
+                              <button 
+                                 key={opt.dur} 
+                                 onClick={() => setVideoDuration(opt.dur)}
+                                 className={`py-2 px-2 rounded border transition-all text-center
+                                    ${videoDuration === opt.dur
+                                       ? 'bg-purple-600/20 border-purple-500 text-purple-200'
+                                       : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                              >
+                                 <div className="text-[11px] font-bold">{opt.icon} {opt.dur}s</div>
+                                 <div className="text-[8px] opacity-70">{opt.label}</div>
+                                 <div className="text-[7px] opacity-50">{opt.desc}</div>
+                              </button>
+                           ))}
+                        </div>
+                        
+                        {/* Custom Input with Range Slider */}
+                        <div className="space-y-2">
+                           <input
+                              type="range"
+                              min="8"
+                              max="54"
+                              step="2"
+                              value={videoDuration}
+                              onChange={(e) => setVideoDuration(parseInt(e.target.value))}
+                              className="w-full h-1 bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-purple-500"
+                           />
+                           <div className="flex items-center gap-2">
+                              <input
+                                 type="number"
+                                 min="8"
+                                 max="54"
+                                 step="1"
+                                 value={videoDuration}
+                                 onChange={(e) => {
+                                    const val = parseInt(e.target.value);
+                                    if (val >= 8 && val <= 54) setVideoDuration(val);
+                                 }}
+                                 className="w-16 px-2 py-1 bg-zinc-900/50 border border-zinc-700 rounded text-[10px] text-center text-zinc-300 focus:border-purple-500 focus:outline-none"
+                              />
+                              <span className="text-[9px] text-zinc-500">seconds (8-54s, tuỳ chỉnh tự do)</span>
+                           </div>
+                        </div>
+                        
+                        {/* Dynamic affiliate tip based on selected duration */}
+                        <div className="text-[9px] bg-zinc-900/30 border border-zinc-800/50 rounded p-2 space-y-0.5">
+                           {videoDuration <= 8 && <>
+                              <p className="text-orange-400 font-semibold">⚡ Flash Ad (8s): 1 scene duy nhất</p>
+                              <p className="text-zinc-500">Hook mạnh + giá shock + CTA ngay. Dùng cho retargeting, story ads.</p>
+                           </>}
+                           {videoDuration > 8 && videoDuration <= 16 && <>
+                              <p className="text-blue-400 font-semibold">🛒 Quick Sell (16s): Hook → CTA nhanh</p>
+                              <p className="text-zinc-500">2 scenes: Product flash + Price reveal → Urgency CTA. Completion rate 70%+.</p>
+                           </>}
+                           {videoDuration > 16 && videoDuration <= 24 && <>
+                              <p className="text-green-400 font-semibold">💰 Conversion Mode (24s): Best CVR cho affiliate</p>
+                              <p className="text-zinc-500">3 scenes: Hook+Price → USP showcase → CTA+Urgency. Completion 60%+, CVR 3-6%.</p>
+                           </>}
+                           {videoDuration > 24 && videoDuration <= 32 && <>
+                              <p className="text-pink-400 font-semibold">🔥 Viral Mode (32s): Story + Dual CTA</p>
+                              <p className="text-zinc-500">4 scenes: Hook → USP → Social proof → CTA. Dual CTA @16s + @28s. Algorithm boost.</p>
+                           </>}
+                           {videoDuration > 32 && videoDuration <= 40 && <>
+                              <p className="text-amber-400 font-semibold">🎯 Deep Sell (40s): Demo + Trust building</p>
+                              <p className="text-zinc-500">5 scenes: Hook → Detail demo → Before/After → Trust signals → Strong CTA.</p>
+                           </>}
+                           {videoDuration > 40 && <>
+                              <p className="text-purple-400 font-semibold">🎬 Storytelling ({videoDuration}s): Full customer journey</p>
+                              <p className="text-zinc-500">6+ scenes: Hook → Problem → Solution → Demo → Proof → CTA. Cho sản phẩm cần giải thích.</p>
+                           </>}
+                        </div>
+                     </div>
+                  </div>
+
+                  {/* 4. Voice Style - Veo 3.1 Native Audio */}
+                  <div className="space-y-3 pt-3 border-t border-zinc-800/50">
+                     <div className="flex items-center justify-between text-xs">
+                        <span className="font-semibold text-zinc-400 flex items-center gap-1.5">🎙️ Voice Style</span>
+                        <span className={`text-[9px] px-2 py-0.5 rounded ${
+                           voiceStyle === 'no_voice' ? 'text-zinc-500 bg-zinc-800/50' : 'text-emerald-400 bg-emerald-500/10'
+                        }`}>
+                           {voiceStyle === 'no_voice' ? '🔇 No Voice' : 
+                            voiceStyle === 'saigon_female' ? '🇻🇳 Sài Gòn Nữ' :
+                            voiceStyle === 'saigon_male' ? '🇻🇳 Sài Gòn Nam' :
+                            voiceStyle === 'hanoi_female' ? '🇻🇳 Hà Nội Nữ' : '🇻🇳 Hà Nội Nam'}
+                        </span>
+                     </div>
+                     
+                     <div className="grid grid-cols-5 gap-1.5">
+                        {[
+                           { value: 'saigon_female' as const, label: 'SG Nữ', icon: '👩', desc: 'Giọng Sài Gòn nữ' },
+                           { value: 'saigon_male' as const, label: 'SG Nam', icon: '👨', desc: 'Giọng Sài Gòn nam' },
+                           { value: 'hanoi_female' as const, label: 'HN Nữ', icon: '👩', desc: 'Giọng Hà Nội nữ' },
+                           { value: 'hanoi_male' as const, label: 'HN Nam', icon: '👨', desc: 'Giọng Hà Nội nam' },
+                           { value: 'no_voice' as const, label: 'No Voice', icon: '🔇', desc: 'Music only' }
+                        ].map(opt => (
+                           <button
+                              key={opt.value}
+                              onClick={() => setVoiceStyle(opt.value)}
+                              className={`py-2 px-1 rounded border transition-all text-center
+                                 ${voiceStyle === opt.value
+                                    ? 'bg-emerald-600/20 border-emerald-500 text-emerald-200'
+                                    : 'bg-zinc-900/50 border-zinc-700 text-zinc-400 hover:border-zinc-500'}`}
+                           >
+                              <div className="text-[11px]">{opt.icon}</div>
+                              <div className="text-[8px] font-medium mt-0.5">{opt.label}</div>
+                           </button>
+                        ))}
+                     </div>
+                     
+                     <p className="text-[9px] text-emerald-400/70">
+                        {voiceStyle === 'no_voice' 
+                           ? '🔇 Không có giọng nói — chỉ ambient sound + music nền'
+                           : `🎙️ Veo 3.1 tạo giọng ${voiceStyle.includes('saigon') ? 'miền Nam Sài Gòn' : 'miền Bắc Hà Nội'} — cùng 1 giọng cho tất cả scenes`}
+                     </p>
+                  </div>
+
+                  {/* Brief Input */}
+                  <div className="relative">
+                     <textarea
+                        value={brief}
+                        onChange={(e) => setBrief(e.target.value)}
+                        className="w-full h-20 bg-zinc-900/50 border border-zinc-700 rounded-lg px-3 py-2 text-xs text-zinc-300 focus:outline-none focus:border-purple-500 resize-none"
+                        placeholder="Additional creative details... (e.g., mood, specific styling, special requests)"
+                     />
+                  </div>
+
+                  {/* Generate Button */}
+                  <button
+                     onClick={runDirector}
+                     disabled={!outfitImage || directorThinking}
+                     className={`w-full py-3 rounded-xl font-bold text-sm tracking-wide transition-all flex items-center justify-center gap-2
+                        ${outfitImage && !directorThinking
+                           ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 hover:scale-[1.01]'
+                           : 'bg-zinc-800 text-zinc-500 cursor-not-allowed'}`}
+                  >
+                     {directorThinking ? <><RefreshCcw className="w-4 h-4 animate-spin" /> Generating...</> : <><Wand2 className="w-4 h-4" /> Generate Affiliate Video</>}
+                  </button>
+
+               </div>
+            </div>
+            </div>
+
+            {/* Bottom Section: Results Output */}
+            <div className="flex flex-col min-h-[600px]">
+               <div className="glass-panel rounded-2xl h-full flex flex-col relative overflow-hidden border border-zinc-800 bg-black/20">
+
+                  {/* 1. Director View */}
+                  {step === 'director' && (
+                     <div className="absolute inset-0 z-10 flex flex-col bg-[#09090b]">
+
+                        {(directorThinking || videoRefining) ? (
+                           <div className="flex-1 flex flex-col items-center justify-center space-y-6">
+                              <div className="relative">
+                                 <div className="w-16 h-16 border-4 border-zinc-800 rounded-full"></div>
+                                 <div className={`w-16 h-16 border-4 ${videoRefining ? 'border-pink-500' : 'border-purple-500'} border-t-transparent rounded-full animate-spin absolute top-0 left-0`}></div>
+                              </div>
+                              <div className="text-center">
+                                 {videoRefining ? (
+                                    <>
+                                       <h3 className="text-lg font-display text-white flex items-center justify-center gap-2">
+                                          <Sparkles className="w-5 h-5 text-pink-400" />
+                                          Phase 2: Refining Video Scenes
+                                       </h3>
+                                       <p className="text-xs text-zinc-500 mt-2 uppercase tracking-widest">
+                                          AI đang tối ưu scene prompts liền mạch hơn
+                                       </p>
+                                       <div className="mt-4 text-[10px] text-pink-400 space-y-1">
+                                          <p>✓ Checking character consistency</p>
+                                          <p>✓ Verifying outfit preservation</p>
+                                          <p>✓ Ensuring seamless transitions</p>
+                                          <p className="animate-pulse">⟳ Syncing to beat pattern...</p>
+                                       </div>
+                                    </>
+                                 ) : (
+                                    <>
+                                       <h3 className="text-lg font-display text-white">
+                                          Phase 1: AI Director Filming
+                                       </h3>
+                                       <p className="text-xs text-zinc-500 mt-2 uppercase tracking-widest">
+                                          Creating Optimized {videoDuration}s Affiliate Video
+                                       </p>
+                                       <p className="text-[10px] text-purple-400 mt-3">
+                                          Phase 2 (Video Refinement) will run automatically
+                                       </p>
+                                    </>
+                                 )}
+                                 {locationVault.length > 0 && !videoRefining && (
+                                    <p className="text-[10px] text-purple-400 mt-2">
+                                       Avoiding {locationVault.length} previous locations
+                                    </p>
+                                 )}
+                              </div>
+                           </div>
+                        ) : (
+                           <>
+                              {/* Tab Header */}
+                              <div className="flex items-center gap-2 p-4 border-b border-zinc-800 bg-zinc-900/50 backdrop-blur flex-wrap">
+                                 <>
+                                    <TabButton active={activeTab === 'master'} onClick={() => setActiveTab('master')} icon={Camera} label="Master Prompt" />
+                                    <TabButton active={activeTab === 'keyframes'} onClick={() => setActiveTab('keyframes')} icon={Layers} label="Keyframes" />
+                                    <TabButton active={activeTab === 'scenes'} onClick={() => setActiveTab('scenes')} icon={Clapperboard} label="Scenes & Script" />
+                                    {directorOutput?.sections.refinedScenes && (
+                                       <TabButton active={activeTab === 'refined'} onClick={() => setActiveTab('refined')} icon={Sparkles} label="✨ Refined Scenes" />
+                                    )}
+                                    {directorOutput?.sections.production && (
+                                       <TabButton active={activeTab === 'production'} onClick={() => setActiveTab('production')} icon={FileText} label="Production Notes" />
+                                    )}
+                                 </>
+                              </div>
+
+                              {/* Content Area */}
+                              <div className="flex-1 overflow-y-auto p-6 relative">
+                                 <div className="font-mono text-sm leading-relaxed text-zinc-300">
+
+                                    {activeTab === 'master' && (
+                                       <div className="animate-in fade-in slide-in-from-bottom-2 space-y-6 relative">
+                                          <div>
+                                             <h4 className="text-purple-400 mb-2 text-xs font-bold uppercase tracking-widest">Common Master Prompt</h4>
+                                             <div className="bg-zinc-900/50 p-6 rounded-lg border border-zinc-800/50 whitespace-pre-wrap relative group">
+                                                {directorOutput?.sections.master}
+                                                <CopyButton text={directorOutput?.sections.master || ''} />
+                                             </div>
+                                             <p className="mt-2 text-[10px] text-zinc-500">
+                                                Use this prompt as the "Common Prompt" in your generation tool. It defines the character, outfit, and style for the entire video.
+                                             </p>
+                                          </div>
+                                       </div>
+                                    )}
+                                    {activeTab === 'keyframes' && (
+                                       <div className="animate-in fade-in slide-in-from-bottom-2 space-y-4">
+                                          <h4 className="text-blue-400 mb-2 text-xs font-bold uppercase tracking-widest">Image Sequence</h4>
+                                          {parseSegments(directorOutput?.sections.keyframes || '', 'image').map((segment, idx) => (
+                                             <div key={idx} className="bg-zinc-900/50 rounded-lg border border-zinc-800/50 overflow-hidden relative group">
+                                                <div className="bg-zinc-900/80 px-4 py-2 border-b border-zinc-800/50 flex justify-between items-center">
+                                                   <span className="text-[10px] font-bold text-blue-300 uppercase tracking-wider">{segment.title}</span>
+                                                </div>
+                                                <div className="p-4 pr-12 whitespace-pre-wrap text-xs text-zinc-300">
+                                                   {segment.content}
+                                                </div>
+                                                <CopyButton text={segment.content} />
+                                             </div>
+                                          ))}
+                                          <p className="mt-2 text-[10px] text-zinc-500">
+                                             Copy individual prompts to generate keyframes (Start, Middle, End).
+                                          </p>
+                                       </div>
+                                    )}
+                                    {activeTab === 'scenes' && (
+                                       <div className="animate-in fade-in slide-in-from-bottom-2 space-y-4">
+                                          <h4 className="text-green-400 mb-2 text-xs font-bold uppercase tracking-widest">
+                                             Scene Prompts & Vietnamese Script
+                                          </h4>
+                                          {directorOutput?.sections.refinedScenes && (
+                                             <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/30 rounded-lg p-3 mb-4">
+                                                <p className="text-xs text-purple-300">
+                                                   💡 <strong>Tip:</strong> Check the <span className="text-pink-400 font-bold">✨ Refined Scenes</span> tab for improved video continuity!
+                                                </p>
+                                             </div>
+                                          )}
+                                          {parseSegments(directorOutput?.sections.scenes || '', 'scene').map((segment, idx) => (
+                                             <div key={idx} className="bg-zinc-900/50 rounded-lg border border-zinc-800/50 overflow-hidden relative group">
+                                                <div className="bg-zinc-900/80 px-4 py-2 border-b border-zinc-800/50 flex justify-between items-center">
+                                                   <span className="text-[10px] font-bold text-green-300 uppercase tracking-wider">{segment.title}</span>
+                                                </div>
+                                                <div className="p-4 pr-12 whitespace-pre-wrap text-xs text-zinc-300">
+                                                   {segment.content}
+                                                </div>
+                                                <CopyButton text={segment.content} />
+                                             </div>
+                                          ))}
+                                          <p className="mt-2 text-[10px] text-zinc-500">
+                                             Each scene includes motion prompt and Vietnamese sales script. Use for real video shooting.
+                                          </p>
+                                       </div>
+                                    )}
+                                    {activeTab === 'refined' && directorOutput?.sections.refinedScenes && (
+                                       <div className="animate-in fade-in slide-in-from-bottom-2 space-y-4">
+                                          <div className="flex items-center justify-between mb-4">
+                                             <h4 className="text-pink-400 text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+                                                <Sparkles className="w-4 h-4" />
+                                                Refined Video Scenes (Phase 2)
+                                             </h4>
+                                             <span className="text-[10px] bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-pink-300 px-2 py-1 rounded-full border border-pink-500/30">
+                                                AI-Enhanced Continuity
+                                             </span>
+                                          </div>
+                                          <div className="bg-gradient-to-r from-purple-900/20 to-pink-900/20 border border-purple-500/30 rounded-lg p-4 mb-4">
+                                             <p className="text-xs text-purple-200 leading-relaxed">
+                                                <strong>✨ Phase 2 Refinement:</strong> These scene prompts have been analyzed by AI to ensure:
+                                             </p>
+                                             <ul className="text-[10px] text-purple-300 mt-2 space-y-1 ml-4">
+                                                <li>✓ <strong>Character Consistency:</strong> Same face, body, outfit in all scenes</li>
+                                                <li>✓ <strong>Seamless Transitions:</strong> END_POSE → START_POSE matches perfectly</li>
+                                                <li>✓ <strong>Living Environment:</strong> Ambient motion (wind, light, background)</li>
+                                                <li>✓ <strong>Beat-Sync:</strong> Poses aligned with remix drops and beats</li>
+                                                <li>✓ <strong>Fabric Physics:</strong> Consistent outfit behavior during motion</li>
+                                             </ul>
+                                          </div>
+                                          <div className="bg-zinc-900/50 rounded-lg border border-pink-800/30 overflow-hidden relative group">
+                                             <div className="bg-gradient-to-r from-purple-900/40 to-pink-900/40 px-4 py-3 border-b border-pink-800/30 flex justify-between items-center">
+                                                <span className="text-[10px] font-bold text-pink-300 uppercase tracking-wider">Full Refined Scene Prompts</span>
+                                             </div>
+                                             <div className="p-4 pr-12 whitespace-pre-wrap text-xs text-zinc-300 leading-relaxed max-h-[60vh] overflow-y-auto">
+                                                {directorOutput?.sections.refinedScenes}
+                                             </div>
+                                             <CopyButton text={directorOutput?.sections.refinedScenes || ''} />
+                                          </div>
+                                          <p className="mt-2 text-[10px] text-zinc-500">
+                                             🎬 Use these REFINED prompts for Veo 3.1 to get smoother, more consistent video results with better beat sync.
+                                          </p>
+                                       </div>
+                                    )}
+                                    {activeTab === 'production' && (
+                                       <div className="animate-in fade-in slide-in-from-bottom-2 space-y-4">
+                                          <h4 className="text-orange-400 mb-2 text-xs font-bold uppercase tracking-widest">Production Notes</h4>
+                                          <div className="bg-zinc-900/50 rounded-lg border border-zinc-800/50 overflow-hidden relative">
+                                             <div className="bg-orange-900/20 px-4 py-2 border-b border-orange-800/30 flex justify-between items-center">
+                                                <span className="text-[10px] font-bold text-orange-300 uppercase tracking-wider">Shooting Guide</span>
+                                             </div>
+                                             <div className="p-4 pr-12 whitespace-pre-wrap text-xs text-zinc-300 leading-relaxed">
+                                                {directorOutput?.sections.production}
+                                             </div>
+                                             <CopyButton text={directorOutput?.sections.production || ''} />
+                                          </div>
+                                          {directorOutput?.sections.metadata && (
+                                             <div className="bg-zinc-900/50 rounded-lg border border-zinc-800/50 overflow-hidden relative mt-4">
+                                                <div className="bg-purple-900/20 px-4 py-2 border-b border-purple-800/30">
+                                                   <span className="text-[10px] font-bold text-purple-300 uppercase tracking-wider">Metadata & Batch Info</span>
+                                                </div>
+                                                <div className="p-4 pr-12 whitespace-pre-wrap text-xs text-zinc-300">
+                                                   {directorOutput?.sections.metadata}
+                                                </div>
+                                                <CopyButton text={directorOutput?.sections.metadata || ''} />
+                                             </div>
+                                          )}
+                                          <p className="mt-2 text-[10px] text-zinc-500">
+                                             Use these notes to guide your production team. Includes camera setup, framing, and retake flexibility for each scene.
+                                          </p>
+                                       </div>
+                                    )}
+                                 </div>
+                              </div>
+
+                              {/* Footer Actions */}
+                              <div className="p-4 border-t border-zinc-800 bg-zinc-900/80 backdrop-blur flex justify-between items-center">
+                                 <button onClick={reset} className="text-xs text-zinc-500 hover:text-white transition-colors">CLEAR OUTPUT</button>
+                                 <button
+                                    onClick={runDirector}
+                                    className="bg-zinc-800 text-zinc-300 border border-zinc-700 px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-zinc-700 hover:text-white transition-all flex items-center gap-2"
+                                 >
+                                    <RotateCcw className="w-4 h-4" /> Regenerate Prompts
+                                 </button>
+                              </div>
+                           </>
+                        )}
+                     </div>
+                  )}
+
+                  {/* 3. Placeholder */}
+                  {step === 'input' && (
+                     <div className="absolute inset-0 flex flex-col items-center justify-center text-zinc-700 space-y-4">
+                        <Film className="w-12 h-12 opacity-20" />
+                        <p className="text-xs uppercase tracking-widest opacity-50">Studio Idle</p>
+                     </div>
+                  )}
+
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+   );
+};
+
+const container = document.getElementById('root');
+const root = createRoot(container!);
+root.render(<App />);

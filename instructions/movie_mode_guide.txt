@@ -1,0 +1,393 @@
+================================================
+🎬 MOVIE MODE - PHIM THỜI TRANG 2 PHÚT (120s)
+================================================
+Master guide cho Movie Mode - 2-minute fashion films
+Optimized for: Veo 3.1, Kling, Runway
+Logic: N+1 KEYFRAME (mỗi scene nối 2 keyframe liền kề)
+
+═══════════════════════════════════════════════════════════════
+📐 MOVIE ARCHITECTURE OVERVIEW (N+1 LOGIC)
+═══════════════════════════════════════════════════════════════
+
+MOVIE = 3 CHAPTERS x 40 giây = 120 giây (2 phút)
+Mỗi chapter = 5 scenes + 6 keyframes (N+1)
+
+TOTAL STRUCTURE:
+- 3 Chapters
+- 15 Scenes (5 per chapter × 8s = 40s per chapter)
+- 18 Keyframes (6 per chapter - N+1 logic)
+- 1 Story Arc (3-act structure)
+
+N+1 LOGIC EXPLAINED:
+┌─────────────────────────────────────────────────────────┐
+│ Scene 1 nối KF1 → KF2                                   │
+│ Scene 2 nối KF2 → KF3                                   │
+│ Scene 3 nối KF3 → KF4                                   │
+│ Scene 4 nối KF4 → KF5                                   │
+│ Scene 5 nối KF5 → KF6                                   │
+│ ─────────────────────────────────────────               │
+│ 5 scenes cần 6 keyframes (N+1)                          │
+└─────────────────────────────────────────────────────────┘
+
+OUTPUT FORMAT: 3 separate Chapter JSONs
+
+═══════════════════════════════════════════════════════════════
+🎭 3-CHAPTER STORY STRUCTURE (3-ACT FRAMEWORK)
+═══════════════════════════════════════════════════════════════
+
+### ACT 1: SETUP - Chapter 1 (0s - 40s)
+
+📍 CHAPTER 1: SETUP (Hook + Introduction)
+```
+PURPOSE: Thu hút ngay từ đầu, giới thiệu model, outfit, bối cảnh
+DURATION: 40s (5 scenes × 8s)
+SCENES: 5
+KEYFRAMES: 6 (KF01-KF06) - N+1 logic
+
+EMOTIONAL BEAT: Curiosity → Connection
+CAMERA STYLE: Mystery shots → reveal → establishing
+MUSIC TEMPO: Building, 90-110 BPM, atmospheric → melody
+
+CONTENT FLOW:
+- 0s-8s: Hook shot (mystery, partial reveal)
+- 8s-16s: Subject introduction (face reveal)
+- 16s-24s: Outfit showcase (full body)
+- 24s-32s: Environment context
+- 32s-40s: Character personality emerge
+
+KEYFRAME TIMESTAMPS:
+KF01: 0s   (hook, partial)
+KF02: 8s   (face reveal)
+KF03: 16s  (full outfit)
+KF04: 24s  (environment)
+KF05: 32s  (personality)
+KF06: 40s  (chapter end, transition ready)
+
+ENDING: "Now you know me, let's go deeper"
+```
+
+---
+
+### ACT 2: CONFRONTATION - Chapter 2 (40s - 80s)
+
+📍 CHAPTER 2: CONFRONTATION (Climax)
+```
+PURPOSE: Cao trào - moment đẹp nhất, showcase mạnh
+DURATION: 40s (5 scenes × 8s)
+SCENES: 5
+KEYFRAMES: 6 (KF07-KF12) - N+1 logic
+
+EMOTIONAL BEAT: Excitement → Peak Experience
+CAMERA STYLE: Dynamic, hero shots, dramatic lighting
+MUSIC TEMPO: Peak, 120-140 BPM, drop moment
+
+CONTENT FLOW:
+- 40s-48s: Energy builds
+- 48s-56s: Multiple angles showcase
+- 56s-64s: THE hero shot (most impactful)
+- 64s-72s: Peak confidence, peak beauty
+- 72s-80s: "Wow" moment satisfied
+
+KEYFRAME TIMESTAMPS:
+KF07: 40s  (energy start)
+KF08: 48s  (dynamic showcase)
+KF09: 56s  (hero shot)
+KF10: 64s  (peak moment)
+KF11: 72s  (wow reaction)
+KF12: 80s  (chapter end)
+
+ENDING: Peak satisfied, ready for resolution
+```
+
+---
+
+### ACT 3: RESOLUTION - Chapter 3 (80s - 120s)
+
+📍 CHAPTER 3: RESOLUTION (Finale)
+```
+PURPOSE: Kết thúc ấn tượng, CTA, để lại dấu ấn
+DURATION: 40s (5 scenes × 8s)
+SCENES: 5
+KEYFRAMES: 6 (KF13-KF18) - N+1 logic
+
+EMOTIONAL BEAT: Satisfaction → Invitation
+CAMERA STYLE: Warm, intimate, memorable frames
+MUSIC TEMPO: Easing, 80-100 BPM, emotional landing
+
+CONTENT FLOW:
+- 80s-88s: Post-climax appreciation
+- 88s-96s: Outfit in "daily life" context
+- 96s-104s: Relaxed, confident comfort
+- 104s-112s: Warm smile, connection
+- 112s-120s: Final frame, CTA, memorable close
+
+KEYFRAME TIMESTAMPS:
+KF13: 80s  (appreciation)
+KF14: 88s  (lifestyle)
+KF15: 96s  (comfort)
+KF16: 104s (connection)
+KF17: 112s (warm close)
+KF18: 120s (THE END)
+
+ENDING: Memorable close, desire to rewatch
+```
+
+═══════════════════════════════════════════════════════════════
+📚 4 STORY TEMPLATES (Adapted for 2 Minutes)
+═══════════════════════════════════════════════════════════════
+
+### 🌅 TEMPLATE 1: MORNING TO NIGHT (Condensed)
+
+Best for: Casual wear, versatile outfits, lifestyle content
+
+```
+Chapter 1 SETUP: Morning vibes - wake up, outfit reveal, ready to go
+Chapter 2 CONFRONTATION: Golden hour peak - street/park showcase, hero shots
+Chapter 3 RESOLUTION: Night finale - city lights, confident close
+```
+
+| Chapter | Time of Day | Lighting | Location Type |
+|---------|-------------|----------|---------------|
+| 1 | Morning | Soft natural | Home/Cafe |
+| 2 | Golden Hour | Warm golden | Street/Park |
+| 3 | Night | City lights | Night venue |
+
+---
+
+### ✨ TEMPLATE 2: TRANSFORMATION EPIC (Condensed)
+
+Best for: Formal wear, evening dresses, dramatic reveals
+
+```
+Chapter 1 SETUP: Before state - ordinary, plain, muted colors
+Chapter 2 CONFRONTATION: Transformation - sparkle magic, THE reveal
+Chapter 3 RESOLUTION: After state - living the new look, confidence
+```
+
+| Chapter | State | Energy | Visual Style |
+|---------|-------|--------|--------------|
+| 1 | Plain | Low | Muted, ordinary |
+| 2 | MAGIC | Peak | Sparkle, reveal |
+| 3 | Stunning | Warm glow | Rich, confident |
+
+---
+
+### 👗 TEMPLATE 3: FASHION SHOW (Condensed)
+
+Best for: Multiple looks, lookbook, brand campaigns
+
+```
+Chapter 1 SETUP: Backstage prep - anticipation, first look
+Chapter 2 CONFRONTATION: Hero showcase - runway, multiple angles, star outfit
+Chapter 3 RESOLUTION: Finale bow - final walk, brand statement
+```
+
+---
+
+### 🎯 TEMPLATE 4: BRAND STORY (Condensed)
+
+Best for: Brand campaigns, premium content, storytelling
+
+```
+Chapter 1 SETUP: Brand aesthetic + model introduction
+Chapter 2 CONFRONTATION: Hero product - detail showcase, craftsmanship
+Chapter 3 RESOLUTION: Lifestyle close - real world use, CTA
+```
+
+═══════════════════════════════════════════════════════════════
+🎥 CAMERA CHOREOGRAPHY (120s)
+═══════════════════════════════════════════════════════════════
+
+| Chapter | Camera Energy | Primary Shots | Movement Style |
+|---------|---------------|---------------|----------------|
+| 1 | Curious→Comfortable | Mystery → Full reveal | Push-in, orbit |
+| 2 | Dynamic→Dramatic | Hero, cinematic | Tracking, slow-mo |
+| 3 | Warm→Intimate | Close-up, connection | Slow, static |
+
+SHOT VARIETY PER CHAPTER:
+- Wide shot: 1
+- Medium shot: 2
+- Close-up: 1
+- Unique angle: 1
+
+═══════════════════════════════════════════════════════════════
+🎵 MUSIC STRUCTURE (120s)
+═══════════════════════════════════════════════════════════════
+
+```
+0s-40s (Chapter 1): INTRO + VERSE
+- Building, atmospheric → melody established
+- 90-110 BPM
+
+40s-80s (Chapter 2): CHORUS + DROP
+- Peak energy, most memorable
+- 120-140 BPM
+
+80s-120s (Chapter 3): BRIDGE + OUTRO
+- Easing, emotional landing
+- 80-100 BPM, fading
+```
+
+KEY SYNC POINTS:
+- 0s: First visual hook
+- 40s: Chapter 1→2 (energy shift)
+- 56s: Hero shot (beat drop)
+- 80s: Chapter 2→3 (settle)
+- 120s: END
+
+═══════════════════════════════════════════════════════════════
+🔗 CHAPTER TRANSITION STYLES
+═══════════════════════════════════════════════════════════════
+
+| Transition | Effect | Best For |
+|------------|--------|----------|
+| FADE | Soft dissolve | Time passage |
+| CUT | Hard cut on beat | Energy change |
+| ZOOM | Zoom in/out bridge | Focus shift |
+
+RECOMMENDED:
+- Chapter 1→2: CUT on beat (comfortable to dynamic)
+- Chapter 2→3: FADE (climax to settle)
+
+═══════════════════════════════════════════════════════════════
+📊 KEYFRAME DISTRIBUTION (18 TOTAL - N+1)
+═══════════════════════════════════════════════════════════════
+
+```
+Chapter 1 (0-40s):  KF01, KF02, KF03, KF04, KF05, KF06 (6 KF)
+Chapter 2 (40-80s): KF07, KF08, KF09, KF10, KF11, KF12 (6 KF)
+Chapter 3 (80-120s): KF13, KF14, KF15, KF16, KF17, KF18 (6 KF)
+
+TOTAL: 18 Keyframes
+```
+
+KEYFRAME TIMESTAMPS (8s intervals):
+```
+0s, 8s, 16s, 24s, 32s, 40s,     (Ch1: 6 KF)
+40s, 48s, 56s, 64s, 72s, 80s,   (Ch2: 6 KF) 
+80s, 88s, 96s, 104s, 112s, 120s (Ch3: 6 KF)
+```
+
+NOTE: Keyframes at 40s and 80s serve dual roles as both
+ending frame of previous chapter and starting frame of next.
+
+═══════════════════════════════════════════════════════════════
+⚠️ CONSISTENCY RULES (CRITICAL)
+═══════════════════════════════════════════════════════════════
+
+Across ALL 3 chapters, MUST maintain:
+
+✅ FACE IDENTITY:
+- Exact same facial features
+- Use masterPrompt.facePreservation in every chapter
+
+✅ OUTFIT CONSISTENCY:
+- Same outfit throughout (unless Fashion Show)
+- Fabric details, colors identical
+
+✅ COLOR GRADING:
+- Consistent color palette
+- Light variation allowed by time-of-day
+- Same skin tone
+
+✅ MODEL BEHAVIOR:
+- Consistent personality
+- Expression follows story arc
+
+═══════════════════════════════════════════════════════════════
+📋 OUTPUT JSON FORMAT (PER CHAPTER)
+═══════════════════════════════════════════════════════════════
+
+```json
+{
+  "chapterInfo": {
+    "chapterId": 1,
+    "chapterName": "Setup",
+    "timeRange": "0s-40s",
+    "storyBeat": "Hook + giới thiệu model, outfit, bối cảnh",
+    "emotionalArc": "curiosity → connection"
+  },
+  "masterPrompt": {
+    "facePreservation": "EXACT facial features preserved...",
+    "subject": "Young Vietnamese woman, 22-25 years old...",
+    "outfit": "Navy blue silk evening dress...",
+    "consistencyCheck": "Chapter 1 of 3"
+  },
+  "keyframes": [
+    {
+      "id": 1,
+      "timestamp": "0s",
+      "subject": "Model silhouette in doorway...",
+      "action": "Standing mysterious",
+      "environment": "Luxury hotel corridor",
+      "lighting": "Backlit silhouette",
+      "camera": "Wide shot, slow push-in",
+      "style": "Cinematic, mystery"
+    }
+    // ... 5 more keyframes (total 6)
+  ],
+  "scenes": [
+    {
+      "id": 1,
+      "timeRange": "0s-8s",
+      "shotType": "Establishing/Mystery",
+      "subjectMotion": "Standing still, slight turn",
+      "cameraMotion": "Slow dolly in",
+      "atmosphere": "Anticipation",
+      "startPose": "Matches KF01",
+      "endPose": "Matches KF02"
+    }
+    // ... 4 more scenes (total 5)
+  ],
+  "transitionToNext": "CUT on beat"
+}
+```
+
+═══════════════════════════════════════════════════════════════
+🎬 AI GENERATION WORKFLOW
+═══════════════════════════════════════════════════════════════
+
+STEP 1: Generate Story Outline
+```
+Input: Outfit image + Story template
+Output: 3-chapter summary + masterPrompt
+```
+
+STEP 2-4: Generate Chapters (Sequential)
+```
+Each request includes:
+- masterPrompt (consistency)
+- Previous chapter ending (continuity)
+- Current chapter requirements
+Output: Chapter JSON with 6 keyframes + 5 scenes
+```
+
+STEP 5: Compile & Validate
+```
+Check:
+- All 3 chapters present
+- 18 keyframes total
+- 15 scenes total
+- Face/outfit consistency
+Output: Final 2-minute movie package
+```
+
+═══════════════════════════════════════════════════════════════
+✅ PRODUCT SUITABILITY
+═══════════════════════════════════════════════════════════════
+
+BEST FOR (2-MIN MOVIE MODE):
+✅ Evening gowns - dramatic storytelling
+✅ Áo dài - cultural fashion film
+✅ Designer pieces - brand film
+✅ Transformation content - before/after
+✅ Premium lookbook - extended showcase
+
+LESS IDEAL (stick to 32s videos):
+⚠️ Simple t-shirts (too long)
+⚠️ Basic accessories
+⚠️ Quick trend content
+
+================================================
+END MOVIE MODE GUIDE - 2 PHÚT (120s)
+================================================

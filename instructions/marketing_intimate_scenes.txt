@@ -1,0 +1,428 @@
+================================================
+📢 MARKETING FASHION FOUNDATIONS - 32s AFFILIATE VIDEO SCRIPT
+================================================
+Kịch bản video 32 giây (4 cảnh × 8 giây) chuyên dành cho quảng cáo tiếp thị fashion foundations,
+inner wear, định hình, bikini, foundation set trên TikTok/Reels/Shorts.
+
+Mục tiêu: Nhấn mạnh khả năng tôn dáng, che khuyết điểm, chất liệu cao cấp và sự thoải mái.
+Nhạc nền: Beat nhạc House/Fashion hiện đại, 120-130 BPM, sang trọng.
+
+================================================
+🔍 BƯỚC 1 — AI PHÂN TÍCH SẢN PHẨM (BẮT BUỘC)
+================================================
+
+TRƯỚC KHI TẠO KỊCH BẢN, AI PHẢI phân tích KỸ ảnh sản phẩm:
+
+1. LOẠI SẢN PHẨM CỤ THỂ:
+   - Áo ngực: Contour-shaping / Bralette / Strapless / Sport bra / Có gọng / Không gọng
+   - Quần: Gen bụng / Boyshort / Thong / Brief / Bikini cut
+   - Set: Bra + Panty set / Foundation set / Matching coordinates
+   - One-piece: Bodysuit / Teddy / Corset / Shapewear
+   - Sleepwear: Đồ ngủ lụa / Pyjama set / Nightgown
+   - Swimwear: Bikini / One-piece swimsuit
+
+2. CHẤT LIỆU (từ ảnh):
+   - Lụa băng (Ice Silk) / Ren (Lace) / Satin / Cotton Modal / Mesh / Microfiber
+
+3. ĐẶC ĐIỂM NỔI BẬT:
+   - Contour-shaping / Wireless / Seamless / Đệm nâng / Có gọng / Front-close
+   - Co giãn / Thông thoáng / Chống tràn / Định hình
+
+4. MÀU SẮC & STYLE:
+   - Tone màu / Phong cách (classic, elegant, sporty, playful)
+
+⚠️ NẾU CÓ USER CUSTOM REQUIREMENTS / NOTE:
+AI PHẢI ưu tiên đọc và sử dụng thông tin từ user note.
+User note có thể chứa:
+- Tên sản phẩm chính xác → Dùng làm tiêu đề
+- Giá bán / Khuyến mãi → Dùng cho text overlay Scene 1 (hook) và Scene 4 (CTA)
+- Chất liệu / Công nghệ → Dùng cho Scene 2 (feature)
+- USP (unique selling point) → Dùng cho Scene 3 (benefit)
+- Thông tin thêm → Tích hợp vào voiceover script
+
+================================================
+🎬 SCENE STRUCTURE (32s = 4 SCENES × 8s)
+================================================
+
+┌─────────────────────────────────────────────────────┐
+│ SCENE 1 (0-8s): THE HOOK — "Hiệu ứng thị giác"    │
+│ SCENE 2 (8-16s): THE FEATURE — "Zoom chi tiết"     │
+│ SCENE 3 (16-24s): THE BENEFIT — "Góc nghiêng"      │
+│ SCENE 4 (24-32s): CTA — "Chốt đơn"                 │
+└─────────────────────────────────────────────────────┘
+
+================================================
+🎯 SCENE 1 (0s - 8s): THE HOOK — "Hiệu ứng thị giác"
+================================================
+MỤC ĐÍCH: Giữ chân người xem ngay lập tức bằng sự đối lập hoặc vẻ đẹp tổng thể.
+STOP-SCROLL TIME: 0-3s → Visual phải WOW ngay.
+
+📸 HÌNH ẢNH (VISUAL):
+- Split-screen comparison: Bên TRÁI = mặt trước, Bên PHẢI = mặt sau
+- Mannequin/Model xoay nhẹ khoảng 15° để tạo chiều sâu
+- Soft studio lighting, high contrast background (trắng/kem)
+- Rim lighting nhẹ viền quanh sản phẩm tạo highlight
+- KHÔNG zoom cận — toàn thân rõ ràng
+
+📸 CAMERA:
+- Static split-screen HOẶC smooth transition front→back
+- Slow dolly push-in nhẹ (2% zoom trong 8s)
+- Clean composition, sản phẩm là focal point
+
+📝 TEXT OVERLAY — AI TỰ TẠO ĐỘNG:
+AI tạo câu hook gây tò mò dựa trên USP sản phẩm.
+Nếu user note có giá → dùng giá trong hook.
+
+VÍ DỤ THAM KHẢO (KHÔNG COPY — AI viết mới cho mỗi sản phẩm):
+| Loại SP | Hook mẫu |
+|---------|----------|
+| Áo ngực đẩy | "Hack dáng vòng 1 tự nhiên ⏳" |
+| Quần gen | "Eo thon 2 size sau 1 giây 👀" |
+| Set đồ ngủ | "Set ngủ sang chảnh mà rẻ bất ngờ ✨" |
+| Bodysuit | "1 món mặc được 3 kiểu 🔥" |
+| Shapewear | "Mặc vào thon gọn ngay tức thì 💪" |
+
+⚡ HOOK VARIANTS (AI chọn phù hợp với sản phẩm):
+| Hook Type | Visual | Khi nào dùng |
+|-----------|--------|-------------|
+| Split Compare | Front/Back split-screen | Sản phẩm có thiết kế trước/sau khác biệt |
+| Before-After | Without → With animation | Shapewear, gen bụng, contour-shaping |
+| Mystery Tease | Blurred reveal → sharp | Foundation set, bodysuit sang trọng |
+| Number Shock | Product + price overlay | Khi user note có giá tốt |
+| Social Proof | Product + "50K+ đã mua" | Bestseller, sản phẩm hot |
+
+================================================
+🔍 SCENE 2 (8s - 16s): THE FEATURE — "Zoom chi tiết chất liệu"
+================================================
+MỤC ĐÍCH: Chứng minh chất lượng vải — giải quyết nỗi lo lớn nhất khi mua online.
+
+📸 HÌNH ẢNH (VISUAL):
+- Extreme close-up / Macro shot vào phần ren, đường viền, hoặc chất liệu chính
+- Mô phỏng lực kéo nhẹ → thấy độ co giãn (elasticity demo)
+- Slow camera movement zooming in, smooth focus pull
+- Ánh sáng mềm, highlight texture vải
+- Có thể thêm hand model chạm nhẹ vào vải
+
+📸 CAMERA:
+- Macro lens feel (simulated 100mm f/2.8)
+- Slow zoom-in từ medium → extreme close-up
+- Rack focus từ background → fabric texture
+- Smooth pan dọc theo đường ren/viền
+
+📝 TEXT OVERLAY — AI TỰ TẠO ĐỘNG:
+AI mô tả chất liệu/công nghệ THỰC TẾ của sản phẩm (từ phân tích ảnh + user note).
+
+🧵 FABRIC HIGHLIGHT — AI TỰ CHỌN DỰA TRÊN ẢNH:
+| Chất liệu | Keyword Prompt | Demo Visual |
+|-----------|---------------|-------------|
+| Lụa băng (Ice Silk) | "Lustrous ice silk, weightless draping" | Vải chảy mềm qua ngón tay |
+| Ren (Lace) | "Intricate Chantilly lace, delicate eyelash trim" | Zoom pattern ren chi tiết |
+| Satin | "High-sheen charmeuse, liquid reflection" | Ánh sáng phản chiếu trên satin |
+| Cotton Modal | "Breathable cotton-modal blend, soft matte finish" | Kéo nhẹ thấy co giãn |
+| Mesh | "Fine power mesh, diaphanous construction" | Ánh sáng xuyên qua mesh |
+
+================================================
+💪 SCENE 3 (16s - 24s): THE BENEFIT — "Góc nghiêng thần thánh"
+================================================
+MỤC ĐÍCH: Show khả năng nâng đỡ, tạo đường cong (S-line), tôn dáng.
+
+📸 HÌNH ẢNH (VISUAL):
+- Side profile view — góc nghiêng 90°
+- Camera tilt-up chậm từ hông → ngực (hips to bust)
+- Nhấn mạnh hiệu quả tôn dáng PHÙ HỢP với loại sản phẩm
+- Background clean, lighting rim nhẹ viền body
+
+📸 CAMERA:
+- Side profile angle, mannequin/model đứng yên
+- Slow tilt-up from hip level → bust level (8 giây)
+- Shallow depth of field (f/2.0) — background blur mềm
+- Hoặc: Slow orbit 45° quanh mannequin
+
+📝 TEXT OVERLAY — AI TỰ TẠO ĐỘNG:
+AI nêu công dụng chính THEO ĐÚNG loại sản phẩm đã phân tích.
+
+💃 BENEFIT — AI TỰ CHỌN THEO LOẠI SẢN PHẨM:
+| Loại sản phẩm | Benefit Focus | Camera |
+|--------------|--------------|--------|
+| Áo contour-shaping | Nâng đỡ effect, hỗ trợ | Tilt-up detail focus |
+| Quần gen | Waist cinching, gom bụng | Pan across waistline |
+| Set bodysuit | Full S-curve, seamless | Full side orbit |
+| Áo bralette | Natural lift, thoải mái | Medium side profile |
+| Đồ định hình | Before/After silhouette | Split overlay |
+| Đồ ngủ lụa | Comfort, mát lạnh, mềm | Soft pan across fabric |
+| Bikini | Fit tốt, tự tin bãi biển | Side walking shot |
+
+================================================
+🛒 SCENE 4 (24s - 32s): CALL TO ACTION — "Chốt đơn"
+================================================
+MỤC ĐÍCH: Thúc giục mua hàng. Tạo urgency + confidence.
+
+📸 HÌNH ẢNH (VISUAL):
+- Full body shot — toàn thân mannequin/model
+- Pose tự tin: đứng thẳng, tay nhẹ trên hông hoặc tạo dáng
+- Fashion runway feel — ánh sáng spotlight
+- Sparkle/shimmer effect nhẹ (post-production cue)
+- Clean background, premium feel
+
+📸 CAMERA:
+- Full body medium-wide shot
+- Slow pull-back reveal hoặc static hero shot
+- Confident framing — model/mannequin là center of attention
+- Ánh sáng sáng hơn Scene 1-3, feeling "aspirational"
+
+📝 TEXT OVERLAY — AI TỰ TẠO ĐỘNG:
+AI tạo CTA phù hợp. Nếu user note có thông tin khuyến mãi → sử dụng.
+Nếu không có → tạo CTA chung hấp dẫn.
+
+================================================
+🎙️ VOICEOVER — AI TỰ TẠO ĐỘNG (BẮT BUỘC)
+================================================
+
+AI PHẢI viết voiceover script RIÊNG cho từng scene.
+KHÔNG COPY mẫu — viết nội dung MỚI phù hợp sản phẩm thật.
+
+Nguồn dữ liệu để viết:
+1. Phân tích ảnh sản phẩm (loại, chất liệu, đặc điểm)
+2. User custom note (tên SP, giá, USP, khuyến mãi)
+
+Tone cho từng scene:
+- Scene 1: Tò mò / Hấp dẫn — thu hút chú ý
+- Scene 2: Chuyên gia / Tin cậy — chứng minh chất lượng  
+- Scene 3: Tự tin / Hào hứng — khoe công dụng
+- Scene 4: Gấp / Thân thiện — thúc giục hành động
+
+Ngôn ngữ: Vietnamese, giọng nữ, tone thân thiện như bạn bè.
+Độ dài mỗi câu: 2-3 giây nói (15-25 từ).
+
+================================================
+🧍 DISPLAY MODE: MANNEQUIN vs MODEL
+================================================
+
+🧑 MANNEQUIN MODE (Mặc định cho fashion foundations):
+- Sử dụng mannequin trắng/nude tone, clean form
+- Focus 100% vào sản phẩm — không bị distract bởi face/body
+- Xoay mannequin nhẹ 15-30° mỗi scene
+- Studio lighting chuyên nghiệp
+- Phù hợp: bra, panty, bodysuit, shapewear
+- EN: "Professional white mannequin torso, clean studio, product-focused shot"
+
+💃 MODEL MODE (Lifestyle showcase):
+- Model thật mặc sản phẩm (tuân thủ safety vocabulary)
+- Pose tự tin, elegant — KHÔNG quá bold
+- Có thể layer thêm outer garment (cardigan, silk robe)
+- Background lifestyle: phòng trang điểm, bathroom luxury, bedroom elegant
+- EN: "Confident model wearing [product], editorial fashion catalog aesthetic"
+- ⚠️ BẮT BUỘC: Tuân thủ FASHION FOUNDATIONS SAFE VOCABULARY
+
+🤖 AUTO MODE:
+- AI tự quyết định dựa trên sản phẩm:
+  | Product | Display | Lý do |
+  |---------|---------|-------|
+  | Bra/Panty đơn lẻ | Mannequin | Focus sản phẩm |
+  | Foundation set | Mannequin hoặc Model | Tùy style |
+  | Bodysuit/Teddy | Model | Cần thấy fit on body |
+  | Shapewear | Mannequin split | Before/After effect |
+  | Sleepwear set | Model | Lifestyle context |
+
+================================================
+💃 EDITORIAL POSE LIBRARY (SAFE VOCABULARY — CHO FASHION FOUNDATIONS)
+================================================
+
+⚠️ ĐIỀU KIỆN SỊ DỤNG: Các pose dưới đây CHỈ được dùng khi:
+1. Sản phẩm là inner / foundation / bodysuit / sleepwear
+2. Display mode = MODEL (không áp dụng cho mannequin)
+3. PHẢI dùng từ ngữ an toàn (EN safe prompt) — TUYỆT ĐỐI không dùng từ nhạy cảm
+
+📐 STANDING POSES (Đứng):
+
+| # | Pose Name (Safe) | EN Safe Prompt | Camera | Phù hợp SP |
+|---|-----------------|----------------|--------|------------|
+| S1 | Posterior Silhouette | "Model standing, back-facing composition, slight spinal curvature, looking over shoulder, editorial catalog posture" | Behind 3/4, medium shot | Bodysuit, teddy, thong set |
+| S2 | Architectural Hip Shift | "Model standing, weight shifted to one hip, hand resting on hip bone, elongated torso line, fashion editorial stance" | Front 3/4, full body | Corset, shapewear, waist cincher |
+| S3 | Contra-Posto Classical | "Model in classical contrapposto stance, one knee slightly bent, natural S-curve body architecture, gallery-worthy composition" | Side profile 45° | Foundation set, matching coordinates |
+| S4 | Over-Shoulder Compositional Glance | "Model with back partially to camera, gentle torso rotation, chin towards shoulder, confident gaze, editorial lighting" | Behind, upper body focus | Bralette, backless designs |
+| S5 | Standing Side Silhouette | "Model in full side profile, natural posture, clean body line from ankle to crown, rim lighting emphasizing contour" | Exact side 90° | Contour-shaping bodice, body shaper |
+| S6 | Mirror Reflection Pose | "Model facing away, looking into vanity mirror, natural morning routine posture, lifestyle editorial composition" | Behind 3/4 + mirror | Sleepwear, robe + foundation set |
+
+📐 SEATED POSES (Ngồi):
+
+| # | Pose Name (Safe) | EN Safe Prompt | Camera | Phù hợp SP |
+|---|-----------------|----------------|--------|------------|
+| T1 | Seated Editorial Spread | "Model seated on upholstered bench, legs positioned symmetrically in relaxed V-arrangement, hands on knees, confident forward gaze, fashion editorial framing" | Front, medium-wide | Bodysuit, teddy, romper |
+| T2 | Cross-Leg Editorial | "Model seated with legs crossed at ankle, one hand adjusting garment strap, poised catalog posture, clean studio background" | Front 3/4, full seated | Bralette set, matching set |
+| T3 | Perched Side Profile | "Model perched on edge of surface, legs together angled to side, torso slightly rotated toward camera, elegant seated silhouette" | Side 3/4 | Slip dress, camisole set |
+| T4 | Reclined Backrest | "Model seated leaning back against headboard/cushion, arms relaxed at sides, relaxed lifestyle posture, soft ambient lighting" | Front elevated angle | Sleepwear set, pyjama |
+| T5 | Floor Seated Tuck | "Model seated on floor, one knee drawn up, one leg extended, hand on drawn knee, relaxed editorial composition" | Front, slightly above eye-level | Lounge set, comfort wear |
+
+📐 KNEELING POSES (Quỳ):
+
+| # | Pose Name (Safe) | EN Safe Prompt | Camera | Phù hợp SP |
+|---|-----------------|----------------|--------|------------|
+| K1 | Kneeling Posterior Composition | "Model in kneeling posture, back-facing orientation, straight spine, hands resting on thighs, clean posterior product showcase, technical garment photography" | Behind, medium shot | Thong, cheeky brief, bodysuit back |
+| K2 | Kneeling Profile Architecture | "Model kneeling in side profile, upright torso, hands on thigh, body line creating clean vertical architecture, editorial studio lighting" | Side 90° | Waist cincher, body suit |
+| K3 | Kneeling Forward Presentation | "Model kneeling facing camera, upright posture, hands placed on upper thighs, confident forward gaze, professional catalog photography" | Front, eye-level | Bralette, front-close bra |
+| K4 | Kneeling Sit-Back | "Model in relaxed kneeling position, sitting back on heels, hands on lap, gentle torso lean forward, soft editorial feel" | Front 3/4, slightly above | Sleepwear, comfort foundation |
+
+📐 RECLINING POSES (Nằm/Nghiêng):
+
+| # | Pose Name (Safe) | EN Safe Prompt | Camera | Phù hợp SP |
+|---|-----------------|----------------|--------|------------|
+| R1 | Side Recline Silhouette | "Model in side-lying position, head propped on hand, body creating continuous S-curve, fabric draping demonstration, editorial elegance photography" | Side, medium | Slip dress, satin set |
+| R2 | Supine Elevated Frame | "Model lying on back, one knee raised, arms positioned naturally above, garment visible from elevated camera angle, clean studio floor" | Directly above, medium-wide | Bodysuit, teddy |
+| R3 | Prone Editorial Composition | "Model in face-down position, chin resting on crossed arms, looking toward camera, relaxed morning editorial aesthetic" | Front, floor-level | Panty set, boyshort |
+| R4 | Chaise Lounge Recline | "Model reclining on chaise lounge, semi-upright position, one arm along backrest, elegant lifestyle composition" | Side 3/4 | Silk robe + foundation set |
+
+📐 DYNAMIC / MOVEMENT POSES (Chuyển động):
+
+| # | Pose Name (Safe) | EN Safe Prompt | Camera | Phù hợp SP |
+|---|-----------------|----------------|--------|------------|
+| D1 | Garment Adjustment | "Model adjusting shoulder strap with one hand, slight body twist, natural dressing-room moment, candid editorial feel" | Front 3/4, medium | Bra, bralette, slip |
+| D2 | Robe Drop Reveal | "Model sliding silk robe off one shoulder, showcasing garment underneath, confident expression, fashion campaign aesthetic" | Front, medium shot | Any intimate set + robe |
+| D3 | Walking Toward Camera | "Model walking confidently forward, mid-stride, arms in natural swing, product visible in motion, editorial runway approach" | Front, full body | Bodysuit, teddy, slip |
+| D4 | Hair Lift Arms Up | "Model lifting hair with both hands, elbows raised, torso elongated, showcasing garment neckline and fit, confident upward gaze" | Front 3/4, medium | Strapless, halter, bralette |
+| D5 | Twist & Look Back | "Model mid-twist, torso rotating, looking over shoulder with smile, dynamic movement showing garment flexibility" | Behind 3/4 | Stretch fabric, seamless |
+
+📋 QUY TẮC CHỌN POSE:
+
+1. AI TỰ CHỌN pose phù hợp dựa trên loại sản phẩm (xem cột "Phù hợp SP")
+2. MỖI SCENE chọn pose KHÁC NHAU — không lặp pose giữa các scene
+3. Scene 1 (Hook): Ưu tiên S1-S3, D2, D4 — tạo visual impact
+4. Scene 2 (Feature): Ưu tiên D1, T3, K2 — close-up thấy rõ sản phẩm
+5. Scene 3 (Benefit): Ưu tiên S5, K1, R1 — side/back view khoe đường cong
+6. Scene 4 (CTA): Ưu tiên S2, S3, D3 — confident, aspirational feeling
+
+⚠️ AN TOÀN BẮT BUỘC:
+- LUÔN dùng EN safe prompt CHÍNH XÁC như trong bảng
+- LUÔN dùng fashion vocabulary: confident, poised, editorial, elegant, sophisticated
+- KHÔNG mô tả body parts trực tiếp — chỉ mô tả POSE & COMPOSITION
+- Camera KHÔNG bao giờ ở low angle nhìn lên (suggestive angle)
+- Facial expression: confident smile, relaxed gaze, editorial neutral
+
+================================================
+✅ FASHION VOCABULARY (BẮT BUỘC — FASHION FOUNDATIONS)
+================================================
+
+⚠️ MARKETING MODE KẾ THỪA TOÀN BỘ FASHION FOUNDATIONS SAFETY RULES từ director.txt
+
+✅ LUÔN SỬ DỤNG (POSITIVE-ONLY):
+- "Corsetry-style bodice", "Fitted bodice architecture" 
+- "Elegant décolletage line", "Refined neckline"
+- "Graceful lower silhouette", "Hip architecture"
+- "Professional catalog photography", "Editorial fashion"
+- "Supportive construction", "Shaping technology"
+- "Confidence-enhancing fit", "Comfortable all-day wear"
+- "Lounge coordinates", "Shaping set", "Coordinated bottom"
+- "Supportive bodice", "Structured top", "Fashion foundation"
+
+📝 SCRIPT VOCABULARY (Vietnamese — Marketing Safe):
+| ✅ LUÔN DÙNG |
+|-------------|
+| Set inner thiết kế |
+| Quần gen tôn dáng |
+| Tự tin, thu hút, tinh tế |
+| Tôn dáng, che khuyết điểm |
+| Đường cong hoàn hảo |
+
+================================================
+🎨 LIGHTING & ATMOSPHERE RULES
+================================================
+
+SCENE 1 (Hook): 
+- Soft even studio lighting, dual softbox
+- Clean white/cream backdrop
+- Rim light nhẹ viền sản phẩm
+
+SCENE 2 (Feature):
+- Dramatic single key light từ 45°
+- Tạo bóng nhẹ highlight texture vải
+- Macro lighting ring light
+
+SCENE 3 (Benefit):
+- Side rim lighting tạo S-line silhouette
+- Backlight mạnh hơn key light
+- Gradient background (dark→light từ trái→phải)
+
+SCENE 4 (CTA):
+- Bright confident lighting — dual softbox + fill
+- Sparkle/shimmer overlay cue
+- Spotlight center stage feel
+
+🎵 MUSIC:
+- Style: Modern House / Fashion Beat
+- BPM: 120-130 (vừa phải, sang trọng)
+- Drop timing: 
+  • Beat nhẹ ở 0s (hook start)
+  • Build-up 8-16s (feature reveal)
+  • Soft drop 16s (benefit reveal)  
+  • Full beat 24s (CTA energy)
+
+================================================
+📐 ASPECT RATIO ADAPTATION
+================================================
+
+📱 9:16 (TikTok/Reels/Shorts — CHÍNH):
+- Mannequin/Model chiếm 70-85% frame height
+- Text overlay ở top 15% và bottom 15%
+- Side view: model chiếm 60% width, 40% is negative space
+- CTA text ở bottom 20%
+
+🖥️ 16:9 (YouTube/Website — PHỤ):
+- Product center, occupying 50-60% frame height
+- Wider context visible — studio environment
+- Text overlay ở side panels
+- Split-screen dễ làm hơn (50/50 horizontal split)
+
+================================================
+📊 OUTPUT FORMAT — JSON FIELDS
+================================================
+
+AI PHẢI output các fields đặc biệt cho Marketing mode:
+
+```json
+{
+  "marketingData": {
+    "hookType": "split_compare | before_after | mystery_tease | number_shock | social_proof",
+    "productAnalysis": {
+      "type": "AI phân tích từ ảnh",
+      "material": "AI phân tích từ ảnh",
+      "features": ["AI phân tích từ ảnh"],
+      "color": "AI phân tích từ ảnh",
+      "style": "AI phân tích từ ảnh"
+    },
+    "textOverlays": [
+      { "scene": 1, "text": "AI TỰ VIẾT — hook dựa trên USP", "position": "top-center", "style": "bold_white" },
+      { "scene": 2, "text": "AI TỰ VIẾT — feature dựa trên chất liệu", "position": "bottom-left", "style": "subtitle" },
+      { "scene": 3, "text": "AI TỰ VIẾT — benefit dựa trên loại SP", "position": "center", "style": "highlight" },
+      { "scene": 4, "text": "AI TỰ VIẾT — CTA dựa trên user note", "position": "bottom-center", "style": "cta_button" }
+    ],
+    "voiceover": [
+      { "scene": 1, "script_vi": "AI TỰ VIẾT", "tone": "friendly_curious" },
+      { "scene": 2, "script_vi": "AI TỰ VIẾT", "tone": "informative" },
+      { "scene": 3, "script_vi": "AI TỰ VIẾT", "tone": "confident" },
+      { "scene": 4, "script_vi": "AI TỰ VIẾT", "tone": "urgent_friendly" }
+    ],
+    "displayMode": "mannequin | model | auto",
+    "productBenefits": ["AI TỰ PHÂN TÍCH từ ảnh + user note"],
+    "targetAudience": "AI tự xác định từ loại sản phẩm",
+    "musicStyle": "Modern House 120-130 BPM"
+  }
+}
+```
+
+================================================
+🚫 AUTO-REJECT CRITERIA (Marketing Mode)
+================================================
+
+Video bị REJECT nếu:
+1. ❌ Không có text overlay ở Scene 1 (hook yếu)
+2. ❌ Không có CTA ở Scene 4
+3. ❌ Không dùng fashion vocabulary chuẩn (phải dùng từ professional)
+4. ❌ Camera angle quá thấp (low angle looking up = suggestive)
+5. ❌ Không có fabric close-up ở Scene 2
+6. ❌ Background quá phức tạp (distract khỏi sản phẩm)
+7. ❌ Model pose quá bold / không editorial
+8. ❌ Thiếu voiceover script
+9. ❌ Nhạc không phù hợp (quá nhanh/chậm)
+10. ❌ Thiếu benefit demonstration ở Scene 3
+11. ❌ COPY NGUYÊN MẪU text/voiceover thay vì viết mới cho sản phẩm cụ thể
+12. ❌ Text overlay/voiceover không liên quan đến sản phẩm thực tế trong ảnh

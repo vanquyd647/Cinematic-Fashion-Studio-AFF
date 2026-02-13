@@ -1,0 +1,658 @@
+# 👗 THỬ ĐỒ MODE — VIRTUAL TRY-ON & OUTFIT CHANGE GUIDE
+# Optimized for Nano Banana Pro (4K Image) + Veo 3.1 (8s Video) + Voice
+
+## OVERVIEW
+
+Thử Đồ (Try-On) Mode tạo video thử đồ/thay đồ chuyên nghiệp — trend TikTok mạnh nhất 2025-2026.
+Model thử nhiều outfit liên tiếp, mỗi outfit 1 scene (8s), kết hợp voice review tự nhiên.
+
+**Khác biệt với các mode khác:**
+- **Biến Hình (Transform)**: Magic sparkle effect, 1 lần biến đổi dramatic → THỬ ĐỒ: Nhiều outfit, natural transitions, realistic fitting
+- **Walk-In**: Model đi về phía camera, 1 outfit → THỬ ĐỒ: Multiple outfits, camera tĩnh, review từng set
+- **Outfit Change Viral (Video Style)**: Beat-synced kick/spin cuts → THỬ ĐỒ: Detailed try-on, voice commentary, longer format
+
+---
+
+## 🎭 VARIANTS (Sub-modes)
+
+### 1. FITTING ROOM (Phòng Thử Đồ)
+- Setting: Retail fitting room, mirror visible, curtain/door
+- Flow: Mở cửa → Outfit reveal → Mirror check → Pose → Rating → Đóng cửa → Next
+- Camera: Medium-full shot, slightly above eye level
+- Vibe: Authentic shopping experience, "mang bạn đi thử đồ"
+- Voice: "Set 1 nè... ôi vừa quá!", "Cái này mình cho 9/10"
+- Best for: Dress, bodycon, set, jumpsuit
+
+### 2. HOME TRY-ON (Thử Đồ Ở Nhà)
+- Setting: Bedroom/living room, clothes spread on bed, cozy atmosphere
+- Flow: Pick up item → Cut to wearing → Twirl/pose → Detail close-up → Rating → Next
+- Camera: Tripod, warm lighting, lifestyle feel
+- Vibe: Haul unboxing + try-on combo, authentic
+- Voice: "Order online về thử... xem có đúng hình không", "Size M vừa in nha"
+- Best for: Tops, pants, everyday fashion, online shopping haul
+
+### 3. HAUL REVIEW (Review Hàng)
+- Setting: Clean background, product packages visible, organized display
+- Flow: Unbox → Show item → Try on → Pros/Cons → Rate → Next item → Best pick finale
+- Camera: Mix close-up product + full body try-on
+- Vibe: Honest review, trust-building, detail-oriented
+- Voice: "Shopee live sale hôm qua mua...", "Chất vải thì... 8/10, form thì... 7/10"
+- Best for: Multi-item haul, brand review, sale items
+
+### 4. MIX & MATCH (Phối Đồ)
+- Setting: Wardrobe/rack visible, multiple pieces displayed
+- Flow: Show base pieces → Combine Set 1 → Set 2 → Set 3 → Versatility reveal
+- Camera: Full body + detail alternating
+- Vibe: Styling tutorial, capsule wardrobe, "1 item 5 cách phối"
+- Voice: "Cùng 1 chiếc quần mà phối 5 set khác nhau!", "Set công sở vs set đi chơi"
+- Best for: Versatile items, basics, accessories styling
+
+### 5. OUTFIT BATTLE (Đọ Outfit)
+- Setting: Clean split-friendly background, consistent lighting
+- Flow: Outfit A pose → Quick change → Outfit B pose → Side comparison → Vote prompt
+- Camera: Identical framing for comparison, tripod locked
+- Vibe: "Cái nào đẹp hơn?", engagement bait, poll-style
+- Voice: "Team trái hay team phải?", "Outfit 1 vs Outfit 2 — cái nào bạn chọn?"
+- Best for: Similar items comparison, color variants, brand vs brand
+
+### 6. MẶC HỜ / LOOSELY DRAPED (Thả Hờ — Effortless Chic)
+- Setting: Lifestyle aesthetic — bedroom morning light, sofa, balcony, studio editorial
+- Flow: Item held/display → drape over body loosely → adjust casually → pose → close-up fabric fall
+- Camera: Medium shot → slow push to detail, warm tones, editorial depth-of-field
+- Vibe: Effortless chic, editorial fashion, nonchalant elegance
+- Best for: Blazer, cardigan, kimono, robe, oversized shirt, jacket, ao khoac, khăn choàng
+
+**Mặc Hờ Sub-Styles:**
+
+**A. SHOULDER DRAPE (Thả vai)**
+- Áo khoác/blazer khoác hờ trên 1 vai, tay kia buông tự nhiên
+- Model quay nhẹ → vải trượt/rơi tự nhiên trên vai
+- Cực hợp: Blazer, jacket, cardigan, áo denim
+- Veo prompt: "Model with [jacket] draped loosely over one shoulder, other hand holding coffee mug, head tilted slightly, morning light from left, editorial relaxed atmosphere"
+
+**B. OPEN LAYER (Mở lớp)**
+- Áo khoác/cardigan mở hở, không cài nút, lớp trong lộ ra
+- Focus transition: outer layer → inner layer reveal → fabric cascade
+- Cực hợp: Cardigan, blazer dáng dài, kimono, áo len mỏng
+- Veo prompt: "Model standing in [open cardigan over tank top], hands gently holding both lapels, fabric falling naturally, soft window light, lifestyle editorial"
+
+**C. HALF-TUCK (Nhét hờ / Buông hờ)**
+- Áo nhét 1 bên vào quần, bên kia buông tự nhiên tạo asymmetry
+- Model điều chỉnh nhẹ → pull/tuck gesture → reveal final silhouette
+- Cực hợp: Oversized shirt, tshirt, blouse, áo sơ mi
+- Veo prompt: "Model tucking one side of oversized white shirt into high-waist jeans while other side hangs freely, adjusting with one hand, casual mirror selfie angle, warm room light"
+
+**D. WRAP CASUAL (Quấn hờ / Choàng hờ)**
+- Khăn choàng, scarf, robe quấn lỏng quanh người, không buộc chặt
+- Focus fabric movement: drape → wrap → fabric slides/falls
+- Cực hợp: Scarf, khăn lụa, robe, shawl, poncho
+- Veo prompt: "Model wrapping [silk scarf] loosely around shoulders while walking slowly, fabric flowing and catching light, outdoor golden hour, fashion editorial feel"
+
+**E. THROWN-ON (Vứt lên người)**
+- Kiểu "vừa vơ được cái áo quăng lên" — oversized, bất cần, Gen Z aesthetic
+- Model tung/vứt áo lên vai/người → adjust nhẹ → pose nonchalant
+- Cực hợp: Hoodie, oversized jacket, boyfriend blazer, denim jacket
+- Veo prompt: "Model tossing [oversized denim jacket] onto shoulders in one casual motion, running hand through hair, standing in front of full-length mirror, relaxed confident smile"
+
+**Camera & Lighting cho Mặc Hờ:**
+- Shallow depth-of-field (f/1.8-2.8) — fabric detail sharp, background soft
+- Warm morning/golden light preferred (creates cozy editorial mood)
+- Slow camera movements — gentle push-in, subtle orbit
+- Focus pulls: face → fabric drape → garment detail
+- Veo 3.1 native audio: Fabric rustling sounds enhance realism
+
+**Transition cho Mặc Hờ:**
+- FABRIC SLIDE: Item slides off shoulder → cut → new item draped on
+- MIRROR GLIMPSE: Model catches reflection → adjusts drape → camera follows
+- SLOW PULL: Camera slowly pulls back from detail → reveal full draped look
+- ARM SWEEP: Model sweeps jacket off → tosses on new one
+
+---
+
+## 🔄 TRANSITION STYLES
+
+### DOOR REVEAL
+- Camera: Fixed on fitting room door
+- Action: Door swings open → model steps out → confident pause
+- Veo prompt: "Fitting room door opens outward, revealing model in [outfit], model steps forward with confident smile, soft ambient lighting"
+- Best with: Fitting Room variant
+
+### CURTAIN PULL  
+- Camera: Fixed on curtain line
+- Action: Hand pulls curtain aside → model revealed standing → pose
+- Veo prompt: "A hand pulls a white curtain to the left, revealing model standing in [outfit], clean studio lighting, fashion retail environment"
+- Best with: Fitting Room variant
+
+### SPIN CHANGE
+- Camera: Static medium shot
+- Action: Model spins 360° → cut on back-facing moment → new outfit on completion
+- Veo prompt: "Model begins a graceful full spin turn, arms slightly raised, fabric flowing, elegant natural movement"
+- Best with: Home Try-On, Mix & Match
+
+### MIRROR TURN
+- Camera: Starts facing mirror reflection → model turns to camera
+- Action: Model checking self in mirror → turns toward camera → full reveal
+- Veo prompt: "Model admiring reflection in full-length mirror, then turns to face camera directly, confident editorial expression"
+- Best with: Home Try-On, Outfit Battle
+
+### SNAP CUT
+- Camera: Static, quick jump cut
+- Action: Model snaps fingers / claps → instant outfit change (jump cut)
+- Veo prompt: "Model raises hand and snaps fingers with playful expression, sharp confident energy, clean background"
+- Best with: Quick Fire pacing, Haul Review
+
+### WALKING REVEAL
+- Camera: Tracking or static with model approaching
+- Action: Model walks into frame wearing new outfit → stops → pose
+- Veo prompt: "Model walks into frame from the right, wearing [outfit], stops at center, hands on hips, confident stance"
+- Best with: Outfit Battle, Mix & Match
+
+### FABRIC SLIDE
+- Camera: Close-up on shoulder/drape → pull back to reveal
+- Action: Fabric slides off body → cut → new garment draped on
+- Veo prompt: "Draped jacket slides off model's shoulder in slow motion, fabric falling gracefully, warm editorial lighting, shallow depth of field"
+- Best with: Loosely Draped (Mặc Hờ)
+
+---
+
+## ⏱️ PACING OPTIONS
+
+### QUICK FIRE (Nhanh)
+- ~4s per outfit (half-scene)
+- 2 outfits per 8s Veo clip
+- Total: 8-12 outfits in 32-48s
+- Style: Beat-synced, energetic, minimal voice
+- Hook: "10 outfit trong 30 giây!"
+- Voice: Short reactions only — "Yêu!", "Hmm...", "YES!", "8 điểm!"
+
+### DETAILED REVIEW (Chi tiết)
+- 8s per outfit (full scene)
+- 1 outfit per Veo clip
+- Total: 4-6 outfits in 32-48s
+- Style: Each outfit gets proper showcase + commentary
+- Hook: "Review chi tiết 5 set đồ hot nhất tháng..."
+- Voice: Full review per item — fabric, fit, comfort, price, rating
+
+### STORYTELLING (Kể chuyện)
+- 8-16s per outfit (1-2 scenes)
+- Total: 3-4 outfits with narrative
+- Style: Day-based narrative — "Sáng đi làm...", "Trưa đi ăn...", "Tối đi date..."
+- Hook: "1 ngày 3 bộ — từ công sở đến date night"
+- Voice: Story narration weaving outfits into daily life
+
+---
+
+## 🎬 SCENE STRUCTURE BY DURATION
+
+### 24s (3 scenes = 3 outfits)
+```
+Scene 1 (0-8s): HOOK + Outfit 1
+- 0-2s: Hook text/voice ("Thử 3 set đồ hot nhất...")
+- 2-8s: First outfit showcase + reaction
+
+Scene 2 (8-16s): Outfit 2
+- Transition → Second outfit reveal
+- Full body showcase + detail + voice review
+
+Scene 3 (16-24s): Outfit 3 + CTA
+- Best outfit / favorite pick
+- Final pose + "Link ghim" / CTA
+```
+
+### 32s (4 scenes = 4 outfits) — RECOMMENDED
+```
+Scene 1 (0-8s): HOOK + Setup
+- 0-3s: Hook ("4 outfit cho 4 mood khác nhau!" / "Shopee haul thử ngay!")
+- 3-8s: Show all items briefly OR first outfit try-on
+
+Scene 2 (8-16s): Outfit 1-2
+- First/second outfit showcase
+- Quick transition between if Quick Fire
+- Voice: First impressions
+
+Scene 3 (16-24s): Outfit 3 (highlight)
+- Best outfit gets most screen time
+- Detail close-ups: fabric, fit, movement
+- Voice: Detailed review
+
+Scene 4 (24-32s): Outfit 4 + PICK + CTA
+- Final outfit OR "best of" comparison
+- Rating/vote prompt
+- CTA: Link, discount code, comment
+```
+
+### 48s (6 scenes = 5-8 outfits)
+```
+Scene 1 (0-8s): HOOK + Haul Preview
+- Show all items laid out / hanging
+- "Hôm nay thử 6 set từ [Brand]!"
+
+Scene 2-5 (8-40s): Individual Try-Ons
+- Each outfit: Transition → Reveal → Showcase → Rating
+- Pacing varies by PACING option
+
+Scene 6 (40-48s): BEST PICK + CTA
+- "Set yêu nhất là..." + wear it proudly
+- Comment engagement + link
+```
+
+---
+
+## 📹 CAMERA & LIGHTING GUIDELINES
+
+### Camera Setup
+- **Position**: Tripod, eye-level to slightly above (flattering angle)
+- **Distance**: Full body visible with ~20% headroom
+- **Lens**: 35-50mm equivalent (natural, not distorted)
+- **Mirror**: If visible, should be at 15-30° angle (not direct reflection)
+- **Frame consistency**: SAME framing for all outfits (comparison fairness)
+
+### Lighting
+- **Fitting Room**: Overhead fluorescent + warm fill (retail authentic)
+- **Home Try-On**: Natural window light + warm key light
+- **Haul Review**: Ring light / soft box, clean even lighting
+- **Studio**: Standard 2-point lighting, soft shadows
+
+### Background
+- **Fitting Room**: Fitting room wall, hooks visible, minimal clutter
+- **Home**: Bedroom wall, bed edge visible, lifestyle props
+- **Clean Studio**: Solid neutral wall, organized rack or no props
+- **Mix & Match**: Visible clothing rack / open wardrobe
+
+---
+
+## 👗 GARMENT-SPECIFIC TRY-ON CHOREOGRAPHY
+
+> Mỗi loại trang phục có cách thử đồ riêng — hành động, góc quay, điểm nhấn khác nhau.
+> AI PHẢI chọn đúng choreography cho từng productType. Nếu productType = auto, AI detect từ ảnh sản phẩm.
+
+### 🟣 DRESS GROUP
+
+**dress / maxi_dress (Đầm dài / Maxi):**
+- REVEAL: Model bước ra khỏi phòng thử, hai tay nhẹ nắm vạt váy
+- SHOWCASE MOVES: Twirl 360° (vải tung bay), walk 3-4 bước (xem flow), đứng yên để vải rơi tự nhiên
+- DETAIL CLOSE-UP: Hem flutter, fabric drape, waist seam, neckline
+- FIT TEST: Walk — xem vải có vướng không; Sit — xem váy có quá dài/ngắn; Spin — fabric flow
+- ANGLES: Full-body front → side walk → back reveal → twirl medium shot
+- Veo prompt: "Model in [dress] twirls gracefully, flowing skirt catches light, fabric cascading, then walks forward showing how dress moves naturally"
+
+**mini_dress (Đầm ngắn / Bodycon):**
+- REVEAL: Model bước ra, tự tin pose — hands on hips hoặc one hand on waist
+- SHOWCASE MOVES: Side profile (xem silhouette), hip sway nhẹ, turn to show back, đi bộ 2-3 bước
+- DETAIL CLOSE-UP: Hem length, stretch fabric, seam lines, silhouette side view
+- FIT TEST: Sit-stand (xem có bị vén lên không); Arm raise (xem có bị kéo lên); Side view (body curve)
+- ANGLES: Medium shot front → side profile → back → sit check
+- Veo prompt: "Model in fitted [mini dress] turns slowly to show side silhouette, runs hand along hip, then walks confidently, fabric hugging curves"
+
+**bodycon (Đầm ôm body):**
+- REVEAL: Model bước ra từ từ, confident — focus silhouette
+- SHOWCASE MOVES: 90° turn (side profile), slow walk, mirror check gesture, smooth hand along body
+- DETAIL CLOSE-UP: Body curve silhouette, fabric stretch, waist fit, neckline detail
+- FIT TEST: Breathe deep (xem stretch), arm raise test, sit-stand test, squat attempt
+- ANGLES: Front medium → side profile (critical!) → back → mirror reflection
+- Veo prompt: "Model in [bodycon dress] stands side-on showing fitted silhouette, then turns forward, running hand along waistline, confident editorial stance"
+
+### 🔵 TOP GROUP
+
+**top / blouse (Áo / Áo sơ mi):**
+- REVEAL: Cầm áo trước ngực → cut → đã mặc, điều chỉnh cổ/tay áo
+- SHOWCASE MOVES: Collar adjust, tuck-in → untuck demo, sleeve roll up/down, back turn
+- DETAIL CLOSE-UP: Collar shape, button line, fabric texture, sleeve detail, back fit
+- FIT TEST: Arm raise (xem fit nách/vai), tuck in (xem dáng tucked), lean forward (xem rộng/chật)
+- ANGLES: Front bust-up → full body tucked → full body untucked → back
+- Veo prompt: "Model in [blouse] adjusts collar, then tucks front into waistband, showing both styled looks, touches sleeve cuff detail"
+
+**tshirt (Áo thun):**
+- REVEAL: Pull tshirt on (overhead) hoặc casual step out
+- SHOWCASE MOVES: Front logo/print show, tug bottom hem, sleeve fit pat, casual arm cross
+- DETAIL CLOSE-UP: Print/logo, neckline ribbing, sleeve fit, fabric weight
+- FIT TEST: Arm raise (xem độ dài), pull hem (xem stretch), side view (xem form)
+- ANGLES: Front focus print → side (relaxed fit) → casual pose
+- Veo prompt: "Model wearing [tshirt] casually tugs at hem, shows front graphic, then crosses arms with relaxed confident smile"
+
+**croptop (Croptop):**
+- REVEAL: Confident reveal — hand on waist, midriff visible
+- SHOWCASE MOVES: Arm raise (show crop length), pair demo with high-waist bottom, dance move/sway
+- DETAIL CLOSE-UP: Crop hem line, neckline, back detail, midriff line
+- FIT TEST: Arm up (xem ride-up), dance sway (xem movement), pair with different bottoms
+- ANGLES: Medium front → close crop line → full body with bottom → fun pose
+- Veo prompt: "Model in [croptop] raises arms playfully showing crop length, then pairs with high-waist jeans, hands on hips, youthful energy"
+
+**sweater / áo len:**
+- REVEAL: Đang ôm sweater → cut → đã mặc, kéo tay áo dài
+- SHOWCASE MOVES: Cozy hug gesture (ôm mình), sleeve stretch over hands, collar/neck detail, layer demo
+- DETAIL CLOSE-UP: Knit texture, weave pattern, ribbing, cuff detail, thickness
+- FIT TEST: Arm stretch (xem chất liệu), layer over shirt (xem layering), hug self (xem cozy fit)
+- ANGLES: Front cozy → close-up knit texture → layering demo → full body
+- Veo prompt: "Model in [sweater] pulls sleeves over hands in cozy gesture, hugs self softly, then shows knit texture to camera, warm morning light"
+
+**jacket / áo khoác:**
+- REVEAL: Mặc vào bằng cách khoác từ sau → zip/button → spread arms
+- SHOWCASE MOVES: Open-close (cài/mở), shoulder check (xoay vai), collar pop, arms out to sides, drape off one shoulder
+- DETAIL CLOSE-UP: Zipper/button, collar, pocket, lining (mở lật), shoulder seam
+- FIT TEST: Zip up → zip down (xem snug), arm raise (xem mobility), reach behind (xem fit vai)
+- ANGLES: Front open → front closed → side (shoulder line) → back
+- Veo prompt: "Model puts on [jacket], zips up, pats shoulders checking fit, then unzips showing inner layer, turns to show back silhouette"
+
+### 🟢 BOTTOM GROUP
+
+**pants / jeans (Quần dài / Jean):**
+- REVEAL: Bước ra, camera focus từ eo xuống chân → pan up
+- SHOWCASE MOVES: Walk 4-5 bước (xem drape/leg), side profile (xem form), pocket detail pat, waistband pull
+- DETAIL CLOSE-UP: Waistband fit, pocket stitching, hem break, knee area, wash (jeans)
+- FIT TEST: Squat test (xem stretch), walk (xem baggy/tight), sit (xem waist gap), side view (xem thigh fit)
+- ANGLES: Front full body → side profile (CRITICAL cho quần) → back pocket area → walk-away shot
+- Veo prompt: "Model in [pants] walks forward, camera shows leg drape, then model turns side-on showing fit profile, pats front pockets"
+
+**wide_pants (Quần ống rộng):**
+- REVEAL: Walk in — ống quần tung bay tự nhiên
+- SHOWCASE MOVES: Walk stride (xem ống rộng sway), spin nhẹ (fabric flow), stand wide (show width)
+- DETAIL CLOSE-UP: Leg width, fabric drape, waistband, hem length
+- FIT TEST: Walk with purpose (xem flow), spin (fan effect), stand still (fall/drape)
+- ANGLES: Front full body → walking side → spin → close-up leg flow
+- Veo prompt: "Model in [wide-leg pants] walks with long strides, wide legs flowing and swaying naturally, then spins slowly showing full width"
+
+**shorts (Quần short):**
+- REVEAL: Casual step out, hands in pockets hoặc on thighs
+- SHOWCASE MOVES: Walk, one knee up/step on ledge, sit casual, leg movement
+- DETAIL CLOSE-UP: Hem length, waistband, pocket, inner thigh fit
+- FIT TEST: Sit (xem ride-up), walk (xem comfortable), step up (xem length)
+- ANGLES: Front full body → side (length check) → casual pose
+- Veo prompt: "Model in [shorts] walks casually, puts one foot up on low step showing length, then stands with hands in pockets, summer vibe"
+
+**skirt (Chân váy):**
+- REVEAL: Bước ra, nhẹ tay nắm vạt váy
+- SHOWCASE MOVES: Mini twirl (xem flow/sway), walk (xem movement), sit-cross legs, slit reveal (nếu có)
+- DETAIL CLOSE-UP: Waistband, hem line, pleats/folds, fabric drape, slit (if any)
+- FIT TEST: Walk (xem twist), twirl (xem flow), sit (xem coverage), side view (xem shape)
+- ANGLES: Front full body → twirl medium → side sit → back
+- Veo prompt: "Model in [skirt] does a gentle half-twirl, skirt sways softly, then walks showing natural movement, touches waistband checking fit"
+
+### 🟡 SET GROUP
+
+**set / bộ đồ:**
+- REVEAL: Show top piece alone → bottom piece alone → cut → full set on
+- SHOWCASE MOVES: Point to top → point to bottom, 360° full body, separate pieces demo, mix suggestion
+- DETAIL CLOSE-UP: Top-bottom junction/match, individual piece detail, color coordination
+- FIT TEST: Top fit check → bottom fit check → overall proportion check, walk in full set
+- ANGLES: Top half → bottom half → full body front → full body 360°
+- Veo prompt: "Model first shows [top piece] alone, then [bottom piece], then cut to wearing complete set, spins 360 showing full coordination"
+
+**suit / vest:**
+- REVEAL: Button jacket walking in, power stance
+- SHOWCASE MOVES: Button/unbutton jacket, lapel touch, straighten tie/collar, power walk, arms behind back
+- DETAIL CLOSE-UP: Lapel shape, button, pocket square, shoulder line, trouser crease
+- FIT TEST: Button test (xem snug), sit (xem wrinkle), arm raise (xem shoulder mobility), walk (xem drape)
+- ANGLES: Front power pose → side (shoulder line) → back → walking
+- Veo prompt: "Model in [suit] buttons jacket confidently, adjusts lapels, then takes two power-walk steps, sharp tailored silhouette"
+
+**jumpsuit:**
+- REVEAL: Zip up / step in — one motion getting dressed
+- SHOWCASE MOVES: Walk to show silhouette, belt adjust (nếu có), turn for back detail, arms out
+- DETAIL CLOSE-UP: Zipper/closure, waist area, neckline, back detail, belt/sash
+- FIT TEST: Walk (xem drape), sit (xem comfort/bunching), arm raise (xem stretch), bend (xem waist)
+- ANGLES: Front full body → side silhouette → back zipper/detail → walk
+- Veo prompt: "Model in [jumpsuit] walks forward showing streamlined silhouette, adjusts belt at waist, turns to show back closure detail"
+
+### 🔴 SPECIAL GROUP
+
+**aodai (Áo dài):**
+- REVEAL: Walk in — vạt áo dài bay nhẹ, tay nắm nhẹ 1 vạt
+- SHOWCASE MOVES: Walk chậm (panels flutter), stand — gió nhẹ (vạt thả), thả 2 tay sang 2 bên, quay 90°
+- DETAIL CLOSE-UP: Panel length, embroidery/pattern, collar (cổ tàu), waist fit, fabric flow
+- FIT TEST: Walk straight (xem panels bay), arm raise (xem fit body), side view (xem silhouette)
+- ANGLES: Full body front → walking panels flutter → side → detail embroidery
+- Veo prompt: "Model in [ao dai] walks slowly forward, traditional panels flowing with each step, one hand gently holding panel edge, elegant traditional grace"
+
+**sport (Đồ thể thao):**
+- REVEAL: Active entrance — jog in, jump, dynamic energy
+- SHOWCASE MOVES: Stretch (arm/leg), light jog in place, squat, jump, active pose
+- DETAIL CLOSE-UP: Fabric stretch, breathability mesh, elastic band, reflective detail, logo
+- FIT TEST: Squat deep (xem stretch), arm raise (xem mobility), jump (xem support), run (xem comfort)
+- ANGLES: Action front → stretch close-up → active side → full body dynamic
+- Veo prompt: "Model in [sportswear] does light warm-up stretches, squats showing fabric stretch, then jogs in place with energetic confident smile"
+
+**sleepwear (Đồ ngủ / Loungewear):**
+- REVEAL: Just woke up vibe — stretch, yawn gesture, cozy walk
+- SHOWCASE MOVES: Stretch arms up, cozy wrap, sit on bed edge, hands in robe pockets, coffee hold
+- DETAIL CLOSE-UP: Fabric softness, lace/embroidery trim, tie/belt, button detail
+- FIT TEST: Stretch (xem comfortable), sit lounge (xem drape), walk lazy (xem cozy)
+- ANGLES: Medium cozy pose → full body standing → lounging → detail fabric
+- Veo prompt: "Model in [sleepwear] stretches arms up lazily, then sits on bed edge with coffee mug, touching soft fabric with content smile, warm bedroom light"
+
+**bikini / đồ bơi:**
+- REVEAL: Confident walk in hoặc wrap/towel drop reveal (editorial style)
+- SHOWCASE MOVES: Confident pose, light turn, hand on hip, walk 2-3 steps
+- DETAIL CLOSE-UP: Strap design, pattern/print, hardware, coverage line
+- FIT TEST: Arm raise (xem support), walk (xem comfortable), turn (xem back)
+- ANGLES: Front medium → side → back (tasteful) → detail strap
+- Veo prompt: "Model in [swimwear] walks on poolside, confident hand-on-hip pose, turns to show side silhouette, resort editorial lighting"
+
+**bigsize (Big Size):**
+- REVEAL: Confident entrance — smile, comfortable body language
+- SHOWCASE MOVES: Comfortable walk, twirl (show flow for loose items), confidence pose, hands at sides/hips
+- DETAIL CLOSE-UP: Fabric drape, size-inclusive fit, comfort details, stretch panels
+- FIT TEST: Walk comfortable (xem drape), sit (xem không bó), arm raise (xem mobility), smile (confidence!)
+- ANGLES: Full body front → flattering 3/4 angle → side → comfortable pose
+- Veo prompt: "Model in [outfit] walks confidently, shows comfortable fit, gives genuine happy smile, twirls showing how fabric drapes beautifully, body-positive energy"
+
+### ⚡ AUTO-DETECT RULES
+
+Khi productType = "auto", AI detect từ outfit reference image:
+1. Nhìn ảnh → xác định loại trang phục
+2. Map vào choreography tương ứng ở trên
+3. Nếu combo (nhiều món) → ưu tiên loại "chính" (dress > top > bottom) hoặc dùng set choreography
+4. Nếu không rõ → default dùng: walk 360° + side profile + detail close-up (safe universal)
+
+### 🔄 CHOREOGRAPHY × VARIANT MATRIX
+
+| Garment | Fitting Room Extra | Home Try-On Extra | Haul Review Extra | Loosely Draped Override |
+|---|---|---|---|---|
+| Dress | Mirror twirl check | Bed → stand → twirl | Hold up → wear → rate fabric | Wrap/drape dress casually, one strap down |
+| Top | Collar check in mirror | Quick tuck/untuck demo | Close-up stitching | Shirt open over tank, unbuttoned |
+| Pants | Side view in mirror | Squat test on carpet | Waistband stretch demo | Half-tuck shirt with pants |
+| Jacket | Arms spread in mirror | Layer on/off at door | Zipper quality review | Khoác hờ 1 vai, không cài |
+| Skirt | Twirl in fitting room | Sit on sofa test | Hem measurement | N/A — use standard skirt flow |
+| Set | Mirror full body 360° | Separate → combine reveal | Rate top & bottom separately | Open jacket over set |
+| Suit | Button test in mirror | Power pose at desk | Lapel & lining detail | Blazer khoác hờ editorial |
+| Sport | Stretch in fitting room | Quick workout test | Squat/flex durability test | N/A — use standard sport |
+| Sleepwear | Cozy in mirror selfie | Lounging on bed | Touch & feel close-up | Robe open, cozy editorial |
+| Ao Dai | Panel check in mirror | Walk at home corridor | Embroidery detail review | N/A — ao dai giữ truyền thống |
+
+---
+
+## 🎙️ VOICE SCRIPT TEMPLATES
+
+### Fitting Room Voice
+```
+Scene 1: "Okay mình vừa chọn được [N] set đồ, vào phòng thử nha!"
+Scene 2: "Set đầu tiên... [brand] [item name]... ôi vừa quá đi!"
+Scene 3: "Set tiếp theo nè... [describe]... cái này form hơi rộng ngang..."
+Scene 4: "Okay set cuối cùng... đây chính là set mình chọn! Link ghim phía trên nha!"
+```
+
+### Home Try-On Voice
+```
+Scene 1: "Order [platform] về rồi nè, thử ngay coi có đúng hình không!"
+Scene 2: "Đầu tiên là cái [item]... wow chất vải mềm lắm, size M vừa in"
+Scene 3: "Tiếp theo... cái này mình kỳ vọng nhiều lắm... [review]"
+Scene 4: "Kết luận: set [X] đáng mua nhất! Mấy bạn thấy set nào đẹp nhất?"
+```
+
+### Haul Review Voice
+```
+Scene 1: "Haul [brand/shop] [N] món dưới [price]K — đáng tiền không?"
+Scene 2: "Món 1: [item] — Chất vải: [X]/10, Form: [X]/10, tổng: [X]/10"
+Scene 3: "Món 2: [item] — Cái này bất ngờ luôn! [review]"
+...
+Final: "TOP PICK hôm nay là [item]! Link mình để trên bio nha"
+```
+
+### Mix & Match Voice
+```
+Scene 1: "5 cách phối với cùng 1 chiếc [item] — set nào đẹp nhất?"
+Scene 2: "Cách 1: Phối với [piece] — đi làm chill"
+Scene 3: "Cách 2: Thêm [piece] — đi date luôn!"
+...
+Final: "Bạn team set mấy? Comment cho mình biết nha!"
+```
+
+### Outfit Battle Voice
+```
+Scene 1: "OUTFIT BATTLE! Hôm nay 2 set đồ — bạn TEAM NÀO?"
+Scene 2: "SET 1: [describe] — điểm cộng: [pros]"
+Scene 3: "SET 2: [describe] — điểm cộng: [pros]"
+Scene 4: "Mình thì chọn SET [X]... còn bạn? Comment TEAM 1 hay TEAM 2!"
+```
+
+---
+
+## 🎯 VEO 3.1 PROMPT PATTERNS
+
+### Per-Scene Prompt Template
+```
+[Setting description], [lighting], professional fashion video.
+[Model description] [transition action] revealing [outfit description].
+[Pose/movement], [fabric detail visible], [camera movement].
+[Model] [voice line with Vietnamese accent].
+```
+
+### Example Prompts by Variant
+
+**Fitting Room:**
+"Bright retail fitting room with cream walls and wooden door. A young Vietnamese woman opens the fitting room door, stepping out in a navy blue wrap dress with white polka dots. She pauses, adjusts the belt, then twirls once to showcase the flowing skirt. Soft overhead lighting. She says 'Ôi vừa quá đi! Set này mình cho 9 điểm!'"
+
+**Home Try-On:**
+"Cozy bedroom with natural window light, clothes packages on white bed in background. A young Vietnamese woman stands before a full-length mirror wearing a cream knit sweater and brown wide-leg pants, turning from mirror to face camera with delighted expression. She says 'Set này order Shopee, size M vừa in luôn nha!'""
+
+**Haul Review:**
+"Clean studio with white background, clothing rack with multiple items visible on the right. A young Vietnamese woman holds up a red blouse then cuts to wearing it, turning to show the back detail, touching the fabric with approval. Professional ring light. She says 'Chất vải mềm lắm, form regular fit, cho 8 trên 10!'"
+
+**Mix & Match:**
+"Modern room with open wardrobe visible, organized clothing rack. A young Vietnamese woman wearing the same black midi skirt but now paired with a white off-shoulder top, standing with hand on hip, confident editorial pose. She says 'Cách phối thứ 3 — đi date, nữ tính hơn nè!'"
+
+**Outfit Battle:**
+"Minimalist studio with consistent warm lighting. A young Vietnamese woman in outfit A — denim jacket over white tee with black jeans — poses with crossed arms and playful smile. Clean background allows focus on outfit details. She says 'Team 1 — casual cool, đi chơi cuối tuần!'"
+
+---
+
+## 📊 CONVERSION OPTIMIZATION FOR AFFILIATE
+
+### Hook Formulas (0-3s)
+1. **Haul Hook**: "Shopee ship về [N] món, thử ngay coi có flop không!"
+2. **Price Shock**: "Toàn bộ [N] outfit này chỉ [price]K — tin được không?"
+3. **Question Hook**: "Bạn có dám order đồ online không cần thử?"
+4. **Rating Hook**: "Rate [N] set đồ HOT nhất [brand] — có set chỉ 2/10!"
+5. **Challenge Hook**: "Thử [N] size khác nhau cùng 1 mẫu — kết quả bất ngờ!"
+6. **Battle Hook**: "OUTFIT BATTLE: Set [A] vs Set [B] — Team nào?"
+7. **Capsule Hook**: "1 chiếc quần, 5 bộ đồ khác nhau — bạn thích set mấy?"
+
+### Mid-Video Retention (8-16s)
+- Show UNEXPECTED result: item looks different than expected
+- Rating surprise: "Cái này mình nghĩ 5/10 nhưng mặc vào... 9/10!"
+- Fabric/quality close-up that reveals detail
+- "Đợi set tiếp theo mới là highlight..."
+
+### CTA Patterns
+- "Link ghim phía trên — set [X] đang sale [Y]%!"
+- "Comment MUỐN mình gửi link nha!"
+- "Follow để xem thử thêm [N] set nữa!"
+- "Bạn chọn set mấy? Vote trong comment!"
+- "Dùng code [X] giảm thêm [Y]K nha!"
+
+### GMV Tactics
+- Bundle suggestion: "Mua set [A] + [B] free ship, tiết kiệm [X]K"
+- Urgency: "Set này chỉ còn [N] cái, hôm qua hết 2 lần rồi"
+- Social proof: "Set này [N]K+ đã mua trên shop"
+- Variant display: "Có thêm màu [X] và [Y] nha!"
+
+---
+
+## 🏷️ PRODUCT TYPE COMPATIBILITY
+
+### BEST FIT (High engagement)
+| Product Type | Best Variant | Best Pacing |
+|---|---|---|
+| Dress / Mini Dress | Fitting Room | Detailed Review |
+| Set / Bộ đồ | Mix & Match | Storytelling |
+| Top / Blouse | Home Try-On | Quick Fire |
+| Pants / Jeans | Outfit Battle | Detailed Review |
+| Jacket / Áo khoác | Mix & Match | Storytelling |
+| Jumpsuit | Fitting Room | Detailed Review |
+| Bigsize | Home Try-On | Detailed Review |
+| Sportswear | Outfit Battle | Quick Fire |
+| Jacket / Áo khoác | Loosely Draped | Detailed Review |
+| Blazer | Loosely Draped | Storytelling |
+| Cardigan | Loosely Draped | Detailed Review |
+
+### CREATIVE COMBOS
+- **Capsule Wardrobe**: Mix & Match + Storytelling (3-5 base items → 10+ outfits)
+- **Brand Test**: Haul Review + Detailed Review (test full collection)
+- **Size Guide**: Outfit Battle + Detailed Review (S vs M vs L comparison)
+- **Seasonal Edit**: Home Try-On + Quick Fire (spring/summer/fall transition)
+- **Budget Challenge**: Haul Review + Quick Fire ("Under 200K entire outfit!")
+- **Effortless Style**: Loosely Draped + Storytelling (1 item, 5 cách mặc hờ)
+- **Layer Game**: Loosely Draped + Mix & Match (layering combinations)
+
+---
+
+## ⚠️ VEO 3.1 TECHNICAL NOTES
+
+### Transition Handling
+- Each 8s Veo clip = 1 complete outfit scene
+- Transitions happen at scene boundaries (Veo cannot do mid-clip outfit change)
+- For QUICK FIRE: Use first 4s = outfit A pose, last 4s = transition to outfit B
+- For jump cuts: End scene with model facing away → next scene starts with model facing camera in new outfit
+
+### Keyframe Strategy (First/Last Frame)
+- **First frame**: Model in new outfit, beginning of pose/reveal
+- **Last frame**: Model in completed pose, product clearly visible
+- Use Nano Banana Pro to generate keyframe images for consistency
+
+### Reference Image Usage
+- Use 1 reference image of the product (flatlay/hanger) for product consistency
+- Use 1 reference image of model face for identity preservation
+- Veo 3.1 supports up to 3 reference images per clip
+
+### Scene Continuity
+- SAME model appearance across all scenes (hair, makeup)
+- SAME background/setting across all scenes (location consistency)
+- ONLY outfit changes between scenes
+- Lighting should remain consistent
+
+### Audio/Voice
+- Veo 3.1 native audio for voice narration
+- Each scene should have voice matching the outfit review
+- Background music: subtle, not overpowering voice
+- Ambient sounds: fabric rustling, zipper, footsteps (enhances realism)
+
+---
+
+## 🔑 QUICK REFERENCE
+
+### Variant → Transition Match
+| Variant | Primary Transition | Secondary |
+|---|---|---|
+| Fitting Room | Door Reveal | Curtain Pull |
+| Home Try-On | Spin Change | Mirror Turn |
+| Haul Review | Snap Cut | Walking Reveal |
+| Mix & Match | Spin Change | Mirror Turn |
+| Outfit Battle | Snap Cut | Walking Reveal |
+| Loosely Draped | Fabric Slide | Mirror Glimpse |
+
+### Pacing → Duration Guide
+| Pacing | 24s | 32s | 48s |
+|---|---|---|---|
+| Quick Fire | 4-6 outfits | 6-8 outfits | 10-12 outfits |
+| Detailed Review | 2-3 outfits | 3-4 outfits | 5-6 outfits |
+| Storytelling | 2 outfits +story | 3 outfits +story | 4 outfits +story |
+
+### Voice Intensity by Variant
+| Variant | Voice Level | Style |
+|---|---|---|
+| Fitting Room | High | Excited, authentic reaction |
+| Home Try-On | Medium | Casual, honest, relatable |
+| Haul Review | High | Structured, rating format |
+| Mix & Match | Medium | Tutorial, educational |
+| Outfit Battle | High | Energetic, engagement bait |
+| Loosely Draped | Medium-Low | Chill, aesthetic, editorial |

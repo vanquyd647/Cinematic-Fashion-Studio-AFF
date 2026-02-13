@@ -1,0 +1,3323 @@
+// Data constants for the app
+
+export const INITIAL_BRIEF = `Create a high-end cinematic fashion portrait.
+The model wears the exact dress from the reference.
+
+Overall mood: Elegant, confident, and expensive.`;
+
+export const BODY_TEMPLATES = [
+   { label: "Runway Tall", gender: "Female", mode: "custom" as const, bodyType: "Slim (Model)", measurements: { height: "180", weight: "52", bust: "81", waist: "61", hips: "87", size: "S" } },
+   { label: "Commercial", gender: "Female", mode: "preset" as const, bodyType: "Balanced", measurements: { height: "165", weight: "55", bust: "86", waist: "64", hips: "92", size: "M" } },
+   { label: "Curvy/Plus", gender: "Female", mode: "custom" as const, bodyType: "Curvy", measurements: { height: "160", weight: "75", bust: "108", waist: "90", hips: "115", size: "XXL" } },
+   { label: "Male Fit", gender: "Male", mode: "preset" as const, bodyType: "Athletic", measurements: { height: "175", weight: "70", bust: "102", waist: "82", hips: "98", size: "L" } },
+];
+
+// Default Face Presets (when no face reference is uploaded)
+export const FACE_PRESETS = [
+   {
+      value: 'douyin_doll',
+      label: 'Douyin Doll',
+      emoji: '🎀',
+      desc: 'Mắt to, lens nâu, makeup Douyin',
+      promptEN: 'Young Asian woman with porcelain skin, large round eyes with amber-brown contact lenses, Douyin-style doll makeup featuring sharp black eyeliner with upturned wings, thick dramatic lashes emphasizing lower lash line, wine-red eyeshadow blended around eye socket, full pouty lips with ombre velvet-red lipstick (darker center), V-line oval face with high straight nose, burgundy wine-red layered wavy hair with wispy bangs, dreamy expression with soft natural gaze'
+   },
+   {
+      value: 'platinum_girl',
+      label: 'Platinum Girl',
+      emoji: '👓',
+      desc: 'Tóc bạch kim, kính bạc, nốt ruồi',
+      promptEN: 'Young Asian woman with perfect oval face and bright, smooth porcelain skin with subtle glow. Large round eyes with light brown contact lenses, glittery eye makeup with shimmery eyeshadow and sharp cat-eye eyeliner, long curled lashes. High slim nose and full plump lips with glossy pink-nude lipstick. Wearing thin silver half-moon glasses. Long platinum blonde hair in high ponytail with wispy bangs falling across forehead. Distinctive small beauty mark below right eye and another near left lip corner. Wearing silver cross pendant necklace. Alluring expression gazing directly at camera. Studio lighting highlighting radiant beauty'
+   },
+   {
+      value: 'natural_beauty',
+      label: 'Natural Beauty',
+      emoji: '🌸',
+      desc: 'Da khỏe, makeup nhẹ, tóc đen dài',
+      promptEN: 'Young Vietnamese woman with healthy glowing tan skin, natural no-makeup look with subtle blush and clear lip gloss, warm dark brown almond eyes with natural lashes, straight black silky hair flowing past shoulders, soft rounded face with gentle features, small nose with rounded tip, naturally pink lips, calm serene expression with warm genuine smile'
+   },
+   {
+      value: 'elegant_lady',
+      label: 'Elegant Lady',
+      emoji: '💎',
+      desc: 'Tóc nâu sóng, nét quý phái',
+      promptEN: 'Sophisticated young Asian woman with luminous fair skin, refined elegant makeup with champagne eyeshadow and thin brown eyeliner, sculpted eyebrows, warm hazel eyes, defined cheekbones with soft contour, straight elegant nose, rosewood-pink matte lips, medium-length chestnut brown wavy hair styled in soft Hollywood waves, poised confident expression with subtle closed-lip smile'
+   },
+   {
+      value: 'cool_girl',
+      label: 'Cool Girl',
+      emoji: '🌊',
+      desc: 'Tóc ngắn/bob, makeup sắc sảo',
+      promptEN: 'Modern young Asian woman with clear smooth skin and natural matte finish, bold sharp makeup with smoky grey-brown eyeshadow and graphic eyeliner, dark brown intense eyes with thick straight brows, angular jawline, sleek black chin-length bob haircut with middle part, defined nose, dusty mauve lips, edgy confident expression with slight smirk, urban cool energy'
+   },
+   {
+      value: 'soft_ethereal',
+      label: 'Soft Ethereal',
+      emoji: '🌙',
+      desc: 'Da trắng sứ, vẻ mộng mơ',
+      promptEN: 'Ethereal young Asian woman with porcelain white luminous skin, dreamy soft makeup with lavender-pink eyeshadow and no eyeliner, doe-like round dark eyes with feathery lashes, delicate oval face with soft jawline, small button nose, gradient pink-to-coral lips, long straight dark brown hair with curtain bangs framing face, wistful dreamy expression with distant gentle gaze, fairy-like otherworldly beauty'
+   },
+   {
+      value: 'fierce_glam',
+      label: 'Fierce Glam',
+      emoji: '🔥',
+      desc: 'Makeup bold, tóc xoăn dày',
+      promptEN: 'Striking young Asian woman with warm golden-toned skin, bold glamorous makeup with bronze-gold metallic eyeshadow and dramatic winged eyeliner, intense dark brown eyes with full volume lashes, strong defined brows, sculpted high cheekbones with bronzer highlight, straight nose, deep berry-red matte lips, voluminous dark brown long curly hair with side part, fierce powerful expression with piercing confident gaze'
+   },
+];
+
+// Product Type Groups for organized dropdown
+export const PRODUCT_TYPE_GROUPS = [
+   {
+      group: 'auto',
+      label: '🤖 Tự Động',
+      items: [
+         { value: 'auto', label: 'Tự động', emoji: '🤖', desc: 'AI nhận diện' },
+         { value: 'combo', label: 'Combo/Mix', emoji: '🎀', desc: 'Nhiều món' },
+      ]
+   },
+   {
+      group: 'dress',
+      label: '👗 Đầm/Váy',
+      items: [
+         { value: 'dress', label: 'Đầm/Váy', emoji: '👗' },
+         { value: 'maxi_dress', label: 'Đầm Maxi', emoji: '👗' },
+         { value: 'mini_dress', label: 'Đầm Mini', emoji: '👗' },
+         { value: 'bodycon', label: 'Đầm Ôm', emoji: '👗' },
+      ]
+   },
+   {
+      group: 'top',
+      label: '👚 Áo',
+      items: [
+         { value: 'top', label: 'Áo', emoji: '👚' },
+         { value: 'blouse', label: 'Áo Sơ Mi', emoji: '👔' },
+         { value: 'tshirt', label: 'Áo Thun', emoji: '👕' },
+         { value: 'croptop', label: 'Croptop', emoji: '👙' },
+         { value: 'sweater', label: 'Áo Len', emoji: '🧥' },
+         { value: 'jacket', label: 'Áo Khoác', emoji: '🧥' },
+      ]
+   },
+   {
+      group: 'bottom',
+      label: '👖 Quần',
+      items: [
+         { value: 'pants', label: 'Quần', emoji: '👖' },
+         { value: 'jeans', label: 'Quần Jean', emoji: '👖' },
+         { value: 'wide_pants', label: 'Quần Ống Rộng', emoji: '👖' },
+         { value: 'shorts', label: 'Quần Short', emoji: '🩳' },
+         { value: 'skirt', label: 'Chân Váy', emoji: '👗' },
+      ]
+   },
+   {
+      group: 'set',
+      label: '🎽 Đồ Bộ',
+      items: [
+         { value: 'set', label: 'Đồ Bộ', emoji: '🎽' },
+         { value: 'suit', label: 'Vest/Suit', emoji: '🤵' },
+         { value: 'jumpsuit', label: 'Jumpsuit', emoji: '🥻' },
+      ]
+   },
+   {
+      group: 'special',
+      label: '✨ Đặc Biệt',
+      items: [
+         { value: 'aodai', label: 'Áo Dài', emoji: '🌸' },
+         { value: 'bikini', label: 'Bikini/Đồ Bơi', emoji: '👙' },
+         { value: 'sleepwear', label: 'Đồ Ngủ/Loungewear', emoji: '🌙' },
+         { value: 'lingerie', label: 'Inner/Foundation', emoji: '🎀' },
+         { value: 'sport', label: 'Đồ Thể Thao', emoji: '🏃' },
+         { value: 'bigsize', label: 'Big Size', emoji: '✨' },
+      ]
+   },
+   {
+      group: 'beauty',
+      label: '💄 Làm Đẹp & Chăm Sóc',
+      items: [
+         { value: 'facial_device', label: 'Máy Rửa Mặt', emoji: '🧴', desc: 'Máy rửa mặt, máy làm sạch da' },
+         { value: 'serum', label: 'Serum/Tinh Chất', emoji: '💧', desc: 'Serum trị mụn, nám, trắng da' },
+         { value: 'makeup', label: 'Son/Cushion/Kem Nền', emoji: '💄', desc: 'Son, cushion, kem nền, phấn' },
+         { value: 'body_shaper', label: 'Gen Nịt/Miếng Dán', emoji: '🩱', desc: 'Miếng dán thon bụng, gen nịt eo' },
+         { value: 'massage_device', label: 'Máy Massage', emoji: '✨', desc: 'Máy massage mặt, cổ, body' },
+         { value: 'skincare_set', label: 'Set Skincare', emoji: '🧖', desc: 'Bộ skincare, combo dưỡng da' },
+         { value: 'hair_device', label: 'Máy Tóc', emoji: '💇', desc: 'Máy uốn, máy duỗi, máy sấy' },
+         { value: 'nail_beauty', label: 'Nail/Làm Móng', emoji: '💅', desc: 'Sơn móng, máy làm móng' },
+      ]
+   },
+   {
+      group: 'smart_home',
+      label: '🏠 Gia Dụng Thông Minh',
+      items: [
+         { value: 'robot_vacuum', label: 'Robot Hút Bụi', emoji: '🤖', desc: 'Robot lau nhà, hút bụi thông minh' },
+         { value: 'air_purifier', label: 'Máy Lọc Không Khí', emoji: '🌬️', desc: 'Máy lọc không khí, khử mùi, diệt khuẩn' },
+         { value: 'smart_kitchen', label: 'Bếp Thông Minh', emoji: '🍳', desc: 'Nồi chiên không dầu, máy xay, nồi cơm thông minh' },
+         { value: 'water_purifier', label: 'Máy Lọc Nước', emoji: '💧', desc: 'Máy lọc nước nóng lạnh, RO, điện giải' },
+         { value: 'smart_fan', label: 'Quạt/Điều Hòa Mini', emoji: '❄️', desc: 'Quạt thông minh, điều hòa mini, phun sương' },
+         { value: 'smart_light', label: 'Đèn Thông Minh', emoji: '💡', desc: 'Đèn LED, đèn bàn, đèn ngủ thông minh' },
+         { value: 'security_cam', label: 'Camera An Ninh', emoji: '📹', desc: 'Camera wifi, camera 360, chuông cửa thông minh' },
+         { value: 'smart_lock', label: 'Khóa Thông Minh', emoji: '🔐', desc: 'Khóa vân tay, khóa mã số, khóa app' },
+         { value: 'cleaning_device', label: 'Máy Vệ Sinh', emoji: '🧹', desc: 'Máy hút bụi cầm tay, máy lau kính, máy giặt mini' },
+         { value: 'steam_device', label: 'Máy Hấp/Ủi', emoji: '♨️', desc: 'Bàn ủi hơi nước, máy hấp quần áo' },
+         { value: 'organizer', label: 'Tiện Ích Sắp Xếp', emoji: '📦', desc: 'Hộp đựng, kệ, móc treo thông minh' },
+         { value: 'pet_device', label: 'Đồ Thú Cưng', emoji: '🐾', desc: 'Máy cho ăn tự động, vòi nước, camera thú cưng' },
+      ]
+   },
+];
+
+// Flat list for backward compatibility
+export const PRODUCT_TYPES = PRODUCT_TYPE_GROUPS.flatMap(group => group.items);
+
+// Product Physics Rules - Motion behavior by product type
+export const PRODUCT_PHYSICS: Record<string, {
+   canFlow: boolean;
+   canFlutter: boolean;
+   bannedTerms: string[];
+   correctTerms: string[];
+}> = {
+   // DRESSES
+   bodycon: {
+      canFlow: false,
+      canFlutter: false,
+      bannedTerms: ['flowing', 'flutter', 'hem flying', 'fabric cascade', 'billowing', 'breeze movement'],
+      correctTerms: ['form-hugging', 'curves highlighted', 'stretch visible', 'silhouette maintained']
+   },
+   maxi_dress: {
+      canFlow: true,
+      canFlutter: true,
+      bannedTerms: [],
+      correctTerms: ['flowing gracefully', 'fabric cascade', 'ethereal flutter', 'skirt billowing']
+   },
+   mini_dress: {
+      canFlow: false,
+      canFlutter: false,
+      bannedTerms: ['dramatic flow', 'billowing'],
+      correctTerms: ['playful movement', 'flirty sway']
+   },
+   dress: {
+      canFlow: true,
+      canFlutter: true,
+      bannedTerms: [],
+      correctTerms: ['fabric flowing', 'elegant movement']
+   },
+   // TOPS
+   tshirt: {
+      canFlow: false,
+      canFlutter: false,
+      bannedTerms: ['flowing', 'drape', 'flutter', 'liquid'],
+      correctTerms: ['casual fit', 'cotton texture', 'relaxed silhouette']
+   },
+   blouse: {
+      canFlow: true,
+      canFlutter: true,
+      bannedTerms: ['dramatic flow'],
+      correctTerms: ['soft fabric drape', 'collar crisp', 'elegant movement']
+   },
+   croptop: {
+      canFlow: false,
+      canFlutter: false,
+      bannedTerms: ['flowing', 'cascade'],
+      correctTerms: ['fitted crop', 'midriff-baring', 'snug fit']
+   },
+   sweater: {
+      canFlow: false,
+      canFlutter: false,
+      bannedTerms: ['flowing', 'flutter', 'light drape'],
+      correctTerms: ['cozy knit texture', 'chunky weave', 'warm layers']
+   },
+   jacket: {
+      canFlow: false,
+      canFlutter: false,
+      bannedTerms: ['soft drape', 'flowing', 'flutter'],
+      correctTerms: ['structured outerwear', 'sharp lapels', 'tailored fit']
+   },
+   // BOTTOMS
+   jeans: {
+      canFlow: false,
+      canFlutter: false,
+      bannedTerms: ['flowing', 'drape', 'soft', 'flutter', 'gentle sway'],
+      correctTerms: ['structured denim', 'rigid fit', 'classic wash']
+   },
+   pants: {
+      canFlow: false,
+      canFlutter: false,
+      bannedTerms: ['flowing', 'flutter'],
+      correctTerms: ['tailored pleats', 'crisp crease', 'structured leg']
+   },
+   wide_pants: {
+      canFlow: true,
+      canFlutter: true,
+      bannedTerms: [],
+      correctTerms: ['wide leg sways', 'palazzo flow', 'dramatic leg width']
+   },
+   shorts: {
+      canFlow: false,
+      canFlutter: false,
+      bannedTerms: ['flowing', 'cascade'],
+      correctTerms: ['casual cut', 'relaxed fit', 'summer silhouette']
+   },
+   skirt: {
+      canFlow: true,
+      canFlutter: true,
+      bannedTerms: [],
+      correctTerms: ['skirt swaying', 'gentle movement']
+   },
+   // SETS
+   suit: {
+      canFlow: false,
+      canFlutter: false,
+      bannedTerms: ['soft drape', 'flowing', 'flutter'],
+      correctTerms: ['sharp tailoring', 'structured power suit', 'crisp lines']
+   },
+   jumpsuit: {
+      canFlow: false,
+      canFlutter: false,
+      bannedTerms: ['flowing body'],
+      correctTerms: ['streamlined silhouette', 'legs sway if wide']
+   },
+   // SPECIAL
+   aodai: {
+      canFlow: true,  // Panels only
+      canFlutter: true,
+      bannedTerms: ['body flowing'],
+      correctTerms: ['ao dai panels trailing', 'vạt áo bay', 'fitted bodice maintained']
+   },
+   bikini: {
+      canFlow: false,
+      canFlutter: false,
+      bannedTerms: ['flowing fabric', 'drape', 'detailed description'],
+      correctTerms: ['outfit as shown in reference', 'beach-ready', 'resort style']
+   },
+   sleepwear: {
+      canFlow: true,  // Robe only
+      canFlutter: false,
+      bannedTerms: ['dramatic flow'],
+      correctTerms: ['cozy bedtime', 'relaxed night', 'soft comfort']
+   },
+   lingerie: {
+      canFlow: false,
+      canFlutter: false,
+      bannedTerms: ['ALL detailed descriptions'],
+      correctTerms: ['outfit as shown in reference image']
+   },
+   sport: {
+      canFlow: false,
+      canFlutter: false,
+      bannedTerms: ['flowing', 'dressy', 'elegant drape'],
+      correctTerms: ['performance fabric', 'athletic stretch', 'sporty fit']
+   }
+};
+
+export const VIDEO_STYLES = [
+   {
+      value: 'body_real',
+      label: 'Body Real',
+      emoji: '💪',
+      desc: 'Thử đồ trực tiếp, xoay 360°, show dáng thật',
+      hot: true
+   },
+
+   {
+      value: 'before_after',
+      label: 'Before-After',
+      emoji: '✨',
+      desc: 'Cầm đồ → Mặc vào → Wow effect',
+      hot: false
+   },
+   {
+      value: 'before_after_fashion_show',
+      label: 'Before-After Fashion Show',
+      emoji: '👗',
+      desc: 'Biến hình + Catwalk runway - KHÔNG voice/text/music, pure visual',
+      hot: true
+   },
+   // === 🌸 ÁO DÀI VIDEO STYLES ===
+   {
+      value: 'ao_dai_traditional',
+      label: 'Áo Dài Truyền Thống',
+      emoji: '🌸',
+      desc: 'Áo dài classic - đầm sen, phố cổ, văn hóa Việt, CÓ voice',
+      hot: true
+   },
+   {
+      value: 'ao_dai_transition',
+      label: 'Áo Dài Biến Hình',
+      emoji: '✨',
+      desc: 'Casual → Áo dài transformation - viral trend, KHÔNG voice',
+      hot: true
+   },
+   {
+      value: 'ao_dai_catwalk',
+      label: 'Áo Dài Catwalk',
+      emoji: '👠',
+      desc: 'Runway áo dài - panels flying, graceful walk, KHÔNG voice',
+      hot: true
+   },
+   {
+      value: 'ao_dai_modern',
+      label: 'Áo Dài Cách Tân',
+      emoji: '💫',
+      desc: 'Áo dài Y2K fusion - cổ yếm, sequin, ren, urban backdrop, CÓ voice',
+      hot: true
+   },
+   {
+      value: 'fabric_focus',
+      label: 'Cận Vải',
+      emoji: '🔍',
+      desc: 'Zoom chi tiết vải, may, chất liệu cao cấp',
+      hot: false
+   },
+   {
+      value: 'sleepwear_cozy',
+      label: 'Đồ Ngủ Cozy',
+      emoji: '🌙',
+      desc: 'Đồ ngủ/loungewear thoải mái, ấm cúng, TikTok-safe',
+      hot: true
+   },
+   {
+      value: 'editorial_inner',
+      label: 'Inner Editorial',
+      emoji: '🎀',
+      desc: 'Fashion foundations editorial chuyên nghiệp, TikTok-safe',
+      hot: true
+   },
+   {
+      value: 'flatlay_inner',
+      label: 'Inner Flatlay',
+      emoji: '📸',
+      desc: 'Sắp đặt nghệ thuật fashion foundations - không người mẫu, chỉ sản phẩm + props',
+      hot: true
+   },
+   {
+      value: 'handheld_inner',
+      label: 'Inner Hand-held',
+      emoji: '🤲',
+      desc: 'Cận cảnh tay cầm/test sản phẩm foundation wear - chứng minh chất lượng, KHÔNG voice',
+      hot: true
+   },
+   {
+      value: 'handheld_voice',
+      label: 'Hand-held + Voice',
+      emoji: '🎤',
+      desc: 'Tay test sản phẩm + Voice thuyết minh - CVR cao, TikTok safe',
+      hot: true
+   },
+   {
+      value: 'mannequin_inner',
+      label: 'Ma Nơ Canh + Voice',
+      emoji: '👗',
+      desc: 'Foundation wear trên ma nơ canh + tay test + voice - 100% TikTok safe, CVR cao',
+      hot: true
+   },
+   {
+      value: 'overlay_demo',
+      label: 'Overlay Demo',
+      emoji: '👚',
+      desc: 'Mặc foundation wear NGOÀI quần áo để demo - 100% TikTok safe, thấy fit thật',
+      hot: true
+   },
+   {
+      value: 'overlay_compare',
+      label: 'Overlay So Sánh',
+      emoji: '⚖️',
+      desc: 'So sánh 2 sản phẩm bằng cách mặc overlay - trực quan, dễ chọn',
+      hot: true
+   },
+   {
+      value: 'overlay_size',
+      label: 'Overlay Size Guide',
+      emoji: '📏',
+      desc: 'Demo nhiều size S/M/L overlay - hướng dẫn chọn size chuẩn',
+      hot: false
+   },
+   {
+      value: 'asmr_fabric',
+      label: 'ASMR Sờ Vải',
+      emoji: '🎧',
+      desc: 'ASMR sờ vải, kéo vải - âm thanh thỏa mãn, không voice',
+      hot: true
+   },
+   {
+      value: 'floor_display',
+      label: 'Trưng Bày Sàn',
+      emoji: '🪵',
+      desc: 'Sản phẩm trải trên sàn nhà - aesthetic lifestyle, không người mẫu',
+      hot: true
+   },
+   // === BEAUTY & PERSONAL CARE VIDEO STYLES ===
+   {
+      value: 'beauty_demo',
+      label: 'Beauty Demo',
+      emoji: '💄',
+      desc: 'Demo skincare/makeup real-time, before-after effect',
+      hot: true
+   },
+   {
+      value: 'device_review',
+      label: 'Device Review',
+      emoji: '🔌',
+      desc: 'Máy massage, rửa mặt - show công dụng thực tế',
+      hot: true
+   },
+   {
+      value: 'body_shaper_demo',
+      label: 'Gen Nịt Demo',
+      emoji: '🩱',
+      desc: 'Demo gen nịt/miếng dán - before-after eo thon',
+      hot: true
+   },
+   {
+      value: 'skincare_routine',
+      label: 'Skincare Routine',
+      emoji: '🧴',
+      desc: 'Quy trình skincare đầy đủ, aesthetic ASMR',
+      hot: false
+   },
+   {
+      value: 'makeup_tutorial',
+      label: 'Makeup Tutorial',
+      emoji: '💋',
+      desc: 'Tutorial makeup từ A-Z, close-up chi tiết',
+      hot: false
+   },
+   // === MIRROR SELFIE / OOTD STYLES ===
+   {
+      value: 'mirror_ootd',
+      label: 'Mirror OOTD',
+      emoji: '🪞',
+      desc: 'Quay gương cầm điện thoại - Fit Check viral TikTok, CÓ voice',
+      hot: true
+   },
+   {
+      value: 'ootd_novoice',
+      label: 'OOTD Pure Visual',
+      emoji: '📸',
+      desc: 'Chỉ outfit + model, KHÔNG voice/text/music - raw footage',
+      hot: true
+   },
+   {
+      value: 'grwm',
+      label: 'Get Ready With Me',
+      emoji: '💅',
+      desc: 'GRWM từ mặc đồ đến ra ngoài - storytelling',
+      hot: true
+   },
+   // === 🔥 VIRAL TRENDING STYLES 2025-2026 ===
+   {
+      value: 'outfit_change_viral',
+      label: 'Outfit Change Viral',
+      emoji: '🔄',
+      desc: 'Kick spin/nhảy đổi outfit theo beat - trending viral, KHÔNG voice',
+      hot: true
+   },
+   {
+      value: 'ootd_grwm',
+      label: 'OOTD + GRWM',
+      emoji: '👗',
+      desc: 'Get Ready With Me + Outfit of the Day - lifestyle, CÓ voice',
+      hot: true
+   },
+   {
+      value: 'try_on_haul',
+      label: 'Try-on Haul',
+      emoji: '🛍️',
+      desc: 'Mặc thử nhiều outfit + review chi tiết - bán hàng mạnh, CÓ voice',
+      hot: true
+   },
+   {
+      value: 'personal_branding',
+      label: 'Personal Branding',
+      emoji: '⭐',
+      desc: 'Day in life + Style story - xây dựng thương hiệu cá nhân, CÓ voice',
+      hot: true
+   },
+   {
+      value: 'fit_check',
+      label: 'Fit Check',
+      emoji: '✅',
+      desc: 'Show từng món đồ nhanh theo beat - KHÔNG voice, viral trend',
+      hot: true
+   },
+   {
+      value: 'style_challenge',
+      label: 'Style Challenge',
+      emoji: '🎯',
+      desc: 'Mỗi ngày 1 outfit theo concept - series content, CÓ voice',
+      hot: false
+   },
+   // === 🔥 VIRAL HOOKS 2026 - NEW STYLES ===
+   {
+      value: 'cinematic_hook_reveal',
+      label: 'Cinematic Reveal',
+      emoji: '🎬',
+      desc: 'Mystery build → dramatic reveal trên beat drop - max retention',
+      hot: true
+   },
+   {
+      value: 'aesthetic_grwm',
+      label: 'Aesthetic GRWM',
+      emoji: '✨',
+      desc: 'Get Ready With Me aesthetic 2026 - soft girl/coquette vibe',
+      hot: true
+   },
+   {
+      value: 'outfit_challenge',
+      label: 'Outfit Challenge',
+      emoji: '🔥',
+      desc: '3 ways to style / budget challenge / this vs that format',
+      hot: true
+   },
+   {
+      value: 'reaction_reveal',
+      label: 'Reaction Reveal',
+      emoji: '😱',
+      desc: 'BFF/Mẹ react outfit mới - social proof viral',
+      hot: true
+   },
+   {
+      value: 'coquette_aesthetic',
+      label: 'Coquette Style',
+      emoji: '🎀',
+      desc: 'Soft girl energy, bows, pastels, romantic 2026',
+      hot: true
+   },
+   {
+      value: 'office_siren',
+      label: 'Office Siren',
+      emoji: '💼',
+      desc: '9-5 me vs 6pm me - công sở → quyến rũ transform',
+      hot: true
+   },
+   {
+      value: 'quiet_luxury',
+      label: 'Quiet Luxury',
+      emoji: '🤍',
+      desc: 'No logo, chất liệu cao cấp, editorial calm - premium',
+      hot: true
+   },
+   {
+      value: 'trend_mashup',
+      label: 'Trend Mashup',
+      emoji: '🔀',
+      desc: 'Mix nhiều trend 2026: Y2K + Coquette + Athleisure',
+      hot: true
+   },
+   // === 🪄 BIẾN HÌNH / TRANSFORMATION MODES ===
+   {
+      value: 'transform_viral',
+      label: 'Biến Hình TikTok',
+      emoji: '✨',
+      desc: 'Viral transformation: Đồ nhà → Outfit sang - 32s sparkle magic',
+      hot: true
+   },
+   {
+      value: 'transform_glowup',
+      label: 'Biến Hình Glow Up',
+      emoji: '💫',
+      desc: 'Before/After glow up - từ bình thường → xinh đẹp 32s',
+      hot: true
+   },
+   {
+      value: 'transform_day_night',
+      label: 'Biến Hình Day→Night',
+      emoji: '🌙',
+      desc: '9AM office → 9PM party transformation 32s',
+      hot: true
+   },
+   // === 👗 FASHION WALK-IN MODES (Body Dress TikTok Style) ===
+   {
+      value: 'fashion_walkin',
+      label: 'Fashion Walk-In',
+      emoji: '👗',
+      desc: 'Model bước về camera - Soft daylight - Medium shot - Quiet allure, confident energy',
+      hot: true
+   },
+   {
+      value: 'fashion_walkin_beauty',
+      label: 'Walk-In + Beauty Focus',
+      emoji: '✨',
+      desc: 'Walk-in shot + Focus vào makeup/skin - Ultra close kết thúc',
+      hot: true
+   },
+   // === 🆕 TRENDING 2026 MID-YEAR - NEW STYLES ===
+   {
+      value: 'pov_storytelling',
+      label: 'POV Storytelling',
+      emoji: '📖',
+      desc: 'POV: Bạn là người đầu tiên thấy deal này - narrative immersive',
+      hot: true
+   },
+   {
+      value: 'split_screen_compare',
+      label: 'Split Screen So Sánh',
+      emoji: '📱',
+      desc: 'Nửa màn hình trước/sau hoặc 2 outfit cạnh nhau - visual proof',
+      hot: true
+   },
+   {
+      value: 'asmr_unbox',
+      label: 'ASMR Unboxing',
+      emoji: '🎧',
+      desc: 'Mở hộp ASMR - âm thanh thỏa mãn + reveal sản phẩm',
+      hot: true
+   },
+   {
+      value: 'speed_styling',
+      label: 'Speed Styling',
+      emoji: '⚡',
+      desc: '60s styling timelapse - từ basic → complete look nhanh',
+      hot: true
+   },
+   {
+      value: 'closet_raid',
+      label: 'Closet Raid',
+      emoji: '👗',
+      desc: 'Lục tủ đồ pick outfit - natural vibe, relatable content',
+      hot: true
+   },
+   {
+      value: 'price_reveal_game',
+      label: 'Price Reveal Game',
+      emoji: '💰',
+      desc: 'Đoán giá → Reveal giá thật shock - engagement bait cực mạnh',
+      hot: true
+   },
+   {
+      value: 'mini_vlog_style',
+      label: 'Mini Vlog Style',
+      emoji: '📹',
+      desc: 'Vlog ngắn day-in-life + outfit showcase - authentic lifestyle',
+      hot: true
+   },
+   {
+      value: 'rating_review',
+      label: 'Honest Rating',
+      emoji: '⭐',
+      desc: 'Rate sản phẩm X/10 - honest review format, trust builder',
+      hot: true
+   },
+   {
+      value: 'hack_tutorial',
+      label: 'Style Hack',
+      emoji: '💡',
+      desc: 'Life hack/style hack với sản phẩm - educational + viral',
+      hot: true
+   },
+   {
+      value: 'side_by_side',
+      label: 'Side by Side',
+      emoji: '🔄',
+      desc: 'Expectation vs Reality / Hàng web vs thực tế - trust proof',
+      hot: true
+   },
+   {
+      value: 'aesthetic_flatlay',
+      label: 'Aesthetic Flatlay',
+      emoji: '🎨',
+      desc: 'Sắp đặt nghệ thuật outfit + phụ kiện - Pinterest aesthetic',
+      hot: true
+   },
+   {
+      value: 'countdown_reveal',
+      label: 'Countdown Reveal',
+      emoji: '⏰',
+      desc: 'Top 3/5 countdown → hero product reveal cuối - retention max',
+      hot: true
+   },
+   // === GIA DỤNG THÔNG MINH & TIỆN ÍCH VIDEO STYLES ===
+
+   {
+      value: 'unbox_demo',
+      label: 'Unbox & Demo',
+      emoji: '📦',
+      desc: 'Mở hộp + Demo sử dụng - classic TikTok CVR cao',
+      hot: true
+   },
+   {
+      value: 'problem_solution',
+      label: 'Vấn Đề → Giải Pháp',
+      emoji: '💡',
+      desc: 'Show vấn đề phổ biến → Sản phẩm là giải pháp',
+      hot: true
+   },
+   {
+      value: 'feature_showcase',
+      label: 'Tính Năng Đỉnh',
+      emoji: '⚡',
+      desc: 'Từng tính năng wow + Demo thực tế',
+      hot: true
+   },
+   {
+      value: 'before_after_home',
+      label: 'Trước-Sau Nhà',
+      emoji: '🏠',
+      desc: 'Góc nhà trước lộn xộn/bẩn → Sau gọn đẹp/sạch',
+      hot: true
+   },
+   {
+      value: 'day_in_life',
+      label: 'Một Ngày Sử Dụng',
+      emoji: '🌅',
+      desc: 'Sáng → Trưa → Tối dùng sản phẩm trong ngày',
+      hot: false
+   },
+   {
+      value: 'comparison_test',
+      label: 'So Sánh Test',
+      emoji: '⚔️',
+      desc: 'Sản phẩm này vs cách truyền thống - proof công hiệu',
+      hot: true
+   },
+   {
+      value: 'installation_guide',
+      label: 'Hướng Dẫn Lắp',
+      emoji: '🔧',
+      desc: 'Lắp đặt từ A-Z - dễ setup = mua ngay',
+      hot: false
+   },
+   {
+      value: 'smart_home_tour',
+      label: 'Smart Home Tour',
+      emoji: '🏡',
+      desc: 'Tour căn nhà với nhiều thiết bị thông minh',
+      hot: false
+   },
+];
+
+// ================================================
+// 🎬 MOVIE MODE (5-Minute Fashion Films)
+// ================================================
+// For 5-minute (300s) fashion storytelling videos
+// Structured as 6 chapters with 3-act narrative arc
+
+export const MOVIE_STYLES = [
+   {
+      value: 'morning_to_night',
+      label: 'Một Ngày Của Cô Nàng',
+      emoji: '🌅',
+      desc: 'Morning → Night narrative - outfit qua nhiều thời điểm trong ngày',
+      hot: true
+   },
+   {
+      value: 'transformation_epic',
+      label: 'Biến Hình Hoành Tráng',
+      emoji: '✨',
+      desc: 'Epic before/after transformation - 5 phút build-up đến reveal',
+      hot: true
+   },
+   {
+      value: 'fashion_show',
+      label: 'Runway Dreams',
+      emoji: '👗',
+      desc: 'Backstage → Multiple looks → Finale bow - fashion show cinematic',
+      hot: true
+   },
+   {
+      value: 'brand_story',
+      label: 'Phim Thương Hiệu',
+      emoji: '🎯',
+      desc: 'Premium brand storytelling - aesthetic, craft, lifestyle',
+      hot: false
+   }
+];
+
+// ================================================
+// 🎬 MOVIE MODE - 2 PHÚT (120s) - N+1 KEYFRAME LOGIC
+// ================================================
+// 3 Chapters × 5 Scenes × 8s = 120s (2 minutes)
+// Each chapter: 5 scenes → 6 keyframes (N+1)
+// Total: 15 scenes, 18 keyframes
+
+export const MOVIE_CHAPTERS = [
+   {
+      id: 1,
+      name: 'Setup',
+      timeRange: '0s-40s',
+      purpose: 'Hook + giới thiệu model, outfit, bối cảnh - thu hút ngay từ đầu',
+      emotionalBeat: 'curiosity → connection',
+      sceneCount: 5,
+      keyframeCount: 6  // N+1: 5 scenes → 6 keyframes
+   },
+   {
+      id: 2,
+      name: 'Confrontation',
+      timeRange: '40s-80s',
+      purpose: 'Climax - cao trào, moment đẹp nhất, showcase mạnh',
+      emotionalBeat: 'excitement → peak experience',
+      sceneCount: 5,
+      keyframeCount: 6  // N+1: 5 scenes → 6 keyframes
+   },
+   {
+      id: 3,
+      name: 'Resolution',
+      timeRange: '80s-120s',
+      purpose: 'Kết thúc ấn tượng, CTA, để lại dấu ấn',
+      emotionalBeat: 'satisfaction → invitation',
+      sceneCount: 5,
+      keyframeCount: 6  // N+1: 5 scenes → 6 keyframes
+   }
+];
+
+export const MOVIE_STORY_TEMPLATES = [
+   {
+      value: 'morning_to_night',
+      label: 'Sáng → Tối',
+      description: 'Một ngày của model với outfit - condensed 2 phút',
+      chapters: [
+         { id: 1, title: 'Morning Vibes', setting: 'Home/Cafe, soft morning light' },
+         { id: 2, title: 'Golden Showcase', setting: 'Street/Park, golden hour peak' },
+         { id: 3, title: 'Night Finale', setting: 'Night venue, city lights magic' }
+      ]
+   },
+   {
+      value: 'transformation_epic',
+      label: 'Biến Đổi Hoàn Toàn',
+      description: 'Before → Magic → After transformation 2 phút',
+      chapters: [
+         { id: 1, title: 'Before (Plain)', setting: 'Home/ordinary, muted colors' },
+         { id: 2, title: 'Transformation', setting: 'Mirror, sparkle magic, reveal' },
+         { id: 3, title: 'After (Stunning)', setting: 'Living the new look, confidence' }
+      ]
+   },
+   {
+      value: 'fashion_show',
+      label: 'Runway Dreams',
+      description: 'Backstage → Hero Look → Finale 2 phút',
+      chapters: [
+         { id: 1, title: 'Backstage Prep', setting: 'Backstage, anticipation energy' },
+         { id: 2, title: 'Hero Showcase', setting: 'Runway, multiple angles, peak' },
+         { id: 3, title: 'Finale Bow', setting: 'Final walk, brand statement' }
+      ]
+   },
+   {
+      value: 'brand_story',
+      label: 'Phim Thương Hiệu',
+      description: 'Aesthetic → Product → Lifestyle 2 phút',
+      chapters: [
+         { id: 1, title: 'Brand Aesthetic', setting: 'Mood, colors, ambassador intro' },
+         { id: 2, title: 'Hero Product', setting: 'Detail showcase, craftsmanship' },
+         { id: 3, title: 'Lifestyle Close', setting: 'Real world use, CTA, emotional' }
+      ]
+   }
+];
+
+// ================================================
+// 📢 MARKETING MODE - Display Modes (Mannequin vs Model)
+// ================================================
+export const MARKETING_DISPLAY_MODES = [
+   {
+      value: 'auto',
+      label: '🤖 Auto',
+      emoji: '🤖',
+      desc: 'AI tự chọn mannequin hoặc model dựa trên sản phẩm'
+   },
+   {
+      value: 'mannequin',
+      label: '🧍 Mannequin',
+      emoji: '🧍',
+      desc: 'Focus 100% vào sản phẩm trên mannequin — clean, professional'
+   },
+   {
+      value: 'model',
+      label: '💃 Model',
+      emoji: '💃',
+      desc: 'Model thật showcase — lifestyle, editorial, confident pose'
+   }
+];
+
+// ================================================
+// 🌅 WALK-IN TIME OF DAY (Lighting Progression)
+// ================================================
+// For Fashion Walk-In mode: Afternoon → Golden Hour → Blue Hour → Night City
+export const WALKIN_TIME_OF_DAY = [
+   {
+      value: 'auto',
+      label: '🤖 AI Tự Chọn',
+      emoji: '✨',
+      desc: 'AI chọn thời gian phù hợp với outfit vibe'
+   },
+   {
+      value: 'golden_hour',
+      label: '🌅 Golden Hour',
+      emoji: '🌅',
+      desc: 'Hoàng hôn 5-7PM - Ánh vàng ấm, rim light quanh tóc/vai/eo'
+   },
+   {
+      value: 'blue_hour',
+      label: '🌆 Blue Hour',
+      emoji: '🌆',
+      desc: 'Chạng vạng 7-8PM - Sky xanh + city lights vàng mix'
+   },
+   {
+      value: 'night_city',
+      label: '🌃 Night City',
+      emoji: '🌃',
+      desc: 'Đêm đô thị 8PM+ - Street lights, storefront glow, luxury vibe'
+   }
+];
+
+// ================================================
+// 🎨 WALK-IN AESTHETIC VIBES (5 Vibes + Auto)
+// ================================================
+// Premium vibe system: TỰ NHIÊN, NGẪU HỨNG, KHÔNG CATWALK
+// Vibe: "Nàng thơ hiện đại" - đang sống với váy đẹp, không diễn
+export const WALKIN_AESTHETIC_VIBES = [
+   {
+      value: 'auto',
+      label: '🤖 AI Tự Chọn',
+      emoji: '✨',
+      desc: 'AI detect outfit → auto chọn vibe "đời thật" phù hợp nhất'
+   },
+   {
+      value: 'romantic',
+      label: '💕 Romantic',
+      emoji: '💕',
+      desc: 'Dạo bước mơ màng, thỉnh thoảng dừng ngắm hoa - Chiffon, Lace, Floral',
+      movement: 'dạo bước nhẹ nhàng, tiện tay vén tóc, dừng ngắm cảnh đẹp',
+      camera: 'tình cờ bắt gặp, theo dõi nhẹ nhàng, ánh sáng mềm',
+      fabric: 'váy bay theo gió tự nhiên, nếp vải mềm mại',
+      expression: ['mơ màng nhìn xa', 'phát hiện mình đẹp', 'mỉm cười hài lòng', 'bye nhẹ nhàng'],
+      bestFor: ['chiffon', 'lace', 'floral', 'maxi', 'pastel']
+   },
+   {
+      value: 'power',
+      label: '💪 Power',
+      emoji: '💪',
+      desc: 'Đi vừa đẹp vừa nhàn, tự tin vì biết mình đẹp - Blazer, Structured',
+      movement: 'bước đi tự tin không vội, dừng check mình trong kính, gật đầu hài lòng',
+      camera: 'theo dõi ổn định, medium shot tự tin',
+      fabric: 'váy structured rơi đẹp, không bay quá nhiều',
+      expression: ['cool nhìn môi trường', 'mỉm cười mãn nguyện', 'self-assured', 'done và đẹp'],
+      bestFor: ['blazer', 'structured', 'bodycon', 'formal', 'dark']
+   },
+   {
+      value: 'goddess',
+      label: '✨ Goddess',
+      emoji: '✨',
+      desc: 'Bay bổng nhưng đời thật, như đang trong MV - Satin, Silk, Gown',
+      movement: 'bước chậm như dreaming, xoay nhẹ xem váy bay, interact với ánh sáng',
+      camera: 'góc đẹp như MV, backlight đẹp, slow motion feeling',
+      fabric: 'satin chảy như nước, silk bay như mây',
+      expression: ['peaceful awakening', 'ngắm mình trong kính', 'hài lòng divine', 'bye ethereal'],
+      bestFor: ['satin', 'silk', 'gown', 'grecian', 'metallic']
+   },
+   {
+      value: 'minimal',
+      label: '◻️ Minimal',
+      emoji: '◻️',
+      desc: 'Đi bình thường nhưng đẹp vì đơn giản - Solid colors, Clean',
+      movement: 'bước đi clean không flourish, dừng tự nhiên, quay đi tiếp',
+      camera: 'framing gọn gàng, không drama, editorial',
+      fabric: 'váy rơi thẳng, không bay quá nhiều, clean lines',
+      expression: ['neutral thoải mái', 'nhận ra camera', 'subtle smile', 'đi tiếp'],
+      bestFor: ['minimal', 'solid', 'clean', 'simple', 'monochrome']
+   },
+   {
+      value: 'soft_allure',
+      label: '🌙 Soft Allure',
+      emoji: '🌙',
+      desc: 'Tự nhiên quyến rũ, không cố gắng - Slip, Figure-hugging',
+      movement: 'đi tự nhiên có rhythm, tiện tay chạm váy, turning nhẹ nhàng',
+      camera: 'intimate distance, theo dõi nhẹ, warm lighting',
+      fabric: 'váy ôm body tự nhiên, satin catch light đẹp',
+      expression: ['thoải mái tự tin', 'phát hiện được ngắm', 'mỉm cười tự nhiên', 'bye warm'],
+      bestFor: ['slip', 'bodycon', 'figure-hugging', 'satin', 'evening']
+   }
+];
+
+// ================================================
+// 👤 WALK-IN PERSONALITY SWITCH (4 Personalities + Auto)
+// ================================================
+// Model personality affects walk style, expressions, and interactions
+export const WALKIN_PERSONALITIES = [
+   {
+      value: 'auto',
+      label: '🤖 AI Tự Chọn',
+      emoji: '✨',
+      desc: 'AI detect outfit → auto chọn personality phù hợp nhất'
+   },
+   {
+      value: 'casual',
+      label: '🌸 Casual',
+      emoji: '🌸',
+      desc: 'Thoải mái, nhẹ nhàng, everyday vibe - Đi dạo bình thường',
+      energy: 'Relaxed, everyday, effortless',
+      walk: 'Natural easy pace, no deliberate sway',
+      hands: 'Relaxed, pockets, phone, bag',
+      expression: 'Easy smile, comfortable in skin',
+      eyeContact: 'Casual glances, not seeking attention',
+      bestFor: ['summer dress', 'casual midi', 'everyday wear']
+   },
+   {
+      value: 'shy',
+      label: '🌷 Shy',
+      emoji: '🌷',
+      desc: 'Nhẹ nhàng, e thẹn, dễ thương - Hơi ngại ngùng khi đẹp',
+      energy: 'Soft, demure, endearing',
+      walk: 'Smaller steps, slightly turned inward',
+      hands: 'Near body, touching collar, holding own arm',
+      expression: 'Gentle smile, looking down then up',
+      eyeContact: 'Brief, then looks away with smile',
+      bestFor: ['romantic dress', 'soft fabrics', 'pastel colors']
+   },
+   {
+      value: 'confident',
+      label: '💎 Confident',
+      emoji: '💎',
+      desc: 'Tự tin, quyến rũ, biết mình đẹp - Boss energy',
+      energy: 'Self-assured, powerful, commanding',
+      walk: 'Strong even strides, shoulders back',
+      hands: 'On hip, decisive gestures, controlled',
+      expression: 'Knowing smile, "I know I look good"',
+      eyeContact: 'Direct, unwavering, engaging',
+      bestFor: ['bodycon', 'structured dress', 'evening gown']
+   },
+   {
+      value: 'playful',
+      label: '✨ Playful',
+      emoji: '✨',
+      desc: 'Vui vẻ, tinh nghịch, năng động - Fun party energy',
+      energy: 'Fun, teasing, spirited',
+      walk: 'Light bouncy steps, hip pop moments',
+      hands: 'Tossing hair, spinning dress, animated',
+      expression: 'Bright smile, mischievous eyes',
+      eyeContact: 'Flirty glances, winks, playful looks',
+      bestFor: ['party dress', 'cocktail', 'fun prints']
+   }
+];
+
+// ================================================
+// 🎲 MICRO-VARIATION POOLS (Anti-Repetition)
+// ================================================
+export const WALKIN_MICRO_VARIATIONS = {
+   handTouch: [
+      'hair_tuck: tucking hair behind ear',
+      'collarbone_graze: fingers grazing collarbone',
+      'fabric_lift: lifting fabric hem slightly',
+      'waist_rest: hand resting on waist',
+      'ear_tuck: tucking hair with pinky extended',
+      'chin_touch: fingertips near chin',
+      'strap_adjust: adjusting dress strap gently',
+      'wrist_cross: wrists crossed elegantly in front'
+   ],
+   glanceDirection: [
+      'camera_forward: direct engaging gaze to camera',
+      'soft_left: gazing slightly to the left',
+      'subtle_right: glancing gently to the right',
+      'upward_drift: eyes drifting up briefly then back',
+      'lash_lower: lowering lashes then lifting to meet camera',
+      'over_shoulder: looking gracefully over shoulder'
+   ],
+   fabricMotion: [
+      'gentle_sway: subtle left-right fabric movement',
+      'dramatic_sweep: wide flowing fabric motion',
+      'trailing_float: fabric trailing softly behind steps',
+      'wind_lift: fabric lifted gently by breeze',
+      'body_hug: fabric following body contour naturally'
+   ],
+   smileIntensity: [
+      '20%: nearly neutral, barely-there hint of smile',
+      '35%: soft subtle natural smile',
+      '50%: warm natural friendly smile',
+      '70%: radiant genuine joyful smile'
+   ]
+};
+
+// ================================================
+// 📊 VIBE INTENSITY LEVELS
+// ================================================
+export const WALKIN_INTENSITY_LEVELS = [
+   { value: 'subtle', label: 'Subtle (30%)', energy: 'understated', gestures: 'smaller', expression: 'minimal' },
+   { value: 'medium', label: 'Medium (60%)', energy: 'balanced', gestures: 'normal', expression: 'natural' },
+   { value: 'bold', label: 'Bold (90%)', energy: 'dramatic', gestures: 'larger', expression: 'full' }
+];
+
+// ================================================
+// 👗 WALK-IN DRESS VIBES (Smart Environment Matching)
+// ================================================
+export const WALKIN_DRESS_VIBES = {
+   party: {
+      keywords: ['party', 'cocktail', 'sparkle', 'sequin', 'glitter', 'mini dress'],
+      preferredTime: 'night_city',
+      environments: ['nightlife', 'bars', 'hotel_entrance', 'shopping_street']
+   },
+   romantic: {
+      keywords: ['romantic', 'soft', 'flowing', 'floral', 'lace', 'chiffon'],
+      preferredTime: 'golden_hour',
+      environments: ['park', 'garden', 'lakeside', 'cafe_courtyard']
+   },
+   luxury: {
+      keywords: ['luxury', 'formal', 'gown', 'silk', 'satin', 'elegant', 'evening'],
+      preferredTime: 'blue_hour',
+      environments: ['hotel_entrance', 'resort', 'modern_architecture', 'plaza']
+   },
+   casual: {
+      keywords: ['casual', 'summer', 'sundress', 'cotton', 'linen', 'day dress'],
+      preferredTime: 'golden_hour',
+      environments: ['pedestrian_street', 'urban_plaza', 'cafe_terrace', 'park']
+   },
+   modern: {
+      keywords: ['modern', 'minimalist', 'bodycon', 'sleek', 'structured', 'contemporary'],
+      preferredTime: 'blue_hour',
+      environments: ['modern_architecture', 'rooftop', 'shopping_street', 'urban_square']
+   }
+};
+
+// ================================================
+// 🎭 WALK-IN EXPRESSION VIBES (4-Scene Progression)
+// ================================================
+export const WALKIN_EXPRESSION_VIBES = {
+   scene1_mystery: {
+      emotion: 'Mystery',
+      expression: 'Dreamy distant gaze, soft enigmatic smile',
+      eyeContact: 'Avoiding camera, looking past',
+      energy: 'low-building',
+      keywords: ['subtle eyebrow raise', 'quiet intrigue', 'soft mysterious energy']
+   },
+   scene2_recognition: {
+      emotion: 'Recognition',
+      expression: 'Knowing half-smile, eyes softening',
+      eyeContact: 'Side glance to camera',
+      energy: 'medium-rising',
+      keywords: ['corner of lips lifting', 'gentle acknowledgment', 'warming gaze']
+   },
+   scene3_confidence: {
+      emotion: 'Confidence',
+      expression: 'Direct warm gaze, self-assured presence',
+      eyeContact: 'Full eye contact, unwavering',
+      energy: 'high-sustained',
+      keywords: ['I know I look good energy', 'controlled subtle smile', 'magnetic presence']
+   },
+   scene4_connection: {
+      emotion: 'Connection',
+      expression: 'Inviting playful smile, friendly warmth',
+      eyeContact: 'Engaging, welcoming',
+      energy: 'medium-warm',
+      keywords: ['natural charm', 'approachable warmth', 'soft inviting gaze']
+   }
+};
+
+// Outfit-matched expression styles
+export const WALKIN_OUTFIT_EXPRESSIONS = {
+   party_cocktail: {
+      style: 'Playful, teasing, magnetic',
+      keywords: ['mischievous glint in eyes', 'playful smirk', 'sparkling energy']
+   },
+   romantic_flowing: {
+      style: 'Dreamy, soft, enchanting',
+      keywords: ['soft ethereal gaze', 'gentle wondering smile', 'romantic energy']
+   },
+   bodycon_sleek: {
+      style: 'Confident, powerful, commanding',
+      keywords: ['controlled subtle smile', 'direct powerful gaze', 'owning the moment']
+   },
+   luxury_evening: {
+      style: 'Serene, elegant, mysterious',
+      keywords: ['quiet sophistication', 'knowing half-smile', 'refined presence']
+   },
+   casual_summer: {
+      style: 'Fresh, natural, approachable',
+      keywords: ['genuine friendly smile', 'bright relaxed eyes', 'natural charm']
+   }
+};
+
+// Location Regions for smart background selection - MEGA VAULT (200+ REAL locations)
+// ⚠️ TẤT CẢ địa điểm đều là ĐỊA ĐIỂM THẬT có thể tìm trên Google Maps
+// ⚠️ AI PHẢI tạo ảnh/video như CHỤP THỰC TẾ tại địa điểm, KHÔNG phải CGI/3D render
+export const LOCATION_REGIONS = [
+   {
+      value: 'auto',
+      label: 'AI Tự Chọn',
+      emoji: '🤖',
+      desc: 'AI chọn bối cảnh THẬT phù hợp với sản phẩm (không CGI)',
+      locations: [],
+      productMatch: ['all'] // Match all products
+   },
+   // === DRESS-SPECIFIC LOCATIONS FOR WALK-IN MODE (60+ REAL PLACES) ===
+   {
+      value: 'for_dress_walkin',
+      label: '👗 Dress Walk-In',
+      emoji: '👗',
+      desc: 'Địa điểm đa dạng cho đầm váy từ truyền thống đến hiện đại',
+      productMatch: ['dress', 'gown', 'maxi', 'midi', 'mini', 'cocktail', 'evening'],
+      locations: [
+         // === TRUYỀN THỐNG / CỔ ĐIỂN (15 địa điểm) ===
+         'Hoi An Ancient Town yellow wall morning light - vintage dress aesthetic',
+         'Hoi An Japanese Bridge area colorful lanterns - floral maxi dress',
+         'Hanoi Old Quarter Hang Dao silk street golden hour - elegant midi',
+         'French Quarter Hanoi Trang Tien street colonial architecture - lace evening gown',
+         'Saigon Central Post Office interior arched windows - classic formal dress',
+         'Saigon Opera House grand staircase marble - satin ballgown',
+         'Rex Hotel Saigon rooftop garden vintage - cocktail dress retro',
+         'Continental Hotel Saigon courtyard French colonial - vintage A-line',
+         'Sofitel Metropole Hanoi courtyard classic - elegant evening dress',
+         'Villa Song Saigon riverside colonial mansion - luxury silk gown',
+         'Maison de Tet Decor Hanoi vintage interiors - retro midi dress',
+         'Hanoi Station old terminal building - vintage travel dress',
+         'Dalat Palace Heritage hotel lawn - romantic vintage gown',
+         'Van Phuc Silk Village Hanoi traditional street - silk traditional dress',
+         'Faifo Old House Hoi An heritage interior - vintage floral',
+         // === HIỆN ĐẠI / TRENDY (20 địa điểm) ===
+         'Landmark 81 Saigon lobby grand entrance marble - power bodycon dress',
+         'Nguyen Hue Walking Street night LED fountain - party mini dress',
+         'The Reverie Saigon lobby luxury chandeliers - luxury cocktail dress',
+         'Empire City Saigon piazza modern architecture - minimalist dress',
+         'Saigon Skydeck rooftop bar night city lights - slit evening gown',
+         'Thao Dien Pearl pathway modern luxury - casual chic sundress',
+         'Vincom Center Dong Khoi shopping hall - contemporary midi',
+         'Diamond Island Saigon promenade waterfront - slip satin dress',
+         'Bitexco Financial Tower plaza modern glass - structured dress',
+         'Thu Thiem Bridge Saigon sunset view - flowing modern gown',
+         'Crescent Mall Phu My Hung exterior - shopping day dress',
+         'Vinhomes Central Park boulevard - modern everyday dress',
+         'Masteri Thao Dien sky garden - rooftop party dress',
+         'The Metropole Thao Dien pool area - resort dress',
+         'Ecopark Hanoi modern residential - contemporary casual dress',
+         'Lotte Center Hanoi observation deck - city view evening dress',
+         'Times City Hanoi shopping boulevard - trendy mini dress',
+         'Sun Plaza Danang modern entrance - coastal modern dress',
+         'Cocobay Danang beachfront modern - beach party dress',
+         'Vinpearl Nha Trang cable car station - resort evening',
+         // === ROMANTIC / DREAMY (15 địa điểm) ===
+         'Dalat Flower Garden trails sunrise - floral maxi chiffon',
+         'Tao Dan Park Saigon golden hour tree canopy - romantic midi',
+         'Thu Le Zoo Hanoi botanical garden path - pastel lace dress',
+         'Thanh Da Island Saigon riverside sunset - flowing romantic gown',
+         'Bach Thao Park Hanoi pavilion - dreamy vintage dress',
+         'Gia Long Park Saigon old trees - soft romantic dress',
+         'Dalat Pine Forest road - ethereal maxi dress',
+         'Mui Ne Sand Dunes golden hour - bohemian maxi',
+         'Bao Loc Tea Hills morning mist - countryside romantic dress',
+         'Tam Dao Mountain resort path - highland romantic gown',
+         'Sapa terraces morning fog - dreamy traditional dress',
+         'Hoan Kiem Lake Hanoi promenade sunset - elegant romantic',
+         'West Lake Hanoi lotus area - soft flowing dress',
+         'Binh Quoi Village Saigon riverside - rustic romantic',
+         'Can Gio Mangrove forest bridge - nature romantic dress',
+         // === DỰ TIỆC / EVENING (10 địa điểm) ===
+         'Park Hyatt Saigon main entrance evening - gala evening gown',
+         'JW Marriott Phu Quoc marina sunset - resort formal dress',
+         'InterContinental Danang Sun Peninsula - luxury beach gown',
+         'The Myst Dong Khoi rooftop bar night - cocktail luxury dress',
+         'Caravelle Hotel Saigon signature terrace - rooftop party dress',
+         'Fusion Suites Danang rooftop pool night - night glam dress',
+         'New World Saigon ballroom entrance - formal evening gown',
+         'Sheraton Saigon grand lobby - elegant cocktail dress',
+         'Pullman Hanoi grand staircase - formal black-tie gown',
+         'Melia Hanoi ballroom foyer - classic evening dress'
+      ]
+   },
+   // === PRODUCT-SPECIFIC LOCATIONS (REAL PLACES) ===
+   {
+      value: 'for_office',
+      label: '📎 Cho Đồ Công Sở',
+      emoji: '💼',
+      desc: 'Địa điểm THẬT phù hợp vest, sơ mi, quần tây, váy công sở',
+      productMatch: ['suit', 'blouse', 'pants', 'dress', 'skirt'],
+      locations: [
+         // Co-working & Offices (15)
+         'Dreamplex Coworking D3 Saigon - modern open workspace with city view',
+         'WeWork Deutsches Haus HCMC - professional meeting room glass walls',
+         'Circo Coworking Saigon - minimalist desk white background',
+         'The Hive Saigon D2 - creative office lounge plants',
+         'UP Coworking Hanoi - contemporary work station skylights',
+         'Toong Coworking Hanoi - professional phone booth backdrop',
+         'The Desk Hanoi - industrial loft workspace',
+         'Dreamplex Danang - ocean view meeting room',
+         'CirCO Danang - bright open floor coworking',
+         'Hive Five Saigon - rooftop workspace garden',
+         'Nest by AIA Landmark - corporate lounge area',
+         'Saigon Coworking Bitexco - skyscraper office view',
+         'Toong Vista Verde - modern green office',
+         'Regus Bitexco - executive office suite',
+         'New World Coworking Makati Tower - premium workspace',
+         // Luxury Lobbies (20)
+         'Bitexco Financial Tower lobby - grand marble entrance double height',
+         'Landmark 81 Sky Lobby - panoramic city view floor 50',
+         'Empire City Tower lobby - modern glass atrium waterfall',
+         'Lotte Center Hanoi lobby - elegant corporate chandelier',
+         'Vincom Center Dong Khoi lobby - premium retail marble',
+         'Vietcombank Tower lobby - gold accent walls',
+         'Sunwah Tower lobby - contemporary corporate design',
+         'Vincom Landmark 81 mall entrance - luxury shopping backdrop',
+         'Deutsches Haus reception - professional German architecture',
+         'Saigon Centre lobby - polished stone floors',
+         'Keangnam Landmark 72 Hanoi - massive atrium',
+         'Sun Plaza Danang lobby - resort-corporate hybrid',
+         'Vinpearl Luxury Landmark 81 hotel lobby - grand entrance',
+         'The Crescent Phu My Hung - executive building entry',
+         'The Pegasus Plaza lobby - modern glass and steel',
+         'Vietinbank Tower - professional banking aesthetics',
+         'Kumho Asiana Plaza Hanoi - corporate elegance',
+         'Pearl Plaza D Binh Thanh - shopping mall professional',
+         'Centerpoint Saigon - corporate office complex',
+         'TNR Tower Hanoi - modern corporate headquarters',
+         // Upscale Cafes for Business (15)
+         'The Workshop Coffee Saigon - industrial chic exposed brick',
+         'Starbucks Reserve Han Thuyen - heritage colonial interior',
+         'Runam Bistro Saigon - sophisticated cafe concrete minimal',
+         'Highlands Coffee Bitexco - professional meeting spot',
+         'The Coffee House Signature Nguyen Hue - modern minimalist',
+         'Urban Station Coffee Saigon - coworking cafe hybrid',
+         'L\'Usine Le Loi - French colonial professional',
+         'Shin Coffee Nguyen Thi Minh Khai - rooftop business lunch',
+         'Starbucks Vincom Center - upscale retail cafe',
+         'Ciao Cafe HCMC - Italian business casual',
+         'The Common Room Thao Dien - creative professional',
+         'Cong Caphe Hanoi - modern vintage business',
+         'Tranquil Books Hanoi - library business meeting',
+         'Arabica Coffee Hanoi - minimalist Japanese design',
+         'The Alley Nguyen Hue - modern professional aesthetic',
+         // Premium Apartments Home Office (12)
+         'Vinhomes Golden River study - professional home office skyline',
+         'Empire City apartment - clean modern study room white desk',
+         'The Marq D1 Saigon - luxury living room office corner marble',
+         'Sala Sadora apartment - morning light home workspace',
+         'Masteri Millennium study room - corporate home setup',
+         'Palm Heights penthouse office - green view desk',
+         'Gateway Thao Dien study - minimalist workspace',
+         'Feliz en Vista home office - contemporary design',
+         'Vinhomes Central Park study - river view desk',
+         'Sunwah Pearl apartment office - bright workspace',
+         'Diamond Island home office - skyline backdrop',
+         'Estella Heights study room - luxury corporate home'
+      ]
+   },
+   {
+      value: 'for_casual',
+      label: '👟 Cho Đồ Casual',
+      emoji: '🌿',
+      desc: 'Địa điểm phù hợp áo thun, jean, đồ đi chơi hàng ngày',
+      productMatch: ['tshirt', 'jeans', 'shorts', 'top', 'casual'],
+      locations: [
+         // Walking Streets & Urban (25)
+         'Nguyen Hue Walking Street Saigon - daytime fountain area',
+         'Book Street Nguyen Van Binh Saigon - cultural corridor bookshelves',
+         'Hanoi Old Quarter Hang Dao - silk street morning sunlight',
+         'Hoi An Ancient Town - yellow wall colorful bicycles',
+         'Da Lat Downtown flower market - colorful blooms morning',
+         'Bui Vien Walking Street evening - neon backpacker vibe',
+         'Pham Ngu Lao backpacker area - street food stalls',
+         'Dong Khoi Street Saigon - colonial architecture shopping',
+         'Nha Tho Street Hanoi - cathedral street cafes',
+         'Cua Bac Church area Hanoi - artistic street',
+         'Tran Hung Dao Street Danang - riverside promenade',
+         'Bach Dang Park Danang - river walk morning',
+         'Nha Trang Beach Promenade - coastal walk palm trees',
+         'Vung Tau Front Beach Walk - seaside promenade',
+         'Hoan Kiem Walking Zone - weekend pedestrian area',
+         'Nguyen Hue flower market Tet - festive street setup',
+         'District 2 An Phu alley - trendy neighborhood',
+         'Thao Dien street cafes - expat area sidewalk',
+         'Phu My Hung Starlight Bridge - suburban modern',
+         'Hoi An riverside evening - lantern reflection',
+         'Dalat Market area - highland town center',
+         'Phan Thiet Mui Ne fishing village - colorful boats',
+         'Can Tho Ninh Kieu Pier - Mekong riverside walk',
+         'Vung Tau Jesus Christ statue area - mountain view',
+         'Quy Nhon Ghenh Rang cliff - coastal walkway',
+         // Aesthetic Cafes (25)
+         'Oromia Coffee Thao Dien - wooden minimalist plants',
+         'The Alley Nguyen Hue - aesthetic boba corner Instagram',
+         'Cafe Apartment 42 Nguyen Hue - balcony street view',
+         'L\'Usine Le Loi Saigon - French colonial industrial',
+         'Cong Caphe Hanoi - vintage military green aesthetic',
+         'Note Coffee Hanoi - colorful sticky notes wall art',
+         'The Workshop Coffee - exposed brick industrial loft',
+         'Shin Coffee rooftop - garden terrace city view',
+         'Saigon Coffee Roastery - artisan small batch setup',
+         'The Espresso Station - bike shop cafe hybrid',
+         'Maison Marou Chocolate Cafe - factory aesthetic',
+         'Banh Mi Huynh Hoa area - iconic street food spot',
+         'The Vintage Emporium - antique shop cafe',
+         'Heritage Nguyen Thai Hoc - villa cafe garden',
+         'Propaganda Cafe - communist poster decor',
+         'Loading T Cafe Hanoi - underground bunker theme',
+         'Tranquil Books Hanoi - library bookshelf cafe',
+         'Manzi Art Space Hanoi - gallery cafe fusion',
+         'Joma Bakery Cafe Hanoi - cozy expat favorite',
+         'The Married Beans Dalat - forest view terrace',
+         'La Viet Coffee Dalat - rooftop mountain vista',
+         'Reaching Out Teahouse Hoi An - silent service',
+         'Faifo Coffee Hoi An - ancient town rooftop',
+         'Runam Bistro - concrete brutalist aesthetic',
+         'Starbucks Drive Thru Phu My Hung - suburban modern',
+         // Parks & Gardens (25)
+         '23/9 Park Saigon - morning jogger tree-lined path',
+         'Tao Dan Park Saigon - shady walkway banyan trees',
+         'Hoan Kiem Lake Hanoi - lakeside morning tai chi',
+         'West Lake Hanoi - cycling path sunrise golden',
+         'Xuan Huong Lake Da Lat - cool weather promenade',
+         'Yersin Park Dalat - pine tree walking paths',
+         'Thong Nhat Park Hanoi - urban green space',
+         'Thao Cam Vien Saigon Zoo - botanical garden paths',
+         'Nguyen Van Binh Book Street - tree canopy cultural',
+         'Vinhomes Central Park Saigon - riverside green space',
+         'Le Van Tam Park - neighborhood morning exercise',
+         'Gia Dinh Park Go Vap - lakeside family area',
+         'Dam Sen Water Park gardens - colorful flower beds',
+         'Suoi Tien Cultural Park - landscaped walking areas',
+         'Ba Vi National Park trails - forest sunlight rays',
+         'Tam Dao hill station - misty mountain roads',
+         'Fansipan cable car area - highland grass fields',
+         'Dalat Valley of Love - swan lake romantic',
+         'Dalat Flower Garden - hydrangea colorful fields',
+         'Dalat Truc Lam Zen Monastery - peaceful lake gardens',
+         'Hue Imperial City gardens - historical royal gardens',
+         'Hue Perfume River banks - tree-lined riverside',
+         'Danang Asia Park - modern theme park gardens',
+         'Nha Trang Ponagar Tower gardens - historical site green',
+         'Phu My Hung Crescent Lake - suburban lakeside walk',
+         // Casual Apartments (15)
+         'Masteri Thao Dien balcony - casual urban living',
+         'Palm Heights An Phu - bohemian balcony plants corner',
+         'Gateway Thao Dien rooftop - chill relaxation area',
+         'Estella Heights living room - casual sofa setup',
+         'The Sun Avenue apartment - bright casual space',
+         'Feliz en Vista balcony - river view casual',
+         'Vinhomes Grand Park apartment - suburban family home',
+         'Celadon City apartment - affordable modern casual',
+         'Flora Anh Dao apartment - student-friendly space',
+         'Masteri Millennium balcony - young professional vibe',
+         'Saigon South Residences - expat casual living',
+         'The Vista An Phu - minimalist casual home',
+         'Tropic Garden apartment - tropical balcony green',
+         'Happy Valley apartment - family-friendly casual',
+         'New City Thu Thiem apartment - modern casual lifestyle'
+      ]
+   },
+   {
+      value: 'for_evening',
+      label: '🌙 Cho Đầm Dạ Hội',
+      emoji: '✨',
+      desc: 'Địa điểm sang trọng cho đầm dạ hội, váy party, đồ tiệc',
+      productMatch: ['dress', 'maxi_dress', 'bodycon', 'mini_dress', 'gala'],
+      locations: [
+         // 5-Star Hotel Lobbies (25)
+         'Park Hyatt Saigon - grand chandelier marble lobby entrance',
+         'Park Hyatt Saigon - Opera Wing corridor evening glow',
+         'The Reverie Saigon - Italian marble grand staircase gold details',
+         'The Reverie Saigon - Venetian crystal chandelier atrium',
+         'Sofitel Legend Metropole Hanoi - Opera Wing colonial corridor',
+         'Sofitel Legend Metropole Hanoi - courtyard garden evening',
+         'InterContinental Danang - resort lobby ocean view sunset',
+         'InterContinental Danang - Presidential Suite entrance',
+         'JW Marriott Hanoi - presidential wing marble hallway',
+         'JW Marriott Phu Quoc - grand lobby tropical elegance',
+         'Hotel des Arts Saigon - art deco grand staircase',
+         'Caravelle Saigon - heritage lobby classic chandelier',
+         'Lotte Legend Saigon - river view lobby evening',
+         'New World Saigon - French colonial entrance hall',
+         'Sheraton Saigon - grand ballroom entrance foyer',
+         'Renaissance Riverside Saigon - marble lobby waterfall',
+         'Melia Hanoi - grand entrance crystal chandelier',
+         'Hilton Hanoi Opera - colonial facade evening lights',
+         'Intercontinental Landmark 72 Hanoi - sky lobby panorama',
+         'Pullman Danang - beachfront lobby sunset view',
+         'Novotel Danang - riverside lobby contemporary',
+         'Sheraton Nha Trang - ocean tower lobby elegant',
+         'Vinpearl Luxury Landmark 81 - sky lobby champagne bar',
+         'Four Seasons Nam Hai - pavilion entrance evening',
+         'Azerai La Residence Hue - colonial lobby heritage',
+         // Rooftop Bars & Lounges (20)
+         'Chill Skybar AB Tower Saigon - night city lights 26th floor',
+         'Social Club Hotel des Arts - art deco lounge terrace',
+         'EON51 Bitexco - fine dining panorama 51st floor',
+         'EON Heli Bar Bitexco - rooftop helipad cocktail setup',
+         'Air 360 Sky Lounge Bitexco - rotating bar city view',
+         'Glow Skybar Rex Hotel - iconic rooftop garden lights',
+         'Shri Restaurant Rooftop - elegant Indian fine dining view',
+         'Top of the Rex - heritage rooftop bar evening',
+         'Saigon Saigon Bar Caravelle - panoramic rooftop classic',
+         'Nest by AIA Landmark 81 - highest bar Vietnam sunset',
+         'Sky36 Danang - Han River Dragon Bridge night show',
+         'Brilliant Top Bar Danang - beach city lights view',
+         'Top of Hanoi Press Club - Old Quarter rooftop',
+         'Summit Lounge Pan Pacific Hanoi - West Lake skyline',
+         'L Rooftop Bar Hilton Hanoi - Opera House view evening',
+         'Cloud 9 Rooftop Bar Nha Trang - bay panorama night',
+         'Altitude Rooftop Bar Nha Trang - Sailing Club top floor',
+         'Skylight Nha Trang - rooftop infinity pool bar',
+         'La Vela Saigon rooftop - marina yacht club evening',
+         'The View Rooftop Bar Dalat - mountain city lights',
+         // Luxury Hotel Suites (20)
+         'The Reverie Saigon Presidential Suite - opulent bedroom gold leaf',
+         'The Reverie Saigon - Saigon Suite marble bathroom vanity',
+         'Park Hyatt Saigon Opera Suite - elegant four-poster bed',
+         'Park Hyatt Saigon - Pool Terrace Suite balcony evening',
+         'InterContinental Danang Penthouse - cliff edge ocean terrace',
+         'JW Marriott Phu Quoc Presidential Villa - private pool deck',
+         'Vinpearl Luxury Landmark 81 Royal Suite - sky suite bedroom',
+         'Hotel des Arts Presidential Suite - art collection bedroom',
+         'Sofitel Legend Metropole Opera Suite - heritage four-poster',
+         'Capella Hanoi Suite - lakefront terrace evening',
+         'Six Senses Ninh Van Bay Rock Villa - dramatic cliff bedroom',
+         'Amanoi Pavilion Suite - ocean view infinity bath',
+         'Four Seasons Nam Hai Ocean Villa - beachfront bedroom',
+         'Anantara Quy Nhon Pool Villa - clifftop suite sunset',
+         'Banyan Tree Lang Co Lagoon Villa - mountain view bedroom',
+         'Fusion Maia Danang Pool Villa - private garden spa',
+         'Mia Resort Nha Trang Villa - beachfront sunset bedroom',
+         'Azerai La Residence Hue Suite - riverside colonial elegance',
+         'Pilgrimage Village Hue Villa - countryside luxury bedroom',
+         'Vedana Lagoon Villa - tranquil lagoon view suite',
+         // Grand Event Venues (15)
+         'GEM Center Saigon - rooftop glass pavilion ceremony',
+         'GEM Center - grand ballroom crystal chandelier',
+         'White Palace Phu Nhuan - grand staircase entrance',
+         'White Palace - European ballroom ceiling murals',
+         'Caravelle Saigon - heritage ballroom colonial elegance',
+         'Sheraton Saigon - grand ballroom chandelier setup',
+         'Park Hyatt Saigon Ballroom - intimate luxury event space',
+         'Rex Hotel Rooftop Garden - outdoor evening event',
+         'Reverie Events Hall - Italian Renaissance style',
+         'Liberty Central Saigon Ballroom - contemporary event space',
+         'Sofitel Plaza Hanoi Ballroom - French elegance',
+         'JW Marriott Hanoi Grand Ballroom - presidential event',
+         'InterContinental Hanoi Ballroom - lakefront event hall',
+         'Sheraton Danang Grand Ballroom - beachfront event',
+         'Vinpearl Convention Center - resort event pavilion'
+      ]
+   },
+   {
+      value: 'for_beach',
+      label: '🏖️ Cho Bikini/Resort',
+      emoji: '👙',
+      desc: 'Bãi biển, bể bơi cho bikini, đồ bơi, resort wear',
+      productMatch: ['bikini', 'swimwear', 'resort'],
+      locations: [
+         // Resort Infinity Pools (25)
+         'JW Marriott Phu Quoc - infinity pool sunset ocean horizon',
+         'JW Marriott Phu Quoc - private villa plunge pool',
+         'InterContinental Danang - cliff edge infinity pool panorama',
+         'InterContinental Danang - Presidential Pool terrace',
+         'Six Senses Con Dao - private villa infinity pool jungle',
+         'Six Senses Ninh Van Bay - rock villa pool dramatic cliff',
+         'Amanoi Ninh Thuan - cliff edge infinity pool sunrise',
+         'Amanoi - pavilion private pool ocean view',
+         'Fusion Maia Danang - beachfront villa pool morning light',
+         'Four Seasons Nam Hai - Ocean Pool Villa infinity edge',
+         'Anantara Quy Nhon - clifftop infinity pool panorama',
+         'Anantara Hoi An - resort main pool tropical gardens',
+         'Banyan Tree Lang Co - lagoon pool mountain backdrop',
+         'Banyan Tree Laguna - hillside pool sunset view',
+         'Pullman Danang - beach club infinity pool',
+         'Hyatt Regency Danang - resort pool beachfront',
+         'Naman Retreat Danang - artistic pool landscape design',
+         'Mia Resort Nha Trang - beachfront infinity pool morning',
+         'Evason Ana Mandara - palm tree pool deck',
+         'Vinpearl Nha Trang - resort island pool complex',
+         'Vinpearl Phu Quoc - main pool tropical landscaping',
+         'Salinda Resort Phu Quoc - boutique pool gardens',
+         'Chen Sea Phu Quoc - beachfront pool sunrise',
+         'Premier Village Phu Quoc - villa private pool',
+         'Fusion Resort Cam Ranh - all-villa pool setup',
+         // Pristine Beaches Vietnam (25)
+         'Long Beach Phu Quoc - golden hour sunset silhouette',
+         'Sao Beach Phu Quoc - crystal turquoise starfish water',
+         'Thom Beach Phu Quoc - secluded white sand cove',
+         'Ong Lang Beach Phu Quoc - peaceful north coast',
+         'Ganh Dau Beach Phu Quoc - fishing village morning',
+         'My Khe Beach Danang - UNESCO sunrise surfer waves',
+         'Non Nuoc Beach Danang - marble mountain backdrop',
+         'An Bang Beach Hoi An - white sand palm trees morning',
+         'Cua Dai Beach Hoi An - river mouth meeting ocean',
+         'Ky Co Beach Quy Nhon - pristine turquoise lagoon',
+         'Eo Gio Beach Quy Nhon - dramatic cliff scenery',
+         'Bai Xep Beach Quy Nhon - fishing village authenticity',
+         'Doc Let Beach Nha Trang - pristine white sand morning',
+         'Jungle Beach Nha Trang - secluded cove rocks',
+         'Bai Dai Beach Nha Trang - long stretch white sand',
+         'Ninh Van Bay Beach - private bay azure water',
+         'Dai Lanh Beach Khanh Hoa - lighthouse cape view',
+         'Mui Ne Beach - red sand dunes oceanfront',
+         'Ho Tram Beach Vung Tau - wild untouched coastline',
+         'Con Dao Beaches - pristine island turquoise',
+         'An Thoi Islands Phu Quoc - island hopping beaches',
+         'Phu Quy Island - remote volcanic black sand',
+         'Ly Son Island - volcanic island beach morning',
+         'Cham Islands - coral reef snorkel beach',
+         'Whale Island Beach Nha Trang - isolated paradise',
+         // Beach Clubs & Lounges (20)
+         'Sailing Club Nha Trang - iconic beach lounge daybeds',
+         'Sailing Club Phu Quoc - beach party venue sunset',
+         'Nikki Beach Phu Quoc - luxury cabana white lounge',
+         'Sol Beach House Phu Quoc - retro beach bar vintage',
+         'Beach House An Bang - bohemian wooden deck',
+         'Soul Kitchen An Bang - laid-back beach bar',
+         'The Deck Saigon River - riverside beach club vibe',
+         'Shack Beach Bar Danang - surf culture hangout',
+         'A La Carte Beach Danang - beachfront restaurant lounge',
+         'Memory Lounge Danang - sunset beach bar',
+         'Altitude Beach Club Nha Trang - rooftop meets beach',
+         'La Plage Beach Club Nha Trang - French Riviera style',
+         'Louisiane Brewhouse Beach - craft beer beachfront',
+         'Lanterns Beach Club Hoi An - evening lantern setup',
+         'The Fisherman Beach Restaurant - authentic nets decor',
+         'Casa Marina Beach Club Quy Nhon - family resort beach',
+         'Mia Beach Club Nha Trang - boutique villa pool day',
+         'Paradise Beach Club Phu Quoc - water sports center',
+         'Pineapple Beach Club Phu Quoc - tropical fun vibes',
+         'Sunset Sanato Beach Club - Phu Quoc clifftop views'
+      ]
+   },
+   {
+      value: 'for_aodai',
+      label: '🌸 Cho Áo Dài',
+      emoji: '🏛️',
+      desc: 'Di tích, phố cổ, vườn hoa cho áo dài truyền thống',
+      productMatch: ['aodai', 'traditional'],
+      locations: [
+         // Hanoi Heritage Sites (15)
+         'Temple of Literature Hanoi - courtyard ancient frangipani trees',
+         'Temple of Literature - Khue Van Pavilion pond reflection',
+         'Temple of Literature - Van Mieu Gate red lacquer',
+         'One Pillar Pagoda Hanoi - lotus pond pavilion',
+         'Tran Quoc Pagoda Hanoi - West Lake sunrise golden',
+         'Tran Quoc Pagoda - ancient stupa courtyard',
+         'Ngoc Son Temple - The Huc red bridge sunrise',
+         'Ngoc Son Temple - Hoan Kiem island pavilion',
+         'Quan Thanh Temple - ancient bronze statue courtyard',
+         'Tay Ho Temple - West Lake waterfront',
+         'Imperial Citadel Thang Long - Doan Mon gate heritage',
+         'Presidential Palace Hanoi - French colonial yellow villa',
+         'St Joseph Cathedral Hanoi - Gothic facade steps',
+         'Long Bien Bridge Hanoi - historic steel structure sunrise',
+         'Hoa Lo Prison courtyard - French colonial architecture',
+         // Hue Imperial Heritage (15)
+         'Imperial City Hue - Ngo Mon Gate five phoenix pavilions',
+         'Imperial City Hue - Thai Hoa Palace throne hall',
+         'Imperial City Hue - Forbidden Purple City ruins',
+         'Imperial City Hue - To Mieu Temple courtyard',
+         'Imperial City Hue - Royal Theater garden',
+         'Thien Mu Pagoda Hue - seven-tier tower riverside',
+         'Thien Mu Pagoda - Perfume River morning mist',
+         'Tu Duc Tomb Hue - lakeside pavilion gardens',
+         'Khai Dinh Tomb Hue - ornate mosaic staircase',
+         'Minh Mang Tomb - courtyard honor gate',
+         'Thanh Toan Bridge Hue - covered wooden bridge rice fields',
+         'Hue Royal Palace gardens - lotus pond pavilion',
+         'Perfume River banks Hue - traditional boats morning',
+         'Hue Ancient Quarter - Dong Ba Market area heritage',
+         'Tam Giang Lagoon Hue - fishing village stilts sunset',
+         // Hoi An Ancient Town (15)
+         'Hoi An Ancient Town - yellow wall red lanterns evening',
+         'Hoi An Japanese Bridge - covered bridge lantern glow',
+         'Hoi An Thu Bon riverside - colorful boats reflection',
+         'Hoi An Ancient House - wooden architecture courtyard',
+         'Hoi An Tan Ky Old House - inner courtyard heritage',
+         'Hoi An Quan Cong Temple - red lacquer courtyard',
+         'Hoi An Assembly Hall - ornate gates morning light',
+         'Hoi An Pottery Village - traditional craft area',
+         'Hoi An rice paddies - countryside water reflection',
+         'Hoi An vegetable village - Tra Que morning harvest',
+         'Hoi An Beach Road - coconut palms morning',
+         'Hoi An lantern workshop - colorful hanging display',
+         'Hoi An Full Moon Festival - river lanterns evening',
+         'Hoi An market morning - traditional baskets colors',
+         'Cam Thanh Coconut Village - water palm forest',
+         // Saigon Colonial Heritage (15)
+         'Notre Dame Cathedral Saigon - front steps red brick morning',
+         'Notre Dame Cathedral - twin bell towers facade',
+         'Central Post Office Saigon - heritage interior dome Eiffel',
+         'Central Post Office - arched colonnade entrance',
+         'Saigon Opera House - grand staircase French colonial',
+         'Saigon Opera House - facade evening lights',
+         'Reunification Palace - modernist architecture gardens',
+         'Reunification Palace - conference hall heritage',
+         'City Hall Saigon - French colonial night lights',
+         'Ben Thanh Market - clock tower iconic entrance',
+         'Bitexco Tower plaza - modern meets traditional contrast',
+         'Nguyen Hue Walking Street - flower market Tet',
+         'Book Street Nguyen Van Binh - tree canopy cultural',
+         'Saigon River waterfront - historic port area',
+         'Turtle Lake Tan Binh - urban landmark monument'
+      ]
+   },
+   {
+      value: 'for_sport',
+      label: '🏃 Cho Đồ Thể Thao',
+      emoji: '💪',
+      desc: 'Gym, công viên, track cho đồ thể thao, activewear',
+      productMatch: ['sport', 'activewear', 'gym'],
+      locations: [
+         // Modern Gyms & Fitness Centers (20)
+         'California Fitness Saigon - aesthetic weight training area mirrors',
+         'California Wow Saigon - premium cardio deck city view',
+         'Elite Fitness Hanoi - modern equipment zone glass walls',
+         'Elite Fitness Landmark 72 - sky gym panoramic windows',
+         'GymHaus District 2 - minimalist industrial training space',
+         'The Gym Thao Dien - boutique fitness studio',
+         'CitiGym Phu My Hung - cardio deck suburban view',
+         'Fitness First Vincom - commercial gym professional',
+         'Anytime Fitness Saigon - 24h gym accessibility',
+         'Barry\'s Bootcamp Vietnam - HIIT studio red lights',
+         'F45 Training Saigon - functional training team setup',
+         'Equinox Fitness (concept) - luxury spa gym fusion',
+         'Virgin Active Vietnam - resort-style fitness',
+         'UFC Gym Vietnam - MMA training octagon',
+         'CrossFit Saigon - box warehouse industrial',
+         'Yoga Room Thao Dien - boutique yoga studio natural light',
+         'Pure Yoga Saigon - serene studio white minimal',
+         'Flywheel Sports - cycling studio dark room energy',
+         'SoulCycle Vietnam - motivational cycling theater',
+         'Reforma Pilates - reformer studio mirrors glass',
+         // Parks & Running Tracks (20)
+         '23/9 Park Saigon - morning jogging tree-lined path',
+         'Tao Dan Park Saigon - outdoor gym equipment area',
+         'Vinhomes Central Park - riverside running track 5km',
+         'Vinhomes Grand Park - lakeside jogging circuit',
+         'Thao Cam Vien Saigon Zoo - shady walking path morning',
+         'Le Van Tam Park District 1 - neighborhood exercise area',
+         'Gia Dinh Park Go Vap - lakeside walking track',
+         'Phu My Hung Starlight Park - illuminated evening jog',
+         'Sala Park District 2 - riverside athletic path',
+         'Hoan Kiem Lake Hanoi - morning Tai Chi jogging loop',
+         'West Lake Hanoi - 17km cycling running path sunrise',
+         'Thong Nhat Park Hanoi - urban green exercise zone',
+         'Cau Giay Park Hanoi - neighborhood fitness area',
+         'Thu Le Park Hanoi - zoo grounds morning walk',
+         'Ba Vi National Park - forest trail running elevation',
+         'Tam Dao hill station - mountain road jogging cool air',
+         'Dalat Xuan Huong Lake - 7km loop pine forest jog',
+         'Dalat Valley of Love - scenic trail running',
+         'Danang Han River promenade - waterfront running path',
+         'My Khe Beach Danang - morning beach running sand',
+         // Sports Facilities & Stadiums (10)
+         'Phu Tho Stadium Saigon - Olympic athletic track',
+         'Phu Tho Tennis Courts - professional clay courts morning',
+         'Lan Anh Sports Club Saigon - multi-sport track field',
+         'Saigon Sports City - indoor arena training',
+         'My Dinh National Stadium Hanoi - Olympic track athletics',
+         'Hanoi Sports Training Centre - professional facilities',
+         'Thong Nhat Stadium Saigon - football pitch training',
+         'Hoa Lu Stadium Hanoi - running track sunrise',
+         'Chi Lang Stadium Danang - coastal athletic facility',
+         'Nha Trang Sports Center - beachside training complex'
+      ]
+   },
+   {
+      value: 'for_sleepwear',
+      label: '🛏️ Cho Đồ Ngủ',
+      emoji: '🌙',
+      desc: 'Phòng ngủ sáng, ấm cúng cho đồ ngủ/loungewear (TikTok-safe)',
+      productMatch: ['sleepwear', 'loungewear', 'pajamas'],
+      locations: [
+         // 5-Star Hotel Bedrooms - Saigon (10)
+         'Park Hyatt Saigon suite - morning light king bed white linens',
+         'The Reverie Saigon bedroom - Italian marble elegant sheets gold',
+         'Caravelle Saigon suite - heritage colonial bedroom morning',
+         'Hotel des Arts Saigon - artistic bedroom gallery wall daylight',
+         'InterContinental Saigon suite - river view bed bright contemporary',
+         'Sofitel Saigon Plaza - French bedroom elegant canopy bed',
+         'New World Saigon - deluxe bedroom modern white minimal',
+         'Renaissance Riverside - executive bedroom clean crisp sheets',
+         'Sheraton Saigon suite - club floor bedroom skyline morning',
+         'Pullman Saigon Centre - geometric bedroom bright modern',
+         // 5-Star Hotel Bedrooms - Hanoi & Beach Resorts (10)
+         'JW Marriott Hanoi suite - bright bedroom sofa lake view',
+         'Sofitel Legend Metropole - French suite colonial bed elegance',
+         'Lotte Hotel Hanoi - executive bedroom panoramic windows',
+         'InterContinental Landmark 72 - club suite bright sky bed',
+         'Hilton Hanoi Opera - opera wing bedroom warm elegant',
+         'Sheraton Hanoi - deluxe bedroom West Lake morning light',
+         'InterContinental Danang villa - ocean view bed sea breeze',
+         'Hyatt Regency Danang villa - beach bedroom bright white',
+         'JW Marriott Phu Quoc - overwater villa bedroom turquoise',
+         'Fusion Suites Saigon - minimalist cozy bed contemporary',
+         // Luxury Apartment Bedrooms (15)
+         'Vinhomes Central Park bedroom - Landmark Plus morning sunlight',
+         'Vinhomes Golden River - Aqua2 master bedroom river light',
+         'Masteri Thao Dien bedroom - comfortable duvet white modern',
+         'Gateway Thao Dien - bright bedroom minimalist clean sheets',
+         'Empire City bedroom - luxury morning amber warm glow',
+         'The Marq bedroom - cozy Japandi warm wood aesthetic',
+         'The Nassim bedroom - elegant marble accent sophisticated',
+         'Diamond Island apartment - cozy bedroom corner river view',
+         'Estella Heights penthouse - bedroom city sunrise glow',
+         'Palm Heights bedroom - bright balcony garden natural light',
+         'Vista Verde bedroom - serene green view calm morning',
+         'Feliz en Vista - contemporary bedroom neutral soft tones',
+         'Sala Sadora master bedroom - clean bright aesthetic minimalist',
+         'Sunwah Pearl bedroom - bright waterfront morning crisp',
+         'The Sun Avenue - minimalist bedroom white clean modern',
+         // Cozy Living Spaces & Reading Nooks (5)
+         'Penthouse living room - plush velvet sofa blankets pillows',
+         'Reading nook corner - armchair cushions morning window light',
+         'Bedroom window seat - bay window cozy spot sunrise',
+         'Hotel suite sitting area - comfortable lounge chaise daybed',
+         'Villa Thao Dien sunroom - garden view cozy daybed cushions'
+      ]
+   },
+   {
+      value: 'for_inner',
+      label: '🎀 Cho Inner/Foundation',
+      emoji: '✨',
+      desc: 'Studio chuyên nghiệp, ánh sáng editorial cho fashion foundations (TikTok-safe)',
+      productMatch: ['lingerie', 'inner', 'foundation', 'bralette'],
+      locations: [
+         // Professional Photography Studios - Saigon (10)
+         'Fashion photography studio Saigon - white cyclorama professional softbox',
+         'Mộc Studio HCMC - clean infinity backdrop diffused daylight editorial',
+         'Lavish Studio District 3 - high-end editorial natural window light',
+         'White Box Studio Saigon - minimalist white even lighting seamless',
+         'Sai Gon Photo Studio - commercial catalog setup bright key light',
+         'Runway Studio Thao Dien - fashion editorial professional setup',
+         'Click Studio Saigon - e-commerce white backdrop clean lighting',
+         'Lenslab Studio District 1 - creative portrait natural light windows',
+         'The Frame Studio Binh Thanh - contemporary editorial setup',
+         'Light Studio HCMC - commercial product fashion lighting professional',
+         // Professional Photography Studios - Hanoi & Others (5)
+         'Hanoi Studio City - professional fashion editorial white',
+         'Mai Studio Hanoi - clean commercial backdrop even lighting',
+         'Danang Photo Studio - coastal light bright editorial setup',
+         'Dalat Creative Studio - natural mountain light artistic',
+         'Nha Trang Studio Hub - beachside natural light professional',
+         // 5-Star Hotel Bathrooms & Suites - Bright Editorial Feel (10)
+         'Park Hyatt Saigon bathroom - marble vanity bright natural light mirror',
+         'The Reverie Saigon suite - morning sunlight elegant neutral marble',
+         'JW Marriott Hanoi bathroom - clean white professional lighting vanity',
+         'InterContinental Danang suite - ocean light fresh airy aesthetic',
+         'Sofitel Saigon Plaza bathroom - French marble bright elegant',
+         'Caravelle Saigon suite bathroom - heritage white clean bright',
+         'Sheraton Saigon suite - contemporary bathroom skyline morning light',
+         'Hilton Hanoi Opera bathroom - elegant marble bright vanity',
+         'Hyatt Regency Danang - beach villa bathroom natural sea light',
+         'JW Marriott Phu Quoc villa - overwater bathroom turquoise glow',
+         // Luxury Apartments - Bright Living Spaces (10)
+         'Vinhomes Central Park - floor ceiling windows natural daylight editorial',
+         'Empire City apartment - modern minimalist bright living white',
+         'Sala Sadora living - soft morning light clean neutral background',
+         'Gateway Thao Dien - contemporary bright apartment windows',
+         'The Marq apartment - Japandi aesthetic natural wood light',
+         'Masteri Thao Dien - bright living area minimalist clean',
+         'Diamond Island - river view bright living natural light',
+         'Estella Heights - penthouse bright floor windows skyline',
+         'Palm Heights - balcony doors natural garden light living',
+         'The Nassim - elegant bright living marble accent sophisticated',
+         // High-End Retail & Boutique Spaces (5)
+         'Luxury boutique fitting room - professional lighting full mirror elegant',
+         'Premium fashion boutique Saigon - soft box lighting display aesthetic',
+         'Designer boutique District 1 - clean white dressing area',
+         'High-end fashion store - editorial lighting fitting room modern',
+         'Concept store Thao Dien - minimalist dressing area natural light'
+      ]
+   },
+   {
+      value: 'for_walkin',
+      label: '👗 Cho Walk-In Fashion',
+      emoji: '🌳',
+      desc: 'Outdoor cinematic walkways - Golden Hour → Blue Hour → Night City',
+      productMatch: ['dress', 'bodycon', 'mini_dress', 'maxi_dress', 'cocktail', 'evening_gown', 'party_dress'],
+      locations: [
+         // ═══════════════════════════════════════════════════════════════
+         // 🌅 GOLDEN HOUR (5-7 PM) - Warm sunset backlight, rim glow
+         // ═══════════════════════════════════════════════════════════════
+
+         // Park Paths - Golden Hour
+         'Tao Dan Park tree-lined path - golden hour sunset through canopy warm rim light on shoulders',
+         'Vinhomes Central Park riverside walk - sunset over lake golden backlight hair glow',
+         '23/9 Park main avenue - warm afternoon sun filtering through tropical trees',
+         'Thao Dien villa street - colonial trees sunset backlight silhouette',
+         'Gia Dinh Park walking path - golden hour dappled light through bamboo',
+
+         // Lakeside Promenades - Golden Hour  
+         'Hoan Kiem Lake promenade Hanoi - golden sunset reflection on water rim light',
+         'West Lake cycling path Hanoi - sunset over lake romantic golden hour glow',
+         'Xuan Huong Lake Dalat - pine tree sunset soft warm mountain light',
+         'Truc Bach Lake bank Hanoi - golden hour water reflection willows',
+         'Ho Tay waterfront - sunset golden light warm skin tones',
+
+         // Garden Paths - Golden Hour
+         'Temple of Literature courtyard Hanoi - sunset through ancient frangipani trees',
+         'Dalat Flower Garden hydrangea paths - golden light soft petals',
+         'Hoi An ancient town sunset - yellow walls warm orange glow no tourists',
+         'Truc Lam Monastery garden Dalat - zen path sunset mountain backdrop',
+         'Botanical Garden Saigon - tropical trees golden hour filtered light',
+
+         // Beach Adjacent - Golden Hour
+         'An Bang Beach road Hoi An - coconut palm sunset silhouette ocean view',
+         'My Khe Beach promenade Danang - sunset ocean backdrop warm golden',
+         'Phu Quoc beach walkway - palm trees sunset ocean golden hour',
+
+         // ═══════════════════════════════════════════════════════════════
+         // 🌆 BLUE HOUR (7-8 PM) - Cool sky + warm city lights mix
+         // ═══════════════════════════════════════════════════════════════
+
+         // Urban Plazas - Blue Hour
+         'Nguyen Hue Walking Street - blue hour twilight warm street lamps fountain',
+         'Dong Khoi District Saigon - boutique lights beginning to glow dusk elegant',
+         'Saigon Opera House plaza - twilight blue sky warm facade lights classical',
+         'Hanoi Opera House front - blue hour French colonial architecture lights',
+         'Landmark 81 plaza - city lights starting blue hour modern towers',
+
+         // Modern Districts - Blue Hour
+         'District 2 Thao Dien - upscale street cafes blue hour warm glow',
+         'Phu My Hung crescent - modern architecture twilight balanced lighting',
+         'Keangnam Hanoi plaza - business district dusk blue cool tones',
+         'Empire City Thu Thiem - waterfront blue hour modern skyline',
+         'District 7 Starlight Bridge - twilight city lights reflection',
+
+         // Café Streets - Blue Hour
+         'Hai Ba Trung café row Saigon - twilight warm storefronts glow',
+         'Nha Tho Street Hanoi - blue hour cathedral warm café lights',
+         'Book Street Saigon evening - literary atmosphere warm lamps twilight',
+         'The Marq District 1 plaza - luxury twilight cool warm mix',
+         'Sala Thu Thiem promenade - blue hour modern waterfront lights',
+
+         // Shopping Streets - Blue Hour
+         'Vincom Center Dong Khoi exterior - dusk luxury shopping glow',
+         'Takashimaya Saigon entrance - Japanese elegance blue hour',
+         'Union Square Saigon - fashion district twilight warm windows',
+
+         // ═══════════════════════════════════════════════════════════════
+         // 🌃 NIGHT CITY (8 PM+) - Street lights, storefronts, luxury urban
+         // ═══════════════════════════════════════════════════════════════
+
+         // Luxury Nightlife Districts
+         'Dong Khoi Street night - luxury boutiques glowing storefronts elegant',
+         'Nguyen Hue at night - fountain lights pedestrian promenade vibrant',
+         'Hai Ba Trung night shopping - city lights reflection on pavement',
+         'Ta Hien Beer Street Hanoi night - neon warm bar lights energy',
+         'Bui Vien Walking Street night - neon glow entertainment district',
+
+         // Hotel Entrances - Night (Luxury Arrival)
+         'Park Hyatt Saigon entrance night - doorman luxury arrival warm brass',
+         'Caravelle Hotel entrance night - elegant colonial brass fixtures',
+         'Sofitel Legend Metropole Hanoi night - French colonial romantic lights',
+         'JW Marriott Hanoi entrance night - modern luxury warm glow',
+         'InterContinental Saigon entrance - contemporary luxury night',
+         'The Reverie Saigon entrance night - ultra luxury dramatic lighting',
+
+         // Shopping Streets - Night
+         'Vincom Center Dong Khoi night - premium shopping illuminated windows',
+         'Diamond Plaza entrance night - upscale retail warm glow',
+         'Saigon Centre night - modern mall luxury lighting',
+         'Trang Tien Plaza Hanoi night - elegant shopping warm interior',
+
+         // Modern Architecture - Night
+         'Bitexco Tower plaza night - modern iconic lighting',
+         'Landmark 81 base night - tallest building dramatic lights',
+         'Times Square Saigon night - entertainment district neon',
+         'Lotte Tower Hanoi night - observation deck lights city view',
+
+         // Restaurant/Bar Districts - Night
+         'Thao Dien restaurant row night - upscale dining warm atmosphere',
+         'Le Thanh Ton Japanese Town night - lanterns warm glow',
+         'Rooftop bars District 1 - city lights backdrop luxury urban'
+      ]
+   },
+   {
+      value: 'viral_vietnam_2026',
+      label: '🔥 Viral Vietnam 2026',
+      emoji: '🇻🇳',
+      desc: 'Địa điểm hot trend TikTok/Reels quốc tế - viral potential cao',
+      productMatch: ['all'],
+      locations: [
+         // === SAIGON VIRAL SPOTS (20) ===
+         'The Cafe Apartment 42 Nguyen Hue - rooftop balcony level 4 street view Instagram famous',
+         'Bitexco Financial Tower Skydeck - 49th floor 360 panoramic Saigon skyline sunset',
+         'Pink Church Tan Dinh - pastel pink Gothic cathedral steps Instagram hotspot',
+         'Saigon Central Post Office - French colonial interior Eiffel-designed dome viral',
+         'Notre Dame Cathedral steps - iconic red brick twin towers tourist magnet',
+         'Book Street Nguyen Van Binh - tree canopy book stall cultural aesthetic',
+         'Nguyen Hue Walking Street - fountain area daytime vibrant urban',
+         'Saigon Skydeck Bitexco - glass floor observation 48th level thrill',
+         'Landmark 81 SkyView - highest observation deck Vietnam 79th floor',
+         'Saigon Opera House steps - French colonial architecture evening lights',
+         'Bui Vien Street - neon backpacker area colorful night energy viral',
+         'District 2 Thao Dien - expat area trendy cafe street aesthetic',
+         'Vinhomes Central Park Riverside - urban green space skyline backdrop',
+         'The Deck Saigon River - wooden riverside dining sunset view',
+         'Ben Thanh Market exterior - clock tower iconic Vietnamese landmark',
+         'Saigon City Hall front - French colonial illuminated evening wide square',
+         'Bitexco Plaza fountain - modern urban meeting point',
+         'Ton Duc Thang riverside - Saigon River promenade palm trees',
+         'Bach Dang Pier - historic port area colonial architecture',
+         'Turtle Lake Roundabout - Phan Xich Long urban landmark',
+
+         // === HANOI VIRAL SPOTS (20) ===
+         'Train Street Hanoi - Cau Giay alley narrow tracks viral danger aesthetic',
+         'Long Bien Bridge - historic steel structure Red River sunrise golden',
+         'Tran Quoc Pagoda - West Lake ancient stupa sunrise reflection viral',
+         'Hoan Kiem Lake - Turtle Tower island morning tai chi cultural',
+         'The Huc Red Bridge - Ngoc Son Temple sunrise iconic Vietnamese photo',
+         'St Joseph Cathedral - Gothic facade steps Hanoi Christmas Square night',
+         'Dong Xuan Night Market - Old Quarter street food lanterns chaos energy',
+         'Hanoi Old Quarter Hang Dao - silk street morning colonial shophouses',
+         'Ta Hien Beer Street - weekend night party backpacker area viral',
+         'West Lake Tay Ho - 17km lakeside promenade sunset romantic',
+         'Lotte Observation Deck Hanoi - 65th floor panoramic city skyline',
+         'Imperial Citadel Thang Long - UNESCO Doan Mon gate heritage',
+         'Temple of Literature - Van Mieu Khue Van Pavilion pond reflection viral',
+         'Ho Chi Minh Mausoleum - Ba Dinh Square monumental architecture',
+         'One Pillar Pagoda - lotus pond ancient architecture unique Instagram',
+         'B52 Victory Museum - crashed plane Huu Tiep Lake historical viral',
+         'Hanoi Opera House - French colonial facade evening lights elegant',
+         'Hoa Lo Prison - Maison Centrale courtyard French colonial dark tourism',
+         'Presidential Palace - French colonial yellow villa garden heritage',
+         'Nguyen Thai Hoc Street - tree-lined French Quarter villa aesthetic',
+
+         // === DA NANG VIRAL SPOTS (15) ===
+         'Golden Bridge Ba Na Hills - giant hands holding bridge viral world-famous',
+         'Dragon Bridge Danang - fire-breathing bridge weekend night show',
+         'Love Lock Bridge Danang - Han River romantic couples destination',
+         'Sun Wheel Danang - Asia Park Ferris wheel colorful night lights',
+         'Linh Ung Pagoda - Lady Buddha statue 67m Monkey Mountain ocean view',
+         'My Khe Beach - UNESCO white sand Marble Mountains backdrop sunrise',
+         'Marble Mountains - Huyen Khong Cave temple inside mountain sunrays magical',
+         'Son Tra Peninsula - coastal road Hai Van Pass ocean panorama',
+         'Han River promenade - modern city waterfront evening lights',
+         'Danang Cathedral - pink church Gothic architecture Instagram',
+         'Ba Na Hills cable car - world longest single-track view clouds',
+         'Dragon Carp statue - sculpture park modern art installation',
+         'Am Phu Cave - Buddhist hell tour surreal viral experience',
+         'Linh Ung Pagoda Da Nang - beachside Buddha white statue',
+         'Non Nuoc Beach - quiet white sand Marble Mountains view',
+
+         // === HOI AN VIRAL SPOTS (10) ===
+         'Hoi An Ancient Town - yellow wall red lanterns evening UNESCO viral',
+         'Japanese Bridge Hoi An - covered bridge lantern glow night iconic',
+         'Thu Bon River - colorful boats lantern reflection romantic',
+         'Hoi An Full Moon Lantern Festival - floating lanterns river magical',
+         'Hoi An rice paddies - Tra Que vegetable village countryside photo',
+         'An Bang Beach - white sand laid-back bohemian cafe vibe',
+         'Hoi An Old House - wooden courtyard ancient architecture heritage',
+         'Coconut Village Cam Thanh - water palm forest rowboat experience',
+         'Hoi An night market - lantern shopping street vibrant cultural',
+         'Assembly Hall - ornate Chinese temple morning light heritage',
+
+         // === NHA TRANG VIRAL SPOTS (8) ===
+         'Vinpearl Cable Car - longest over-sea cable car 3km ocean view',
+         'Po Nagar Cham Towers - ancient ruins hilltop ocean panorama',
+         'Nha Trang Beach Promenade - crescent bay city skyline palm trees',
+         'Hon Chong Promontory - granite rocks ocean dramatic coastal',
+         'Long Son Pagoda - white Buddha 24m hilltop city view',
+         'Dam Market Nha Trang - local morning market authentic Vietnamese',
+         '100 Egg Mud Bath - unique spa experience viral weird fun',
+         'Vinh Nguyen Pagoda - colorful Chinese temple ornate architecture',
+
+         // === DALAT VIRAL SPOTS (10) ===
+         'Crazy House Dalat - surreal treehouse architecture viral Instagram',
+         'Dalat Railway Station - French colonial pastel pink vintage trains',
+         'Xuan Huong Lake - 7km walkway pine trees cool weather romantic',
+         'Valley of Love - swan lake boats flower gardens kitschy viral',
+         'Dalat Flower Gardens - hydrangea fields colorful European vibe',
+         'Clay Tunnel Dalat - underground art space sculptural viral unique',
+         'Pongour Waterfall - seven-tier cascade rainy season powerful',
+         'Dalat Market - night market strawberry flowers hill station',
+         'Truc Lam Zen Monastery - cable car lake view tranquil Buddhism',
+         'Linh Phuoc Pagoda - glass mosaic dragon 49m colorful crafted',
+
+         // === PHU QUOC VIRAL SPOTS (5) ===
+         'Phu Quoc Cable Car - longest over-sea cable car world Guinness record',
+         'Sunset Sanato Beach Club - clifftop infinity pool sunset Instagram',
+         'Sao Beach Phu Quoc - white sand turquoise starfish paradise viral',
+         'Phu Quoc Night Market - seafood grill lanterns tourist night scene',
+         'Grand World Phu Quoc - Venice replica canals gondolas kitschy viral',
+
+         // === OTHER VIRAL VIETNAM (12) ===
+         'Ninh Van Bay - granite bay pristine resort beach untouched',
+         'Tam Coc Ninh Binh - karst mountains rice fields rowing boats Halong Bay on land',
+         'Mua Cave viewpoint - 500 steps panoramic Tam Coc valley Instagram',
+         'Trang An boat tour - UNESCO karst caves rowing limestone',
+         'Ha Long Bay cruise deck - UNESCO limestone karsts iconic',
+         'Phong Nha Cave - boat tour underground river stalactites',
+         'Son Doong Cave entrance - world largest cave expedition viral',
+         'Sa Pa rice terraces - minority villages mountainous Hoang Lien Son',
+         'Fansipan cable car - Indochina roof 3143m summit clouds',
+         'Mekong floating market - Cai Rang boats dawn authentic viral',
+         'Cu Chi Tunnels - underground war network historical educational',
+         'Vinh Moc Tunnels DMZ - Vietnam War heritage underground village'
+      ]
+   },
+   {
+      value: 'for_bigsize',
+      label: '✨ Cho Big Size',
+      emoji: '🪞',
+      desc: 'Không gian rộng, ánh sáng đều, gương toàn thân cho big size',
+      productMatch: ['bigsize', 'plus_size'],
+      locations: [
+         // Spacious Luxury Apartments - Wide Living Rooms (10)
+         'Empire City apartment - wide living room natural light floor windows',
+         'Vinhomes Central Park Landmark Plus - spacious penthouse full mirror',
+         'Vinhomes Grand Park - spacious bedroom full length mirror bright',
+         'Sala Sadora living room - open floor plan daylight airy',
+         'Gateway Thao Dien - large balcony living morning light panoramic',
+         'The Marq apartment - wide living area Japandi full mirror',
+         'Estella Heights penthouse - open living floor windows full mirror',
+         'Diamond Island - spacious living river view bright daylight',
+         'Masteri Thao Dien - wide bedroom full mirror even lighting',
+         'Palm Heights - balcony living wide open garden light',
+         // Professional Studios - Even Lighting Full Body (10)
+         'Fashion photography studio Saigon - even softbox full body setup',
+         'White Box Studio Saigon - clean infinity backdrop full length',
+         'Sai Gon Photo Studio - professional full body even lighting',
+         'Mộc Studio HCMC - spacious set diffused light full mirror',
+         'Lavish Studio D3 - editorial full body natural window light',
+         'Runway Studio Thao Dien - fashion full body professional',
+         'Click Studio Saigon - e-commerce full body white backdrop',
+         'Light Studio HCMC - commercial full body even lighting',
+         'Hanoi Studio City - professional spacious full body setup',
+         'Danang Photo Studio - coastal light spacious full body',
+         // 5-Star Hotel Suites - Spacious with Full Mirrors (5)
+         'Park Hyatt Saigon suite - wide bedroom space full mirror bright',
+         'The Reverie Saigon suite - spacious living full length mirror',
+         'InterContinental Saigon suite - full length mirror bright living',
+         'JW Marriott Hanoi suite - spacious bedroom bathroom vanity mirror',
+         'Sheraton Saigon suite - wide living area full mirror skyline',
+         // Outdoor Open Spaces - Wide & Well-Lit (5)
+         'Nguyen Hue Walking Street - wide open daytime even light',
+         'Phu My Hung lakeside - open park morning spacious bright',
+         'Vinhomes Central Park riverside - wide open green space',
+         '23/9 Park Saigon - open walkway morning even daylight',
+         'Tao Dan Park Saigon - wide paths natural shade bright'
+      ]
+   },
+   {
+      value: 'for_beauty',
+      label: '💄 Cho Beauty/Skincare',
+      emoji: '🧴',
+      desc: 'Vanity, bathroom, studio cho sản phẩm làm đẹp, skincare, makeup',
+      productMatch: ['facial_device', 'serum', 'makeup', 'body_shaper', 'massage_device', 'skincare_set', 'hair_device', 'nail_beauty'],
+      locations: [
+         // Vanity & Makeup Stations (15)
+         'Modern vanity table with Hollywood mirror lights - bright white backdrop',
+         'Ring light makeup station - professional beauty setup daylight',
+         'Aesthetic vanity corner - pink marble gold accents girly',
+         'Minimalist makeup desk - natural window light scandinavian',
+         'Korean-style beauty room - soft pink white aesthetic organized',
+         'Professional makeup studio - multiple mirrors bright even lighting',
+         'Influencer vanity setup - LED mirror product display aesthetic',
+         'Vintage vanity table - antique mirror elegant soft lighting',
+         'Modern dressing room - full mirror bright organized products',
+         'Beauty blogger corner - ring light products arranged colorful',
+         'Clean white makeup station - professional product photography',
+         'Cozy bedroom vanity - fairy lights soft romantic aesthetic',
+         'Japanese minimalist beauty corner - muji style organized clean',
+         'Luxury vanity suite - marble top crystal chandelier elegant',
+         'Content creator setup - dual ring lights camera ready',
+         // Luxury Bathrooms (15)
+         'Park Hyatt Saigon bathroom - marble vanity bright natural light',
+         'The Reverie Saigon bathroom - Italian marble gold fixtures elegant',
+         'JW Marriott bathroom - clean white spa-like bright vanity',
+         'InterContinental Danang bathroom - ocean light fresh airy modern',
+         'Sofitel Legend Metropole bathroom - French heritage elegant fixtures',
+         'Modern apartment bathroom - minimalist white bright LED mirror',
+         'Spa-style home bathroom - freestanding tub products arranged',
+         'Luxury villa bathroom - double vanity bright natural skylight',
+         'Contemporary bathroom - concrete marble mix industrial chic',
+         'Asian spa bathroom - bamboo accents zen natural light',
+         'Hotel suite bathroom - rain shower glass bright mirror wall',
+         'Penthouse bathroom - floor to ceiling windows city view vanity',
+         'Resort bathroom - tropical plants outdoor shower aesthetic',
+         'Boutique hotel bathroom - terrazzo tiles vintage modern mix',
+         'Scandinavian bathroom - wooden accents white clean minimal',
+         // Bedroom Skincare Corners (10)
+         'Cozy bedroom morning routine - natural window light skincare',
+         'Aesthetic nightstand - skincare products candle evening routine',
+         'Korean glass skin setup - product lineup morning sunlight',
+         'Minimalist skincare corner - white shelf organized products',
+         'Self-care Sunday setup - bathrobe products cozy bedroom',
+         'Morning routine bedroom - bright natural light fresh aesthetic',
+         'Evening routine setup - warm lamp light calming products',
+         'Luxury bedroom vanity - premium skincare display elegant',
+         'Teen skincare corner - colorful products fun aesthetic',
+         'Clean girl aesthetic - minimal products bright white setup',
+         // Spa & Wellness (10)
+         'Spa treatment room - massage bed soft lighting products',
+         'Facial treatment studio - professional skincare equipment clean',
+         'Beauty salon station - organized tools products mirror',
+         'Nail salon aesthetic - pink white organized polishes tools',
+         'Hair salon mirror - professional lighting styling tools',
+         'Wellness center - zen bamboo natural light therapy room',
+         'Esthetician treatment room - clinical clean professional',
+         'Home spa bathroom - bathtub candles products relaxing',
+         'Massage therapy room - warm lighting aromatherapy setup',
+         'Beauty clinic - medical aesthetic clean bright professional'
+      ]
+   },
+   // === GIA DỤNG THÔNG MINH & TIỆN ÍCH ĐỜI SỐNG LOCATIONS ===
+   {
+      value: 'for_smart_home',
+      label: '🏠 Cho Gia Dụng Thông Minh',
+      emoji: '🤖',
+      desc: 'Phòng khách, bếp, phòng ngủ cho sản phẩm gia dụng thông minh',
+      productMatch: ['robot_vacuum', 'air_purifier', 'smart_kitchen', 'water_purifier', 'smart_fan', 'smart_light', 'security_cam', 'smart_lock', 'cleaning_device', 'steam_device', 'organizer', 'pet_device'],
+      locations: [
+         // Modern Living Rooms (15)
+         'Vinhomes Central Park living room - minimalist modern bright open floor',
+         'Vinhomes Golden River penthouse - luxury living room marble floor city view',
+         'Empire City apartment living - contemporary design floor to ceiling windows',
+         'Masteri Thao Dien living room - scandinavian style natural wood white',
+         'The Marq District 1 living - premium apartment modern smart home setup',
+         'Sala Sadora living room - bright open concept natural light',
+         'Estella Heights living - contemporary grey tones modern lighting',
+         'Gateway Thao Dien apartment - family living room cozy bright',
+         'Sunwah Pearl living room - river view modern minimalist',
+         'Diamond Island apartment - open kitchen living combo modern',
+         'Feliz en Vista living - high ceiling natural light contemporary',
+         'Palm Heights living room - airy space tropical modern vibes',
+         'Serenity Sky Villas - duplex living luxury contemporary',
+         'D\'Edge Thao Dien - industrial modern loft style living',
+         'The Ascent apartment - smart home integrated living space',
+         // Modern Kitchens (15)
+         'Vinhomes Grand Park kitchen - modern island induction stove bright',
+         'Empire City kitchen - marble countertop modern appliances luxury',
+         'The Marq apartment kitchen - open concept cooking zone organized',
+         'Masteri Millennium kitchen - minimalist white clean modern',
+         'Estella Heights kitchen - premium cabinetry organized storage',
+         'Sala Sarica kitchen - bright natural light modern equipment',
+         'Diamond Island kitchen - open plan dining connected modern',
+         'Sunwah Pearl kitchen - river view cooking space luxury',
+         'Gateway kitchen - family cooking area bright organized',
+         'Palm Heights kitchen - tropical modern bright airy',
+         'Vietnamese modern home kitchen - tiled clean organized practical',
+         'Townhouse kitchen Saigon - traditional meets modern cooking',
+         'Penthouse kitchen - chef-grade appliances marble island premium',
+         'Studio apartment kitchen - compact smart storage efficient',
+         'Open concept kitchen dining - modern Vietnamese home bright',
+         // Bedrooms for Smart Devices (10)
+         'Modern bedroom smart setup - ambient lighting smart speaker bedside',
+         'Minimalist bedroom - air purifier corner clean white calm',
+         'Master bedroom luxury - smart curtains lighting integrated',
+         'Teen bedroom modern - LED strips smart devices organized',
+         'Guest bedroom clean - air conditioner purifier combo bright',
+         'Cozy bedroom setup - warm lighting smart lamp reading corner',
+         'Scandinavian bedroom - natural wood white smart minimal',
+         'Japanese style bedroom - tatami low bed air purifier zen',
+         'Studio apartment bedroom - space saving smart gadgets',
+         'Luxury master suite - automated blinds smart climate control',
+         // Home Office & Study (10)
+         'Home office setup - desk lamp air purifier organized clean',
+         'Study room modern - LED desk lamp smart devices productive',
+         'Work from home corner - ergonomic smart gadgets bright',
+         'Creative workspace - ring light camera setup organized',
+         'Minimalist home office - clean desk smart accessories',
+         'Corner office apartment - natural light smart lamp plants',
+         'Standing desk setup - monitor arm smart lighting ergonomic',
+         'Compact study nook - vertical storage smart devices',
+         'Professional home office - dual monitors smart gadgets',
+         'Cozy reading corner - smart lamp comfortable chair books',
+         // Entryway & Security (5)
+         'Modern apartment entrance - smart lock camera doorbell setup',
+         'Townhouse entryway - shoe cabinet smart lock organized',
+         'Villa entrance - security camera smart intercom premium',
+         'Condo hallway - keypad lock camera minimalist modern',
+         'Home entrance lobby - smart lighting security integrated',
+         // Pet Areas (5)
+         'Pet corner living room - automatic feeder water fountain toys',
+         'Cat cafe style home - climbing shelves smart feeders play area',
+         'Dog-friendly apartment - feeding station camera monitoring',
+         'Pet room setup - smart camera automatic dispenser cozy bed',
+         'Balcony pet area - outdoor camera feeding station plants'
+      ]
+   },
+   // === EXISTING CATEGORIES ===
+   {
+      value: 'indoor_home',
+      label: 'Trong Nhà',
+      emoji: '🏠',
+      desc: 'Căn hộ cao cấp, penthouse, biệt thự Việt Nam',
+      locations: [
+         // Vinhomes Apartments Saigon (15)
+         'Penthouse Vinhomes Central Park - living room Landmark 81 skyline',
+         'Vinhomes Central Park Binh Thanh - Park 7 master bedroom river',
+         'Vinhomes Central Park - Park 1 balcony evening city lights',
+         'Vinhomes Golden River Aqua 1 - living room floor windows river',
+         'Vinhomes Golden River Aqua 2 - master bedroom morning light',
+         'Vinhomes Golden River Aqua 3 - penthouse terrace skyline',
+         'Vinhomes Golden River Aqua 4 - luxury kitchen marble island',
+         'Vinhomes Grand Park Saigon - The Rainbow living room lake view',
+         'Vinhomes Grand Park - The Origami bedroom balcony garden',
+         'Vinhomes Grand Park - The Manhattan penthouse rooftop',
+         'Vinhomes Tan Cang - Landmark Plus sky apartment 60th floor',
+         'Vinhomes Tan Cang - Landmark 81 living room panoramic',
+         'Vinhomes Ba Son District 1 - riverside penthouse luxury',
+         'Vinhomes Ba Son - heritage tower apartment Seine River view',
+         'Vinhomes Golden River - luxury bedroom balcony sunset',
+         // Premium Apartments District 2 (10)
+         'Masteri Thao Dien T5 - modern bedroom river view morning',
+         'Masteri Thao Dien T1 - living room floor windows green',
+         'Gateway Thao Dien - penthouse rooftop garden terrace skyline',
+         'Gateway Thao Dien - master bedroom minimalist bright',
+         'The Manor HCMC District 2 - luxury living minimalist white',
+         'Estella Heights An Phu - master bedroom balcony city sunrise',
+         'Estella Heights - penthouse living river view panoramic',
+         'Diamond Island Saigon - riverside balcony sunset Landmark view',
+         'Diamond Island - living room floor windows river evening',
+         'The Nassim Thao Dien - elegant living marble accents',
+         // Premium Apartments Other Districts (10)
+         'Empire City Thu Thiem - skyline view bedroom tower 88',
+         'Empire City - penthouse living Landmark 81 view panoramic',
+         'Feliz en Vista District 2 - stylish bathroom vanity marble',
+         'Feliz en Vista - living room contemporary neutral design',
+         'Sunwah Pearl Binh Thanh - modern open kitchen waterfront',
+         'Sunwah Pearl - master bedroom balcony Saigon River morning',
+         'Palm Heights An Phu - bohemian bedroom balcony garden',
+         'Palm Heights - living room tropical plants bright airy',
+         'Sala Sadora District 2 - morning light living room minimalist',
+         'The Sun Avenue District 2 - bright bedroom skyline view',
+         // Hanoi Apartments & Villas (10)
+         'Ecopark Hanoi villa - Scandinavian living room lake view',
+         'Vinhomes Skylake Hanoi - penthouse West Lake panorama',
+         'Vinhomes Ocean Park Hanoi - beachside apartment lagoon',
+         'Vinhomes Smart City Hanoi - modern living room bright',
+         'D Le Roi Soleil Tay Ho - French colonial apartment elegant',
+         'Sun Grand City Ancora Hanoi - luxury living room Nhat Tan',
+         'Mandarin Garden 2 Hanoi - classic bedroom My Dinh setup',
+         'Royal City Hanoi - apartment shopping mall city view',
+         'Starlake Tay Ho Hanoi - villa lake view morning',
+         'Times City Hanoi - penthouse rooftop garden',
+         // Danang & Other Cities (5)
+         'Luxury Penthouse Son Tra Danang - ocean view living panoramic',
+         'F.Home Da Nang - beachside apartment balcony My Khe',
+         'Alphanam Luxury Apartment Danang - modern bedroom Han River',
+         'Vinpearl Condotel Nha Trang - beachfront apartment ocean',
+         'Muong Thanh Luxury Vung Tau - penthouse beach city view'
+      ]
+   },
+   {
+      value: 'indoor_classic',
+      label: 'Phòng Khách Cổ Điển',
+      emoji: '🏛️',
+      desc: 'Góc phòng nhỏ ấm cúng, gỗ ốp, đèn tường, hoa lan',
+      locations: [
+         // Góc phòng nhỏ ấm cúng - Intimate corners
+         'Góc phòng khách nhỏ - tường ốp gỗ nâu đỏ, đèn tường vàng ấm, bàn console với lan trắng',
+         'Góc đọc sách ấm cúng - ghế bành da nâu, đèn đứng đồng, kệ sách gỗ nhỏ',
+         'Góc tiếp khách nhỏ - sofa da 2 chỗ, bàn trà gỗ chạm khắc, đèn bàn cổ điển',
+         'Góc phòng cổ điển - tường ốp panel gỗ tối, tranh treo, chậu lan hồ điệp',
+         'Cozy corner - ghế đơn bọc nhung, bàn phụ gỗ antique, đèn tường đồng',
+         // Phòng khách nhỏ căn hộ
+         'Căn hộ cổ điển nhỏ - living area gỗ ốp với sofa da và đèn chùm mini',
+         'Studio apartment cổ điển - góc tiếp khách với tường gỗ mahogany',
+         'Căn hộ Indochine - phòng khách nhỏ ấm cúng với gỗ teak và đèn lồng',
+         'Apartment vintage - góc sofa với tủ kính gỗ và hoa lan trang trí',
+         'Căn hộ Đông Dương - không gian nhỏ xinh với gỗ và đồng cổ',
+         // Góc nhà hàng/cafe riêng tư
+         'Góc cafe cổ điển - bàn gỗ nhỏ 2 người với đèn tường ấm và ốp gỗ',
+         'Private booth nhà hàng - góc nhỏ ốp gỗ với ghế bọc nhung đỏ',
+         'Wine corner - góc rượu nhỏ với kệ gỗ và ánh sáng ấm',
+         'Tea room nhỏ - bàn trà gỗ với ghế mây và đèn lồng giấy',
+         // Chi tiết nhỏ gọn
+         'Góc bàn console - bàn gỗ antique với gương oval và chậu lan trắng',
+         'Fireplace corner - góc lò sưởi nhỏ với ghế bành và thảm len',
+         'Reading nook - góc đọc sách với kệ gỗ và đèn đọc sách đồng',
+         'Vanity corner cổ điển - bàn trang điểm gỗ với gương và đèn ấm'
+      ]
+   },
+   {
+      value: 'indoor_studio',
+      label: 'Studio',
+      emoji: '🎨',
+      desc: 'Studio chụp ảnh chuyên nghiệp toàn quốc',
+      locations: [
+         // Professional Studios Saigon District 1 & 3 (15)
+         'Mộc Studio Saigon District 1 - clean white cyclorama professional',
+         'Phototalk Studio HCMC District 1 - grey seamless backdrop lighting',
+         'Sai Gon Photo Studio District 1 - fashion photography white editorial',
+         'White Box Studio Saigon D1 - clean infinity backdrop minimal',
+         'Art House Studio HCMC D1 - artistic colored backdrop creative',
+         'Lavish Studio District 3 - luxury editorial natural window light',
+         'The Factory Contemporary Arts Centre D2 - industrial loft concrete',
+         'Click Studio District 3 - e-commerce white backdrop clean',
+         'Lenslab Studio District 1 - creative portrait natural light',
+         'The Frame Studio District 3 - contemporary editorial professional',
+         'Light Studio HCMC D1 - commercial fashion lighting setup',
+         'Creative Studio Nguyen Thi Minh Khai - minimalist white',
+         'Fashion Studio Le Van Sy - runway editorial setup',
+         'Urban Studio Vo Van Tan - industrial brick wall backdrop',
+         'Modern Studio Hai Ba Trung - clean grey seamless',
+         // Studios Saigon District 2 & Binh Thanh (10)
+         'Studioz Thao Dien - natural light loft concrete walls plants',
+         'Runway Studio Thao Dien D2 - fashion editorial professional',
+         'Lighthouse Studio Thao Dien - minimalist shooting space white',
+         'Raw Studio Thao Dien - exposed brick industrial vintage',
+         'Thao Dien Studio An Phu - boutique portrait natural light',
+         'Gateway Studio District 2 - commercial photography clean',
+         'Masteri Studio Thao Dien - modern minimalist white backdrop',
+         'Creative Loft Binh Thanh - industrial high ceiling concrete',
+         'Vinhomes Studio Binh Thanh - contemporary clean white',
+         'Urban Loft Binh Thanh - brick wall vintage editorial',
+         // Hanoi Studios (10)
+         'Lavender Studio Hanoi Hoan Kiem - elegant portrait professional',
+         'Luala Concert Hall rooftop studio - natural light loft artistic',
+         'M.O.I Studio Hanoi Ba Dinh - fashion week editorial setup',
+         'Art Space Hanoi Dong Da - gallery studio contemporary',
+         'Hanoi Studio City Cau Giay - professional fashion white',
+         'Mai Studio Hanoi Hai Ba Trung - clean commercial backdrop',
+         'Creative Studio Hanoi Tay Ho - natural light lakeside loft',
+         'Urban Studio Hanoi Old Quarter - vintage brick industrial',
+         'Contemporary Studio My Dinh - modern minimalist clean',
+         'Portrait Studio Hanoi Long Bien - professional grey backdrop',
+         // Studios Other Cities (5)
+         'Studio Tropical Danang - beachside natural light coastal',
+         'Danang Photo Studio Hai Chau - professional white editorial',
+         'Dalat Creative Studio - mountain natural light artistic',
+         'Nha Trang Studio Hub - beachside clean white professional',
+         'Can Tho Studio Mekong - contemporary clean backdrop southern'
+      ]
+   },
+   {
+      value: 'indoor_luxury',
+      label: 'Khách Sạn 5⭐',
+      emoji: '💎',
+      desc: 'Khách sạn 5 sao, resort cao cấp Việt Nam',
+      locations: [
+         // Saigon 5-Star Hotels - Lobbies & Suites (15)
+         'Park Hyatt Saigon - grand lobby chandelier marble columns',
+         'Park Hyatt Saigon - Opera Wing Suite bedroom daylight elegant',
+         'Park Hyatt Saigon - Park Lounge afternoon tea setup',
+         'The Reverie Saigon - Italian marble bathroom suite gold accents',
+         'The Reverie Saigon - Saigon Suite living room opulent',
+         'The Reverie Saigon - Presidential Suite bedroom chandelier',
+         'Hotel des Arts Saigon - rooftop infinity pool terrace city',
+         'Hotel des Arts - artistic lobby gallery contemporary',
+         'Caravelle Saigon - heritage Presidential Suite colonial',
+         'Caravelle Saigon - lobby classic chandelier evening',
+         'Sofitel Saigon Plaza - French colonial lobby elegant',
+         'Sofitel Saigon Plaza - Prestige Suite bedroom',
+         'Lotte Legend Hotel Saigon - river view suite luxury',
+         'InterContinental Saigon - lobby waterfall marble contemporary',
+         'InterContinental Saigon - Club Suite bedroom river morning',
+         // Saigon 5-Star Hotels Additional (10)
+         'New World Saigon - French colonial lobby heritage',
+         'New World Saigon - Deluxe Suite bedroom modern',
+         'Renaissance Riverside Saigon - lobby marble waterfall',
+         'Renaissance Riverside - Executive Suite river view',
+         'Sheraton Saigon - Grand Ballroom entrance elegant',
+         'Sheraton Saigon - Club Suite bedroom skyline morning',
+         'Pullman Saigon Centre - contemporary lobby geometric',
+         'Nikko Hotel Saigon - Japanese minimalist lobby zen',
+         'Liberty Central Saigon Riverside - rooftop pool deck',
+         'Equatorial Hotel HCMC - heritage lobby classic',
+         // Hanoi 5-Star Hotels (10)
+         'Sofitel Legend Metropole Hanoi - Opera Wing corridor French colonial',
+         'Sofitel Legend Metropole - Grand Suite bedroom elegant heritage',
+         'JW Marriott Hanoi - Presidential Suite luxury panoramic',
+         'JW Marriott Hanoi - lobby grand chandelier West Lake',
+         'Lotte Hotel Hanoi - sky penthouse lounge 65th floor',
+         'Lotte Hotel Hanoi - Executive Suite bedroom panoramic',
+         'InterContinental Hanoi Landmark 72 - sky lobby club lounge',
+         'Hilton Hanoi Opera - heritage colonial facade lobby',
+         'Sheraton Hanoi - Grand Ballroom entrance elegant',
+         'Melia Hanoi - grand entrance crystal chandelier lobby',
+         // Danang & Hoi An Luxury Resorts (10)
+         'InterContinental Danang Sun Peninsula - cliff villa living ocean',
+         'InterContinental Danang - Penthouse Suite balcony panoramic',
+         'InterContinental Danang - resort lobby sunset ocean view',
+         'Four Seasons The Nam Hai Hoi An - beach villa interior elegant',
+         'Four Seasons Nam Hai - pavilion entrance evening lanterns',
+         'Fusion Maia Danang - private pool villa spa suite',
+         'Hyatt Regency Danang - ocean view suite balcony resort',
+         'Naman Retreat Danang - spa pavilion bamboo zen',
+         'Pullman Danang - beachfront lobby sunset contemporary',
+         'Vinpearl Luxury Danang - resort villa bedroom ocean',
+         // Phu Quoc & Island Luxury Resorts (10)
+         'JW Marriott Phu Quoc - beachfront suite terrace sunset pool',
+         'JW Marriott Phu Quoc - resort lobby open air ocean',
+         'Fusion Resort Phu Quoc - garden villa bedroom tropical',
+         'Sol Beach House Phu Quoc - retro beach suite colorful',
+         'Premier Residences Phu Quoc - sunset view suite balcony',
+         'Vinpearl Resort Phu Quoc - overwater villa bedroom turquoise',
+         'Six Senses Ninh Van Bay - spa pavilion ocean view cliff',
+         'Six Senses Ninh Van Bay - rock villa bedroom dramatic',
+         'Amanoi Ninh Thuan - cliff pavilion sunrise ocean panoramic',
+         'Amanoi - infinity pool pavilion minimalist luxury',
+         // Nha Trang & Other Coastal Luxury (5)
+         'Evason Ana Mandara Nha Trang - beachfront villa tropical',
+         'Sheraton Nha Trang - ocean tower lobby elegant contemporary',
+         'Vinpearl Luxury Nha Trang - island resort villa suite',
+         'Azerai La Residence Hue - colonial lobby heritage riverside',
+         'Angsana Lang Co - lagoon villa bedroom bay view'
+      ]
+   },
+   {
+      value: 'indoor_cafe',
+      label: 'Cafe/Nhà Hàng',
+      emoji: '☕',
+      desc: 'Quán cafe aesthetic, nhà hàng đẹp Việt Nam',
+      locations: [
+         // Saigon Cafes District 1 (15)
+         'Cafe Apartment 42 Nguyen Hue - iconic balcony view skyline',
+         'The Workshop Coffee Saigon D1 - industrial loft brick seating',
+         'L\'Usine Le Loi - French colonial cafe interior vintage',
+         'Shin Coffee Nguyen Thi Minh Khai - rooftop garden jungle seating',
+         'The Alley Nguyen Hue - bubble tea aesthetic corner neon',
+         'Starbucks Reserve Han Thuyen - heritage French building',
+         'Highlands Coffee Ben Thanh - outdoor terrace street view',
+         'Saigon Coffee Roastery District 1 - artisan brick interior',
+         'Nest by AIA Landmark 81 - sky lounge coffee 81st floor',
+         'Runam Bistro District 1 - French colonial elegant interior',
+         'Urban Station District 1 - coworking cafe minimalist',
+         'Cheese Coffee Nguyen Hue - Korean aesthetic white minimal',
+         'Givral Cafe Le Loi - heritage classic Saigon',
+         'Vincom Cafe Dong Khoi - mall rooftop terrace view',
+         'Propaganda Bistro District 1 - vintage communist poster decor',
+         // Saigon Cafes District 2 & 3 (15)
+         'Oromia Coffee Thao Dien - minimalist wooden Scandi interior',
+         'The Coffee House Thao Dien - aesthetic orange minimal',
+         'Maison Marou Thao Dien - chocolate cafe industrial chic',
+         'Sushi Dining Aoi Thao Dien - Japanese aesthetic tatami',
+         'L\'Usine Thao Dien - loft cafe factory industrial',
+         'The Snap Cafe Thao Dien - Korean minimalist white',
+         'Home Finest Saigon Thao Dien - Japanese minimalist zen',
+         'An Vietnamese Eatery Thao Dien - modern Vietnamese aesthetic',
+         'The Vintage Emporium Thao Dien - antique retro decor',
+         'Saigon Outcast District 2 - outdoor garden bar lounge',
+         'Mockingbird Cafe District 3 - vintage library books',
+         'Saigon Oi Vo Van Tan - modern Vietnamese bistro',
+         'Blu Hydrangea Cafe District 3 - floral garden aesthetic',
+         'Oriberry Cafe District 3 - Korean aesthetic pink pastel',
+         'Cong Caphe Nam Ky Khoi Nghia - communist vintage iconic',
+         // Hanoi Cafes Old Quarter & Downtown (10)
+         'Cong Caphe Tran Hung Dao Hanoi - vintage communist chic iconic',
+         'Note Coffee Hanoi Nha Tho - colorful sticky notes wall famous',
+         'Loading T Hanoi Ly Quoc Su - underground bunker cafe unique',
+         'Tranquil Books Coffee Hanoi - library atmosphere cozy',
+         'Manzi Art Space Hanoi - art gallery cafe contemporary',
+         'Giang Cafe Hanoi - egg coffee heritage 1940s',
+         'Cafe Pho Co Hanoi - Old Quarter rooftop Hoan Kiem view',
+         'Hanoi Social Club - bohemian garden cafe artistic',
+         'Joma Bakery Cafe Hanoi - expat favorite modern',
+         'Cong Caphe Dinh Tien Hoang - lakeside terrace Hoan Kiem',
+         // Dalat Cafes Mountain Aesthetic (5)
+         'The Married Beans Dalat - forest pine view terrace',
+         'La Viet Coffee Dalat - rooftop mountain valley panorama',
+         'Horizon Hill Coffee Dalat - glass house pine forest',
+         'Me Linh Coffee Garden Dalat - lakeside garden romantic',
+         'An Cafe Dalat - vintage retro 1960s Dalat aesthetic',
+         // Hoi An & Danang Cafes (5)
+         'Reaching Out Tea House Hoi An - silent deaf staff unique',
+         'Faifo Coffee Hoi An - ancient town rooftop lantern view',
+         'Mia Coffee Hoi An - beachside An Bang minimal white',
+         'Cong Caphe Bach Dang Danang - riverside Han River terrace',
+         'The Espresso Station Danang - beach cafe My Khe'
+      ]
+   },
+   {
+      value: 'outdoor_urban',
+      label: 'Phố Xá',
+      emoji: '🏙️',
+      desc: 'Phố đi bộ, khu phố nổi tiếng Việt Nam',
+      locations: [
+         // Saigon Walking Streets & Landmarks District 1 (15)
+         'Nguyen Hue Walking Street Saigon - city lights fountain night',
+         'Nguyen Hue Walking Street - daytime skyline Bitexco backdrop',
+         'Nguyen Hue - City Hall French colonial facade evening',
+         'Dong Khoi Street Saigon - French colonial architecture heritage',
+         'Dong Khoi - Continental Hotel terrace street view',
+         'Book Street Nguyen Van Binh - cultural corridor tree tunnel',
+         'Bui Vien Walking Street - neon backpacker nightlife vibe',
+         'Le Loi Boulevard - Notre Dame Cathedral backdrop',
+         'Ben Thanh Market - iconic clock tower entrance daytime',
+         'Bitexco Financial Tower - Saigon Skydeck panorama 49th floor',
+         'Landmark 81 Sky Deck - Saigon 360 view 79th floor',
+         'Saigon Opera House - French colonial front steps evening',
+         'Central Post Office Saigon - heritage architecture Eiffel design',
+         'Notre Dame Cathedral - front plaza red brick morning',
+         'Takashimaya Saigon entrance - luxury shopping facade Dong Khoi',
+         // Saigon Modern Districts 2, 7, Thu Thiem (10)
+         'Thu Thiem Bridge - city skyline sunset golden hour',
+         'Thu Thiem Tunnel entrance - modern LED infrastructure night',
+         'Empire City promenade - Saigon River skyline evening',
+         'Landmark 81 base - fountain plaza Vinhomes evening lights',
+         'District 7 Phu My Hung - Starlight Bridge night rainbow lights',
+         'Crescent Mall District 7 - modern shopping facade',
+         'Vinhomes Central Park - riverside promenade Landmark 81 view',
+         'Thao Dien Village - expat neighborhood tree streets',
+         'Gateway Thao Dien - modern residential architecture',
+         'District 2 Sala urban area - contemporary streets evening',
+         // Hanoi Old Quarter & Downtown (15)
+         'Hanoi Old Quarter - Hang Dao silk street morning shophouses',
+         'Hanoi Old Quarter - Ta Hien beer street night lights',
+         'Hanoi Train Street - coffee shop railway tracks iconic',
+         'Hoan Kiem Lake - The Huc red bridge morning mist',
+         'Hoan Kiem Lake - Ngoc Son Temple island sunrise',
+         'Long Bien Bridge Hanoi - heritage steel structure Eiffel design',
+         'Long Bien Bridge - Red River sunset golden hour',
+         'Trang Tien Plaza Hanoi - iconic French colonial facade',
+         'Hanoi Opera House - French colonial front steps evening',
+         'St Joseph Cathedral Hanoi - neo-Gothic facade morning',
+         'West Lake Tay Ho - Xuan Dieu street cafe strip',
+         'Kim Ma Street Hanoi - Daewoo Hotel modern skyline',
+         'Ba Dinh Square - Ho Chi Minh Mausoleum wide plaza',
+         'Hoan Kiem pedestrian zone - weekend night market lights',
+         'Hanoi Night Market - Dong Xuan to Hoan Kiem weekend',
+         // Hoi An Ancient Town (5)
+         'Hoi An Ancient Town - yellow wall red lantern street evening',
+         'Hoi An Japanese Bridge - covered bridge lantern glow twilight',
+         'Hoi An Thu Bon riverside - boat lanterns water reflection',
+         'Hoi An Old Town - Tran Phu street morning empty',
+         'Hoi An An Bang Beach - beachfront road colorful cafes',
+         // Dalat & Other Cities (5)
+         'Dalat Xuan Huong Lake - morning mist promenade pine trees',
+         'Dalat Palace Heritage Hotel - French colonial entrance',
+         'Dalat Night Market - colorful flower stall ambiance',
+         'Danang Dragon Bridge - evening fire water show Han River',
+         'Nha Trang Beach Promenade - Tran Phu street palm trees'
+      ]
+   },
+   {
+      value: 'outdoor_nature',
+      label: 'Thiên Nhiên',
+      emoji: '🌿',
+      desc: 'Vườn hoa, núi rừng, thác nước Việt Nam',
+      locations: [
+         // Dalat Highland Nature (15)
+         'Dalat Flower Garden - colorful hydrangea field terraces',
+         'Dalat pine forest - golden hour sunlight rays morning mist',
+         'Valley of Love Dalat - swan lake morning flower gardens',
+         'Tuyen Lam Lake Dalat - pine forest water reflection',
+         'Lang Biang Mountain - highland grass clearing panoramic',
+         'Cu Lan Village Dalat - tribal bamboo bridge stream',
+         'Datanla Waterfall Dalat - forest cascade moss rocks',
+         'Cam Ly Waterfall - urban waterfall garden peaceful',
+         'Dalat coffee plantation - arabica farm mountain view',
+         'XQ Hand Embroidery Garden Dalat - artistic flower garden',
+         'Dalat Crazy House - fairytale forest architecture',
+         'Prenn Waterfall Dalat - garden cascade rainbow mist',
+         'Golden Valley Dalat - flower fields mountain backdrop',
+         'Bidoup Nui Ba National Park - pristine forest trail',
+         'Me Linh Coffee Garden - lakeside pine forest romantic',
+         // Sapa & Northern Mountains (15)
+         'Sapa rice terraces - golden hour mountain valley sunset',
+         'Sapa Cat Cat Village - waterfall bamboo bridge H\'mong',
+         'Fansipan Summit 3143m - cloud sea sunrise cable car',
+         'Sapa Love Waterfall - forest cascade silver falls',
+         'Muong Hoa Valley Sapa - terraced rice fields river',
+         'Y Linh Ho Village Sapa - mountain hamlet rice terraces',
+         'Ham Rong Mountain Sapa - orchid garden valley view',
+         'Moc Chau tea plantation - rolling green hills fog',
+         'Tam Dao National Park - cloud forest misty morning',
+         'Tam Dao Silver Waterfall - mountain cascade refreshing',
+         'Ha Giang Dong Van - karst plateau mountain road UNESCO',
+         'Ha Giang Ma Pi Leng Pass - cliff edge panoramic dramatic',
+         'Ninh Binh Trang An - limestone karst river boat passage',
+         'Ninh Binh Tam Coc - three caves river rice fields',
+         'Cuc Phuong National Park - ancient forest 1000-year tree',
+         // Central Vietnam Nature (10)
+         'Ba Na Hills Golden Bridge - giant hands misty morning clouds',
+         'Ba Na French Village - European garden lavender mimosa',
+         'Hai Van Pass - coastal mountain road ocean view dramatic',
+         'Son Tra Peninsula Danang - Linh Ung Pagoda mountain sea',
+         'Marble Mountains Danang - limestone caves pagoda vista',
+         'Phong Nha Ke Bang - cave entrance jungle UNESCO',
+         'Paradise Cave Phong Nha - underground cathedral stalactites',
+         'Bach Ma National Park - mountain forest waterfalls Hue',
+         'Phuong Hoang Magic Land Quy Nhon - green valley lake',
+         'Quy Nhon Ky Co Beach - turquoise lagoon cliffs pristine',
+         // South Vietnam Nature (10)
+         '23/9 Park Saigon - urban green lake morning joggers',
+         'Tao Dan Park Saigon - banyan trees shade peaceful',
+         'Can Gio Mangrove Biosphere - kayak waterway UNESCO',
+         'Can Gio Monkey Island - macaque forest sanctuary',
+         'Cu Chi forest - bamboo grove rubber plantation historical',
+         'Con Dao National Park - pristine forest trail beach',
+         'Con Dao Ong Dung Beach - turtle nesting pristine sand',
+         'Suoi Tien Eco Park - lavender field backdrop Mekong',
+         'Mekong Delta Ben Tre - coconut grove river channels',
+         'Tra Su Cajuput Forest - flooded forest boat tour green'
+      ]
+   },
+   {
+      value: 'outdoor_beach',
+      label: 'Biển/Resort',
+      emoji: '🏖️',
+      desc: 'Bãi biển, bể bơi resort Việt Nam',
+      locations: [
+         // Phu Quoc Beaches & Resorts (15)
+         'Long Beach Phu Quoc - sunset golden hour silhouette palms',
+         'Sao Beach Phu Quoc - crystal turquoise starfish water pristine',
+         'Ong Lang Beach Phu Quoc - quiet cove fishing boats sunset',
+         'Ganh Dau Beach Phu Quoc - northern tip Cambodia view',
+         'Vung Bau Beach Phu Quoc - secluded white sand pristine',
+         'JW Marriott Phu Quoc - infinity pool sunset ocean horizon',
+         'JW Marriott Phu Quoc - private beach cabana daybeds',
+         'Vinpearl Phu Quoc - beachside wedding arch palm setup',
+         'Premier Village Phu Quoc - private beach villa pools',
+         'Fusion Resort Phu Quoc - garden pool villa tropical',
+         'Sol Beach House Phu Quoc - retro beach club colorful',
+         'Salinda Resort Phu Quoc - infinity pool ocean view',
+         'La Veranda Resort Phu Quoc - French colonial beach elegance',
+         'Mango Bay Resort Phu Quoc - eco beach bungalow rustic',
+         'Phu Quoc Sunset Sanato - beach resort evening view',
+         // Nha Trang Beaches & Resorts (10)
+         'Nha Trang Beach - iconic bay sunrise palm promenade',
+         'Vinpearl Nha Trang - beachfront luxury cabana island',
+         'Sailing Club Nha Trang - iconic beach lounge daybeds party',
+         'Doc Let Beach Nha Trang - pristine white sand turquoise',
+         'Bai Dai Beach Nha Trang - long stretch quiet pristine',
+         'Evason Ana Mandara beach - palm tree shade luxury resort',
+         'Sheraton Nha Trang - beachfront pool deck ocean view',
+         'Six Senses Ninh Van Bay - private beach villa cliff',
+         'Six Senses Ninh Van Bay - rock villa pool dramatic',
+         'Amanoi Ninh Thuan - cliff edge infinity pool sunrise ocean',
+         // Danang & Hoi An Beaches (10)
+         'My Khe Beach Danang - UNESCO sunrise surfer waves pristine',
+         'Non Nuoc Beach Danang - Marble Mountains backdrop white sand',
+         'An Bang Beach Hoi An - white sand sunrise fishing boats',
+         'Cua Dai Beach Hoi An - river mouth estuary fishing',
+         'InterContinental Danang - private beach deck luxury resort',
+         'InterContinental Danang - infinity pool cliff ocean sunset',
+         'Hyatt Regency Danang - beach villa pool sea view',
+         'Fusion Maia Danang - all pool villa private morning',
+         'Four Seasons Nam Hai - beach villa pool Hoi An luxury',
+         'Naman Retreat Danang - beachfront spa pool bamboo zen',
+         // Quy Nhon & Central Coast (10)
+         'Quy Nhon Ky Co Beach - crystal turquoise lagoon cliffs pristine',
+         'Quy Nhon Bai Xep beach - fishing village authentic quiet',
+         'Quy Nhon Eo Gio - wind cape dramatic cliffs ocean',
+         'Quy Nhon Ghenh Rang - rocky coast sunrise pagoda',
+         'Avani Quy Nhon Resort - beachfront infinity pool modern',
+         'SALA Quy Nhon Beach - boutique resort pool ocean',
+         'Mui Ne Beach - red sand dunes desert ocean contrast',
+         'Mui Ne Fishing Village - sunrise boats colorful authentic',
+         'Ho Tram Beach Vung Tau - wild pristine coastline',
+         'Vung Tau Back Beach - sunset mountain backdrop',
+         // Con Dao & Island Resorts (5)
+         'Con Dao Hon Bay Canh - pristine island beach turtles',
+         'Con Dao Ong Dung Beach - secluded white sand pristine',
+         'Six Senses Con Dao - infinity pool cliff edge ocean',
+         'Six Senses Con Dao - beachfront villa pool tropical',
+         'Con Dao Dat Doc Beach - pristine bay turquoise quiet'
+      ]
+   },
+   {
+      value: 'heritage_temple',
+      label: 'Di Tích/Chùa',
+      emoji: '🏛️',
+      desc: 'Đền chùa, di tích lịch sử Việt Nam',
+      locations: [
+         // Hanoi Heritage (10)
+         'Temple of Literature Hanoi - Khue Van Pavilion courtyard old trees',
+         'One Pillar Pagoda Hanoi - lotus pond morning ancient',
+         'Tran Quoc Pagoda Hanoi - West Lake sunrise stupa',
+         'Imperial Citadel of Thang Long - Doan Mon gate UNESCO',
+         'Ngoc Son Temple - Hoan Kiem island The Huc bridge',
+         'Quan Thanh Temple Hanoi - bronze statue courtyard ancient',
+         'St Joseph Cathedral Hanoi - neo-Gothic facade square',
+         'Long Bien Bridge Hanoi - heritage steel structure',
+         'Hoa Lo Prison Hanoi - historical gate courtyard',
+         'O Quan Chuong Gate - Old Quarter city gate',
+         // Hue Imperial Heritage (10)
+         'Imperial City Hue - Ngo Mon Gate five phoenix pavilions',
+         'Thien Mu Pagoda Hue - Perfume River seven-story tower',
+         'Khai Dinh Tomb Hue - mosaic art staircase dragon',
+         'Tu Duc Tomb Hue - peaceful garden lotus pond',
+         'Minh Mang Tomb Hue - symmetrical courtyards lakes',
+         'An Dinh Palace Hue - European style facade',
+         'Dien Tho Residence Hue - empress residence courtyard',
+         'Hue Flag Tower - imperial citadel bastion',
+         'Truong Tien Bridge Hue - Perfume River lights',
+         'Thanh Toan Tile-Roofed Bridge - countryside heritage',
+         // Saigon & South Heritage (10)
+         'Notre Dame Cathedral Saigon - front steps red brick',
+         'Central Post Office Saigon - heritage interior dome',
+         'Ben Thanh Market - iconic clock tower facade',
+         'Jade Emperor Pagoda Saigon - incense jade altar',
+         'Giac Lam Pagoda - oldest pagoda HCMC wooden beams',
+         'Ba Thien Hau Temple Cholon - incense coils courtyard',
+         'Cha Tam Church Cholon - colonial church courtyard',
+         'Ong Bon Pagoda District 5 - colorful ceramic roof',
+         'Vinh Nghiem Pagoda District 3 - modern pagoda tower',
+         'Hoang De Citadel Quy Nhon - Champa relics walls',
+         // Central & Coastal Heritage (8)
+         'My Son Sanctuary Quang Nam - ancient Champa ruins UNESCO',
+         'Hoi An Japanese Bridge - covered bridge lantern glow',
+         'Po Nagar Towers Nha Trang - Cham temple complex',
+         'Binh Dinh Twin Towers - Cham brick towers',
+         'Lien Khuong Water Tower Da Lat - colonial relic',
+         'Da Lat Railway Station - art deco colonial facade',
+         'Con Dao Prison - historical French tiger cages',
+         'Bai Dinh Pagoda Ninh Binh - giant Buddha hall complex'
+      ]
+   },
+   {
+      value: 'event_wedding',
+      label: 'Đám Cưới',
+      emoji: '💒',
+      desc: 'Nhà hàng tiệc cưới, địa điểm cưới đẹp',
+      locations: [
+         // Saigon Wedding Venues
+         'White Palace Phu Nhuan - grand ballroom wedding',
+         'GEM Center Saigon - rooftop ceremony sunset',
+         'InterContinental Saigon - crystal ballroom',
+         'Caravelle Saigon - elegant wedding reception',
+         'The Adora Wedding Center - garden ceremony',
+         'Riverside Palace Saigon - river view ballroom',
+         'The Reverie Saigon Ballroom - luxury chandelier',
+         'Sheraton Saigon Grand Ballroom - elegant setup',
+         // Resort Weddings
+         'Vinpearl Phu Quoc - beachside wedding arch',
+         'InterContinental Danang - sunset cliff ceremony',
+         'Amanoi - minimalist luxury beach wedding',
+         'Six Senses Ninh Van Bay - island wedding',
+         // Garden Weddings
+         'The Clifton Wedding Venue - garden ceremony',
+         'Saigon Outcast garden - bohemian outdoor wedding',
+         'Dalat Edensee Lake Resort - lakeside ceremony'
+      ]
+   },
+   {
+      value: 'event_party',
+      label: 'Tiệc Tùng',
+      emoji: '🎉',
+      desc: 'Rooftop bar, club, lounge cao cấp',
+      locations: [
+         // Saigon Nightlife
+         'Chill Skybar Saigon - AB Tower rooftop city lights',
+         'Social Club Saigon - Hotel des Arts lounge',
+         'EON51 Bitexco - fine dining city view',
+         'The Deck Saigon - riverside cocktail lounge',
+         'Air 360 Sky Lounge - Ben Thanh panorama night',
+         'Saigon Saigon Rooftop Bar - Caravelle heritage',
+         'Lush Saigon - premium nightclub ambiance',
+         'Republic Lounge Saigon - speakeasy style',
+         'Heart of Darkness Saigon - craft cocktail bar',
+         // Hanoi Nightlife
+         'Summit Lounge Pan Pacific Hanoi - city lights',
+         'Twilight Bar InterContinental Hanoi - lake view',
+         'The Bank Hanoi - colonial bank turned bar',
+         // Danang Nightlife
+         'Sky36 Danang - rooftop club Han River view',
+         'Luna Pub Danang - Bach Dang riverside bar'
+      ]
+   },
+   {
+      value: 'seasonal_tet',
+      label: 'Tết/Lễ Hội',
+      emoji: '🎊',
+      desc: 'Phố hoa, lễ hội, chùa ngày Tết',
+      locations: [
+         // Tet Flower Streets
+         'Nguyen Hue Flower Street Saigon - Tet decoration',
+         'Tao Dan Park Saigon - spring flower festival',
+         'Dam Sen Park - Lunar New Year lantern display',
+         'Suoi Tien Theme Park - dragon lantern festival',
+         'Phu My Hung Flower Street - Tet market',
+         // Temple Tet Atmosphere
+         'Jade Emperor Pagoda Saigon - Tet incense prayers',
+         'One Pillar Pagoda Hanoi - Tet prayer ceremony',
+         'Bai Dinh Pagoda Ninh Binh - Vesak lantern',
+         // Hue Festival
+         'Hue Imperial City - traditional Tet celebration',
+         'Hue Festival stage - Ao Dai parade',
+         // Hoi An Festival
+         'Hoi An Full Moon Festival - lantern release',
+         'Hoi An Lantern Festival - Thu Bon riverside',
+         // Da Lat Flower Festival
+         'Da Lat Flower Festival - parade float'
+      ]
+   },
+   {
+      value: 'international_asia',
+      label: 'Quốc Tế Châu Á',
+      emoji: '🗾',
+      desc: 'Tokyo, Seoul, Singapore, Bangkok, Bali',
+      locations: [
+         // Japan
+         'Tokyo Shibuya Crossing - neon night crowds',
+         'Tokyo Harajuku Takeshita Street - colorful fashion',
+         'Kyoto Fushimi Inari - orange torii gates path',
+         'Osaka Dotonbori - neon canal reflection',
+         'Tokyo teamLab Borderless - digital art immersive',
+         // Korea
+         'Seoul Gangnam COEX Mall - starfield library',
+         'Seoul Bukchon Hanok Village - traditional houses',
+         'Busan Gamcheon Culture Village - colorful hillside',
+         'Seoul Lotte Tower Sky Seoul - observation deck',
+         // Southeast Asia
+         'Singapore Marina Bay Sands - infinity pool',
+         'Singapore Gardens by the Bay - Supertree Grove',
+         'Bangkok Iconsiam - luxury mall riverside',
+         'Bangkok Wat Arun - temple of dawn sunrise',
+         'Bali Ubud - rice terrace bamboo bridge',
+         'Bali Uluwatu - cliff temple sunset',
+         // China/HK
+         'Hong Kong Victoria Peak - skyline night',
+         'Shanghai The Bund - art deco skyline',
+         'Macau Venetian - casino resort grandeur'
+      ]
+   },
+   {
+      value: 'international_europe',
+      label: 'Quốc Tế Châu Âu',
+      emoji: '🏰',
+      desc: 'Paris, Santorini, Milan, London, Barcelona',
+      locations: [
+         // France
+         'Paris Champs-Élysées - Arc de Triomphe view',
+         'Paris Eiffel Tower Trocadero - golden hour',
+         'Paris Louvre Pyramid - museum courtyard',
+         'Paris Montmartre Sacre Coeur - city vista',
+         // Italy
+         'Milan Galleria Vittorio Emanuele II - luxury arcade',
+         'Rome Trevi Fountain - baroque splendor',
+         'Venice Grand Canal - gondola bridge',
+         'Amalfi Coast Positano - colorful cliffside',
+         'Florence Ponte Vecchio - golden hour',
+         // Greece
+         'Santorini Oia - white dome blue sea sunset',
+         'Mykonos Little Venice - windmill waterfront',
+         // Spain
+         'Barcelona Park Guell - Gaudi mosaic terrace',
+         'Seville Plaza de Espana - architectural grandeur',
+         // UK
+         'London Tower Bridge - iconic landmark',
+         'London Notting Hill - colorful houses',
+         // Switzerland
+         'Swiss Alps Zermatt - Matterhorn view',
+         'Lake Geneva - mountain reflection'
+      ]
+   },
+   {
+      value: 'international_other',
+      label: 'Quốc Tế Khác',
+      emoji: '🌍',
+      desc: 'Dubai, New York, Sydney, Maldives',
+      locations: [
+         // Middle East
+         'Dubai Burj Khalifa - observation deck sunset',
+         'Dubai Palm Jumeirah - Atlantis hotel beach',
+         'Dubai Marina - yacht club golden hour',
+         'Abu Dhabi Sheikh Zayed Mosque - white marble',
+         // Americas
+         'New York Central Park - Bethesda Fountain',
+         'New York Times Square - neon billboard glow',
+         'New York Brooklyn Bridge - Manhattan skyline',
+         'Los Angeles Hollywood Sign - Griffith view',
+         'Miami South Beach - art deco ocean drive',
+         // Oceania
+         'Sydney Opera House - harbour bridge view',
+         'Melbourne Brighton Beach - colorful bathing boxes',
+         'Bora Bora overwater bungalow - turquoise lagoon',
+         // Islands
+         'Maldives water villa - private deck sunset',
+         'Maldives underwater restaurant - ocean dining',
+         'Mauritius Le Morne - beach golf course',
+         'Seychelles Anse Source d\'Argent - granite boulders'
+      ]
+   }
+];
+
+// =====================================================
+// STUDIO CATEGORIES - Random selection for Studio Mode
+// 103 Theatrical Studios (43 Regular + 60 Tết/Festival)
+// =====================================================
+
+export const STUDIO_CATEGORIES = [
+   {
+      value: 'auto',
+      label: 'AI Tự Chọn Studio',
+      emoji: '🎬',
+      desc: 'AI tự chọn studio phù hợp với sản phẩm',
+      productMatch: ['all'],
+      studios: []
+   },
+   // ===== REGULAR STUDIOS (43) =====
+   {
+      value: 'aodai',
+      label: 'Áo Dài Studios',
+      emoji: '👘',
+      desc: 'Studios cho áo dài truyền thống và cách tân (12 options)',
+      productMatch: ['aodai', 'traditional'],
+      studios: [
+         'Traditional Cultural ⭐ | Professional photography studio. Hand-painted canvas backdrop soft ivory with bamboo branch motifs. Ornate ceramic vase with apricot blossoms on carved wooden pedestal (background right), traditional wooden folding screen panel (background left), silk scroll with calligraphy, bronze incense holder, lotus flowers in bowl. Softbox key at 2700K golden hour simulation. Light polished wooden floor with traditional Vietnamese rug. Classic Vietnamese cultural professional studio, heritage pride editorial. - STUDIO FIXED',
+         'Modern Fusion | Professional photography studio. 9ft white seamless paper backdrop. Contemporary vase with single stem (background center), modern Vietnamese lacquerware on minimalist pedestal, abstract art piece, sleek furniture edge hint, design books stacked. LED panel at 5000K bright modern daylight. Polished concrete studio floor with modern Vietnamese pattern rug. Contemporary Vietnamese professional studio, fusion elegance editorial. - STUDIO FIXED',
+         'Heritage Minimalist | Professional photography studio. Muslin backdrop muted sage-to-cream with textile pattern. Simple wooden altar table (background), heritage ceramic pieces, traditional tea set, woven basket, vintage textiles draped. Softbox at 4500K soft natural light. Natural wood planks studio floor with simple mat. Minimalist heritage professional studio, quiet tradition editorial. - STUDIO FIXED',
+         'Garden Poetry | Professional photography studio. Painted canvas backdrop soft green with lotus pond motif. Lotus flowers in decorative bowl (background center), bamboo water feature prop, garden stones, bonsai tree miniature, wooden garden bench hint, poetry scrolls. LED at 4800K natural garden daylight. Stone path studio floor with moss accent. Garden poetry professional studio, nature elegance editorial. - STUDIO FIXED',
+         'Royal Palace | Professional photography studio. Hand-painted canvas backdrop rich gold-to-burgundy with dragon pattern. Ornate throne chair miniature (background center), gold folding fan on stand, palace lanterns, brocade fabric draped, royal seal on cushion. Strobe at 3000K regal warm glow. Glossy dark wood studio floor with imperial gold rug. Royal palace professional studio, imperial majesty editorial. - STUDIO FIXED',
+         'Countryside Charm | Professional photography studio. Muslin backdrop warm earth tones with village texture. Woven conical hat hanging (background left), bamboo basket, clay water jug, traditional lantern, rural flowers in simple vase. LED at 4200K countryside warmth. Natural bamboo mat studio floor. Countryside charm professional studio, rural heritage editorial. - STUDIO FIXED',
+         // ===== NEW STUDIOS - ELEGANT CLASSIC =====
+         'Biệt Thự Pháp Colonial | Professional photography studio. Hand-painted canvas backdrop warm cream with French colonial molding pattern. Antique rattan chair (background right), tall ceramic vase with white orchids, vintage wooden console table, brass candlestick, French window shutter prop, lace curtain draped. Softbox at 4000K soft colonial daylight. Herringbone wood studio floor with vintage carpet. French villa professional studio, colonial elegance editorial. - STUDIO FIXED',
+         'Hành Lang Cung Điện | Professional photography studio. Painted canvas backdrop ivory with classical column pattern. Stone pedestal with fresh flowers (background center), ornate gilded frame on wall, velvet curtain hint, marble bust prop, classical urn, silk draping. LED at 3800K warm palace corridor glow. Marble-look studio floor white with gold veining. Palace corridor professional studio, regal sophistication editorial. - STUDIO FIXED',
+         'Phòng Trà Huế | Professional photography studio. Muslin backdrop warm brown with traditional Huế pattern. Low wooden tea table (background center), antique tea set complete, incense holder bronze, silk cushions, Vietnamese calligraphy scroll, wooden screen panel. Softbox at 3200K warm intimate glow. Dark wood studio floor with heritage rug. Huế tea room professional studio, imperial tradition editorial. - STUDIO FIXED',
+         'Sân Vườn Nhẹ Nhàng | Professional photography studio. 9ft soft sage green seamless backdrop. Potted bamboo (background left), stone garden lantern, wooden bench edge visible, fresh flowers in ceramic vase, natural fiber basket, zen stones arranged. LED at 5000K natural outdoor simulation. Natural stone-look studio floor with moss accent. Gentle garden professional studio, peaceful nature editorial. - STUDIO FIXED',
+         'Studio Trắng Tinh Khôi | Professional photography studio. White infinity cyclorama wall seamless. Single elegant ceramic vase with white flowers (background center), minimalist wooden stool, soft sheer fabric draped, one calligraphy brush on tray. LED at 5500K clean bright pure. White vinyl studio floor seamless. Pure white professional studio, minimalist purity editorial. - STUDIO FIXED'
+      ]
+   },
+   // ===== ÁO DÀI TẾT STUDIOS (15 - Hoa Mai/Hoa Đào Theme) =====
+   {
+      value: 'aodai_tet',
+      label: 'Áo Dài Tết (Mai/Đào)',
+      emoji: '🌸',
+      desc: 'Studios Áo dài Tết với hoa mai, hoa đào, Tết Nguyên Đán (15 options)',
+      productMatch: ['aodai', 'traditional', 'tet', 'lunar_new_year'],
+      studios: [
+         // ===== MAI VÀNG THEME (5) =====
+         'Mai Vàng Miền Nam ⭐ | Professional photography studio. 9ft warm ivory seamless paper backdrop on heavy-duty stand. Large ceramic vase with vibrant yellow apricot branches (mai vàng) on carved wooden pedestal (background right), red envelope lucky money display on lacquerware tray (background left), gold tassel decorations hanging, Tet calligraphy scroll on wall, scattered yellow petals on floor (pre-placed). Softbox key light camera-left at 2800K golden hour simulation, strip light rim from behind. Polished light bamboo studio floor with traditional red mat. Southern Tet prosperity professional studio, Vietnamese Lunar New Year editorial. - STUDIO FIXED',
+         'Mai Vàng Hoàng Cung | Professional photography studio. Hand-painted canvas backdrop with imperial gold gradient and dragon pattern. Ornate gold vase with mai vàng branches on imperial pedestal (background center), royal red silk draping, gold folding fan display, palace lantern hanging, emperor seal prop on cushion, fortune coins arrangement. Strobe with beauty dish overhead at 3000K warm regal glow. Glossy dark wood studio floor with imperial gold-pattern rug. Royal palace Tet professional studio, imperial majesty editorial. - STUDIO FIXED',
+         'Mai Vàng Đơn Giản | Professional photography studio. White infinity cyclorama wall curved floor-to-wall. Single elegant ceramic vase with one mai vàng branch (background center), minimalist wooden bench hint, simple red envelope on wooden tray, clean zen aesthetic. LED panel key light at 4500K clean bright, V-flat reflector fill. White vinyl studio flooring seamless. Minimalist Tet professional studio, modern simplicity editorial. - STUDIO FIXED',
+         'Mai Vàng Sân Vườn | Professional photography studio. Muslin fabric backdrop with painted garden gate motif and natural wrinkles. Terracotta pot with mai vàng tree (background right), bamboo fence section prop, garden stones arranged, bird cage decorative, wooden garden bench hint, morning dew simulation. Continuous LED at 4800K natural garden daylight. Natural stone-look studio floor with moss accent mat. Garden Tet professional studio, outdoor spring editorial. - STUDIO FIXED',
+         'Mai Vàng Modern Fusion | Professional photography studio. Vinyl backdrop with geometric modern pattern gold/white. Contemporary glass vase with mai vàng architectural arrangement (background center), modern acrylic display stands, minimalist gold sculpture, LED strip accent lighting prop, design books stack. Softbox with grid at 5000K contemporary bright. Polished concrete studio floor with modern geometric rug. Contemporary Tet professional studio, fusion design editorial. - STUDIO FIXED',
+         // ===== ĐÀO HỒNG THEME (5) =====
+         'Đào Miền Bắc ⭐ | Professional photography studio. 9ft soft blush pink seamless paper backdrop on stand. Tall ceramic vase with pink peach blossom branches (đào hồng) (background center), traditional red lantern hanging (background corner), wooden folding screen with floral pattern, silk tassel decorations, tea set on carved tray, embroidered cushion arrangement. Softbox key at 4000K with pink gel hint, diffused romantic fill. Polished light wood studio floor with traditional floral mat. Northern Tet romance professional studio, peach blossom editorial. - STUDIO FIXED',
+         'Đào Hồng Thắm | Professional photography studio. Hand-painted canvas backdrop with deep magenta-to-pink gradient. Large ornate vase with vibrant deep pink đào branches (background right), red silk fabric draped elegantly, gold incense holder, fortune scrolls, red lucky knot decorations, prosperity fruits display. Strobe at 3500K warm pink atmosphere. Dark polished wood studio floor with burgundy traditional rug. Rich Tet celebration professional studio, deep romance editorial. - STUDIO FIXED',
+         'Đào Nhạt Thanh Tao | Professional photography studio. White-to-cream gradient seamless backdrop. Delicate ceramic vase with soft pale pink đào branches (background center), simple wooden altar table, heritage tea cups, subtle calligraphy scroll, natural fiber basket, minimalist candle holder. LED panel at 5000K soft diffused light. Light blonde wood studio floor with simple cream rug. Elegant understated Tet professional studio, refined simplicity editorial. - STUDIO FIXED',
+         'Đào Sân Thượng | Professional photography studio. Vinyl backdrop with modern terrace/balcony motif gray-to-white. Contemporary planter with đào tree (background left), modern outdoor furniture hint, city skyline silhouette prop, string lights decoration, coffee cup on glass table, urban plant arrangement. Bright LED at 5500K rooftop daylight simulation. Gray concrete-look studio floor with modern outdoor rug. Urban Tet professional studio, rooftop celebration editorial. - STUDIO FIXED',
+         'Đào Modern Chic | Professional photography studio. Bold geometric backdrop pink/gold/white pattern. Sculptural modern vase with đào branches minimalist arrangement (background center), acrylic pedestals various heights, contemporary art piece, neon "Prosperity" sign prop (off), gold geometric shapes. Architectural lighting at 4500K with accent spots. White vinyl studio floor with pink accent runner. Trendy Tet professional studio, Instagram aesthetic editorial. - STUDIO FIXED',
+         // ===== TẾT COMBO THEME (5) =====
+         'Mai Đào Song Hỷ ⭐ | Professional photography studio. 9ft warm cream seamless backdrop with subtle gold shimmer. Two vases arrangement: yellow mai vàng (background left) and pink đào (background right) on matching wooden pedestals, red envelope tray center, double happiness symbol prop, gold coins scattered, silk ribbon decorations, Tet banner overhead. Dual softbox at 3500K balanced warm glow. Polished wood studio floor with red prosperity rug. Double blessing Tet professional studio, complete celebration editorial. - STUDIO FIXED',
+         'Tết Truyền Thống Đầy Đủ | Professional photography studio. Hand-painted canvas backdrop warm beige with traditional Vietnamese motifs. Ornate altar setup (background center): mai vàng vase, đào branches, fruit offering tray (5 fruits), incense holder bronze, red envelopes stack, ancestor photo frame, bánh chưng display, traditional candles. Strobe at 2800K warm ancestral glow. Dark wood studio floor with heritage Vietnamese rug. Traditional Tet complete professional studio, ancestral respect editorial. - STUDIO FIXED',
+         'Tết Đồng Quê Việt | Professional photography studio. Muslin backdrop with rural countryside texture warm earth tones. Bamboo vase with mai branches (background right), woven bamboo tray with bánh tét, conical hat (nón lá) hanging, clay water jug, traditional wooden items, đào branch in simple ceramic pot, village lantern, rice straw mat. Natural LED at 4200K countryside warmth. Natural bamboo mat studio floor. Rural Tet professional studio, countryside charm editorial. - STUDIO FIXED',
+         'Tết Phố Hội Náo Nhiệt | Professional photography studio. Vinyl backdrop with old town street market motif terracotta/red. Street vendor cart prop with mai/đào flowers (background center), hanging lanterns multiple colors, price tags decorative, kumquat tree small pot, market basket arrangement, vintage scales prop, fabric bolts hint, festive banners. Bright LED at 5500K market daylight energy. Concrete with colorful tile pattern studio floor. Flower market Tet professional studio, festive shopping editorial. - STUDIO FIXED',
+         'Tết Sang Trọng VIP | Professional photography studio. Luxury black-to-gold gradient seamless backdrop. Crystal vase with premium mai/đào mixed arrangement (background center), champagne bucket with glasses, luxury red envelopes gold embossed, silk cushions velvet, gold ingot display, premium gift boxes wrapped, chandelier reflection prop. Warm strobe at 3200K with gold rim accents. Black marble-look studio floor with gold accent rug. Luxury Tet celebration professional studio, VIP prosperity editorial. - STUDIO FIXED'
+      ]
+   },
+   {
+      value: 'professional',
+      label: 'Professional Studios',
+      emoji: '💼',
+      desc: 'Studios cho đồ công sở, vest, sơ mi (7 options)',
+      productMatch: ['suit', 'blouse', 'pants', 'dress', 'skirt', 'office'],
+      studios: [
+         'Corporate Minimal ⭐ | Light gray gradient to white seamless with subtle grid pattern. Props: Modern minimalist desk corner (background left) with closed MacBook, notebook and pen, coffee cup branded, indoor plant succulent, geometric bookends, wall clock modern, motivational poster, business card holder. Bright clean daylight simulation (5000K-6000K) with soft shadows. Polished concrete gray with modern office mat. CEO professional theatrical stage, corporate aspiration editorial mini-set. - STUDIO FIXED',
+         'Tech Startup | Fresh mint-to-white gradient with startup vibe texture. Props: Standing desk with laptop (background center), whiteboard with ideas sketched, tech gadgets display, startup swag items, coding books stack, modern desk lamp, motivational startup posters, coffee station hint. Bright innovative (5500K) with energetic startup atmosphere. Light wood with industrial concrete accent. Tech startup hustle theatrical stage, innovation culture editorial mini-set. - STUDIO FIXED',
+         'Law Firm Classic | Deep navy-to-charcoal gradient with professional law texture. Props: Wooden desk with legal books (background right), brass desk lamp traditional, leather chair arm visible, law degree framed, scales of justice miniature, file folders organized, globe on stand, wooden gavel. Warm professional (3800K) with law office gravitas. Dark wood with classic Persian rug. Law firm authority theatrical stage, legal professionalism editorial mini-set. - STUDIO FIXED',
+         'Creative Agency | Vibrant white with colorful accent wall hints. Props: Design mood board (background center), art supplies organized, creative sketches pinned, brand logos display, colorful Post-its, design magazines stack, modern art piece, creative awards. Bright creative (5500K) with energetic agency vibe. Polished concrete with colorful rug accent. Creative agency energy theatrical stage, design innovation editorial mini-set. - STUDIO FIXED',
+         'Medical Healthcare | Clean white-to-light-blue gradient with medical professional texture. Props: Medical chart organizer (background wall), stethoscope on desk, healthcare certifications framed, medical books, anatomical model, hand sanitizer dispenser, health plant, doctor coat on hook. Clinical bright (6000K) with hygienic professional atmosphere. White vinyl medical flooring clean. Medical healthcare theatrical stage, doctor trust editorial mini-set. - STUDIO FIXED',
+         'Finance Banking | Luxury navy-to-gold gradient with wealth management texture. Props: Executive desk with financial reports (background center), gold pen set, premium clock, stock market display, financial certificates framed, leather portfolio, crystal paperweight, prosperity plant marble pot. Warm premium (3800K) with wealth management elegance. Dark marble with luxury carpet. Finance banking success theatrical stage, wealth management editorial mini-set. - STUDIO FIXED',
+         'Architect Studio | White-to-concrete-gray gradient with architectural blueprint pattern. Props: Drafting table with blueprints (background left), architectural models miniature, T-square and rulers, design awards, modern architecture books, building materials samples, pencil holder, lighting fixture modern. Bright architectural (5000K) with precision studio lighting. Polished concrete with architectural grid mat. Architect studio precision theatrical stage, design excellence editorial mini-set. - STUDIO FIXED'
+      ]
+   },
+   {
+      value: 'casual',
+      label: 'Casual Studios',
+      emoji: '👖',
+      desc: 'Studios cho đồ đi chơi, áo thun, jean (7 options)',
+      productMatch: ['tshirt', 'jeans', 'shorts', 'top', 'casual'],
+      studios: [
+         'Urban Cool ⭐ | Light gray seamless with subtle concrete texture. Props: Decorative industrial pipe visible (background edge), minimalist shelf with small potted succulent out of focus, street art poster framed, vintage camera on shelf, coffee beans jar, vinyl records leaning, skateboard deck, urban magazines. Natural bright daylight with soft shadows (5000K). Concrete-look smooth with urban area rug. Instagram-worthy urban theatrical stage, street style editorial mini-set. - STUDIO FIXED',
+         'Scandinavian Minimal | Pure white-to-light-wood gradient. Props: Simple wooden bench (background left), ceramic vase with single branch, wool blanket draped, minimalist candle holders, Nordic design book, wooden bowl, simple plant pot, woven basket. Soft diffused daylight (5500K) with Nordic hygge glow. Light blonde wood with simple white rug. Scandinavian hygge theatrical stage, Nordic minimalism editorial mini-set. - STUDIO FIXED',
+         'Vintage Retro | Warm cream-to-tan gradient with vintage wallpaper pattern. Props: Vintage rotary phone (background right), retro radio, old camera collection, vinyl player, vintage posters framed, antique typewriter, retro glasses, nostalgic memorabilia. Warm tungsten (3200K) with nostalgic retro glow. Worn wood with vintage patterned rug. Vintage retro nostalgia theatrical stage, throwback style editorial mini-set. - STUDIO FIXED',
+         'Bohemian Free | Warm earth-to-cream gradient with boho textile pattern. Props: Macramé wall hanging (background center), woven dreamcatcher, potted plants multiple, vintage trunk, ethnic textiles draped, wooden beads, natural fiber basket, incense holder, crystals display. Warm natural (4000K) with bohemian golden hour. Natural jute rug layered with vintage textiles. Bohemian free-spirit theatrical stage, boho chic editorial mini-set. - STUDIO FIXED',
+         'Industrial Loft | Exposed brick red-to-charcoal gradient with urban loft texture. Props: Metal shelving unit (background left), industrial pendant light, vintage factory items, exposed pipes decorative, metal chair, concrete planter, industrial clock, urban art piece. Warm Edison bulb (3000K) with industrial loft atmosphere. Polished concrete with industrial metal accents. Industrial loft edge theatrical stage, urban warehouse editorial mini-set. - STUDIO FIXED',
+         'Coastal Beach | Soft blue-to-sand gradient with coastal breeze feeling. Props: Driftwood piece (background right), seashells in bowl, nautical rope decor, beach grass in vase, vintage surfboard hint, coastal lantern, woven beach bag, sand dollar display. Bright coastal daylight (5500K) with beach sunshine glow. Light weathered wood with woven beach mat. Coastal beach casual theatrical stage, seaside lifestyle editorial mini-set. - STUDIO FIXED',
+         'Coffee Shop | Warm brown-to-cream gradient with cafe texture. Props: Coffee grinder vintage (background center), espresso cups stacked, coffee beans in jar, chalkboard menu, wooden cafe chair, pour-over setup, coffee art books, plant in ceramic pot. Warm cafe ambiance (3500K) with cozy coffee shop glow. Worn wood cafe flooring with vintage rug. Coffee shop artisan theatrical stage, cafe culture editorial mini-set. - STUDIO FIXED'
+      ]
+   },
+   {
+      value: 'evening',
+      label: 'Evening Studios',
+      emoji: '✨',
+      desc: 'Studios cho đầm dạ hội, váy party, đồ tiệc (12 options)',
+      productMatch: ['dress', 'maxi_dress', 'bodycon', 'mini_dress', 'gala', 'evening'],
+      studios: [
+         'Phòng Khách Cổ Điển ⭐ | Professional photography studio. Hand-painted canvas backdrop warm cream with subtle classical molding pattern. Antique velvet armchair in champagne gold (background right), ornate gilded mirror frame on wall, fresh white roses in crystal vase on marble side table, classical oil painting frame hint, silk curtain draped softly, vintage books leather-bound stacked. Softbox key light camera-left at 3200K warm elegant glow, V-flat cream reflector fill. Polished herringbone parquet wood studio floor with Persian rug cream/gold. Classic European living room professional studio, timeless elegance editorial. - STUDIO FIXED',
+         'Salon Pháp Nhẹ Nhàng | Professional photography studio. 9ft soft ivory seamless paper backdrop on stand. Elegant French settee edge visible (background left), delicate porcelain vase with white peonies, antique brass candlestick (unlit) on wooden console, lace doily on side table, vintage perfume bottles, soft sheer curtain prop. LED panel at 4000K soft natural daylight, gentle diffused fill. Light oak wood studio floor with antique floral rug. French salon gentle elegance professional studio, romantic sophistication editorial. - STUDIO FIXED',
+         'Góc Thư Viện Sang Trọng | Professional photography studio. Muslin backdrop warm brown with painted bookshelf pattern texture. Leather Chesterfield chair arm visible (background right), brass reading lamp (off), leather-bound books arranged on wooden shelf prop, crystal whiskey decanter on tray, globe on stand, velvet throw pillow burgundy, fresh orchid in pot. Warm tungsten simulation at 3500K cozy library glow. Dark walnut wood studio floor with vintage Oriental rug. Library corner luxury professional studio, intellectual elegance editorial. - STUDIO FIXED',
+         'Phòng Tiếp Khách Châu Âu | Professional photography studio. Painted canvas backdrop soft sage green with classical wainscoting pattern. Victorian occasional chair in dusty rose (background center), antique console table with fresh tulips in ceramic pitcher, ornate picture frame empty, vintage clock on mantle prop, silk cushions stacked, tea service silver tray. Softbox at 4200K bright refined daylight. Marble-look studio floor white with subtle veining, cream area rug. European drawing room professional studio, refined hospitality editorial. - STUDIO FIXED',
+         'Không Gian Minimalist Thanh Lịch | Professional photography studio. White infinity cyclorama wall seamless. Single sculptural modern armchair in neutral linen (background left), tall glass vase with single white calla lily, minimalist side table marble top, cashmere throw draped, one art book on floor, simple ceramic bowl. LED panel at 5000K clean soft bright. White vinyl studio floor seamless. Minimalist elegant space professional studio, quiet luxury editorial. - STUDIO FIXED',
+         'Góc Phòng Ngủ Cổ Điển | Professional photography studio. Muslin backdrop soft blush pink with subtle damask pattern. Antique vanity table edge with oval mirror (background right), crystal perfume bottles arranged, fresh roses in silver vase, jewelry box open with pearls, silk robe draped on chair, vintage brush set. Warm soft lighting at 3000K elegant warm glow. Cream carpet studio floor plush texture. Classic bedroom corner professional studio, feminine grace editorial. - STUDIO FIXED',
+         // ===== NEW EVENING STUDIOS =====
+         'Phòng Ăn Hoàng Gia | Professional photography studio. Hand-painted canvas backdrop deep burgundy with gold damask pattern. Carved dining chair back visible (background right), silver candelabra, crystal wine glasses on table edge, fresh flowers centerpiece, porcelain plates stacked, silk napkins. Strobe at 3000K warm dinner glow. Dark mahogany wood studio floor with Persian rug deep red. Royal dining room professional studio, regal dinner editorial. - STUDIO FIXED',
+         'Lâu Đài Cổ Tích | Professional photography studio. Painted canvas backdrop soft lavender with castle window silhouette. Stone pedestal column (background center), fresh roses in ornate urn, velvet draping deep purple, crystal chandelier reflection, antique candlestick. LED at 3500K romantic fairy tale glow. Stone-look studio floor gray with soft runner. Fairy tale castle professional studio, princess elegance editorial. - STUDIO FIXED',
+         'Penthouse Đêm | Professional photography studio. 9ft charcoal gray seamless backdrop. Modern leather lounge chair edge (background left), tall glass with champagne prop, city view photograph prop, modern art piece, silk throw, crystal vase with white orchids. Softbox at 4000K sophisticated evening. Dark polished concrete studio floor with modern geometric rug. Penthouse night professional studio, urban sophistication editorial. - STUDIO FIXED',
+         'Sảnh Khách Sạn 5 Sao | Professional photography studio. Painted canvas backdrop warm ivory with marble column pattern. Elegant lobby chair (background center), crystal table lamp, fresh flowers grand arrangement, hotel directory book, silk cushions gold, bellhop luggage hint. LED at 4500K bright hotel lobby. Marble-look studio floor cream with gold inlay. 5-star hotel lobby professional studio, luxury hospitality editorial. - STUDIO FIXED',
+         'Phòng Nhạc Cổ Điển | Professional photography studio. Muslin backdrop warm brown with music room texture. Piano edge visible (background right), music stand with sheets, cello case, velvet stool, gramophone vintage, violin on silk cloth. Softbox at 3800K warm concert hall glow. Dark wood studio floor with antique carpet. Classical music room professional studio, artistic elegance editorial. - STUDIO FIXED',
+         'Ban Công Đêm Hè | Professional photography studio. Painted canvas backdrop deep blue with starry night and balcony railing silhouette. Wrought iron chair edge (background left), wine glasses on small table, fresh roses in vase, sheer curtain flowing, lantern decorative. LED at 3200K warm summer night. Stone balcony-look studio floor with outdoor rug. Summer balcony night professional studio, romantic evening editorial. - STUDIO FIXED'
+      ]
+   },
+   // ===== SƯỜN XÁM STUDIOS (10) =====
+   {
+      value: 'suonxam',
+      label: 'Sườn Xám Studios',
+      emoji: '🥻',
+      desc: 'Studios cho sườn xám, cheongsam, qipao (10 options)',
+      productMatch: ['suonxam', 'cheongsam', 'qipao', 'chinese_dress'],
+      studios: [
+         'Thượng Hải Cổ Điển ⭐ | Professional photography studio. Hand-painted canvas backdrop warm sepia with 1930s Shanghai pattern. Antique wooden screen with carved flowers (background right), porcelain vase blue-white with branches, jade ornaments on tray, silk fan on stand, vintage gramophone, bamboo cage lamp. Softbox at 3200K warm Shanghai golden era. Dark teak wood studio floor with silk runner red. Old Shanghai professional studio, vintage glamour editorial. - STUDIO FIXED',
+         'Phòng Trà Trung Hoa | Professional photography studio. Muslin backdrop deep red with traditional Chinese pattern. Low tea table rosewood (background center), antique tea set complete, incense burner bronze, calligraphy scrolls, jade bonsai, silk cushions embroidered. LED at 3500K warm tea house glow. Dark wood studio floor with Chinese carpet. Chinese tea room professional studio, traditional elegance editorial. - STUDIO FIXED',
+         'Modern Oriental | Professional photography studio. 9ft soft gray seamless backdrop. Contemporary Chinese vase (background center), modern calligraphy art, minimalist bamboo arrangement, jade sculpture modern, silk fabric draped. LED at 5000K clean modern bright. White concrete studio floor with minimal rug. Modern Oriental professional studio, contemporary East meets West editorial. - STUDIO FIXED',
+         'Hoa Mẫu Đơn | Professional photography studio. Painted canvas backdrop soft pink with peony flower pattern. Tall ceramic vase with pink peonies (background right), wooden carved screen, silk fan collection, pearl jewelry display, tea set delicate. Softbox at 4000K soft feminine glow. Light wood studio floor with floral silk rug. Peony elegance professional studio, feminine Chinese editorial. - STUDIO FIXED',
+         'Nhà Cổ Hội An | Professional photography studio. Muslin backdrop warm yellow ochre with ancient house texture. Wooden furniture antique (background left), ceramic vases blue-white, red lanterns, incense holder, ancestral tablet frame, silk fabric bolts. LED at 3800K warm heritage glow. Dark wood planks studio floor with heritage mat. Hoi An ancient house professional studio, Vietnamese-Chinese fusion editorial. - STUDIO FIXED',
+         'Phòng Đọc Sách Á Đông | Professional photography studio. Painted canvas backdrop warm brown with bookshelf and scroll pattern. Mahogany reading desk edge (background right), calligraphy brushes in holder, ink stone, rice paper stack, jade stamp collection, bamboo reading stand. Softbox at 4200K scholar daylight. Dark wood studio floor with silk scholar mat. Asian study room professional studio, intellectual tradition editorial. - STUDIO FIXED',
+         'Sân Vườn Trúc | Professional photography studio. 9ft soft sage green seamless backdrop. Potted bamboo arrangement (background center), stone lantern Japanese-Chinese style, lotus in ceramic bowl, wooden bench edge, bonsai pine, silk draping subtle. LED at 5000K natural garden daylight. Natural stone studio floor with moss accent. Bamboo garden professional studio, zen Oriental editorial. - STUDIO FIXED',
+         'Đêm Trăng Rằm | Professional photography studio. Painted canvas backdrop deep navy blue with full moon and cloud motif. Antique moon gate frame prop (background center), white orchids in vase, jade rabbit ornament, mooncake display prop, silk lanterns, red silk draping. LED at 3500K warm moonlight simulation. Dark marble-look studio floor with gold accent. Mid-autumn night professional studio, lunar elegance editorial. - STUDIO FIXED',
+         'Tiệm Vàng Cổ | Professional photography studio. Muslin backdrop rich burgundy with gold shop texture. Antique jewelry display cabinet edge (background right), jade bracelets on velvet, gold ornaments, pearl strings, abacus vintage, red lucky tassels. Strobe at 3000K warm gold shop glow. Dark wood studio floor with red silk runner. Antique gold shop professional studio, precious heritage editorial. - STUDIO FIXED',
+         'Studio Đỏ Sang Trọng | Professional photography studio. 9ft deep red seamless backdrop. Carved rosewood chair (background center), red silk cushions gold embroidery, jade vase with plum blossoms, bronze incense holder, gold fan on stand, Chinese knot decorations. Softbox at 3200K warm luxury red. Dark polished wood studio floor with gold pattern rug. Luxury red professional studio, Chinese New Year elegance editorial. - STUDIO FIXED'
+      ]
+   },
+   // ===== VÁY CƯỚI / WEDDING DRESS STUDIOS (10) =====
+   {
+      value: 'wedding',
+      label: 'Váy Cưới Studios',
+      emoji: '👰',
+      desc: 'Studios cho váy cưới, áo dài cưới, wedding gown (10 options)',
+      productMatch: ['wedding', 'bridal', 'wedding_dress', 'aodai_cuoi', 'gown'],
+      studios: [
+         'Chapel Elegance ⭐ | Professional photography studio. Hand-painted canvas backdrop soft ivory with Gothic church window silhouette and stained glass hints. Antique wooden pew edge visible (background left), tall white candles in ornate holders, fresh white roses arrangement, prayer book on velvet cushion, delicate lace draping, crystal chandelier reflection. Softbox at 3500K warm cathedral glow. White marble-look studio floor with ivory runner. Chapel bridal professional studio, sacred elegance editorial. - STUDIO FIXED',
+         'Garden Romance | Professional photography studio. Painted canvas backdrop soft blush pink with garden arch and climbing roses motif. White wrought iron garden chair (background right), overflowing white peonies in vintage urn, scattered rose petals (pre-placed), bird cage decorative white, sheer fabric flowing, garden lantern. LED at 4800K soft garden daylight. Natural stone-look studio floor with moss accent. Romantic garden professional studio, fairytale bridal editorial. - STUDIO FIXED',
+         'Royal Ballroom | Professional photography studio. 9ft champagne gold seamless backdrop with subtle damask shimmer. Ornate gilded mirror frame (background center), crystal chandelier visible edge, velvet chair gold trim, fresh white lilies in silver vase, silk curtain draped elegant, vintage candelabra. Strobe at 3200K warm ballroom glow. Polished parquet studio floor with gold inlay pattern rug. Royal ballroom professional studio, regal bridal editorial. - STUDIO FIXED',
+         'Minimalist Pure White | Professional photography studio. White infinity cyclorama wall seamless. Single tall glass vase with white calla lily (background center), minimalist white pedestal, sheer organza fabric draped, one white orchid, simple white candle. LED at 5500K clean pure bright. White vinyl studio floor seamless. Pure white minimalist professional studio, modern bridal editorial. - STUDIO FIXED',
+         'Vintage Manor | Professional photography studio. Muslin backdrop warm antique cream with Victorian wallpaper pattern. Antique vanity table with oval mirror (background right), vintage pearl jewelry on velvet tray, fresh white roses in crystal vase, lace gloves, old photographs in silver frames, vintage perfume bottles. Softbox at 3800K warm vintage glow. Cream carpet studio floor with antique floral rug. Vintage manor professional studio, classic bridal editorial. - STUDIO FIXED',
+         'Sunset Terrace | Professional photography studio. Painted canvas backdrop warm coral-to-rose gradient with terrace balustrade silhouette. Stone pillar edge visible (background left), white roses in tall vase, champagne flutes on marble table, flowing sheer curtain, fairy lights hint, olive branch arrangement. LED at 3000K golden sunset simulation. Stone balcony-look studio floor with cream runner. Sunset terrace professional studio, romantic golden hour bridal editorial. - STUDIO FIXED',
+         'French Château | Professional photography studio. Hand-painted canvas backdrop soft sage green with French château window and ornate molding. Louis XVI style chair edge (background center), fresh hydrangeas in porcelain vase, antique clock on mantle prop, silk curtain cream, vintage books, crystal decanter. Softbox at 4200K refined daylight. Herringbone parquet studio floor with French antique rug. French château professional studio, aristocratic bridal editorial. - STUDIO FIXED',
+         'Dreamy Cloud | Professional photography studio. 9ft soft white-to-blush ombre seamless backdrop. Fluffy white fabric clouds arrangement (background), fairy lights scattered, white feathers hint, crystal droplets hanging, sheer tulle draping, white orchids floating. LED at 5000K soft dreamy bright. White fur-look studio floor texture. Dreamy cloud professional studio, ethereal bridal editorial. - STUDIO FIXED',
+         'Rustic Barn | Professional photography studio. Muslin backdrop warm brown with wooden barn door texture. Vintage wooden ladder with white flowers (background right), hay bale hint, mason jars with gypsophila flowers, lantern rustic, burlap fabric, white roses in bucket. LED at 4000K warm rustic daylight. Reclaimed wood studio floor with simple rug. Rustic barn professional studio, countryside bridal editorial. - STUDIO FIXED',
+         'Coastal Breeze | Professional photography studio. Painted canvas backdrop soft blue-gray with ocean horizon hint. White driftwood arrangement (background center), white hydrangeas in ceramic vase, seashells on tray, sheer curtain flowing, lantern nautical white, coral accent. LED at 5500K bright coastal daylight. Light sand-look studio floor with white runner. Coastal breeze professional studio, beach bridal editorial. - STUDIO FIXED'
+      ]
+   },
+   // ===== DRESS / ĐẦM VÁY STUDIOS (43 Total) =====
+   {
+      value: 'dress',
+      label: 'Đầm Váy Studios',
+      emoji: '👗',
+      desc: 'Studios cho đầm váy các loại - hoa, tiệc, dạ hội (43 options)',
+      productMatch: ['dress', 'maxi_dress', 'mini_dress', 'bodycon', 'evening', 'gala', 'tet'],
+      studios: [
+         // === MINI DRESS / ĐẦM NGẮN (5) ===
+         'Daisy Fresh ⭐ | Professional photography studio. 9ft white-yellow gradient seamless backdrop cheerful. Daisy bouquet in mason jar (background right), picnic blanket edge hint, woven basket, vintage camera. LED at 5500K bright summer daylight. Fresh grass texture studio floor. Youthful casual chic professional studio, summer fresh editorial. - STUDIO FIXED',
+         'Poppy Pop | Professional photography studio. Painted canvas backdrop vibrant coral-cream gradient bold. Red poppy arrangement (background center), woven basket, straw hat. LED at 5000K bright warm. Rustic wood studio floor. Bold summer professional studio, vibrant energy editorial. - STUDIO FIXED',
+         'Cherry Blossom Party | Professional photography studio. 9ft soft pink-white K-beauty gradient seamless. Sakura branch in cute vase (background left), pastel accessories, Korean cosmetics display. LED at 4500K soft flattering Korean style. Light pink tile studio floor. Sweet playful K-fashion professional studio, idol aesthetic editorial. - STUDIO FIXED',
+         'Sunflower Festival | Professional photography studio. Painted canvas backdrop warm golden-cream gradient summer. Tall sunflower stems (background center), straw hat hanging, hay bale hint. LED at 5000K bright golden. Rustic wood planks studio floor. Festival fun boho professional studio, sunshine happy editorial. - STUDIO FIXED',
+         'Wildflower Picnic | Professional photography studio. Muslin backdrop soft green-cream meadow gradient. Mixed wildflower bunch in basket (background right), vintage blanket draped, wicker picnic basket. LED at 4500K natural afternoon. Grass with scattered petals studio floor. Cottagecore casual professional studio, meadow picnic editorial. - STUDIO FIXED',
+         // === MIDI DRESS / A-LINE (5) ===
+         'Rose Garden Office | Professional photography studio. 9ft soft blush-cream gradient seamless professional. Elegant rose arrangement in glass vase (background center), minimalist desk corner, leather notebook. LED at 5000K bright clean. Light wood professional studio floor. Professional feminine office chic professional studio, meeting ready editorial. - STUDIO FIXED',
+         'Tulip Elegance | Professional photography studio. Painted canvas backdrop soft coral-white Dutch spring gradient. Tulip arrangement in glass vase (background right), art book stack, design magazine. LED at 5000K bright spring editorial. White marble studio floor. Dutch elegance professional studio, sophisticated casual editorial. - STUDIO FIXED',
+         'Peony Business | Professional photography studio. 9ft soft pink-gray gradient refined seamless. Lush peony in ceramic vase (background center), leather portfolio, executive pen holder. LED at 5000K professional daylight. Polished marble studio floor. Sophisticated meeting professional studio, feminine power editorial. - STUDIO FIXED',
+         'Magnolia Grace | Professional photography studio. Muslin backdrop warm cream-white Southern gradient. Magnolia branch in tall vase (background left), vintage frame, antique mirror. LED at 4200K warm natural. Aged wood elegant studio floor. Southern charm professional studio, graceful elegance editorial. - STUDIO FIXED',
+         'Hydrangea Tea | Professional photography studio. Painted canvas backdrop soft blue-lavender-cream gradient. Blue hydrangea in porcelain vase (background center), tea cup and saucer, elegant tray. LED at 4500K soft afternoon. Light marble studio floor. Afternoon tea elegant professional studio, garden party editorial. - STUDIO FIXED',
+         // === MAXI DRESS / FLOWING (5) ===
+         'Lavender Fields | Professional photography studio. 9ft soft purple-cream Provence gradient seamless. Dried lavender bundles in basket (background right), rustic wooden chair, vintage book. LED at 4000K warm French afternoon. Rustic stone studio floor. French Provence professional studio, lavender dreamy editorial. - STUDIO FIXED',
+         'Tropical Hibiscus | Professional photography studio. Painted canvas backdrop warm coral-teal gradient tropical. Hibiscus arrangement (background center), palm leaf, rattan chair edge. LED at 4200K warm tropical. White sand texture studio floor. Island paradise professional studio, resort luxury editorial. - STUDIO FIXED',
+         'Wisteria Cascade | Professional photography studio. 9ft soft purple-pink Japanese gradient seamless. Wisteria vine hanging (background upper), zen stones, ceramic bowl. LED at 4500K soft diffused dreamy. Light stone path studio floor. Japanese garden professional studio, romantic cascade editorial. - STUDIO FIXED',
+         'Meadow Breeze | Professional photography studio. Muslin backdrop soft green-gold meadow gradient. Wild grass and flowers (background), wooden fence hint, vintage watering can. LED at 4000K golden hour. Natural grass studio floor. Boho flowing professional studio, free spirit editorial. - STUDIO FIXED',
+         'Bougainvillea Sunset | Professional photography studio. Painted canvas backdrop warm magenta-coral-cream Mediterranean gradient. Bougainvillea branch (background right), terracotta pot, ceramic tile. LED at 3800K warm sunset. Terracotta tile studio floor. Mediterranean romance professional studio, Greek island editorial. - STUDIO FIXED',
+         // === BODYCON / ĐẦM ÔM (5) ===
+         'Red Rose Noir | Professional photography studio. 9ft deep burgundy-black dramatic gradient seamless. Dark red roses in black vase (background center), velvet drape, candle holder. Strobe at 3200K warm dramatic with rim light. Dark marble studio floor. Bold dramatic professional studio, red carpet editorial. - STUDIO FIXED',
+         'Black Orchid | Professional photography studio. Painted canvas backdrop deep purple-black mysterious gradient. Dark orchid in minimalist pot (background right), candle lit, silk drape. LED at 3500K moody warm dramatic. Black marble studio floor. Mysterious luxury professional studio, dark elegance editorial. - STUDIO FIXED',
+         'Calla Lily Glam | Professional photography studio. 9ft sleek white-silver modern gradient seamless. White calla lilies in tall vase (background center), mirror, geometric shapes. LED at 5000K bright clean editorial. White marble polished studio floor. Sleek modern professional studio, minimalist glam editorial. - STUDIO FIXED',
+         'Dark Dahlia | Professional photography studio. Painted canvas backdrop deep plum-charcoal artistic gradient. Dark dahlia arrangement (background left), art frame, velvet cushion. LED at 3500K warm moody. Dark wood studio floor. Bold artistic professional studio, gallery night editorial. - STUDIO FIXED',
+         'Velvet Peony | Professional photography studio. 9ft rich burgundy-cream gradient luxe seamless. Deep pink peonies in velvet setting (background center), silk fabric drape, champagne glass. LED at 3500K warm romantic. Rich carpet studio floor. Rich romantic professional studio, date night editorial. - STUDIO FIXED',
+         // === ROMANTIC / WEDDING GUEST (5) ===
+         'Peony Blush | Professional photography studio. 9ft soft blush-cream bridal gradient seamless. Blush peony arrangement (background center), sheer drape flowing, pearl accessories. LED at 4000K soft romantic glowing. White marble studio floor. Wedding guest professional studio, romantic feminine editorial. - STUDIO FIXED',
+         'White Rose Dream | Professional photography studio. Painted canvas backdrop pure white-cream classic gradient. White roses in silver vase (background right), pearl accents, satin ribbon. LED at 4500K soft bright dreamy. White marble studio floor. Classic wedding professional studio, timeless elegance editorial. - STUDIO FIXED',
+         'Cherry Blossom Romance | Professional photography studio. 9ft soft pink-lavender spring gradient seamless. Sakura branches (background upper), silk ribbon, floating petals. LED at 4500K soft spring. Light wood with petals studio floor. Spring wedding professional studio, romantic dreamy editorial. - STUDIO FIXED',
+         'Garden Party Roses | Professional photography studio. Muslin backdrop soft mixed pastels garden gradient. Mixed rose arrangement (background center), garden arch hint, butterfly decorations. LED at 5000K natural bright outdoor feel. Stone garden path studio floor. Outdoor wedding professional studio, garden party editorial. - STUDIO FIXED',
+         'French Cottage Florals | Professional photography studio. Painted canvas backdrop soft cream with subtle floral wallpaper hint. Vintage flower bucket (background left), lace curtain edge, antique chair. LED at 4500K soft morning romantic. Aged wood planks studio floor. Provence wedding professional studio, vintage romantic editorial. - STUDIO FIXED',
+         // === PARTY / GALA / TẾT (18) ===
+         'Vũ Hội Xuân | Champagne gold-to-ivory gradient with soft glitter shimmer. Props: Ornate candelabra candles (background center), flower garland draped elegantly, grand piano corner hint, champagne flutes table, silk drapes framing, crystal chandelier above, rose petals scattered. Elegant ballroom (3500K) with gala glow. Polished white marble ballroom dance floor gold inlay. Spring gala theatrical stage. - STUDIO FIXED',
+         'Đám Cưới Xuân | Romantic blush-to-white gradient with watercolor floral pattern. Props: Floral arch elaborate (background center), wedding guest book stand, candles holders, white rose bouquets, satin ribbon decorations. Soft romantic (4000K) wedding day glow. White carpet runner wedding aisle, rose petals scattered. Spring wedding theatrical stage. - STUDIO FIXED',
+         'Tiệc Champagne | Sparkling gold-to-champagne gradient with bubble effects. Props: Champagne tower elaborate (background center), celebration crystal glasses, ice bucket bottles, gold confetti scatter, party poppers, bar cart elegant. Bright festive (4500K) with gold highlights sparkle. Gold-veined marble luxury party. Champagne celebration theatrical stage. - STUDIO FIXED',
+         'Liên Hoan Phim | Classic red velvet curtain texture gradient with film reel pattern. Props: Film reel decoration large (background center), vintage movie poster frames, director chair, clapperboard prop, red carpet ropes. Theater warm (3200K) cinema premiere atmosphere. Velvet carpet film festival red carpet. Movie premiere theatrical stage. - STUDIO FIXED',
+         'Triển Lãm Nghệ Thuật | Gallery white-to-cream gradient with subtle art pattern. Props: Artwork frames wall (background various sizes), exhibition labels, sculpture pedestal, gallery lighting tracks, champagne service art opening. Museum gallery (5000K) art showcase bright. Polished concrete contemporary gallery. Art opening theatrical stage. - STUDIO FIXED',
+         'Khiêu Vũ Xã Giao | Elegant cream-to-peach gradient with dance motif pattern. Props: Grand piano silhouette (background corner), music sheet stand elegant, dance trophy, ballroom chandelier hint, velvet ropes, mirror ball hanging. Warm ballroom (3300K) waltz atmosphere. Parquet dance floor classic ballroom. Ballroom dancing theatrical stage. - STUDIO FIXED',
+         'Lễ Trao Giải | Prestigious gold-to-bronze gradient with award emblem. Props: Award trophy podium (background center), winner plaque display, envelope results, microphone stand, cameras filming, press backdrop, flower bouquets winner. Award show (5000K) with dramatic spotlight. Dark wood stage ceremony platform. Achievement celebration theatrical stage. - STUDIO FIXED',
+         'Dạ Tiệc Sân Vườn | Twilight indigo-to-lavender gradient with garden silhouette. Props: String lights elaborate hanging (background overhead), potted topiaries shaped, garden lanterns, outdoor furniture elegant, flower arrangements wild. Warm evening (3000K) with fairy lights twinkle. Stone patio garden venue moss accent. Outdoor gala theatrical stage. - STUDIO FIXED',
+         'Cocktail VIP | Sophisticated navy-to-silver gradient with art deco pattern. Props: Bar counter edge modern (background right), cocktail glass variety, bottle display backlit, ice sculpture, cocktail shaker, lounge seating plush. Lounge dim (2800K) with neon accent. Dark polished wood exclusive venue. VIP cocktail party theatrical stage. - STUDIO FIXED',
+         'Sinh Nhật Hoàng Gia | Regal purple-to-gold gradient with crown pattern embossed. Props: Multi-tier birthday cake elaborate (background center), crown decoration gold, presents wrapped luxury, balloons gold/purple, birthday banner elegant, champagne tower. Celebratory bright (4000K) with birthday sparkle. Royal carpet purple gold trim. Royal birthday theatrical stage. - STUDIO FIXED',
+         'Khai Trương Xa Hoa | Opulent red-to-gold gradient with ribbon-cutting ceremony. Props: Ribbon-cutting setup ceremonial (background center), grand opening flower stands multiple, champagne service, guest registry book, ceremonial scissors gold, red carpet entrance. Event bright (5500K) celebratory launch. Marble entrance grand venue red carpet. Grand launch theatrical stage. - STUDIO FIXED',
+         'Đêm Hội Ánh Sáng | Deep blue-to-black gradient with colorful bokeh light effects. Props: Lantern installation art elaborate (background multiple levels), LED light sculptures, projection mapping backdrop, illuminated orbs, neon signs artistic. Colorful LED (4000K) with rainbow gel effects. Reflective dark surface night festival. Light festival night theatrical stage. - STUDIO FIXED',
+         'Hòa Nhạc Giao Hưởng | Classic burgundy-to-black gradient with musical notes. Props: Orchestra chair hint (background left), music notation decor elegant, conductor stand, music stands multiple, cello case, violin stand, roses performers. Concert hall (3500K) classical sophistication. Polished stage wood symphony venue. Classical music theatrical stage. - STUDIO FIXED',
+         'Tiệc Mask Bí Ẩn | Mysterious deep violet-to-black gradient with mask motifs. Props: Ornate masks stands (background multiple styles), masquerade decorations feathered, candelabra gothic, velvet drapes purple, champagne service, venetian props. Dim mysterious (2500K) with dramatic shadows. Dark parquet mystery ball, purple runner. Masquerade theatrical stage. - STUDIO FIXED',
+         'Dạ Hội Từ Thiện | Deep emerald-to-black gradient with subtle charity theme. Props: Auction item display stand (background left), elegant donation box, charity program booklets, fundraising thermometer, champagne service, silk banners, flower arrangements luxury. Sophisticated dim (3000K) charity event elegance. Black marble gala venue, emerald carpet runner. Charity gala theatrical stage. - STUDIO FIXED',
+         'Nhạc Hội Mùa Xuân | Deep purple-to-magenta gradient with sound wave pattern. Props: Music stand sheet music (background left), stage curtain elegant, microphone stand, stage monitors, concert posters, instrument cases, stage lights rigging. Concert stage (4000K) with color gel wash. Stage wood concert venue. Spring concert theatrical stage. - STUDIO FIXED',
+         'Gala Từ Thiện | Pure white-to-light blue gradient with hope symbol. Props: Charity logo backdrop large (background center), fundraising display thermometer, children art displayed, donation boxes elegant, charity pamphlets, humanitarian awards, hope candles. Bright hopeful (5000K) giving atmosphere. White carpet charity event. Humanitarian gala theatrical stage. - STUDIO FIXED'
+      ]
+   },
+
+   {
+
+      value: 'sportswear',
+      label: 'Sportswear Studios',
+      emoji: '🏃',
+      desc: 'Studios cho đồ thể thao, activewear (6 options)',
+      productMatch: ['sport', 'activewear', 'gym'],
+      studios: [
+         'Clean Active ⭐ | Fresh white-to-light-gray gradient with energetic athletic texture. Props: Yoga mat rolled (background left), water bottle with towel, fitness tracker, resistance bands, motivational fitness poster, gym timer, protein shaker, athletic shoes display. Bright clean daylight (5500K) with energetic athletic glow. Rubber athletic mat texture with clean white accent. Clean active fitness theatrical stage, athletic lifestyle editorial mini-set. - STUDIO FIXED',
+         'Gym Minimal | Industrial gray-to-white gradient with gym equipment hints. Props: Dumbbell set (background center), gym bench hint, fitness mirror, workout towel, gym bag, water station, fitness app on tablet, motivational quote wall. Bright gym (5500K) with energetic workout atmosphere. Black rubber gym flooring with workout mat accent. Gym minimal workout theatrical stage, fitness dedication editorial mini-set. - STUDIO FIXED',
+         'Yoga Studio | Serene sage-to-cream gradient with zen wellness texture. Props: Yoga blocks (background arranged), meditation cushion, singing bowl, incense holder, bamboo plant, yoga strap, bolster pillow, zen stones, essential oil diffuser. Soft diffused (4000K) with zen studio peaceful glow. Light wood with yoga mat natural fibers. Yoga studio zen theatrical stage, mindful wellness editorial mini-set. - STUDIO FIXED',
+         'Outdoor Active | Fresh blue-to-green gradient with outdoor nature hints. Props: Hiking backpack (background right), outdoor gear display, trail map, water hydration pack, outdoor fitness equipment, nature photography, camping items, sportswear accessories. Bright outdoor daylight simulation (5500K) with fresh air feeling. Natural wood with outdoor mat. Outdoor active lifestyle theatrical stage, adventure fitness editorial mini-set. - STUDIO FIXED',
+         'Dance Studio | Light wood-to-mirror gradient with dance studio aesthetic. Props: Ballet barre (background left), dance mirrors, music speaker, dance shoes hanging, choreography notes, water bottles, dance awards, motivational dance posters. Bright studio (5000K) with dance rehearsal energy. Polished wood dance floor with practice lines. Dance studio energy theatrical stage, movement grace editorial mini-set. - STUDIO FIXED',
+         'Sports Brand | Bold brand color gradient (customizable). Props: Sports equipment branded (background center), athletic awards, brand logo display, athlete poster, sports gear rack, energy drinks, performance metrics board, team merchandise. Bright brand showcase (5500K) with athletic marketing energy. Clean athletic flooring with brand logo mat. Sports brand showcase theatrical stage, athletic marketing editorial mini-set. - STUDIO FIXED'
+      ]
+   },
+   {
+      value: 'sleepwear',
+      label: 'Sleepwear Studios',
+      emoji: '🌙',
+      desc: 'Studios cho đồ ngủ, loungewear (5 options)',
+      productMatch: ['sleepwear', 'loungewear', 'pajamas'],
+      studios: [
+         'Cozy Minimal ⭐ | Soft cream-to-warm-beige gradient with cozy home texture. Props: Plush throw blanket draped (background chair), decorative pillows soft, bedside lamp warm, aromatherapy candles, tea cup on saucer, book stack, soft rug, cozy slippers. Warm evening (3000K) with cozy home glow. Warm carpet with soft texture. Cozy minimal comfort theatrical stage, relaxation lifestyle editorial mini-set. - STUDIO FIXED',
+         'Luxury Hotel | Elegant white-to-champagne gradient with 5-star hotel texture. Props: Hotel bedding luxury (background hint), room service tray, champagne bucket, flowers in vase, plush robe on hook, hotel slippers, luxury toiletries, bedside amenities. Warm luxury hotel (3200K) with premium hospitality glow. Plush hotel carpet with luxury texture. Luxury hotel comfort theatrical stage, 5-star relaxation editorial mini-set. - STUDIO FIXED',
+         'Spa Retreat | Serene lavender-to-white gradient with wellness spa texture. Props: Spa candles multiple (background arranged), rolled white towels with orchid flower, essential oils display, spa stones heated, bamboo tray, lotus floating in bowl, meditation music player, spa robe. Dim spa (2800K) with tranquil wellness glow. Smooth spa tile with heated floor hint. Spa retreat tranquil theatrical stage, wellness escape editorial mini-set. - STUDIO FIXED',
+         'Reading Nook | Warm wood-to-cream gradient with cozy library texture. Props: Bookshelf (background left), reading lamp adjustable, book stack current reads, reading glasses on book, tea set, cozy chair arm, bookmark collection, library candle. Warm reading (3500K) with focused book light. Warm wood with reading nook rug. Reading nook cozy theatrical stage, book lover editorial mini-set. - STUDIO FIXED',
+         'Scandinavian Hygge | Pure white-to-light-wood gradient with Nordic hygge texture. Props: Chunky knit blanket (background draped), minimalist candles white, simple ceramic cup, wooden tray, Nordic design elements, wool throw, simple plant, hygge book. Soft diffused (4000K) with Nordic hygge glow. Light Nordic wood with simple white rug. Scandinavian hygge theatrical stage, Nordic comfort editorial mini-set. - STUDIO FIXED'
+      ]
+   },
+   {
+      value: 'accessories',
+      label: 'Accessories Studios',
+      emoji: '👜',
+      desc: 'Studios cho phụ kiện, túi, giày, kính (5 options)',
+      productMatch: ['bag', 'shoes', 'jewelry', 'sunglasses', 'accessories'],
+      studios: [
+         'Product Showcase ⭐ | Pure white seamless with clean product display. Props: Display pedestal modern (background center), product lighting professional, geometric shapes props, minimal vase, clean lines furniture, white cube risers, shadow card, product tags. Bright clean product (6000K) with professional showcase lighting. White seamless sweep with product photography setup. Product showcase professional theatrical stage, commercial photography editorial mini-set. - STUDIO FIXED',
+         'Luxury Boutique | Rich black-to-gold gradient with luxury retail texture. Props: Velvet display cushions (background arranged), jewelry boxes luxury, boutique lighting dramatic, mirrors ornate, display cases glass, luxury shopping bags, brand logos elegant, champagne service. Warm luxury (3200K) with boutique spotlight drama. Black marble with gold accent rug. Luxury boutique theatrical stage, high-end retail editorial mini-set. - STUDIO FIXED',
+         'Modern Geometric | Bold geometric pattern gradient (customizable colors). Props: Geometric pedestals multiple (background various heights), modern sculptures, acrylic risers, metal frame structures, contemporary art pieces, geometric shapes decorative, design awards, modern vases. Bright architectural (5000K) with geometric shadows dramatic. Polished concrete with geometric pattern rug. Modern geometric theatrical stage, contemporary design editorial mini-set. - STUDIO FIXED',
+         'Vintage Display | Warm sepia-to-cream gradient with vintage aesthetic. Props: Vintage display case (background center), antique mirrors, old jewelry boxes, vintage mannequin hand, retro packaging, nostalgic props, vintage books, antique trays. Warm vintage (3200K) with nostalgic glow. Worn wood with vintage rug. Vintage display theatrical stage, antique charm editorial mini-set. - STUDIO FIXED',
+         'Editorial Magazine | Clean white-to-light-gray gradient with editorial aesthetic. Props: Fashion magazines stacked (background left), editorial props curated, mood board hints, photography equipment, styling tools, brand lookbooks, editorial flowers, designer packaging. Bright editorial (5500K) with magazine shoot clarity. White seamless with editorial setup. Editorial magazine theatrical stage, fashion photography editorial mini-set. - STUDIO FIXED'
+      ]
+   },
+   // ===== TẾT & FESTIVAL STUDIOS (60) =====
+   {
+      value: 'tet_aodai',
+      label: 'Áo Dài Tết & Hội',
+      emoji: '🌸',
+      desc: 'Studios Tết cho áo dài (20 options)',
+      productMatch: ['aodai', 'traditional', 'tet'],
+      studios: [
+         'Mai Vàng Xuân ⭐ | Warm cream-to-gold gradient with hand-painted apricot branch motif. Props: Ornate ceramic vase with yellow apricot branches (background right), carved wooden pedestal with traditional motifs, red envelope display on lacquerware tray, silk scroll with calligraphy, bronze incense holder, scattered golden petals, bamboo screen panel backdrop. Golden hour simulation (2800K) with warm overhead glow, dramatic rim light. Light bamboo mat texture with traditional rug overlay. Traditional Tet prosperity theatrical, spring renewal optimistic mini-stage. - STUDIO FIXED',
+         'Đào Hồng Tết | Soft pink-to-ivory gradient with delicate hand-painted peach blossoms. Props: Tall ceramic vase with pink cherry blossom branches (background center), traditional red lantern hanging, wooden folding screen with floral pattern, silk tassel decoration, tea set on carved tray, embroidered cushion, bamboo brushes holder. Soft daylight simulation (4000K) with pink gel hint. Polished light wood with traditional mat. Northern Tet charm theatrical stage, romantic spring editorial. - STUDIO FIXED',
+         'Lồng Đèn Hội | Deep red-to-burgundy gradient with embossed gold dragon pattern. Props: Large round red lantern hanging (background upper corner), gold tassel decorations multiple, brass incense burner, traditional wooden drum miniature, red silk drapes framing, fortune coins scattered, calligraphy banner, carved wooden stool. Warm amber simulation (2700K) mimicking lantern glow. Dark polished wood with lacquer finish, red rug gold pattern. Mid-Autumn festival theatrical stage, warm nostalgia editorial. - STUDIO FIXED',
+         'Vàng Hoàng Gia | Rich gold-to-champagne gradient with subtle imperial dragon pattern. Props: Golden folding fan on ornate stand (background left), brass incense holder carved, miniature throne chair, silk brocade draped, gold-framed mirror, royal seal cushion, phoenix figurine, crown velvet pillow. Bright gold simulation (3000K) with dramatic rim light regal glow. Glossy dark wood with inlay pattern, gold-tasseled rug. Imperial palace theatrical stage, royal ceremony majestic editorial. - STUDIO FIXED',
+         'Hội Chùa Xuân | Saffron yellow-to-cream gradient with temple wall texture. Props: Small Buddha statue on carved altar (far background), incense holder smoke wisp, lotus offerings bowl, prayer beads draped, wooden temple bell miniature, saffron silk drapes, stone lantern, meditation cushion. Soft warm daylight (3500K) through temple window simulation. Stone tile texture with worn patina, meditation mat. Spiritual Tet visit theatrical, peaceful blessing editorial. - STUDIO FIXED',
+         'Phố Cổ Hà Nội | Aged brick red-to-terracotta gradient with vintage plaster texture. Props: Traditional wooden window shutters (background left), ceramic pot vintage plants, old bicycle wheel, conical hat hanging, vintage street lamp, market basket flowers, aged signage, terracotta jars. Natural daylight (5000K) with historical shadows. Old mosaic tile pattern worn authentic. Heritage festival theatrical stage, nostalgic Hanoi mini-set. - STUDIO FIXED',
+         'Sen Hồng Thánh | Soft blush pink-to-white gradient with watercolor lotus pattern. Props: Large lotus flower decorative bowl (center background), prayer beads on stand, Buddha figurine small, white silk draping, floating candles water bowl, incense holder, meditation bells, sacred scrolls. Heavenly soft daylight (5500K) with diffused peaceful glow. White marble with subtle pink veining, meditation cushion. Buddhist festival theatrical stage, spiritual purity editorial. - STUDIO FIXED',
+         'Rồng Vàng Tết | Vibrant red with embossed gold dragon scale pattern. Props: Gold dragon figurine on pedestal (background corner), prosperity gold coins scattered, red silk banner dragon, traditional drums, gold tassel hanging, incense burner, lucky bamboo gold pot, red lanterns multiple. Bright festival (4500K) with gold reflective highlights. Red lacquer wood high gloss with gold pattern inlay. Dragon dance festival theatrical, powerful prosperity editorial. - STUDIO FIXED',
+         'Lụa Bảo Lộc | Iridescent silk texture gradient peacock blue-to-emerald. Props: Silk fabrics draped on rack (background), embroidery hoop traditional pattern, wooden loom miniature, silk thread spools colorful, weaving tools table, textile samples hanging, scissors vintage, pattern drawings. Soft side lighting (4000K) highlighting silk sheen. Natural wood weaving studio with traditional mat. Silk heritage theatrical workshop, artisan craft editorial. - STUDIO FIXED',
+         'Phượng Đỏ Hè | Flame red-to-orange gradient with phoenix feather pattern. Props: Large phoenix feather decoration (background center), red paper fans multiple, silk ribbon hanging, traditional drums, festival banners, fire-inspired props, gold ornaments, lanterns. Bright warm simulation (3800K) with vibrant summer feel. Terracotta tiles with traditional rug phoenix motif. Summer festival theatrical stage, phoenix rebirth editorial. - STUDIO FIXED',
+         'Cúc Vàng Thu | Golden yellow-to-amber gradient with painted chrysanthemum pattern. Props: Large ceramic pot yellow chrysanthemums (center background), autumn leaves decorative scatter, harvest basket, golden wheat stalks, traditional tea set, wooden crates vintage, clay pots, dried flower arrangements. Harvest golden hour (3300K) with abundant warm glow. Warm honey wood with traditional mat autumn colors. Autumn festival theatrical stage, harvest gratitude editorial. - STUDIO FIXED',
+         'Trúc Xanh Thanh | Fresh bamboo green-to-sage gradient with painted bamboo motif. Props: Tall bamboo stalks corner (background), stone water basin floating flowers, bamboo rake, zen garden sand tray, wooden bench, bamboo fence panel, stone lantern, meditation stones. Cool natural daylight (5000K) forest fresh feeling. Natural bamboo slats with stone path. Eco festival theatrical stage, natural purity zen editorial. - STUDIO FIXED',
+         'Đình Làng Cổ | Weathered wood brown-to-beige gradient with aged temple texture. Props: Carved wooden pillar section (background), traditional offering tray fruits, ancestral altar miniature, wooden drums, village lanterns, old wooden furniture, ceramic jars, woven baskets. Dim ambient temple light (2500K) with candlelight simulation. Worn brick with village heritage patina. Village festival theatrical stage, ancestral worship editorial. - STUDIO FIXED',
+         'Hoa Đăng Sông | Deep indigo-to-navy gradient with night river shimmer. Props: Multiple floating lanterns silhouette (background various heights), candle holders bokeh, lotus-shaped lanterns, wooden boat miniature, river willows, silk drapes blue, prayer papers, incense holders. Warm candlelight simulation (2200K) with romantic night glow. Dark reflective surface mimicking water ripple effect. Evening river festival theatrical, wish-making romantic editorial. - STUDIO FIXED',
+         'Gấm Vóc Huế | Royal purple-to-plum gradient with intricate brocade pattern. Props: Embroidered fabric ornate stand (background), gold thread spools decorative, weaving loom miniature, royal textile samples, wooden frames, palace lanterns, gold tassels, brocade cushions. Regal warm light (3200K) with imperial craftsmanship glow. Dark polished wood palace with royal rug. Hue festival theatrical stage, royal textile heritage editorial. - STUDIO FIXED',
+         'Cồng Chiêng Tây Nguyên | Earthy brown-to-rust gradient with tribal pattern texture. Props: Bronze gong wooden stand (far background), tribal pattern fabric draping, wooden percussion instruments, ethnic jewelry display, bamboo containers, highland baskets, traditional hats, clay pots. Fire glow simulation (2600K) with tribal ceremony warmth. Earth-tone stone with highland cultural carpet. Highland festival theatrical stage, ethnic heritage editorial. - STUDIO FIXED',
+         'Áo Tứ Thân Xưa | Indigo blue-to-navy gradient with vintage fabric texture pattern. Props: Antique wooden chest ornate (background), vintage fabrics draped artfully, old sewing tools, traditional dress form, heritage photos framed, brass locks, wooden boxes, silk samples aged. Soft museum lighting (4500K) with preservation aesthetic. Old wood planks with vintage rug. Heritage museum fest theatrical, ancient fashion editorial. - STUDIO FIXED',
+         'Chợ Tết Sài Gòn | Vibrant red-to-pink gradient with market energy. Props: Market basket flowers (background), price tags decorative, vendor umbrella, kumquat trees pots, market goods displays, traditional scales, fabric bolts, lanterns hanging. Bright market daylight (5500K) with lively shopping atmosphere. Concrete with colorful market accents. Southern Tet market theatrical stage, joyful shopping editorial. - STUDIO FIXED',
+         'Bánh Chưng Xanh | Fresh leaf green-to-lime gradient with banana leaf pattern. Props: Banana leaves bundled artfully (background), traditional cake molds, bamboo strings, clay pots, cooking utensils vintage, wooden cutting board, rice baskets, traditional kitchen tools. Kitchen natural light (5000K) with homey preparation vibe. Clay tile traditional kitchen with mat. Tet cooking tradition theatrical stage, family bonding editorial. - STUDIO FIXED',
+         'Pháo Hoa Xuân | Midnight blue-to-black gradient with gold sparkle effects. Props: Sparkler holders decorative (background safe), celebration confetti scatter, champagne glasses, party poppers, gold ribbons, decorative fireworks safe props, countdown clock, festive banners. Cool night (6000K) with warm gold burst simulation. Dark polished surface reflecting sparkles. New Year countdown theatrical stage, explosive joy editorial. - STUDIO FIXED'
+      ]
+   },
+   {
+      value: 'tet_casual',
+      label: 'Sườn Xám Tết & Hội',
+      emoji: '👔',
+      desc: 'Studios Tết cho casual/professional (20 options)',
+      productMatch: ['casual', 'professional', 'tet'],
+      studios: [
+         'Văn Phòng Tết Sang ⭐ | Warm beige-to-cream gradient with subtle gold accents. Props: Modern desk with red envelope display (background center), small kumquat tree ceramic pot, desk organizer pens, laptop closed, coffee mug Tet motif, wall calendar New Year, prosperity plant, desk lamp modern. Bright office daylight (5000K) with warm Tet atmosphere. Light wood laminate modern professional. Corporate Tet celebration theatrical, professional prosperity editorial. - STUDIO FIXED',
+         'Cafe Xuân Vintage | Soft cream-to-tan gradient with vintage plaster texture. Props: Retro wooden cafe chair (background corner), apricot branch repurposed coffee can vase, vintage radio shelf, old coffee grinder, ceramic cups hanging, vintage poster wall, sugar jar antique, newspapers stacked. Warm cafe ambiance (3500K) with cozy spring morning glow. Checkerboard black-white tile vintage 70s Vietnam. Nostalgic spring cafe theatrical stage, retro charm editorial. - STUDIO FIXED',
+         'Phố Đi Bộ Tết | Light gray-to-white gradient with subtle exposed brick texture. Props: Large potted plant red ribbon decorations (background left), decorative street lamp hint, bench festival banners, flower vendor cart miniature, lanterns hanging, street art backdrop, sidewalk cafe table. Outdoor daylight simulation (5500K) fresh street festival. Smooth concrete pavement urban. Modern street festival theatrical stage, urban Tet editorial. - STUDIO FIXED',
+         'Thư Viện Xuân | Sage green-to-cream gradient with bookshelf pattern. Props: Book stack apricot blossom bookmark (background center), vintage reading lamp, wooden bookends, reading glasses book, tea cup saucer, library card catalog drawer, potted succulent, leather chair arm visible. Soft reading light (4000K) with tranquil study atmosphere. Warm oak wood library quiet. Scholarly Tet theatrical stage, intellectual renewal editorial. - STUDIO FIXED',
+         'Studio Nhiếp Ảnh Tết | Soft gray gradient with professional photography backdrop. Props: Professional camera tripod (background left), studio lights red gel filters hint, reflector disc, backdrop stand Tet theme, light meter, camera bag, softbox lights, photography props box. Studio lighting (5500K) with warm fill light. Polished concrete modern studio cables neat. Professional Tet photoshoot theatrical, creative industry editorial. - STUDIO FIXED',
+         'Homestay Xuân | Warm ivory-to-peach gradient with cozy home texture. Props: Woven basket spring flowers (background right), cushion Tet pattern chair, small bookshelf, vintage suitcase, potted herbs, tea tray set, framed family photos, traditional calendar hanging. Natural window light simulation (4500K) welcoming homey glow. Warm terracotta tile comfortable. Airbnb Tet hosting theatrical stage, welcoming warmth editorial. - STUDIO FIXED',
+         'Boutique Thời Trang Tết | Blush pink-to-white gradient with chic retail aesthetic. Props: Clothing rack red sale tags (background center), mannequin torso Tet flowers, mirror full-length, shopping bags decorative, fashion magazines stacked, jewelry display stand, boutique lighting fixtures, price tag display. Retail bright (5000K) with accent spotlights. Light herringbone wood boutique. Fashion retail Tet theatrical stage, trendy shopping editorial. - STUDIO FIXED',
+         'Quán Trà Xuân | Bamboo green-to-cream gradient with zen tea house texture. Props: Traditional tea set low wooden table (background center), lotus tea flower bowl, bamboo whisk matcha, tea canister antique, stone water basin, meditation cushion, incense holder, tea scrolls hanging. Soft diffused daylight (4200K) meditative calm. Tatami-style mat traditional tea ceremony. Tea ceremony celebration theatrical, mindful Tet editorial. - STUDIO FIXED',
+         'Showroom Xe Tết | Sleek gray-to-charcoal gradient with modern luxury automotive texture. Props: Red ribbon decoration large (background corner), polished metal accents display, car key velvet cushion, champagne glasses, showroom plant luxury, promotional banner, spotlight stands, car brochures display. Bright showroom (6000K) luxury retail professional. Glossy epoxy premium automotive mirror-finish. Luxury Tet purchase theatrical stage, prosperity symbol editorial. - STUDIO FIXED',
+         'Gym Năm Mới | Energetic orange-to-red gradient with motivational athletic texture. Props: Dumbbell red ribbon (background center), new year resolution banner visible, yoga mat rolled, water bottle towel, gym bag, motivational poster, resistance bands, gym timer clock. Bright athletic (5500K) energizing workout vibe. Rubber mat texture fitness facility. New year fitness goals theatrical stage, healthy start editorial. - STUDIO FIXED',
+         'Ngân Hàng VIP Tết | Luxury navy-to-gold gradient with wealthy sophisticated texture. Props: Gold ingot display pedestal (background center), prosperity plant marble pot, leather chair arm, financial documents folder, gold pen set, premium clock, banking certificates framed, crystal paperweight. Warm premium (3800K) wealth management elegance. Marble tiles high-end banking, luxury carpet accent. Financial prosperity Tet theatrical, wealth celebration editorial. - STUDIO FIXED',
+         'Coworking Xuân | Fresh mint-to-white gradient with startup modern vibe texture. Props: Laptop Tet sticker (background left), potted succulent ribbon, whiteboard ideas, coffee station, motivational quotes poster, desk organizer modern, smartphone charger, notebook stack. Bright productive (5000K) creative workspace energy. Light concrete modern shared office. Startup Tet hustle theatrical stage, entrepreneurial spirit editorial. - STUDIO FIXED',
+         'Spa Thư Giãn Tết | Serene lavender-to-cream gradient with calming wellness texture. Props: Aromatherapy candles multiple (background arranged), rolled white towels orchid flower, essential oil bottles display, spa stones heated, bamboo tray, lotus floating bowl, meditation music player, robe hanging. Dim relaxation (3000K) spa tranquility atmosphere. Smooth stone tile spa luxury. Tet self-care theatrical stage, wellness renewal editorial. - STUDIO FIXED',
+         'Salon Tóc Xuân | Peachy pink-to-ivory gradient with beauty industry chic texture. Props: Professional styling tools counter (background center), mirror ring lights bright, hair dryer, styling products bottles, salon cape hook, flowers vase, beauty magazines, combs decorative display. Bright beauty (5500K) glamorous makeover vibe. White tile geometric pattern salon. Tet beauty prep theatrical stage, glamorous transformation editorial. - STUDIO FIXED',
+         'Phòng Họp Năm Mới | Professional gray-to-white gradient with corporate serious texture. Props: Whiteboard goals written (background wall), red marker holder, laptop table, meeting notes, projector screen, water pitcher glasses, office plant, wall clock modern. Bright meeting (5500K) focused professional atmosphere. Carpet tile corporate office. New year planning theatrical stage, goal setting editorial. - STUDIO FIXED',
+         'Tiệm Bánh Tết | Warm yellow-to-cream gradient with bakery cozy texture. Props: Display case hint (background glass), bánh chưng wrapped banana leaves, banh tet traditional, flour bags stacked, rolling pin, baking tray, apron hanging, recipe cards, traditional cake molds. Warm bakery (4000K) fresh baked goods glow. Clean white tile food safety. Tet food tradition theatrical stage, bakery celebration editorial. - STUDIO FIXED',
+         'Khách Sạn Tết Cao Cấp | Rich burgundy-to-gold gradient with 5-star hospitality texture. Props: Large flower arrangement console table (background center), hospitality bell service, key card display, luggage cart hint, chandelier visible above, hotel brochures, welcome champagne tray, plush seating arm. Luxury ambient (3500K) hotel lobby sophistication. Marble gold veining, luxury carpet runner. Luxury Tet getaway theatrical stage, hotel celebration editorial. - STUDIO FIXED',
+         'Shop Giầy Xuân | Clean white-to-beige gradient with retail minimalist texture. Props: Shoe display pedestal multiple (background arranged), red shoebox stack decorative, mirror floor-length, shoe horn silver, shoe care products, shopping bags branded, bench trying shoes, size measurement tool. Retail bright (5500K) product showcase clear. Herringbone wood boutique retail. Tet shopping spree theatrical stage, new shoes tradition editorial. - STUDIO FIXED',
+         'Phòng Khám Y Tế Tết | Medical white-to-light blue gradient with clean health texture. Props: Medical chart wall (background organized), health plant snake plant corner, stethoscope desk, hand sanitizer dispenser, medical pamphlets display, examination lamp, blood pressure cuff, calendar appointment. Clinical bright (6000K) hygienic professional. White vinyl medical facility. Health checkup Tet theatrical stage, wellness priority editorial. - STUDIO FIXED',
+         'Nhà Hàng Tất Niên | Festive red-to-gold gradient with celebration dining texture. Props: Table setting hint elegant (background partial), decorative lantern hanging, wine glasses, chopsticks holder, menu stand, flower centerpiece, red napkins folded, candle holders, lazy susan center. Warm dining (3200K) feast atmosphere glow. Dark wood restaurant. Year-end feast theatrical stage, celebration dining editorial. - STUDIO FIXED'
+      ]
+   }
+];

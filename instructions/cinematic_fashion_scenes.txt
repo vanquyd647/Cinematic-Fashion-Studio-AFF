@@ -1,0 +1,493 @@
+# CINEMATIC FASHION VIDEO — SHOPPABLE CINEMA (2026)
+
+## 🎯 PHILOSOPHY: "Shoppable Cinema"
+Video phải ĐẸP NHƯ PHIM nhưng THÔI THÚC MUA HÀNG.
+Mỗi cú máy phải phục vụ MỤC ĐÍCH BÁN HÀNG, không chỉ đẹp.
+
+**DURATION: TẤT CẢ VIDEO = 32 GIÂY (4 SCENES x 8 GIÂY)**
+- Scene 1 (00s-08s): **HOOK** — Dừng lướt + Show sản phẩm ngay
+- Scene 2 (08s-16s): **FEEL** — Xóa nghi ngờ chất lượng (test vải, show form)
+- Scene 3 (16s-24s): **DREAM** — Khơi khao khát (bối cảnh mơ ước)
+- Scene 4 (24s-32s): **CLOSE** — Kêu gọi hành động (pose tự tin, mời mua)
+
+**4 NGUYÊN TẮC VÀNG:**
+1. **Scene 1 (00-08s) = HOOK:** 0-3s dừng ngón tay lướt, 3-8s build sản phẩm
+2. **Scene 2 (08-16s) = FEEL:** Vuốt vải, kéo co giãn, show texture, xoay form
+3. **Scene 3 (16-24s) = DREAM:** Bối cảnh khơi gợi "muốn trở thành cô gái đó"
+4. **Scene 4 (24-32s) = CLOSE:** Pose finale tự tin, ánh mắt warm, "Mời mua"
+
+---
+
+## 🤖 PRODUCT TYPE AUTO-DETECTION FOR VIDEOS
+
+When generating CINEMATIC MODE videos (NOT lookbook), detect product category from outfit reference and apply appropriate scene structure.
+**ALL products = 32s, 4 scenes x 8s each. NO EXCEPTIONS.**
+
+---
+
+## 📋 SHOPPABLE SCENE STRUCTURES BY PRODUCT TYPE (ALL 32s)
+
+### **TOPS**
+
+**Blouses (32s = 4x8s):**
+- Scene 1 (00s-08s): HOOK — 0-3s: Extreme close-up hand touching fabric at collar, fingers trace button row (show texture). 3-8s: Slow zoom out revealing full blouse, model adjusts collar with confident smile, showing how fabric falls on body
+- Scene 2 (08s-16s): FEEL — Standing camera-facing, hand smooths fabric at waist showing drape quality, gentle 180° turn showing back detail, tucked/untucked styling demo, hand touches sleeve showing material
+- Scene 3 (16s-24s): DREAM — Office/cafe/upscale environment, model standing with boss energy, warm confident expression, "I own this room" vibe, professional yet approachable, slow camera orbit
+- Scene 4 (24s-32s): CLOSE — 3/4 angle power pose, direct warm eye contact, slight knowing smile, confident body language, model settling into final stance
+**Key:** Texture close-up first → fabric drape demo → aspirational context → confident finale
+**Sales Hook:** "Chất vải mềm mượt, form chuẩn công sở"
+
+**T-Shirts (32s = 4x8s):**
+- Scene 1 (00s-08s): HOOK — 0-3s: Jump cut: 3 styling ways in 3 seconds (front tuck → layered → knotted). 3-8s: Final styling shown full body, model facing camera with casual confident vibe
+- Scene 2 (08s-16s): FEEL — Hand pulls fabric gently to show stretch/thickness, releases showing recovery, smooths down showing how it falls, demonstrates softness by pressing fabric between fingers
+- Scene 3 (16s-24s): DREAM — Casual street/cafe setting, effortless cool vibe, model with relaxed happy energy, slight sway showing comfort, natural living-my-best-life moment
+- Scene 4 (24s-32s): CLOSE — Casual confident pose, approachable smile, relaxed stance, "easy buy easy wear" energy
+**Key:** Versatility hook → fabric quality → lifestyle fit → approachable finale
+**Sales Hook:** "1 áo 3 cách mix, vải dày dặn không xuyên thấu"
+
+**Sweaters/Cardigans (32s = 4x8s):**
+- Scene 1 (00s-08s): HOOK — 0-3s: Macro close-up of knit texture, fingers pressing into fabric showing softness and thickness. 3-8s: Model putting on sweater (back view start), cozy ASMR feel, slow reveal
+- Scene 2 (08s-16s): FEEL — Front reveal complete, hands hugging self showing oversized cozy fit, touching sleeve cuff, demonstrating stretch, running hand across chest showing knit quality
+- Scene 3 (16s-24s): DREAM — Warm cozy setting (cafe window seat, autumn park, reading corner), warm lighting, content peaceful smile, "weekend goals" energy, gentle movement
+- Scene 4 (24s-32s): CLOSE — Cozy pose with warm gentle smile, hands wrapped in sleeves, soft eye contact, inviting warmth
+**Key:** Texture ASMR → cozy fit demo → aspirational warmth → inviting finale
+**Sales Hook:** "Len mềm xỉu, ấm mà không nóng"
+
+**Blazers (32s = 4x8s):**
+- Scene 1 (00s-08s): HOOK — 0-3s: Hand grabs blazer lapel decisively, camera catches sharp tailoring line. 3-8s: Puts on blazer in one smooth motion (casual → boss transformation), shoulder line pops
+- Scene 2 (08s-16s): FEEL — Adjusts shoulder showing structure stays, hand runs down sleeve showing no-wrinkle fabric, button/unbuttoned styling options, back view showing tailored fit
+- Scene 3 (16s-24s): DREAM — Power setting (modern office lobby, city skyline backdrop, upscale cafe), low angle making model look commanding, Office Siren aesthetic, "nữ tổng tài" energy
+- Scene 4 (24s-32s): CLOSE — Arms crossed confident pose, chin slightly lifted, powerful warm smile, "I mean business" direct eye contact, power stance
+**Key:** Transformation moment → structure quality → power context → boss finale
+**Sales Hook:** "Form đứng chuẩn, mặc 8 tiếng không nhăn"
+
+---
+
+### **BOTTOMS**
+
+**Jeans (32s = 4x8s):**
+- Scene 1 (00s-08s): HOOK — 0-3s: Side angle close-up: hand smooths down thigh showing perfect fit. 3-8s: Mirror POV fit check: front (waist fit) → side (hip/thigh line), model adjusts waistband
+- Scene 2 (08s-16s): FEEL — Continue mirror check: back view (butt lift, no gap at waist), hand pulls waistband showing stretch and recovery, demonstrates comfort by slight squat/bend motion
+- Scene 3 (16s-24s): DREAM — Street/urban setting, model standing with casual confidence, hand in pocket or thumbs in belt loops, "effortlessly cool" vibe, urban lifestyle context
+- Scene 4 (24s-32s): CLOSE — Standing confident, slight hip shift showing fit, direct eye contact, relaxed happy expression, "these are THE jeans" energy
+**Key:** Fit demonstration across all angles → stretch proof → lifestyle context → confident finale
+**Sales Hook:** "Co giãn 4 chiều, tôn mông, không tuột cạp"
+
+**Skirts (32s = 4x8s):**
+- Scene 1 (00s-08s): HOOK — 0-3s: Slow-mo fabric swirl: model does micro-turn, skirt fabric catches light and flows. 3-8s: Full body reveal showing how skirt sits on waist, how hemline falls
+- Scene 2 (08s-16s): FEEL — Standing, hand brushes skirt surface (texture), gentle half-twirl showing flow quality, demonstrates how fabric moves with body, waistband comfort check
+- Scene 3 (16s-24s): DREAM — Romantic/elegant setting (garden, cafe terrace, riverside), gentle natural movement showing skirt flowing with body, feminine dreamy energy
+- Scene 4 (24s-32s): CLOSE — Elegant standing pose, one hand touches hem lightly, soft confident smile, fabric settling beautifully, warm inviting expression
+**Key:** Fabric flow hook → texture and movement demo → romantic aspiration → elegant finale
+**Sales Hook:** "Vải rủ đẹp, xoay thấy bay, không bị dính chân"
+
+**Dress Pants (32s = 4x8s):**
+- Scene 1 (00s-08s): HOOK — 0-3s: Low angle shot focusing on crisp crease line and tailored leg. 3-8s: Camera tilts up revealing full silhouette, model standing with power posture
+- Scene 2 (08s-16s): FEEL — Hand smooths fabric showing no-wrinkle quality, side view showing tailored fit, demonstrates flexibility (slight natural movement), back view showing clean line
+- Scene 3 (16s-24s): DREAM — Professional environment (modern office, coworking space), model with assertive stance, "power dressing" energy, Quiet Luxury aesthetic
+- Scene 4 (24s-32s): CLOSE — Power stance, hands on hips, professional confident smile, direct warm gaze, "ready for anything" energy
+**Key:** Tailoring precision → wrinkle-free proof → professional aspiration → power finale
+**Sales Hook:** "Đứng form từ sáng tới tối, không nhăn sau ngồi"
+
+---
+
+### **DRESSES**
+
+**Office Dresses (32s = 4x8s):**
+- Scene 1 (00s-08s): HOOK — 0-3s: POV "morning ready" moment: model zipping/adjusting dress in one smooth motion. 3-8s: Instant put-together look revealed, mirror check showing perfect fit
+- Scene 2 (08s-16s): FEEL — Neckline detail, sleeve fit, fabric drape at waist, 180° showing back fit, hand touches fabric showing quality, demonstrates how dress moves with body
+- Scene 3 (16s-24s): DREAM — Work context with "Office Siren" aesthetic, confident professional vibe, modern office setting, powerful yet approachable, camera tracking
+- Scene 4 (24s-32s): CLOSE — Professional standing pose, confident genuine smile, "promotion ready" energy, direct warm eye contact, settled confident stance
+**Key:** Quick transformation → quality fabric demo → professional aspiration → career-ready finale
+**Sales Hook:** "1 phút mặc xong, đẹp chuẩn công sở cả ngày"
+
+**Cocktail/Evening Dresses (32s = 4x8s):**
+- Scene 1 (00s-08s): HOOK — 0-3s: Dramatic silhouette in doorway backlit, mystery. 3-8s: Step forward into light, dress sparkle/texture catches light, face reveal with glamorous expression
+- Scene 2 (08s-16s): FEEL — Close-up fabric catching light (sequins/lace/satin sheen), back detail reveal, hand grazes fabric showing luxury quality, slow turn showing construction
+- Scene 3 (16s-24s): DREAM — Glamour setting (chandelier, upscale venue, dramatic rim lighting), slow elegant orbit shot, model glowing with confidence, "main character at the party" energy
+- Scene 4 (24s-32s): CLOSE — Slow dolly in to face, glamorous confident smile, captivating warm gaze, elegant final pose, luxury atmosphere
+**Key:** Dramatic reveal → luxury fabric proof → glamour aspiration → captivating finale
+**Sales Hook:** "Lấp lánh dưới đèn, nổi bật nhất party"
+
+---
+
+### **OUTERWEAR**
+
+**Denim Jackets (32s = 4x8s):**
+- Scene 1 (00s-08s): HOOK — 0-3s: Quick-cut styling: jacket over dress → jacket with jeans → jacket on shoulders (3 looks). 3-8s: Final look full body, model adjusting jacket with cool confidence
+- Scene 2 (08s-16s): FEEL — Close-up denim texture, button detail, pocket stitching, model flipping collar showing thickness, hand runs across surface showing durability quality
+- Scene 3 (16s-24s): DREAM — Urban street vibe, cool casual energy, leaning wall or casual stance, "effortlessly stylish" aesthetic, city lifestyle context
+- Scene 4 (24s-32s): CLOSE — Cool pose, relaxed confident smile, hands in jacket pockets, approachable "everyone needs this" energy
+**Key:** Versatility hook → durability proof → street style aspiration → cool finale
+**Sales Hook:** "Denim dày dặn, phối được 20 outfit"
+
+**Coats (32s = 4x8s):**
+- Scene 1 (00s-08s): HOOK — 0-3s: Back view coat fabric flowing as model begins turning. 3-8s: Full turn reveal toward camera, dramatic fabric movement, Quiet Luxury aesthetic
+- Scene 2 (08s-16s): FEEL — Adjust collar (quality stitching visible), button up showing structure, hand runs down sleeve (smooth fabric), model wraps coat showing warmth and fit
+- Scene 3 (16s-24s): DREAM — Sophisticated setting (autumn park, European-inspired street, luxury hotel entrance), elegant pacing, "old money" energy, model walking with grace
+- Scene 4 (24s-32s): CLOSE — Elegant standing, coat draped perfectly, soft sophisticated smile, warm inviting gaze, luxury settled pose
+**Key:** Dramatic fabric flow → warmth/quality demo → sophisticated aspiration → elegant finale
+**Sales Hook:** "Ấm không cần áo trong, form sang như hàng hiệu"
+
+---
+
+### **ACCESSORIES**
+
+**Handbags (32s = 4x8s):**
+- Scene 1 (00s-08s): HOOK — 0-3s: Macro spin: bag rotating slowly showing hardware shine, leather texture, logo detail. 3-8s: Model picks up bag, carries it (shoulder/hand/crossbody options)
+- Scene 2 (08s-16s): FEEL — Opening bag showing interior (compartments, lining quality), zippers working smoothly, demonstrating capacity, closing showing hardware quality
+- Scene 3 (16s-24s): DREAM — Lifestyle integration with full outfit, model standing in chic setting (cafe, shopping area), bag as the focal accessory completing the look
+- Scene 4 (24s-32s): CLOSE — Close-up bag with outfit, model's hand resting on bag, satisfied expression, direct warm eye contact
+**Key:** Product beauty → functional interior → lifestyle integration → satisfied finale
+**Sales Hook:** "Da thật, khóa chắc, nhiều ngăn gọn gàng"
+
+**Shoes (32s = 4x8s):**
+- Scene 1 (00s-08s): HOOK — 0-3s: Camera at foot level, model steps into frame wearing the shoes (transformation moment). 3-8s: Low angle product detail: sole construction, heel height, material quality
+- Scene 2 (08s-16s): FEEL — Model standing showing how shoes elongate legs, walking 2-3 steps (stability demo), side view showing arch and heel, comfort demonstration
+- Scene 3 (16s-24s): DREAM — Full outfit with shoes as finishing touch, lifestyle context (office, date night, street), model standing confident, shoes completing the whole vibe
+- Scene 4 (24s-32s): CLOSE — Low angle confidence shot, shoes prominent in frame with full outfit, model looking down with pleased smile then direct camera contact
+**Key:** Transformation moment → comfort/stability proof → outfit completion → confident finale
+**Sales Hook:** "Đi cả ngày không đau, tôn dáng cực kỳ"
+
+**Jewelry (32s = 4x8s):**
+- Scene 1 (00s-08s): HOOK — 0-3s: Extreme macro: jewelry piece sparkling with light dancing across surface. 3-8s: Slow rotation showing craftsmanship from multiple angles, catching light dramatically
+- Scene 2 (08s-16s): FEEL — Putting on moment (clasping necklace, sliding on ring, clicking earring), close-up showing how it sits on skin, color against skin tone
+- Scene 3 (16s-24s): DREAM — Adorned portrait, jewelry catching light with movement (hair toss for earrings, hand gesture for ring/bracelet), elegant setting
+- Scene 4 (24s-32s): CLOSE — Still portrait, jewelry as focal point, slow zoom to face, warm confident expression, sparkle catching light one final time
+**Key:** Sparkle hook → wearing experience → lifestyle glow → sparkling finale
+**Sales Hook:** "Lấp lánh từng góc, không gỉ không đen"
+
+**Sunglasses (32s = 4x8s):**
+- Scene 1 (00s-08s): HOOK — 0-3s: POV transformation: bare face → putting on sunglasses → instant cool factor. 3-8s: Front view showing frame shape on face, first impression reaction
+- Scene 2 (08s-16s): FEEL — Profile showing fit, temple detail, lens quality catching reflection, model adjusting for comfort, different angle showing how frame suits face shape
+- Scene 3 (16s-24s): DREAM — Outdoor chic setting (city/beach/rooftop), model standing effortlessly cool, sunglasses completing the whole vibe, lifestyle energy
+- Scene 4 (24s-32s): CLOSE — Lower sunglasses for eye contact moment, playful confident smile, push back up, cool settled pose
+**Key:** Instant cool transformation → fit/quality proof → lifestyle integration → playful finale
+**Sales Hook:** "Đeo vào lên đời nhan sắc liền"
+
+---
+
+## 🎬 CAMERA TECHNIQUES BY SELLING GOAL
+
+**Scene 1 — HOOK (00s-08s):**
+- Macro close-ups for texture/sparkle
+- Fast jump cuts for versatility
+- Dramatic reveals (backlit → light)
+- Transformation moments (before → after)
+- MUST grab attention within 0-3s
+
+**Scene 2 — FEEL (08s-16s):**
+- Hands touching/pulling fabric (haptic proxy)
+- Slow panning across surface detail
+- Well-lit, high clarity, NO artistic blur on product
+- 180° turns for fit demonstration
+- Close-up quality proof (stitching, hardware)
+
+**Scene 3 — DREAM (16s-24s):**
+- Full body shots show fit (90% frame height mandatory)
+- Slow orbit or tracking for 3D understanding
+- Environmental context shows "where to wear it"
+- Aspirational lighting (golden hour, rim light, editorial)
+- 2026 Aesthetic integration (Office Siren, Coquette, Quiet Luxury)
+
+**Scene 4 — CLOSE (24s-32s):**
+- Eye-level direct connection
+- Slow dolly in for emotional pull
+- Confident settled poses
+- Warm inviting expressions
+- "This could be you" energy
+
+---
+
+## 💪 ARM POSES BY PRODUCT TYPE (MANDATORY)
+
+⚠️ **NEVER use "arms at sides" or "hands hanging down" - ALWAYS specify arm action!**
+
+| Product Type | Scene 1-2: HOOK/FEEL Actions | Scene 3-4: DREAM/CLOSE Poses |
+|--------------|-----------------------------|------------------------------|
+| **Blouses** | Touch collar, adjust button, smooth fabric | Hand on hip, arms crossed professional |
+| **T-Shirts** | Pull fabric showing stretch, style tuck | Hand on hip, casual cool stance |
+| **Sweaters** | Hug self, press fabric for softness | Hands wrapped in sleeves, cozy |
+| **Blazers** | Grab lapel, run hand down sleeve | Arms crossed power, pocket pose |
+| **Jeans** | Smooth thigh, adjust waistband | Thumbs in belt loops, hand in pocket |
+| **Skirts** | Touch hem, brush fabric | Hand on waist, elegant stance |
+| **Office Dresses** | Adjust collar, smooth waist | Hands clasped front, professional |
+| **Cocktail Dresses** | Graze fabric surface, back touch | Touch neck, elegant waist touch |
+| **Denim Jackets** | Flip collar, check pocket | Both pockets, pull jacket |
+| **Coats** | Button up, collar adjust | Coat wrap, pocket pose |
+| **Handbags** | Open/close, show interior | Hold strap, pose with bag |
+| **Shoes** | — (camera focuses on feet) | Hand on hip confident |
+| **Jewelry** | Clasp/put on motion | Touch earring, show bracelet |
+| **Sunglasses** | Put on/take off | Push up confident |
+
+---
+
+## 🎨 LIGHTING & VIBE BY CATEGORY
+
+**Professional (Office wear, Blazers, Dress Pants):**
+- Clean bright natural window light
+- Sharp, professional, "Office Siren" aesthetic
+- Office/city/modern coworking environment
+- Confident power energy
+
+**Casual (T-shirts, Jeans, Denim Jackets):**
+- Soft natural daylight
+- Relaxed authentic feel
+- Street/cafe/park
+- Approachable relatable energy
+
+**Elegant/Evening (Cocktail Dresses, Coats):**
+- Dramatic golden hour, rim lighting, chandelier glow
+- Slower elegant movements
+- Upscale venues, heritage sites, luxury settings
+- "Quiet Luxury" / sophisticated aspirational
+
+**Cozy (Sweaters, Sleepwear):**
+- Warm soft ambient light
+- Slower comfortable pacing
+- Home interior, cozy cafe, autumn park
+- Inviting warm "want to touch" energy
+
+**Accessories (Bags, Jewelry, Shoes):**
+- Clean high-clarity product lighting
+- Detail-focused close-ups (SPARKLE for jewelry)
+- Lifestyle integration shots
+- Premium quality energy
+
+---
+
+## ⚙️ AUTO-DETECTION WORKFLOW
+
+**When generating CINEMATIC video (NOT lookbook):**
+
+1. **Analyze outfit reference image**
+2. **Detect product category:**
+   - Dress? → Office or Cocktail/Evening
+   - Top? → Blouse/Tee/Sweater/Blazer
+   - Bottom? → Jeans/Skirt/Pants
+   - Outerwear? → Denim Jacket or Coat
+   - Accessory? → Bag/Shoes/Jewelry/Sunglasses
+3. **Apply 32s Shoppable Cinema structure (4 scenes x 8s):**
+   - Scene 1 (00s-08s): HOOK — Visual impact + product intro
+   - Scene 2 (08s-16s): FEEL — Quality proof + tactile demo
+   - Scene 3 (16s-24s): DREAM — Aspirational context + 2026 aesthetic
+   - Scene 4 (24s-32s): CLOSE — Confident finale + CTA energy
+4. **Match 2026 Aesthetic to product type**
+5. **Generate 4 scenes with Sales Hook in mind**
+
+---
+
+## 🔥 2026 AESTHETIC → PRODUCT MATCHING
+
+| Product Type | Best 2026 Aesthetic | Selling Vibe |
+|--------------|---------------------|--------------|
+| Dress (Formal) | Office Siren, Quiet Luxury | "Nữ tổng tài" power |
+| Dress (Casual) | Coquette Core, Soft Pastel | Feminine charm |
+| Dress (Party) | Y2K Revival, Lace Layer | Main character energy |
+| Blazer | Office Siren, Quiet Luxury | Career power move |
+| Top (Feminine) | Coquette Core, Poet Core | Romantic dreamy |
+| Top (Casual) | Oversized Era, Athleisure | Effortless cool |
+| Outerwear | Quiet Luxury, Poet Core | Investment piece |
+| Accessories | Y2K Revival, Lace Layer | Statement piece |
+| Áo Dài | Heritage Modernism, Quiet Luxury | Cultural pride + elegance |
+
+---
+
+## 🎬 CINEMATIC OOTD CAMERA ANGLES BY FASHION CATEGORY (ALL 32s)
+
+⚠️ **MỤC ĐÍCH:** Tạo video đa góc máy, phục vụ bán hàng + dễ cut/edit trong CapCut.
+**TẤT CẢ = 32s (4 scenes x 8s)**
+
+---
+
+### 🌸 NHÓM 1: TRANG PHỤC TRUYỀN THỐNG (Áo Dài, Nhật Bình, Hanbok-style)
+
+**Phong cách:** Thanh lịch + Tactile quality proof
+**Duration:** 32s (4 scenes x 8s)
+
+| Scene | Thời gian | Mục đích | EN Prompt | Sales Focus |
+|-------|-----------|----------|-----------|-------------|
+| 1 | 00s-08s | **HOOK** | 0-3s: Extreme close-up hands touching silk ao dai panels, fingers feeling embroidery texture. 3-8s: Slow zoom out revealing full ao dai silhouette, model adjusting panels with gentle grace | Chất lụa mềm mượt |
+| 2 | 08s-16s | **FEEL** | Medium shot focusing on panel flow quality, hands delicately showing fabric weight and drape, floor-length panels visible, gentle turn showing how fabric moves | Form chuẩn, tà dài chạm đất |
+| 3 | 16s-24s | **DREAM** | Full body in heritage setting (palace, lotus pond, ancient town), gentle movement showing panels floating, peaceful warm smile, Heritage Modernism aesthetic | Bối cảnh mơ ước |
+| 4 | 24s-32s | **CLOSE** | Medium shot, model turning with soft confident smile, panels flowing in breeze, gentle warm eye contact, settled elegant pose | Mời mua, sang trọng |
+
+**Camera Motion:** `Slow dolly, smooth continuous, NO sudden jerks`
+**Lighting:** `Golden hour warm glow, soft diffused natural light`
+
+---
+
+### 💼 NHÓM 2: CÔNG SỞ THANH LỊCH (Vest, Sơ Mi, Quần Tây, Đầm Công Sở)
+
+**Phong cách:** Office Siren energy + Quality proof
+**Duration:** 32s (4 scenes x 8s)
+
+| Scene | Thời gian | Mục đích | EN Prompt | Sales Focus |
+|-------|-----------|----------|-----------|-------------|
+| 1 | 00s-08s | **HOOK** | 0-3s: Close-up hand decisively adjusting blazer lapel, sharp tailoring visible. 3-8s: Full body reveal, model standing with immediate boss energy, power posture | Form đứng, đường may sắc sảo |
+| 2 | 08s-16s | **FEEL** | Hand runs down sleeve showing wrinkle-free fabric, adjusts collar, fabric quality in close-up, back view showing tailored precision | Vải không nhăn, chất lượng cao |
+| 3 | 16s-24s | **DREAM** | Full body in modern office lobby or upscale coworking, low angle power shot, Office Siren confidence, city backdrop | Mặc đi làm đẹp sang |
+| 4 | 24s-32s | **CLOSE** | Eye-level confident pose, arms crossed or hand on hip, professional warm smile, boss energy, direct gaze | Tự tin, quyền lực |
+
+**Camera Motion:** `Smooth tracking, professional steadicam, corporate elegance`
+**Lighting:** `Clean bright natural window light, sharp professional`
+
+---
+
+### 🛹 NHÓM 3: STREETWEAR & GIỚI TRẺ (Hoodie, Cargo, Tee, Jogger)
+
+**Phong cách:** Fast-paced versatility + authentic feel
+**Duration:** 32s (4 scenes x 8s)
+
+| Scene | Thời gian | Mục đích | EN Prompt | Sales Focus |
+|-------|-----------|----------|-----------|-------------|
+| 1 | 00s-08s | **HOOK** | 0-3s: Jump cut: 3 different styling combos in 3 seconds, fast transitions. 3-8s: Final styling shown full body, model with cool casual energy | Phối đa dạng |
+| 2 | 08s-16s | **FEEL** | Hand pulling fabric showing stretch, pressing showing thickness, authentic texture demo, comfort proof | Vải dày dặn, co giãn |
+| 3 | 16s-24s | **DREAM** | Urban street setting, model with cool confidence, relaxed authentic vibe, streetwear energy, city backdrop | Mặc đi chơi cực chất |
+| 4 | 24s-32s | **CLOSE** | Cool pose (lean wall, casual stance), playful confident smile, approachable energy, "everyone can rock this" | Dễ mua, dễ mặc |
+
+**Camera Motion:** `Fast-paced, intentional handheld energy, dynamic cuts`
+**Lighting:** `Urban daylight, street photography style, authentic`
+
+---
+
+### ✨ NHÓM 4: ĐẦM DỰ TIỆC & ĐẦM REN (Evening, Cocktail, Bodycon)
+
+**Phong cách:** Hollywood glamour + fabric sparkle proof
+**Duration:** 32s (4 scenes x 8s)
+
+| Scene | Thời gian | Mục đích | EN Prompt | Sales Focus |
+|-------|-----------|----------|-----------|-------------|
+| 1 | 00s-08s | **HOOK** | 0-3s: Dramatic silhouette backlit doorway, mystery. 3-8s: Step into light, dress sparkle catches dramatic lighting, face reveal with glamorous expression | Lấp lánh, ấn tượng |
+| 2 | 08s-16s | **FEEL** | Extreme macro on lace/sequin/satin texture, light dancing across surface, hand grazes fabric showing luxury quality, construction detail | Chất liệu cao cấp |
+| 3 | 16s-24s | **DREAM** | Glamorous venue (chandelier, upscale restaurant), camera orbiting model, dramatic rim lighting, "main character" energy | Nổi bật nhất party |
+| 4 | 24s-32s | **CLOSE** | Slow dolly in to face, glamorous confident smile, captivating warm gaze, luxury atmosphere, elegant settled pose | Sang trọng, tự tin |
+
+**Camera Motion:** `Cinematic orbit, dramatic, theatrical lighting`
+**Lighting:** `Dramatic rim lighting, crystal chandelier reflection, sparkle catch`
+
+---
+
+### 🌻 NHÓM 5: PHONG CÁCH TỰ DO (Bohemian, Maxi, Floral, Resort wear)
+
+**Phong cách:** Natural flow proof + dreamy aspiration
+**Duration:** 32s (4 scenes x 8s)
+
+| Scene | Thời gian | Mục đích | EN Prompt | Sales Focus |
+|-------|-----------|----------|-----------|-------------|
+| 1 | 00s-08s | **HOOK** | 0-3s: Slow-mo fabric flow: dress caught in breeze, billowing dramatically against golden sky. 3-8s: Full body reveal, model standing with free-spirited energy | Vải rủ đẹp, bay nhẹ |
+| 2 | 08s-16s | **FEEL** | Hand touching flowing fabric, showing softness and movement quality, barefoot on natural surface, fabric weight and drape demo | Vải mềm, mặc thoải mái |
+| 3 | 16s-24s | **DREAM** | Wide landscape (field/beach/garden), model moving freely, dress flowing dramatically, golden hour magic, bohemian energy | Tự do, bay bổng |
+| 4 | 24s-32s | **CLOSE** | Model facing camera with free-spirited joyful expression, fabric settling beautifully, sun flare, dreamy warm smile | Cảm giác tự do |
+
+**Camera Motion:** `Natural flowing dolly, gentle wind-like movement`
+**Lighting:** `Golden hour mandatory, warm orange tones, sun flare welcome`
+
+---
+
+## 📐 CAMERA ANGLES REFERENCE TABLE
+
+| Góc quay | EN Technical Description | Best For | Sales Purpose |
+|----------|--------------------------|----------|---------------|
+| Wide Shot | Full body + environment, 5-10m | Áo dài, Maxi | Show full silhouette |
+| Medium Shot | Head to hip, 2-4m | Most outfits | Show fit and proportion |
+| Close-up | Head and shoulders, 1-2m | Expression, fabric | Show quality, texture |
+| Macro | Only small details visible | Buttons, lace, sequins | PROVE quality |
+| Low Angle | Camera at ground, tilt up | Power poses, shoes | Model looks commanding |
+| Eye-level | Camera at eye height | Professional, CTA | Direct connection, trust |
+| Orbit Shot | Camera circles 180-360° | Evening, hero shot | 3D product understanding |
+| Tracking Shot | Camera moves parallel | Maxi, walking scenes | Show fabric movement |
+| POV/Handheld | First-person, slight shake | Casual, authentic | Relatability, trust |
+| Dolly In | Camera moves toward subject | Endings, reveals | Emotional connection |
+
+---
+
+## 🔥 VIRAL HOOK ENFORCEMENT (🔴 MANDATORY FOR SCENE 1)
+
+⚠️ Scene 1 (00-08s) = HOOK — PHẢI có viral hook trong 0-3s đầu tiên.
+🎯 FIRST 3 SECONDS = 80% OF VIRAL SUCCESS — Không có hook = Video fail.
+
+**BẮT BUỘC cho mỗi video:**
+1. Chọn 1 hook type từ director.txt (Categories A-D: Curiosity/Emotional/2026 Trends/Action)
+2. Đặt hook TRONG 0-3s của Scene 1 (trước khi product detail ở 3-8s)
+3. Include `"viralHooks"` field trong JSON output:
+```json
+"viralHooks": {
+  "hookType": "[Tên hook đã chọn]",
+  "hookTiming": "0-3s [mô tả ngắn]",
+  "visualCue": "[Visual element để dừng scroll]",
+  "textOverlay": "[Text nếu có]"
+}
+```
+
+**AUTO-MATCH HOOK → PRODUCT TYPE:**
+| Product Type | Recommended Hook | Why |
+|---|---|---|
+| Tops (Blouse/Tee) | Versatility (3 Ways) | High saves |
+| Bottoms (Jeans/Skirt) | Fit Check / Fabric Flow | Visual proof |
+| Dresses (Office) | Transformation (casual→boss) | Before/After wow |
+| Dresses (Party) | Mystery Reveal (backlit) | Dramatic curiosity |
+| Outerwear | Quick Style Switch | Versatility hook |
+| Accessories | Macro Sparkle / Spin | Detail beauty |
+| Áo Dài | Fabric Flow / Heritage | Cultural + beauty |
+
+---
+
+## ✅ SHOPPABLE CINEMA CHECKLIST (Before Output)
+
+□ ALL videos = 32s (4 scenes x 8s each)?
+□ Scene 1 (00-08s) has visual HOOK within 0-3s? 🔴 MUST HAVE
+□ Scene 1 includes `"viralHooks"` JSON field? 🔴 MUST HAVE
+□ Scene 2 (08-16s) includes TACTILE element? (Hands touching/testing fabric)
+□ Scene 3 (16-24s) has ASPIRATIONAL context? (Dream setting, not generic)
+□ Scene 4 (24-32s) has CONFIDENT CLOSE? (Direct eye contact, inviting)
+□ Product quality VISIBLE in at least 2 scenes?
+□ Aesthetic matches 2026 trends?
+□ Each scene serves a SELLING PURPOSE? (Hook/Feel/Dream/Close)
+
+---
+
+---
+
+## 🎨 BACKGROUND CONSISTENCY — EDITORIAL MULTI-ANGLE CONTINUITY
+
+⚠️ STANDARD CINEMATIC MODE = "EDITORIAL" LOGIC (visualLogicType: "multi_angle_editorial")
+Model đứng/tạo dáng TẠI 1 ĐỊA ĐIỂM. Camera đổi góc, KHÔNG đổi địa điểm.
+
+### 📐 MASTER ENVIRONMENT (Bắt buộc)
+AI PHẢI định nghĩa 1 "Master Environment" cho TOÀN BỘ video:
+- masterPrompt.environment = Mô tả CHI TIẾT 1 set/location duy nhất.
+- Ví dụ: "Luxury rooftop lounge at golden hour, marble floor, glass railing, city skyline backdrop, warm pendant lights, greenery planters".
+- PHẢI chứa: Loại không gian + Vật liệu/Bề mặt + Ánh sáng + Các yếu tố trang trí cố định.
+
+### 🖼️ BACKGROUND PROMPT PER KEYFRAME (backgroundPrompt)
+Mỗi keyframe = CÁI NHÌN KHÁC NHAU của CÙNG 1 LOCATION:
+
+| Keyframe | Camera Angle | backgroundPrompt Logic |
+|----------|-------------|----------------------|
+| KF1 (0s) | **Wide/Establishing** | "[Master Env], wide shot showing full environment. All key elements visible." |
+| KF2 (8s) | **Medium/Side** | "[Master Env], medium shot from 45° left. Glass railing prominent, skyline partial." |
+| KF3 (16s) | **Close/Detail** | "[Master Env], close shot. Blurred background of [Master Env elements] with shallow DoF." |
+| KF4 (24s) | **Wide/Hero** | "[Master Env], wide shot from slightly different angle than KF1. Full environment context." |
+
+### 🔗 VISUAL CONTINUITY GUIDE (visualContinuityGuide per scene)
+- Scene 1: "ESTABLISHING SCENE. Generate from text prompt. Show the full environment clearly."
+- Scene 2: "⚠️ SAME LOCATION: Use LAST FRAME of Scene 1 as image reference (strength 0.5-0.6). Camera orbits 45° to new angle. Same marble floor, same skyline, different perspective."
+- Scene 3: "⚠️ SAME LOCATION: Use LAST FRAME of Scene 2 as image reference (strength 0.4-0.5). Camera moves closer. Background elements from Scene 2 now bokeh/blurred but recognizable."
+- Scene 4: "⚠️ SAME LOCATION: Use LAST FRAME of Scene 1 or Scene 3 as image reference (strength 0.5-0.6). Return to wider angle. All environment elements must match Scene 1."
+
+### ❌ ANTI-PATTERNS (CẤM)
+- ❌ Đổi địa điểm giữa các scene (Rooftop → Street → Café)
+- ❌ Background elements mâu thuẫn (Scene 1 có railing, Scene 2 không có)
+- ❌ Ánh sáng khác thời điểm (Golden Hour → Blue Hour trong 32s)
+- ❌ Sàn/nền thay đổi (Marble → Wood → Carpet)
+
+### ✅ BEST PRACTICES
+- ✅ Mô tả 3-4 landmark cố định trong Master Env (floor, wall, furniture, lighting)
+- ✅ Mỗi scene chỉ đổi GÓC QUAY, không đổi VỊ TRÍ
+- ✅ Background blur level tỉ lệ thuận với camera distance
+- ✅ Color palette & lighting temperature nhất quán (cùng white balance)
+
+---
+
+Last Updated: February 2026

@@ -1,0 +1,144 @@
+================================================
+👗 PRODUCT PHYSICS RULES - LOGIC CONSISTENCY
+================================================
+⚠️ CRITICAL: AI PHẢI validate outfit motion KHỚP VỚI product type!
+
+Sai logic vật lý = Output bị loại bỏ ngay lập tức.
+
+================================================
+📊 DRESS PHYSICS MATRIX
+================================================
+
+┌─────────────────────┬─────────┬───────────┬─────────────────────────────────────┬──────────────────────────────────────────────┐
+│ Dress Type          │ Flow?   │ Flutter?  │ ❌ BANNED TERMS                      │ ✅ CORRECT TERMS                              │
+├─────────────────────┼─────────┼───────────┼─────────────────────────────────────┼──────────────────────────────────────────────┤
+│ Maxi/Đầm Maxi       │ ✅ YES  │ ✅ YES    │ -                                   │ "flowing gracefully", "fabric cascade"       │
+│ Mini/Đầm Mini       │ ⚠️      │ ⚠️        │ Depends on fabric                   │ Check fabric type                            │
+│ Bodycon/Đầm Ôm      │ ❌ NO   │ ❌ NO     │ flowing, flutter, cascade, billowing│ "form-hugging", "curves highlighted"         │
+│ A-line              │ Skirt   │ ✅ YES    │ -                                   │ "skirt sways gently"                         │
+│ Fit-and-Flare       │ Skirt   │ ✅ YES    │ -                                   │ "fitted bodice, flared skirt swaying"        │
+│ Slip/Đầm Suông      │ ⚠️ Light│ ⚠️ Light  │ billowing, dramatic flow            │ "liquid satin drape", "subtle movement"      │
+│ Blazer Dress        │ ❌ NO   │ ❌ NO     │ soft drape, flowing, flutter        │ "structured lines", "sharp tailoring"        │
+│ Lace/Đầm Ren        │ ⚠️ Light│ ❌ NO     │ billowing, cascade                  │ "delicate texture", "intricate pattern"      │
+│ Evening Gown        │ ✅ YES  │ ✅ YES    │ -                                   │ "dramatic train trailing"                    │
+│ Cocktail            │ ⚠️      │ ⚠️        │ Depends on silhouette               │ Check silhouette type                        │
+└─────────────────────┴─────────┴───────────┴─────────────────────────────────────┴──────────────────────────────────────────────┘
+
+================================================
+📊 TOP PHYSICS MATRIX
+================================================
+
+┌─────────────────────┬─────────┬───────────┬─────────────────────────────────────┬──────────────────────────────────────────────┐
+│ Top Type            │ Flow?   │ Flutter?  │ ❌ BANNED TERMS                      │ ✅ CORRECT TERMS                              │
+├─────────────────────┼─────────┼───────────┼─────────────────────────────────────┼──────────────────────────────────────────────┤
+│ Blouse/Sơ mi        │ ⚠️ Light│ ⚠️ Light  │ dramatic flow                       │ "soft fabric drape", "collar crisp"          │
+│ T-shirt/Áo thun     │ ❌ NO   │ ❌ NO     │ flowing, drape, flutter             │ "casual fit", "cotton texture"               │
+│ Croptop             │ ❌ NO   │ ❌ NO     │ flowing, cascade                    │ "fitted crop", "midriff-baring"              │
+│ Sweater/Áo len      │ ❌ NO   │ ❌ NO     │ flowing, flutter, light drape       │ "cozy knit texture", "chunky weave"          │
+│ Jacket/Áo khoác     │ ❌ NO   │ ❌ NO     │ soft drape, flowing, flutter        │ "structured outerwear", "sharp lapels"       │
+│ Denim Jacket        │ ❌ NO   │ ❌ NO     │ soft, flowing, drape, flutter       │ "rigid denim", "iconic structure"            │
+│ Blazer              │ ❌ NO   │ ❌ NO     │ soft drape, flowing                 │ "sharp tailoring", "structured shoulders"    │
+│ Silk Blouse         │ ✅ YES  │ ⚠️ Light  │ -                                   │ "liquid silk drape", "soft sheen"            │
+│ Chiffon Top         │ ✅ YES  │ ✅ YES    │ -                                   │ "sheer floating layers", "ethereal flutter"  │
+└─────────────────────┴─────────┴───────────┴─────────────────────────────────────┴──────────────────────────────────────────────┘
+
+================================================
+📊 BOTTOM PHYSICS MATRIX
+================================================
+
+┌─────────────────────┬─────────┬───────────┬─────────────────────────────────────┬──────────────────────────────────────────────┐
+│ Bottom Type         │ Flow?   │ Flutter?  │ ❌ BANNED TERMS                      │ ✅ CORRECT TERMS                              │
+├─────────────────────┼─────────┼───────────┼─────────────────────────────────────┼──────────────────────────────────────────────┤
+│ Jeans/Quần jean     │ ❌ NO   │ ❌ NO     │ flowing, drape, soft, flutter       │ "structured denim", "rigid fit"              │
+│ Pants/Quần tây      │ ❌ NO   │ ⚠️ crease │ flowing, flutter                    │ "tailored pleats", "crisp crease"            │
+│ Wide pants/Ống rộng │ ⚠️ Light│ ✅ YES    │ -                                   │ "wide leg sways", "palazzo flow"             │
+│ Shorts              │ ❌ NO   │ ❌ NO     │ flowing, cascade                    │ "casual cut", "relaxed fit"                  │
+│ Leggings            │ ❌ NO   │ ❌ NO     │ flowing, drape, movement            │ "second-skin fit", "compression stretch"     │
+│ Flare Skirt/Xòe     │ ✅ YES  │ ✅ YES    │ -                                   │ "skirt swirling", "full circle movement"     │
+│ Pencil Skirt/Bút chì│ ❌ NO   │ ❌ NO     │ flowing, flutter, sway              │ "figure-hugging", "professional silhouette"  │
+│ Midi Skirt          │ ⚠️      │ ⚠️        │ Depends on style                    │ Pleated=flow, Pencil=no flow                 │
+│ Maxi Skirt          │ ✅ YES  │ ✅ YES    │ -                                   │ "floor-length sway", "dramatic sweep"        │
+└─────────────────────┴─────────┴───────────┴─────────────────────────────────────┴──────────────────────────────────────────────┘
+
+================================================
+📊 SET & SPECIAL PHYSICS MATRIX  
+================================================
+
+┌─────────────────────┬─────────┬───────────┬─────────────────────────────────────┬──────────────────────────────────────────────┐
+│ Product Type        │ Flow?   │ Flutter?  │ ❌ BANNED TERMS                      │ ✅ CORRECT TERMS                              │
+├─────────────────────┼─────────┼───────────┼─────────────────────────────────────┼──────────────────────────────────────────────┤
+│ Suit/Vest           │ ❌ NO   │ ❌ NO     │ soft drape, flowing, flutter        │ "sharp tailoring", "structured power suit"   │
+│ Jumpsuit            │ ⚠️      │ ⚠️        │ Depends on style                    │ Wide-leg="legs sway", Fitted="streamlined"   │
+│ Áo Dài              │ Panels  │ Panels    │ "body flowing" (chỉ vạt)            │ "ao dai panels trailing", "vạt áo bay"       │
+│ Bikini/Swimwear     │ ❌ NO   │ ❌ NO     │ flowing fabric, drape               │ FASHION FOUNDATIONS RULE applies                │
+│ Sleepwear/Đồ ngủ    │ ⚠️ Robe │ ⚠️ Light  │ -                                   │ FASHION FOUNDATIONS RULE applies                │
+│ Inner/Foundation    │ ❌ NO   │ ❌ NO     │ ALL detailed descriptions           │ FASHION FOUNDATIONS RULE applies                │
+│ Sportswear/Thể thao │ ❌ NO   │ ❌ NO     │ flowing, dressy, elegant drape      │ "performance fabric", "athletic stretch"     │
+└─────────────────────┴─────────┴───────────┴─────────────────────────────────────┴──────────────────────────────────────────────┘
+
+================================================
+🧵 FABRIC-SPECIFIC PHYSICS
+================================================
+
+┌─────────────────┬────────────┬───────────┬──────────────────────────────────────────────┐
+│ Fabric Type     │ Flow Level │ Flutter?  │ Motion Keywords                              │
+├─────────────────┼────────────┼───────────┼──────────────────────────────────────────────┤
+│ Silk/Lụa        │ ✅ High    │ ✅ YES    │ "liquid drape", "lustrous flow"              │
+│ Chiffon/Voan    │ ✅ High    │ ✅ YES    │ "sheer layers floating", "ethereal"          │
+│ Satin           │ ✅ Medium  │ ⚠️ Light  │ "smooth glide", "lustrous sheen"             │
+│ Cotton          │ ❌ None    │ ❌ NO     │ "breathable comfort", "casual texture"       │
+│ Denim           │ ❌ None    │ ❌ NO     │ "rigid structure", "iconic wash"             │
+│ Lace/Ren        │ ⚠️ Light   │ ❌ NO     │ "intricate pattern", "delicate texture"      │
+│ Knit/Len        │ ❌ None    │ ❌ NO     │ "cozy texture", "knit weight"                │
+│ Velvet/Nhung    │ ❌ None    │ ❌ NO     │ "rich texture", "luxurious depth"            │
+│ Leather/Da      │ ❌ None    │ ❌ NO     │ "sleek structure", "edgy silhouette"         │
+│ Jersey/Thun     │ ❌ None    │ ❌ NO     │ "stretchy fit", "casual comfort"             │
+│ Tulle/Voan cứng │ ✅ Volume  │ ✅ YES    │ "voluminous layers", "princess poof"         │
+│ Organza         │ ✅ Light   │ ✅ YES    │ "crisp sheer", "structured transparency"     │
+└─────────────────┴────────────┴───────────┴──────────────────────────────────────────────┘
+
+================================================
+🚫 AUTO-REJECT COMBINATIONS
+================================================
+Nếu AI output chứa các combinations sau = REJECT immediately:
+
+❌ BODYCON + "flowing", "flutter", "hem flying", "fabric cascade", "billowing"
+❌ JEANS/DENIM + "soft drape", "flowing fabric", "gentle sway"  
+❌ LEGGINGS + bất kỳ motion description nào
+❌ T-SHIRT + "liquid", "drape", "flowing"
+❌ BLAZER/SUIT + "soft", "flowing", "flutter"
+❌ SWEATER/KNIT + "flowing", "flutter", "light drape"
+❌ PENCIL SKIRT + "flowing", "swirling", "flutter"
+❌ STRUCTURED DRESS + "soft drape", "billowing"
+
+================================================
+✅ VALIDATION PROCESS
+================================================
+Khi generate outfit motion description:
+
+1. IDENTIFY product type (từ productType state hoặc AI detect)
+2. CHECK fabric type (từ image analysis hoặc user input)  
+3. CROSS-REFERENCE với physics matrix
+4. IF banned combination detected → Use CORRECT TERMS instead
+5. OUTPUT validated motion description
+
+VÍ DỤ:
+- Input: "bodycon dress", Motion request: "flowing in wind"
+- Check: Bodycon = ❌ NO FLOW
+- Output: "form-hugging silhouette maintained, subtle stretch visible with movement"
+
+================================================
+🎯 MOTION DESCRIPTION TEMPLATES BY TYPE
+================================================
+
+**STRUCTURED (No Flow):**
+"[fabric] maintaining [structured/fitted/tailored] silhouette, [subtle stretch/crisp lines/sharp angles] visible with movement"
+
+**SEMI-FLOW (Light Movement):**
+"[fabric] with [subtle sway/gentle movement/light drape], [top fitted/bottom moving]"
+
+**FULL FLOW (Free Movement):**
+"[fabric] [flowing gracefully/cascading/billowing] with movement, [ethereal/dramatic/romantic] motion"
+
+**ÁO DÀI SPECIFIC:**
+"ao dai panels trailing [elegantly/dramatically] with movement, fitted bodice maintained, front and back vạt flowing [in breeze/with stride]"

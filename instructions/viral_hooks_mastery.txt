@@ -1,0 +1,448 @@
+================================================
+🎣 VIRAL HOOKS MASTERY — KỸ THUẬT GIỮ CHÂN NGƯỜI XEM VIDEO AFF
+================================================
+Tài liệu chuyên sâu về kỹ thuật hook giữ chân viewer cho affiliate video
+Cập nhật: 2026-06
+
+================================================
+🧠 TÂM LÝ HỌC HOOK — TẠI SAO NGƯỜI XEM DỪNG LẠI?
+================================================
+
+**5 NGUYÊN TẮC TÂM LÝ CỐT LÕI:**
+
+1. **CURIOSITY GAP (Khoảng trống tò mò)**
+   - Não bộ KHÔNG CHỊU ĐƯỢC thông tin thiếu hụt
+   - Khi thấy tiêu đề/hình ảnh gợi mở → PHẢI xem tiếp để hoàn thiện
+   - Ví dụ: Chỉ show lưng áo → viewer PHẢI xem tiếp để biết mặt trước
+   - Áp dụng: Hidden reveal, partial obscured product, "Wait for it"
+
+2. **PATTERN INTERRUPT (Phá vỡ mẫu cuộn)**
+   - Scroll feed = trạng thái "autopilot" vô thức
+   - Cần phá vỡ autopilot bằng: chuyển động đột ngột, âm thanh lạ, visual contrast
+   - Ví dụ: Tiếng slam bàn, wind catching dress, bright flash
+   - Áp dụng: Scene 1 mở bằng dramatic movement hoặc sound effect
+
+3. **LOSS AVERSION (Sợ mất cơ hội)**
+   - Tâm lý sợ mất > muốn được gấp 2 lần
+   - "Scroll qua = mất deal" → FOMO cực mạnh
+   - Ví dụ: "Chỉ còn 12 cái", "Giá này chỉ hôm nay"
+   - Áp dụng: Urgency overlay ngay giây 0-2
+
+4. **SOCIAL PROOF TRIGGER (Bằng chứng xã hội)**
+   - "12,000 người đã mua" → an toàn để follow
+   - Brain shortcut: "Nếu nhiều người mua = sản phẩm tốt"
+   - Ví dụ: Rating overlay, purchase counter, testimonial quote
+   - Áp dụng: Flash social proof trong 2s đầu
+
+5. **IDENTITY HOOK (Gắn vào bản sắc)**
+   - "Video này dành cho BẠN" → personal relevance
+   - Khán giả thấy chính mình trong nội dung → engagement cao
+   - Ví dụ: "Cho bạn nào size M-L", "Dành cho chị em công sở"
+   - Áp dụng: Target text overlay chỉ định đối tượng
+
+================================================
+⚡ 12 HOOK FORMULAS CHUYÊN SÂU (0-3 GIÂY)
+================================================
+
+**🔑 RULE: 2 giây đầu = QUYẾT ĐỊNH 80% viral success**
+TikTok data: Users decide to stay/scroll within 0.3-2 seconds.
+
+---
+
+**FORMULA 1: FLASH REVEAL (Tốc độ → Tò mò)**
+```
+Timing: 0-0.3s static → 0.3-1.5s flash reveal → 1.5-3s promise
+Visual: Sản phẩm xuất hiện flash → text overlay promise
+Audio: Impact SFX (whoosh, snap, bass drop)
+Text: "WAIT 👀" hoặc "ĐỪNG LƯỚT QUA ✋"
+Veo Prompt: "Product appears in frame with dramatic entrance, 
+  camera flash effect, editorial fashion photography"
+```
+- **Khi dùng:** Sản phẩm đẹp visual, có "wow" factor
+- **Expected retention 3s:** 85-92%
+
+---
+
+**FORMULA 2: PRICE ANCHOR SHOCK (Giá → Chú ý)**
+```
+Timing: 0-1s product shot → 1-2s price cross-out → 2-3s deal reveal
+Visual: Giá gốc 599K bị gạch → Giá deal 199K zoom in
+Audio: Cash register ching, or gasp SFX
+Text: "599K → 199K 🔥🔥🔥"
+Veo Prompt: "Close-up product shot with bright lighting, 
+  price overlay animation, affiliate marketing video"
+```
+- **Khi dùng:** Sản phẩm giá tốt, sale lớn, budget-friendly
+- **Expected retention 3s:** 88-95%
+
+---
+
+**FORMULA 3: IDENTITY CALLOUT (Gọi tên → Cá nhân)**
+```
+Timing: 0-1s bold text → 1-2s model reaction → 2-3s product tease
+Visual: Text lớn gọi tên target audience
+Audio: Friendly confident voice: "Ê bạn ơi!"
+Text: "CHỊ EM SIZE M-L ĐANG Ở ĐÂU? 🙋‍♀️"
+      "CHO BẠN NÀO ĐANG TÌM ÁO ĐI BIỂN 🌊"
+      "NẾU BẠN ĐANG CẦN ĐỒ CÔNG SỞ 👔"
+Veo Prompt: "Model facing camera with bright confident expression, 
+  direct eye contact, natural hand gesture, TikTok fashion video"
+```
+- **Khi dùng:** Sản phẩm niche, target audience rõ ràng
+- **Expected retention 3s:** 80-88% (relevant audience), 40% (non-target)
+
+---
+
+**FORMULA 4: CONTROVERSY SPARK (Tranh luận → Engagement)**
+```
+Timing: 0-1s bold statement → 1-3s defiant pose/proof
+Visual: Model tự tin mặc outfit, thách thức visual
+Audio: Confident tone with attitude
+Text: "AI NÓI NÀY CHỈ MẶC ĐẸP KHI GẦY? 🔥"
+      "99% KHÔNG BIẾT CÁCH MẶC NÀY ĐẸP"
+      "ĐỪNG MUA NẾU BẠN SỢ ĐƯỢC KHEN 💅"
+Veo Prompt: "Model walking forward with powerful confident stride, 
+  defiant expression, fashion campaign energy, editorial lighting"
+```
+- **Khi dùng:** Cần tạo comment engagement, body-positive content
+- **Expected retention 3s:** 82-90%, comment rate: 8-15%
+
+---
+
+**FORMULA 5: STORYTELLING IMMERSION (Câu chuyện → Kết nối)**
+```
+Timing: 0-1s scene setup → 1-2s situation text → 2-3s "what happens next"
+Visual: Relatable situation (getting ready, looking in mirror)
+Audio: Soft ambience, anticipation music
+Text: "SÁNG NAY DATE CÓ 30 PHÚT ĐỂ CHUẨN BỊ... 😱"
+      "POV: Bạn bè hỏi mặc gì đi party..."
+      "KHI BA MẸ BẠN NÓI LÊN THÀNH PHỐ DỰ TIỆC..."
+Veo Prompt: "Young woman looking at mirror with curious anticipation, 
+  natural bedroom lighting, POV style personal video"
+```
+- **Khi dùng:** Occasion wear, everyday fashion, relatable content
+- **Expected retention 3s:** 78-85%
+
+---
+
+**FORMULA 6: RAPID MONTAGE (Tốc độ → Không kịp cuộn)**
+```
+Timing: 3 outfit shots trong 3 giây (1s mỗi shot)
+Visual: Quick cuts giữa 3 angles/poses cùng 1 outfit
+Audio: Beat-synced music, mỗi cut = 1 beat
+Text: Không cần text — visual shock đủ mạnh
+Veo Prompt: "Fashion editorial quick transitions showing outfit 
+  from three angles, dynamic camera energy, beat-drop timing"
+```
+- **Khi dùng:** Outfit có nhiều angle đẹp, energetic products
+- **Expected retention 3s:** 85-92%, rewatch rate: 40%+
+
+---
+
+**FORMULA 7: EXPERT AUTHORITY (Chuyên gia → Tin tưởng)**
+```
+Timing: 0-1s authority assertion → 1-3s proof/advice
+Visual: Professional setup, confident presenter
+Audio: Clear authoritative voice
+Text: "STYLIST 10 NĂM KINH NGHIỆM CHIA SẺ 💡"
+      "FASHION BUYER NÓI THẬT VỀ SẢN PHẨM NÀY"
+      "3 LỖI MẶC MÀ 90% MẮC PHẢI 🚫"
+Veo Prompt: "Professional confident presenter facing camera, 
+  studio lighting, editorial authority, fashion expertise"
+```
+- **Khi dùng:** Educational content, trust-building, quality products
+- **Expected retention 3s:** 75-82%
+
+---
+
+**FORMULA 8: TRANSFORMATION TEASE (Before → After hứa hẹn)**
+```
+Timing: 0-1.5s "before" state → 1.5-3s transition tease
+Visual: Plain/casual look → quick flash of final glamorous look
+Audio: Build-up music → beat drop tease
+Text: "BEFORE 🫣 → AFTER ✨ (WAIT FOR IT)"
+Veo Prompt: "Woman in casual everyday outfit standing naturally, 
+  soft lighting, anticipation moment, fashion transformation video"
+```
+- **Khi dùng:** Sản phẩm có "wow" transformation, styling pieces
+- **Expected retention 3s:** 90-96% (highest retention formula!)
+
+---
+
+**FORMULA 9: MYSTERY BOX (Bí ẩn → Phải biết)**
+```
+Timing: 0-1s obscured product → 1-2s tease details → 2-3s partial reveal
+Visual: Product bọc vải, held behind back, blur, hoặc extreme close-up
+Audio: Suspense music, whisper voice
+Text: "SẢN PHẨM NÀY ĐANG HOT NHẤT TUẦN NÀY 🔥"
+      "UNBOX SẢN PHẨM BÍ ẨN 📦"
+Veo Prompt: "Hands holding wrapped product with anticipation, 
+  soft dramatic lighting, mystery unboxing video"
+```
+- **Khi dùng:** New arrivals, trending products, unboxing format
+- **Expected retention 3s:** 83-90%
+
+---
+
+**FORMULA 10: SOCIAL PROOF WALL (Đám đông → Tin)**
+```
+Timing: 0-1s review screenshots → 1-2s stats flash → 2-3s product reveal
+Visual: Montage reviews/ratings/purchase count → product
+Audio: Notification sounds (ting ting ting)
+Text: "⭐4.9/5 | 15,000+ ĐÃ MUA | SOLD OUT 3 LẦN"
+Veo Prompt: "Product center frame with bright professional lighting, 
+  rating overlay, social proof display, affiliate showcase"
+```
+- **Khi dùng:** Best sellers, products with good ratings
+- **Expected retention 3s:** 80-87%
+
+---
+
+**FORMULA 11: TIME PRESSURE (Cấp bách → Hành động)**
+```
+Timing: 0-0.5s alarm/countdown → 0.5-2s deal details → 2-3s product
+Visual: Countdown timer, flashing sale badge
+Audio: Alarm clock, urgency SFX
+Text: "⏰ CHỈ CÒN 2 GIỜ | GIẢM 50% HÔM NAY"
+      "🚨 FLASH SALE: KẾT THÚC LÚC 23:59 🚨"
+Veo Prompt: "Product showcase with urgent energy, bright promotional 
+  lighting, dynamic composition, limited time sale video"
+```
+- **Khi dùng:** Flash sales, limited deals, end-of-campaign
+- **Expected retention 3s:** 82-89%
+
+---
+
+**FORMULA 12: ASMR SENSORY (Giác quan → Sâu)**
+```
+Timing: 0-1s fabric sound/texture → 1-2s close-up detail → 2-3s full reveal
+Visual: Extreme close-up fabric texture, hand touching material
+Audio: ASMR fabric sounds (rustling silk, crisp cotton snap)
+Text: "CHẠM VÀO THỬ ĐI... 🤤" hoặc "NGHE NÈ 👂"
+Veo Prompt: "Extreme close-up of fabric texture, hand gently touching 
+  silk surface, ASMR quality, product detail macro shot"
+```
+- **Khi dùng:** Premium fabrics, quality products, sensory appeal
+- **Expected retention 3s:** 86-93%, rewatch rate: 35%+
+
+================================================
+🎯 HOOK SELECTION MATRIX — TỰ ĐỘNG CHỌN HOOK
+================================================
+
+| Sản phẩm | Giá | Nền tảng | Hook tốt nhất | Backup Hook |
+|-----------|-----|----------|---------------|-------------|
+| Váy dạ hội | >500K | TikTok | F8 Transformation | F1 Flash |
+| Áo thun basic | <200K | TikTok | F2 Price Shock | F6 Rapid |
+| Đồ công sở | 300-500K | FB Reels | F5 Storytelling | F7 Expert |
+| Bikini/Swimwear | Any | TikTok | F9 Mystery Box | F12 ASMR |
+| Áo dài | Any | Both | F8 Transformation | F5 Story |
+| Sportswear | <300K | TikTok | F4 Controversy | F6 Rapid |
+| Fashion Foundations | Any | FB Reels | F12 ASMR | F9 Mystery |
+| Trending item | Any | TikTok | F10 Social Proof | F11 Time |
+| Luxury/Premium | >1M | Both | F7 Expert | F12 ASMR |
+| Budget deal | <150K | TikTok | F2 Price Shock | F11 Time |
+
+================================================
+📈 RETENTION OPTIMIZATION — GIỮ CHÂN SAU HOOK
+================================================
+
+**NGUYÊN TẮC "3 PAYOFF PEAKS" — Vì sao viewer ở lại:**
+
+Sau hook 0-3s, viewer vẫn rời nếu KHÔNG CÓ payoff tiếp theo.
+Phải tạo 3 peaks engagement trong 1 video:
+
+```
+PEAK 1 (0-3s): HOOK — stop scroll ✋
+  ↓ build (3-8s)
+PEAK 2 (8s): FIRST PAYOFF — reward staying 🎁
+  ↓ build (8-16s)  
+PEAK 3 (16s): SECOND PAYOFF — bonus reward 🎁🎁
+  ↓ value (16-24s)
+ENDING (24s): SATISFACTION + CTA — memorable close 🌟
+```
+
+**PEAK 2 TECHNIQUES (8s mark):**
+- Beat drop + full outfit reveal (transformation)
+- Spin/turn showing all angles
+- Price reveal (nếu chưa show ở hook)
+- Fabric close-up dramatic
+- Before → After complete
+
+**PEAK 3 TECHNIQUES (16s mark):**
+- Unexpected detail (hidden pocket, reversible, etc.)
+- "But wait, there's more..." moment
+- Comparison shot (expensive brand vs this product)
+- Multiple styling options quick cut
+- Surprise bonus/gift reveal
+
+**ENDING TECHNIQUES (24s):**
+- Signature confident pose → freeze frame
+- Loop setup (last frame connects to first frame)
+- Direct eye contact + warm smile → CTA
+- Walk-away shot → clean end
+- Mirror reflection → natural ending
+
+================================================
+🔁 LOOP PSYCHOLOGY — TẠO VIDEO REWATCH
+================================================
+
+**Loop video = rewatch rate +50-80%**
+Algorithm gives MASSIVE boost to looped videos.
+
+**LOOP TECHNIQUE 1: VISUAL LOOP**
+- Last 1s = exact same angle/position as first 1s
+- Viewer doesn't realize video restarted → watches again
+- Best for: Spin/turn videos, walking videos
+
+**LOOP TECHNIQUE 2: AUDIO LOOP**
+- Last beat connects seamlessly to first beat
+- Music creates continuous feeling
+- Best for: Music-driven content, aesthetic videos
+
+**LOOP TECHNIQUE 3: STORY LOOP**
+- End with question → Beginning seems to answer it
+- Ex: End "Mà bạn thấy màu nào đẹp hơn?" → Start shows colors
+- Best for: Choice content, this-or-that
+
+**LOOP TECHNIQUE 4: FAST INFO LOOP**
+- Show 5 features rapid fire → too fast to catch all
+- Viewer auto-replays to catch missing info
+- Best for: Feature-rich products, comparison videos
+
+================================================
+📊 HOOK METRICS & KPIs
+================================================
+
+**ĐO LƯỜNG HIỆU QUẢ HOOK:**
+
+| Metric | Good | Great | Viral |
+|--------|------|-------|-------|
+| 3s retention | >70% | >80% | >90% |
+| Completion rate | >40% | >55% | >70% |
+| Rewatch rate | >15% | >30% | >50% |
+| Share rate | >1% | >3% | >5% |
+| Comment rate | >2% | >5% | >10% |
+| Save rate | >3% | >6% | >10% |
+
+**HOOK A/B TESTING:**
+- Luôn test 2-3 hooks cho cùng 1 sản phẩm
+- Chạy 48h → measure 3s retention
+- Kill hook có retention <70%
+- Scale hook có retention >85%
+- Đổi hook mỗi 7 ngày (audience fatigue)
+
+================================================
+🎬 VEO 3.1 HOOK IMPLEMENTATION
+================================================
+
+**KÍCH HOẠT HOOK TRONG VEO PROMPT:**
+
+Scene 1 luôn phải bao gồm:
+1. **Dramatic entrance element** (wind, movement, light change)
+2. **Immediate product visibility** (sản phẩm thấy ngay 0s)
+3. **Camera energy** (not static — slight zoom, push-in, or follow)
+4. **Context anchor** ("TikTok fashion video" / "affiliate showcase")
+
+**HOOK PROMPT VOCABULARY:**
+```
+ENTRANCE: "enters frame dramatically", "appears with confident stride",
+  "steps into spotlight", "emerges from shadow"
+ENERGY: "dynamic fashion moment", "high-impact entrance",
+  "magnetic first impression", "immediate visual impact"
+PRODUCT FOCUS: "outfit immediately visible", "product showcase prominence",
+  "garment catches light on first step", "fashion-forward first frame"
+CAMERA HOOK: "camera pushes in capturing attention",
+  "slight zoom toward subject creating intimacy",
+  "tracking shot following dynamic entrance"
+AUDIO CUE: "footstep impact sound", "fabric rustling entrance",
+  "confident heel click on surface", "ambient wind catching dress"
+```
+
+**HOOK SCENE TEMPLATE (Cho mỗi Formula):**
+```json
+{
+  "id": 1,
+  "timeRange": "0s-8s",
+  "shotType": "[Từ hook formula]",
+  "subjectMotion": "[VEO SAFE: dramatic entrance từ formula]",
+  "cameraMotion": "[Zoom/track/push-in energy]",
+  "atmosphere": "[Wind, light, drama elements]",
+  "hookFormula": "[F1-F12]",
+  "textOverlay": "[Vietnamese hook text]",
+  "audioDesign": "[SFX + music build description]",
+  "voiceConfig": {
+    "voice_profile": "Young confident Vietnamese female",
+    "vocal_tone": "Energetic, attention-grabbing, hook energy",
+    "opening_line": "[Script line chosen from formula]",
+    "sync": "Perfect lip-sync with high fidelity audio"
+  }
+}
+```
+
+================================================
+🇻🇳 HOOK LOCALIZATION — VIETNAMESE SPECIFICS
+================================================
+
+**VIETNAMESE HOOK PHRASES (Tested high-performing):**
+
+**Curiosity Hooks:**
+- "Ê DỪNG LẠI CÁI ĐÃ 👋"
+- "BẠN ƠI ĐỪNG LƯỚT! 🛑"
+- "ĐỢI ĐÃ, XEM THỬ CÁI NÀY 👀"
+- "CÁI NÀY ĐANG HOT LẮM NÈ 🔥"
+
+**Price Hooks:**
+- "GIÁ NÀY CÓ THẬT KHÔNG? 💸"
+- "RẺ QUÁ TRỜI RẺ LUÔN 😱"
+- "SALE SỐC! CHỈ CÒN [X]K 🔥"
+- "DƯỚI 200K MÀ ĐẸP NHƯ HÀNG TRIỆU 💎"
+
+**Identity Hooks:**
+- "CHO CHỊ EM NÀO [description] NÈ 🙋‍♀️"
+- "AI MÀ [situation] THÌ CẦN CÁI NÀY 🎯"
+- "DÀNH CHO BẠN NÀO ĐANG TÌM [product] 🔍"
+- "SIZE [X] LÊN ĐÂY NÈ MỌI NGƯỜI 📣"
+
+**Social Proof Hooks:**
+- "15,000 NGƯỜI ĐÃ MUA, BẠN CHƯA? 🛒"
+- "SẢN PHẨM BÁN CHẠY #1 TUẦN NÀY ⭐"
+- "SOLD OUT 3 LẦN, VỪA VỀ HÀNG 📦"
+- "REVIEW 5 SAO TỪ [X]K NGƯỜI DÙNG ⭐⭐⭐⭐⭐"
+
+**Urgency Hooks:**
+- "CHỈ CÒN [X] CÁI CUỐI! ⏰"
+- "FLASH SALE KẾT THÚC TRONG [X] GIỜ 🚨"
+- "LƯỢT CUỐI TRƯỚC KHI HẾT HÀNG 😢"
+- "ĐẶT NGAY KẺO HÔM SAU ĐỘI GIÁ 📈"
+
+================================================
+🔗 TÍCH HỢP VỚI HỆ THỐNG HIỆN TẠI
+================================================
+
+**SỬ DỤNG TRONG HỆ THỐNG:**
+
+1. **Affiliate Mode AUTO-SELECT hook** dựa trên:
+   - Product type → Hook Selection Matrix
+   - Price point → Price hook có hiệu quả?
+   - Target platform → TikTok vs Facebook optimization
+   - Audience temperature → Cold/Warm/Hot → hook intensity
+
+2. **Scene 1 ALWAYS implements chosen hook formula**
+   - Hook formula → subjectMotion + cameraMotion + textOverlay
+   - Audio design aligned with hook type
+   - First frame = thumbnail-worthy
+
+3. **Retention curve compliant:**
+   - Peak 1 at 0-3s (hook)
+   - Peak 2 at 8s (first payoff)
+   - Peak 3 at 16s (bonus payoff)
+   - Satisfying end at 24s
+
+4. **A/B variant support:**
+   - Generate 2-3 hook variants per product
+   - Same product + different hooks = test material
+   - Mark "hookFormula" in metadata for tracking
+
+================================================
+END OF DOCUMENT — VIRAL HOOKS MASTERY
+================================================

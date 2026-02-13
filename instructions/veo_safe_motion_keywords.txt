@@ -1,0 +1,827 @@
+================================================
+🎬 VEO 3.1 SAFE MOTION KEYWORDS — BỘ TỪ KHÓA CHUYỂN ĐỘNG AN TOÀN
+================================================
+Tài liệu tham chiếu cho prompt scene — Tránh vi phạm chính sách Google Veo 3.1
+Cập nhật: 2026-02-12
+
+================================================
+⚠️ NGUYÊN TẮC CỐT LÕI — VEO 3.1 SAFETY FILTERS
+================================================
+
+Google Veo 3.1 áp dụng safety filter tự động scan:
+1. Sexually explicit/suggestive content (nội dung gợi dục)
+2. Celebrity likeness detection (nhận diện người nổi tiếng)
+3. Child safety (bảo vệ trẻ em)
+4. Violence/harmful content (bạo lực/có hại)
+
+→ Trong fashion video, **trigger phổ biến nhất = #1**: Từ vựng chuyển động
+kết hợp với mô tả cơ thể bị AI safety hiểu nhầm là sexually suggestive.
+
+🔑 NGUYÊN TẮC VÀNG:
+- Dùng từ vựng EDITORIAL / CINEMATIC / TECHNICAL
+- Mô tả HÀNH ĐỘNG + MỤC ĐÍCH (fashion showcase) thay vì chỉ mô tả body motion
+- Luôn gắn context "fashion", "editorial", "catalog", "campaign"
+- Focus vào GARMENT MOVEMENT thay vì BODY MOVEMENT khi có thể
+- Dùng CAMERA TERMINOLOGY thay vì mô tả trực tiếp body
+
+================================================
+✅ VOCABULARY APPROACH — CHỈ DÙNG TỪ TÍCH CỰC
+================================================
+
+📌 NGUYÊN TẮC VÀNG: Chỉ mô tả những gì BẠN MUỐN THẤY.
+Không liệt kê từ cấm — safety filter phát hiện keyword bất kể ngữ cảnh.
+
+✅ MÔ TẢ CHUYỂN ĐỘNG LUÔN DÙNG:
+- "editorial confident movement", "professional model walk"
+- "graceful natural stride", "elegant purposeful movement"
+- "fashion runway energy", "poised sophisticated step"
+- "gentle natural sway", "fluid artistic movement"
+
+✅ MÔ TẢ BIỂU CẢM LUÔN DÙNG:
+- "confident subtle smile", "editorial neutral expression"
+- "mysterious quiet gaze", "serene composed look"
+- "playful natural expression", "contemplative soft focus"
+
+✅ MÔ TẢ CƠ THỂ QUA QUẦN ÁO:
+- "garment drapes naturally over frame" thay vì mô tả cơ thể trực tiếp
+- "fabric catches light on silhouette", "elegant garment movement"
+- "outfit flows with natural body movement"
+- Luôn liên kết body motion với garment/fashion context
+
+✅ TỪ AN TOÀN CHO "VIBE" THU HÚT:
+- "magnetic presence", "quiet allure", "captivating confidence"
+- "effortless elegance", "editorial mystique", "understated glamour"
+
+================================================
+✅ BỘ TỪ KHÓA CHUYỂN ĐỘNG AN TOÀN — PHÂN LOẠI THEO MỤC ĐÍCH
+================================================
+
+═══════════════════════════════════════════════════
+📍 CATEGORY 1: ĐI BỘ / WALKING (Phổ biến nhất)
+═══════════════════════════════════════════════════
+
+✅ SAFE — Casual Walking:
+- "walks at a relaxed pace"
+- "strolling casually along the street"
+- "leisurely walking through the scene"
+- "taking easy confident steps forward"
+- "walking naturally at a comfortable pace"
+- "gentle walking pace, arms swinging naturally"
+
+✅ SAFE — Confident Walking:
+- "walking forward with confident posture"
+- "striding purposefully into frame"
+- "approaching camera with editorial confidence"
+- "walking with poised, upright posture"
+- "measured confident steps, chin slightly raised"
+- "power walk with editorial energy"
+
+✅ SAFE — Fashion/Editorial Walking:
+- "editorial walk toward camera, fashion campaign style"
+- "runway-inspired walk with natural arm swing"
+- "catalog-style walk showcasing outfit drape"
+- "walking forward, garment fabric moving with each step"
+- "fashion editorial approach, outfit visible in motion"
+- "model walking naturally, dress responding to movement"
+
+✅ SAFE — Walk Direction Variants:
+- "walking left to right across frame"
+- "crossing the scene diagonally"
+- "walking toward camera from mid-distance"
+- "walking away from camera, looking over shoulder briefly"
+- "entering frame from the left, walking at steady pace"
+- "walking parallel to camera, profile visible"
+
+✅ WALKING — RECOMMENDED SAFE ALTERNATIVES:
+- "natural stride with relaxed hip movement"
+- "confident stride, outfit moving with body"
+- "walking with editorial poise"
+- "fashion runway walk, professional pace"
+
+═══════════════════════════════════════════════════
+📍 CATEGORY 2: XOAY NGƯỜI / TURNING
+═══════════════════════════════════════════════════
+
+✅ SAFE — Slow Turn:
+- "turning slowly to show outfit from all angles"
+- "gentle 180-degree rotation, showcasing garment"
+- "slow turn on the spot, dress fabric following"
+- "rotating gradually, outfit details revealed"
+- "turning to present back view of garment"
+- "completing a slow half-turn, fabric catching light"
+
+✅ SAFE — Quick Turn:
+- "sharp turn to face camera"
+- "snapping around to reveal front of outfit"
+- "quick directional change, outfit responding"
+- "pivoting to new angle, garment settling"
+
+✅ SAFE — Spin:
+- "full 360-degree spin, skirt expanding outward"
+- "twirling once on the spot, dress fabric fanning out"
+- "playful spin, garment creating circular motion"
+- "controlled rotation, showcasing full outfit silhouette"
+- "spinning joyfully, fabric billowing around figure"
+- "one complete turn, hem lifting with centrifugal motion"
+
+✅ SAFE — Over-shoulder:
+- "glancing over shoulder with slight torso rotation"
+- "turning head over shoulder, brief eye contact with camera"
+- "slight body rotation, looking back over shoulder"
+- "partial turn, chin toward shoulder, editorial glance"
+
+✅ TURNING — RECOMMENDED SAFE ALTERNATIVES:
+- "turning to showcase garment silhouette"
+- "spinning gracefully, skirt expanding"
+- "gentle torso rotation showing garment fit"
+
+═══════════════════════════════════════════════════
+📍 CATEGORY 3: DỪNG LẠI + POSE / STOPPING & POSING
+═══════════════════════════════════════════════════
+
+✅ SAFE — Stopping:
+- "coming to a natural stop"
+- "pausing mid-stride"
+- "settling into a standing position"
+- "slowing to a standstill, outfit settling"
+- "stopping naturally, fabric draping back into place"
+- "halting gently, arms coming to rest"
+
+✅ SAFE — Standing Pose:
+- "standing with weight shifted to one leg, relaxed posture"
+- "settling into a confident stance, hand resting on hip"
+- "standing tall with shoulders back, editorial posture"
+- "natural standing pose, arms at sides"
+- "classical contrapposto stance, one knee slightly bent"
+- "standing in three-quarter angle to camera"
+
+✅ SAFE — Fashion Pose:
+- "adjusting collar with one hand, editorial gesture"
+- "hand touching fabric at waist, showcasing drape quality"
+- "fingers tracing lapel of jacket, product-focused moment"
+- "arranging hair behind ear, natural candid gesture"
+- "resting hand on hip, other arm relaxed"
+- "crossing arms casually, confident editorial stance"
+
+✅ POSING — RECOMMENDED SAFE ALTERNATIVES:
+- "settling into a confident fashion pose"
+- "posing with editorial confidence"
+- "standing tall with slight natural spine curve"
+- "feet shoulder-width apart, confident stance"
+
+═══════════════════════════════════════════════════
+📍 CATEGORY 4: TAY / HAND & ARM MOVEMENTS
+═══════════════════════════════════════════════════
+
+✅ SAFE — Hair Interaction:
+- "tucking hair behind ear"
+- "running fingers through hair naturally"
+- "pushing hair back from face"
+- "lifting hair briefly, showcasing neckline detail"
+- "hair toss to the side, natural gesture"
+- "adjusting hair with both hands raised"
+
+✅ SAFE — Garment Interaction:
+- "smoothing fabric at waist"
+- "adjusting jacket lapel"
+- "touching sleeve cuff"
+- "fingertips brushing fabric surface"
+- "tugging hem downward slightly"
+- "buttoning or unbuttoning jacket"
+- "arranging dress strap on shoulder"
+- "flattening fabric wrinkle with palm"
+- "pulling collar up or adjusting neckline"
+
+✅ SAFE — Natural Gestures:
+- "hands resting at sides"
+- "arms crossing casually across midsection"
+- "one hand on hip, other arm relaxed"
+- "hands in pockets"
+- "wrist resting at waistband"
+- "arms behind back, relaxed posture"
+- "holding bag at side"
+
+✅ HANDS — RECOMMENDED SAFE ALTERNATIVES:
+- "hands smoothing garment fabric"
+- "adjusting outfit at waist and hip"
+- "adjusting neckline of garment"
+- "hands demonstrating fabric stretch"
+
+═══════════════════════════════════════════════════
+📍 CATEGORY 5: VẢI / FABRIC MOVEMENT
+═══════════════════════════════════════════════════
+
+✅ SAFE — Fabric Flow (Váy dài, maxi, chiffon):
+- "dress fabric flowing with walking motion"
+- "hem swaying gently with each step"
+- "skirt expanding during spin, fabric catching air"
+- "chiffon layers floating with natural breeze"
+- "fabric trailing behind during walk"
+- "dress rippling softly in wind"
+- "garment drape responding to body movement"
+- "silk catching light as fabric shifts"
+
+✅ SAFE — Fabric Interaction:
+- "hand lifting hem slightly to show shoe detail"
+- "fabric being pulled gently to demonstrate stretch"
+- "wind lifting fabric edge naturally"
+- "garment settling back into drape after turn"
+- "fabric texture visible as surface catches studio light"
+- "hand brushing fabric to show softness"
+
+✅ SAFE — Structured Garment:
+- "jacket maintaining clean lines during movement"
+- "blazer shoulders holding structure as model turns"
+- "crisp tailoring visible as garment responds to motion"
+- "denim retaining rigid silhouette during walk"
+- "structured dress keeping form as body moves"
+
+✅ FABRIC — RECOMMENDED SAFE ALTERNATIVES:
+- "fabric following body contour, showing garment fit"
+- "form-fitting garment highlighting tailored silhouette"
+- "light fabric with layered construction"
+- "shoulder strap shifting naturally, editorial moment"
+
+═══════════════════════════════════════════════════
+📍 CATEGORY 6: CAMERA MOVEMENT (Thay thế mô tả body)
+═══════════════════════════════════════════════════
+
+✅ SAFE — Dolly/Track:
+- "camera tracking alongside subject at walking pace"
+- "slow dolly push-in from medium to close-up"
+- "steady tracking shot following subject movement"
+- "dolly pull-back revealing full outfit"
+- "parallel tracking shot at eye level"
+- "camera gliding forward toward stationary subject"
+
+✅ SAFE — Pan/Tilt:
+- "slow pan from left to right following subject"
+- "gentle tilt up from shoes to face"
+- "camera panning to follow walking direction"
+- "upward tilt revealing full garment from hem to neckline"
+- "horizontal pan capturing walking motion"
+
+✅ SAFE — Orbit/Rotate:
+- "camera orbiting slowly around standing subject"
+- "slow 90-degree orbit revealing outfit from multiple angles"
+- "circular camera movement around centered subject"
+- "camera rotating around subject, garment visible from all sides"
+
+✅ SAFE — Static + Zoom:
+- "static camera, subject walking into frame"
+- "locked-off wide shot, subject enters from left"
+- "slow zoom-in on face for emotional connection"
+- "gradual zoom-out revealing full scene and outfit"
+- "static camera with subject performing action in frame"
+
+✅ SAFE — POV/Specialty:
+- "point-of-view mirror reflection shot"
+- "over-shoulder framing through mirror"
+- "low angle shot looking upward at subject"
+- "eye-level medium shot"
+- "high angle looking down on walking path"
+- "drone-style descending shot"
+
+═══════════════════════════════════════════════════
+📍 CATEGORY 7: BIỂU CẢM / FACIAL EXPRESSION + GAZE
+═══════════════════════════════════════════════════
+
+✅ SAFE:
+- "confident direct gaze at camera"
+- "warm genuine smile"
+- "relaxed natural expression"
+- "pleased expression, looking at outfit"
+- "surprised recognition, subtle smile forming"
+- "soft gaze, content demeanor"
+- "editorial neutral expression"
+- "friendly approachable look"
+- "poised confident expression"
+- "curious glance at reflection"
+- "joyful expression during spin"
+- "satisfied nod of approval"
+
+✅ EXPRESSION — RECOMMENDED SAFE ALTERNATIVES:
+- "soft warm gaze"
+- "confident knowing expression"
+- "subtle confident smile"
+- "slight knowing smile"
+- "relaxed open expression"
+- "direct confident eye contact"
+- "inviting warm expression"
+- "soft gentle gaze, relaxed expression"
+
+═══════════════════════════════════════════════════
+📍 CATEGORY 8: VEO 3.1 CONTEXT ANCHORS (Luôn thêm vào prompt)
+═══════════════════════════════════════════════════
+
+🔑 CONTEXT ANCHORS giúp safety filter hiểu đây là fashion content:
+
+✅ Luôn bao gồm ÍT NHẤT 1 anchor trong mỗi scene prompt:
+
+ANCHOR TYPE 1 — Purpose Declaration:
+- "fashion editorial video"
+- "product showcase scene"
+- "clothing catalog filming"
+- "fashion campaign footage"
+- "TikTok affiliate product video"
+- "commercial fashion photography in motion"
+
+ANCHOR TYPE 2 — Professional Context:
+- "professional model presenting garment"
+- "editorial fashion shoot"
+- "studio fashion filming"
+- "high-end fashion campaign production"
+- "fashion lookbook video"
+
+ANCHOR TYPE 3 — Garment Focus:
+- "showcasing [garment type] design and fit"
+- "demonstrating fabric quality and drape"
+- "presenting outfit from multiple angles"
+- "product detail visibility maintained"
+- "garment as primary focus of composition"
+
+═══════════════════════════════════════════════════
+📍 CATEGORY 9: FASHION FOUNDATIONS SAFE MOTION
+═════════════════════════════════════════════════
+
+⚠️ Fashion foundations / Swimwear cần cẩn thận NHẤT với safety filter!
+
+✅ SAFE MOTION cho Fashion Foundations:
+- "model adjusting garment strap with one hand, natural dressing-room gesture"
+- "gentle torso rotation showing garment construction"
+- "walking forward confidently, product catalog approach"
+- "standing in classical contrapposto, fashion catalog posture"
+- "seated editorial pose, professional catalog photography"
+- "model lifting hair to showcase neckline/back design"
+
+✅ SAFE CAMERA cho Fashion Foundations:
+- "medium-wide catalog framing, clean studio background"
+- "product-focused composition, professional lighting"
+- "editorial fashion photography, not suggestive"
+- "mannequin-style presentation, clinical product view"
+- "fashion catalog aesthetic, professional studio setup"
+
+❌ TUYỆT ĐỐI KHÔNG DÙNG cho Fashion Foundations:
+- Bất kỳ từ nào trong BLACKLIST ở trên
+- Low angle looking up (suggestive angle)
+- Extreme close-up on body parts
+- Slow pan up body without garment focus context
+- Any reclining/lying pose without "editorial" context anchor
+- Focus on body without "garment fit demonstration" context
+
+═══════════════════════════════════════════════════
+📍 CATEGORY 10: SPORTSWEAR SAFE MOTION
+═══════════════════════════════════════════════════
+
+✅ SAFE (Fashion showcase):
+- "standing confidently, athletic outfit visible"
+- "casual walking in urban setting"
+- "leaning against wall, street style pose"
+- "sitting on steps casually, legs extended"
+- "turning to show outfit from behind"
+- "adjusting jacket zipper"
+
+❌ KHÔNG DÙNG (Exercise = trigger filter khác):
+- Bất kỳ yoga pose nào (downward dog, warrior, tree...)
+- Bất kỳ exercise move (squat, lunge, plank...)
+- Gym/fitness context (treadmill, weights, mat...)
+- Running/jogging motion
+- Stretching/flexibility demonstration
+
+================================================
+📋 VEO 3.1 SCENE PROMPT TEMPLATE — AN TOÀN
+================================================
+
+**TEMPLATE CHUẨN:**
+```
+[CONTEXT ANCHOR]. [CAMERA POSITION + LENS].
+[SUBJECT DESCRIPTION wearing GARMENT DESCRIPTION].
+[SUBJECT ACTION/MOTION — dùng safe keywords].
+[CAMERA MOTION].
+[GARMENT RESPONSE to movement].
+[LIGHTING + ATMOSPHERE].
+[EXPRESSION].
+```
+
+**VÍ DỤ 1 — Walking Scene:**
+```
+Fashion editorial video. Medium-wide tracking shot, 85mm lens.
+Young woman wearing flowing emerald silk maxi dress walks forward
+at relaxed pace along sunlit cobblestone path. Camera tracking
+alongside at walking speed. Dress fabric trailing and swaying
+gently with each step, hem catching golden light. Warm golden
+hour lighting, soft rim light. Confident warm expression with
+slight smile.
+```
+
+**VÍ DỤ 2 — Turn/Spin Scene:**
+```
+Fashion campaign footage. Static wide shot, 50mm lens.
+Young woman in structured red blazer dress stops walking and
+completes a slow 360-degree turn on the spot, showcasing garment
+from all angles. Camera static at eye level. Dress maintaining
+clean tailored silhouette through rotation, fabric settling as
+turn completes. Studio softbox lighting at 5600K. Satisfied
+expression, direct eye contact on completion.
+```
+
+**VÍ DỤ 3 — Detail/Fabric Scene:**
+```
+Product showcase scene. Medium close-up, 100mm macro feel.
+Young woman standing still, hand gently smoothing silk fabric
+at waist, fingers demonstrating drape quality. Camera slow
+dolly push-in from waist to shoulder level. Fabric catching
+light with subtle sheen as hand passes. Soft diffused key
+light. Focused expression looking at fabric, then up to camera
+with pleased smile.
+```
+
+**VÍ DỤ 4 — Fashion Foundations Scene:**
+```
+Professional fashion catalog photography. Medium shot, clean studio.
+Model in classical contrapposto stance wearing lace coordinate set,
+adjusting shoulder strap with one hand in natural dressing-room
+gesture. Camera static at eye level, product-focused composition.
+Garment construction details visible under professional studio
+lighting. Confident editorial neutral expression.
+```
+
+**VÍ DỤ 5 — Hook Scene (TikTok Style):**
+```
+TikTok fashion video. Full body shot, 35mm wide angle.
+Young woman enters frame from left, walking with confident
+purposeful stride in black cocktail dress. Camera locked-off
+static. Wind catching hair and dress fabric at mid-step,
+creating dynamic fashion moment. Urban golden hour backlight.
+Direct magnetic eye contact with camera, confident expression.
+```
+
+================================================
+🔄 CHUYỂN ĐỔI TỪ NGUY HIỂM → AN TOÀN (QUICK REFERENCE)
+================================================
+
+✅ SAFE MOTION VOCABULARY — QUICK REFERENCE (Luôn dùng thay thế)
+
+| # | ✅ SAFE (Dùng) |
+|---|----------------|
+| 1 | "model walks with natural relaxed stride" |
+| 2 | "camera tilts up from shoes to face, showcasing outfit fit" |
+| 3 | "standing tall with natural spine alignment, garment silhouette visible" |
+| 4 | "hands smoothing garment fabric, demonstrating drape quality" |
+| 5 | "joyful 360-degree spin, dress fabric expanding outward" |
+| 6 | "subtle confident smile, direct eye contact" |
+| 7 | "seated on upholstered bench, editorial catalog posture, studio lighting" |
+| 8 | "light fabric following body contour, showcasing tailored fit" |
+| 9 | "sliding jacket off shoulders, revealing outfit underneath, fashion campaign transition" |
+| 10 | "close-up neckline detail showing garment construction and fabric quality" |
+| 11 | "model adjusting posture, settling into confident stance" |
+| 12 | "gentle weight shift, garment fabric responding naturally" |
+| 13 | "showing garment design details from new angle" |
+| 14 | "feet shoulder-width apart, confident standing position" |
+| 15 | "hand resting on knee, relaxed seated posture" |
+| 16 | "walking confidently forward toward camera" |
+| 17 | "clean studio environment, soft warm lighting" |
+| 18 | "subtle highlight from rim lighting on skin" |
+| 19 | "soft ambient music, gentle wind sound" |
+| 20 | "adjusting garment closure, styling demonstration" |
+
+================================================
+🧠 VEO 3.1 PROMPT ENGINEERING TIPS
+================================================
+
+1. **GARMENT FIRST, BODY SECOND:**
+   ✅ "Silk dress flowing with walking motion, highlighting drape quality"
+
+2. **ACTION + PURPOSE:**
+   ✅ "Turning to showcase garment from back angle"
+
+3. **CAMERA DESCRIBES MOTION:**
+   ✅ "Camera tilts upward from hem to neckline, revealing outfit details"
+
+4. **CONTEXT ANCHOR MỖI SCENE:**
+   Luôn bắt đầu hoặc kết thúc scene prompt với:
+   "fashion editorial" / "product showcase" / "catalog photography"
+
+5. **NEGATIVE PROMPT HỖ TRỢ:**
+   Dùng negativePrompt API parameter (tách riêng, không nhúng vào prompt chính):
+   "blurry, deformed, low quality, amateur, distorted proportions"
+
+6. **EXPRESSION VOCABULARY:**
+   LUÔN DÙNG: confident, warm, genuine, poised, editorial, professional
+   LUÔN DÙNG: serene, contemplative, joyful, mysterious, commanding
+
+7. **LIGHTING AS SAFETY SIGNAL:**
+   "Professional studio lighting" / "editorial fashion lighting"
+   → Báo hiệu cho AI đây là professional content
+
+================================================
+📊 MOTION INTENSITY SCALE (Cho từng loại scene)
+================================================
+
+| Scene Type | Motion Level | Safe Keywords Pool |
+|------------|-------------|-------------------|
+| Hook (0-3s) | HIGH energy | "enters frame", "dramatic approach", "wind catching", "confident stride" |
+| Hook Build (3-8s) | MEDIUM-HIGH | "walking forward", "approaching camera", "settling into frame" |
+| Feel/Detail (8-16s) | LOW | "standing still", "hands interacting with fabric", "slight turn" |
+| Dream/Aspire (16-24s) | MEDIUM | "slow spin", "gentle walking", "hair toss", "orbit camera" |
+| Close/CTA (24-32s) | LOW-MEDIUM | "settling into pose", "direct eye contact", "confident standing" |
+
+================================================
+🔗 TÍCH HỢP VỚI HỆ THỐNG HIỆN TẠI
+================================================
+
+KHI DÙNG TRONG subjectMotion (schema.ts):
+- LUÔN dùng từ khóa từ bộ SAFE ở trên
+- Kết hợp ACTION + GARMENT RESPONSE
+- Ví dụ: "Walking forward at steady pace, silk dress fabric trailing with each step"
+
+KHI DÙNG TRONG cameraMotion (schema.ts):
+- Dùng CAMERA MOVEMENT keywords từ Category 6
+- Ví dụ: "Slow tracking shot at eye level following walking direction"
+
+KHI DÙNG TRONG atmosphere (schema.ts):
+- Thêm CONTEXT ANCHOR từ Category 8
+- Ví dụ: "Fashion editorial atmosphere, golden hour warmth, professional production quality"
+
+KHI DÙNG VỚI MARKETING INTIMATE SCENES:
+- BẮT BUỘC dùng Category 9 keywords
+- BẮT BUỘC thêm "catalog photography" / "editorial" anchor
+- KHÔNG BAO GIỜ dùng từ trong BLACKLIST
+
+KHI DÙNG VỚI SPORTSWEAR:
+- BẮT BUỘC dùng Category 10 keywords
+- Focus "fashion showcase" KHÔNG "fitness/exercise"
+
+================================================
+📍 CATEGORY 11: CHUYỂN ĐỘNG TỰ NHIÊN NHƯ NGƯỜI THẬT — NATURAL HUMAN-LIKE MOTION
+================================================
+
+⚠️ CRITICAL: Veo 3.1 dễ tạo motion "AI feel" — cần kỹ thuật đặc biệt để
+chuyển động trông tự nhiên, thật, sống động.
+
+🔑 NGUYÊN TẮC: Người thật KHÔNG BAO GIỜ chuyển động hoàn hảo.
+Sự "không hoàn hảo có kiểm soát" = tự nhiên.
+
+═══════════════════════════════════════════════════
+📍 11A: MICRO-MOVEMENTS (Vi chuyển động — Chìa khóa tự nhiên)
+═══════════════════════════════════════════════════
+
+AI video thường thiếu micro-movements → trông mannequin/robot.
+LUÔN thêm ít nhất 2-3 micro-movements vào mỗi scene.
+
+✅ SAFE — Breathing (Hơi thở có thể nhìn thấy):
+- "subtle chest rise and fall with natural breathing"
+- "gentle torso micro-movement from natural breathing rhythm"
+- "slight shoulder rise during inhale, natural quiet breathing"
+- "breathing visible in ribcage area, relaxed natural pace"
+
+✅ SAFE — Weight Shifting (Dồn trọng lượng):
+- "subtle weight shift from left to right foot while standing"
+- "gentle hip sway as weight transfers between feet naturally"
+- "slight postural adjustment while waiting"
+- "natural standing sway, not perfectly still"
+- "micro weight transfer creating lifelike standing motion"
+
+✅ SAFE — Balance Micro-Adjustments:
+- "tiny balance corrections while standing on one foot"
+- "slight ankle flex maintaining balance naturally"
+- "subtle knee bend adjustment for comfort"
+- "natural body micro-sway maintaining center of gravity"
+
+✅ SAFE — Idle Fidgeting (Cử chỉ vô thức khi đứng bình thường):
+- "fingers lightly tapping against thigh"
+- "thumb brushing against index finger naturally"
+- "slight head tilt adjustment"
+- "blinking at natural intervals, 3-5 second rhythm"
+- "subtle lip movement as if thinking"
+- "jaw micro-relaxation, natural resting expression shift"
+
+═══════════════════════════════════════════════════
+📍 11B: REALISTIC WALKING PHYSICS (Vật lý đi bộ thật)
+═══════════════════════════════════════════════════
+
+Người thật khi đi bộ có NHIỀU chuyển động liên kết:
+- Heel → toe transfer (gót → mũi chân)
+- Opposite arm swing (tay ngược với chân)
+- Head bob (nhẹ nhàng lên xuống)
+- Shoulder rotation (xoay vai nhẹ theo bước)
+- Hip drop (hông hơi nghiêng)
+
+✅ SAFE — Natural Gait Description:
+- "walking with natural heel-to-toe stride, arms swinging opposite to legs"
+- "each step creates subtle shoulder rotation and natural head bob"
+- "walking with relaxed gait, slight hip movement synchronized with stride"
+- "natural walking pace with organic arm swing and gentle torso rotation"
+- "realistic walking motion showing weight transfer from heel to toe"
+- "walking forward with body mechanics showing natural interconnected movement"
+
+✅ SAFE — Speed Variation (Người thật không đi với tốc độ robot):
+- "walks starting slow, gradually reaching comfortable pace"
+- "walking pace naturally varies, not mechanical"
+- "approaching with gradually slowing steps"
+- "stride length adjusts naturally to surface"
+
+✅ SAFE — Starting/Stopping (Khởi đầu/dừng lại không đột ngột):
+- "begins walking with initial momentum building, not instant full speed"
+- "coming to gradual stop with deceleration, body settling forward slightly"
+- "natural walk initiation with first half-step, building to full stride"
+- "stopping with natural forward momentum, body adjusting to stillness"
+
+═══════════════════════════════════════════════════
+📍 11C: ORGANIC TRANSITIONS (Chuyển tiếp tự nhiên giữa poses)
+═══════════════════════════════════════════════════
+
+Người thật KHÔNG "snap" từ pose A sang pose B.
+Luôn có giai đoạn transition mượt mà.
+
+✅ SAFE — Between Poses:
+- "transitioning smoothly from walking to standing, body gradually settling"
+- "naturally shifting from front-facing to three-quarter angle"
+- "easing into new pose with gradual weight redistribution"
+- "flowing from one position to next with organic momentum"
+- "adjusting stance with natural body realignment, not snapping to pose"
+
+✅ SAFE — Walk to Pose:
+- "arriving at mark with gradual deceleration, settling into confident stance"
+- "walking slows to controlled stop, body weight centering, arms finding resting position"
+- "final steps transitioning into stationary pose organically"
+- "momentum from walk carrying into gentle final position adjustment"
+
+✅ SAFE — Pose to Walk:
+- "initiating walk from standing with natural forward lean and first step"
+- "breaking from pose with organic momentum beginning"
+- "shifting weight forward naturally, first step leading into confident stride"
+
+═══════════════════════════════════════════════════
+📍 11D: ENVIRONMENTAL INTERACTION (Tương tác môi trường)
+═══════════════════════════════════════════════════
+
+Người thật phản ứng với môi trường xung quanh.
+Thêm environmental reactions → tự nhiên hơn rất nhiều.
+
+✅ SAFE — Wind Response:
+- "hair lifting and settling with passing breeze, model slightly squinting"
+- "fabric responding to wind while model adjusts posture naturally"
+- "gentle wind catching dress fabric, model's hand instinctively touching hem"
+- "breeze playing with loose strands of hair, natural face reaction"
+
+✅ SAFE — Light Response:
+- "eyes naturally adjusting to bright sunlight, slight squint then relaxing"
+- "turning face toward warm golden light with appreciative expression"
+- "shadow crossing face as cloud passes, subtle expression change"
+
+✅ SAFE — Surface Awareness:
+- "walking with awareness of cobblestone surface, slightly careful steps"
+- "heel clicking on marble floor with each confident step"
+- "feet adjusting to soft grass surface, slightly more careful stride"
+- "walking on smooth surface with confident even stride"
+
+✅ SAFE — Temperature/Comfort:
+- "pulling jacket closer in cool air, natural comfort gesture"
+- "fanning fabric away from skin in warm atmosphere, casual cooling gesture"
+- "adjusting collar for comfort in warm setting"
+
+═══════════════════════════════════════════════════
+📍 11E: EYE BEHAVIOR (Hành vi mắt — Quan trọng nhất!)
+═══════════════════════════════════════════════════
+
+⚠️ MẮT = yếu tố quyết định "thật vs AI"!
+AI video thường có "dead eyes" hoặc "stare" liên tục.
+Người thật: mắt LUÔN di chuyển, chớp, focus thay đổi.
+
+✅ SAFE — Natural Eye Movement:
+- "eyes making brief natural movements, not locked in stare"
+- "gaze shifting from camera to side and back naturally"
+- "looking at camera with natural blinking rhythm every 3-4 seconds"
+- "eyes tracking movement of own hand adjusting garment"
+- "brief glance down at outfit then back to camera with satisfaction"
+- "natural eye contact with camera, breaking gaze momentarily then returning"
+
+✅ SAFE — Blink Patterns:
+- "blinking naturally at relaxed intervals"
+- "occasional double-blink during speaking"
+- "eyes closing briefly during genuine smile"
+
+✅ SAFE — Focus Changes:
+- "eyes refocusing from distant point to camera, natural depth shift"
+- "gaze dropping to product in hands then lifting to camera"
+- "looking at mirror reflection then turning to face camera directly"
+- "brief unfocused moment before sharp eye contact, natural attentiveness"
+
+═══════════════════════════════════════════════════
+📍 11F: IMPERFECTION MARKERS (Dấu hiệu "không hoàn hảo" = tự nhiên)
+═══════════════════════════════════════════════════
+
+Thêm "controlled imperfections" giúp video realistic hơn 200%.
+
+✅ SAFE — Hair Imperfections (Tóc không hoàn hảo):
+- "stray hair strand catching light, falling naturally across face"
+- "wind-tousled hair adding natural movement and imperfection"
+- "one strand of hair shifting position between movements"
+- "hair settling naturally after head turn, not perfectly arranged"
+
+✅ SAFE — Garment Imperfections:
+- "fabric wrinkle smoothing out during movement, natural textile behavior"
+- "dress strap shifting slightly, adjusted with casual hand gesture"
+- "hem settling unevenly after spin, natural fabric physics"
+- "collar sitting slightly asymmetric, authentic real-world detail"
+
+✅ SAFE — Motion Imperfections:
+- "slight stumble catch during walk transition, recovered gracefully"
+- "not-quite-centered stop, adjusting position with small sidestep"
+- "head angle slightly tilted, natural asymmetric posture"
+- "one shoulder naturally higher than other, relaxed posture"
+
+═══════════════════════════════════════════════════
+📍 11G: VEO 3.1 NATURAL MOTION PROMPT TEMPLATES
+═══════════════════════════════════════════════════
+
+**TEMPLATE — Highly Realistic Walking Scene:**
+```
+Fashion editorial video. Medium tracking shot, 85mm lens.
+Young woman walks forward with natural heel-to-toe stride,
+arms swinging gently opposite to legs, subtle shoulder rotation
+with each step. Natural breathing visible, blinking at relaxed
+intervals. Breeze catches hair and dress fabric. Walking pace
+varies naturally, not mechanical. Garment fabric responding to
+each step with authentic physics. Warm golden hour lighting.
+Natural genuine expression with occasional glance away from 
+camera then returning with warm smile.
+```
+
+**TEMPLATE — Realistic Standing/Posing:**
+```
+Product showcase scene. Medium shot, studio lighting.
+Young woman standing with natural weight shifted to right leg,
+subtle breathing movement visible, occasional micro-sway.
+Eyes making natural movements — camera contact, brief glance down
+at outfit, back to camera. Fingers making subtle adjustments to
+fabric at waist. Natural blinking rhythm. Controlled imperfection
+in posture — one shoulder slightly higher, head tilted naturally.
+Professional fashion photography with lifelike presence.
+```
+
+**TEMPLATE — Natural Transition (Walk → Stop → Pose):**
+```
+Fashion campaign footage. Wide to medium shot transition.
+Young woman approaches from mid-distance with natural gait,
+body mechanics showing interconnected movement. Gradually
+decelerates with natural momentum, body settling forward slightly
+before centering weight. Settles into relaxed stance with
+organic weight redistribution. Hand rises naturally to adjust
+hair, eyes finding camera with genuine warmth. Subtle weight
+shift to other foot after settling. Natural breathing maintains
+lifelike quality throughout transition.
+```
+
+================================================
+📍 CATEGORY 12: VEO 3.1 ADVANCED PROMPT ENGINEERING — NÂNG CAO
+================================================
+
+**NEW INSIGHTS TỪ VEO 3.1 DOCUMENTATION:**
+
+**1. MORE DETAIL = BETTER RESULTS:**
+Veo 3.1 responds dramatically better to detailed prompts.
+Prompt 2 dòng → generic output.
+Prompt 8-10 dòng chi tiết → cinematic output.
+
+→ LUÔN viết scene prompt TỐI THIỂU 5 dòng mô tả.
+
+**2. PROMPT ELEMENTS (QUAN TRỌNG - từ Google docs):**
+Mỗi prompt scene NÊN có ĐỦ 7 yếu tố:
+1. Subject: Mô tả chủ thể chi tiết
+2. Action: Hành động cụ thể
+3. Style: Phong cách visual (cinematic, editorial, etc.)
+4. Camera positioning: Vị trí camera + lens
+5. Composition: Cách bố cục frame
+6. Focus/lens effects: Bokeh, depth of field, etc.
+7. Ambiance: Không khí, mood, atmosphere
+
+**3. AUDIO PROMPTING (MỚI):**
+Veo 3.1 tạo audio gốc — phải mô tả rõ:
+- Dialogue: Đặt trong ngoặc kép "Câu nói"
+- SFX: Mô tả cụ thể "footsteps on marble, fabric rustling"
+- Ambient: "Soft background music, room tone"
+
+**4. NEGATIVE PROMPTS (MỚI):**
+Dùng negativePrompt parameter (TÁCH RIÊNG khỏi prompt chính):
+- KHÔNG dùng "no" hoặc "don't" trong negative prompt
+- Mô tả trực tiếp CÁI KHÔNG MUỐN:
+  ✅ "cartoon, drawing, low quality, blurry, deformed"
+  ❌ "No cartoon, don't make it blurry"
+
+**5. REFERENCE IMAGES (MỚI):**
+Veo 3.1 hỗ trợ tối đa 3 reference images.
+- Subject consistency across scenes
+- Style reference for mood/aesthetic
+- Product reference for detail preservation
+
+**6. VIDEO EXTENSION (MỚI):**
+Có thể nối video lên đến 148 giây.
+- Dùng cho long-form storytelling
+- Mỗi extension 8s
+- Maintain character consistency
+
+================================================
+END OF DOCUMENT
+================================================
