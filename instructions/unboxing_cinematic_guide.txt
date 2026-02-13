@@ -12,6 +12,9 @@ Impulse purchase trigger: "Tôi cũng muốn có trải nghiệm mở hộp này
 - **ASMR**: Sound-focused close-ups → UNBOXING: Story of discovery, reveal drama
 - **Try-On**: Multiple outfits review → UNBOXING: Single shipment, first impression magic
 
+**⚠️ OUTFIT RULE:** Model mặc CASUAL (tee + jeans) khi mở hộp. Sản phẩm TRONG HỘP, KHÔNG trên người.
+Chỉ mặc sản phẩm ở phase TRY-ON (phase 5). Xem mục "👗 OUTFIT LOGIC" bên dưới.
+
 ---
 
 ## 📦 UNBOXING PHASES
@@ -236,3 +239,37 @@ Scene 6 (40-48s): VERDICT — Rating, recommendation, CTA
 6. Try-on is REQUIRED (unbox without try-on = incomplete)
 7. CLOSE-UP product quality shots are mandatory (stitching, fabric, hardware)
 8. CTA woven into verdict naturally
+
+---
+
+## 👗 OUTFIT LOGIC — CRITICAL (KHÔNG ĐƯỢC VI PHẠM)
+
+⚠️ ĐÂY LÀ QUY TẮC QUAN TRỌNG NHẤT CỦA UNBOXING MODE:
+
+### Model KHÔNG mặc sản phẩm trong scenes mở hộp!
+- **Phase 1-4 (Package → Opening → First Look → Inspection):**
+  Model mặc **CASUAL / NEUTRAL** outfit: plain white tee, basic jeans, comfortable everyday clothes.
+  Sản phẩm NẰM TRONG HỘP / TRÊN TAY / ĐANG MỞ — KHÔNG trên người model.
+
+- **Phase 5 (Try-On Reveal):**
+  Model MỚI thay sang sản phẩm lần đầu tiên → mirror reaction, first impression.
+
+- **Phase 6 (Verdict):**
+  Model ĐÃ mặc sản phẩm → đánh giá, rating, CTA.
+
+### masterPrompt.outfit:
+- Viết: "Casual everyday outfit (plain white tee, relaxed jeans)" cho scenes mở hộp
+- CHỈ scene try-on/verdict mới dùng: "outfit as shown in product reference image"
+
+### Mỗi scene prompt PHẢI specify rõ model đang mặc gì:
+- ✅ Scene 1: "Model in casual white tee and jeans, excitedly holding sealed package"
+- ✅ Scene 2: "Model in casual outfit, slowly opening package, tissue paper rustling"
+- ✅ Scene 3: "Model in casual clothes, lifting product out of box, genuine surprise expression"
+- ✅ Scene 4: "Model in casual outfit, holding product close to camera for detail inspection"
+- ✅ Scene 5: "Model changes into [product from reference image], first time wearing, mirror reveal"
+- ✅ Scene 6: "Model now wearing [product], sits down and gives honest verdict"
+- ❌ SAI: Model mặc sản phẩm từ scene 1 — PHÁ VỠ LOGIC UNBOXING
+
+### Lý do:
+Nếu model đã mặc sản phẩm khi mở hộp → không có suspense, không có reveal moment,
+không có first impression. Toàn bộ ý nghĩa của unboxing bị mất.

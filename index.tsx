@@ -2324,7 +2324,19 @@ Impulse trigger: "Tôi cũng muốn có trải nghiệm này!"
 - Sound matters — Veo prompt MUST describe opening sounds
 - GENUINE reactions (honest if product disappoints)
 - Close-up quality shots MANDATORY
-- Try-on is REQUIRED (unbox without try-on = incomplete)`;
+- Try-on is REQUIRED (unbox without try-on = incomplete)
+
+👗 OUTFIT LOGIC — CRITICAL:
+⚠️ Model KHÔNG được mặc sản phẩm trong scenes mở hộp!
+- Scenes 1-4 (Package → Opening → Reveal → Inspection): Model mặc CASUAL OUTFIT (plain tee, basic jeans, comfortable everyday clothes)
+- Scene TRY-ON (gần cuối): Model MỚI mặc sản phẩm lần đầu → mirror reaction
+- Scene VERDICT (cuối): Model đã mặc sản phẩm → rating + CTA
+- masterPrompt.outfit PHẢI mô tả CASUAL clothes, KHÔNG phải product
+- Mỗi scene prompt: specify rõ model đang mặc gì
+  ✅ Scene 1-4: "Model in casual white tee and jeans, holding package / inspecting product"
+  ✅ Scene 5: "Model changes into [product from reference image], first time wearing, mirror reveal"
+  ✅ Scene 6: "Model now wearing [product], gives verdict"
+  ❌ SAI: Model mặc sản phẩm từ scene 1 — phá vỡ logic unboxing`;
          } else if (cinematicStyle === 'review') {
             cinematicStyleInstructions = `\n\n🔍 CINEMATIC STYLE: Review (${finalDuration}s)
 Authority-driven affiliate — structured scoring, evidence-based, honest pros/cons.
@@ -2345,8 +2357,10 @@ ${scenes >= 4 ? `- Scene 2 (8-16s): CRITERIA 1-2
 - Scene 3 (16-24s): CRITERIA 3-4 + TRY-ON
   Thiết kế → detail, pattern, color. Score: X/10
   Thoải mái → movement test, stretch. Score: X/10
-- Scene ${scenes} (last 8s): FINAL SCORE + VERDICT
-  Overall: "[Total]/50" → "Nên mua: YES/NO"
+${scenes >= 5 ? `- Scenes 4-${scenes - 1}: CRITERIA 5 + DEEP DIVE
+  Giá trị (Value for money) → compare quality vs price. Score: X/10
+  Additional angles, before/after, lifestyle use demo` : ''}- Scene ${scenes} (last 8s): FINAL SCORE + VERDICT
+  Overall: "[Total]/${scenes >= 5 ? '50' : '40'}" → "Nên mua: YES/NO"
   CTA + link` : `- Scene 2 (8-16s): QUALITY + FIT assessment
   Close-up evidence, wearing demo, scores
 - Scene ${scenes} (last 8s): VERDICT + SCORE + CTA`}
@@ -2364,12 +2378,13 @@ ${scenes >= 4 ? `- Scene 2 (8-16s): CRITERIA 1-2
 - "Professional friend who knows stuff"
 - Honest negatives BUILD trust: "Nói thật là... trừ [X] điểm"
 
-📊 VERDICT SCALE:
+📊 VERDICT SCALE (khi đủ 5 tiêu chí / 50 điểm):
 - 45-50/50: MUST BUY — Xuất sắc
 - 40-44/50: NÊN MUA — Rất tốt
 - 35-39/50: OKAY — Tạm ổn, tùy nhu cầu
 - 30-34/50: CÂN NHẮC — Có issues
 - <30/50: PASS — Không recommend
+(Nếu chỉ 4 tiêu chí: scale /40 — quy tương ứng 36/32/28/24)
 
 🎯 REVIEW RULES:
 - HONESTY mandatory — fake reviews destroy credibility
@@ -2553,6 +2568,23 @@ AI PHẢI output định dạng JSON để tối ưu workflow Image-to-Video.`;
 
          // Outfit image label - thay đổi dựa trên loại sản phẩm
          const getOutfitLabel = () => {
+            // 📦 UNBOXING MODE: Product image = SẢN PHẨM TRONG HỘP, KHÔNG PHẢI outfit model đang mặc
+            if (cinematicStyle === 'unboxing') {
+               return faceImage
+                  ? `\n\n📸 IMAGE 2 & 3 - PRODUCT IN BOX (UNBOXING MODE):
+⚠️ CRITICAL — ĐÂY LÀ SẢN PHẨM TRONG HỘP, KHÔNG PHẢI OUTFIT MODEL ĐANG MẶC!
+- Ảnh này là sản phẩm sẽ được MỞ HỘP → KHÔNG cho model mặc sẵn
+- Model mặc CASUAL/NEUTRAL: plain tee, basic jeans, comfortable everyday clothes
+- Sản phẩm CHỈ xuất hiện trên người model ở scene TRY-ON (scene cuối)
+- Trước đó: sản phẩm NẰM TRONG HỘP / TRÊN TAY / ĐANG MỞ
+→ masterPrompt.outfit = "Casual everyday outfit (plain white tee, jeans)" cho scenes mở hộp
+→ CHỈ scene try-on mới dùng: "outfit as shown in product reference image"`
+                  : `\n\n📸 PRODUCT IN BOX (UNBOXING MODE):
+⚠️ CRITICAL — ĐÂY LÀ SẢN PHẨM TRONG HỘP, KHÔNG PHẢI OUTFIT MODEL ĐANG MẶC!
+- Model mặc CASUAL clothing trong scenes mở hộp
+- Sản phẩm trong ảnh này CHỈ được mặc ở scene TRY-ON cuối cùng
+→ masterPrompt.outfit = "Casual everyday outfit" cho scenes 1-4`;
+            }
             if (isIntimateApparel) {
                // Fashion foundations: KHÔNG mô tả chi tiết, chỉ reference từ ảnh
                return faceImage
