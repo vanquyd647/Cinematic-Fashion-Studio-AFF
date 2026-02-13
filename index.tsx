@@ -1679,13 +1679,139 @@ masterPrompt.voiceAnchor PHẢI chứa:
             ? getRandomLocationsForAuto(5)  // Random from all regions for Auto mode
             : getSuggestedLocations(locationRegion, 5);  // Random from selected region
 
-         const suggestedLocationsText = suggestedLocs.length > 0
-            ? `\n\n🎲 SUGGESTED LOCATIONS (Random selection - Pick ONE):\n${suggestedLocs.map((loc, i) => `${i + 1}. ${loc}`).join('\n')}\n\n⚠️ IMPORTANT: Choose RANDOMLY from above list. Do NOT always pick #1.`
+         // 🎬 CINEMATIC STYLE → LOCATION CONSTRAINT
+         // Override suggested locations with style-appropriate ones to prevent logical mismatches
+         // e.g., try_on = indoor only, walkin = outdoor walkable path, etc.
+         const getStyleLocationConstraint = () => {
+            const indoorLocations = [
+               'Bright modern bedroom with full-length mirror — clean white wall, natural window light',
+               'Minimalist fitting room with warm LED panels — neutral backdrop, clothes rack visible',
+               'Cozy apartment living room with sofa and soft rug — lifestyle home setting',
+               'Professional studio with white/grey seamless backdrop — ring light, tripod visible for authenticity',
+               'Walk-in closet with organized wardrobe — well-lit, personal fashion space',
+               'Modern bathroom mirror area — bright vanity lights, clean marble counter',
+               'Stylish open-plan loft — concrete floor, industrial warm lighting, fashion mood',
+               'Bedroom morning light — white bedding, sunlight through curtains, getting-ready vibe',
+            ];
+            const walkableOutdoorLocations = [
+               'Tree-lined boulevard with golden hour light — long straight path, symmetric perspective',
+               'Hanoi Old Quarter Hang Dao silk street morning — narrow atmospheric walkway',
+               'Hoi An Ancient Town yellow wall lanterns — cobblestone path, warm evening',
+               'Nguyen Hue Walking Street Saigon — wide promenade, modern urban backdrop',
+               'Dalat Pine Forest road — cool highland path, dappled light through trees',
+               'Park pathway with canopy of trees — soft morning light, natural corridor',
+               'European-style covered arcade — marble floor, high ceiling, elegant approach',
+               'Beachfront boardwalk sunset — long clean path, golden rim light',
+            ];
+            const fixedStageLocations = [
+               'Seamless studio backdrop with even lighting — dramatic single spotlight accent',
+               'Minimalist room with one feature wall — clean floor, controlled lighting',
+               'Industrial loft space — concrete wall, large windows, single fixed framing',
+               'Neutral gradient backdrop — professional 3-point lighting setup',
+            ];
+
+            switch (cinematicStyle) {
+               case 'try_on':
+                  return {
+                     override: true,
+                     locations: indoorLocations,
+                     instruction: `\n\n🏠 LOCATION CONSTRAINT — THỬ ĐỒ / TRY-ON:
+⚠️ BẮT BUỘC BỐI CẢNH INDOOR! Try-on video phải ở NƠI THAY ĐỒ HỢP LÝ.
+✅ CHO PHÉP: Phòng ngủ, phòng thử đồ, walk-in closet, phòng khách, studio
+❌ CẤM: Đường phố, sân tòa nhà, quán cafe ngoài trời, công viên, bãi biển
+Logic: Người thử đồ phải ở nơi có thể THAY ĐỒ — không ai thay đồ giữa đường!
+masterPrompt.environment PHẢI là indoor setting.`
+                  };
+               case 'unboxing':
+                  return {
+                     override: true,
+                     locations: indoorLocations.slice(0, 5),
+                     instruction: `\n\n🏠 LOCATION CONSTRAINT — MỞ HỘP / UNBOXING:
+⚠️ BẮT BUỘC BỐI CẢNH INDOOR! Unboxing phải ở NƠI NHẬN HÀNG.
+✅ CHO PHÉP: Phòng ngủ, bàn làm việc, phòng khách, sofa, bàn ăn
+❌ CẤM: Ngoài trời, đường phố, công viên, sân tòa nhà, bãi biển
+Logic: Mở hộp tại nhà hoặc studio — có bàn/giường để đặt hàng.
+masterPrompt.environment PHẢI là indoor home/studio setting.`
+                  };
+               case 'review':
+                  return {
+                     override: true,
+                     locations: indoorLocations,
+                     instruction: `\n\n🏠 LOCATION CONSTRAINT — REVIEW:
+⚠️ BẮT BUỘC BỐI CẢNH INDOOR/CỐ ĐỊNH! Review cần background nhất quán.
+✅ CHO PHÉP: Phòng ngủ, studio, phòng khách, nơi có gương full-body
+❌ CẤM: Ngoài trời thay đổi, đường phố ồn ào, bối cảnh không kiểm soát
+Logic: Review cần background ổn định, lighting đều, camera cố định — để focus vào sản phẩm.
+masterPrompt.environment PHẢI là indoor controlled setting.`
+                  };
+               case 'asmr_cinematic':
+                  return {
+                     override: true,
+                     locations: [
+                        'Quiet bedroom with soft morning window light — minimal ambient noise, clean surface',
+                        'Professional studio dark background — single spotlight on product, silence',
+                        'Minimalist desk setup — warm lamp light, fabric surface, zero background noise',
+                        'Cozy vanity area — soft warm bulbs, mirror, quiet intimate space',
+                     ],
+                     instruction: `\n\n🏠 LOCATION CONSTRAINT — ASMR:
+⚠️ BẮT BUỘC BỐI CẢNH QUIET INDOOR! ASMR cần im lặng tuyệt đối.
+✅ CHO PHÉP: Phòng ngủ yên tĩnh, studio tối, bàn làm việc, vanity
+❌ CẤM: Ngoài trời (tiếng xe/gió), quán cafe (tiếng ồn), đường phố, công viên
+Logic: ASMR = tiếng sản phẩm là star → background phải HOÀN TOÀN IM LẶNG.
+masterPrompt.environment PHẢI là quiet indoor, zero ambient noise.`
+                  };
+               case 'fashion_walkin':
+                  return {
+                     override: locationRegion === 'auto', // Only override if user didn't pick specific region
+                     locations: walkableOutdoorLocations,
+                     instruction: `\n\n🚶 LOCATION CONSTRAINT — FASHION WALK-IN:
+⚠️ BẮT BUỘC BỐI CẢNH CÓ ĐƯỜNG ĐI DÀI! Walk-in cần path để model BƯỚC ĐI.
+✅ CHO PHÉP: Đại lộ, phố cổ, con đường trong công viên, hành lang dài, boardwalk
+❌ CẤM: Phòng ngủ, studio nhỏ, fitting room, bàn, ghế ngồi
+Logic: Model bước về phía camera → cần ĐƯỜNG ĐI THẲNG ít nhất 4-5m.
+masterPrompt.environment PHẢI là long walkable path/corridor.`
+                  };
+               case 'transform_viral':
+                  return {
+                     override: locationRegion === 'auto',
+                     locations: fixedStageLocations,
+                     instruction: `\n\n🎭 LOCATION CONSTRAINT — BIẾN HÌNH:
+⚠️ BẮT BUỘC BỐI CẢNH CỐ ĐỊNH! Biến hình cần 1 background DUY NHẤT.
+✅ CHO PHÉP: Studio backdrop, phòng sáng cố định, 1 góc tường đẹp
+❌ CẤM: Bối cảnh thay đổi giữa các scene, outdoor với ánh sáng biến đổi
+Logic: Transformation xảy ra trên MODEL — background phải ĐỨNG YÊN để contrast rõ.
+masterPrompt.environment PHẢI là single fixed elegant background.`
+                  };
+               case 'storytelling':
+                  return {
+                     override: false,
+                     locations: [],
+                     instruction: `\n\n📖 LOCATION CONSTRAINT — KỂ CHUYỆN:
+Storytelling cho phép đa dạng bối cảnh theo mạch truyện.
+✅ Phòng ngủ → quán cafe → đường phố = OK (theo logic câu chuyện)
+⚠️ Mỗi scene phải CÓ LÝ DO tại sao ở đó (không nhảy random).`
+                  };
+               default: // standard, marketing_intimate
+                  return { override: false, locations: [], instruction: '' };
+            }
+         };
+
+         const styleLocationConstraint = getStyleLocationConstraint();
+
+         // Apply style-aware location override when needed
+         const finalSuggestedLocs = styleLocationConstraint.override
+            ? styleLocationConstraint.locations
+            : suggestedLocs;
+
+         const suggestedLocationsText = finalSuggestedLocs.length > 0
+            ? `\n\n🎲 SUGGESTED LOCATIONS (Random selection - Pick ONE):\n${finalSuggestedLocs.map((loc, i) => `${i + 1}. ${loc}`).join('\n')}\n\n⚠️ IMPORTANT: Choose RANDOMLY from above list. Do NOT always pick #1.`
             : '';
 
+         const styleLocationInstructionText = styleLocationConstraint.instruction;
+
          const locationPreferenceText = locationRegion !== 'auto'
-            ? `\n\nPREFERRED LOCATION REGION: ${regionName}\nRegion Description: ${regionDescription}${suggestedLocationsText}`
-            : `\n\nLOCATION MODE: AI Auto (Random from all regions)${suggestedLocationsText}`;
+            ? `\n\nPREFERRED LOCATION REGION: ${regionName}\nRegion Description: ${regionDescription}${suggestedLocationsText}${styleLocationInstructionText}`
+            : `\n\nLOCATION MODE: AI Auto (Random from all regions)${suggestedLocationsText}${styleLocationInstructionText}`;
 
          // Editorial Mode (18+) flag
          const editorialModeText = editorialMode
@@ -2902,11 +3028,22 @@ Background stays IDENTICAL across all scenes. Only the outfit/model transforms.
             if (cinematicStyle === 'try_on' || cinematicStyle === 'review' || cinematicStyle === 'unboxing') {
                return `\n\n🎨 BACKGROUND CONTINUITY MODE: FIXED_STAGE
 ⚠️ You MUST generate:
-1. masterPrompt.environment = Consistent setting (fitting room / bedroom / studio).
-2. keyframes[].backgroundPrompt = SAME background for fair outfit comparison and continuity.
+1. masterPrompt.environment = Consistent INDOOR setting (fitting room / bedroom / studio / walk-in closet).
+2. keyframes[].backgroundPrompt = SAME indoor background for fair outfit comparison and continuity.
 3. metadata.visualLogicType = "fixed_stage"
 Background stays IDENTICAL. Camera framing consistent. Model/outfit changes are the ONLY visual variable.
+⚠️ INDOOR ONLY: Phòng ngủ, phòng thử đồ, studio, walk-in closet. KHÔNG outdoor!
 ⚠️ MODEL FRAMING: Model MUST occupy 75-85% of frame HEIGHT.`;
+            }
+            if (cinematicStyle === 'asmr_cinematic') {
+               return `\n\n🎨 BACKGROUND CONTINUITY MODE: FIXED_STAGE_QUIET
+⚠️ You MUST generate:
+1. masterPrompt.environment = Quiet indoor setting (bedroom / studio / desk - ZERO ambient noise).
+2. keyframes[].backgroundPrompt = SAME quiet indoor background, dark/neutral tones preferred.
+3. metadata.visualLogicType = "fixed_stage"
+Background stays IDENTICAL and QUIET. Sound is the star — no outdoor noise pollution.
+⚠️ INDOOR QUIET ONLY: Phòng tối, studio, bàn làm việc. KHÔNG outdoor, KHÔNG quán cafe!
+⚠️ MODEL FRAMING: Macro/close-up dominant.`;
             }
             if (cinematicStyle === 'standard' || cinematicStyle === 'marketing_intimate') {
                return `\n\n🎨 BACKGROUND CONTINUITY MODE: MULTI_ANGLE_EDITORIAL
