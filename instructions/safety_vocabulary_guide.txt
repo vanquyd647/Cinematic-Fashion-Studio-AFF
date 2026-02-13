@@ -318,6 +318,41 @@ This app creates FASHION AFFILIATE content — fully compliant.
 → Tập trung vào OUTFIT + STYLING + LOCATION, không tập trung vào cơ thể
 → Use "Semantic Negative Prompts" — describe desired scene positively
 
+═══════════════════════════════════════════════════════════════════════════════════
+1️⃣1️⃣ TIKTOK COMMERCE SAFE VOCABULARY — TỪ VỰNG BÁN HÀNG AN TOÀN
+═══════════════════════════════════════════════════════════════════════════════════
+
+📌 Áp dụng cho: Voice Script + Text Overlay + Caption
+📌 TikTok AI quét audio transcript — voice cũng bị scan!
+
+**A. TỪ MÔ TẢ SẢN PHẨM — AN TOÀN CHO TIKTOK SHOP:**
+✅ "Chất vải mềm mịn" — mô tả texture (KHÔNG nói "tốt nhất")
+✅ "Mình mặc vào thoải mái lắm" — trải nghiệm cá nhân (KHÔNG cam kết)
+✅ "Tôn dáng rất đẹp" — positive body (KHÔNG nói "giấu bụng")
+✅ "Giá hợp lý" — value description (KHÔNG nói "phá giá")
+✅ "Được nhiều bạn yêu thích" — social proof nhẹ (KHÔNG nói "#1")
+✅ "Đang có ưu đãi" — promotion neutral (KHÔNG nói "sale sốc cơ hội cuối")
+
+**B. CTA AN TOÀN CHO TIKTOK SHOP:**
+✅ "Link ở dưới nha!" — soft CTA
+✅ "Bạn nào thích thì xem thử!" — invitation, không ép
+✅ "Đang có giảm giá nè!" — thông tin, không urgency giả
+✅ "Comment cho mình biết bạn thích màu nào!" — engagement natural
+✅ "Xem thêm ở giỏ hàng bên dưới nha!" — specific TikTok Shop CTA
+
+**C. BODY DESCRIPTION — POSITIVE-ONLY CHO TIKTOK:**
+✅ "Dáng nào mặc cũng đẹp" — inclusive
+✅ "Tôn dáng tự nhiên" — positive
+✅ "Form đẹp, thoải mái" — neutral
+❌ TUYỆT ĐỐI KHÔNG: "giấu bụng", "nhìn gầy", "che khuyết điểm", "body chuẩn"
+
+**D. BEAUTY/SKINCARE — AN TOÀN CHO TIKTOK:**
+✅ "Da mình mịn hơn" — cảm nhận cá nhân
+✅ "Cảm giác da tươi sáng" — cảm giác
+✅ "Mình dùng rất an tâm" — trust cá nhân
+✅ "Dịu nhẹ cho da" — description nhẹ nhàng
+❌ TUYỆT ĐỐI KHÔNG: "trị mụn", "trắng da", "xóa nhăn", "chống lão hóa", "kháng khuẩn"
+
 📌 NANO BANANA PRO FORMAT:
 "Describe the scene, don't just list keywords." — Narrative paragraph > keyword list
 Be hyper-specific: "ornate marble entrance of hotel lobby" not just "hotel"

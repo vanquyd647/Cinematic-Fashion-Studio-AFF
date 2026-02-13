@@ -1075,6 +1075,8 @@ Static camera + (Stand talking OR Slow 360° turn OR Hand touching product) + Sc
 - Max 20 từ/scene (lip sync requirement)
 - Keyframe = static poses, NO motion verbs
 - Script không nói "Mình cao X nặng Y"
+- 🚫 TIKTOK BANNED WORDS: Tuyệt đối không dùng từ cấm trong script/voice (xem TikTok Banned Words Guide)
+- Script phải dùng ngôi "mình" chia sẻ, KHÔNG cam kết/tuyên bố y tế/absolute claims
 
 **LEVEL 2 – HIGH PRIORITY (Quan trọng cao):**
 - Scene continuity (END_POSE = START_POSE tiếp)
@@ -1094,7 +1096,63 @@ Static camera + (Stand talking OR Slow 360° turn OR Hand touching product) + Sc
 Nếu conflict giữa các level → ưu tiên level cao hơn.
 
 ================================================
-📝 USER ADDITIONAL DESCRIPTION (YÊU CẦU BỔ SUNG)
+� SCRIPT & VOICE SAFETY — TỪ NGỮ CẤM TRONG TIKTOK SHOP (2026 CRITICAL)
+================================================
+
+**⚠️ TikTok AI QUÉT CẢ AUDIO TRANSCRIPT — Giọng nói bị scan y như text!**
+
+**A. TỪ CẤM TUYỆT ĐỐI TRONG SCRIPT TIKTOK SHOP:**
+
+| ❌ TỪ CẤM | ✅ THAY THẾ | LÝ DO |
+|-----------|-----------|-------|
+| "Tốt nhất" / "Số 1" | "Rất thích" / "Được yêu thích" | Absolute claim bị flag |
+| "100% hiệu quả" | "Mình thấy thích lắm" | False promise |
+| "Cam kết" / "Guarantee" | "Mình tự tin giới thiệu" | Deceptive practice |
+| "Trị mụn/nám" | "Da mình mịn hơn" | Health claim |
+| "Giảm cân/Đốt mỡ" | "Tôn dáng" / "Dáng đẹp hơn" | Health claim |
+| "Trắng da" | "Da rạng rỡ hơn" | Colorism |
+| "Giấu bụng/khuyết điểm" | "Tôn dáng" / "Tôn ưu điểm" | Body shaming |
+| "Sexy/Gợi cảm/Hot/Bốc lửa" | "Quyến rũ/Tinh tế/Thu hút" | Sexual content flag |
+| "Phá giá" / "Sale sốc" | "Giá hời" / "Ưu đãi" | Deceptive urgency |
+| "Cơ hội cuối cùng" | "Đợt giá tốt này" | Fake urgency |
+| "Copy 1:1" / "Hàng fake" | "Thiết kế trẻ trung" | IP violation |
+| "Hàng Quảng Châu xịn" | "Chất lượng tốt, giá hợp lý" | Nhạy cảm |
+
+**B. NGUYÊN TẮC VIẾT SCRIPT TIKTOK SHOP AN TOÀN:**
+
+1. **DÙNG NGÔi "MÌNH"** — chia sẻ trải nghiệm cá nhân
+   ✅ "Mình mặc vào tôn dáng lắm!"
+   ❌ "Áo này cam kết tôn dáng cho mọi người!"
+
+2. **MÔ TẢ CẢM XÚC, KHÔNG CAM KẾT HIỆU QUẢ:**
+   ✅ "Mình thấy da mình đẹp hơn nhiều!"
+   ❌ "Trắng da sau 7 ngày, hiệu quả tuyệt đối!"
+
+3. **CTA MỀM — KHÔNG ÉP BUỘC:**
+   ✅ "Link ở dưới nha, bạn nào thích thì xem thử!"
+   ❌ "MUA NGAY! KHÔNG MUA LÀ HỐI HẬN CẢ ĐỜI!!!"
+
+4. **BODY POSITIVE — CHỈ NÓI TÍCH CỰC:**
+   ✅ "Dáng nào mặc cũng xinh" / "Tôn dáng rất đẹp"
+   ❌ "Giấu bụng siêu tốt" / "Nhìn gầy hẳn"
+
+**C. TEMPLATE SCRIPT AN TOÀN CHO TIKTOK SHOP (4 SCENE):**
+
+Scene 1: "Nè mọi người! Cái này hay lắm nè!" (chia sẻ tự nhiên)
+Scene 2: "Chất [vải] mềm lắm, mặc lên thoải mái" (mô tả trải nghiệm)
+Scene 3: "Nhiều bạn feedback tích cực lắm!" (social proof nhẹ)
+Scene 4: "Link dưới nha, đang có ưu đãi!" (CTA mềm)
+
+**D. AUTO SCRIPT CHECK — AI PHẢI TỰ KIỂM TRA TRƯỚC KHI OUTPUT:**
+✅ Không có từ nhóm 🔴 (Y tế, Body shame, Sexual)?
+✅ Không có absolute claims ("tốt nhất", "100%", "cam kết")?
+✅ Script dùng ngôi "mình" chia sẻ?
+✅ CTA nhẹ nhàng, không ép buộc?
+✅ Body descriptions positive-only?
+✅ Không so sánh trực tiếp với brand khác?
+
+================================================
+�📝 USER ADDITIONAL DESCRIPTION (YÊU CẦU BỔ SUNG)
 ================================================
 **Khi nhận được "USER ADDITIONAL DESCRIPTION":**
 Người dùng có thể nhập thêm mô tả, yêu cầu đặc biệt cho video.

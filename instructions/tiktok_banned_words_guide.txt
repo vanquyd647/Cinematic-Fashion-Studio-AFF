@@ -1,0 +1,454 @@
+================================================
+🚫 TIKTOK BANNED WORDS & SAFE ALTERNATIVES — HƯỚNG DẪN TỪ NGỮ AN TOÀN CHO BÁN HÀNG 2026
+================================================
+Tài liệu chuyên sâu: Từ ngữ bị TikTok hạn chế/cấm trong video bán hàng affiliate
+Cập nhật: 2026-02 | Áp dụng cho: Voice Script + Text Overlay + Caption + Hashtag
+Nguồn: TikTok Advertising Policies, TikTok Shop Commerce Policies, Community Guidelines
+
+================================================
+⚠️ TỔNG QUAN — TẠI SAO TỪ NGỮ QUAN TRỌNG?
+================================================
+
+TikTok sử dụng AI scanner tự động quét:
+1. **Audio transcript** — Giọng nói trong video (voice/lip-sync)
+2. **Text overlay/caption** — Chữ trên video và mô tả
+3. **Hashtags** — Tag đi kèm
+4. **Product listing** — Thông tin sản phẩm trên TikTok Shop
+
+**HẬU QUẢ KHI DÙNG TỪ CẤM:**
+- 🟡 **Shadowban nhẹ:** Video không lên FYP, giảm reach 80-95%
+- 🟠 **Hạn chế phân phối:** Video chỉ hiện cho <100 người
+- 🔴 **Gỡ video:** Xóa video + cảnh báo tài khoản
+- ⚫ **Khóa tài khoản:** Ban vĩnh viễn nếu vi phạm nhiều lần
+
+**NGUYÊN TẮC VÀNG:**
+> "Nói như đang chia sẻ trải nghiệm cá nhân, KHÔNG NÓI như đang quảng cáo y tế"
+> "Mô tả CẢM NHẬN chủ quan, KHÔNG TUYÊN BỐ hiệu quả tuyệt đối"
+
+================================================
+🔴 NHÓM 1: TỪ Y TẾ / HEALTH CLAIMS (NGHIÊM CẤM NHẤT)
+================================================
+
+TikTok CẤM HOÀN TOÀN các tuyên bố y tế không kiểm chứng.
+Đây là nhóm vi phạm nặng nhất, đặc biệt cho sản phẩm beauty/body.
+
+| ❌ TỪ CẤM (Tiếng Việt) | ❌ TỪ CẤM (Tiếng Anh) | ✅ THAY THẾ AN TOÀN (VN) | ✅ THAY THẾ AN TOÀN (EN) |
+|------------------------|---------------------|--------------------------|--------------------------|
+| Chữa bệnh | Cure/Heal | Hỗ trợ chăm sóc | Helps support |
+| Trị mụn / Trị nám | Treat acne/melasma | Hỗ trợ làm sạch da | Helps cleanse skin |
+| Giảm cân / Giảm béo | Weight loss / Fat burning | Hỗ trợ vóc dáng | Supports your figure |
+| Đốt mỡ | Burn fat | Thoải mái vận động | Comfortable for activity |
+| Detox / Thải độc | Detox / Cleanse toxins | Tươi mát, sảng khoái | Fresh and refreshing |
+| Điều trị | Treatment | Chăm sóc hàng ngày | Daily care routine |
+| Kháng khuẩn | Antibacterial | Sạch sẽ, thoáng mát | Clean and fresh |
+| Chống lão hóa | Anti-aging | Giúp da rạng rỡ | Helps skin glow |
+| Trẻ hóa | Rejuvenate | Tươi tắn hơn | Looks fresher |
+| Xóa nhăn | Remove wrinkles | Da mịn màng hơn | Smoother looking skin |
+| Trị liệu | Therapy | Thư giãn, thoải mái | Relaxing, comfortable |
+| Thuốc / Medicine | Drug/Medicine | Sản phẩm chăm sóc | Care product |
+| Dược phẩm | Pharmaceutical | Mỹ phẩm/Chăm sóc | Beauty/Care |
+| FDA approved | FDA approved | Chất lượng kiểm định | Quality verified |
+| Clinically proven | Clinically proven | Được nhiều người tin dùng | Trusted by many |
+| Khoa học chứng minh | Scientifically proven | Công nghệ tiên tiến | Advanced technology |
+
+**VÍ DỤ SCRIPT:**
+❌ "Kem này TRỊ MỤN hiệu quả 100%, CHỮA nám chỉ trong 7 ngày!"
+✅ "Mình dùng kem này, da mình mịn hơn nhiều nè! Cảm giác da sạch sẽ, thoáng mát cả ngày."
+
+❌ "Đai nịt bụng GIẢM CÂN, ĐỐT MỠ nhanh chóng!"
+✅ "Đai này giúp mình tự tin hơn, dáng đẹp hơn khi mặc đồ! Thoải mái cả ngày luôn."
+
+================================================
+🔴 NHÓM 2: TỪ TUYỆT ĐỐI / ABSOLUTE CLAIMS (NGHIÊM CẤM)
+================================================
+
+TikTok KHÔNG CHẤP NHẬN tuyên bố tuyệt đối không kiểm chứng.
+
+| ❌ TỪ CẤM | ✅ THAY THẾ AN TOÀN |
+|-----------|---------------------|
+| Tốt nhất / Best | Rất tốt / Tuyệt vời / Mình rất thích |
+| Số 1 / #1 | Được yêu thích / Top bán chạy |
+| Duy nhất / Only | Rất đặc biệt / Hiếm có |
+| 100% hiệu quả | Mình thấy hiệu quả lắm / Dùng thấy thích |
+| Không có đối thủ | Rất nổi bật / Khó tìm được |
+| Cam kết / Guarantee | Mình tự tin giới thiệu / Shop uy tín |
+| Chắc chắn / Definitely | Mình tin là / Khả năng cao |
+| Luôn luôn / Always | Thường xuyên / Hay |
+| Không bao giờ / Never | Rất ít khi / Hầu như không |
+| Hoàn hảo / Perfect | Rất ưng ý / Đẹp lắm |
+| Vĩnh viễn / Permanent | Lâu dài / Bền bỉ |
+| Tức thì / Instant | Nhanh chóng / Thấy sớm |
+
+**VÍ DỤ SCRIPT:**
+❌ "Sản phẩm TỐT NHẤT, KHÔNG CÓ ĐỐI THỦ, 100% HIỆU QUẢ!"
+✅ "Mình dùng rất thích! Được nhiều chị em yêu thích lắm nè, mình tự tin giới thiệu."
+
+================================================
+🔴 NHÓM 3: TỪ GÂY ÁP LỰC MUA / DECEPTIVE URGENCY (HẠN CHẾ)
+================================================
+
+TikTok giám sát chặt các từ tạo áp lực mua quá mức.
+
+| ❌ TỪ CẤM/HẠN CHẾ | ✅ THAY THẾ AN TOÀN | GHI CHÚ |
+|-------------------|---------------------|---------|
+| Mua ngay kẻo hết! | Nhanh tay đặt nha! | Giảm urgency |
+| Không mua = hối hận | Đừng bỏ lỡ nha | Bớt ép buộc |
+| Cơ hội cuối cùng | Đợt này giá tốt lắm | Ít áp lực hơn |
+| Last chance forever | Đang có chương trình hay | Thân thiện hơn |
+| Sale sốc / Shock sale | Giảm giá đặc biệt / Ưu đãi | Ít quá khích |
+| Phá giá | Giá tốt / Giá hời | Tránh nhạy cảm |
+| Miễn phí 100% / Free | Tặng kèm / Ưu đãi freeship | Rõ ràng hơn |
+| Hàng chính hãng cam kết | Shop uy tín, hàng chuẩn | Bớt tuyên bố |
+| Giá gốc X00K | Giá niêm yết / Giá thường | Tránh so sánh sai |
+
+**TUYỆT ĐỐI TRÁNH:**
+❌ Tạo countdown giả (fake timer)
+❌ Hiện số lượng giả ("Chỉ còn 3 cái" khi thực tế còn nhiều)
+❌ Giá gốc ảo (markup rồi discount)
+❌ "Bán dưới giá vốn" (impossible claim)
+
+**VÍ DỤ SCRIPT:**
+❌ "MUA NGAY! CƠ HỘI CUỐI CÙNG! KHÔNG MUA LÀ HỐI HẬN CẢ ĐỜI!!!"
+✅ "Đợt giảm giá này được lắm nha mọi người! Nhanh tay đặt kẻo hết nha!"
+
+================================================
+🔴 NHÓM 4: TỪ LIÊN QUAN ĐẾN CƠ THỂ / BODY SHAMING (NGHIÊM CẤM)
+================================================
+
+TikTok 2025-2026 đặc biệt nghiêm khắc với body image.
+
+| ❌ TỪ CẤM | ✅ THAY THẾ AN TOÀN | GHI CHÚ |
+|-----------|---------------------|---------|
+| Gầy / Skinny | Thon gọn / Thanh mảnh | Body-neutral |
+| Béo / Mập / Fat | Đầy đặn / Plus size / Full-figured | Tôn trọng |
+| Giấu bụng | Tôn dáng | Tích cực |
+| Bụng to / Eo to | Dáng đầy đặn | Không phán xét |
+| Đùi to / Bắp tay to | Dáng khỏe khoắn | Không tiêu cực |
+| Che khuyết điểm | Tôn ưu điểm | Tập trung cái tốt |
+| Nhìn gầy hơn / Look thinner | Nhìn thanh thoát / Tôn dáng | Tránh body shame |
+| Xấu → Đẹp (before/after body) | Trước → Sau (phong cách) | Style, không phải body |
+| Da đen / Da ngăm xấu | Tông da ấm / Da khỏe mạnh | Inclusive |
+| Trắng da / Làm trắng | Da rạng rỡ / Da tươi sáng | Tránh colorism |
+| Ngực nhỏ / Ngực to | Form phù hợp | Không đề cập |
+
+**VÍ DỤ SCRIPT:**
+❌ "Áo này GIẤU BỤNG siêu tốt! Béo mấy cũng mặc được, nhìn GẦY hẳn!"
+✅ "Áo này form rất đẹp, TÔN DÁNG lắm! Dáng nào mặc cũng xinh nha!"
+
+❌ "Kem TRẮNG DA nhanh chóng, da đen cỡ nào cũng trắng!"
+✅ "Mình dùng xong da mình rạng rỡ hơn nhiều! Cảm giác da tươi sáng lắm."
+
+================================================
+🟠 NHÓM 5: TỪ NHẠY CẢM VỀ GIỚI / GENDER & SEXUAL (HẠN CHẾ)
+================================================
+
+| ❌ TỪ CẤM/HẠN CHẾ | ✅ THAY THẾ AN TOÀN |
+|-------------------|---------------------|
+| Sexy / Gợi cảm / Hot | Quyến rũ / Thu hút / Nổi bật |
+| Khêu gợi / Kích thích | Tinh tế / Cuốn hút |
+| Bốc lửa | Rực rỡ / Nổi bật |
+| Dụ dỗ / Quyến dụ | Tạo ấn tượng / Thu hút ánh nhìn |
+| Nóng bỏng | Ấn tượng / Sáng sân khấu |
+| Body đẹp / Body chuẩn | Phong cách đẹp / Style đẹp |
+| Khoe body / Show body | Khoe outfit / Show phong cách |
+| Trai/Gái nhìn mê | Ai nhìn cũng khen |
+| Nuốt nước miếng | Ấn tượng không rời mắt |
+| "Bồ/chồng nhìn mê" | "Ai nhìn cũng mê phong cách" |
+
+**VÍ DỤ SCRIPT:**
+❌ "Mặc vào SEXY lắm, body BỐC LỬA, trai nhìn NUỐT NƯỚC MIẾNG!"
+✅ "Mặc vào quyến rũ, tinh tế lắm! Ai nhìn cũng khen phong cách đẹp nha!"
+
+================================================
+🟠 NHÓM 6: TỪ VỀ TIỀN/TÀI CHÍNH / INCOME CLAIMS (HẠN CHẾ)
+================================================
+
+Đặc biệt quan trọng cho AFFILIATE MARKETING content.
+
+| ❌ TỪ CẤM | ✅ THAY THẾ AN TOÀN |
+|-----------|---------------------|
+| Làm giàu / Get rich | Tạo thu nhập thêm |
+| Kiếm tiền dễ dàng | Có thêm cơ hội |
+| Passive income / Thu nhập thụ động | Thu nhập bổ sung |
+| X triệu/tháng (cụ thể) | Thu nhập tốt |
+| Tự do tài chính | Chủ động hơn |
+| Không cần làm gì | Có cách thức rõ ràng |
+| Ai cũng làm được | Phù hợp nhiều người |
+| Giàu nhanh / Quick money | Cơ hội phát triển |
+
+**VÍ DỤ:**  
+❌ "Làm affiliate KIẾM 50 TRIỆU/THÁNG, không cần làm gì!"
+✅ "Mình chia sẻ sản phẩm hay, có thêm thu nhập bổ sung, vui lắm!"
+
+================================================
+🟡 NHÓM 7: TỪ SO SÁNH / COMPARATIVE CLAIMS (CẨN THẬN)
+================================================
+
+| ❌ TỪ HẠN CHẾ | ✅ THAY THẾ AN TOÀN | GHI CHÚ |
+|---------------|---------------------|---------|
+| Tốt hơn brand X | Mình thích hơn / Phù hợp mình hơn | Không nêu tên brand |
+| Giá rẻ hơn Zara/H&M | Giá tốt, chất lượng ổn | Tránh so sánh trực tiếp |
+| Hàng fake/Hàng nhái tốt | Thiết kế trẻ trung / Phong cách tương tự | Tránh IP violation |
+| Copy 1:1 | Lấy cảm hứng / Inspired by | Tránh vi phạm IP |
+| Hàng Quảng Châu xịn | Chất lượng tốt, giá hợp lý | Tránh gốc nguồn nhạy cảm |
+| Đánh bại / Kill | Nổi bật hơn / Ấn tượng hơn | Tránh bạo lực |
+| Siêu rẻ | Giá tốt / Giá hời / Hợp túi tiền | |
+
+**VÍ DỤ SCRIPT:**
+❌ "Hàng này COPY 1:1 Zara mà giá RẺ HƠN 10 LẦN, HÀNG QUẢNG CHÂU XỊN!"
+✅ "Thiết kế trẻ trung, phong cách hiện đại! Giá hợp lý mà chất lượng rất ổn nha!"
+
+================================================
+🟡 NHÓM 8: TỪ VỀ AN TOÀN SẢN PHẨM / PRODUCT SAFETY (CẨN THẬN)
+================================================
+
+| ❌ TỪ HẠN CHẾ | ✅ THAY THẾ AN TOÀN |
+|---------------|---------------------|
+| Không gây dị ứng | Dịu nhẹ cho da |
+| Không có tác dụng phụ | Dùng thoải mái |
+| An toàn tuyệt đối | An tâm sử dụng |
+| Không hóa chất | Thành phần dịu nhẹ |
+| 100% organic / 100% tự nhiên | Thành phần thiên nhiên |
+| Không độc hại | Thân thiện |
+| Phù hợp mọi da | Phù hợp nhiều loại da |
+| Không gây kích ứng | Dịu nhẹ, dễ chịu |
+
+================================================
+🟡 NHÓM 9: TỪ KHẨN CẤP GIẢ / FAKE URGENCY & SCARCITY (GIÁM SÁT CHẶT 2026)
+================================================
+
+**TikTok 2025-2026 siết chặt fake urgency — AI tự động phát hiện pattern:**
+
+| ❌ PATTERN BỊ FLAG | ✅ THAY THẾ TỰ NHIÊN HƠN |
+|-------------------|--------------------------|
+| "Chỉ còn 3 cái cuối!!!" (mọi video) | "Đợt này shop về ít lắm" (thỉnh thoảng) |
+| "SALE 99%" | "Giảm giá đặc biệt" |  
+| "Giá 0đ" / "Miễn phí hoàn toàn" | "Ưu đãi hấp dẫn" / "Freeship" |
+| Countdown timer mọi video | Chỉ dùng khi thật sự có flash sale |
+| "Hôm nay là ngày cuối" (lặp lại) | "Chương trình đang diễn ra" |
+| "KHÔNG BAO GIỜ LẶP LẠI" | "Đợi giá này lâu lắm" |
+| Nhiều emoji cảnh báo 🚨🚨🚨 | Dùng emoji vừa phải 1-2 cái |
+
+================================================
+🔵 NHÓM 10: TỪ VỀ ĐỒ ĂN / THỰC PHẨM BỔ SUNG (NGHIÊM NGẶT)
+================================================
+
+| ❌ TỪ CẤM | ✅ THAY THẾ AN TOÀN |
+|-----------|---------------------|
+| Giảm cân / Giảm mỡ | Hỗ trợ vóc dáng |
+| Tăng cơ / Build muscle | Hỗ trợ vận động |
+| Tăng cường miễn dịch | Bổ sung dinh dưỡng |
+| Chữa / Phòng bệnh | Hỗ trợ sức khỏe |
+| Thần dược / Miracle | Sản phẩm chất lượng |
+| Diệt khuẩn | Làm sạch |
+
+================================================
+📋 NHÓM 11: HASHTAG BỊ HẠN CHẾ / SHADOWBAN (2026)
+================================================
+
+**TikTok shadowban các hashtag sau — video dùng sẽ giảm reach mạnh:**
+
+❌ **Tránh hoàn toàn:**
+- #weightloss #dietpills #fatburner #skinny #thinspo
+- #getrich #makemoney #passiveincome #mlm
+- #fakebrand #replica #1to1 #aaagrade
+- #sexy #hot #nsfw #18+
+
+🟡 **Dùng cẩn thận (shadowban risk):**
+- #sale #freeship #giamgia (quá phổ biến, bị spam filter)
+- #review (nên dùng #honestshare thay)
+
+✅ **Hashtag an toàn, hiệu quả:**
+- #tiktokshop #tiktokshopping #minhchonsanpham
+- #ootd #fashiontiktok #stylevietnam  
+- #sharethinhay #muasamonline #goodfinds
+- #chamsocbanhan #dailycare #lifestyle
+- #reviewthattam #minhdungthay #chiasekinhnghiem
+
+================================================
+🎙️ VOICE SCRIPT — QUY TẮC AN TOÀN KHI NÓI
+================================================
+
+**A. NGUYÊN TẮC NÓI AN TOÀN:**
+
+1. **NÓI NHƯ CHIA SẺ CÁ NHÂN, KHÔNG NÓI NHƯ QUẢNG CÁO Y TẾ:**
+   ✅ "Mình dùng thấy da mình đẹp hơn nhiều"
+   ❌ "Sản phẩm này CÓ TÁC DỤNG LÀM TRẮNG DA"
+
+2. **DÙNG "MÌNH" THAY VÌ "SẢN PHẨM NÀY":**
+   ✅ "Mình thấy da mình mịn hơn sau khi dùng"
+   ❌ "Sản phẩm này giúp da mịn hơn 90%"
+
+3. **MÔ TẢ CẢM GIÁC, KHÔNG MÔ TẢ HIỆU QUẢ Y TẾ:**
+   ✅ "Cảm giác da mát lắm, sáng hẳn ra nè!"
+   ❌ "Hiệu quả trị nám sau 7 ngày sử dụng"
+
+4. **TRÁNH CON SỐ CỤ THỂ KHÔNG KIỂM CHỨNG:**
+   ✅ "Nhiều chị em feedback tích cực lắm"
+   ❌ "95% khách hàng hài lòng" (cần bằng chứng)
+
+5. **"THỬ ĐI" THAY VÌ "MUA NGAY":**
+   ✅ "Bạn nào quan tâm thì thử xem nha!"
+   ❌ "MUA NGAY ĐI KHÔNG HỐI HẬN!"
+
+**B. CẤU TRÚC VOICE SCRIPT AN TOÀN (4 SCENE):**
+
+**Scene 1 — Hook (0-8s):** Chia sẻ cá nhân
+  ✅ "Nè mọi người, mình mới phát hiện cái này hay lắm nè!"
+  ✅ "Chị em ơi, cái này mình dùng mê luôn á!"
+  ❌ "SẢN PHẨM TỐT NHẤT 2026! MUA NGAY!"
+
+**Scene 2 — Feature (8-16s):** Mô tả trải nghiệm
+  ✅ "Chất vải mềm lắm, mình mặc cả ngày không bí"
+  ✅ "Mình dùng được 2 tuần, thấy da mình khác nhiều"
+  ❌ "100% cotton organic, FDA approved, kháng khuẩn"
+
+**Scene 3 — Proof (16-24s):** Social proof tự nhiên  
+  ✅ "Bạn bè mình dùng xong cũng khen!"
+  ✅ "Review trên shop cũng nhiều người thích"
+  ❌ "95% khách cam kết mua lại, clinically proven"
+
+**Scene 4 — CTA (24-32s):** Mời nhẹ nhàng
+  ✅ "Link ở dưới nha, bạn nào thích thì xem thử!"
+  ✅ "Đang có giảm giá nữa nè, link bên dưới!"
+  ❌ "MUA NGAY! CƠ HỘI CUỐI CÙNG! KHÔNG MUA = HỐI HẬN!"
+
+**C. BẢNG TỪ VOICE SCRIPT — THAY THẾ NHANH:**
+
+| ❌ KHÔNG NÓI | ✅ NÓI THAY THẾ |
+|-------------|-----------------|
+| "Sản phẩm tốt nhất" | "Mình rất thích sản phẩm này" |
+| "Cam kết hiệu quả" | "Mình thấy hiệu quả lắm" |
+| "100% khách hài lòng" | "Nhiều người feedback tốt" |
+| "Trị dứt điểm" | "Hỗ trợ rất tốt" |
+| "Giảm ngay 5kg" | "Dáng đẹp hơn nhiều" |
+| "Trắng da sau 3 ngày" | "Da mình sáng hơn" |
+| "Không tác dụng phụ" | "Mình dùng rất an tâm" |
+| "MUA NGAY!" | "Xem thử nha!" / "Link dưới nè!" |
+| "Cơ hội cuối cùng" | "Đợt giá tốt này đừng bỏ lỡ" |
+| "Phá giá" | "Giá hời lắm" |
+| "Hàng xịn" | "Chất lượng tốt" / "Hàng chuẩn" |
+| "Super sale shock" | "Đang có ưu đãi đặc biệt" |
+| "Tuyệt đối/Hoàn hảo" | "Rất ưng ý" / "Đẹp lắm" |
+| "Che mọi khuyết điểm" | "Tôn dáng rất đẹp" |
+| "Ai mặc cũng đẹp" | "Nhiều dáng mặc đều đẹp" |
+
+================================================
+🎵 TEXT OVERLAY & CAPTION — QUY TẮC AN TOÀN
+================================================
+
+**A. TEXT OVERLAY TRÊN VIDEO:**
+
+✅ **An toàn:**
+- "Mình mê lắm 🥰" / "Xem thử nha!" / "Đẹp quá trời!"
+- "Giá chỉ [X]K" / "Đang giảm giá" / "Freeship nè"  
+- "Dáng xinh" / "Chất đẹp" / "Tôn dáng" / "Êm ái"
+
+❌ **Tránh:**
+- "SALE SỐC 99% OFF 🚨🚨🚨" (quá nhiều emoji cảnh báo)
+- "TỐT NHẤT THẾ GIỚI" (absolute claim)
+- "TRỊ MỤN HIỆU QUẢ" (medical claim)
+- "SEXY HOT 🔥🔥🔥" (sexual content flag)
+
+**B. CAPTION/MÔ TẢ:**
+
+✅ **Template an toàn:**
+"[Hook nhẹ nhàng] + [Mô tả sản phẩm] + [CTA mềm] + [Hashtag an toàn]"
+
+VD: "Mình mới mua được cái váy này, chất lụa mềm lắm nè! Mặc lên tôn dáng cực 🥰 Link ở giỏ hàng nha #tiktokshop #ootd #fashiontiktok"
+
+❌ **Tránh:**
+"🚨🚨🚨 SALE SỐC SHOCK FLASH SIÊU GIẢM 99% CHỈ HÔM NAY CƠ HỘI CUỐI CÙNG KHÔNG MUA LÀ THIỆT MUA NGAY KẺO HẾT 🚨🚨🚨 #sale #giamgia #free #freeship #muangay"
+
+================================================
+📊 TỔNG HỢP — BẢNG PHÂN LOẠI MỨC ĐỘ NGUY HIỂM
+================================================
+
+| Mức độ | Nhóm từ | Hậu quả | Hành động |
+|--------|---------|---------|-----------|
+| 🔴 NGHIÊM CẤM | Y tế, Body shame, Sexual | Gỡ video + cảnh báo | TUYỆT ĐỐI KHÔNG DÙNG |
+| 🟠 HẠN CHẾ | Tuyệt đối, Urgency quá mức | Giảm reach 50-80% | THAY THẾ ngay |
+| 🟡 CẨN THẬN | So sánh, Hashtag spam | Giảm reach 20-50% | Dùng ít, thay thế khi có thể |
+| 🟢 AN TOÀN | Chia sẻ cá nhân, Trải nghiệm | Bình thường | TỐI ƯU SỬ DỤNG |
+
+================================================
+🛡️ TÍCH HỢP VỚI HỆ THỐNG — AUTO SCRIPT SAFETY CHECK
+================================================
+
+**Khi AI sinh script, PHẢI tự động kiểm tra:**
+
+1. ✅ Không có từ nhóm 🔴 (Y tế, Body shame, Sexual)
+2. ✅ Không có từ nhóm 🟠 (Tuyệt đối, Urgency giả)
+3. ✅ Script dùng ngôi "mình" chia sẻ, không dùng "sản phẩm này cam kết"
+4. ✅ CTA nhẹ nhàng ("link dưới nha" thay vì "MUA NGAY KẺO HẾT")
+5. ✅ Không có medical/health claims
+6. ✅ Body descriptions positive-only ("tôn dáng" thay vì "giấu bụng")
+7. ✅ Không so sánh trực tiếp với brand khác
+8. ✅ Hashtag an toàn, không spam
+
+**PRIORITY RULE:**
+> Nếu conflict giữa "bán hàng mạnh" và "an toàn TikTok" → LUÔN CHỌN AN TOÀN.
+> Video bị gỡ = ZERO sales. Video an toàn với reach tốt = sustainable income.
+
+================================================
+📋 PRODUCT-SPECIFIC BANNED WORDS — THEO LOẠI SẢN PHẨM
+================================================
+
+**A. THỜI TRANG (Fashion):**
+❌ Tránh: sexy, hot, bốc lửa, khoe body, giấu bụng, nhìn gầy
+✅ Dùng: quyến rũ, tinh tế, tôn dáng, thanh lịch, nổi bật, thu hút
+
+**B. MỸ PHẨM (Beauty/Skincare):**
+❌ Tránh: trị mụn, xóa nhăn, trắng da, chống lão hóa, detox, kháng khuẩn
+✅ Dùng: hỗ trợ da, da mình đẹp hơn, rạng rỡ, tươi sáng, mềm mịn
+
+**C. THỰC PHẨM CHỨC NĂNG (Supplements):**
+❌ Tránh: giảm cân, đốt mỡ, tăng cơ, chữa bệnh, detox, thải độc
+✅ Dùng: hỗ trợ vóc dáng, bổ sung dinh dưỡng, thoải mái, sảng khoái
+
+**D. THIẾT BỊ LÀM ĐẸP (Beauty Devices):**
+❌ Tránh: trị liệu, điều trị, xóa nhăn, nâng cơ, trẻ hóa
+✅ Dùng: massage thư giãn, chăm sóc da, cảm giác da mịn hơn
+
+**E. ĐỒ NỘI Y / INTIMATE (Fashion Foundations):**
+❌ Tránh: sexy, gợi cảm, khêu gợi, nóng bỏng, body chuẩn
+✅ Dùng: tinh tế, thanh lịch, tôn dáng, quyến rũ, self-confidence
+
+**F. ĐỒ THỂ THAO (Sportswear):**
+❌ Tránh: giảm cân, đốt mỡ, slimming, body goals
+✅ Dùng: thoải mái vận động, form đẹp, co giãn tốt, năng động
+
+================================================
+🔄 CẬP NHẬT CHÍNH SÁCH TIKTOK 2026 — TREND MỚI
+================================================
+
+**THAY ĐỔI LỚN 2025-2026:**
+
+1. **AI Content Detection tăng cường:**
+   - TikTok dùng AI nhận dạng giọng đọc script vs giọng tự nhiên
+   - Script quá "quảng cáo" → giảm reach tự động
+   → **Giải pháp:** Voice profile tự nhiên, nói như chia sẻ bạn bè
+
+2. **Body Image Policy siết chặt:**
+   - Before/After body comparison = vi phạm
+   - "Giấu khuyết điểm" = vi phạm body shaming
+   → **Giải pháp:** Chỉ dùng positive framing ("tôn dáng", "phong cách")
+
+3. **Fake Urgency Detection:**
+   - AI phát hiện pattern "chỉ còn X cái" lặp lại nhiều video
+   - Timer giả = vi phạm deceptive practices
+   → **Giải pháp:** Urgency thật sự, không lặp pattern
+
+4. **Affiliate Disclosure tăng cường:**
+   - TikTok yêu cầu gắn tag "Paid partnership" / "Affiliate"
+   - Video không gắn tag → giảm reach + risk gỡ
+   → **Giải pháp:** Luôn transparent, dùng #ad hoặc TikTok Shop tag tự động
+
+5. **Health Claims Crackdown mạnh nhất:**
+   - AI scan audio cho từ y tế trong tất cả ngôn ngữ
+   - Cả tiếng Việt cũng bị scan (NLP model đa ngôn ngữ)
+   → **Giải pháp:** Tuyệt đối không dùng từ y tế, chỉ mô tả cảm nhận
+
+================================================
+END OF DOCUMENT — TIKTOK BANNED WORDS GUIDE
+================================================

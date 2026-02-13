@@ -377,6 +377,65 @@ Soft lo-fi music in background, airy room acoustics."
    → Fix: Strategic pauses tạo emphasis và natural feel
 
 ================================================
+🛑 TIKTOK SCRIPT COMPLIANCE — TỪ NGỮ AN TOÀN KHI NÓI (CRITICAL 2026)
+================================================
+
+**⚠️ TikTok AI scanner quét AUDIO TRANSCRIPT — giọng nói bị scan y như text!**
+**Vi phạm từ ngữ trong voice = video bị gỡ hoặc shadowban.**
+
+**A. NGUYÊN TẮC NÓI AN TOÀN — VOICE SCRIPT:**
+
+1. **NÓI NHƯ CHIA SẺ BẠN BÈ, KHÔNG NÓI NHƯ QUẢNG CÁO:**
+   ✅ "Mình dùng thấy da mình đẹp hơn nè" (trải nghiệm cá nhân)
+   ❌ "Sản phẩm này TRỊ MỤN, TRẮNG DA!" (quảng cáo y tế)
+
+2. **DÙNG NGÔi "MÌNH" — CHIA SẺ, KHÔNG CAM KẾT:**
+   ✅ "Mình mặc vào tôn dáng lắm!"
+   ❌ "Áo này CAM KẾT TÔN DÁNG 100%!"
+
+3. **MÔ TẢ CẢM XÚC, KHÔNG TUYÊN BỐ HIỆU QUẢ:**
+   ✅ "Cảm giác da mát, sáng hẳn nè!"  
+   ❌ "Hiệu quả trắng da SAU 3 NGÀY!"
+
+4. **CTA MỀM, KHÔNG ÉP BUỘC:**
+   ✅ "Link dưới nha, bạn nào thích thì xem thử!"
+   ❌ "MUA NGAY! KHÔNG MUA LÀ HỐI HẬN CẢ ĐỜI!!!"
+
+**B. TỪ CẤM TRONG VOICE — ABSOLUTE KHÔNG ĐƯỢC NÓI:**
+
+| ❌ KHÔNG ĐƯỢC NÓI | ✅ NÓI THAY THẾ | LÝ DO |
+|-------------------|-----------------|-------|
+| "Tốt nhất" / "Số 1" | "Mình rất thích" / "Được yêu thích" | Absolute claim |
+| "Trị mụn/nám" | "Da mình mịn hơn" | Health claim |
+| "Giảm cân/Đốt mỡ" | "Dáng đẹp hơn" / "Tôn dáng" | Health claim |
+| "Trắng da" | "Da mình rạng rỡ hơn" | Colorism |
+| "Giấu bụng/khuyết điểm" | "Tôn dáng" / "Tôn ưu điểm" | Body shaming |
+| "Sexy/Gợi cảm/Hot" | "Quyến rũ/Tinh tế/Thu hút" | Sexual flag |
+| "100% hiệu quả" | "Mình thấy thích lắm" | False promise |
+| "Cam kết/Guarantee" | "Mình tự tin giới thiệu" | Deceptive |
+| "Cơ hội cuối cùng" | "Đợt giá tốt đừng bỏ lỡ" | Fake urgency |
+| "Phá giá/Sale sốc" | "Giá hời/Ưu đãi đặc biệt" | Deceptive |
+| "Copy 1:1/Hàng fake" | "Thiết kế trẻ trung" | IP violation |
+| "Clinically proven" | "Nhiều người tin dùng" | Medical claim |
+
+**C. VÍ DỤ VOICE SCRIPT AN TOÀN THEO PRODUCT TYPE:**
+
+**Fashion Script (✅ SAFE):**
+"Nè mọi người! Váy này mình mới mua, chất lụa mềm lắm nha!
+Mặc lên tôn dáng, đi đâu cũng được khen. Giá hợp lý nữa!
+Link ở dưới, bạn nào thích thì xem thử nha!"
+
+**Beauty Script (✅ SAFE):**
+"Chị em ơi, mình dùng serum này được 2 tuần rồi!
+Cảm giác da mình mịn hơn, sáng hơn nhiều luôn á.
+Dịu nhẹ, mình dùng rất an tâm. Link bên dưới nha!"
+
+**Sportswear Script (✅ SAFE):**  
+"Set thể thao này thoải mái lắm nè!
+Vải co giãn 4 chiều, mặc đi cafe, đi chơi đều đẹp!
+Giá tốt nữa, link dưới nha mọi người!"
+
+================================================
 🔗 TÍCH HỢP VỚI HỆ THỐNG HIỆN TẠI
 ================================================
 

@@ -27,6 +27,7 @@ import {
    STORYTELLING_CINEMATIC_GUIDE,
    UNBOXING_CINEMATIC_GUIDE,
    REVIEW_CINEMATIC_GUIDE,
+   TIKTOK_BANNED_WORDS_GUIDE,
    INITIAL_BRIEF,
    BODY_TEMPLATES,
    PRODUCT_TYPE_GROUPS,
@@ -2947,6 +2948,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
             VEO_SAFE_MOTION_KEYWORDS,
             TRENDING_INTELLIGENCE,
             EMOTIONAL_ARC_GUIDE,
+            TIKTOK_BANNED_WORDS_GUIDE,
          ];
          // Fashion-specific modules
          if (isFashionProduct) {
