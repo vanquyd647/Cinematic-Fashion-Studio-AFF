@@ -764,6 +764,7 @@ Product LIGHT (white/cream) → Backdrop with texture/color (grey/color)
 
    const fileInputFaceRef = useRef<HTMLInputElement>(null);
    const fileInputOutfitRef = useRef<HTMLInputElement>(null);
+   const outputSectionRef = useRef<HTMLDivElement>(null);
 
    // --- Handlers ---
 
@@ -1278,6 +1279,11 @@ Now create the REFINED SCENES:
       setStep('director');
       setDirectorThinking(true);
       setDirectorOutput(null);
+
+      // Auto-scroll to output section so user can see the loading/results
+      setTimeout(() => {
+         outputSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
 
       try {
          const ai = new GoogleGenAI({ apiKey });
@@ -3177,6 +3183,11 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
 
          setActiveTab('master');
 
+         // Auto-scroll to output after generation completes
+         setTimeout(() => {
+            outputSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+         }, 200);
+
       } catch (error: any) {
          console.error("Director Error:", error);
 
@@ -4743,7 +4754,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
             </div>
 
             {/* Bottom Section: Results Output */}
-            <div className="flex flex-col min-h-[600px]">
+            <div ref={outputSectionRef} className="flex flex-col min-h-[600px]">
                <div className="rounded-2xl h-full flex flex-col relative overflow-hidden border border-zinc-800/60 bg-zinc-900/30 backdrop-blur-sm shadow-2xl shadow-black/20">
 
                   {/* 1. Director View */}
