@@ -4,11 +4,12 @@
 Video phải ĐẸP NHƯ PHIM nhưng THÔI THÚC MUA HÀNG.
 Mỗi cú máy phải phục vụ MỤC ĐÍCH BÁN HÀNG, không chỉ đẹp.
 
-**DURATION: TẤT CẢ VIDEO = 32 GIÂY (4 SCENES x 8 GIÂY)**
-- Scene 1 (00s-08s): **HOOK** — Dừng lướt + Show sản phẩm ngay
-- Scene 2 (08s-16s): **FEEL** — Xóa nghi ngờ chất lượng (test vải, show form)
-- Scene 3 (16s-24s): **DREAM** — Khơi khao khát (bối cảnh mơ ước)
-- Scene 4 (24s-32s): **CLOSE** — Kêu gọi hành động (pose tự tin, mời mua)
+**DURATION: VIDEO DURATION = USER SETTING (8s → 54s, mặc định 24s)**
+- Duration do user chọn, N scenes x 8 giây mỗi scene
+- Scene 1: **HOOK** — Dừng lướt + Show sản phẩm ngay
+- Scene 2: **FEEL** — Xóa nghi ngờ chất lượng (test vải, show form)
+- Scene N-1: **DREAM** — Khơi khao khát (bối cảnh mơ ước)
+- Scene N: **CLOSE** — Kêu gọi hành động (pose tự tin, mời mua)
 
 **4 NGUYÊN TẮC VÀNG:**
 1. **Scene 1 (00-08s) = HOOK:** 0-3s dừng ngón tay lướt, 3-8s build sản phẩm
@@ -21,7 +22,12 @@ Mỗi cú máy phải phục vụ MỤC ĐÍCH BÁN HÀNG, không chỉ đẹp.
 ## 🤖 PRODUCT TYPE AUTO-DETECTION FOR VIDEOS
 
 When generating CINEMATIC MODE videos (NOT lookbook), detect product category from outfit reference and apply appropriate scene structure.
-**ALL products = 32s, 4 scenes x 8s each. NO EXCEPTIONS.**
+**Áp dụng HOOK→FEEL→DREAM→CLOSE framework cho mọi độ dài video. Điều chỉnh số scene theo duration user chọn.**
+- 8s (1 scene): HOOK+CLOSE condensed
+- 16s (2 scenes): HOOK+FEEL → DREAM+CLOSE
+- 24s (3 scenes): HOOK → FEEL+DREAM → CLOSE
+- 32s (4 scenes): HOOK → FEEL → DREAM → CLOSE (classic)
+- 40-54s (5-7 scenes): HOOK → FEEL → expanded DREAM scenes → CLOSE
 
 ---
 

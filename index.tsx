@@ -2205,13 +2205,158 @@ ${(() => {
    // Map aliases
    garmentChoreography['combo'] = garmentChoreography['set'];
    
+   // 💄 BEAUTY & CARE PRODUCT CHOREOGRAPHY
+   garmentChoreography['facial_device'] = `🧴 PRODUCT CHOREOGRAPHY — FACIAL DEVICE:
+- UNBOX: Lift device from premium packaging, show build quality + weight
+- DEMO: Apply to face — forehead, cheeks, jawline sequence (show technique)
+- DETAIL: Close-up device head/bristles, LED indicators, charging port
+- RESULT: Before/after skin texture comparison, luminous skin close-up
+- ANGLES: Product hero shot → application demo → result evidence
+- Veo: "Model gently glides facial device across cheek, soft LED glow, clean bathroom lighting, skincare routine video"`;
+   garmentChoreography['serum'] = `💧 PRODUCT CHOREOGRAPHY — SERUM/ESSENCE:
+- DISPLAY: Hold bottle to camera, show texture through glass, label details
+- APPLICATION: Dropper → palm → pat onto face, show absorption speed
+- DETAIL: Macro close-up of serum texture, droplet on skin, dewy finish
+- RESULT: Skin glow comparison, touch face to show smooth texture
+- ANGLES: Product hero → application sequence → skin result macro
+- Veo: "Model applies serum drops to fingertips, gently pats onto face, skin glistening under soft ring light, beauty routine"`;
+   garmentChoreography['makeup'] = `💄 PRODUCT CHOREOGRAPHY — MAKEUP (Son/Cushion/Phấn):
+- SWATCH: Arm swatch showing true color, blend demo
+- APPLICATION: Apply to lips/face with proper technique, show coverage
+- DETAIL: Macro product texture, packaging open/close mechanism
+- RESULT: Full face result, different angles catching light
+- ANGLES: Product packaging → swatch → application → final look
+- Veo: "Model applies lipstick with confident smile, presses lips together, checks mirror, satisfied expression, beauty tutorial energy"`;
+   garmentChoreography['body_shaper'] = `🩱 PRODUCT CHOREOGRAPHY — BODY SHAPER/GEN NỊT:
+- DISPLAY: Show product structure, elasticity test (stretch & snap back)
+- COMPARE: Side-by-side silhouette — without vs with product
+- DETAIL: Close-up material quality, stitching, compression zones
+- COMFORT: Movement test — sit, bend, walk naturally while wearing
+- ANGLES: Product flat → wearing side view → movement demo → before/after
+- Veo: "Split comparison showing silhouette difference, model moves comfortably, smooth fabric under clothing, natural demonstration"`;
+   garmentChoreography['massage_device'] = `✨ PRODUCT CHOREOGRAPHY — MASSAGE DEVICE:
+- UNBOX: Premium reveal, show attachments/heads variety
+- DEMO: Use on target area (neck/face/body), show vibration levels
+- DETAIL: Close-up attachment heads, control panel, build quality
+- REACTION: Relaxation expression, genuine comfort feedback
+- ANGLES: Product overview → in-use demo → detail → reaction
+- Veo: "Model uses massage device on neck area, eyes closed with relaxed expression, soft ambient lighting, self-care content"`;
+   garmentChoreography['skincare_set'] = `🧖 PRODUCT CHOREOGRAPHY — SKINCARE SET:
+- DISPLAY: Arrange full set aesthetically, show each product
+- ROUTINE: Step-by-step application sequence (cleanser → toner → serum → cream)
+- DETAIL: Each product texture macro, ingredient highlights
+- RESULT: Final luminous skin result, touch-test smoothness
+- ANGLES: Set flatlay → step-by-step demo → skin result
+- Veo: "Model applies skincare products in sequence, each step clean and deliberate, bathroom mirror, morning routine aesthetic"`;
+   garmentChoreography['hair_device'] = `💇 PRODUCT CHOREOGRAPHY — HAIR DEVICE:
+- DISPLAY: Show device + temperature settings, plate/barrel quality
+- DEMO: Style hair section by section, show technique and result
+- DETAIL: Close-up heat plate, steam, cord quality
+- RESULT: Before/after hair comparison, bounce/curl test
+- ANGLES: Device hero → sectioning → styling demo → final result
+- Veo: "Model uses hair styling device, hair transforms from straight to beautiful curls, mirror reflection, getting-ready video"`;
+   garmentChoreography['nail_beauty'] = `💅 PRODUCT CHOREOGRAPHY — NAIL BEAUTY:
+- DISPLAY: Show colors/products arranged aesthetically
+- APPLICATION: Step-by-step nail application technique
+- DETAIL: Macro nail finish, color accuracy, texture
+- RESULT: Finished nails showcase, hand poses showing design
+- ANGLES: Product display → application → macro detail → styled hand poses
+- Veo: "Close-up of elegant hand, freshly styled nails catching light, gentle hand movements showing nail art details"`;
+   
+   // 🏠 SMART HOME PRODUCT CHOREOGRAPHY
+   garmentChoreography['robot_vacuum'] = `🤖 PRODUCT CHOREOGRAPHY — ROBOT VACUUM:
+- UNBOX: Lift from box, show sensor array, charging dock setup
+- DEMO: POV room sweep — robot navigating furniture, edge detection, carpet transition
+- DETAIL: Close-up mopping pad, dustbin capacity, app control screen
+- RESULT: Before/after floor comparison, dust collection evidence
+- ANGLES: Product hero → room demo POV → detail → clean result
+- Veo: "Robot vacuum glides across living room floor, navigating chair legs smoothly, clean path visible behind it, smart home demo"`;
+   garmentChoreography['air_purifier'] = `🌬️ PRODUCT CHOREOGRAPHY — AIR PURIFIER:
+- DISPLAY: Show unit design, filter system reveal, air quality display
+- DEMO: Power on sequence, airflow visualization (fabric ribbon/smoke), noise levels
+- DETAIL: Close-up filter layers, air quality sensor, control panel
+- RESULT: Air quality number improvement on display
+- ANGLES: Product hero → filter reveal → operation demo → results
+- Veo: "Air purifier powers on with gentle hum, air quality display showing numbers improving, clean modern living room"`;
+   garmentChoreography['smart_kitchen'] = `🍳 PRODUCT CHOREOGRAPHY — SMART KITCHEN:
+- DISPLAY: Product hero shot, show controls, capacity
+- DEMO: Cook a quick item from start to finish (oil-free frying, steaming, etc.)
+- DETAIL: Close-up cooking chamber, temperature display, timer
+- RESULT: Finished food reveal, golden crispy/perfectly cooked outcome
+- ANGLES: Product overview → ingredients in → cooking process → food reveal
+- Veo: "Smart kitchen appliance in action, steam rising, timer counting down, finished food lifted out looking perfectly cooked"`;
+   garmentChoreography['water_purifier'] = `💧 PRODUCT CHOREOGRAPHY — WATER PURIFIER:
+- DISPLAY: Full unit, show filter stages, water temperature options
+- DEMO: Pour water, show filtration speed, temperature switching
+- DETAIL: Close-up filter cross-section, TDS meter comparison (tap vs filtered)
+- RESULT: Crystal clear water in glass, taste test reaction
+- ANGLES: Unit overview → filter detail → pour demo → water quality test
+- Veo: "Crystal clear water pours from purifier into glass, light refracting through water, clean kitchen countertop"`;
+   garmentChoreography['smart_fan'] = `❄️ PRODUCT CHOREOGRAPHY — SMART FAN/AC:
+- DISPLAY: Show unit design, oscillation range, remote/app control
+- DEMO: Power on, show airflow (hair/ribbon movement), speed levels
+- DETAIL: Close-up motor, blade design, noise level demonstration
+- RESULT: Comfort demonstration, temperature comparison
+- ANGLES: Product hero → operation → airflow demo → comfort result
+- Veo: "Smart fan oscillating smoothly, gentle breeze moving curtain fabric, peaceful bedroom setting, comfortable ambient"`;
+   garmentChoreography['smart_light'] = `💡 PRODUCT CHOREOGRAPHY — SMART LIGHT:
+- DISPLAY: Show light design, packaging, size reference
+- DEMO: Scene changes — warm reading → bright working → ambient mood → party color
+- DETAIL: Close-up LED quality, app control screen, dimming levels
+- RESULT: Room ambiance transformation before/after
+- ANGLES: Product → installation → scene demos → room transformation
+- Veo: "Room lighting transforms from warm cozy glow to bright white to ambient purple, smart light changing colors smoothly"`;
+   garmentChoreography['security_cam'] = `📹 PRODUCT CHOREOGRAPHY — SECURITY CAMERA:
+- DISPLAY: Camera unit comparison to hand (size reference), mount hardware
+- DEMO: App feed live view, night vision toggle, motion tracking demo
+- DETAIL: Close-up lens, speaker/mic, weather resistance
+- RESULT: Clear footage quality demo (day + night), motion alert notification
+- ANGLES: Product hero → mounting → live feed demo → day/night comparison
+- Veo: "Security camera mounted on wall, phone showing clear live feed, notification pops up with motion detection alert"`;
+   garmentChoreography['smart_lock'] = `🔐 PRODUCT CHOREOGRAPHY — SMART LOCK:
+- DISPLAY: Lock unit, show fingerprint pad, keypad, app
+- DEMO: Fingerprint unlock → keypad code → app remote unlock → mechanical key backup
+- DETAIL: Close-up fingerprint sensor, build quality, installation
+- RESULT: Speed test (unlock in <1s), multiple user demo
+- ANGLES: Product hero → unlock methods demo → detail → speed test
+- Veo: "Finger touches smart lock sensor, green light confirmation, door opens smoothly, secure smart home entrance"`;
+   garmentChoreography['cleaning_device'] = `🧹 PRODUCT CHOREOGRAPHY — CLEANING DEVICE:
+- DISPLAY: Show main unit + attachments, suction modes
+- DEMO: Clean different surfaces — hard floor, carpet, crevice, upholstery
+- DETAIL: Close-up cyclone/filter, dustbin with collected debris
+- RESULT: Before/after cleaning comparison, satisfying dirt collection
+- ANGLES: Product overview → multi-surface demo → detail → before/after
+- Veo: "Handheld vacuum cleaning sofa crevice, dust particles visible in light beam, satisfying cleaning demonstration"`;
+   garmentChoreography['steam_device'] = `♨️ PRODUCT CHOREOGRAPHY — STEAM DEVICE:
+- DISPLAY: Show device, water tank, steam nozzle
+- DEMO: Steam a wrinkled garment — before wrinkled → steaming process → smooth result
+- DETAIL: Close-up steam output, temperature, water capacity
+- RESULT: Before/after fabric wrinkle comparison
+- ANGLES: Product hero → wrinkled garment → steaming action → smooth result
+- Veo: "Steam iron releasing steady steam onto wrinkled shirt, fabric smoothing out visibly, satisfying transformation"`;
+   garmentChoreography['organizer'] = `📦 PRODUCT CHOREOGRAPHY — ORGANIZER:
+- DISPLAY: Show product folded/flat, then assembled/opened
+- DEMO: Load items into organizer, show capacity and fit
+- DETAIL: Close-up material quality, zippers, dividers, labels
+- RESULT: Before/after space — messy → organized transformation
+- ANGLES: Product flat → assembly → loading demo → before/after
+- Veo: "Hands placing items neatly into organizer compartments, satisfying organization transformation, clean minimalist space"`;
+   garmentChoreography['pet_device'] = `🐾 PRODUCT CHOREOGRAPHY — PET DEVICE:
+- DISPLAY: Show product, fill/assemble with pet food/water
+- DEMO: Pet interacting with device (eating, drinking, playing), automatic function
+- DETAIL: Close-up dispensing mechanism, app control, capacity
+- RESULT: Happy pet, owner convenience, smart scheduling
+- ANGLES: Product setup → pet interaction → detail mechanism → happy result
+- Veo: "Cat approaching automatic feeder, food dispensing on schedule, pet eating happily, cozy home setting, pet care content"`;
+
    const choreo = garmentChoreography[pt];
    if (pt === 'auto') {
       return `\n👗 GARMENT CHOREOGRAPHY: AUTO-DETECT
-- AI detect loại trang phục từ outfit reference image
-- Map vào choreography phù hợp (dress → twirl, pants → squat test, jacket → open/close...)
+- AI detect loại trang phục/sản phẩm từ reference image
+- Map vào choreography phù hợp (dress → twirl, device → demo, appliance → before/after...)
 - Nếu combo → ưu tiên item chính (dress > top > bottom) hoặc dùng set choreography
-- MINIMUM mỗi outfit: walk + side profile + 1 detail close-up`;
+- MINIMUM mỗi outfit: walk + side profile + 1 detail close-up
+- MINIMUM mỗi device: unbox + demo + detail + result`;
    }
    return choreo ? `\n${choreo}` : `\n👗 GARMENT CHOREOGRAPHY: AI detect từ ảnh, minimum: walk + side profile + detail close-up`;
 })()}
@@ -2727,16 +2872,52 @@ Product type "${pt}" = STRUCTURED fabric
 
          const productPhysicsInstruction = getPhysicsInstruction();
 
-         // Background Consistency: Unified Affiliate Logic
+         // Background Consistency: Smart routing based on cinematic style
          const getBackgroundContinuityInstruction = () => {
-            // Affiliate mode always uses DYNAMIC_VIBE for energy and variety
+            if (cinematicStyle === 'fashion_walkin') {
+               return `\n\n🎨 BACKGROUND CONTINUITY MODE: LINEAR_PROGRESSION
+⚠️ You MUST generate:
+1. masterPrompt.environment = Single continuous path with progression direction.
+2. keyframes[].backgroundPrompt = Same location, camera advances along path (closer each scene).
+3. metadata.visualLogicType = "linear_progression"
+Model walks toward camera in ONE continuous location. Background progresses naturally along the walk path.
+⚠️ MODEL FRAMING: Model MUST occupy 75-85% of frame HEIGHT.`;
+            }
+            if (cinematicStyle === 'transform_viral') {
+               return `\n\n🎨 BACKGROUND CONTINUITY MODE: FIXED_STAGE
+⚠️ You MUST generate:
+1. masterPrompt.environment = Single fixed background for before/after consistency.
+2. keyframes[].backgroundPrompt = SAME background every scene (transformation happens ON the model, NOT the background).
+3. metadata.visualLogicType = "fixed_stage"
+Background stays IDENTICAL across all scenes. Only the outfit/model transforms.
+⚠️ MODEL FRAMING: Model MUST occupy 75-85% of frame HEIGHT.`;
+            }
+            if (cinematicStyle === 'try_on' || cinematicStyle === 'review' || cinematicStyle === 'unboxing') {
+               return `\n\n🎨 BACKGROUND CONTINUITY MODE: FIXED_STAGE
+⚠️ You MUST generate:
+1. masterPrompt.environment = Consistent setting (fitting room / bedroom / studio).
+2. keyframes[].backgroundPrompt = SAME background for fair outfit comparison and continuity.
+3. metadata.visualLogicType = "fixed_stage"
+Background stays IDENTICAL. Camera framing consistent. Model/outfit changes are the ONLY visual variable.
+⚠️ MODEL FRAMING: Model MUST occupy 75-85% of frame HEIGHT.`;
+            }
+            if (cinematicStyle === 'standard' || cinematicStyle === 'marketing_intimate') {
+               return `\n\n🎨 BACKGROUND CONTINUITY MODE: MULTI_ANGLE_EDITORIAL
+⚠️ You MUST generate:
+1. masterPrompt.environment = Single location with multiple camera angles.
+2. keyframes[].backgroundPrompt = Same location, different framing/angle per scene.
+3. metadata.visualLogicType = "multi_angle_editorial"
+One location filmed from different angles. Cohesive but visually varied.
+⚠️ MODEL FRAMING: Model MUST occupy 75-85% of frame HEIGHT.`;
+            }
+            // Default: DYNAMIC_VIBE for storytelling, ASMR, and other creative modes
             return `\n\n🎨 BACKGROUND CONTINUITY MODE: DYNAMIC_VIBE
 ⚠️ You MUST generate:
 1. masterPrompt.environment = Consistent color palette and lighting atmosphere.
 2. keyframes[].backgroundPrompt = Vibe-consistent backgrounds (same tone/mood, can vary location for energy).
 3. metadata.visualLogicType = "dynamic_vibe"
 Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but visual tone should be cohesive.
-⚠️ MODEL FRAMING: Model MUST occupy 75-85% of frame HEIGHT. Background supports product without overwhelming.`;
+⚠️ MODEL FRAMING: Model MUST occupy 75-85% of frame HEIGHT.`;
          };
 
          const backgroundContinuityInstruction = getBackgroundContinuityInstruction();
@@ -2752,20 +2933,34 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
             { inlineData: { mimeType: outfitData.mimeType, data: outfitData.data } }
          ];
 
-         // Optimized system instruction assembly (reduced token usage)
-         const baseModules = [
+         // 🧠 SMART MODULE SELECTION — Load only relevant modules based on context
+         const isFashionProduct = !['facial_device', 'serum', 'makeup', 'body_shaper', 'massage_device', 'skincare_set', 'hair_device', 'nail_beauty', 'robot_vacuum', 'air_purifier', 'smart_kitchen', 'water_purifier', 'smart_fan', 'smart_light', 'security_cam', 'smart_lock', 'cleaning_device', 'steam_device', 'organizer', 'pet_device'].includes(productType);
+         const isBeautyProduct = ['facial_device', 'serum', 'makeup', 'body_shaper', 'massage_device', 'skincare_set', 'hair_device', 'nail_beauty'].includes(productType);
+         const isSmartHomeProduct = ['robot_vacuum', 'air_purifier', 'smart_kitchen', 'water_purifier', 'smart_fan', 'smart_light', 'security_cam', 'smart_lock', 'cleaning_device', 'steam_device', 'organizer', 'pet_device'].includes(productType);
+         const isIntimateProduct = ['lingerie', 'bikini', 'sleepwear'].includes(productType);
+         const needsVoice = voiceStyle !== 'no_voice';
+         
+         const baseModules: string[] = [
             TIKTOK_SHOP_SYSTEM_INSTRUCTION,
-            SPORTSWEAR_RULES,
-            PRODUCT_PHYSICS_RULES,
-            VEO_SAFE_MOTION_KEYWORDS,
-            SAFETY_VOCABULARY_GUIDE,
-            TRENDING_INTELLIGENCE,
-            CINEMATIC_FASHION_SCENES,
-            EMOTIONAL_ARC_GUIDE,
             AFFILIATE_OPTIMIZATION,
             VIRAL_HOOKS_MASTERY,
-            VOICE_SCRIPT_PRO
+            VEO_SAFE_MOTION_KEYWORDS,
+            TRENDING_INTELLIGENCE,
+            EMOTIONAL_ARC_GUIDE,
          ];
+         // Fashion-specific modules
+         if (isFashionProduct) {
+            baseModules.push(CINEMATIC_FASHION_SCENES);
+            baseModules.push(PRODUCT_PHYSICS_RULES);
+            if (['sport', 'bigsize'].includes(productType)) baseModules.push(SPORTSWEAR_RULES);
+         }
+         // Voice module only when voice is enabled
+         if (needsVoice) baseModules.push(VOICE_SCRIPT_PRO);
+         // Safety vocabulary for intimate/sensitive products
+         if (isIntimateProduct || isBeautyProduct) baseModules.push(SAFETY_VOCABULARY_GUIDE);
+         // Non-fashion products still need basic scene rules
+         if (!isFashionProduct) baseModules.push(CINEMATIC_FASHION_SCENES);
+         
          let systemInstruction = baseModules.join('\n\n');
          
          // 🏆 COMPETITIVE OPTIMIZATION - Compact version for token efficiency
