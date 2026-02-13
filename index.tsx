@@ -4755,7 +4755,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
 
             {/* Bottom Section: Results Output */}
             <div ref={outputSectionRef} className="flex flex-col min-h-[600px]">
-               <div className="rounded-2xl h-full flex flex-col relative overflow-hidden border border-zinc-800/60 bg-zinc-900/30 backdrop-blur-sm shadow-2xl shadow-black/20">
+               <div className="rounded-2xl flex-1 flex flex-col relative overflow-hidden border border-zinc-800/60 bg-zinc-900/30 backdrop-blur-sm shadow-2xl shadow-black/20">
 
                   {/* 1. Director View */}
                   {step === 'director' && (
