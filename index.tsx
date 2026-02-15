@@ -27,6 +27,7 @@ import {
    UNBOXING_CINEMATIC_GUIDE,
    REVIEW_CINEMATIC_GUIDE,
    TIKTOK_BANNED_WORDS_GUIDE,
+   REAL_LOCATION_RULES,
    INITIAL_BRIEF,
    BODY_TEMPLATES,
    PRODUCT_TYPE_GROUPS,
@@ -2840,26 +2841,43 @@ Khi tạo scene transitions, LƯU Ý:
 
          const keyframeCountText = `\n\n⚠️ KEYFRAME COUNT REQUIREMENT:\n- Video ${finalDuration}s = ${Math.floor(finalDuration / 8) + 1} KEYFRAMES bắt buộc\n- Timestamps: ${Array.from({ length: Math.floor(finalDuration / 8) + 1 }, (_, i) => `${i * 8}s`).join(', ')}\n- PHẢI OUTPUT ĐỦ ${Math.floor(finalDuration / 8) + 1} KEYFRAMES, KHÔNG ĐƯỢC THIẾU!\n\n📸 KEYFRAME QUALITY RULES (BẮT BUỘC):\n⚠️ Mỗi keyframe PHẢI là prompt HOÀN CHỈNH, KHÔNG được chỉ có action!\n\n❌ SAI (thiếu location + camera):\n{ "id": 1, "action": "standing with hand on hip" }\n\n✅ ĐÚNG (đầy đủ):\n{\n  "id": 1, "timestamp": "00s",\n  "subject": "The model with exact facial features preserved from reference",\n  "action": "Standing confidently with right hand on hip, left hand touching hair, warm smile",\n  "environment": "Standing at the ornate marble entrance of Caravelle Hotel lobby, vintage brass-framed glass doors behind",\n  "lighting": "Warm tungsten lobby chandelier light with soft fill from left, golden ambient glow",\n  "camera": "Full body shot, 35mm wide angle f/2.8, low angle from hip level, 3/4 front facing",\n  "style": "Photorealistic fashion photography, editorial quality, natural skin texture"\n}\n\n🎯 RULES:\n- environment: VỊ TRÍ CỤ THỂ trong location (không chỉ tên location)\n- camera: GÓC CHỤP + LENS + FRAMING (phải KHÁC nhau giữa các keyframes)\n- lighting: ÁNH SÁNG cụ thể cho frame này\n- KHÔNG ĐƯỢC để trống bất kỳ field nào!`;
 
-         // Real-World Photography Mode (ALWAYS ON)
+         // Real-World Photography Mode (ALWAYS ON) — Enhanced with Veo 3.1 research
          const realWorldPhotoText = `\n\n📸 REAL-WORLD PHOTOGRAPHY MODE (BẮT BUỘC):
-⚠️ OUTPUT PHẢI LÀ ẢNH/VIDEO CHỤP THỰC TẾ - KHÔNG PHẢI CGI/3D RENDER!
+⚠️ OUTPUT PHẢI LÀ ẢNH/VIDEO CHỤP THỰC TẾ TẠI ĐỊA ĐIỂM THẬT — KHÔNG PHẢI CGI/3D RENDER!
 
-✅ BẮT BUỘC:
-- Bối cảnh THẬT có thể tìm trên Google Maps
-- Phong cách như photographer chuyên nghiệp chụp ON-LOCATION
-- Ánh sáng tự nhiên với bóng đổ thật
-- Texture thực của environment (sàn, tường, nội thất)
-- Perspective như camera thật (DSLR/smartphone)
+✅ BẮT BUỘC — 5 QUY TẮC REAL LOCATION:
+1. ĐỊA ĐIỂM CỤ THỂ: Mỗi scene PHẢI có tên địa điểm tìm được trên Google Maps
+   VD: "Shot at the marble lobby of Continental Hotel Saigon" ✅
+   VD: "Beautiful background" ❌ (quá chung → Veo hallucinate)
 
-❌ TUYỆT ĐỐI KHÔNG:
-- CGI / 3D rendered environments
+2. VẬT LIỆU & TEXTURE: Mô tả sàn (marble/terrazzo/wood), tường (brick/stucco/stone), nội thất thật
+   VD: "polished terrazzo floor reflecting chandelier light" ✅
+   VD: "nice floor" ❌
+
+3. ÁNH SÁNG TỰ NHIÊN: Chỉ rõ NGUỒN + THỜI GIAN + HƯỚNG
+   VD: "Golden hour sunlight from behind, long soft shadows on cobblestones" ✅
+   VD: "Perfect lighting" ❌ (CGI-looking)
+
+4. CAMERA LANGUAGE = PHOTOGRAPHER THẬT:
+   VD: "Shot on 35mm f/1.4, shallow DOF, background bokeh" ✅
+   VD: "Cinematic render" ❌ (CGI term)
+
+5. IMPERFECTION = AUTHENTICITY: Thêm 1-2 chi tiết đời thật
+   VD: "dust motes in sunbeam, distant pedestrians in soft bokeh" ✅
+   VD: "Perfect flawless environment" ❌
+
+❌ TUYỆT ĐỐI CẤM — ANTI-CGI:
+- 3D render, CGI background, virtual set, green screen
 - Fantasy / Surreal / Fictional locations
+- "Ray-traced", "volumetric render", "subsurface scattering" (CGI terms)
 - Overly perfect studio look (trông fake)
-- AI-generated unrealistic backgrounds
-- Floating objects / Impossible physics
+- Floating objects / Impossible physics / Magical glow
+- Evenly lit from all sides (physically impossible on-location)
 
-🎯 PROMPT KEYWORDS (THÊM VÀO MỌI PROMPT):
-"Shot on location at [Địa điểm], professional fashion photography, authentic real-world environment, natural available light, DSLR camera aesthetic"
+🎯 PROMPT TEMPLATE MỖI SCENE (Veo 3.1 optimized):
+"[Subject in OUTFIT], [ACTION] at [SPECIFIC REAL LOCATION with TEXTURE details], [NATURAL LIGHT SOURCE + TIME], [CAMERA LENS + SETTINGS]. [1-2 real-world ambient details]."
+
+📌 STYLE ANCHOR (chọn 1 cho mỗi video): "shot on 35mm film" | "shot on 8K" | "editorial fashion photography" | "street photography aesthetic"
 
 ⚠️ OUTPUT FORMAT: STRICT JSON (cho Nano Banana Pro & Veo 3.1)
 AI PHẢI output định dạng JSON để tối ưu workflow Image-to-Video.`;
@@ -3103,6 +3121,14 @@ Product type "${pt}" = STRUCTURED fabric
                'watermark', 'logo', 'split screen unless requested'
             ];
 
+            // Anti-CGI negatives — push toward photorealistic real-location output
+            const antiCgiNegative = [
+               '3D render', 'CGI background', 'virtual set', 'green screen composite',
+               'artificial environment', 'studio backdrop', 'digitally created environment',
+               'unrealistic perfection', 'plastic-looking skin', 'overly smooth surfaces',
+               'impossible lighting angles', 'ray-traced lighting', 'volumetric render'
+            ];
+
             // Product-specific negative terms
             const productNegative: string[] = [];
 
@@ -3152,7 +3178,7 @@ Product type "${pt}" = STRUCTURED fabric
                'color shift on clothing between scenes'
             ];
 
-            const allNegative = [...baseNegative, ...productNegative, ...envNegative, ...interactionNegative];
+            const allNegative = [...baseNegative, ...antiCgiNegative, ...productNegative, ...envNegative, ...interactionNegative];
 
             return `\n\n🚫 VEO 3.1 NEGATIVE PROMPT GUIDANCE:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -3395,6 +3421,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
             TRENDING_INTELLIGENCE,
             EMOTIONAL_ARC_GUIDE,
             TIKTOK_BANNED_WORDS_GUIDE,
+            REAL_LOCATION_RULES,
          ];
          // Fashion-specific modules
          if (isFashionProduct) {

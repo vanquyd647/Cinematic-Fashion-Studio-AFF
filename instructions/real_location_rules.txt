@@ -1,0 +1,263 @@
+================================================
+📸 REAL LOCATION ENVIRONMENT RULES — NO CGI
+================================================
+Quy tắc bắt buộc: Video/ảnh fashion PHẢI sử dụng bối cảnh ĐỊA ĐIỂM THẬT
+Tối ưu cho: Veo 3.1 photorealistic output, Nano Banana Pro
+
+═══════════════════════════════════════════════════════════════
+🎯 TRIẾT LÝ: "ON-LOCATION SHOOT" — NHƯ ĐOÀN PHIM THỰC SỰ
+═══════════════════════════════════════════════════════════════
+
+Mỗi scene prompt PHẢI viết như brief cho photographer/videographer
+đi quay ON-LOCATION tại địa điểm thật, KHÔNG PHẢI mô tả cho CGI artist.
+
+❌ CGI MINDSET (SAI):          ✅ ON-LOCATION MINDSET (ĐÚNG):
+"Beautiful background"         "Shot at Đường Nguyễn Huệ, Q1, Sài Gòn"
+"Perfect lighting"             "Golden hour natural sunlight, 5:30PM"
+"Romantic setting"             "Hẻm cafe vintage Đà Lạt, tường đá rêu mốc"
+"Modern environment"           "Lobby khách sạn Continental, sàn đá hoa"
+"Outdoor scene"                "Bãi biển An Bàng, cát trắng, sóng vỗ nhẹ"
+
+═══════════════════════════════════════════════════════════════
+📋 5 QUY TẮC VÀNG — REAL LOCATION
+═══════════════════════════════════════════════════════════════
+
+RULE 1: ĐẶT TÊN ĐỊA ĐIỂM CỤ THỂ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Mỗi scene PHẢI có tên địa điểm tìm được trên Google Maps.
+Không cần đúng 100% thật, nhưng phải CỤ THỂ & THỰC TẾ.
+
+✅ ĐÚNG:
+- "The marble lobby of Caravelle Hotel, Saigon"
+- "A sun-drenched cobblestone alley in Hội An Ancient Town"
+- "Rooftop bar overlooking Seoul skyline at Namsan Tower"
+- "Central Park's Bethesda Fountain, New York, autumn afternoon"
+- "Rain-slicked sidewalk outside Galeries Lafayette, Paris"
+
+❌ SAI:
+- "A beautiful city" (quá chung chung → Veo tự hallucinate)
+- "Urban environment" (không có anchor → mỗi clip khác nhau)
+- "Nice background" (zero grounding → CGI-looking output)
+
+RULE 2: MÔ TẢ VẬT LIỆU & TEXTURE MÔI TRƯỜNG
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Địa điểm thật có TEXTURE. CGI thường thiếu texture chi tiết.
+Mô tả vật liệu thực → Veo render photorealistic hơn.
+
+✅ TEXTURE KEYWORDS cho từng loại location:
+INDOOR:
+- Sàn: "polished marble floor", "worn wooden floorboards", "terrazzo tiles"
+- Tường: "exposed brick wall", "whitewashed stucco", "aged stone facade"
+- Ánh sáng: "sunlight streaming through french windows", "pendant Edison bulbs"
+- Nội thất: "vintage velvet armchair", "brass-framed mirror", "rattan furniture"
+
+OUTDOOR — PHỐ:
+- Mặt đường: "rain-slicked asphalt", "cobblestone pavement", "cracked concrete sidewalk"
+- Kiến trúc: "colonial-era shophouse facades", "weathered wooden shutters"
+- Cây xanh: "mature banyan tree roots breaking through pavement"
+- Chi tiết: "old motorbike parked nearby", "laundry hanging from balconies"
+
+OUTDOOR — THIÊN NHIÊN:
+- Biển: "wet sand reflecting sky at low tide", "salt-weathered wooden pier"
+- Rừng/vườn: "moss-covered stone steps", "dappled sunlight through canopy"
+- Đồi/núi: "terraced rice fields", "morning mist settling in valleys"
+
+RULE 3: ÁNH SÁNG TỰ NHIÊN — KHÔNG ĐÈN STUDIO ẢO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Ánh sáng tự nhiên = dấu hiệu #1 phân biệt thật vs CGI.
+Luôn chỉ rõ NGUỒN SÁNG + THỜI GIAN + HƯỚNG.
+
+✅ NATURAL LIGHTING VOCABULARY:
+| Time of Day | Light Quality | Shadow Behavior |
+|-------------|---------------|-----------------|
+| Golden hour (5-6PM) | Warm amber side-light | Long soft shadows on ground |
+| Overcast noon | Even diffused light | Minimal shadows, soft skin tones |
+| Morning (7-8AM) | Cool crisp directional | Clean hard shadows, dewy surfaces |
+| Blue hour (6:30-7PM) | Cool blue ambient | Almost no shadows, city lights start |
+| Indoor daylight | Window-sourced directional | One-side illumination, natural fall-off |
+| Night streetlight | Warm pools of sodium light | Dramatic pockets of light/dark |
+
+❌ AVOID these CGI-looking lighting terms:
+- "Perfect studio lighting" (trông giả)
+- "Evenly lit from all sides" (không có trong thực tế)
+- "Magical glow" (fantasy, không photorealistic)
+- "Rim light without visible source" (physically impossible on-location)
+
+✅ INSTEAD USE:
+- "Natural sunlight from behind creates soft rim light on hair"
+- "Warm cafe window light illuminates left side of face"
+- "Overcast sky provides even, flattering diffused light"
+- "Street lamp casts warm pool of light on wet pavement"
+
+RULE 4: CAMERA LANGUAGE = PHOTOGRAPHER THẬT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Dùng ngôn ngữ của photographer/DP thật, không dùng CGI language.
+
+✅ REAL CAMERA TERMS (Veo 3.1 responds well to these):
+- Lens: "shot on 35mm f/1.4", "85mm portrait lens", "24mm wide angle"
+- Camera: "DSLR aesthetic", "handheld camera slight movement", "steadicam smooth"
+- Focus: "shallow depth of field, background bokeh", "rack focus from product to face"
+- Film: "shot on Kodak Portra 400", "natural film grain", "Fuji color science"
+- Composition: "rule of thirds", "leading lines from architecture", "natural framing through doorway"
+
+❌ CGI CAMERA TERMS (avoid):
+- "Cinematic render" (render = CGI language)
+- "Ray-traced lighting" (3D software term)
+- "Volumetric fog render" (dùng "morning mist" thay thế)
+- "Subsurface scattering" (dùng "translucent fabric catching light" thay thế)
+
+RULE 5: IMPERFECTION = AUTHENTICITY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Địa điểm thật KHÔNG BAO GIỜ hoàn hảo. Imperfection = believable.
+Thêm 1-2 chi tiết "đời thật" vào mỗi scene.
+
+✅ REAL-WORLD IMPERFECTION DETAILS:
+OUTDOOR:
+- "A stray cat napping nearby" (background life)
+- "Distant pedestrians slightly out of focus" (real street)
+- "Leaves scattered on wet ground" (seasonal detail)
+- "Old posters peeling on a nearby wall" (urban texture)
+- "Motorbike parked at the curb" (Southeast Asian authenticity)
+
+INDOOR:
+- "Slightly worn leather on the cafe bench" (used furniture)
+- "Condensation on the window glass" (real weather interaction)
+- "A half-finished coffee cup on the counter" (lived-in space)
+- "Dust particles visible in the sunbeam" (natural atmosphere)
+- "Slightly uneven vintage tile pattern" (authentic age)
+
+═══════════════════════════════════════════════════════════════
+🎬 VEO 3.1 SPECIFIC — PHOTOREALISTIC PROMPT KEYWORDS
+═══════════════════════════════════════════════════════════════
+
+Theo Veo 3.1 Prompt Guide (Google), những keywords này
+push output toward photorealism thay vì CGI/animation:
+
+MUST-INCLUDE KEYWORDS (chọn 3-5 cho mỗi scene prompt):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+"photorealistic"
+"shot on location"
+"professional fashion photography"
+"natural available light"
+"DSLR camera aesthetic"
+"authentic real-world environment"
+"practical location"
+"on-location shoot"
+"environmental portrait"
+"documentary-style fashion"
+
+STYLE ANCHORS (pick one per video):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+"shot on 35mm film" → vintage editorial feel
+"shot on 8K camera" → ultra-detail modern
+"cinematic film look" → movie-like quality
+"street photography aesthetic" → raw & authentic
+"editorial fashion photography" → magazine quality
+
+NEGATIVE PROMPT — ANTI-CGI (thêm vào negativePrompt):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+"3D render", "CGI background", "artificial environment",
+"studio backdrop", "green screen", "composite background",
+"digitally created environment", "virtual set",
+"unrealistic perfection", "plastic-looking skin",
+"overly smooth surfaces", "impossible lighting angles",
+"floating elements", "gravity-defying objects"
+
+═══════════════════════════════════════════════════════════════
+📍 LOCATION TYPE TEMPLATES — REAL VS CGI COMPARISON
+═══════════════════════════════════════════════════════════════
+
+CAFE/RESTAURANT:
+❌ CGI: "a modern cafe with perfect lighting"
+✅ REAL: "a corner table at a Vietnamese coffee shop with worn wooden stools, 
+         condensation dripping down iced coffee glass, ceiling fan casting slow 
+         shadows, motorbike sounds from the street outside, shot on 50mm f/1.8"
+
+STREET/URBAN:
+❌ CGI: "city street with buildings"
+✅ REAL: "rain-slicked Hàng Bông street in Hanoi Old Quarter at dusk, neon phở 
+         signs reflecting on wet cobblestones, a few pedestrians with umbrellas 
+         in soft background bokeh, warm sodium streetlights, shot on 35mm f/1.4"
+
+BEACH/COASTAL:
+❌ CGI: "beautiful beach scene"
+✅ REAL: "An Bàng beach Hội An at golden hour, wet sand reflecting orange sky, 
+         coconut palm shadows stretching across sand, gentle wave foam at ankles, 
+         salt-crusted wooden fishing boat in background, natural wind in hair, 
+         shot on 85mm telephoto lens"
+
+HOTEL/LUXURY:
+❌ CGI: "luxury hotel interior"
+✅ REAL: "the art deco lobby of Hotel Majestic Saigon, polished terrazzo floor 
+         reflecting crystal chandelier, aged teak wood columns, white marble 
+         reception desk, afternoon sunlight through glass doors, 
+         shot on 24mm wide angle f/2.8"
+
+PARK/GARDEN:
+❌ CGI: "beautiful garden setting"
+✅ REAL: "Tao Đàn Park morning scene, mature rain tree canopy creating dappled 
+         light patterns on gravel path, elderly people doing tai chi in soft 
+         background, morning dew on grass, shot on 50mm with shallow DOF"
+
+MOUNTAIN/NATURE:
+❌ CGI: "mountain landscape"  
+✅ REAL: "Sapa terraced rice fields at sunrise, morning mist settling between 
+         layers of green-gold terraces, a weathered wooden farmhouse in 
+         mid-ground, cool mountain air visible as breath condensation, 
+         shot on 35mm wide angle, natural atmospheric haze"
+
+═══════════════════════════════════════════════════════════════
+🔗 INTEGRATION WITH CINEMATIC STYLES
+═══════════════════════════════════════════════════════════════
+
+FASHION WALK-IN:
+→ Location = outdoor path/walkway at REAL place
+→ MUST describe: surface material (cobblestone/marble/concrete), 
+  surrounding architecture, ambient life (people, traffic, nature)
+→ Camera follows model like real steadicam operator would
+
+TRY-ON / REVIEW / UNBOXING:
+→ Location = real indoor space (bedroom, fitting room, study)
+→ MUST describe: wall material/color, floor type, furniture style, 
+  natural window light direction
+→ Messy desk, real phone, mirror with fingerprints = authentic
+
+STANDARD / MARKETING:
+→ Location = real editorial location (hotel, cafe, street, rooftop)
+→ MUST describe: specific place name + architectural details + 
+  natural lighting condition + time of day
+→ Multiple camera angles of SAME real location
+
+TRANSFORM VIRAL:
+→ Location = fixed real background (bedroom, studio, living room)
+→ MUST keep SAME real background across all scenes
+→ Real furniture, real wall, real floor visible throughout
+
+STORYTELLING:
+→ Multiple real locations allowed but each must be specific
+→ Each location must have enough detail to look photographed
+→ Transition between locations should feel like real shoot schedule
+
+═══════════════════════════════════════════════════════════════
+⚠️ COMMON CGI RED FLAGS — AI MUST SELF-CHECK
+═══════════════════════════════════════════════════════════════
+
+Before finalizing any scene prompt, check for these CGI red flags:
+
+1. ❌ "Beautiful background" → Quá chung → thêm tên địa điểm + vật liệu
+2. ❌ No shadow description → Thêm shadow direction + quality
+3. ❌ "Perfect" anything → Thêm 1 imperfection detail
+4. ❌ No lens/camera info → Thêm focal length + aperture
+5. ❌ Generic "warm lighting" → Specify SOURCE (sunlight/window/lamp)
+6. ❌ No background texture → Describe floor/wall/surface material
+7. ❌ Empty background → Add 1-2 background life elements
+8. ❌ "Magical/dreamy glow" → Replace with real light phenomenon
+
+SELF-CHECK TEMPLATE:
+□ Địa điểm có tên cụ thể? (Google Maps findable)
+□ Vật liệu sàn/tường được mô tả?
+□ Nguồn sáng có rõ ràng? (mặt trời/đèn/cửa sổ)
+□ Bóng đổ được mô tả?
+□ Có ít nhất 1 chi tiết "đời thật"?
+□ Camera language = photographer thật?
+□ Không có từ CGI (render, virtual, magical)?

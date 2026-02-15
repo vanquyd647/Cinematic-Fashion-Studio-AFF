@@ -27,6 +27,7 @@ import STORYTELLING_CINEMATIC_GUIDE from '../instructions/storytelling_cinematic
 import UNBOXING_CINEMATIC_GUIDE from '../instructions/unboxing_cinematic_guide.txt?raw';
 import REVIEW_CINEMATIC_GUIDE from '../instructions/review_cinematic_guide.txt?raw';
 import TIKTOK_BANNED_WORDS_GUIDE from '../instructions/tiktok_banned_words_guide.txt?raw';
+import REAL_LOCATION_RULES from '../instructions/real_location_rules.txt?raw';
 
 // Export instructions
 export {
@@ -54,7 +55,8 @@ export {
   STORYTELLING_CINEMATIC_GUIDE,
   UNBOXING_CINEMATIC_GUIDE,
   REVIEW_CINEMATIC_GUIDE,
-  TIKTOK_BANNED_WORDS_GUIDE
+  TIKTOK_BANNED_WORDS_GUIDE,
+  REAL_LOCATION_RULES
 };
 
 // Export data constants
