@@ -15,11 +15,11 @@ export const BODY_TEMPLATES = [
 // Default Face Presets (when no face reference is uploaded)
 export const FACE_PRESETS = [
    {
-      value: 'douyin_doll',
-      label: 'Douyin Doll',
+      value: 'editorial_doll',
+      label: 'Editorial Doll',
       emoji: '🎀',
-      desc: 'Mắt to, lens nâu, makeup Douyin',
-      promptEN: 'Young Asian woman with porcelain skin, large round eyes with amber-brown contact lenses, Douyin-style doll makeup featuring sharp black eyeliner with upturned wings, thick dramatic lashes emphasizing lower lash line, wine-red eyeshadow blended around eye socket, full pouty lips with ombre velvet-red lipstick (darker center), V-line oval face with high straight nose, burgundy wine-red layered wavy hair with wispy bangs, dreamy expression with soft natural gaze'
+      desc: 'Mắt to, lens nâu, makeup editorial doll',
+      promptEN: 'Young Asian woman with luminous porcelain skin, large round eyes with amber-brown contact lenses, editorial doll makeup featuring sharp black eyeliner with upturned wings, thick dramatic lashes emphasizing lower lash line, wine-red eyeshadow blended around eye socket, full pouty lips with ombre velvet-red lipstick (darker center), V-line oval face with high straight nose, burgundy wine-red layered wavy hair with wispy bangs, dreamy expression with soft natural gaze'
    },
    {
       value: 'platinum_girl',

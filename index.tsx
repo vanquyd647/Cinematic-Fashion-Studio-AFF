@@ -112,7 +112,7 @@ const App = () => {
    // 🔒 UNIFIED AFFILIATE VIDEO MODE - Duy nhất 1 mode
 
    const [faceImage, setFaceImage] = useState<string | null>(null);
-   const [facePreset, setFacePreset] = useState<string>('douyin_doll');
+   const [facePreset, setFacePreset] = useState<string>('editorial_doll');
    const [outfitImage, setOutfitImage] = useState<string | null>(null);
 
    // Body Configuration
@@ -1236,6 +1236,10 @@ TRANSITION_TO_NEXT: [How this flows to next scene]
 4. Every scene MUST have AMBIENT MOTION in environment
 5. BEAT MARKERS must align with BPM and drop timestamps
 6. Use: "smoothly," "fluidly," "gradually" - NOT "suddenly," "cuts to"
+7. EVERY SCENE must START with "[Subject] in [COLOR] [GARMENT_TYPE]" — outfit anchor (Veo 3.1 generates each clip independently and will forget outfit if not repeated)
+8. EVERY SCENE must INCLUDE "[SAME_LOCATION], [LIGHTING]" — environment anchor (prevents background drift)
+9. EVERY SCENE must END with garment physics: how the fabric behaves during the motion described
+10. ACCESSORIES (hat, bag, jewelry, sunglasses) must be mentioned in EVERY scene — they disappear if not reminded
 
 Now create the REFINED SCENES:
 `;
@@ -1272,7 +1276,7 @@ Now create the REFINED SCENES:
 
    const runDirector = async () => {
       if (!outfitImage) {
-         alert("Please upload outfit reference image. (Face reference is optional - will use default Douyin style face if not provided)");
+         alert("Please upload outfit reference image. (Face reference is optional - will use default editorial style face if not provided)");
          return;
       }
 
@@ -1290,9 +1294,18 @@ Now create the REFINED SCENES:
 
          let bodyDataString = "";
          if (bodyMode === 'preset') {
-            bodyDataString = `Body Preset: ${bodyType}`;
+            bodyDataString = `Body Silhouette: ${bodyType} (use safe fashion vocabulary from BODY TYPE MAPPING - NO raw numbers in output)`;
          } else {
-            bodyDataString = `Exact Measurements: Height ${measurements.height}cm, Bust ${measurements.bust}cm, Waist ${measurements.waist}cm, Hips ${measurements.hips}cm`;
+            // Translate raw measurements to safe vocabulary tiers for AI
+            const h = parseInt(measurements.height) || 165;
+            const b = parseInt(measurements.bust) || 86;
+            const w = parseInt(measurements.waist) || 64;
+            const hp = parseInt(measurements.hips) || 90;
+            const upperTier = b >= 100 ? 'generous upper frame' : b >= 90 ? 'elegant upper silhouette' : 'refined feminine upper silhouette';
+            const waistTier = w <= 65 ? 'tapered cinched midsection' : w <= 75 ? 'sculpted inward curvature' : 'softly sculpted midsection';
+            const lowerTier = hp >= 105 ? 'graceful full lower silhouette' : hp >= 95 ? 'classic hourglass lower profile' : 'elegant lower-body curvature';
+            const frameTier = h >= 175 ? 'tall statuesque frame' : h >= 165 ? 'moderate proportionate frame' : 'petite graceful frame';
+            bodyDataString = `Body Silhouette (SAFE VOCABULARY ONLY - NO raw numbers/cm in output): ${frameTier}, ${upperTier}, ${waistTier}, ${lowerTier}`;
          }
 
          // User Additional Description for ALL MODES
@@ -1820,12 +1833,12 @@ Storytelling cho phép đa dạng bối cảnh theo mạch truyện.
 
          // Wallpaper Mode flag
          const wallpaperModeText = wallpaperMode
-            ? `\n\n📱 WALLPAPER_MODE: ON\nCreate phone wallpaper-friendly composition:\n⚠️ CRITICAL: DO NOT draw any UI elements (clock, icons, notifications) in the image!\n⚠️ FRAMING: Model MUST occupy 90% of frame HEIGHT (same as Lookbook Mode)\n- Model full-body from head to toe, 90% frame height\n- Head near top edge (5-10% margin) - phone clock will overlay this area\n- Feet near bottom edge (5% margin) - phone dock will overlay this area\n- Use beautiful gradient backgrounds: sunset, twilight, bokeh city lights\n- Background around head/feet should be simple for UI overlay\n- Soft rim lighting, dreamy aesthetic\n- Colors: warm golden, soft pastels, or dramatic twilight tones\n- Output is PURE IMAGE only - no interface elements, no text overlays\n\n⚠️ BODY TYPE VOCABULARY STILL APPLIES:\n- If CURVY/PLUS body type: MUST include "generous upper proportions" + additional terms\n- Follow all body type mapping rules from director.txt\n- Wallpaper mode affects FRAMING only, NOT body descriptions`
+            ? `\n\n📱 WALLPAPER_MODE: ON\nCreate phone wallpaper-friendly composition:\n⚠️ CRITICAL: DO NOT draw any UI elements (clock, icons, notifications) in the image!\n⚠️ FRAMING: Model MUST occupy 90% of frame HEIGHT (same as Lookbook Mode)\n- Model full-body from head to toe, 90% frame height\n- Head near top edge (5-10% margin) - phone clock will overlay this area\n- Feet near bottom edge (5% margin) - phone dock will overlay this area\n- Use beautiful gradient backgrounds: sunset, twilight, bokeh city lights\n- Background around head/feet should be simple for UI overlay\n- Soft rim lighting, dreamy aesthetic\n- Colors: warm golden, soft pastels, or dramatic twilight tones\n- Output is PURE IMAGE only - no interface elements, no text overlays\n\n⚠️ BODY VOCABULARY (SAFE FASHION TERMS ONLY):\n- Describe GARMENT FIT on body, NOT body anatomy directly\n- Use: elegant figure, classic hourglass silhouette, graceful silhouette\n- NEVER use raw measurements, body part sizes, or anatomical descriptions\n- Wallpaper mode affects FRAMING only — body described through FASHION vocabulary`
             : '';
 
          // Lookbook Mode flag
          const lookbookModeText = lookbookMode
-            ? `\n\n📸 LOOKBOOK_MODE: ON\n⚠️ CHỈ TẠO IMAGE PROMPTS - KHÔNG TẠO VIDEO/SCENES\n\n🔧 JSON OUTPUT FORMAT FOR LOOKBOOK (CONCRETE EXAMPLE):\n\`\`\`json\n{\n  "masterPrompt": {\n    "facePreservation": "Exact facial features...",\n    "subject": "Elegant Vietnamese model...",\n    "outfit": "Flowing silk ao dai...",\n    "environment": "Shot on location at...",\n    "lighting": "Golden hour...",\n    "camera": "Full body...",\n    "style": "Photorealistic"\n  },\n  "images": [\n    {\n      "id": 1,\n      "timestamp": "00s",\n      "imagePrompt": "Elegant Vietnamese model in flowing silk ao dai, standing gracefully with vạt panels draped naturally. Shot on location at ancient temple courtyard. Golden hour lighting, warm amber glow. Full body shot, 85mm f/1.4, 90% frame height. Photorealistic fashion photography"\n    },\n    {\n      "id": 2,\n      "timestamp": "08s",\n      "imagePrompt": "Same model in ao dai, seated on ornate wooden chair, panels spread elegantly. Environment unchanged. Soft window light from left. Medium shot capturing upper body and vạt details. Natural color grading"\n    }\n  ],\n  "metadata": {\n    "location": "Văn Miếu Quốc Tử Giám, Hanoi",\n    "aspectRatio": "9:16"\n  }\n}\n\`\`\`\n\n⚠️ CRITICAL: Each image object MUST have:\n- "imagePrompt" field (FULL prompt describing the entire image in ONE string)\n- OR "prompt" field (alternative field name)\n- DO NOT split into subject/action/environment - combine ALL into imagePrompt\n\n⛔ KHÔNG BAO GỒM:\n- "scenes" array (lãng phí tài nguyên)\n- "beatSync" object (không cần cho ảnh tĩnh)\n- "emotionalJourney" object (không cần cho ảnh tĩnh)\n- "referenceAngles" array (không cần cho lookbook)\n- "keyframes" array (dùng "images" thay thế)\n\n✅ CHỈ CẦN: masterPrompt + images + metadata${aspectRatio === '16:9' ? `\n\n📐 LOOKBOOK 16:9 OPTIMIZATION:\n- BỐ CỤC NGANG: Model chiếm 60-80% chiều CAO frame (không phải 90% như 9:16)\n- MODEL VỊ TRÍ: Đặt model ở 1/3 trái hoặc phải theo rule of thirds\n- BACKGROUND: Rõ nét hơn, có storytelling, environment quan trọng\n- LYING POSES: ƯU TIÊN - Model nằm ngang chiếm trọn chiều RỘNG frame\n- SQUAT/KNEELING: Phù hợp vì model thấp hơn, background visible\n- STANDING: Camera xa hơn (2-4m) để capture full body + bối cảnh\n- DEPTH OF FIELD: Sâu hơn (f/4-f/8), không blur background quá mạnh\n- USE CASE: Desktop wallpaper, YouTube thumbnail, Website banner, Print\n- YOGA POSES: Samakonasana (xoạc ngang 180°) RẤT PHÙ HỢP cho 16:9 vì chân mở rộng theo chiều ngang` : `\n\n📱 LOOKBOOK 9:16 OPTIMIZATION:\n- BỐ CỤC DỌC: Model chiếm 90% chiều CAO frame (head-to-toe visible)\n- STANDING POSES: ƯU TIÊN - Tận dụng chiều dọc\n- LYING POSES: Model nằm chéo hoặc dọc trong frame\n- USE CASE: Phone wallpaper, Instagram Story, TikTok thumbnail`}\n\n🚫 QUY TẮC BẮT BUỘC CHO ÁO DÀI (NẾU LÀ ÁO DÀI):\n- KHÔNG XẺ TÀ: Vạt áo LIỀN MẠCH từ eo xuống, KHÔNG có đường xẻ dọc trên vạt\n- KHÔNG XẺ VẠT: Vạt trước và vạt sau RIÊNG BIỆT, KHÔNG rách, KHÔNG xẻ\n- GIỮ NGUYÊN VẠT TRƯỚC: Phủ từ ngực đến đầu gối, có thể bay nhẹ\n- GIỮ NGUYÊN VẠT SAU: Phủ từ lưng đến đầu gối, có thể kéo sang bên\n- CHỈ CÓ XẺ HÔNG: Xẻ ở hai bên hông (từ eo xuống) để thấy quần lụa\n- EN: "ao dai with INTACT panels, NO slits on panels, side openings at hip only"\n\n🌸 NẾU OUTFIT LÀ ÁO DÀI: TẠO 52 IMAGE PROMPTS theo Áo Dài Special Sequence MỞ RỘNG:\n- Image 1-4: Standing + Vạt Áo (Flow, Butterfly, Walking, Back Walking)\n- Image 5-7: Seated poses (Chair, Back Glance, Side Profile)\n- Image 8-10: Deep Squat poses (3/4 Back, Full Back, Side)\n- Image 11-12: Dynamic poses (Wind, Spin)\n- Image 13-14: Elegant Squat poses\n- Image 15-17: Artistic + Lifestyle (Vạt Frame, Leaning, Table Lean)\n- Image 18-22: Hair Touch, Low Angle, Detail, Environment, Closing Hero\n- Image 23-27: Upper Body poses (Arms Up, Crossed Arms, Hand on Chest, Shoulder Glance, Neck)\n- Image 28: Squat 3/4 Back Vạt Không Che\n- Image 29: Kneeling 3/4 Back Ưỡn Hông Vạt Không Che\n- Image 30-39: Lying poses ${aspectRatio === '16:9' ? 'TỐI ƯU cho 16:9' : 'cho 16:9'} (Side, Dreamy, Mermaid, Head Support, Cross Legs, Knees Up, Reading, Vạt Spread)\n- Image 40-43: UPPER SILHOUETTE (Bodice Architecture, Corsetry Lean, Vintage Profile, Balletcore Arch)\n- Image 44-48: LOWER SILHOUETTE (Hip Architecture Back, Gothic Squat, Kneeling Sweep, S-Curve Profile, Floor Silhouette)\n- Image 49: HOURGLASS FINALE (Closing Power Pose)\n- Image 50-52: YOGA FLEXIBILITY (Samakonasana Side Split 180°${aspectRatio === '16:9' ? ' - RẤT PHÙ HỢP 16:9' : ''}, Supta Baddha Konasana Hip Opener, Upavistha Konasana Forward Fold - Lower Silhouette Focus)\n\n📷 NẾU KHÔNG PHẢI ÁO DÀI: TẠO 35 IMAGE PROMPTS MỞ RỘNG (SAFE VOCABULARY):\n- Image 1-6: Standing poses (front, side, back, 3/4, over-shoulder, full back)\n- Image 7-10: Dynamic poses (walk, spin, wind, runway)\n- Image 11-14: Seated poses (chair, floor, side, back)\n- Image 15-17: Squat poses (3/4 curves, back, low angle)\n- Image 18-22: Bodice & Silhouette Focus (décolletage architecture, S-line, hip architecture, balletcore lean, vintage profile)\n- Image 23-24: Fabric Detail (hair touch, texture)\n- Image 25-28: Lower Silhouette Focus (gothic squat, kneeling, back hip, floor curves)\n- Image 29-32: Upper Architecture Focus (arms up, lean forward, crossed arms, shoulder drop)\n- Image 33: Closing Hero (hip pop finale)\n- Image 34-35: YOGA FLEXIBILITY (Samakonasana Side Split 180°${aspectRatio === '16:9' ? ' - RẤT PHÙ HỢP 16:9' : ''}, Supta Baddha Konasana Hip Opener)\n\n🔐 SAFE VOCABULARY (BẮT BUỘC):\n- UPPER: "fitted bodice architecture", "elegant décolletage line", "corsetry-style construction", "refined neckline"\n- LOWER: "graceful lower silhouette", "sweeping hip line", "hip architecture", "elegant lower contour"\n- STYLE: "balletcore", "gothic romantic", "vintage glamour", "corsetry-style", "classic hourglass silhouette"`
+            ? `\n\n📸 LOOKBOOK_MODE: ON\n⚠️ CHỈ TẠO IMAGE PROMPTS - KHÔNG TẠO VIDEO/SCENES\n\n🔧 JSON OUTPUT FORMAT FOR LOOKBOOK (CONCRETE EXAMPLE):\n\`\`\`json\n{\n  "masterPrompt": {\n    "facePreservation": "Exact facial features...",\n    "subject": "Elegant Vietnamese model...",\n    "outfit": "Flowing silk ao dai...",\n    "environment": "Shot on location at...",\n    "lighting": "Golden hour...",\n    "camera": "Full body...",\n    "style": "Photorealistic"\n  },\n  "images": [\n    {\n      "id": 1,\n      "timestamp": "00s",\n      "imagePrompt": "Elegant Vietnamese model in flowing silk ao dai, standing gracefully with vạt panels draped naturally. Shot on location at ancient temple courtyard. Golden hour lighting, warm amber glow. Full body shot, 85mm f/1.4, 90% frame height. Photorealistic fashion photography"\n    },\n    {\n      "id": 2,\n      "timestamp": "08s",\n      "imagePrompt": "Same model in ao dai, seated on ornate wooden chair, panels spread elegantly. Environment unchanged. Soft window light from left. Medium shot capturing upper body and vạt details. Natural color grading"\n    }\n  ],\n  "metadata": {\n    "location": "Văn Miếu Quốc Tử Giám, Hanoi",\n    "aspectRatio": "9:16"\n  }\n}\n\`\`\`\n\n⚠️ CRITICAL: Each image object MUST have:\n- "imagePrompt" field (FULL prompt describing the entire image in ONE string)\n- OR "prompt" field (alternative field name)\n- DO NOT split into subject/action/environment - combine ALL into imagePrompt\n\n⛔ KHÔNG BAO GỒM:\n- "scenes" array (lãng phí tài nguyên)\n- "beatSync" object (không cần cho ảnh tĩnh)\n- "emotionalJourney" object (không cần cho ảnh tĩnh)\n- "referenceAngles" array (không cần cho lookbook)\n- "keyframes" array (dùng "images" thay thế)\n\n✅ CHỈ CẦN: masterPrompt + images + metadata${aspectRatio === '16:9' ? `\n\n📐 LOOKBOOK 16:9 OPTIMIZATION:\n- BỐ CỤC NGANG: Model chiếm 60-80% chiều CAO frame (không phải 90% như 9:16)\n- MODEL VỊ TRÍ: Đặt model ở 1/3 trái hoặc phải theo rule of thirds\n- BACKGROUND: Rõ nét hơn, có storytelling, environment quan trọng\n- LYING POSES: ƯU TIÊN - Model nằm ngang chiếm trọn chiều RỘNG frame\n- SQUAT/KNEELING: Phù hợp vì model thấp hơn, background visible\n- STANDING: Camera xa hơn (2-4m) để capture full body + bối cảnh\n- DEPTH OF FIELD: Sâu hơn (f/4-f/8), không blur background quá mạnh\n- USE CASE: Desktop wallpaper, YouTube thumbnail, Website banner, Print\n- YOGA POSES: Samakonasana (xoạc ngang 180°) RẤT PHÙ HỢP cho 16:9 vì chân mở rộng theo chiều ngang` : `\n\n📱 LOOKBOOK 9:16 OPTIMIZATION:\n- BỐ CỤC DỌC: Model chiếm 90% chiều CAO frame (head-to-toe visible)\n- STANDING POSES: ƯU TIÊN - Tận dụng chiều dọc\n- LYING POSES: Model nằm chéo hoặc dọc trong frame\n- USE CASE: Phone wallpaper, Instagram Story, TikTok thumbnail`}\n\n🚫 QUY TẮC BẮT BUỘC CHO ÁO DÀI (NẾU LÀ ÁO DÀI):\n- KHÔNG XẺ TÀ: Vạt áo LIỀN MẠCH từ eo xuống, KHÔNG có đường xẻ dọc trên vạt\n- KHÔNG XẺ VẠT: Vạt trước và vạt sau RIÊNG BIỆT, KHÔNG rách, KHÔNG xẻ\n- GIỮ NGUYÊN VẠT TRƯỚC: Phủ từ ngực đến đầu gối, có thể bay nhẹ\n- GIỮ NGUYÊN VẠT SAU: Phủ từ lưng đến đầu gối, có thể kéo sang bên\n- CHỈ CÓ XẺ HÔNG: Xẻ ở hai bên hông (từ eo xuống) để thấy quần lụa\n- EN: "ao dai with INTACT panels, NO slits on panels, side openings at hip only"\n\n🌸 NẾU OUTFIT LÀ ÁO DÀI: TẠO 52 IMAGE PROMPTS theo Áo Dài Special Sequence MỞ RỘNG:\n- Image 1-4: Standing + Vạt Áo (Flow, Butterfly, Walking, Back Walking)\n- Image 5-7: Seated poses (Chair, Back Glance, Side Profile)\n- Image 8-10: Deep Squat poses (3/4 Back, Full Back, Side)\n- Image 11-12: Dynamic poses (Wind, Spin)\n- Image 13-14: Elegant Squat poses\n- Image 15-17: Artistic + Lifestyle (Vạt Frame, Leaning, Table Lean)\n- Image 18-22: Hair Touch, Low Angle, Detail, Environment, Closing Hero\n- Image 23-27: Upper Body poses (Arms Up, Crossed Arms, Hand on Chest, Shoulder Glance, Neck)\n- Image 28: Squat 3/4 Back Vạt Không Che\n- Image 29: Kneeling 3/4 Back Ưỡn Hông Vạt Không Che\n- Image 30-39: Lying poses ${aspectRatio === '16:9' ? 'TỐI ƯU cho 16:9' : 'cho 16:9'} (Side, Dreamy, Mermaid, Head Support, Cross Legs, Knees Up, Reading, Vạt Spread)\n- Image 40-43: UPPER SILHOUETTE (Bodice Architecture, Corsetry Lean, Vintage Profile, Balletcore Arch)\n- Image 44-48: LOWER SILHOUETTE (Hip Architecture Back, Gothic Squat, Kneeling Sweep, S-Curve Profile, Floor Silhouette)\n- Image 49: HOURGLASS FINALE (Closing Power Pose)\n- Image 50-52: YOGA FLEXIBILITY (Samakonasana Side Split 180°${aspectRatio === '16:9' ? ' - RẤT PHÙ HỢP 16:9' : ''}, Supta Baddha Konasana Hip Opener, Upavistha Konasana Forward Fold - Lower Silhouette Focus)\n\n📷 NẾU KHÔNG PHẢI ÁO DÀI: TẠO 35 IMAGE PROMPTS MỞ RỘNG (SAFE VOCABULARY):\n- Image 1-6: Standing poses (front, side, back, 3/4, over-shoulder, full back)\n- Image 7-10: Dynamic poses (walk, spin, wind, runway)\n- Image 11-14: Seated poses (chair, floor, side, back)\n- Image 15-17: Squat poses (3/4 curves, back, low angle)\n- Image 18-22: Bodice & Silhouette Focus (décolletage architecture, S-line, hip architecture, balletcore lean, vintage profile)\n- Image 23-24: Fabric Detail (hair touch, texture)\n- Image 25-28: Lower Silhouette Focus (gothic squat, kneeling, back hip, floor curves)\n- Image 29-32: Upper Architecture Focus (arms up, lean forward, crossed arms, shoulder drop)\n- Image 33: Closing Hero (hip pop finale)\n- Image 34-35: YOGA FLEXIBILITY (Samakonasana Side Split 180°${aspectRatio === '16:9' ? ' - RẤT PHÙ HỢP 16:9' : ''}, Supta Baddha Konasana Hip Opener)\n\n🔐 SAFE VOCABULARY (BẮT BUỘC — ĐỒNG BỘ VỚI SAFETY_VOCABULARY_GUIDE):\n- UPPER: "elegant décolletage line", "refined neckline", "structured bodice architecture", "upper body silhouette"\n- LOWER: "graceful lower silhouette", "elegant lower contour", "defined waistline silhouette", "long elegant lines"\n- STYLE: "balletcore", "gothic romantic", "vintage glamour", "corsetry-style", "classic hourglass silhouette"\n- ⚠️ TUYỆT ĐỐI KHÔNG: body measurements, body part sizes, anatomical descriptions, "heavy chest", "opulent contours", "sweeping hip line", "thighs", "gym-toned"`
             : '';
 
          // Seductive Mode flag (TikTok safe alluring style)
@@ -3005,6 +3018,202 @@ Product type "${pt}" = STRUCTURED fabric
 
          const productPhysicsInstruction = getPhysicsInstruction();
 
+         // 🚫 VEO 3.1 NEGATIVE PROMPT — Auto-generate negativePrompt based on product type
+         const getNegativePromptInstruction = (): string => {
+            const pt = productType.toLowerCase();
+
+            // Base negative terms for ALL video generation (Veo 3.1 best practice)
+            const baseNegative = [
+               'cartoon', 'drawing', 'low quality', 'blurry', 'deformed hands',
+               'extra fingers', 'distorted face', 'text overlay rendered in video',
+               'watermark', 'logo', 'split screen unless requested'
+            ];
+
+            // Product-specific negative terms
+            const productNegative: string[] = [];
+
+            // Structured fabrics: prevent flowing/soft artifacts
+            if (['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop'].includes(pt)) {
+               productNegative.push('flowing fabric', 'billowing material', 'sheer transparency', 'soft drape movement');
+            }
+            // Intimate apparel: prevent detail artifacts
+            if (isIntimateApparel) {
+               productNegative.push('detailed garment construction visible', 'strap mechanisms', 'underwire visible', 'transparent mesh close-up');
+            }
+            // Denim-specific
+            if (pt === 'jeans') {
+               productNegative.push('soft satin texture', 'silk sheen on denim', 'wrong fabric texture');
+            }
+            // Suit/Blazer: prevent casual fabric look
+            if (pt === 'suit' || pt === 'jacket') {
+               productNegative.push('wrinkled fabric', 'casual cotton texture', 'loose unstructured fit');
+            }
+            // Áo dài: prevent panel errors
+            if (pt === 'aodai') {
+               productNegative.push('panel slits', 'torn panels', 'separated bodice', 'western dress silhouette');
+            }
+            // Sportswear: prevent workout context
+            if (pt === 'sport' || pt === 'bigsize') {
+               productNegative.push('gym equipment', 'workout activity', 'exercise movement', 'sweat');
+            }
+
+            // Environment consistency negatives
+            const envNegative = [
+               'background changing mid-scene', 'location teleport',
+               'inconsistent lighting between cuts', 'floating objects'
+            ];
+
+            // Garment-person interaction negatives
+            const interactionNegative = [
+               'fabric clipping through body', 'disconnected accessories',
+               'floating garment parts', 'wrong fabric texture on product',
+               'color shift on clothing between scenes'
+            ];
+
+            const allNegative = [...baseNegative, ...productNegative, ...envNegative, ...interactionNegative];
+
+            return `\n\n🚫 VEO 3.1 NEGATIVE PROMPT GUIDANCE:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️ Khi tạo scene prompts, AI PHẢI tránh các yếu tố sau (dùng làm negativePrompt nếu API hỗ trợ):
+
+NEGATIVE ELEMENTS: ${allNegative.join(', ')}
+
+📌 CÁCH DÙNG:
+- Trong JSON output, thêm field "negativePrompt" vào metadata
+- Mô tả cái KHÔNG MUỐN thấy (không dùng từ "no" hoặc "don't")
+- Ví dụ: "cartoon, blurry, floating fabric, wrong texture" ✅
+- Ví dụ: "No cartoon, don't blur" ❌ (sai cú pháp Veo)
+
+📌 FORMAT:
+\"metadata\": {
+  ...existing fields...,
+  \"negativePrompt\": \"${allNegative.slice(0, 8).join(', ')}\"
+}`;
+         };
+
+         const negativePromptInstruction = getNegativePromptInstruction();
+
+         // 🎯 SCENE ANCHOR INSTRUCTION — Force outfit + environment repetition in every scene prompt
+         const getSceneAnchorInstruction = (): string => {
+            if (lookbookMode) return ''; // Lookbook = images only, no scenes
+
+            return `\n\n🔗 SCENE ANCHOR RULES — VEO 3.1 CONSISTENCY (BẮT BUỘC)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️ CRITICAL: Veo 3.1 generates each 8s clip INDEPENDENTLY.
+Nếu scene prompt không nhắc lại outfit + environment → Veo sẽ "quên" và tự hallucinate.
+
+📌 RULE 1 — OUTFIT ANCHOR (BẮT BUỘC trong MỌI scene prompt):
+Mỗi scenes[].prompt PHẢI bắt đầu hoặc chứa cụm:
+"[Subject description] in [COLOR] [GARMENT_TYPE] [KEY_FEATURE]"
+
+✅ VÍ DỤ ĐÚNG:
+- "Young woman in dusty rose silk maxi dress with side slit, standing..."
+- "Model in black structured blazer over white tee, turning..."
+- "Subject in navy athletic coordinates as shown in reference, posing..."
+
+❌ VÍ DỤ SAI:
+- "Model turns gracefully..." (THIẾU outfit → Veo tự đoán trang phục)
+- "She walks forward..." (THIẾU cả subject + outfit)
+
+📌 RULE 2 — ENVIRONMENT ANCHOR (BẮT BUỘC trong MỌI scene prompt):
+Mỗi scenes[].prompt PHẢI chứa environment reminder:
+"...in [SAME_LOCATION], [LIGHTING_CONDITION]"
+
+✅ VÍ DỤ ĐÚNG:
+- "...in the sunlit marble lobby of a luxury hotel, warm afternoon light"
+- "...in the same cozy bedroom studio with soft ring light"
+
+❌ VÍ DỤ SAI:
+- "...beautiful background" (quá chung chung → Veo random background)
+
+📌 RULE 3 — ACCESSORIES ANCHOR:
+Nếu outfit có accessories (hat, bag, jewelry, sunglasses, belt), PHẢI nhắc lại trong MỌI scene.
+"...wearing gold hoop earrings and carrying tan leather tote bag"
+
+📌 TEMPLATE MỖI SCENE PROMPT:
+"[Subject in OUTFIT with KEY_DETAILS], [ACTION/POSE], in [ENVIRONMENT with LIGHTING]. [CAMERA movement]. [Fabric/garment PHYSICS behavior]."
+
+⚠️ VALIDATION: Nếu bất kỳ scene prompt nào THIẾU outfit hoặc environment → AI phải tự thêm vào.`;
+         };
+
+         const sceneAnchorInstruction = getSceneAnchorInstruction();
+
+         // 🧵 GARMENT-BODY INTERACTION — Fabric-specific physics per scene (Veo 3.1 optimized)
+         const getGarmentInteractionInstruction = (): string => {
+            if (lookbookMode) return ''; // Images only
+            const pt = productType.toLowerCase();
+            if (isIntimateApparel) return ''; // Already handled by fashion foundations rules
+
+            // Build fabric-body interaction template based on product type
+            let fabricBehavior = '';
+            let motionPhrase = '';
+
+            // NO-FLOW products: rigid, structured
+            if (['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop'].includes(pt)) {
+               const rigidMap: Record<string, { fabric: string; motion: string }> = {
+                  bodycon: { fabric: 'stretch fabric', motion: 'maintains body-hugging silhouette, subtle stretch visible at joints during movement' },
+                  jeans: { fabric: 'rigid denim', motion: 'holds structured form, visible crease lines at knees during sitting or bending' },
+                  tshirt: { fabric: 'cotton jersey', motion: 'relaxed drape, slight swing at hem with movement, no dramatic flow' },
+                  sweater: { fabric: 'knit wool/cotton', motion: 'chunky texture holds shape, gentle weight sway, no flutter' },
+                  jacket: { fabric: 'structured outer fabric', motion: 'sharp shoulder lines maintained, lapels stay flat, no soft draping' },
+                  suit: { fabric: 'tailored wool blend', motion: 'crisp pressed lines, structured shoulder pads, minimal fabric movement' },
+                  shorts: { fabric: 'cotton/denim', motion: 'casual relaxed fit, no fabric drama, slight shift with leg movement' },
+                  pants: { fabric: 'tailored cotton/wool', motion: 'pressed crease visible, structured fall, clean leg line' },
+                  croptop: { fabric: 'fitted stretch', motion: 'fitted crop stays in place, no hem lifting or fabric flutter' }
+               };
+               const entry = rigidMap[pt];
+               if (entry) {
+                  fabricBehavior = entry.fabric;
+                  motionPhrase = entry.motion;
+               }
+            }
+            // FLOW products: fluid, dramatic
+            else if (['maxi_dress', 'skirt', 'wide_pants', 'aodai', 'dress'].includes(pt)) {
+               const flowMap: Record<string, { fabric: string; motion: string }> = {
+                  maxi_dress: { fabric: 'flowing chiffon/silk', motion: 'fabric cascades with each step, hem trails and responds to breeze, skirt swirls during turns' },
+                  skirt: { fabric: 'lightweight fabric', motion: 'skirt sways naturally with hip movement, pleats fan during turns, hem lifts with spin' },
+                  wide_pants: { fabric: 'lightweight wide-leg', motion: 'palazzo legs sway independently, dramatic width visible in profile, fabric ripples during walk' },
+                  aodai: { fabric: 'silk/satin', motion: 'front and back panels trail and flutter with movement, fitted bodice DOES NOT flow, only VẠT panels respond to wind' },
+                  dress: { fabric: 'varies by style', motion: 'fabric responds to movement based on cut — A-line sways, fit-and-flare skirt fans, shift dress stays clean' }
+               };
+               const entry = flowMap[pt];
+               if (entry) {
+                  fabricBehavior = entry.fabric;
+                  motionPhrase = entry.motion;
+               }
+            }
+            // SEMI-FLOW products
+            else if (['blouse', 'silk_blouse', 'chiffon_top'].includes(pt)) {
+               fabricBehavior = 'light semi-structured fabric';
+               motionPhrase = 'gentle movement with body, collar and cuffs maintain structure, body of garment has subtle sway';
+            }
+
+            if (!fabricBehavior) return ''; // Unknown product type, skip
+
+            return `\n\n🧵 GARMENT-BODY INTERACTION — VEO 3.1 FABRIC PHYSICS PER SCENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️ Product type: "${pt}" | Fabric: ${fabricBehavior}
+
+📌 RULE: Mỗi scenes[].prompt PHẢI kết thúc bằng mô tả GARMENT PHYSICS:
+"...[fabric_type] fabric ${motionPhrase}"
+
+✅ TEMPLATE cho mỗi scene:
+"...The ${fabricBehavior} ${motionPhrase}."
+
+📌 INTERACTION MATRIX cho "${pt}":
+| Movement | Garment Response |
+|----------|------------------|
+| Standing still | ${['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop'].includes(pt) ? 'Fabric holds shape, clean silhouette visible' : 'Fabric settles naturally, slight ambient movement from air'} |
+| Turning 180° | ${['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop'].includes(pt) ? 'Garment rotates with body as one unit, no independent fabric motion' : 'Skirt/panels trail behind rotation, fabric catches air, settles 0.5s after body stops'} |
+| Hand gesture | ${['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop'].includes(pt) ? 'Sleeve shifts minimally, no fabric drama' : 'Sleeve fabric flows with arm movement, catches light'} |
+| Hair touch | Garment unaffected, natural body micro-movement only |
+| Wind/breeze | ${['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop'].includes(pt) ? 'Hair moves, garment STAYS RIGID — no fabric flutter' : 'Hair + loose fabric respond to wind direction, grounded parts stay'} |
+
+⚠️ CRITICAL: Nếu scene prompt mô tả motion KHÔNG PHÙ HỢP với "${pt}" physics → AI PHẢI tự sửa.`;
+         };
+
+         const garmentInteractionInstruction = getGarmentInteractionInstruction();
+
          // Background Consistency: Smart routing based on cinematic style
          const getBackgroundContinuityInstruction = () => {
             if (cinematicStyle === 'fashion_walkin') {
@@ -3067,7 +3276,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
          const backgroundContinuityInstruction = getBackgroundContinuityInstruction();
 
          const parts = [
-            { text: `Mode: UNIFIED AFFILIATE\nPlatform: ${affiliatePlatform.toUpperCase()} | Audience: ${affiliateAudience.toUpperCase()} | Goal: ${affiliateGoal.toUpperCase()}\nDisplay: ${displayType.toUpperCase()} | Optimization: ${optimizationLevel.toUpperCase()} | Cinematic: ${cinematicStyle.toUpperCase()}${cinematicStyle === 'fashion_walkin' ? `\n  ↳ Walk-In: ${walkinVariant} | ${walkinTimeOfDay} | ${walkinVibe} | ${walkinPersonality}` : ''}${cinematicStyle === 'try_on' ? `\n  ↳ Try-On: ${tryOnVariant} | Transition: ${tryOnTransition} | Pacing: ${tryOnPacing}` : ''}\nGender: ${gender}\n${bodyDataString}${shopModelInfo}${userAdditionalDescText}${productInfo && productInfo.trim() ? `\n\n📦 PRODUCT INFO:\n${productInfo}` : ''}\n\nTarget: ${finalDuration}s (${scenes} scenes) | Ratio: ${aspectRatio}${keyframeCountText}${affiliateDurationStrategy}${affiliatePlatformStrategy}${affiliateAudienceStrategy}${affiliateGoalStrategy}${voiceAnchorInstruction}${realWorldPhotoText}${locationPreferenceText}${editorialModeText}${wallpaperModeText}${lookbookModeText}${seductiveModeText}${sexyModeText}${cinematicStyleInstructions}${aestheticInstructions}${studioModeText}${aspectRatioText}${poseBlocklistText}${intimateApparelInstruction}${productPhysicsInstruction}${backgroundContinuityInstruction}${videoStyleChoreography}${displayInstructions}\n\nPREVIOUSLY USED LOCATIONS (COLLISION AVOIDANCE):\n${historyBlocklist}${scriptBlocklist}\n\n🎯 OUTPUT: JSON (Nano Banana Pro & Veo 3.1 optimized)\nCreative Brief:\n${brief}${faceReferenceText}` },
+            { text: `Mode: UNIFIED AFFILIATE\nPlatform: ${affiliatePlatform.toUpperCase()} | Audience: ${affiliateAudience.toUpperCase()} | Goal: ${affiliateGoal.toUpperCase()}\nDisplay: ${displayType.toUpperCase()} | Optimization: ${optimizationLevel.toUpperCase()} | Cinematic: ${cinematicStyle.toUpperCase()}${cinematicStyle === 'fashion_walkin' ? `\n  ↳ Walk-In: ${walkinVariant} | ${walkinTimeOfDay} | ${walkinVibe} | ${walkinPersonality}` : ''}${cinematicStyle === 'try_on' ? `\n  ↳ Try-On: ${tryOnVariant} | Transition: ${tryOnTransition} | Pacing: ${tryOnPacing}` : ''}\nGender: ${gender}\n${bodyDataString}${shopModelInfo}${userAdditionalDescText}${productInfo && productInfo.trim() ? `\n\n📦 PRODUCT INFO:\n${productInfo}` : ''}\n\nTarget: ${finalDuration}s (${scenes} scenes) | Ratio: ${aspectRatio}${keyframeCountText}${affiliateDurationStrategy}${affiliatePlatformStrategy}${affiliateAudienceStrategy}${affiliateGoalStrategy}${voiceAnchorInstruction}${realWorldPhotoText}${locationPreferenceText}${editorialModeText}${wallpaperModeText}${lookbookModeText}${seductiveModeText}${sexyModeText}${cinematicStyleInstructions}${aestheticInstructions}${studioModeText}${aspectRatioText}${poseBlocklistText}${intimateApparelInstruction}${productPhysicsInstruction}${negativePromptInstruction}${sceneAnchorInstruction}${garmentInteractionInstruction}${backgroundContinuityInstruction}${videoStyleChoreography}${displayInstructions}\n\nPREVIOUSLY USED LOCATIONS (COLLISION AVOIDANCE):\n${historyBlocklist}${scriptBlocklist}\n\n🎯 OUTPUT: JSON (Nano Banana Pro & Veo 3.1 optimized)\nCreative Brief:\n${brief}${faceReferenceText}` },
 
 
             // Face Reference image FIRST (with label)
@@ -3101,8 +3310,8 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
          }
          // Voice module only when voice is enabled
          if (needsVoice) baseModules.push(VOICE_SCRIPT_PRO);
-         // Safety vocabulary for intimate/sensitive products
-         if (isIntimateProduct || isBeautyProduct) baseModules.push(SAFETY_VOCABULARY_GUIDE);
+         // Safety vocabulary for ALL fashion & sensitive products (prevent prompt flagging)
+         if (isFashionProduct || isIntimateProduct || isBeautyProduct) baseModules.push(SAFETY_VOCABULARY_GUIDE);
          // Non-fashion products still need basic scene rules
          if (!isFashionProduct) baseModules.push(CINEMATIC_FASHION_SCENES);
          

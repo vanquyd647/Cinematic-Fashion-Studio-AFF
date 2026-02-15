@@ -2717,34 +2717,34 @@ Choose ONE hook per video, integrate into Scene 1 (0-8s).
 
 **WHEN TO USE:** User did NOT upload Face Reference image.
 
-**DEFAULT: Douyin/Doll Makeup Style**
+**DEFAULT: Editorial Doll Makeup Style**
 
-**Eyes:** Large round eyes, amber-brown contact lenses, Douyin doll makeup with sharp black eyeliner winged tips, thick dramatic lashes (lower lash emphasized), wine-red eyeshadow around eye socket and under eyes
+**Eyes:** Large round eyes, amber-brown contact lenses, editorial doll makeup with sharp black eyeliner winged tips, thick dramatic lashes (lower lash emphasized), wine-red eyeshadow around eye socket and under eyes
 
 **Lips:** Full pouty lips, ombre technique (darker center), velvet red or plum red
 
-**Face:** V-line oval, porcelain-white skin, high straight nose, petite nose tip
+**Face:** V-line oval, luminous porcelain skin, high straight nose, petite nose tip
 
 **Hair:** Burgundy/wine-red layered wavy hair, wispy bangs
 
 **Expression:** Dreamy expression with soft natural gaze
 
 **PROMPT FORMAT:**
-"Young Asian woman with porcelain skin, large round eyes with amber-brown contact lenses, Douyin-style doll makeup featuring sharp black eyeliner with upturned wings, thick dramatic lashes emphasizing lower lash line, wine-red eyeshadow blended around eye socket, full pouty lips with ombre velvet-red lipstick (darker center), V-line oval face with high straight nose, burgundy wine-red layered wavy hair with wispy bangs, dreamy expression with soft natural gaze"
+"Young Asian woman with luminous porcelain skin, large round eyes with amber-brown contact lenses, editorial doll makeup featuring sharp black eyeliner with upturned wings, thick dramatic lashes emphasizing lower lash line, wine-red eyeshadow blended around eye socket, full pouty lips with ombre velvet-red lipstick (darker center), V-line oval face with high straight nose, burgundy wine-red layered wavy hair with wispy bangs, dreamy expression with soft natural gaze"
 
 ⚠️ **CRITICAL RULE:**
 
 **IF Face Reference IS uploaded:**
 - ✅ Use: "Faithful character likeness preserving key facial characteristics from reference..." 
 - ⚠️ Avoid: "Exact facial features" (policy risk - quá chính xác)
-- ❌ NEVER add Douyin-style makeup descriptions
+- ❌ NEVER add editorial doll makeup descriptions
 - ❌ NEVER add specific eye color (amber-brown lenses)
 - ❌ NEVER add specific hair color/style beyond what's in reference
 - ❌ NEVER add makeup style descriptions (wine-red eyeshadow, eyeliner, etc.)
 - **Focus:** Preserve key features naturally, not biometric clone
 
 **IF Face Reference NOT uploaded:**
-- ✅ Use full DEFAULT DOUYIN FACE description above
+- ✅ Use full DEFAULT EDITORIAL DOLL FACE description above
 - ✅ Include all makeup, hair, expression details
 
 **Example - Face Reference Uploaded:**
@@ -4643,100 +4643,90 @@ Static camera at eye level. Soft natural window light in modern studio setting."
 
    
    ================================================
-   ⚠️ BODY TYPE TO DESCRIPTION MAPPING
+   ⚠️ BODY TYPE TO DESCRIPTION MAPPING (SAFE FASHION VOCABULARY)
    ================================================
-   **CRITICAL:** Chọn vocabulary ĐÚNG với body type user chọn:
+   **CRITICAL:** Chọn vocabulary ĐÚNG với body type user chọn.
+   ⚠️ ĐỒNG BỘ VỚI safety_vocabulary_guide.txt — MÔ TẢ GARMENT FIT, KHÔNG MÔ TẢ CƠ THỂ TRỰC TIẾP
    
-   **🔹 SLIM / MODEL (Height 170-180cm, Bust 76-81cm):**
+   **🔹 SLIM / MODEL:**
    Overall Silhouette: "Graceful violin silhouette", "Elegant slender frame"
-   Upper: "Refined feminine upper silhouette", "Softly sculpted upper architecture", "Elegant upper-body architecture"
-   Waist: "Willow-like, slender waistline", "Tapered and cinched midsection"
+   Upper: "Refined feminine upper silhouette", "Elegant upper-body architecture"
+   Waist: "Willow-like slender waistline", "Tapered and cinched midsection"
    Lower: "Graceful lower silhouette", "Elegant lower-body curvature"
    Frame: "Petite frame", "Slender stature", "Model-like proportions"
    
-   **🔸 BALANCED (Height 160-170cm, Bust 82-90cm):**
+   **🔸 BALANCED:**
    Overall Silhouette: "Balanced proportions", "Harmonious silhouette"
    Upper: "Elegant upper-body architecture", "Refined feminine upper silhouette"
    Waist: "Tapered and cinched midsection", "Sculpted inward curvature"
    Lower: "Elegant lower-body curvature", "Classic hourglass lower profile"
    Frame: "Moderate frame", "Proportionate build"
    
-   **🔶 CURVY (Height 155-165cm, Bust 95-108cm, Waist 70-85cm):**
-   Overall Silhouette: "Pronounced hourglass silhouette", "Dramatic S-curve posture", "Sculptural S-line architecture"
-   Upper: **MUST include "Generous upper proportions"** + one of: "Elegant upper silhouette", "Full upper-body architecture", "Curvaceous upper frame", "Well-proportioned upper silhouette"
-   Waist: "Dramatically tapered midsection", "Cinched hourglass center", "Willow-like, slender waistline" (contrast với upper/lower)
-   Lower: "Full, sweeping hip line", "Sweeping hip architecture", "Classic hourglass lower profile"
-   Frame: "Curvaceous frame", "Hourglass build", "Sculpted proportions"
+   **🔶 CURVY:**
+   Overall Silhouette: "Classic hourglass silhouette", "Sculptural silhouette"
+   Upper: "Generous upper frame", "Elegant upper silhouette", "Full-figured elegance"
+   Waist: "Defined waistline silhouette", "Cinched hourglass center"
+   Lower: "Graceful lower silhouette", "Classic hourglass lower profile"
+   Frame: "Elegant curves", "Sculpted proportions"
    
-   **🔴 PLUS SIZE (Height 155-170cm, Bust 100-120cm+, Full figured):**
-   Overall Silhouette: "Full-figured silhouette", "Statuesque and sculpted frame", "Opulent proportions"
-   Upper: **MUST include "Generous upper proportions"** + one or more: "Elegant upper silhouette", "Substantial upper proportions", "Opulent upper-body contours", "Fuller upper profile"
-   Waist: "Softly sculpted inward curvature", "Tapered and cinched midsection" (nếu định nghĩa waist)
-   Lower: "Full, sweeping hip line", "Substantial lower proportions", "Generous hip architecture"
-   Frame: "Full-figured frame", "Plus-size build", "Substantial proportions", "Statuesque stature"
+   **🔴 PLUS SIZE:**
+   Overall Silhouette: "Full-figured elegance", "Generous figure"
+   Upper: "Generous upper frame", "Elegant upper silhouette"
+   Waist: "Softly sculpted midsection", "Defined waistline"
+   Lower: "Graceful full lower silhouette", "Elegant lower contour"
+   Frame: "Full-figured frame", "Statuesque stature"
    
-   **⚠️ CRITICAL RULES:**
-   - **CURVY/PLUS → "Generous upper proportions" is MANDATORY (always include)**
-   - CURVY/PLUS → MUST also use at least one additional term: "Elegant upper silhouette", "Fuller upper profile", "Full-figured", etc.
-   - CURVY/PLUS → NEVER use "Petite", "Slender", "Slim", "Delicate", "Subtle"
-   - SLIM/MODEL → MUST use "Petite", "Slender", "Graceful", "Refined"
-   - SLIM/MODEL → NEVER use "Generous upper proportions", "Full-figured", "Substantial"
-   - BALANCED → Moderate terms, avoid extremes, do NOT use "Generous upper proportions"
+   **⚠️ CRITICAL SAFETY RULES (ĐỒNG BỘ VỚI SAFETY_VOCABULARY_GUIDE):**
+   - MÔ TẢ fashion/garment FIT → KHÔNG mô tả body anatomy trực tiếp
+   - NEVER use raw numbers (cm/inches) in output prompts
+   - NEVER describe specific body parts: chest, bust size, thighs, hips size
+   - SLIM/MODEL → "Petite", "Slender", "Graceful", "Refined"
+   - CURVY/PLUS → "Generous figure", "Elegant curves", "Full-figured elegance"
+   - BALANCED → Moderate terms, avoid extremes
    
    ================================================
    ⚠️ MÔ TẢ DÁNG PHỤ NỮ - CHỈ 1 LẦN DUY NHẤT (TRÁNH FLAG)
    ================================================
    **QUAN TRỌNG:** Mô tả body CHỈ trong MASTER PROMPT, KHÔNG lặp lại trong Keyframes/Scenes!
+   **ĐỒNG BỘ:** Vocabulary phải khớp với safety_vocabulary_guide.txt
    
-   **VISUAL VOCABULARY OPTIONS (Chọn 1 từ mỗi category, dùng 1 lần duy nhất):**
+   **SAFE VISUAL VOCABULARY (Chọn 1 từ mỗi category, dùng 1 lần duy nhất):**
    
    **OVERALL SILHOUETTE (Chọn theo body type):**
-   - "Pronounced hourglass silhouette" (đồng hồ cát rõ rệt)
-   - "Dramatic S-curve posture" (dáng S curve ấn tượng)
-   - "Statuesque and sculpted frame" (dáng điêu khắc đầy đặn)
+   - "Classic hourglass silhouette" (dáng đồng hồ cát cổ điển)
    - "Graceful violin silhouette" (dáng đàn violin thanh tao)
-   - "Sculptural S-line architecture" (kiến trúc đường S điêu khắc)
+   - "Elegant figure" (vóc dáng thanh lịch)
+   - "Full-figured elegance" (vẻ đẹp tròn đầy)
+   - "Sculpted proportions" (tỷ lệ đầy đặn)
    
    **UPPER SILHOUETTE (Vùng trên - chọn 1):**
-   - "Voluminous upper-body silhouette" (dáng trên đầy đặn)
-   - "Prominent upper silhouette" (dáng trên nổi bật)
    - "Elegant upper-body architecture" (kiến trúc thân trên thanh lịch)
    - "Refined feminine upper silhouette" (dáng trên nữ tính tinh tế)
-   - "Softly sculpted upper architecture" (kiến trúc phần trên mềm mại)
-   - "Elegant upper proportions with refined architecture" (tỷ lệ trên thanh lịch)
-   - "Generous upper proportions" (tỷ lệ phần trên đầy đặn)
-   - "Full-figured upper silhouette" (dáng trên đầy đặn)
-   - "Curvaceous upper architecture" (kiến trúc phần trên quyến rũ)
-   - "Well-endowed upper frame" (khung trên đầy đặn)
-   - "Statuesque upper silhouette" (dáng trên nổi bật)
-   - "Substantial upper proportions" (tỷ lệ trên phong phú)
-   - "Pronounced décolletage architecture" (kiến trúc khu vực cổ áo nổi bật)
-   - "Fuller upper profile" (profile trên đầy hơn)
-   - "Opulent upper-body contours" (đường nét phần trên phong phú)
-   - "Generous upper frame with graceful carriage" (khung trên đầy đặn với tư thế duyên dáng)
+   - "Generous upper frame" (khung trên đầy đặn)
+   - "Upper body silhouette" (phom dáng phần trên)
+   - "Elegant décolletage line" (đường ngực thanh tao)
    
    **WAIST (Eo - chọn 1):**
    - "Tapered and cinched midsection" (eo thon thắt lại)
-   - "Dramatic inward waist curvature" (đường cong eo ấn tượng)
-   - "Willow-like, slender waistline" (eo mảnh như cành liễu)
+   - "Defined waistline silhouette" (đường eo rõ nét)
+   - "Willow-like slender waistline" (eo mảnh như cành liễu)
    - "Sculpted inward curvature" (đường cong điêu khắc)
-   - "Cinched hourglass center" (eo thắt đồng hồ cát)
    
    **LOWER SILHOUETTE (Hông - chọn 1):**
-   - "Full, sweeping hip line" (đường hông đầy, bay bổng)
+   - "Graceful lower silhouette" (dáng dưới duyên dáng)
    - "Elegant lower-body curvature" (đường cong thân dưới thanh lịch)
    - "Classic hourglass lower profile" (profile đồng hồ cát cổ điển)
-   - "Sweeping hip architecture" (kiến trúc hông bay bổng)
-   - "Graceful lower silhouette" (dáng dưới duyên dáng)
+   - "Elegant lower contour" (đường viền dưới thanh lịch)
+   - "Long elegant lines" (đường nét dài thanh lịch)
    
    **OUTFIT FIT (Cách vải ôm body - chọn 1):**
-   - "Strategic fabric tension" (vải căng có chủ đích)
-   - "Form-fitting tailoring" (may ôm dáng)
-   - "Contour-hugging satin drapery" (satin ôm theo đường cong)
-   - "Second-skin fabric adherence" (vải ôm như da thứ hai)
+   - "Silhouette-defining drape" (vải rủ tôn dáng)
+   - "Precisely tailored fit" (form may chuẩn vóc dáng)
+   - "Sculpted architectural fit" (form kiến trúc điêu khắc)
+   - "Second-skin precision" (ôm sát như lớp da thứ hai)
    
    **VÍ DỤ MÔ TẢ HOÀN CHỈNH (CHỈ 1 LẦN TRONG MASTER PROMPT):**
-   "Celebrating a curvaceous, classic hourglass silhouette with elegant upper-body architecture, dramatically tapered midsection, and graceful lower profile, the form-fitting tailoring highlighting the fabric's premium texture from shoulder to hem"
+   "An editorial fashion photograph celebrating a classic hourglass silhouette — the precisely tailored fit highlighting elegant upper-body architecture, defined waistline, and graceful lower contour, with fabric draping naturally from shoulder to hem"
    
    **⚠️ KHÔNG ĐƯỢC LẶP LẠI TRONG KEYFRAMES/SCENES:**
    - Keyframe: Chỉ nói "The elegant model" hoặc "The graceful figure"
@@ -10257,7 +10247,7 @@ lounge brief with elastic trim, precision-engineered fit
 PHOTOGRAPHY STYLE: Fashion editorial photography for intimate apparel catalog, 
 Vogue magazine aesthetic, cinematic portrait with artistic composition
 
-SUBJECT: Young Asian woman with porcelain skin, Douyin-style doll makeup, 
+SUBJECT: Young Asian woman with luminous porcelain skin, editorial doll makeup, 
 gracefully seated pose with relaxed demeanor, contemplative expression gazing 
 softly aside, natural posture
 
@@ -10660,37 +10650,43 @@ ONLY safe with:
 - **Body proportions** (khi mô tả số đo)
 - **Hourglass figure** (khi quá chi tiết)
 
-**✅ SAFE Body Replacements (Holistic fashion terms):**
+**✅ SAFE Body Replacements (Đồng bộ với safety_vocabulary_guide.txt):**
 
-| ❌ BANNED (Specific/Fetish) | ✅ SAFE (General/Fashion) |
+| ❌ BANNED (Specific/Body-focused) | ✅ SAFE (Fashion/Silhouette) |
 |------------------------------|---------------------------|
-| Voluminous upper-body silhouette | Statuesque figure |
-| Dramatic inward waist curvature | Defined waistline |
-| Full, sweeping hip line | Curvy hourglass silhouette |
-| Sculpted frame | Elegant posture |
-| Pronounced curves | Graceful silhouette |
-| Busty figure | Elegant upper frame |
+| Voluminous upper-body silhouette | Elegant upper-body architecture |
+| Opulent upper-body contours | Generous upper frame |
+| Dramatic inward waist curvature | Defined waistline silhouette |
+| Full, sweeping hip line | Graceful lower silhouette |
+| Substantial lower proportions | Elegant lower contour |
+| Sculpted frame | Elegant figure |
+| Pronounced curves | Classic hourglass silhouette |
+| Busty figure / heavy chest | Elegant upper silhouette |
 | Waist-to-hip ratio | Balanced proportions |
-| Form-fitting tailoring | Tailored fit |
+| Gym-toned thighs | Long elegant lines |
+| S-curve silhouette (body) | Graceful violin silhouette |
 
 **AUTO-REPLACEMENT RULES:**
 
 ```
-IF prompt contains body measurements:
-  - Replace "voluminous/full/dramatic" → Remove or use "statuesque"
-  - Replace specific body parts → General "figure/silhouette/posture"
-  - Remove measurements/ratios → Keep general shape only
+IF prompt contains body measurements or anatomical terms:
+  - Replace raw cm/numbers → Safe vocabulary tiers (see BODY TYPE MAPPING)
+  - Replace body part descriptions → General "figure/silhouette" terms
+  - Replace "voluminous/opulent/substantial" → "elegant/generous/graceful"
+  - Focus on GARMENT FIT, not body anatomy
 ```
 
 **Example:**
 
 ❌ **FLAGGED:**
-> "Model with voluminous upper-body silhouette, dramatic inward waist curvature, 
-> full sweeping hip line, form-fitting tailoring accentuates curves"
+> "A statuesque 1.8m tall Asian woman with perfect S-curve silhouette, 
+> opulent upper-body contours, naturally heavy chest, full sweeping hip line, 
+> gym-toned thighs"
 
 ✅ **SAFE:**
-> "Model with statuesque figure and elegant posture, tailored fit highlights 
-> graceful silhouette"
+> "An editorial fashion photograph of a tall, elegant Asian woman with 
+> classic hourglass silhouette and refined elegance. Precisely tailored fit 
+> highlighting graceful lower silhouette and long elegant lines"
 
 ---
 
@@ -10757,7 +10753,7 @@ Setting: Mia Resort bedroom with soft romantic lighting
 **✅ SAFE (Passes):**
 ```
 Product: Crimson red lace loungewear coordinates
-Model: Porcelain skin, Douyin makeup, dreamy expression with soft natural gaze
+Model: Luminous porcelain skin, editorial doll makeup, dreamy expression with soft natural gaze
 Setting: Mia Resort lobby lounge area with professional editorial lighting
 ```
 **Why safe:** Removed body + bedroom + alluring, focus on fabric/face

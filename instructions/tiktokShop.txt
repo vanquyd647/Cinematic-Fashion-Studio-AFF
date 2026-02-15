@@ -1957,7 +1957,7 @@ Hoặc dựa vào Weight/Height ratio:
 **BUST (Ngực):**
 - Small (XS-S): "Subtle bust line," "Delicate décolletage," "Petite upper silhouette"
 - Medium (M-L): "Balanced upper contour," "Feminine upper silhouette," "Gentle upper curvature"
-- Full (XL+): "Voluminous upper-body silhouette," "Elegant upper-body architecture," "Refined feminine contour"
+- Full (XL+): "Generous upper frame," "Elegant upper-body architecture," "Refined feminine contour"
 
 **WAIST (Eo):**
 - Slim (<65cm): "Dramatically cinched midsection," "Willow-like slender waistline," "Nipped-in waist"
@@ -1966,8 +1966,8 @@ Hoặc dựa vào Weight/Height ratio:
 
 **HIPS (Hông):**
 - Slim: "Sleek hip line," "Streamlined lower silhouette"
-- Medium: "Balanced hip curvature," "Gentle sweeping hip line"
-- Full: "Full, sweeping hip line," "Graceful lower-body curvature," "Elegant hip architecture"
+- Medium: "Balanced hip curvature," "Elegant lower-body curvature"
+- Full: "Graceful lower silhouette," "Classic hourglass lower profile," "Elegant lower contour"
 
 **OUTFIT FIT (Độ ôm) - Chọn theo sản phẩm:**
 - Bodycon/Ôm sát: "Strategic fabric tension highlighting curves," "Form-fitting tailoring with elegant drape"
@@ -1995,7 +1995,7 @@ Khi viết SCRIPT tiếng Việt (không phải Master Prompt):
 | "Graceful S-curve figure" | "dáng đồng hồ cát chuẩn" |
 | "Elegant elongated silhouette" | "dáng cao, thon gọn" |
 | "Voluminous upper silhouette" | "ngực tròn đẹp" |
-| "Full sweeping hip line" | "hông cong, mông tròn" |
+| "Graceful lower silhouette" | "hông cong, mông tròn" |
 | "Dramatically cinched waist" | "eo thon gọn lắm" |
 | "Form-fitting tailoring" | "ôm dáng chuẩn" |
 | "Fabric drapes elegantly" | "vải rủ mềm, không nhăn" |
