@@ -5,7 +5,6 @@ import { Upload, Image as ImageIcon, Sparkles, Film, ArrowRight, Wand2, RefreshC
 
 // --- Import all constants from modular files ---
 import {
-   JSON_OUTPUT_SCHEMA,
    TIKTOK_SHOP_SYSTEM_INSTRUCTION,
    VIDEO_REFINEMENT_INSTRUCTION,
    STUDIO_MODE_GUIDE,
@@ -1173,11 +1172,35 @@ Drop Timestamps: 12.0s, 16.0s, 24.0s, 28.0s (typical remix structure)
 `;
          }
 
+         // Product physics context for Phase 2 refinement
+         const pt = productType.toLowerCase();
+         const noFlowTypes = ['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop', 'top', 'sport', 'bigsize'];
+         const flowTypes = ['maxi_dress', 'skirt', 'wide_pants', 'aodai', 'dress', 'mini_dress'];
+         const semiFlowTypes = ['blouse', 'set', 'jumpsuit'];
+         let productPhysicsContext = '';
+         if (noFlowTypes.includes(pt)) {
+            productPhysicsContext = `\n\n⚠️ PRODUCT PHYSICS CONSTRAINT: "${pt}" = STRUCTURED FABRIC (NO-FLOW)
+- ❌ KHÔNG DÙNG: "flowing", "flutter", "cascade", "billowing", "dramatic sway"
+- ✅ CHỈ DÙNG: structured fit, minimal fabric movement, holds shape
+- Khi mô tả FABRIC_PHYSICS trong mỗi scene → garment giữ nguyên form, không bay/flutter`;
+         } else if (flowTypes.includes(pt)) {
+            productPhysicsContext = `\n\n⚠️ PRODUCT PHYSICS CONSTRAINT: "${pt}" = FLOW FABRIC
+- ✅ CÓ THỂ DÙNG: "flowing", "sway", "flutter", "fabric cascades"
+- ❌ KHÔNG DÙNG: "rigid", "stiff", "no movement"
+- Khi mô tả FABRIC_PHYSICS → fabric responds to movement, wind, and turns naturally`;
+         } else if (semiFlowTypes.includes(pt)) {
+            productPhysicsContext = `\n\n⚠️ PRODUCT PHYSICS CONSTRAINT: "${pt}" = SEMI-FLOW FABRIC
+- ✅ CÓ THỂ: gentle sway, subtle movement, soft shift
+- ❌ KHÔNG DÙNG: "dramatic flow", "billowing", NOR "completely rigid"
+- Khi mô tả FABRIC_PHYSICS → moderate, natural movement`;
+         }
+
          const refinementPrompt = `
 PHASE 2: VIDEO REFINEMENT
 =========================
 
 Analyze the keyframe prompts below and create SEAMLESS, REFINED scene prompts for Veo 3.1.
+${productPhysicsContext}
 
 **YOUR TASK:**
 1. Read the MASTER PROMPT for character/outfit/environment details
@@ -2863,15 +2886,11 @@ AI PHẢI output định dạng JSON để tối ưu workflow Image-to-Video.`;
 → MUST use this exact face description for ALL scenes/images. Do NOT deviate.`;
 
          // 👙 FASHION FOUNDATIONS DETECTION - Không mô tả chi tiết, chỉ reference ảnh
-         // Bao gồm: fashion foundations, swim set, loungewear thời trang, coordinates
+         // Bao gồm: fashion foundations, swim set, loungewear thời trang
+         // Chỉ chứa product types THỰC SỰ CÓ trong PRODUCT_TYPE_GROUPS (data.ts)
          const isIntimateApparel = [
-            'lingerie', 'bikini', 'sleepwear', 'underwear', 'bralette', 'bodysuit',
-            // Loungewear thời trang - cần FASHION FOUNDATIONS RULE
-            'sexy_sleepwear', 'lace_sleepwear', 'nightgown', 'chemise', 'babydoll',
-            'teddy', 'camisole', 'slip', 'negligee', 'pyjama_set'
-         ].includes(productType.toLowerCase()) ||
-            // Cũng detect từ Additional Description nếu có keywords fashion foundations
-            (productType === 'sleepwear' && userAdditionalDescText.toLowerCase().match(/(ren|lace|tinh tế|2 mảnh|hai mảnh|mỏng|lightweight|sheer)/));
+            'lingerie', 'bikini', 'sleepwear'
+         ].includes(productType.toLowerCase());
 
          // Outfit image label - thay đổi dựa trên loại sản phẩm
          const getOutfitLabel = () => {
@@ -2948,7 +2967,7 @@ Lý do: Mô tả chi tiết fashion foundations = trigger safety filters. Chỉ 
             if (isIntimateApparel) return '';
 
             // Structured products that CANNOT flow
-            const noFlowProducts = ['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop'];
+            const noFlowProducts = ['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop', 'top', 'sport', 'bigsize'];
             const isNoFlow = noFlowProducts.includes(pt);
 
             if (pt === 'bodycon') {
@@ -3005,6 +3024,61 @@ Loại quần này flow được do ống rộng.`;
 Váy xòe/maxi có thể flow tự nhiên.`;
             }
 
+            if (pt === 'dress') {
+               return `\n\n👗 PRODUCT PHYSICS - DRESS/VÁY LIỀN:
+✅ ĐÚNG: "dress sways with movement", "skirt portion flows naturally", "fitted bodice stays in place"
+Tùy kiểu dáng: A-line sway, fit-and-flare fan out, shift dress giữ form.`;
+            }
+
+            if (pt === 'mini_dress') {
+               return `\n\n👗 PRODUCT PHYSICS - MINI DRESS/VÁY NGẮN:
+⚠️ Váy ngắn có giới hạn flow do chiều dài
+✅ ĐÚNG: "short skirt sways subtly", "hem lifts slightly with turns", "fitted silhouette"
+❌ SAI: "dramatic fabric cascade" (váy ngắn không đủ dài để cascade)`;
+            }
+
+            if (pt === 'blouse') {
+               return `\n\n👗 PRODUCT PHYSICS - BLOUSE/ÁO KIỂU:
+⚠️ Semi-structured: collar/cuffs giữ form, thân áo có thể sway nhẹ
+✅ ĐÚNG: "gentle fabric sway", "collar maintains structure", "soft movement at hem"
+❌ SAI: "dramatic billowing" (blouse không phải dress/maxi)`;
+            }
+
+            if (pt === 'top') {
+               return `\n\n👗 PRODUCT PHYSICS - TOP/ÁO:
+✅ ĐÚNG: "relaxed casual fit", "slight hem sway", "natural fabric drape"
+❌ KHÔNG DÙNG: "flowing", "flutter", "cascade"
+Tương tự tshirt — áo ngắn, ít fabric để flow.`;
+            }
+
+            if (pt === 'set') {
+               return `\n\n👗 PRODUCT PHYSICS - SET/BỘ:
+⚠️ Coordinated set: top + bottom di chuyển đồng bộ
+✅ ĐÚNG: "unified outfit movement", "top and bottom coordinate naturally"
+📌 Mô tả cả top VÀ bottom physics trong mỗi scene.`;
+            }
+
+            if (pt === 'jumpsuit') {
+               return `\n\n👗 PRODUCT PHYSICS - JUMPSUIT:
+⚠️ One-piece garment: thân trên fitted, chân tùy kiểu
+✅ ĐÚNG: "single continuous garment moves as one", "waist stays fitted", "legs follow body"
+❌ SAI: "top separates from bottom" (jumpsuit là liền thân)`;
+            }
+
+            if (pt === 'sport') {
+               return `\n\n👗 PRODUCT PHYSICS - SPORTSWEAR/ĐỒ THỂ THAO:
+✅ ĐÚNG: "athletic fabric clings", "stretch recovery visible", "moisture-wicking material"
+❌ KHÔNG DÙNG: "flowing", "soft drape", "romantic sway"
+Performance fabric = structured, body-hugging, functional.`;
+            }
+
+            if (pt === 'bigsize') {
+               return `\n\n👗 PRODUCT PHYSICS - BIGSIZE/OVERSIZE:
+✅ ĐÚNG: "relaxed oversized fit", "comfortable drape", "gentle fabric shift"
+❌ KHÔNG DÙNG: body-hugging terms — "form-fitting", "skin-tight", "clings"
+Oversize = loose, comfortable, natural movement.`;
+            }
+
             // General reminder for other products
             if (isNoFlow) {
                return `\n\n👗 PRODUCT PHYSICS REMINDER:
@@ -3033,8 +3107,16 @@ Product type "${pt}" = STRUCTURED fabric
             const productNegative: string[] = [];
 
             // Structured fabrics: prevent flowing/soft artifacts
-            if (['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop'].includes(pt)) {
+            if (['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop', 'top'].includes(pt)) {
                productNegative.push('flowing fabric', 'billowing material', 'sheer transparency', 'soft drape movement');
+            }
+            // Flow products: prevent rigid/stiff artifacts
+            if (['maxi_dress', 'skirt', 'wide_pants', 'dress', 'mini_dress'].includes(pt)) {
+               productNegative.push('stiff fabric', 'rigid garment', 'no movement on fabric', 'plastic-looking material');
+            }
+            // Semi-flow products: prevent extreme treatments
+            if (['blouse', 'set', 'jumpsuit'].includes(pt)) {
+               productNegative.push('extreme billowing', 'completely rigid fabric', 'dramatic wind effects on structured parts');
             }
             // Intimate apparel: prevent detail artifacts
             if (isIntimateApparel) {
@@ -3149,7 +3231,7 @@ Nếu outfit có accessories (hat, bag, jewelry, sunglasses, belt), PHẢI nhắ
             let motionPhrase = '';
 
             // NO-FLOW products: rigid, structured
-            if (['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop'].includes(pt)) {
+            if (['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop', 'top', 'sport', 'bigsize'].includes(pt)) {
                const rigidMap: Record<string, { fabric: string; motion: string }> = {
                   bodycon: { fabric: 'stretch fabric', motion: 'maintains body-hugging silhouette, subtle stretch visible at joints during movement' },
                   jeans: { fabric: 'rigid denim', motion: 'holds structured form, visible crease lines at knees during sitting or bending' },
@@ -3159,7 +3241,10 @@ Nếu outfit có accessories (hat, bag, jewelry, sunglasses, belt), PHẢI nhắ
                   suit: { fabric: 'tailored wool blend', motion: 'crisp pressed lines, structured shoulder pads, minimal fabric movement' },
                   shorts: { fabric: 'cotton/denim', motion: 'casual relaxed fit, no fabric drama, slight shift with leg movement' },
                   pants: { fabric: 'tailored cotton/wool', motion: 'pressed crease visible, structured fall, clean leg line' },
-                  croptop: { fabric: 'fitted stretch', motion: 'fitted crop stays in place, no hem lifting or fabric flutter' }
+                  croptop: { fabric: 'fitted stretch', motion: 'fitted crop stays in place, no hem lifting or fabric flutter' },
+                  top: { fabric: 'cotton/blend', motion: 'relaxed casual fit, slight hem sway with movement, no dramatic flow' },
+                  sport: { fabric: 'athletic performance fabric', motion: 'moisture-wicking fabric clings to body during movement, stretch recovery visible at joints' },
+                  bigsize: { fabric: 'comfortable stretch blend', motion: 'relaxed oversized fit drapes naturally, fabric shifts gently with body movement, no tight clinging' }
                };
                const entry = rigidMap[pt];
                if (entry) {
@@ -3168,13 +3253,14 @@ Nếu outfit có accessories (hat, bag, jewelry, sunglasses, belt), PHẢI nhắ
                }
             }
             // FLOW products: fluid, dramatic
-            else if (['maxi_dress', 'skirt', 'wide_pants', 'aodai', 'dress'].includes(pt)) {
+            else if (['maxi_dress', 'skirt', 'wide_pants', 'aodai', 'dress', 'mini_dress'].includes(pt)) {
                const flowMap: Record<string, { fabric: string; motion: string }> = {
                   maxi_dress: { fabric: 'flowing chiffon/silk', motion: 'fabric cascades with each step, hem trails and responds to breeze, skirt swirls during turns' },
                   skirt: { fabric: 'lightweight fabric', motion: 'skirt sways naturally with hip movement, pleats fan during turns, hem lifts with spin' },
                   wide_pants: { fabric: 'lightweight wide-leg', motion: 'palazzo legs sway independently, dramatic width visible in profile, fabric ripples during walk' },
                   aodai: { fabric: 'silk/satin', motion: 'front and back panels trail and flutter with movement, fitted bodice DOES NOT flow, only VẠT panels respond to wind' },
-                  dress: { fabric: 'varies by style', motion: 'fabric responds to movement based on cut — A-line sways, fit-and-flare skirt fans, shift dress stays clean' }
+                  dress: { fabric: 'varies by style', motion: 'fabric responds to movement based on cut — A-line sways, fit-and-flare skirt fans, shift dress stays clean' },
+                  mini_dress: { fabric: 'light structured fabric', motion: 'short skirt sways subtly with hip movement, fitted bodice stays in place, hem lifts slightly during turns' }
                };
                const entry = flowMap[pt];
                if (entry) {
@@ -3183,9 +3269,17 @@ Nếu outfit có accessories (hat, bag, jewelry, sunglasses, belt), PHẢI nhắ
                }
             }
             // SEMI-FLOW products
-            else if (['blouse', 'silk_blouse', 'chiffon_top'].includes(pt)) {
-               fabricBehavior = 'light semi-structured fabric';
-               motionPhrase = 'gentle movement with body, collar and cuffs maintain structure, body of garment has subtle sway';
+            else if (['blouse', 'set', 'jumpsuit'].includes(pt)) {
+               const semiFlowMap: Record<string, { fabric: string; motion: string }> = {
+                  blouse: { fabric: 'light semi-structured fabric', motion: 'gentle movement with body, collar and cuffs maintain structure, body of garment has subtle sway' },
+                  set: { fabric: 'coordinated set fabric', motion: 'top and bottom move as unified outfit, semi-structured with gentle coordinated movement' },
+                  jumpsuit: { fabric: 'single-piece structured fabric', motion: 'moves as one continuous garment, waist stays fitted, legs follow body movement cleanly' }
+               };
+               const entry = semiFlowMap[pt];
+               if (entry) {
+                  fabricBehavior = entry.fabric;
+                  motionPhrase = entry.motion;
+               }
             }
 
             if (!fabricBehavior) return ''; // Unknown product type, skip
@@ -3203,11 +3297,11 @@ Nếu outfit có accessories (hat, bag, jewelry, sunglasses, belt), PHẢI nhắ
 📌 INTERACTION MATRIX cho "${pt}":
 | Movement | Garment Response |
 |----------|------------------|
-| Standing still | ${['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop'].includes(pt) ? 'Fabric holds shape, clean silhouette visible' : 'Fabric settles naturally, slight ambient movement from air'} |
-| Turning 180° | ${['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop'].includes(pt) ? 'Garment rotates with body as one unit, no independent fabric motion' : 'Skirt/panels trail behind rotation, fabric catches air, settles 0.5s after body stops'} |
-| Hand gesture | ${['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop'].includes(pt) ? 'Sleeve shifts minimally, no fabric drama' : 'Sleeve fabric flows with arm movement, catches light'} |
+| Standing still | ${['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop', 'top', 'sport', 'bigsize'].includes(pt) ? 'Fabric holds shape, clean silhouette visible' : 'Fabric settles naturally, slight ambient movement from air'} |
+| Turning 180° | ${['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop', 'top', 'sport', 'bigsize'].includes(pt) ? 'Garment rotates with body as one unit, no independent fabric motion' : 'Skirt/panels trail behind rotation, fabric catches air, settles 0.5s after body stops'} |
+| Hand gesture | ${['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop', 'top', 'sport', 'bigsize'].includes(pt) ? 'Sleeve shifts minimally, no fabric drama' : 'Sleeve fabric flows with arm movement, catches light'} |
 | Hair touch | Garment unaffected, natural body micro-movement only |
-| Wind/breeze | ${['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop'].includes(pt) ? 'Hair moves, garment STAYS RIGID — no fabric flutter' : 'Hair + loose fabric respond to wind direction, grounded parts stay'} |
+| Wind/breeze | ${['bodycon', 'jeans', 'tshirt', 'sweater', 'jacket', 'suit', 'shorts', 'pants', 'croptop', 'top', 'sport', 'bigsize'].includes(pt) ? 'Hair moves, garment STAYS RIGID — no fabric flutter' : 'Hair + loose fabric respond to wind direction, grounded parts stay'} |
 
 ⚠️ CRITICAL: Nếu scene prompt mô tả motion KHÔNG PHÙ HỢP với "${pt}" physics → AI PHẢI tự sửa.`;
          };
