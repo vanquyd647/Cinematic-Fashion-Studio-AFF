@@ -55,7 +55,7 @@ Chỉ reference ảnh + màu sắc/vibe = SAFE output.
 │ Product Type        │ ✅ Correct Motion Description                        │
 ├─────────────────────┼─────────────────────────────────────────────────────┤
 │ Bodycon             │ form-hugging, curves highlighted, stretch visible   │
-│ Maxi/Chiffon        │ flowing gracefully, fabric cascade, ethereal        │
+│ Maxi/Chiffon        │ flowing gracefully, fabric cascade, delicate        │
 │ A-line              │ skirt sways gently, structured top                  │
 │ Blazer Dress        │ structured lines, sharp tailoring                   │
 │ Slip Dress          │ liquid satin drape, subtle movement                 │
@@ -1118,14 +1118,14 @@ NOT right shoulder forward, NOT 3/4 right angle"
 
 ### 🎭 TRANSFORMATION EFFECT (STARTS AT SCENE 1)
 
-**Sparkle Magic:**
+**Sparkle Transition:**
 ```
 Scene 1 (0s-8s): "Model in casual outfit, relaxed pose,
  SPARKLES BEGIN appearing from outfit edges at 4s mark,
- magical particles start swirling gently, transformation begins"
+ lens flare particles start swirling gently, transformation begins"
  
 Scene 2 (8s-16s): "FULL TRANSFORMATION - particles intensify,
- body wrapped in magical light, outfit morphing visible,
+ body wrapped in golden spotlight glow, outfit morphing visible,
  sparkles peak at 12s"
 
 Scene 3 (16s-24s): "Model REVEALED in new outfit,
@@ -4018,8 +4018,8 @@ Khi tạo nội dung allure/quyến rũ với ASPECT_RATIO: 16:9:
 
 **QUY TẮC: NẾU CON NGƯỜI KHÔNG LÀM ĐƯỢC, ĐỪNG BẮT AI LÀM**
 
-**NGOẠI LỆ:** Nếu cố tình làm video siêu thực (surreal/fantasy)
-→ Phải mô tả rõ: "Surreal dreamlike sequence" + chấp nhận artifacts
+**LƯU Ý:** KHÔNG dùng surreal/fantasy — luôn giữ phong cách thực tế (real photography)
+→ Mọi cảnh phải trông như quay tại địa điểm thật với ánh sáng tự nhiên
 
 ================================================
 ⚠️ 4. TRÁNH MÔ TẢ CAMERA MƠ HỒ
@@ -4913,7 +4913,7 @@ End: "Pan reaches flowing panels at hem"
 | Hand Wave | "Hand waves across camera, instant outfit change" | Casual → Áo dài đỏ |
 | Spin Transform | "Quick spin 360°, emerge in ao dai" | Hiện đại → Truyền thống |
 | Veil Drop | "Fabric veil drops, reveal ao dai underneath" | Dramatic reveal |
-| Mirror Flip | "Model touches mirror, reflection wears ao dai" | Fantasy/creative |
+| Mirror Flip | "Model touches mirror, reflection wears ao dai" | In-camera creative edit |
 
 **B. BỘ LỌC MÀU (COLOR GRADING):**
 | Tone | Mô tả | Mood |
@@ -4922,7 +4922,7 @@ End: "Pan reaches flowing panels at hem"
 | Soft Pastel | "Muted pastel tones, lavender and blush" | Mơ màng, nhẹ nhàng |
 | Vintage Film | "Film grain, slightly desaturated, nostalgic" | Hoài cổ |
 | Vibrant Pop | "Saturated colors, bright contrast" | Trẻ trung, năng động |
-| Dreamy Haze | "Soft glow, light leak overlays" | Lãng mạn |
+| Soft Haze | "Soft glow, light leak overlays" | Lãng mạn |
 
 **C. OVERLAY EFFECTS:**
 - "Cherry blossom petals falling overlay"
@@ -6193,7 +6193,7 @@ Khi nhận được flag "SEXY_MODE: ON" + "ASPECT_RATIO: 16:9":
 - "Neon glow reflection on skin" - club vibe, edgy
 - "Window light with shadows" - artistic aesthetic
 - "Harsh contrast lighting" - dramatic, editorial
-- "Soft diffused glow" - dreamy, fantasy
+- "Soft diffused glow" - romantic, soft-focus editorial
 
 **Shadow Play:**
 - "Shadows falling across body"
@@ -6550,7 +6550,7 @@ Khi nhận được flag "SEDUCTIVE_MODE: ON":
 - Expression: Playfully mischievous grin, inviting sideways glance, subtle lip bite, teasing half-smile
 - Movement: Pronounced hip sway walk, slow 360° turn pausing at sexy angles, fabric touch with fingertips, back arch revealing silhouette, looking over shoulder with come-hither gaze
 - Lighting: Dramatic side key light creating deep shadows, warm amber fill, neon accent glow
-- Environment: "fairy lights twinkling softly in background bokeh, golden dust particles floating slowly in light beams, mirror reflection showing dual perspective, subtle smoke haze adding atmosphere"
+- Environment: "string lights twinkling softly in background bokeh, natural dust motes visible in warm light beams, mirror reflection showing dual perspective, subtle smoke haze adding atmosphere"
 
 **SCENE 4 (24-32s) - FINALE (Kết thúc đẹp):**
 - Model delivers memorable final pose with confident impact

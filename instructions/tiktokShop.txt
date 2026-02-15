@@ -6375,7 +6375,7 @@ Mỗi scene CHỈ có 1 primary action:
 
 **📍 Phòng ngủ / Bedroom:**
 - "sheer curtains billowing gently from open window"
-- "fairy lights twinkling softly in background"
+- "string lights twinkling softly in background"
 - "fan causing slight fabric movement on bed"
 
 **📍 Phòng khách / Living Room:**

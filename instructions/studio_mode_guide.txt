@@ -193,7 +193,7 @@ Studio = Backdrop + Minimal props, NOT full realistic room
 | **W-H** | Wall Hanging | Treo tường | Backdrop decor | Tranh, macramé, đèn, nón lá |
 | **TB-L** | Table/Surface Left | Bàn trái | Chi tiết visible | Ly, sách, đạo cụ nhỏ |
 | **TB-R** | Table/Surface Right | Bàn phải | Chi tiết visible | Đối xứng với TB-L |
-| **CEIL** | Ceiling/Above | Trần/Phía trên | Gợi không gian | Chandelier, đèn lồng, fairy lights |
+| **CEIL** | Ceiling/Above | Trần/Phía trên | Gợi không gian | Chandelier, đèn lồng, string lights |
 
 ---
 
@@ -315,7 +315,7 @@ Studio = Backdrop + Minimal props, NOT full realistic room
 • Cây cảnh → BG corner, MG corner (nhiều cây OK)
 • Thảm boho → FL-S (dưới chân model)
 • Gối → MG scatter hoặc trên ghế/sofa
-• Fairy lights → BG-upper string (treo cao)
+• String lights → BG-upper string (treo cao)
 • Rattan furniture → BG-L hoặc MG-L
 
 ❌ KHÔNG LOGIC:
@@ -680,7 +680,7 @@ Nếu nghe như photographer mô tả setup → ĐẠT
 
 ### Váy Cưới / Wedding Dress (10 styles) 👰
 - Chapel Elegance ⭐, Garden Romance, Royal Ballroom, Minimalist Pure White
-- Vintage Manor, Sunset Terrace, French Château, Dreamy Cloud, Rustic Barn, Coastal Breeze
+- Vintage Manor, Sunset Terrace, French Château, Soft Cloud, Rustic Barn, Coastal Breeze
 
 ### Sườn Xám / Cheongsam (10 styles) 🥻
 - Thượng Hải Cổ Điển ⭐, Phòng Trà Trung Hoa, Modern Oriental, Hoa Mẫu Đơn
@@ -713,15 +713,15 @@ Nếu nghe như photographer mô tả setup → ĐẠT
 
 ### Sleepwear (10 styles)
 - Cozy Minimal ⭐, Luxury Hotel, Spa Retreat, Reading Nook, Scandinavian Hygge
-- Morning Sunshine, Cloud Dreamy, Romantic Elegance, Minimalist Rest, Countryside Morning
+- Morning Sunshine, Cloud Soft, Romantic Elegance, Minimalist Rest, Countryside Morning
 
 ### Accessories (10 styles)
 - Product Showcase ⭐, Luxury Boutique, Modern Geometric, Vintage Display, Editorial Magazine
-- Marble Elegance, Natural Organic, Neon Glow, Pastel Dream, Minimalist Black
+- Marble Elegance, Natural Organic, Neon Glow, Pastel Soft, Minimalist Black
 
 ### 👙 Bikini / Đồ Bơi (10 styles) NEW
 - Infinity Pool ⭐, Beach Sunset, Tropical Paradise, Pool Party, Private Villa
-- Yacht Deck, Lagoon Blue, Cabana Chic, Ocean Breeze, Underwater Fantasy
+- Yacht Deck, Lagoon Blue, Cabana Chic, Ocean Breeze, Pool Elegance
 
 ### 🎀 Inner / Fashion Foundations (10 styles) NEW - TikTok-Safe
 - Vanity Mirror ⭐, Silk Sheets, Bridal Suite, Pastel Cloud, Dressing Room
@@ -862,7 +862,7 @@ Both are FIXED (no drift) but studio is controlled/themed, real is actual place.
 - Props: Silver moon-shaped mirror (background), silk lantern
 - Lighting: Cool soft moonlight simulation (4000K) with silver rim
 - Floor: Dark wood with soft reflection
-- Vibe: Evening elegance, romantic moonlit, dreamy sophistication
+- Vibe: Evening elegance, romantic moonlit, refined sophistication
 
 ---
 
@@ -1046,8 +1046,8 @@ Both are FIXED (no drift) but studio is controlled/themed, real is actual place.
 
 **5. Garden Party**
 - Background: Twilight lavender-pink gradient
-- Props: String fairy lights (background), champagne glass
-- Lighting: Warm fairy light (3000K)
+- Props: String lights (background), champagne glass
+- Lighting: Warm string light (3000K)
 - Floor: Stone patio texture
 - Vibe: Garden evening, twilight romance, outdoor elegance
 
@@ -1183,10 +1183,10 @@ Both are FIXED (no drift) but studio is controlled/themed, real is actual place.
 
 **14. Romantic Sunset**
 - Background: Warm peach-pink gradient sunset glow
-- Props: Sheer drape flowing (background), fairy lights
+- Props: Sheer drape flowing (background), string lights
 - Lighting: Golden hour (3500K) romantic
 - Floor: Light wood deck
-- Vibe: Romantic dress, sunset photo, dreamy elegance
+- Vibe: Romantic dress, sunset photo, warm elegance
 
 **15. Spring Garden** 
 - Background: Fresh pink-white gradient cherry blossom
@@ -1291,7 +1291,7 @@ Both are FIXED (no drift) but studio is controlled/themed, real is actual place.
 - Props: Dried lavender bundles in basket (background), rustic chair
 - Lighting: Warm French afternoon (4000K)
 - Floor: Rustic stone
-- Vibe: French Provence, lavender dreamy, romantic flowing
+- Vibe: French Provence, lavender romantic, romantic flowing
 
 **12. Tropical Hibiscus**
 - Background: Warm coral-teal gradient tropical
@@ -1303,9 +1303,9 @@ Both are FIXED (no drift) but studio is controlled/themed, real is actual place.
 **13. Wisteria Cascade**
 - Background: Soft purple-pink Japanese gradient
 - Props: Wisteria vine hanging (background), zen stones
-- Lighting: Soft diffused (4500K) dreamy
+- Lighting: Soft diffused (4500K) romantic
 - Floor: Light stone path
-- Vibe: Japanese garden, romantic cascade, ethereal flowing
+- Vibe: Japanese garden, romantic cascade, elegant flowing
 
 **14. Meadow Breeze**
 - Background: Soft green-gold meadow gradient
@@ -1364,7 +1364,7 @@ Both are FIXED (no drift) but studio is controlled/themed, real is actual place.
 ---
 
 #### 👰 ROMANTIC / WEDDING GUEST (5 Studios)
-*Cho váy dự tiệc, wedding guest, dreamy*
+*Cho váy dự tiệc, wedding guest, romantic*
 
 **21. Peony Blush ⭐** (Default for Romantic)
 - Background: Soft blush-cream bridal gradient
@@ -1376,7 +1376,7 @@ Both are FIXED (no drift) but studio is controlled/themed, real is actual place.
 **22. White Rose Dream**
 - Background: Pure white-cream classic gradient
 - Props: White roses in silver vase (background), pearl accents
-- Lighting: Soft bright (4500K) dreamy
+- Lighting: Soft bright (4500K) romantic
 - Floor: White marble
 - Vibe: Classic wedding, timeless elegance, bridal party
 
@@ -1385,7 +1385,7 @@ Both are FIXED (no drift) but studio is controlled/themed, real is actual place.
 - Props: Sakura branches (background), silk ribbon
 - Lighting: Soft spring (4500K)
 - Floor: Light wood with petals
-- Vibe: Spring wedding, romantic dreamy, cherry blossom season
+- Vibe: Spring wedding, romantic blossomy, cherry blossom season
 
 **24. Garden Party Roses**
 - Background: Soft mixed pastels garden gradient
@@ -1611,12 +1611,12 @@ Both are FIXED (no drift) but studio is controlled/themed, real is actual place.
 - Floor: Light wood natural
 - Vibe: Fresh morning, Sunday vibes, gentle wake
 
-**7. Cloud Dreamy** - NEW
+**7. Cloud Soft** - NEW
 - Background: Soft white-baby-blue gradient
 - Props: Fluffy pillows (background), soft blanket
 - Lighting: Soft diffused (4500K)
 - Floor: Plush white carpet
-- Vibe: Dreamy comfort, cloud soft, peaceful sleep
+- Vibe: Cozy comfort, cloud soft, peaceful sleep
 
 **8. Romantic Elegance** - NEW
 - Background: Soft blush pink-cream gradient
@@ -1699,7 +1699,7 @@ Both are FIXED (no drift) but studio is controlled/themed, real is actual place.
 - Floor: Dark glossy
 - Vibe: Modern edge, youth fashion, urban style
 
-**9. Pastel Dream** - NEW
+**9. Pastel Soft** - NEW
 - Background: Soft pastel gradient (pink-lilac)
 - Props: Gentle fabric drape (background), flowers
 - Lighting: Soft bright (5000K)
@@ -1870,7 +1870,7 @@ Both are FIXED (no drift) but studio is controlled/themed, real is actual place.
 - Props: Driftwood piece (background), seashells scattered
 - Lighting: Golden hour warm (3000K) with silhouette potential
 - Floor: Sand texture natural
-- Vibe: Romantic beach sunset, golden silhouette, vacation dreamy
+- Vibe: Romantic beach sunset, golden silhouette, vacation warmth
 
 **3. Tropical Paradise**
 - Background: Bright blue-turquoise gradient with palm shadow hints
@@ -1921,12 +1921,12 @@ Both are FIXED (no drift) but studio is controlled/themed, real is actual place.
 - Floor: Light weathered wood
 - Vibe: Ocean breeze, hair flowing, fresh coastal
 
-**10. Underwater Fantasy**
+**10. Pool Elegance**
 - Background: Deep blue-teal gradient with light rays
 - Props: Bubble effects hint (background), coral silhouette
 - Lighting: Diffused underwater (4500K) with caustic hints
 - Floor: Sandy ocean floor aesthetic
-- Vibe: Underwater dreamy, mermaid aesthetic, fantasy aquatic
+- Vibe: Underwater chic, mermaid aesthetic, aquatic elegance
 
 ---
 
@@ -1956,11 +1956,11 @@ Both are FIXED (no drift) but studio is controlled/themed, real is actual place.
 - Vibe: Bridal fashion foundations, wedding day, pure romance
 
 **4. Pastel Cloud**
-- Background: Soft pink-lavender gradient dreamy
+- Background: Soft pink-lavender gradient soft
 - Props: Fluffy cloud-like cushion (background), soft ribbon
-- Lighting: Diffused soft (4500K) ethereal
+- Lighting: Diffused soft (4500K) gentle
 - Floor: White fluffy texture
-- Vibe: Soft dreamy, cloud comfort, gentle feminine
+- Vibe: Soft gentle, cloud comfort, gentle feminine
 
 **5. Dressing Room**
 - Background: Soft gray-blush gradient boutique style
@@ -2264,9 +2264,9 @@ For **Tết Nguyên Đán, Hội, and Vietnamese Festival themes**, use these sp
 - Vibe: Heritage festival theatrical stage, nostalgic Hanoi mini-set, cultural authenticity editorial
 
 **7. Sen Hồng Thánh** (Sacred Pink Lotus)
-- Background: Soft blush pink-to-white gradient with watercolor lotus pattern, ethereal pure atmosphere
+- Background: Soft blush pink-to-white gradient with watercolor lotus pattern, serene pure atmosphere
 - Props: Large lotus flower in decorative bowl (center background), prayer beads draped on stand, Buddha figurine small, white silk draping, floating candles in water bowl, incense holder, meditation bells, sacred scrolls
-- Lighting: Heavenly soft daylight (5500K) with diffused peaceful glow, backlight for ethereal effect
+- Lighting: Soft daylight (5500K) with diffused peaceful glow, backlight for gentle effect
 - Floor: White marble with subtle pink veining, pristine clean theatrical, meditation cushion
 - Vibe: Buddhist festival theatrical stage, spiritual purity editorial, serene devotion mini-set
 
@@ -2404,12 +2404,12 @@ For **Tết Nguyên Đán, Hội, and Vietnamese Festival themes**, use these sp
 
 ### 🌸 ÁO DÀI TẾT - THIÊN NHIÊN XUÂN (5 Studios - Spring Nature)
 
-**26. Vườn Đào Mộng Mơ** (Dreamy Peach Garden)
+**26. Vườn Đào Mộng Mơ** (Romantic Peach Garden)
 - Background: Soft pink-to-white gradient with painted peach blossom pattern, romantic spring atmosphere
 - Props: Peach blossom branches in tall vase (background center), wooden garden bench, scattered pink petals, stone lantern
-- Lighting: Soft diffused daylight (4500K) spring morning glow, romantic dreamy atmosphere
+- Lighting: Soft diffused daylight (4500K) spring morning glow, romantic warm atmosphere
 - Floor: Natural stone path with grass texture, spring garden aesthetic, petal scatter
-- Vibe: Nhật Tân peach garden theatrical stage, romantic spring editorial, dreamy blossom mini-set
+- Vibe: Nhật Tân peach garden theatrical stage, romantic spring editorial, blossomy mini-set
 
 **27. Cánh Đồng Lúa Xuân** (Spring Rice Paddy)
 - Background: Fresh green-to-golden gradient with rice terrace texture, rural beauty atmosphere
@@ -2458,11 +2458,11 @@ For **Tết Nguyên Đán, Hội, and Vietnamese Festival themes**, use these sp
 - Vibe: Royal tomb theatrical stage, heritage sunset editorial, peaceful reverence mini-set
 
 **33. Phố Cổ Hội An Đêm** (Hội An Ancient Town Night)
-- Background: Warm yellow-to-amber gradient with lantern glow effect, magical night atmosphere
+- Background: Warm yellow-to-amber gradient with lantern glow effect, atmospheric night setting
 - Props: Colorful silk lanterns multiple sizes (background hanging), wooden window shutters, flower pots, river reflection hint
-- Lighting: Warm lantern glow (2700K) colorful romantic, magical night atmosphere
+- Lighting: Warm lantern glow (2700K) colorful romantic, atmospheric night setting
 - Floor: Aged yellow stone Hội An streets, lantern light pools, ancient town theatrical
-- Vibe: Hội An night theatrical stage, magical lantern editorial, heritage romance mini-set
+- Vibe: Hội An night theatrical stage, lantern-lit editorial, heritage romance mini-set
 
 **34. Biệt Thự Sài Gòn Xưa** (Old Saigon Colonial Villa)
 - Background: Cream-to-beige gradient with French colonial texture, vintage elegance atmosphere
@@ -2675,7 +2675,7 @@ For **Tết Nguyên Đán, Hội, and Vietnamese Festival themes**, use these sp
 **3. Đám Cưới Xuân** (Spring Wedding)
 - Background: Romantic blush-to-white gradient with watercolor floral pattern, bridal luxury theatrical
 - Props: Floral arch elaborate (background center), wedding guest book on stand, candles in holders, white rose bouquets, satin ribbon decorations, unity candle set, wedding bells hanging, love letters display
-- Lighting: Soft romantic (4000K) wedding day glow, dreamy bridal theatrical atmosphere
+- Lighting: Soft romantic (4000K) wedding day glow, warm bridal theatrical atmosphere
 - Floor: White carpet runner wedding aisle flooring, rose petals scattered, bridal theatrical
 - Vibe: Spring wedding theatrical stage, romantic union editorial, joyful matrimony mini-set
 
@@ -2733,7 +2733,7 @@ For **Tết Nguyên Đán, Hội, and Vietnamese Festival themes**, use these sp
 **12. Dạ Tiệc Sân Vườn** (Garden Evening Party)
 - Background: Twilight indigo-to-lavender gradient with garden silhouette, outdoor elegance theatrical
 - Props: String lights elaborate hanging (background overhead), potted topiaries shaped, garden lanterns, outdoor furniture elegant, flower arrangements wild, bird bath decorative, garden arch, candles outdoor
-- Lighting: Warm evening (3000K) with fairy lights twinkle, garden party magic theatrical
+- Lighting: Warm evening (3000K) with string lights twinkle, garden party warm theatrical
 - Floor: Stone patio garden venue flooring with moss accent, outdoor theatrical
 - Vibe: Outdoor gala theatrical stage, garden romance editorial, twilight charm mini-set
 
@@ -2810,7 +2810,7 @@ For **Tết Nguyên Đán, Hội, and Vietnamese Festival themes**, use these sp
 - Props: Champagne bucket on stand (background right), sparkler holders decorative, sheer curtain flowing, gold ribbon decorations
 - Lighting: Night outdoor (3500K) with colorful firework reflection simulation
 - Floor: Rooftop terrace tile textured, outdoor celebration theatrical
-- Vibe: Firework party theatrical stage, sky celebration editorial, magical night mini-set
+- Vibe: Firework party theatrical stage, sky celebration editorial, festive night mini-set
 
 **3. Luxury Countdown Suite**
 - Background: Champagne gold-to-cream gradient with glitter shimmer effect, penthouse luxury

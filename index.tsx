@@ -1976,13 +1976,13 @@ Professional cinematic fashion video với editorial quality.
             const getTransformStructure = () => {
                if (transformScenes <= 1) return `- Scene 1 (0-${finalDuration}s): Quick flash — Before pose → sparkle burst → After reveal in ONE scene`;
                if (transformScenes === 2) return `- Scene 1 (0-8s): \"Before\" outfit — model ${getRandomBeforeOutfit()}, neutral expression, \"Wait for it...\" energy\n- Scene 2 (8-${finalDuration}s): TRANSFORMATION + REVEAL — sparkle particles → outfit morphs → confidence glow-up`;
-               if (transformScenes === 3) return `- Scene 1 (0-8s): \"Before\" outfit — model ${getRandomBeforeOutfit()}, neutral expression\n- Scene 2 (8-16s): TRANSFORMATION — sparkle particles, magic effect, outfit morphs\n- Scene 3 (16-${finalDuration}s): \"After\" reveal — stunning new outfit, confidence glow-up`;
+               if (transformScenes === 3) return `- Scene 1 (0-8s): \"Before\" outfit — model ${getRandomBeforeOutfit()}, neutral expression\n- Scene 2 (8-16s): TRANSFORMATION — sparkle particles, lens flare transition, outfit morphs\n- Scene 3 (16-${finalDuration}s): \"After\" reveal — stunning new outfit, confidence glow-up`;
                // 4+ scenes
                let structure = `- Scene 1 (0-8s): \"Before\" outfit — model ${getRandomBeforeOutfit()}, neutral expression\n- Scene 2 (8-16s): Transition prep — model touches outfit/spins, build anticipation`;
                for (let i = 3; i <= transformScenes - 1; i++) {
                   const start = (i - 1) * 8;
                   const end = i * 8;
-                  structure += `\n- Scene ${i} (${start}s-${end}s): TRANSFORMATION — sparkle particles, magic effect, outfit morphing`;
+                  structure += `\n- Scene ${i} (${start}s-${end}s): TRANSFORMATION — sparkle particles, lens flare transition, outfit morphing`;
                }
                structure += `\n- Scene ${transformScenes} (${(transformScenes - 1) * 8}s-${finalDuration}s): \"After\" reveal — stunning new outfit, confidence glow-up`;
                return structure;
@@ -2003,7 +2003,7 @@ ${getTransformStructure()}
 - Hook: \"Wait for it...\" energy in Scene 1
 - Peak: Transformation at ~${transformMidpoint * 8}s (mid-video retention)
 - Payoff: Wow reveal in final scene
-- KHÔNG có voice/text overlays - pure visual magic
+- KHÔNG có voice/text overlays - pure visual transformation
 
 📹 CAMERA:
 - Early scenes: Static or slow push
@@ -2021,9 +2021,9 @@ ${getTransformStructure()}
                                   'City Night - Urban neon lights, bokeh background';
             
             const vibeText = walkinVibe === 'auto' ? 'AI detect outfit → auto vibe' :
-                             walkinVibe === 'romantic' ? 'Romantic - Soft, dreamy, feminine energy' :
+                             walkinVibe === 'romantic' ? 'Romantic - Soft, warm, feminine energy' :
                              walkinVibe === 'power' ? 'Power - Strong, confident, boss energy' :
-                             walkinVibe === 'goddess' ? 'Goddess - Ethereal, majestic, divine presence' :
+                             walkinVibe === 'goddess' ? 'Goddess - Elevated, majestic, commanding presence' :
                              walkinVibe === 'minimal' ? 'Minimal - Clean, modern, understated elegance' :
                              'Allure - Magnetic, captivating, subtle intrigue';
             
@@ -2729,9 +2729,9 @@ ${scenes >= 5 ? `- Scenes 4-${scenes - 1}: CRITERIA 5 + DEEP DIVE
          if (displayType === 'fashion_model' && (aestheticVibe !== 'auto' || modelPersonality !== 'auto')) {
             if (aestheticVibe !== 'auto') {
                const vibeDetails = {
-                  romantic: '💕 Romantic Vibe - Soft pastels, dreamy lighting, flowing fabrics, gentle movements',
+                  romantic: '💕 Romantic Vibe - Soft pastels, warm golden lighting, flowing fabrics, gentle movements',
                   power: '💪 Power Vibe - Bold colors, strong poses, confident stride, boss energy',
-                  goddess: '✨ Goddess Vibe - Ethereal glow, majestic posture, divine presence, regal elegance',
+                  goddess: '✨ Goddess Vibe - Golden glow, majestic posture, commanding presence, regal elegance',
                   minimal: '◻️ Minimal Vibe - Clean lines, neutral tones, understated elegance, modern simplicity',
                   allure: '🌙 Allure Vibe - Magnetic presence, subtle intrigue, mysterious elegance, captivating aura'
                };
@@ -3038,7 +3038,7 @@ Loại quần này flow được do ống rộng.`;
 
             if (pt === 'maxi_dress' || pt === 'skirt') {
                return `\n\n👗 PRODUCT PHYSICS - MAXI/SKIRT:
-✅ ĐÚNG: "skirt flowing gracefully", "fabric cascade", "ethereal flutter"
+✅ ĐÚNG: "skirt flowing gracefully", "fabric cascade", "delicate flutter"
 Váy xòe/maxi có thể flow tự nhiên.`;
             }
 

@@ -222,7 +222,7 @@ HANDS: Thoải mái, hoặc đang show phụ kiện/túi
 ---
 ### 💕 VIBE 1: ROMANTIC
 ```
-NĂNG LƯỢNG: Mềm mại, dreamy, floating, enchanting
+NĂNG LƯỢNG: Mềm mại, romantic, floating, captivating
 BEST FOR: Chiffon, Lace, Floral, Maxi dress, Pastel colors
 
 MOVEMENT STYLE:
@@ -233,12 +233,12 @@ MOVEMENT STYLE:
 
 CAMERA CHOREOGRAPHY:
 - Slow orbit với soft parallax
-- Dreamy focus pull (slight soft focus)
+- Soft focus pull (slight soft focus)
 - Gentle tracking, như đang dance với model
 - Ascending angle nhẹ ở ending
 
 FABRIC PHYSICS:
-- "dreamy float, gentle ripple"
+- "soft float, gentle ripple"
 - "soft trailing motion behind each step"
 - "fabric catching air like butterfly wings"
 - "hem swirling in slow motion"
@@ -246,10 +246,10 @@ FABRIC PHYSICS:
 EXPRESSION PROGRESSION (4 Scenes):
 | Scene | Expression | Keywords |
 |-------|------------|----------|
-| 1 | Dreamy distant gaze | "soft wondering eyes, ethereal presence" |
+| 1 | Soft distant gaze | "soft wondering eyes, captivating presence" |
 | 2 | Gentle recognition | "warm eyes softening, hint of smile forming" |
 | 3 | Tender warmth | "loving gaze, gentle radiant smile" |
-| 4 | Fairy-tale ending | "enchanted smile, eyes sparkling with warmth" |
+| 4 | Warm finale | "radiant smile, eyes sparkling with warmth" |
 
 SCENE VARIATIONS (Romantic):
 Scene 1: Walk from shadow into golden light, fabric catching sunrise glow
@@ -301,41 +301,41 @@ Scene 4: Power stop + 3/4 turn, direct camera engagement
 ---
 ### ✨ VIBE 3: GODDESS
 ```
-NĂNG LƯỢNG: Angelic, ethereal, divine, otherworldly beauty
+NĂNG LƯỢNG: Regal, elevated, striking, captivating beauty
 BEST FOR: Satin Gown, Silk maxi, Grecian drape, Metallic fabrics
 
 MOVEMENT STYLE:
-- Ethereal slow motion energy
-- Graceful arm gestures như goddess
+- Slow motion editorial energy
+- Graceful arm gestures, commanding presence
 - Movement như đang glide, không walk
-- Every gesture feels blessed
+- Every gesture feels intentional
 - Posture: Regal, elevated
 
 CAMERA CHOREOGRAPHY:
-- Ascending angle, như nhìn lên thần thánh
+- Ascending angle, như nhìn lên supermodel
 - Halo backlight orbit
-- Celestial pull (camera slowly rising)
+- Upward pull (camera slowly rising)
 - Soft golden lens flare work
 
 FABRIC PHYSICS:
 - "liquid cascade, flowing like water"
-- "heavenly billow, gravity-defying flow"
+- "billowing flow, weightless fabric movement"
 - "satin catching light như liquid gold"
-- "fabric draping like angel wings"
+- "fabric draping like couture silk"
 
 EXPRESSION PROGRESSION (4 Scenes):
 | Scene | Expression | Keywords |
 |-------|------------|----------|
-| 1 | Serene awakening | "peaceful divine gaze, otherworldly calm" |
-| 2 | Graceful acknowledgment | "gentle goddess smile, blessing energy" |
-| 3 | Radiant divinity | "glowing from within, celestial warmth" |
-| 4 | Heavenly farewell | "ethereal smile, eyes like stars" |
+| 1 | Serene awakening | "peaceful confident gaze, serene calm" |
+| 2 | Graceful acknowledgment | "gentle regal smile, commanding energy" |
+| 3 | Radiant presence | "glowing from within, warm radiance" |
+| 4 | Majestic farewell | "regal smile, eyes full of warmth" |
 
 SCENE VARIATIONS (Goddess):
 Scene 1: Emerge from golden backlight, halo effect
 Scene 2: Glide với fabric cascade, slow-mo energy
-Scene 3: Close-up satin catching light, divine glow
-Scene 4: Ascending turn, final blessing gaze
+Scene 3: Close-up satin catching light, golden glow
+Scene 4: Ascending turn, final regal gaze
 ```
 
 ---
@@ -519,7 +519,7 @@ MỖI VIBE CÓ 3 INTENSITY LEVELS - tạo thêm variation:
 | Bold (90%) | Strong, dramatic | Larger gestures | Full expression |
 
 EXAMPLE - ROMANTIC VIBE:
-- Subtle: Quiet dreamy walk, barely-there smile, minimal fabric flow
+- Subtle: Quiet gentle walk, barely-there smile, minimal fabric flow
 - Medium: Gentle gliding steps, warm tender smile, soft fabric float
 - Bold: Dramatic slow-mo, radiant joyful smile, full fabric cascade
 
@@ -540,9 +540,9 @@ KHI USER CHỌN "AUTO" VIBE, AI PHẢI DETECT OUTFIT VÀ CHỌN:
 
 | Detected Outfit Keywords | Auto Vibe | Reason |
 |--------------------------|-----------|--------|
-| chiffon, lace, floral, soft | Romantic | Floating fabric needs dreamy motion |
+| chiffon, lace, floral, soft | Romantic | Floating fabric needs soft motion |
 | blazer, structured, sharp, formal | Power | Sharp lines need confident energy |
-| satin gown, silk, grecian, metallic | Goddess | Liquid fabric needs divine flow |
+| satin gown, silk, grecian, metallic | Goddess | Liquid fabric needs elegant flow |
 | minimal, solid, clean, simple | Minimal | Clean design needs editorial approach |
 | slip, bodycon, figure-hugging | Soft Allure | Body-skimming needs natural charm |
 
@@ -1002,7 +1002,7 @@ AUTO-DETECT PERSONALITY (when user chooses "Auto"):
 PERSONALITY + VIBE CROSS-MATRIX:
 | Personality | Romantic Vibe  | Power Vibe     | Minimal Vibe   |
 |-------------|----------------|----------------|----------------|
-| Casual      | Easy dreamy    | Relaxed power  | Clean simple   |
+| Casual      | Easy romantic  | Relaxed power  | Clean simple   |
 | Shy         | Sweet tender   | ❌ (conflict)  | Quiet elegant  |
 | Confident   | Soft strength  | Full power     | Sharp minimal  |
 | Playful     | Flirty dream   | Bold playful   | Chic fun       |
@@ -1093,7 +1093,7 @@ FABRIC-SPECIFIC FLOW:
 |-------------|------------------|
 | Satin | "liquid drape, light pools shifting with movement" |
 | Silk | "lightweight floating, subtle shimmer on motion" |
-| Chiffon | "ethereal layers catching air, floating effect" |
+| Chiffon | "delicate layers catching air, floating effect" |
 | Bodycon | "form-hugging with subtle stretch visible on walk" |
 | Maxi/Flowy | "dramatic skirt flow, sweeping motion" |
 | A-line | "structured swing, pendulum-like movement" |
@@ -1226,7 +1226,7 @@ PACING:
 🎬 4-SCENE EXPRESSION PROGRESSION:
 | Scene | Emotion | Expression | Eye Contact | Energy |
 |-------|---------|------------|-------------|--------|
-| 1 | Mystery | Dreamy distant gaze, soft enigmatic smile | Avoiding camera, looking past | Low-building |
+| 1 | Mystery | Soft distant gaze, soft enigmatic smile | Avoiding camera, looking past | Low-building |
 | 2 | Recognition | Knowing half-smile, eyes softening | Side glance to camera | Medium-rising |
 | 3 | Confidence | Direct warm gaze, self-assured presence | Full eye contact, unwavering | High-sustained |
 | 4 | Connection | Inviting playful smile, friendly warmth | Engaging, welcoming | Medium-warm |
@@ -1246,7 +1246,7 @@ PACING:
 | Dress Type | Expression Style | Example Keywords |
 |------------|------------------|------------------|
 | Party/Cocktail | Playful, teasing, magnetic | "mischievous glint in eyes, playful smirk" |
-| Romantic/Flowing | Dreamy, soft, enchanting | "soft ethereal gaze, gentle wondering smile" |
+| Romantic/Flowing | Romantic, soft, captivating | "soft gentle gaze, gentle wondering smile" |
 | Bodycon/Sleek | Confident, powerful, commanding | "I know I look good energy, controlled subtle smile" |
 | Luxury Evening | Serene, elegant, mysterious | "quiet sophistication, knowing half-smile" |
 | Casual Summer | Fresh, natural, approachable | "genuine friendly smile, bright relaxed eyes" |
@@ -1501,7 +1501,7 @@ Mỗi vibe điều chỉnh cho horizontal format:
 
 | Vibe | 9:16 Adjustment | 16:9 Adjustment |
 |------|-----------------|-----------------|
-| Romantic | Dreamy bokeh, model focus | Dreamy PANORAMA, nature visible |
+| Romantic | Soft bokeh, model focus | Romantic PANORAMA, nature visible |
 | Power | Tight confident framing | Wide confident, architecture bg |
 | Goddess | Halo effect | Epic backdrop, goddess against scenery |
 | Minimal | Negative space top/bottom | Negative space LEFT/RIGHT |

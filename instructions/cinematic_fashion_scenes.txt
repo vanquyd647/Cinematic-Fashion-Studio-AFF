@@ -82,7 +82,7 @@ When generating CINEMATIC MODE videos (NOT lookbook), detect product category fr
 **Skirts (32s = 4x8s):**
 - Scene 1 (00s-08s): HOOK — 0-3s: Slow-mo fabric swirl: model does micro-turn, skirt fabric catches light and flows. 3-8s: Full body reveal showing how skirt sits on waist, how hemline falls
 - Scene 2 (08s-16s): FEEL — Standing, hand brushes skirt surface (texture), gentle half-twirl showing flow quality, demonstrates how fabric moves with body, waistband comfort check
-- Scene 3 (16s-24s): DREAM — Romantic/elegant setting (garden, cafe terrace, riverside), gentle natural movement showing skirt flowing with body, feminine dreamy energy
+- Scene 3 (16s-24s): DREAM — Romantic/elegant setting (garden, cafe terrace, riverside), gentle natural movement showing skirt flowing with body, feminine romantic energy
 - Scene 4 (24s-32s): CLOSE — Elegant standing pose, one hand touches hem lightly, soft confident smile, fabric settling beautifully, warm inviting expression
 **Key:** Fabric flow hook → texture and movement demo → romantic aspiration → elegant finale
 **Sales Hook:** "Vải rủ đẹp, xoay thấy bay, không bị dính chân"
@@ -291,7 +291,7 @@ When generating CINEMATIC MODE videos (NOT lookbook), detect product category fr
 | Dress (Casual) | Coquette Core, Soft Pastel | Feminine charm |
 | Dress (Party) | Y2K Revival, Lace Layer | Main character energy |
 | Blazer | Office Siren, Quiet Luxury | Career power move |
-| Top (Feminine) | Coquette Core, Poet Core | Romantic dreamy |
+| Top (Feminine) | Coquette Core, Poet Core | Romantic soft |
 | Top (Casual) | Oversized Era, Athleisure | Effortless cool |
 | Outerwear | Quiet Luxury, Poet Core | Investment piece |
 | Accessories | Y2K Revival, Lace Layer | Statement piece |
@@ -376,7 +376,7 @@ When generating CINEMATIC MODE videos (NOT lookbook), detect product category fr
 
 ### 🌻 NHÓM 5: PHONG CÁCH TỰ DO (Bohemian, Maxi, Floral, Resort wear)
 
-**Phong cách:** Natural flow proof + dreamy aspiration
+**Phong cách:** Natural flow proof + romantic aspiration
 **Duration:** 32s (4 scenes x 8s)
 
 | Scene | Thời gian | Mục đích | EN Prompt | Sales Focus |
@@ -384,7 +384,7 @@ When generating CINEMATIC MODE videos (NOT lookbook), detect product category fr
 | 1 | 00s-08s | **HOOK** | 0-3s: Slow-mo fabric flow: dress caught in breeze, billowing dramatically against golden sky. 3-8s: Full body reveal, model standing with free-spirited energy | Vải rủ đẹp, bay nhẹ |
 | 2 | 08s-16s | **FEEL** | Hand touching flowing fabric, showing softness and movement quality, barefoot on natural surface, fabric weight and drape demo | Vải mềm, mặc thoải mái |
 | 3 | 16s-24s | **DREAM** | Wide landscape (field/beach/garden), model moving freely, dress flowing dramatically, golden hour magic, bohemian energy | Tự do, bay bổng |
-| 4 | 24s-32s | **CLOSE** | Model facing camera with free-spirited joyful expression, fabric settling beautifully, sun flare, dreamy warm smile | Cảm giác tự do |
+| 4 | 24s-32s | **CLOSE** | Model facing camera with free-spirited joyful expression, fabric settling beautifully, sun flare, warm radiant smile | Cảm giác tự do |
 
 **Camera Motion:** `Natural flowing dolly, gentle wind-like movement`
 **Lighting:** `Golden hour mandatory, warm orange tones, sun flare welcome`

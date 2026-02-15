@@ -33,7 +33,7 @@ Scene 1 (0s-8s): BEFORE
 Scene 2 (8s-16s): TRANSFORMATION
 - Sparkles begin emanating from outfit edges
 - Light intensifies, model begins slow spin
-- Outfit morphs through magic particles
+- Outfit morphs through lens flare particles
 
 Scene 3 (16s-24s): AFTER REVEAL
 - Model emerges in stunning evening dress
@@ -351,7 +351,7 @@ For transformation videos, use this scene prompt format:
     {
       "id": 2,
       "timeRange": "08s-16s", 
-      "prompt": "[TRANSFORMATION effect]. Sparkles/fabric/spin effect begins, outfit edges start glowing, magical particles swirl around body, transformation builds to peak, new outfit emerges",
+      "prompt": "[TRANSFORMATION effect]. Sparkles/fabric/spin effect begins, outfit edges start glowing, golden lens flare particles swirl around body, transformation builds to peak, new outfit emerges",
       "phase": "TRANSITION"
     },
     {

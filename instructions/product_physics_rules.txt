@@ -39,7 +39,7 @@ Sai logic vật lý = Output bị loại bỏ ngay lập tức.
 │ Denim Jacket        │ ❌ NO   │ ❌ NO     │ soft, flowing, drape, flutter       │ "rigid denim", "iconic structure"            │
 │ Blazer              │ ❌ NO   │ ❌ NO     │ soft drape, flowing                 │ "sharp tailoring", "structured shoulders"    │
 │ Silk Blouse         │ ✅ YES  │ ⚠️ Light  │ -                                   │ "liquid silk drape", "soft sheen"            │
-│ Chiffon Top         │ ✅ YES  │ ✅ YES    │ -                                   │ "sheer floating layers", "ethereal flutter"  │
+│ Chiffon Top         │ ✅ YES  │ ✅ YES    │ -                                   │ "sheer floating layers", "delicate flutter"  │
 └─────────────────────┴─────────┴───────────┴─────────────────────────────────────┴──────────────────────────────────────────────┘
 
 ================================================
@@ -84,7 +84,7 @@ Sai logic vật lý = Output bị loại bỏ ngay lập tức.
 │ Fabric Type     │ Flow Level │ Flutter?  │ Motion Keywords                              │
 ├─────────────────┼────────────┼───────────┼──────────────────────────────────────────────┤
 │ Silk/Lụa        │ ✅ High    │ ✅ YES    │ "liquid drape", "lustrous flow"              │
-│ Chiffon/Voan    │ ✅ High    │ ✅ YES    │ "sheer layers floating", "ethereal"          │
+│ Chiffon/Voan    │ ✅ High    │ ✅ YES    │ "sheer layers floating", "delicate"          │
 │ Satin           │ ✅ Medium  │ ⚠️ Light  │ "smooth glide", "lustrous sheen"             │
 │ Cotton          │ ❌ None    │ ❌ NO     │ "breathable comfort", "casual texture"       │
 │ Denim           │ ❌ None    │ ❌ NO     │ "rigid structure", "iconic wash"             │
@@ -138,7 +138,7 @@ VÍ DỤ:
 "[fabric] with [subtle sway/gentle movement/light drape], [top fitted/bottom moving]"
 
 **FULL FLOW (Free Movement):**
-"[fabric] [flowing gracefully/cascading/billowing] with movement, [ethereal/dramatic/romantic] motion"
+"[fabric] [flowing gracefully/cascading/billowing] with movement, [dramatic/romantic/gentle] motion"
 
 **ÁO DÀI SPECIFIC:**
 "ao dai panels trailing [elegantly/dramatically] with movement, fitted bodice maintained, front and back vạt flowing [in breeze/with stride]"

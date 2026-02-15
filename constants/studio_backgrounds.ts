@@ -280,7 +280,7 @@ export const STUDIO_BACKGROUNDS: StudioCategory[] = [
             {
                 name: 'Garden Party',
                 background: 'Soft twilight purple-blue gradient',
-                props: 'Fairy lights string, fresh flowers arrangement, elegant arch edge',
+                props: 'String lights, fresh flowers arrangement, elegant arch edge',
                 lighting: 'Twilight romantic soft',
                 floor: 'Stone pathway textured',
                 vibe: 'Outdoor elegant evening garden',
