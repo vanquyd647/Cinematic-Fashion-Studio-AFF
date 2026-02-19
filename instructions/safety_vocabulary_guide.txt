@@ -197,21 +197,24 @@ D. LAYERING STRATEGY:
 ═══════════════════════════════════════════════════════════════════════════════════
 
 📌 MÔ TẢ SẢN PHẨM (Voice — Vietnamese):
-✅ "Bộ thời trang tinh tế từ ren Pháp" — cho fashion coordinates
-✅ "Bodice cao cấp với cấu trúc support hoàn hảo" — cho support top
-✅ "Bộ phối ren Chantilly thủ công Pháp" — cho lace coordinates
-✅ "Brief phối đồng bộ kiểu vintage" — cho coordinating bottom
-✅ "Loungewear premium cho giấc ngủ sang trọng" — cho sleepwear
-✅ "Set bơi thời trang hai mảnh" — cho swim set
-✅ "Bodysuit kiểu balletcore thanh lịch" — cho bodysuit
+⚠️ NGUYÊN TẮC: Người xem TikTok KHÔNG hiểu thuật ngữ chuyên ngành.
+Voice script phải dùng từ ĐỜI THƯỜNG, như bạn bè chia sẻ.
+
+✅ "Bộ ren Pháp sang xỉu luôn" — cho fashion coordinates
+✅ "Áo corset cao cấp, giữ form chuẩn luôn" — cho support top
+✅ "Bộ phối ren Pháp thủ công tinh xảo" — cho lace coordinates
+✅ "Quần phối đồng bộ kiểu vintage" — cho coordinating bottom
+✅ "Đồ nhà cao cấp cho giấc ngủ sang trọng" — cho sleepwear
+✅ "Set bơi hai mảnh thời trang" — cho swim set
+✅ "Bodysuit kiểu ballet thanh lịch" — cho bodysuit
 
 📌 MÔ TẢ CHẤT LIỆU (Voice — Vietnamese):
-✅ "Ren Chantilly Pháp dệt thủ công tinh xảo"
-✅ "Vải mỏng nhẹ với lớp lót tông da tinh tế"
-✅ "Satin charmeuse mướt như nước"
-✅ "Lụa tơ tằm mulberry mềm rủ tự nhiên"
-✅ "Lưới Swiss dot tinh xảo nhập khẩu"
-✅ "Tulle mỏng phủ nhẹ tựa sương mai"
+✅ "Ren Pháp dệt thủ công tinh xảo"
+✅ "Vải mỏng nhẹ có lót tông da, mặc thoải mái"
+✅ "Lụa satin mướt như nước"
+✅ "Lụa tơ tằm mềm rủ tự nhiên"
+✅ "Lưới chấm bi tinh xảo nhập khẩu"
+✅ "Voan mỏng phủ nhẹ tựa sương mai"
 
 📌 HOOK & CTA (Voice — Vietnamese):
 ✅ "Sang trọng chưa nè?" — thay cho hook kích thích
@@ -265,7 +268,7 @@ D. LAYERING STRATEGY:
 ✅ "Flattering beauty lighting, catchlights in eyes"
 ✅ "Natural morning light ambiance, warm tones"
 ✅ "Warm amber key light with soft fill"
-✅ "Chiaroscuro dramatic fashion lighting"
+✅ "Dramatic contrast fashion lighting"
 
 📌 SAFE SETTINGS:
 ✅ "Minimalist white studio with seamless backdrop"
@@ -288,7 +291,7 @@ D. LAYERING STRATEGY:
 VD: "An editorial fashion photograph of a Vietnamese model posing with elegant 
 confidence. She wears a structured corsetry-style bodice in midnight black with 
 intricate Chantilly lace detailing, with coordinating high-waisted vintage brief. 
-Lustrous mulberry silk satin finish. Professional studio lighting with beauty dish. 
+Lustrous silk satin finish. Professional studio lighting with beauty dish. 
 Minimalist white studio. Sophisticated haute couture aesthetic."
 
 📌 VIDEO TEMPLATE (Veo 3.1):
@@ -303,8 +306,8 @@ High-end catalog fashion commercial, 9:16 portrait."
 📌 VOICE TEMPLATE:
 "[Hook an toàn]. [Mô tả chất liệu an toàn]. [Mô tả fit an toàn]. [CTA an toàn]."
 
-VD: "Sang trọng chưa nè? Ren Chantilly Pháp dệt thủ công tinh xảo, satin 
-charmeuse mướt như nước. Form ôm vừa vặn, tôn đường cong tự nhiên. Link dưới nha, 
+VD: "Sang trọng chưa nè? Ren Pháp dệt thủ công tinh xảo, lụa satin mướt 
+như nước. Form ôm vừa vặn, tôn dáng cực chuẩn. Link dưới nha, 
 đang sale cực sốc!"
 
 ═══════════════════════════════════════════════════════════════════════════════════
@@ -369,10 +372,10 @@ Duration: 4s, 6s, or 8s per clip. Extension: +7s/time, max 148s total.
 
 | Context              | Visual Prompt                    | Veo Motion                | Voice Script              |
 |─────────────────────|──────────────────────────────────|───────────────────────────|───────────────────────────|
-| Fashion coordinates  | couture fashion coordinates      | presenting coordinates    | bộ phối thời trang couture|
-| Support top          | structured corsetry-style bodice | robe revealing coordinated| bodice cao cấp cấu trúc  |
-| Coordinating bottom  | coordinating vintage brief       | outfit settling naturally | brief phối đồng bộ vintage|
-| Lace fabric          | Chantilly lace construction      | lace catching light       | ren Chantilly thủ công    |
+| Fashion coordinates  | couture fashion coordinates      | presenting coordinates    | bộ phối thời trang cao cấp|
+| Support top          | structured corsetry-style bodice | robe revealing coordinated| áo corset cao cấp         |
+| Coordinating bottom  | coordinating vintage brief       | outfit settling naturally | quần phối đồng bộ vintage |
+| Lace fabric          | Chantilly lace construction      | lace catching light       | ren Pháp thủ công         |
 | Lightweight fabric   | diaphanous fabric layering       | fabric flowing naturally  | vải mỏng nhẹ tựa sương   |
 | Confident pose       | editorial confident pose         | editorial poise movement  | tư thế tự tin thanh lịch  |
 | Showcasing outfit    | showcasing outfit angles         | fluid editorial movement  | khoe trọn vẹn thiết kế   |

@@ -1976,36 +1976,96 @@ Hoặc dựa vào Weight/Height ratio:
 
 **VÍ DỤ ÁP DỤNG:**
 Input: Height 160cm, Weight 65kg, Size XL, Waist 75cm
-→ Output: "Celebrating a curvaceous, classic hourglass silhouette with elegant upper-body architecture, tapered midsection, and graceful lower profile. Form-fitting tailoring highlighting the fabric's premium texture."
+→ Master Prompt (English): "Celebrating a curvaceous, classic hourglass silhouette with elegant upper-body architecture, tapered midsection, and graceful lower profile. Form-fitting tailoring highlighting the fabric's premium texture."
+→ Voice Script (VN): "Dáng đồng hồ cát, eo thon, hông nở tự nhiên. Ôm dáng chuẩn luôn, tôn dáng ghê!"
 
 ================================================
 🛒 BODY VOCABULARY - SHOP FRIENDLY OVERRIDE
 ================================================
 **MỤC ĐÍCH:** Giữ Master Prompt sang trọng (editorial), nhưng SCRIPT bán hàng phải ĐỜI THƯỜNG hơn để ra đơn tốt hơn.
 
+⚠️ **QUAN TRỌNG:** Người xem TikTok KHÔNG hiểu thuật ngữ chuyên ngành thời trang!
+- ❌ "Bodice", "charmeuse", "Chantilly", "décolletage", "diaphanous", "balletcore" — TUYỆT ĐỐI KHÔNG NÓI
+- ✅ Dùng từ ĐỜI THƯỜNG, như bạn bè chia sẻ sản phẩm với nhau
+- Script = GIỌNG NÓI mà người xem NGHE được → phải tự nhiên, dễ hiểu
+
 Khi viết SCRIPT tiếng Việt (không phải Master Prompt):
 - Ưu tiên từ dễ hiểu, đời thường, không quá "văn vẻ"
 - Khách hàng TikTok Shop = người bình thường, không phải fashion editor
 
-**CHUYỂN ĐỔI TỪ EDITORIAL → SHOP-FRIENDLY:**
-| Editorial (Master Prompt) | Shop-Friendly (Script) |
-|---------------------------|------------------------|
+**CHUYỂN ĐỔI TỪ EDITORIAL → SHOP-FRIENDLY (VOICE NARRATION):**
+
+📌 **BODY & DÁNG NGƯỜI:**
+| Editorial (Master Prompt) | Shop-Friendly (Script tiếng Việt) |
+|---------------------------|-----------------------------------|
 | "Pronounced hourglass silhouette" | "dáng có eo rõ, hông nở tự nhiên" |
-| "Strategic fabric tension" | "ôm vừa người, không siết" |
 | "Graceful S-curve figure" | "dáng đồng hồ cát chuẩn" |
 | "Elegant elongated silhouette" | "dáng cao, thon gọn" |
-| "Voluminous upper silhouette" | "ngực tròn đẹp" |
+| "Generous upper frame" | "ngực tròn đẹp" |
+| "Voluminous upper silhouette" | "ngực tròn đầy" |
 | "Graceful lower silhouette" | "hông cong, mông tròn" |
 | "Dramatically cinched waist" | "eo thon gọn lắm" |
+| "Tapered and cinched midsection" | "eo thon, siết nhẹ" |
+| "Full, sweeping hip line" | "hông nở tự nhiên" |
+| "Delicate décolletage" | "đường cổ ngực đẹp" |
+| "Elegant décolletage line" | "đường ngực thanh thoát" |
+| "Classic hourglass silhouette" | "dáng đồng hồ cát" |
+| "Sculpted proportions" | "dáng đầy đặn chuẩn" |
+| "Full-figured elegance" | "dáng tròn đầy quyến rũ" |
+| "Strategic fabric tension" | "ôm vừa người, không siết" |
+| "Accentuates curves" | "tôn dáng ghê" |
+| "Contour-enhancing engineering" | "thiết kế tôn dáng" |
+
+📌 **SẢN PHẨM & OUTFIT:**
+| Editorial (Master Prompt) | Shop-Friendly (Script tiếng Việt) |
+|---------------------------|-----------------------------------|
+| "Corsetry-style bodice" | "áo corset" |
+| "Structured support top" | "áo có form giữ dáng" |
+| "Couture fashion coordinates" | "bộ phối thời trang cao cấp" |
+| "Intimate fashion coordinates" | "bộ đồ lót phối set" |
+| "Balletcore silhouette piece" | "bodysuit kiểu ballet" |
+| "Coordinating brief" | "quần phối đồng bộ" |
+| "Luxe loungewear ensemble" | "đồ nhà sang trọng" |
+| "Premium sleepwear coordinates" | "đồ ngủ cao cấp" |
+| "Gothic romantic lace coordinate" | "bộ ren đen quyến rũ" |
+| "Vintage glamour satin set" | "bộ satin vintage sang chảnh" |
+
+📌 **CHẤT LIỆU & VẢI:**
+| Editorial (Master Prompt) | Shop-Friendly (Script tiếng Việt) |
+|---------------------------|-----------------------------------|
+| "Chantilly lace" | "ren Pháp" |
+| "Guipure lace" | "ren hoa nổi" |
+| "High-sheen charmeuse" | "lụa satin bóng mướt" |
+| "Diaphanous fabric" | "vải mỏng nhẹ" |
+| "Gossamer fabric" | "vải siêu mỏng" |
+| "Mulberry silk" | "lụa tơ tằm" |
+| "Swiss dot mesh" | "lưới chấm bi" |
+| "Tulle overlay" | "lớp voan phủ" |
+| "Lustrous satin finish" | "satin bóng mượt" |
+| "Silk georgette" | "lụa mỏng bay" |
 | "Form-fitting tailoring" | "ôm dáng chuẩn" |
 | "Fabric drapes elegantly" | "vải rủ mềm, không nhăn" |
-| "Accentuates curves" | "tôn dáng ghê" |
+
+📌 **PHONG CÁCH & CẢM XÚC:**
+| Editorial (Master Prompt) | Shop-Friendly (Script tiếng Việt) |
+|---------------------------|-----------------------------------|
+| "Haute couture aesthetic" | "phong cách thời trang cao cấp" |
+| "Intoxicating elegance" | "đẹp mê luôn" |
+| "Mysterious mystique" | "bí ẩn quyến rũ" |
+| "Hypnotic charm" | "thu hút không rời mắt" |
+| "Chiaroscuro lighting" | "ánh sáng tối sáng ấn tượng" |
+| "Magnetic confident energy" | "tự tin toả sáng" |
+| "Captivating aura" | "hào quang cuốn hút" |
+| "Effortless allure" | "đẹp tự nhiên không cần cố" |
 
 **VÍ DỤ SCRIPT:**
-- ❌ "Váy này tôn lên pronounced hourglass silhouette" (quá văn vẻ)
-- ✅ "Váy này ôm eo, tôn hông, mặc vào là chuẩn dáng liền!" (đời thường)
+- ❌ "Váy này tôn lên pronounced hourglass silhouette với elegant décolletage line" (quá chuyên ngành, ai hiểu?)
+- ✅ "Váy này ôm eo, tôn hông, đường ngực đẹp lắm nha! Mặc vào là chuẩn dáng liền!" (đời thường)
 
-⚠️ QUY TẮC: Master Prompt = English editorial | Script = Tiếng Việt đời thường
+- ❌ "Set Chantilly lace coordinates với charmeuse finish" (thuật ngữ)
+- ✅ "Set ren Pháp thủ công, chất satin mướt như nước!" (dễ hiểu)
+
+⚠️ QUY TẮC: Master Prompt = English editorial (cho AI hiểu) | Script = Tiếng Việt đời thường (cho NGƯỜI XEM hiểu)
 
 ================================================
 TIKTOK SHOP VN RULES (BẮT BUỘC)

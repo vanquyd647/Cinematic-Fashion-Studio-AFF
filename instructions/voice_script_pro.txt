@@ -478,36 +478,41 @@ Giá tốt nữa, link dưới nha mọi người!"
 ⚠️ NGUYÊN TẮC: Voice PHẢI đồng bộ với visual prompt.
 Dùng từ chuyên ngành thời trang. Tập trung CHẤT LIỆU + THIẾT KẾ + FORM DÁG.
 
+**⚠️ NGUYÊN TẮC: Người xem TikTok KHÔNG hiểu thuật ngữ chuyên ngành thời trang.**
+**Voice script phải dùng từ ĐỜI THƯỜNG, dễ hiểu, như bạn bè nói chuyện.**
+
 **A. MÔ TẢ SẢN PHẨM — CHỈ DÙNG CÁC TỪ SAU:**
-✅ "Bộ thời trang tinh tế từ ren Pháp" — cho fashion coordinates
-✅ "Bodice cao cấp với cấu trúc support hoàn hảo" — cho support top
-✅ "Bộ phối ren Chantilly thủ công Pháp" — cho lace coordinates
-✅ "Brief phối đồng bộ kiểu vintage" — cho coordinating bottom
-✅ "Loungewear premium cho giấc ngủ sang trọng" — cho sleepwear
-✅ "Set bơi thời trang hai mảnh" — cho swim set
-✅ "Bodysuit kiểu balletcore thanh lịch" — cho bodysuit
+✅ "Bộ ren Pháp sang xỉu luôn" — cho fashion coordinates
+✅ "Áo corset cao cấp, giữ form chuẩn luôn" — cho support top
+✅ "Bộ phối ren Pháp thủ công tinh xảo" — cho lace coordinates
+✅ "Quần phối đồng bộ kiểu vintage" — cho coordinating bottom
+✅ "Đồ nhà cao cấp cho giấc ngủ sang trọng" — cho sleepwear
+✅ "Set bơi hai mảnh thời trang" — cho swim set
+✅ "Bodysuit kiểu ballet thanh lịch" — cho bodysuit
 
 **B. MÔ TẢ CHẤT LIỆU — CHỈ DÙNG CÁC TỪ SAU:**
-✅ "Ren Chantilly Pháp dệt thủ công tinh xảo"
-✅ "Vải mỏng nhẹ với lớp lót tông da tinh tế"
-✅ "Satin charmeuse mướt như nước"
-✅ "Lụa tơ tằm mulberry mềm rủ tự nhiên"
-✅ "Lưới Swiss dot tinh xảo nhập khẩu"
-✅ "Tulle mỏng phủ nhẹ tựa sương mai"
+✅ "Ren Pháp dệt thủ công tinh xảo"
+✅ "Vải mỏng nhẹ có lót tông da, mặc thoải mái"
+✅ "Lụa satin mướt như nước"
+✅ "Lụa tơ tằm mềm rủ tự nhiên"
+✅ "Lưới chấm bi tinh xảo nhập khẩu"
+✅ "Voan mỏng phủ nhẹ tựa sương mai"
 
 **C. HOOK & CTA — CHỈ DÙNG CÁC TỪ SAU:**
 ✅ "Sang trọng chưa nè?" — hook mở đầu
 ✅ "Đẹp xuất sắc luôn!" — hook cảm xúc
-✅ "Tinh tế thế này ai mà cưỡng lại được" — hook nhấn chất lượng
+✅ "Chất lượng thế này ai mà cưỡng lại được" — hook nhấn chất lượng
 ✅ "Thu hút mọi ánh nhìn" — hook ấn tượng
-✅ "Mặc vào là thăng hạng phong cách liền" — CTA chuyển đổi
+✅ "Mặc vào là lên đời phong cách liền" — CTA chuyển đổi
 ✅ "Dáng nào mặc cũng đẹp" — CTA inclusive
+✅ "Mình mặc vào thấy tôn dáng ghê luôn!" — CTA trải nghiệm
+✅ "Chất vải mềm mịn, mặc mát lắm nha!" — CTA cảm nhận
 
 **D. VÍ DỤ VOICE SCRIPT HOÀN CHỈNH:**
 
-✅ "Bộ phối ren Chantilly Pháp thủ công này — sang trọng chưa nè? 
-Satin charmeuse mướt như nước, form ôm vừa vặn tôn đường cong tự nhiên. 
-Mặc vào là thăng hạng phong cách liền! Link dưới nha, đang sale cực sốc!"
+✅ "Bộ ren Pháp thủ công này — sang trọng chưa nè? 
+Lụa satin mướt như nước, form ôm vừa vặn tôn dáng cực chuẩn. 
+Mặc vào là lên đời phong cách liền! Link dưới nha, đang sale cực sốc!"
 
 ================================================
 END OF DOCUMENT — VOICE & SCRIPT PROFESSIONAL
