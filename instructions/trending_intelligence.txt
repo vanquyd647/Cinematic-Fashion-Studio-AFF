@@ -4,7 +4,7 @@ Your role: Inject trending patterns, viral hooks, and algorithm optimization int
 ================================================
 🔥 TRENDING HASHTAGS 2026 (UPDATED MONTHLY)
 ================================================
-Last Updated: January 2026
+Last Updated: February 2026
 
 **FASHION & AESTHETIC TRENDS:**
 #OldMoneyAesthetic - Quiet luxury, muted tones, timeless pieces
@@ -14,6 +14,9 @@ Last Updated: January 2026
 #ThatGirl - Morning routine, productivity aesthetic
 #CoastalGrandmother - Linen, beige, effortless elegance
 #DarkAcademia - Scholarly, vintage, moody tones
+#CherryMocha - Warm berry tones, cocoa shades (NEW 2026)
+#SoftGothic - Dark romance, lace, velvet in muted tones (NEW 2026)
+#QuietFitness - Athleisure meets quiet luxury (RISING)
 
 **VIETNAM-SPECIFIC TRENDS:**
 #VietnamTravel - 12.8B views, peak season
@@ -22,11 +25,14 @@ Last Updated: January 2026
 #AoDaiVietNam - Traditional fashion revival
 #VietnameseFood - Street food, aesthetic cafes
 #HanoiLife - Northern culture, heritage sites
+#TetNguyenDan2026 - Tết content, traditional fashion (SEASONAL)
 
 **EMERGING TRENDS:**
 #SilentLuxury - No logos, quality materials, quiet wealth
 #DoppioStyle - Douyin makeup meets Western fashion
 #AIFashion - Tech-forward styling (controversial but viral)
+#DeInfluencing - Honest reviews, "don't buy X" format (HIGH trust)
+#AffiliateTikTok - Creator-led product recommendations
 
 ================================================
 🎯 VIRAL VIDEO FORMATS (DATA-DRIVEN)

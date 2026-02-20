@@ -810,17 +810,35 @@ Dùng negativePrompt parameter (TÁCH RIÊNG khỏi prompt chính):
   ✅ "cartoon, drawing, low quality, blurry, deformed"
   ❌ "No cartoon, don't make it blurry"
 
-**5. REFERENCE IMAGES (MỚI):**
-Veo 3.1 hỗ trợ tối đa 3 reference images.
+**5. REFERENCE IMAGES (MỚI — Veo 3.1 ONLY):**
+Veo 3.1 hỗ trợ tối đa 3 reference images (reference_type="asset").
 - Subject consistency across scenes
 - Style reference for mood/aesthetic
 - Product reference for detail preservation
+- Kết hợp với Nano Banana Pro để tạo reference images trước
 
-**6. VIDEO EXTENSION (MỚI):**
-Có thể nối video lên đến 148 giây.
+**6. VIDEO EXTENSION (MỚI — Veo 3.1 ONLY):**
+Có thể nối video lên đến 148 giây (tối đa 20 lần extension).
 - Dùng cho long-form storytelling
-- Mỗi extension 8s
-- Maintain character consistency
+- Mỗi extension +7s
+- Resolution PHẢI là 720p khi dùng extension
+- Video phải từ generation trước (lưu tối đa 2 ngày)
+- Voice không extend hiệu quả nếu không có trong 1 giây cuối
+
+**7. RESOLUTION (CẬP NHẬT 2026):**
+- 720p: Mặc định, hỗ trợ mọi duration (4s, 6s, 8s)
+- 1080p: CHỈ hỗ trợ 8s duration, không dùng được extension
+- 4K: CHỈ hỗ trợ 8s duration, không dùng được extension
+- Frame rate: 24fps cố định
+
+**8. NANO BANANA PRO (Gemini 3 Pro Image — CẬP NHẬT 2026):**
+- Model: gemini-3-pro-image-preview (Nano Banana Pro)
+- Hỗ trợ tối đa 14 reference images (5 người + 6 vật + 3 style)
+- Resolution: 1K, 2K, 4K
+- Aspect ratios: 1:1, 2:3, 3:2, 3:4, 4:3, 4:5, 5:4, 9:16, 16:9, 21:9
+- Thinking mode: Tự động bật, tạo interim images trước khi render final
+- Grounding with Google Search: Tạo ảnh dựa trên thông tin thời gian thực
+- Languages: Hỗ trợ vi-VN native
 
 ================================================
 END OF DOCUMENT

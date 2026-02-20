@@ -15,11 +15,11 @@ export const BODY_TEMPLATES = [
 // Default Face Presets (when no face reference is uploaded)
 export const FACE_PRESETS = [
    {
-      value: 'editorial_doll',
-      label: 'Editorial Doll',
+      value: 'douyin_doll',
+      label: 'Douyin Doll',
       emoji: '🎀',
-      desc: 'Mắt to, lens nâu, makeup editorial doll',
-      promptEN: 'Young Asian woman with luminous porcelain skin, large round eyes with amber-brown contact lenses, editorial doll makeup featuring sharp black eyeliner with upturned wings, thick dramatic lashes emphasizing lower lash line, wine-red eyeshadow blended around eye socket, full pouty lips with ombre velvet-red lipstick (darker center), V-line oval face with high straight nose, burgundy wine-red layered wavy hair with wispy bangs, soft expression with gentle natural gaze'
+      desc: 'Mắt to, lens nâu, makeup Douyin',
+      promptEN: 'Young Asian woman with porcelain skin, large round eyes with amber-brown contact lenses, Douyin-style doll makeup featuring sharp black eyeliner with upturned wings, thick dramatic lashes emphasizing lower lash line, wine-red eyeshadow blended around eye socket, full pouty lips with ombre velvet-red lipstick (darker center), V-line oval face with high straight nose, burgundy wine-red layered wavy hair with wispy bangs, dreamy expression with soft natural gaze'
    },
    {
       value: 'platinum_girl',
@@ -54,7 +54,7 @@ export const FACE_PRESETS = [
       label: 'Soft Ethereal',
       emoji: '🌙',
       desc: 'Da trắng sứ, vẻ mộng mơ',
-      promptEN: 'Ethereal young Asian woman with porcelain white luminous skin, dreamy soft makeup with lavender-pink eyeshadow and no eyeliner, doe-like round dark eyes with feathery lashes, delicate oval face with soft jawline, small button nose, gradient pink-to-coral lips, long straight dark brown hair with curtain bangs framing face, wistful gentle expression with distant soft gaze, delicate soft beauty'
+      promptEN: 'Ethereal young Asian woman with porcelain white luminous skin, dreamy soft makeup with lavender-pink eyeshadow and no eyeliner, doe-like round dark eyes with feathery lashes, delicate oval face with soft jawline, small button nose, gradient pink-to-coral lips, long straight dark brown hair with curtain bangs framing face, wistful dreamy expression with distant gentle gaze, fairy-like otherworldly beauty'
    },
    {
       value: 'fierce_glam',
@@ -184,7 +184,7 @@ export const PRODUCT_PHYSICS: Record<string, {
       canFlow: true,
       canFlutter: true,
       bannedTerms: [],
-      correctTerms: ['flowing gracefully', 'fabric cascade', 'delicate flutter', 'skirt billowing']
+      correctTerms: ['flowing gracefully', 'fabric cascade', 'ethereal flutter', 'skirt billowing']
    },
    mini_dress: {
       canFlow: false,
@@ -376,21 +376,21 @@ export const VIDEO_STYLES = [
       value: 'editorial_inner',
       label: 'Inner Editorial',
       emoji: '🎀',
-      desc: 'Fashion foundations editorial chuyên nghiệp, TikTok-safe',
+      desc: 'Nội y/Foundation style editorial chuyên nghiệp, TikTok-safe',
       hot: true
    },
    {
       value: 'flatlay_inner',
       label: 'Inner Flatlay',
       emoji: '📸',
-      desc: 'Sắp đặt nghệ thuật fashion foundations - không người mẫu, chỉ sản phẩm + props',
+      desc: 'Sắp đặt nghệ thuật nội y - không người mẫu, chỉ sản phẩm + props',
       hot: true
    },
    {
       value: 'handheld_inner',
       label: 'Inner Hand-held',
       emoji: '🤲',
-      desc: 'Cận cảnh tay cầm/test sản phẩm foundation wear - chứng minh chất lượng, KHÔNG voice',
+      desc: 'Cận cảnh tay cầm/test sản phẩm nội y - chứng minh chất lượng, KHÔNG voice',
       hot: true
    },
    {
@@ -404,14 +404,14 @@ export const VIDEO_STYLES = [
       value: 'mannequin_inner',
       label: 'Ma Nơ Canh + Voice',
       emoji: '👗',
-      desc: 'Foundation wear trên ma nơ canh + tay test + voice - 100% TikTok safe, CVR cao',
+      desc: 'Nội y trên ma nơ canh + tay test + voice - 100% TikTok safe, CVR cao',
       hot: true
    },
    {
       value: 'overlay_demo',
       label: 'Overlay Demo',
       emoji: '👚',
-      desc: 'Mặc foundation wear NGOÀI quần áo để demo - 100% TikTok safe, thấy fit thật',
+      desc: 'Mặc đồ lót NGOÀI quần áo để demo - 100% TikTok safe, thấy fit thật',
       hot: true
    },
    {
@@ -627,7 +627,7 @@ export const VIDEO_STYLES = [
       value: 'fashion_walkin',
       label: 'Fashion Walk-In',
       emoji: '👗',
-      desc: 'Model bước về camera - Soft daylight - Medium shot - Quiet allure, confident energy',
+      desc: 'Model bước về camera - Soft daylight - Medium shot - Quiet sexy vibe',
       hot: true
    },
    {
@@ -635,91 +635,6 @@ export const VIDEO_STYLES = [
       label: 'Walk-In + Beauty Focus',
       emoji: '✨',
       desc: 'Walk-in shot + Focus vào makeup/skin - Ultra close kết thúc',
-      hot: true
-   },
-   // === 🆕 TRENDING 2026 MID-YEAR - NEW STYLES ===
-   {
-      value: 'pov_storytelling',
-      label: 'POV Storytelling',
-      emoji: '📖',
-      desc: 'POV: Bạn là người đầu tiên thấy deal này - narrative immersive',
-      hot: true
-   },
-   {
-      value: 'split_screen_compare',
-      label: 'Split Screen So Sánh',
-      emoji: '📱',
-      desc: 'Nửa màn hình trước/sau hoặc 2 outfit cạnh nhau - visual proof',
-      hot: true
-   },
-   {
-      value: 'asmr_unbox',
-      label: 'ASMR Unboxing',
-      emoji: '🎧',
-      desc: 'Mở hộp ASMR - âm thanh thỏa mãn + reveal sản phẩm',
-      hot: true
-   },
-   {
-      value: 'speed_styling',
-      label: 'Speed Styling',
-      emoji: '⚡',
-      desc: '60s styling timelapse - từ basic → complete look nhanh',
-      hot: true
-   },
-   {
-      value: 'closet_raid',
-      label: 'Closet Raid',
-      emoji: '👗',
-      desc: 'Lục tủ đồ pick outfit - natural vibe, relatable content',
-      hot: true
-   },
-   {
-      value: 'price_reveal_game',
-      label: 'Price Reveal Game',
-      emoji: '💰',
-      desc: 'Đoán giá → Reveal giá thật shock - engagement bait cực mạnh',
-      hot: true
-   },
-   {
-      value: 'mini_vlog_style',
-      label: 'Mini Vlog Style',
-      emoji: '📹',
-      desc: 'Vlog ngắn day-in-life + outfit showcase - authentic lifestyle',
-      hot: true
-   },
-   {
-      value: 'rating_review',
-      label: 'Honest Rating',
-      emoji: '⭐',
-      desc: 'Rate sản phẩm X/10 - honest review format, trust builder',
-      hot: true
-   },
-   {
-      value: 'hack_tutorial',
-      label: 'Style Hack',
-      emoji: '💡',
-      desc: 'Life hack/style hack với sản phẩm - educational + viral',
-      hot: true
-   },
-   {
-      value: 'side_by_side',
-      label: 'Side by Side',
-      emoji: '🔄',
-      desc: 'Expectation vs Reality / Hàng web vs thực tế - trust proof',
-      hot: true
-   },
-   {
-      value: 'aesthetic_flatlay',
-      label: 'Aesthetic Flatlay',
-      emoji: '🎨',
-      desc: 'Sắp đặt nghệ thuật outfit + phụ kiện - Pinterest aesthetic',
-      hot: true
-   },
-   {
-      value: 'countdown_reveal',
-      label: 'Countdown Reveal',
-      emoji: '⏰',
-      desc: 'Top 3/5 countdown → hero product reveal cuối - retention max',
       hot: true
    },
    // === GIA DỤNG THÔNG MINH & TIỆN ÍCH VIDEO STYLES ===
@@ -996,7 +911,7 @@ export const WALKIN_AESTHETIC_VIBES = [
       movement: 'bước chậm như dreaming, xoay nhẹ xem váy bay, interact với ánh sáng',
       camera: 'góc đẹp như MV, backlight đẹp, slow motion feeling',
       fabric: 'satin chảy như nước, silk bay như mây',
-      expression: ['peaceful awakening', 'ngắm mình trong kính', 'hài lòng serene', 'bye graceful'],
+      expression: ['peaceful awakening', 'ngắm mình trong kính', 'hài lòng divine', 'bye ethereal'],
       bestFor: ['satin', 'silk', 'gown', 'grecian', 'metallic']
    },
    {
@@ -1167,7 +1082,7 @@ export const WALKIN_DRESS_VIBES = {
 export const WALKIN_EXPRESSION_VIBES = {
    scene1_mystery: {
       emotion: 'Mystery',
-      expression: 'Soft distant gaze, soft enigmatic smile',
+      expression: 'Dreamy distant gaze, soft enigmatic smile',
       eyeContact: 'Avoiding camera, looking past',
       energy: 'low-building',
       keywords: ['subtle eyebrow raise', 'quiet intrigue', 'soft mysterious energy']
@@ -1202,8 +1117,8 @@ export const WALKIN_OUTFIT_EXPRESSIONS = {
       keywords: ['mischievous glint in eyes', 'playful smirk', 'sparkling energy']
    },
    romantic_flowing: {
-      style: 'Romantic, soft, captivating',
-      keywords: ['soft gentle gaze', 'gentle wondering smile', 'romantic energy']
+      style: 'Dreamy, soft, enchanting',
+      keywords: ['soft ethereal gaze', 'gentle wondering smile', 'romantic energy']
    },
    bodycon_sleek: {
       style: 'Confident, powerful, commanding',
@@ -1276,18 +1191,18 @@ export const LOCATION_REGIONS = [
          'Sun Plaza Danang modern entrance - coastal modern dress',
          'Cocobay Danang beachfront modern - beach party dress',
          'Vinpearl Nha Trang cable car station - resort evening',
-         // === ROMANTIC / SOFT (15 địa điểm) ===
+         // === ROMANTIC / DREAMY (15 địa điểm) ===
          'Dalat Flower Garden trails sunrise - floral maxi chiffon',
          'Tao Dan Park Saigon golden hour tree canopy - romantic midi',
          'Thu Le Zoo Hanoi botanical garden path - pastel lace dress',
          'Thanh Da Island Saigon riverside sunset - flowing romantic gown',
-         'Bach Thao Park Hanoi pavilion - romantic vintage dress',
+         'Bach Thao Park Hanoi pavilion - dreamy vintage dress',
          'Gia Long Park Saigon old trees - soft romantic dress',
-         'Dalat Pine Forest road - romantic maxi dress',
+         'Dalat Pine Forest road - ethereal maxi dress',
          'Mui Ne Sand Dunes golden hour - bohemian maxi',
          'Bao Loc Tea Hills morning mist - countryside romantic dress',
          'Tam Dao Mountain resort path - highland romantic gown',
-         'Sapa terraces morning fog - soft traditional dress',
+         'Sapa terraces morning fog - dreamy traditional dress',
          'Hoan Kiem Lake Hanoi promenade sunset - elegant romantic',
          'West Lake Hanoi lotus area - soft flowing dress',
          'Binh Quoi Village Saigon riverside - rustic romantic',
@@ -1851,7 +1766,7 @@ export const LOCATION_REGIONS = [
       value: 'for_inner',
       label: '🎀 Cho Inner/Foundation',
       emoji: '✨',
-      desc: 'Studio chuyên nghiệp, ánh sáng editorial cho fashion foundations (TikTok-safe)',
+      desc: 'Studio chuyên nghiệp, ánh sáng editorial cho nội y (TikTok-safe)',
       productMatch: ['lingerie', 'inner', 'foundation', 'bralette'],
       locations: [
          // Professional Photography Studios - Saigon (10)
@@ -1895,7 +1810,7 @@ export const LOCATION_REGIONS = [
          'The Nassim - elegant bright living marble accent sophisticated',
          // High-End Retail & Boutique Spaces (5)
          'Luxury boutique fitting room - professional lighting full mirror elegant',
-         'Premium fashion boutique Saigon - soft box lighting display aesthetic',
+         'Premium lingerie store Saigon - soft box lighting display aesthetic',
          'Designer boutique District 1 - clean white dressing area',
          'High-end fashion store - editorial lighting fitting room modern',
          'Concept store Thao Dien - minimalist dressing area natural light'
@@ -2063,13 +1978,13 @@ export const LOCATION_REGIONS = [
          'Sun Wheel Danang - Asia Park Ferris wheel colorful night lights',
          'Linh Ung Pagoda - Lady Buddha statue 67m Monkey Mountain ocean view',
          'My Khe Beach - UNESCO white sand Marble Mountains backdrop sunrise',
-         'Marble Mountains - Huyen Khong Cave temple inside mountain dramatic sunrays',
+         'Marble Mountains - Huyen Khong Cave temple inside mountain sunrays magical',
          'Son Tra Peninsula - coastal road Hai Van Pass ocean panorama',
          'Han River promenade - modern city waterfront evening lights',
          'Danang Cathedral - pink church Gothic architecture Instagram',
          'Ba Na Hills cable car - world longest single-track view clouds',
          'Dragon Carp statue - sculpture park modern art installation',
-         'Am Phu Cave - Buddhist hell tour dramatic viral experience',
+         'Am Phu Cave - Buddhist hell tour surreal viral experience',
          'Linh Ung Pagoda Da Nang - beachside Buddha white statue',
          'Non Nuoc Beach - quiet white sand Marble Mountains view',
 
@@ -2077,7 +1992,7 @@ export const LOCATION_REGIONS = [
          'Hoi An Ancient Town - yellow wall red lanterns evening UNESCO viral',
          'Japanese Bridge Hoi An - covered bridge lantern glow night iconic',
          'Thu Bon River - colorful boats lantern reflection romantic',
-         'Hoi An Full Moon Lantern Festival - floating lanterns river beautiful atmosphere',
+         'Hoi An Full Moon Lantern Festival - floating lanterns river magical',
          'Hoi An rice paddies - Tra Que vegetable village countryside photo',
          'An Bang Beach - white sand laid-back bohemian cafe vibe',
          'Hoi An Old House - wooden courtyard ancient architecture heritage',
@@ -2096,7 +2011,7 @@ export const LOCATION_REGIONS = [
          'Vinh Nguyen Pagoda - colorful Chinese temple ornate architecture',
 
          // === DALAT VIRAL SPOTS (10) ===
-         'Crazy House Dalat - unique treehouse architecture viral Instagram',
+         'Crazy House Dalat - surreal treehouse architecture viral Instagram',
          'Dalat Railway Station - French colonial pastel pink vintage trains',
          'Xuan Huong Lake - 7km walkway pine trees cool weather romantic',
          'Valley of Love - swan lake boats flower gardens kitschy viral',
@@ -2191,7 +2106,7 @@ export const LOCATION_REGIONS = [
          'Modern dressing room - full mirror bright organized products',
          'Beauty blogger corner - ring light products arranged colorful',
          'Clean white makeup station - professional product photography',
-         'Cozy bedroom vanity - string lights soft romantic aesthetic',
+         'Cozy bedroom vanity - fairy lights soft romantic aesthetic',
          'Japanese minimalist beauty corner - muji style organized clean',
          'Luxury vanity suite - marble top crystal chandelier elegant',
          'Content creator setup - dual ring lights camera ready',
@@ -2674,7 +2589,7 @@ export const LOCATION_REGIONS = [
          'Cam Ly Waterfall - urban waterfall garden peaceful',
          'Dalat coffee plantation - arabica farm mountain view',
          'XQ Hand Embroidery Garden Dalat - artistic flower garden',
-         'Dalat Crazy House - whimsical forest architecture',
+         'Dalat Crazy House - fairytale forest architecture',
          'Prenn Waterfall Dalat - garden cascade rainbow mist',
          'Golden Valley Dalat - flower fields mountain backdrop',
          'Bidoup Nui Ba National Park - pristine forest trail',
@@ -3108,10 +3023,10 @@ export const STUDIO_CATEGORIES = [
          'Góc Thư Viện Sang Trọng | Professional photography studio. Muslin backdrop warm brown with painted bookshelf pattern texture. Leather Chesterfield chair arm visible (background right), brass reading lamp (off), leather-bound books arranged on wooden shelf prop, crystal whiskey decanter on tray, globe on stand, velvet throw pillow burgundy, fresh orchid in pot. Warm tungsten simulation at 3500K cozy library glow. Dark walnut wood studio floor with vintage Oriental rug. Library corner luxury professional studio, intellectual elegance editorial. - STUDIO FIXED',
          'Phòng Tiếp Khách Châu Âu | Professional photography studio. Painted canvas backdrop soft sage green with classical wainscoting pattern. Victorian occasional chair in dusty rose (background center), antique console table with fresh tulips in ceramic pitcher, ornate picture frame empty, vintage clock on mantle prop, silk cushions stacked, tea service silver tray. Softbox at 4200K bright refined daylight. Marble-look studio floor white with subtle veining, cream area rug. European drawing room professional studio, refined hospitality editorial. - STUDIO FIXED',
          'Không Gian Minimalist Thanh Lịch | Professional photography studio. White infinity cyclorama wall seamless. Single sculptural modern armchair in neutral linen (background left), tall glass vase with single white calla lily, minimalist side table marble top, cashmere throw draped, one art book on floor, simple ceramic bowl. LED panel at 5000K clean soft bright. White vinyl studio floor seamless. Minimalist elegant space professional studio, quiet luxury editorial. - STUDIO FIXED',
-         'Góc Phòng Ngủ Cổ Điển | Professional photography studio. Muslin backdrop soft blush pink with subtle damask pattern. Antique vanity table edge with oval mirror (background right), crystal perfume bottles arranged, fresh roses in silver vase, jewelry box open with pearls, silk robe draped on chair, vintage brush set. Warm soft lighting at 3000K elegant warm glow. Cream carpet studio floor plush texture. Classic bedroom corner professional studio, feminine grace editorial. - STUDIO FIXED',
+         'Góc Phòng Ngủ Cổ Điển | Professional photography studio. Muslin backdrop soft blush pink with subtle damask pattern. Antique vanity table edge with oval mirror (background right), crystal perfume bottles arranged, fresh roses in silver vase, jewelry box open with pearls, silk robe draped on chair, vintage brush set. Warm soft lighting at 3000K intimate boudoir glow. Cream carpet studio floor plush texture. Classic bedroom corner professional studio, feminine grace editorial. - STUDIO FIXED',
          // ===== NEW EVENING STUDIOS =====
          'Phòng Ăn Hoàng Gia | Professional photography studio. Hand-painted canvas backdrop deep burgundy with gold damask pattern. Carved dining chair back visible (background right), silver candelabra, crystal wine glasses on table edge, fresh flowers centerpiece, porcelain plates stacked, silk napkins. Strobe at 3000K warm dinner glow. Dark mahogany wood studio floor with Persian rug deep red. Royal dining room professional studio, regal dinner editorial. - STUDIO FIXED',
-         'Lâu Đài Cổ Tích | Professional photography studio. Painted canvas backdrop soft lavender with castle window silhouette. Stone pedestal column (background center), fresh roses in ornate urn, velvet draping deep purple, crystal chandelier reflection, antique candlestick. LED at 3500K romantic warm glow. Stone-look studio floor gray with soft runner. Castle themed professional studio, princess elegance editorial. - STUDIO FIXED',
+         'Lâu Đài Cổ Tích | Professional photography studio. Painted canvas backdrop soft lavender with castle window silhouette. Stone pedestal column (background center), fresh roses in ornate urn, velvet draping deep purple, crystal chandelier reflection, antique candlestick. LED at 3500K romantic fairy tale glow. Stone-look studio floor gray with soft runner. Fairy tale castle professional studio, princess elegance editorial. - STUDIO FIXED',
          'Penthouse Đêm | Professional photography studio. 9ft charcoal gray seamless backdrop. Modern leather lounge chair edge (background left), tall glass with champagne prop, city view photograph prop, modern art piece, silk throw, crystal vase with white orchids. Softbox at 4000K sophisticated evening. Dark polished concrete studio floor with modern geometric rug. Penthouse night professional studio, urban sophistication editorial. - STUDIO FIXED',
          'Sảnh Khách Sạn 5 Sao | Professional photography studio. Painted canvas backdrop warm ivory with marble column pattern. Elegant lobby chair (background center), crystal table lamp, fresh flowers grand arrangement, hotel directory book, silk cushions gold, bellhop luggage hint. LED at 4500K bright hotel lobby. Marble-look studio floor cream with gold inlay. 5-star hotel lobby professional studio, luxury hospitality editorial. - STUDIO FIXED',
          'Phòng Nhạc Cổ Điển | Professional photography studio. Muslin backdrop warm brown with music room texture. Piano edge visible (background right), music stand with sheets, cello case, velvet stool, gramophone vintage, violin on silk cloth. Softbox at 3800K warm concert hall glow. Dark wood studio floor with antique carpet. Classical music room professional studio, artistic elegance editorial. - STUDIO FIXED',
@@ -3147,13 +3062,13 @@ export const STUDIO_CATEGORIES = [
       productMatch: ['wedding', 'bridal', 'wedding_dress', 'aodai_cuoi', 'gown'],
       studios: [
          'Chapel Elegance ⭐ | Professional photography studio. Hand-painted canvas backdrop soft ivory with Gothic church window silhouette and stained glass hints. Antique wooden pew edge visible (background left), tall white candles in ornate holders, fresh white roses arrangement, prayer book on velvet cushion, delicate lace draping, crystal chandelier reflection. Softbox at 3500K warm cathedral glow. White marble-look studio floor with ivory runner. Chapel bridal professional studio, sacred elegance editorial. - STUDIO FIXED',
-         'Garden Romance | Professional photography studio. Painted canvas backdrop soft blush pink with garden arch and climbing roses motif. White wrought iron garden chair (background right), overflowing white peonies in vintage urn, scattered rose petals (pre-placed), bird cage decorative white, sheer fabric flowing, garden lantern. LED at 4800K soft garden daylight. Natural stone-look studio floor with moss accent. Romantic garden professional studio, romantic bridal editorial. - STUDIO FIXED',
+         'Garden Romance | Professional photography studio. Painted canvas backdrop soft blush pink with garden arch and climbing roses motif. White wrought iron garden chair (background right), overflowing white peonies in vintage urn, scattered rose petals (pre-placed), bird cage decorative white, sheer fabric flowing, garden lantern. LED at 4800K soft garden daylight. Natural stone-look studio floor with moss accent. Romantic garden professional studio, fairytale bridal editorial. - STUDIO FIXED',
          'Royal Ballroom | Professional photography studio. 9ft champagne gold seamless backdrop with subtle damask shimmer. Ornate gilded mirror frame (background center), crystal chandelier visible edge, velvet chair gold trim, fresh white lilies in silver vase, silk curtain draped elegant, vintage candelabra. Strobe at 3200K warm ballroom glow. Polished parquet studio floor with gold inlay pattern rug. Royal ballroom professional studio, regal bridal editorial. - STUDIO FIXED',
          'Minimalist Pure White | Professional photography studio. White infinity cyclorama wall seamless. Single tall glass vase with white calla lily (background center), minimalist white pedestal, sheer organza fabric draped, one white orchid, simple white candle. LED at 5500K clean pure bright. White vinyl studio floor seamless. Pure white minimalist professional studio, modern bridal editorial. - STUDIO FIXED',
          'Vintage Manor | Professional photography studio. Muslin backdrop warm antique cream with Victorian wallpaper pattern. Antique vanity table with oval mirror (background right), vintage pearl jewelry on velvet tray, fresh white roses in crystal vase, lace gloves, old photographs in silver frames, vintage perfume bottles. Softbox at 3800K warm vintage glow. Cream carpet studio floor with antique floral rug. Vintage manor professional studio, classic bridal editorial. - STUDIO FIXED',
-         'Sunset Terrace | Professional photography studio. Painted canvas backdrop warm coral-to-rose gradient with terrace balustrade silhouette. Stone pillar edge visible (background left), white roses in tall vase, champagne flutes on marble table, flowing sheer curtain, string lights hint, olive branch arrangement. LED at 3000K golden sunset simulation. Stone balcony-look studio floor with cream runner. Sunset terrace professional studio, romantic golden hour bridal editorial. - STUDIO FIXED',
+         'Sunset Terrace | Professional photography studio. Painted canvas backdrop warm coral-to-rose gradient with terrace balustrade silhouette. Stone pillar edge visible (background left), white roses in tall vase, champagne flutes on marble table, flowing sheer curtain, fairy lights hint, olive branch arrangement. LED at 3000K golden sunset simulation. Stone balcony-look studio floor with cream runner. Sunset terrace professional studio, romantic golden hour bridal editorial. - STUDIO FIXED',
          'French Château | Professional photography studio. Hand-painted canvas backdrop soft sage green with French château window and ornate molding. Louis XVI style chair edge (background center), fresh hydrangeas in porcelain vase, antique clock on mantle prop, silk curtain cream, vintage books, crystal decanter. Softbox at 4200K refined daylight. Herringbone parquet studio floor with French antique rug. French château professional studio, aristocratic bridal editorial. - STUDIO FIXED',
-         'Soft Cloud | Professional photography studio. 9ft soft white-to-blush ombre seamless backdrop. Fluffy white fabric clouds arrangement (background), string lights scattered, white feathers hint, crystal droplets hanging, sheer tulle draping, white orchids floating. LED at 5000K soft bright. White fur-look studio floor texture. Soft cloud professional studio, romantic bridal editorial. - STUDIO FIXED',
+         'Dreamy Cloud | Professional photography studio. 9ft soft white-to-blush ombre seamless backdrop. Fluffy white fabric clouds arrangement (background), fairy lights scattered, white feathers hint, crystal droplets hanging, sheer tulle draping, white orchids floating. LED at 5000K soft dreamy bright. White fur-look studio floor texture. Dreamy cloud professional studio, ethereal bridal editorial. - STUDIO FIXED',
          'Rustic Barn | Professional photography studio. Muslin backdrop warm brown with wooden barn door texture. Vintage wooden ladder with white flowers (background right), hay bale hint, mason jars with gypsophila flowers, lantern rustic, burlap fabric, white roses in bucket. LED at 4000K warm rustic daylight. Reclaimed wood studio floor with simple rug. Rustic barn professional studio, countryside bridal editorial. - STUDIO FIXED',
          'Coastal Breeze | Professional photography studio. Painted canvas backdrop soft blue-gray with ocean horizon hint. White driftwood arrangement (background center), white hydrangeas in ceramic vase, seashells on tray, sheer curtain flowing, lantern nautical white, coral accent. LED at 5500K bright coastal daylight. Light sand-look studio floor with white runner. Coastal breeze professional studio, beach bridal editorial. - STUDIO FIXED'
       ]
@@ -3179,21 +3094,21 @@ export const STUDIO_CATEGORIES = [
          'Magnolia Grace | Professional photography studio. Muslin backdrop warm cream-white Southern gradient. Magnolia branch in tall vase (background left), vintage frame, antique mirror. LED at 4200K warm natural. Aged wood elegant studio floor. Southern charm professional studio, graceful elegance editorial. - STUDIO FIXED',
          'Hydrangea Tea | Professional photography studio. Painted canvas backdrop soft blue-lavender-cream gradient. Blue hydrangea in porcelain vase (background center), tea cup and saucer, elegant tray. LED at 4500K soft afternoon. Light marble studio floor. Afternoon tea elegant professional studio, garden party editorial. - STUDIO FIXED',
          // === MAXI DRESS / FLOWING (5) ===
-         'Lavender Fields | Professional photography studio. 9ft soft purple-cream Provence gradient seamless. Dried lavender bundles in basket (background right), rustic wooden chair, vintage book. LED at 4000K warm French afternoon. Rustic stone studio floor. French Provence professional studio, lavender romantic editorial. - STUDIO FIXED',
+         'Lavender Fields | Professional photography studio. 9ft soft purple-cream Provence gradient seamless. Dried lavender bundles in basket (background right), rustic wooden chair, vintage book. LED at 4000K warm French afternoon. Rustic stone studio floor. French Provence professional studio, lavender dreamy editorial. - STUDIO FIXED',
          'Tropical Hibiscus | Professional photography studio. Painted canvas backdrop warm coral-teal gradient tropical. Hibiscus arrangement (background center), palm leaf, rattan chair edge. LED at 4200K warm tropical. White sand texture studio floor. Island paradise professional studio, resort luxury editorial. - STUDIO FIXED',
-         'Wisteria Cascade | Professional photography studio. 9ft soft purple-pink Japanese gradient seamless. Wisteria vine hanging (background upper), zen stones, ceramic bowl. LED at 4500K soft diffused romantic. Light stone path studio floor. Japanese garden professional studio, romantic cascade editorial. - STUDIO FIXED',
+         'Wisteria Cascade | Professional photography studio. 9ft soft purple-pink Japanese gradient seamless. Wisteria vine hanging (background upper), zen stones, ceramic bowl. LED at 4500K soft diffused dreamy. Light stone path studio floor. Japanese garden professional studio, romantic cascade editorial. - STUDIO FIXED',
          'Meadow Breeze | Professional photography studio. Muslin backdrop soft green-gold meadow gradient. Wild grass and flowers (background), wooden fence hint, vintage watering can. LED at 4000K golden hour. Natural grass studio floor. Boho flowing professional studio, free spirit editorial. - STUDIO FIXED',
          'Bougainvillea Sunset | Professional photography studio. Painted canvas backdrop warm magenta-coral-cream Mediterranean gradient. Bougainvillea branch (background right), terracotta pot, ceramic tile. LED at 3800K warm sunset. Terracotta tile studio floor. Mediterranean romance professional studio, Greek island editorial. - STUDIO FIXED',
          // === BODYCON / ĐẦM ÔM (5) ===
-         'Red Rose Noir | Professional photography studio. 9ft deep burgundy-black dramatic gradient seamless. Dark red roses in black vase (background center), velvet drape, candle holder. Strobe at 3200K warm dramatic with rim light. Dark marble studio floor. Bold dramatic professional studio, red carpet editorial. - STUDIO FIXED',
+         'Red Rose Noir | Professional photography studio. 9ft deep burgundy-black dramatic gradient seamless. Dark red roses in black vase (background center), velvet drape, candle holder. Strobe at 3200K warm dramatic with rim light. Dark marble studio floor. Seductive dramatic professional studio, red carpet editorial. - STUDIO FIXED',
          'Black Orchid | Professional photography studio. Painted canvas backdrop deep purple-black mysterious gradient. Dark orchid in minimalist pot (background right), candle lit, silk drape. LED at 3500K moody warm dramatic. Black marble studio floor. Mysterious luxury professional studio, dark elegance editorial. - STUDIO FIXED',
          'Calla Lily Glam | Professional photography studio. 9ft sleek white-silver modern gradient seamless. White calla lilies in tall vase (background center), mirror, geometric shapes. LED at 5000K bright clean editorial. White marble polished studio floor. Sleek modern professional studio, minimalist glam editorial. - STUDIO FIXED',
          'Dark Dahlia | Professional photography studio. Painted canvas backdrop deep plum-charcoal artistic gradient. Dark dahlia arrangement (background left), art frame, velvet cushion. LED at 3500K warm moody. Dark wood studio floor. Bold artistic professional studio, gallery night editorial. - STUDIO FIXED',
          'Velvet Peony | Professional photography studio. 9ft rich burgundy-cream gradient luxe seamless. Deep pink peonies in velvet setting (background center), silk fabric drape, champagne glass. LED at 3500K warm romantic. Rich carpet studio floor. Rich romantic professional studio, date night editorial. - STUDIO FIXED',
          // === ROMANTIC / WEDDING GUEST (5) ===
          'Peony Blush | Professional photography studio. 9ft soft blush-cream bridal gradient seamless. Blush peony arrangement (background center), sheer drape flowing, pearl accessories. LED at 4000K soft romantic glowing. White marble studio floor. Wedding guest professional studio, romantic feminine editorial. - STUDIO FIXED',
-         'White Rose Dream | Professional photography studio. Painted canvas backdrop pure white-cream classic gradient. White roses in silver vase (background right), pearl accents, satin ribbon. LED at 4500K soft bright romantic. White marble studio floor. Classic wedding professional studio, timeless elegance editorial. - STUDIO FIXED',
-         'Cherry Blossom Romance | Professional photography studio. 9ft soft pink-lavender spring gradient seamless. Sakura branches (background upper), silk ribbon, floating petals. LED at 4500K soft spring. Light wood with petals studio floor. Spring wedding professional studio, romantic blossomy editorial. - STUDIO FIXED',
+         'White Rose Dream | Professional photography studio. Painted canvas backdrop pure white-cream classic gradient. White roses in silver vase (background right), pearl accents, satin ribbon. LED at 4500K soft bright dreamy. White marble studio floor. Classic wedding professional studio, timeless elegance editorial. - STUDIO FIXED',
+         'Cherry Blossom Romance | Professional photography studio. 9ft soft pink-lavender spring gradient seamless. Sakura branches (background upper), silk ribbon, floating petals. LED at 4500K soft spring. Light wood with petals studio floor. Spring wedding professional studio, romantic dreamy editorial. - STUDIO FIXED',
          'Garden Party Roses | Professional photography studio. Muslin backdrop soft mixed pastels garden gradient. Mixed rose arrangement (background center), garden arch hint, butterfly decorations. LED at 5000K natural bright outdoor feel. Stone garden path studio floor. Outdoor wedding professional studio, garden party editorial. - STUDIO FIXED',
          'French Cottage Florals | Professional photography studio. Painted canvas backdrop soft cream with subtle floral wallpaper hint. Vintage flower bucket (background left), lace curtain edge, antique chair. LED at 4500K soft morning romantic. Aged wood planks studio floor. Provence wedding professional studio, vintage romantic editorial. - STUDIO FIXED',
          // === PARTY / GALA / TẾT (18) ===
@@ -3204,7 +3119,7 @@ export const STUDIO_CATEGORIES = [
          'Triển Lãm Nghệ Thuật | Gallery white-to-cream gradient with subtle art pattern. Props: Artwork frames wall (background various sizes), exhibition labels, sculpture pedestal, gallery lighting tracks, champagne service art opening. Museum gallery (5000K) art showcase bright. Polished concrete contemporary gallery. Art opening theatrical stage. - STUDIO FIXED',
          'Khiêu Vũ Xã Giao | Elegant cream-to-peach gradient with dance motif pattern. Props: Grand piano silhouette (background corner), music sheet stand elegant, dance trophy, ballroom chandelier hint, velvet ropes, mirror ball hanging. Warm ballroom (3300K) waltz atmosphere. Parquet dance floor classic ballroom. Ballroom dancing theatrical stage. - STUDIO FIXED',
          'Lễ Trao Giải | Prestigious gold-to-bronze gradient with award emblem. Props: Award trophy podium (background center), winner plaque display, envelope results, microphone stand, cameras filming, press backdrop, flower bouquets winner. Award show (5000K) with dramatic spotlight. Dark wood stage ceremony platform. Achievement celebration theatrical stage. - STUDIO FIXED',
-         'Dạ Tiệc Sân Vườn | Twilight indigo-to-lavender gradient with garden silhouette. Props: String lights elaborate hanging (background overhead), potted topiaries shaped, garden lanterns, outdoor furniture elegant, flower arrangements wild. Warm evening (3000K) with string lights twinkle. Stone patio garden venue moss accent. Outdoor gala theatrical stage. - STUDIO FIXED',
+         'Dạ Tiệc Sân Vườn | Twilight indigo-to-lavender gradient with garden silhouette. Props: String lights elaborate hanging (background overhead), potted topiaries shaped, garden lanterns, outdoor furniture elegant, flower arrangements wild. Warm evening (3000K) with fairy lights twinkle. Stone patio garden venue moss accent. Outdoor gala theatrical stage. - STUDIO FIXED',
          'Cocktail VIP | Sophisticated navy-to-silver gradient with art deco pattern. Props: Bar counter edge modern (background right), cocktail glass variety, bottle display backlit, ice sculpture, cocktail shaker, lounge seating plush. Lounge dim (2800K) with neon accent. Dark polished wood exclusive venue. VIP cocktail party theatrical stage. - STUDIO FIXED',
          'Sinh Nhật Hoàng Gia | Regal purple-to-gold gradient with crown pattern embossed. Props: Multi-tier birthday cake elaborate (background center), crown decoration gold, presents wrapped luxury, balloons gold/purple, birthday banner elegant, champagne tower. Celebratory bright (4000K) with birthday sparkle. Royal carpet purple gold trim. Royal birthday theatrical stage. - STUDIO FIXED',
          'Khai Trương Xa Hoa | Opulent red-to-gold gradient with ribbon-cutting ceremony. Props: Ribbon-cutting setup ceremonial (background center), grand opening flower stands multiple, champagne service, guest registry book, ceremonial scissors gold, red carpet entrance. Event bright (5500K) celebratory launch. Marble entrance grand venue red carpet. Grand launch theatrical stage. - STUDIO FIXED',
@@ -3275,7 +3190,7 @@ export const STUDIO_CATEGORIES = [
          'Vàng Hoàng Gia | Rich gold-to-champagne gradient with subtle imperial dragon pattern. Props: Golden folding fan on ornate stand (background left), brass incense holder carved, miniature throne chair, silk brocade draped, gold-framed mirror, royal seal cushion, phoenix figurine, crown velvet pillow. Bright gold simulation (3000K) with dramatic rim light regal glow. Glossy dark wood with inlay pattern, gold-tasseled rug. Imperial palace theatrical stage, royal ceremony majestic editorial. - STUDIO FIXED',
          'Hội Chùa Xuân | Saffron yellow-to-cream gradient with temple wall texture. Props: Small Buddha statue on carved altar (far background), incense holder smoke wisp, lotus offerings bowl, prayer beads draped, wooden temple bell miniature, saffron silk drapes, stone lantern, meditation cushion. Soft warm daylight (3500K) through temple window simulation. Stone tile texture with worn patina, meditation mat. Spiritual Tet visit theatrical, peaceful blessing editorial. - STUDIO FIXED',
          'Phố Cổ Hà Nội | Aged brick red-to-terracotta gradient with vintage plaster texture. Props: Traditional wooden window shutters (background left), ceramic pot vintage plants, old bicycle wheel, conical hat hanging, vintage street lamp, market basket flowers, aged signage, terracotta jars. Natural daylight (5000K) with historical shadows. Old mosaic tile pattern worn authentic. Heritage festival theatrical stage, nostalgic Hanoi mini-set. - STUDIO FIXED',
-         'Sen Hồng Thánh | Soft blush pink-to-white gradient with watercolor lotus pattern. Props: Large lotus flower decorative bowl (center background), prayer beads on stand, Buddha figurine small, white silk draping, floating candles water bowl, incense holder, meditation bells, sacred scrolls. Soft daylight (5500K) with diffused peaceful glow. White marble with subtle pink veining, meditation cushion. Buddhist festival theatrical stage, spiritual purity editorial. - STUDIO FIXED',
+         'Sen Hồng Thánh | Soft blush pink-to-white gradient with watercolor lotus pattern. Props: Large lotus flower decorative bowl (center background), prayer beads on stand, Buddha figurine small, white silk draping, floating candles water bowl, incense holder, meditation bells, sacred scrolls. Heavenly soft daylight (5500K) with diffused peaceful glow. White marble with subtle pink veining, meditation cushion. Buddhist festival theatrical stage, spiritual purity editorial. - STUDIO FIXED',
          'Rồng Vàng Tết | Vibrant red with embossed gold dragon scale pattern. Props: Gold dragon figurine on pedestal (background corner), prosperity gold coins scattered, red silk banner dragon, traditional drums, gold tassel hanging, incense burner, lucky bamboo gold pot, red lanterns multiple. Bright festival (4500K) with gold reflective highlights. Red lacquer wood high gloss with gold pattern inlay. Dragon dance festival theatrical, powerful prosperity editorial. - STUDIO FIXED',
          'Lụa Bảo Lộc | Iridescent silk texture gradient peacock blue-to-emerald. Props: Silk fabrics draped on rack (background), embroidery hoop traditional pattern, wooden loom miniature, silk thread spools colorful, weaving tools table, textile samples hanging, scissors vintage, pattern drawings. Soft side lighting (4000K) highlighting silk sheen. Natural wood weaving studio with traditional mat. Silk heritage theatrical workshop, artisan craft editorial. - STUDIO FIXED',
          'Phượng Đỏ Hè | Flame red-to-orange gradient with phoenix feather pattern. Props: Large phoenix feather decoration (background center), red paper fans multiple, silk ribbon hanging, traditional drums, festival banners, fire-inspired props, gold ornaments, lanterns. Bright warm simulation (3800K) with vibrant summer feel. Terracotta tiles with traditional rug phoenix motif. Summer festival theatrical stage, phoenix rebirth editorial. - STUDIO FIXED',

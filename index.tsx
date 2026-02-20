@@ -112,7 +112,7 @@ const App = () => {
    // 🔒 UNIFIED AFFILIATE VIDEO MODE - Duy nhất 1 mode
 
    const [faceImage, setFaceImage] = useState<string | null>(null);
-   const [facePreset, setFacePreset] = useState<string>('editorial_doll');
+   const [facePreset, setFacePreset] = useState<string>('douyin_doll');
    const [outfitImage, setOutfitImage] = useState<string | null>(null);
 
    // Body Configuration
@@ -1286,7 +1286,7 @@ Now create the REFINED SCENES:
 `;
 
          const response = await ai.models.generateContent({
-            model: "gemini-2.5-flash",
+            model: geminiModel,
             contents: { parts: [{ text: refinementPrompt }] },
             config: {
                systemInstruction: VIDEO_REFINEMENT_INSTRUCTION,
@@ -4821,7 +4821,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                           <span className="text-base">📸</span>
                                           <div className="text-left">
                                              <span className="text-[10px] font-medium block">Lookbook Mode</span>
-                                             <span className="text-[8px] opacity-70">20 ảnh, không video</span>
+                                             <span className="text-[8px] opacity-70">35-52 ảnh, không video</span>
                                           </div>
                                        </div>
                                        <div className={`w-8 h-4 rounded-full transition-all relative ${lookbookMode ? 'bg-amber-500' : 'bg-zinc-700'}`}>
@@ -4830,7 +4830,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                     </button>
                                     {lookbookMode && (
                                        <p className="mt-1.5 text-[8px] text-amber-300/60 px-1">
-                                          📷 Tạo 33 ảnh lookbook: standing, dynamic, seated, squat, bodice/hip focus (safe vocabulary)
+                                          📷 Tạo 35 ảnh (52 nếu áo dài) lookbook: standing, dynamic, seated, squat, upper/lower focus (safe vocabulary)
                                        </p>
                                     )}
 
@@ -4998,7 +4998,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                                    ? 'bg-blue-500/15 border-blue-500/50 text-blue-200 shadow-sm shadow-blue-500/5'
                                                    : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                                           >
-                                             <div className="w-4 h-6 border-2 rounded-sm ${aspectRatio === '9:16' ? 'border-blue-400' : 'border-zinc-500'}" />
+                                             <div className={`w-4 h-6 border-2 rounded-sm ${aspectRatio === '9:16' ? 'border-blue-400' : 'border-zinc-500'}`} />
                                              <span className="text-[9px] font-medium">9:16 Dọc</span>
                                              <span className="text-[7px] opacity-60">TikTok, Reels</span>
                                           </button>
@@ -5009,7 +5009,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                                                    ? 'bg-emerald-500/15 border-emerald-500/50 text-emerald-200 shadow-sm shadow-emerald-500/5'
                                                    : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900/40'}`}
                                           >
-                                             <div className="w-6 h-4 border-2 rounded-sm ${aspectRatio === '16:9' ? 'border-emerald-400' : 'border-zinc-500'}" />
+                                             <div className={`w-6 h-4 border-2 rounded-sm ${aspectRatio === '16:9' ? 'border-emerald-400' : 'border-zinc-500'}`} />
                                              <span className="text-[9px] font-medium">16:9 Ngang</span>
                                              <span className="text-[7px] opacity-60">Desktop, YouTube</span>
                                           </button>
