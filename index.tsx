@@ -1489,7 +1489,7 @@ Các kiểu combo phổ biến:
                asmr_unbox: '🎧 ASMR UNBOX: Satisfying unbox | Scene flow: Package close-up → Slow open → Texture sounds → Product reveal | Camera: Macro close-ups | NO voice, ASMR sounds only',
                speed_styling: '⚡ SPEED STYLING: Timelapse dress-up | Scene flow: Basic start → Sped-up styling → Real-time final reveal → Pose | Camera: Static → speed up → slow-mo reveal | Music: Upbeat',
                closet_raid: '👗 CLOSET RAID: Wardrobe browse | Scene flow: Open closet → Browse → Pull out pieces → Try on → Final look | Camera: POV + mirror | Voice: Natural decision process',
-               price_reveal_game: '💰 PRICE REVEAL: Guess the price | Scene flow: Show product → "Đoán giá?" text → Build tension → Price shock reveal | Camera: Close-up → reveal | Hook: Engaging question, max engagement',
+               price_reveal_game: '💰 VALUE REVEAL: Guess the value | Scene flow: Show product → "Đoán xem chất lượng sao?" text → Build tension → Quality reveal | Camera: Close-up → reveal | Hook: Engaging question, max engagement',
                mini_vlog_style: '📹 MINI VLOG: Day snippet | Scene flow: Wake/Go out → Activity + outfit context → Product moment → Natural ending | Camera: Handheld vlog | Voice: Authentic, diary',
                rating_review: '⭐ HONEST RATING: X/10 format | Scene flow: First impression → Test/Use → Pros & Cons → Final rating | Camera: Mix close-up + full | Voice: Honest, credible',
                hack_tutorial: '💡 STYLE HACK: Educational viral | Scene flow: "Mẹo mà ít ai biết..." → Demo hack → Before/After → Mind blown | Camera: Clear tutorial | Hook: Hack/tip revelation',
@@ -1555,86 +1555,86 @@ Các kiểu combo phổ biến:
 
 💰 AFFILIATE DURATION STRATEGY: FLASH AD (${dur}s)
 - 1 scene duy nhất, tối ưu cho retargeting & story ads
-- 0-2s: Product hero shot + PRICE SHOCK overlay (giá gạch + giá sale)
-- 2-5s: 1 USP mạnh nhất + social proof flash ("12K+ đã mua")
-- 5-${dur}s: CTA trực tiếp ("Link ghim 👆") + urgency ("Còn 2h")
-- Script: MAX 15 từ, giá PHẢI xuất hiện trong 1.5s đầu
-- Rewatch trigger: Price blur 0.5s → force replay`;
+- 0-2s: Product hero shot + text overlay (KHÔNG nêu giá cụ thể)
+- 2-5s: 1 USP mạnh nhất + social proof nhẹ ("Được nhiều bạn yêu thích")
+- 5-${dur}s: CTA nhẹ nhàng ("Link dưới nha") + trust signal
+- Script: MAX 15 từ, chia sẻ trải nghiệm ngắn gọn
+- Rewatch trigger: Curiosity gap → force replay`;
             if (dur <= 16) return `
 
-💰 AFFILIATE DURATION STRATEGY: QUICK SELL (${dur}s)
-- 2 scenes, Hook → Immediate CTA
-- Scene 1 (0-8s): HOOK + PRICE — Product flash + giá shock + 1 USP
-- Scene 2 (8-${dur}s): PROOF + CTA — Social proof + Urgency + "Link ghim 👆"
-- Script: MAX 30 từ, price reveal trong 2s đầu
-- Dual element: Price tease (blur) ở 1.5s → Clear price ở 8s
-- Target: Completion rate 70%+, CTR 8%+`;
+💰 AFFILIATE DURATION STRATEGY: QUICK SHARE (${dur}s)
+- 2 scenes, Hook → Experience Share
+- Scene 1 (0-8s): HOOK — Product reveal + trải nghiệm cá nhân + 1 USP
+- Scene 2 (8-${dur}s): HONEST TAKE + CTA — Nhận xét thật + soft CTA
+- Script: MAX 30 từ, tự nhiên như chia sẻ bạn bè
+- Approach: Chia sẻ trải nghiệm, KHÔNG hard sell
+- Target: Completion rate 70%+, trust-driven`;
             if (dur <= 24) return `
 
-💰 AFFILIATE DURATION STRATEGY: CONVERSION MODE (${dur}s) ⭐ OPTIMAL
-- 3 scenes, chuẩn affiliate framework CVR 3-6%
-- Scene 1 (0-8s): HOOK + PRICE TEASE — Scroll-stop visual + giá shock overlay + rewatch trigger
-- Scene 2 (8-16s): USP SHOWCASE — 2-3 USPs nhanh + social proof ("XK+ đã mua")
-- Scene 3 (16-${dur}s): CTA + URGENCY — Strong CTA + countdown/scarcity + link direction
-- Script structure: Price hook → Value proof → Action push
-- Dual CTA: Soft @12s ("Comment MUỐN") + Hard @20s ("Link ghim 👆")
-- Rewatch triggers: Price blur + multi-info overload
-- Target: Completion 60%+, CVR 3-6%, CTR 5-10%`;
+💰 AFFILIATE DURATION STRATEGY: EXPERIENCE REVIEW (${dur}s) ⭐ OPTIMAL
+- 3 scenes, chuẩn reviewer trải nghiệm tự nhiên
+- Scene 1 (0-8s): HOOK — First impression + unbox/try-on reaction
+- Scene 2 (8-16s): EXPERIENCE — Trải nghiệm thật + pros/cons nhẹ + cảm nhận
+- Scene 3 (16-${dur}s): VERDICT + CTA — Đánh giá tổng thể + soft CTA
+- Script structure: Trải nghiệm → Cảm nhận → Chia sẻ
+- CTA: Soft @20s ("Link dưới, bạn nào quan tâm tham khảo nha")
+- Tone: Tự nhiên, honest, như kể chuyện mua sắm cho bạn
+- Target: Completion 60%+, trust-driven conversion`;
             if (dur <= 32) return `
 
-💰 AFFILIATE DURATION STRATEGY: VIRAL MODE (${dur}s)
-- 4 scenes, story-driven với dual CTA placement
-- Scene 1 (0-8s): HOOK — Curiosity/price shock + product flash
-- Scene 2 (8-16s): USP DEMO — Feature showcase + quick demos
-- Scene 3 (16-24s): SOCIAL PROOF — Before/After hoặc comparison + trust signals
-- Scene 4 (24-${dur}s): URGENCY + CTA — Scarcity + strong CTA + link
-- Dual CTA: @16s engagement ("Ai muốn?") + @28s conversion ("Link ghim 👆")
-- Comment bait: Question/game tại scene 2-3
-- Target: Algorithm boost từ engagement + CVR 2-4%`;
+💰 AFFILIATE DURATION STRATEGY: STORY MODE (${dur}s)
+- 4 scenes, story-driven với trải nghiệm thật
+- Scene 1 (0-8s): HOOK — Curiosity/first impression + cảm xúc thật
+- Scene 2 (8-16s): EXPERIENCE — Feature showcase + cảm nhận cá nhân
+- Scene 3 (16-24s): PROOF — Before/After hoặc comparison + honest take
+- Scene 4 (24-${dur}s): VERDICT + CTA — Tổng kết + soft CTA
+- CTA: @16s engagement nhẹ ("Ai từng mua?") + @28s soft CTA ("Link dưới nha")
+- Tone: Storytelling tự nhiên, như kể chuyện
+- Target: Algorithm boost từ engagement + trust conversion`;
             if (dur <= 40) return `
 
-💰 AFFILIATE DURATION STRATEGY: DEEP SELL (${dur}s)
-- 5 scenes, tối ưu cho sản phẩm cần demo chi tiết
-- Scene 1 (0-8s): HOOK — Problem amplification hoặc price shock
-- Scene 2 (8-16s): PRODUCT INTRO — Unboxing feel + first impression
-- Scene 3 (16-24s): DETAIL DEMO — Close-up features, fabric, quality proof
-- Scene 4 (24-32s): BEFORE/AFTER — Transformation + social proof + reviews
-- Scene 5 (32-${dur}s): TRUST + CTA — Guarantee + urgency + link direction
-- Triple CTA: @12s tease + @24s social + @36s conversion
-- Target: Cho sản phẩm >300K cần build trust, CVR 2-3%`;
+💰 AFFILIATE DURATION STRATEGY: DEEP REVIEW (${dur}s)
+- 5 scenes, tối ưu cho review chi tiết
+- Scene 1 (0-8s): HOOK — Problem/curiosity + first impression
+- Scene 2 (8-16s): UNBOX — Mở hộp + cảm nhận ban đầu
+- Scene 3 (16-24s): DETAIL — Close-up chi tiết, chất liệu, chất lượng
+- Scene 4 (24-32s): TRY-ON — Mặc thử + honest pros/cons
+- Scene 5 (32-${dur}s): VERDICT — Rating tổng thể + soft CTA
+- CTA: @12s tease + @24s social + @36s soft conversion
+- Target: Cho sản phẩm cần build trust, honest review`;
             return `
 
 💰 AFFILIATE DURATION STRATEGY: STORYTELLING (${dur}s)
 - ${scenes} scenes, full customer journey narrative
-- ACT 1 (0-16s): HOOK + PROBLEM — Relatable pain point + curiosity builder
-- ACT 2 (16-32s): SOLUTION + DEMO — Product reveal + detailed showcase + USPs
-- ACT 3 (32-${dur}s): PROOF + CTA — Social proof + before/after + urgency + strong CTA
-- Multi-CTA: @16s curiosity + @32s social proof + @${dur - 8}s final conversion
-- Comment triggers: Storytelling hooks throughout
-- Best for: Premium products, complex features, brand storytelling
-- Target: Watch time priority, CVR 1.5-2.5% (but higher AOV)`;
+- ACT 1 (0-16s): HOOK + PROBLEM — Relatable experience + curiosity builder
+- ACT 2 (16-32s): EXPERIENCE + REVIEW — Product in daily life + honest take + USPs
+- ACT 3 (32-${dur}s): VERDICT + CTA — Tổng kết + lifestyle proof + soft CTA
+- Multi-CTA: @16s curiosity + @32s social proof + @${dur - 8}s soft conversion
+- Tone: Storytelling tự nhiên, diary-vibe
+- Best for: Sản phẩm cần storytelling, premium, complex features
+- Target: Watch time priority, trust-driven conversion`;
          };
          const affiliateDurationStrategy = getAffiliateDurationStrategy(finalDuration);
 
          // � AFFILIATE PLATFORM STRATEGY
          const getAffiliatePlatformStrategy = (): string => {
-            if (affiliatePlatform === 'tiktok') return `\n\n📱 PLATFORM: TIKTOK\n- Format: 9:16 vertical, auto-play with sound ON\n- Hook: 0-1.5s scroll-stop (pattern interrupt / text hook / sound hook)\n- Music: Trending sound/remix, beat-sync quan trọng\n- CTA: "Link ghim comment 👆" / "Link trong bio" / "Inbox mình nè"\n- Hashtags: #TikTokMadeMeBuyIt #ReviewThật #Viral\n- Algorithm priority: Completion rate > Like > Comment > Share\n- Optimize: Watch time + replay + save\n- Tone: Casual gen-Z, dùng "nè/hen/luôn/quá trời"\n- Trending: Duet-friendly structure, stitch hooks`;
+            if (affiliatePlatform === 'tiktok') return `\n\n📱 PLATFORM: TIKTOK\n- Format: 9:16 vertical, auto-play with sound ON\n- Hook: 0-1.5s scroll-stop (curiosity / first impression / experience hook)\n- Music: Trending sound/remix, beat-sync quan trọng\n- CTA: "Link dưới nha" / "Link trong bio" / "Inbox mình nè"\n- Hashtags: #TikTokMadeMeBuyIt #ReviewThật #Viral\n- Algorithm priority: Completion rate > Like > Comment > Share\n- Optimize: Watch time + replay + save\n- Tone: Casual gen-Z, tự nhiên, chia sẻ bạn bè, dùng "nè/hen/luôn/quá trời"\n- ⚠️ KHÔNG: Nêu giá cụ thể, hard sell, FOMO giả, CTA quá pushy\n- Trending: Duet-friendly structure, stitch hooks`;
             if (affiliatePlatform === 'facebook') return `\n\n📱 PLATFORM: FACEBOOK\n- Format: Reels 9:16 hoặc Feed, auto-play MUTED by default\n- ⚠️ TEXT OVERLAY bắt buộc (80%+ viewers xem không bật tiếng)\n- CTA: "Comment MUỐN để nhận link" / "Inbox shop" / "Link bình luận đầu tiên"\n- Algorithm priority: Share > Comment > Reaction > Watch time\n- Optimize: Shareability, comment bait, community engagement\n- Tone: Thân thiện chị em, dùng "ạ/nhé", mature hơn TikTok\n- Đặc biệt: Captions + text overlays CRITICAL vì auto-mute\n- Group sharing: Content dễ share vào group mua sắm`;
             return `\n\n📱 PLATFORM: TIKTOK + FACEBOOK (ĐA NỀN TẢNG)\n- Tạo content phù hợp CẢ HAI platform\n- Hook: Visual hook (hoạt động cả có/không tiếng) + Text overlay\n- CTA đa dạng: "Link ghim" (TikTok) + "Comment MUỐN" (Facebook)\n- Tone: Cân bằng casual (TT) và thân thiện (FB)\n- Beat-sync cho TikTok + Text overlay cho Facebook muted viewers\n- Optimize: Watch time (TikTok) + Shareability (Facebook)`;
          };
 
          // 🎯 AFFILIATE AUDIENCE STRATEGY
          const getAffiliateAudienceStrategy = (): string => {
-            if (affiliateAudience === 'cold') return `\n\n❄️ AUDIENCE: COLD (CHƯA BIẾT SẢN PHẨM)\n- Approach: EDUCATION + CURIOSITY — Giới thiệu vấn đề trước, sản phẩm sau\n- Hook: Problem-first ("Bạn có bị...?") hoặc Curiosity ("Cái này thay đổi cuộc đời mình")\n- Trust: Social proof BẮT BUỘC ("12K+ đã mua", "Rating 4.9⭐")\n- Price: SO SÁNH giá gốc gạch → giá sale (giảm resistance)\n- CTA: Soft — "Tìm hiểu thêm" / "Xem review" / không push mua ngay\n- Script: Informative, educational, build awareness\n- Phân bổ: 60% USP + social proof, 40% CTA`;
-            if (affiliateAudience === 'warm') return `\n\n🔥 AUDIENCE: WARM (ĐÃ QUAN TÂM, CHƯA MUA)\n- Approach: CONVINCE + URGENCY — Biết SP rồi, cần lý do mua NGAY\n- Hook: Comparison ("So sánh với hàng 500K") hoặc Demo ("Mặc thử luôn nè")\n- Trust: Before/After, user reviews, unboxing real\n- Price: Flash sale, countdown, limited stock → FOMO\n- CTA: Medium push — "Hôm nay giảm thêm 20%" / "Còn 50 cái cuối"\n- Script: Persuasive, address objections\n- Phân bổ: 40% demo, 30% benefits, 30% urgency+CTA`;
-            return `\n\n🔥🔥 AUDIENCE: HOT (SẴN SÀNG MUA)\n- Approach: DIRECT SELL + MAX URGENCY — Đẩy hành động ngay\n- Hook: Price shock ("199K HÔM NAY!") hoặc Scarcity ("Còn 2 tiếng!")\n- Trust: Không cần build nhiều — họ đã tin\n- Price: Deal/discount focus, bundle offers, freebies\n- CTA: STRONG push ngay từ scene 1 — "Mua ngay kẻo hết!" / "Link ghim 👆"\n- Script: Urgent, exciting, action-oriented\n- Phân bổ: 30% hook+price, 30% benefits remind, 40% CTA+urgency\n- Dual CTA: CTA sớm (@8s) + CTA mạnh (@cuối)`;
+            if (affiliateAudience === 'cold') return `\n\n❄️ AUDIENCE: COLD (CHƯA BIẾT SẢN PHẨM)\n- Approach: CHIA SẺ TRẢI NGHIỆM + TẠO TÒ MÒ — Giới thiệu qua trải nghiệm thật\n- Hook: Curiosity ("Mình tìm được cái này hay lắm...") hoặc Story ("Hôm qua thử...")\n- Trust: Social proof nhẹ nhàng ("Bạn mình cũng mua", "Mọi người hỏi mua ở đâu")\n- Price: KHÔNG nêu giá cụ thể — chỉ "giá hợp lý" / "hợp túi tiền"\n- CTA: Soft — "Link dưới, bạn nào quan tâm tham khảo" / KHÔNG push mua\n- Script: Tự nhiên, kể chuyện, build awareness qua trải nghiệm\n- Phân bổ: 60% trải nghiệm + honest take, 40% soft CTA`;
+            if (affiliateAudience === 'warm') return `\n\n🔥 AUDIENCE: WARM (ĐÃ QUAN TÂM, CHƯA MUA)\n- Approach: REVIEW CHI TIẾT + SO SÁNH — Cho thêm thông tin để tự quyết\n- Hook: Experience ("So với mấy cái trước mình mua...") hoặc Demo ("Mặc thử cho coi nha")\n- Trust: Before/After, honest pros/cons, trải nghiệm thực tế\n- Price: KHÔNG nêu giá cụ thể — "đang có đợt giá tốt" / "giá mình hài lòng"\n- CTA: Medium — "Link dưới, đang có đợt giá tốt" / KHÔNG tạo FOMO giả\n- Script: Honest review, address objections tự nhiên\n- Phân bổ: 40% review chi tiết, 30% trải nghiệm, 30% soft CTA`;
+            return `\n\n🔥🔥 AUDIENCE: HOT (ĐÃ TIN TƯỞNG, SẴN SÀNG)\n- Approach: CHIA SẺ NHANH + CTA RÕ RÀNG — Nhẹ nhàng nhưng clear\n- Hook: Experience ("Mua lại lần 2 rồi nè!") hoặc Social proof ("Mấy bạn mình cũng mua")\n- Trust: Đã có — focus vào trải nghiệm mới, cập nhật\n- Price: KHÔNG nêu giá cụ thể — "đang có đợt tốt" nếu cần\n- CTA: Medium — "Link dưới nha, đang có đợt giá tốt!" / KHÔNG quá pushy\n- Script: Tự nhiên, nhanh gọn, confident\n- Phân bổ: 30% hook, 30% quick review, 40% CTA\n- Tone: Thân thiện, như nhắn tin cho bạn biết có đồ hay`;
          };
 
          // 🎯 AFFILIATE GOAL STRATEGY
          const getAffiliateGoalStrategy = (): string => {
-            if (affiliateGoal === 'views') return `\n\n🏆 GOAL: MAXIMIZE VIEWS (REACH)\n- Priority: Algorithm-friendly → nhiều người thấy video\n- Hook: MUST scroll-stop trong 1s (pattern interrupt, shock, curiosity gap)\n- Content: Emotional triggers, relatable, shareable\n- Engagement bait: "Tag người bạn cần cái này!"\n- Music: Trending sounds → algorithm boost\n- CTA: Soft — focus entertainment value, không push bán\n- Metrics: View-through rate 40%+, share rate 3%+\n- Script: Short, punchy, gây cảm xúc`;
-            if (affiliateGoal === 'engagement') return `\n\n🏆 GOAL: MAXIMIZE ENGAGEMENT (LIKES + COMMENTS)\n- Priority: Interaction → algorithm push → organic reach\n- Hook: Question/Poll ("Chọn A hay B?" / "Ai thích style này?")\n- Comment triggers BẮT BUỘC (≥2):\n  • "Comment MUỐN để nhận link!"\n  • "Bạn mặc size gì? Comment để tư vấn"\n  • "Đoán giá đi? 👇"\n- Engagement: Quiz, comparison, debate ("Cái này hay cái kia?")\n- CTA: Engage-first → "Comment/Like trước khi mua"\n- Metrics: Engagement rate 8%+, comment rate 3%+`;
-            return `\n\n🏆 GOAL: MAXIMIZE CONVERSION (SALES/CVR)\n- Priority: Mỗi element phải push gần HÀNH ĐỘNG MUA\n- Hook: Price/Value ("399K→199K HÔM NAY!" / "Rẻ hơn 1 ly trà sữa")\n- Urgency: Countdown, limited stock, flash sale\n- Social proof sớm: "12K+ đã mua" → reduce hesitation\n- Price psychology: Anchor cao → reveal thấp, bundle savings\n- CTA: STRONG + MULTIPLE — Dual CTA (@giữa + @cuối)\n  • "Link ghim comment 👆"\n  • "Inbox MUỐN để nhận link giảm thêm"\n- Objection handling: Size guide, return policy, quality proof\n- Metrics: CVR 3-6%, link CTR 5-10%, add-to-cart 15%+`;
+            if (affiliateGoal === 'views') return `\n\n🏆 GOAL: MAXIMIZE VIEWS (REACH)\n- Priority: Algorithm-friendly → nhiều người thấy video\n- Hook: MUST scroll-stop trong 1s (curiosity, first impression, relatable moment)\n- Content: Emotional triggers, relatable, shareable, trải nghiệm thật\n- Engagement bait: "Tag bạn nào thích style này!"\n- Music: Trending sounds → algorithm boost\n- CTA: Soft — focus entertainment value, không push bán\n- Metrics: View-through rate 40%+, share rate 3%+\n- Script: Short, punchy, gây cảm xúc, tự nhiên`;
+            if (affiliateGoal === 'engagement') return `\n\n🏆 GOAL: MAXIMIZE ENGAGEMENT (LIKES + COMMENTS)\n- Priority: Interaction → algorithm push → organic reach\n- Hook: Question/Poll ("Chọn A hay B?" / "Ai thích style này?")\n- Comment triggers BẮT BUỘC (≥2):\n  • "Bạn thích kiểu nào? Comment nha!"\n  • "Bạn mặc size gì? Comment để tư vấn"\n  • "Theo bạn cái nào đẹp hơn? 👇"\n- Engagement: Quiz, comparison, debate ("Cái này hay cái kia?")\n- CTA: Engage-first → "Comment/Like chia sẻ ý kiến"\n- Metrics: Engagement rate 8%+, comment rate 3%+`;
+            return `\n\n🏆 GOAL: MAXIMIZE CONVERSION (TRUST-DRIVEN)\n- Priority: Mỗi element phải BUILD TRUST → người xem TỰ muốn mua\n- Hook: Experience/Curiosity ("Mình tìm được cái này..." / "So với cái cũ...")\n- Trust building: Honest review, pros/cons, trải nghiệm thật\n- Social proof tự nhiên: "Bạn mình cũng mua" / "Được nhiều bạn yêu thích"\n- Price: KHÔNG nêu giá cụ thể — "giá hợp lý" / "đang có đợt tốt"\n- CTA: SOFT → Medium — Dual CTA (@giữa + @cuối)\n  • "Link dưới nha, bạn nào quan tâm tham khảo"\n  • "Mình để link, đang có đợt giá tốt"\n- Objection handling: Honest review, quality proof, real experience\n- Metrics: Trust-driven conversion, sustainable engagement`;
          };
 
          const affiliatePlatformStrategy = getAffiliatePlatformStrategy();
@@ -1714,7 +1714,17 @@ masterPrompt.voiceAnchor PHẢI chứa:
 - Dialogue dùng dấu ngoặc kép: Model nói: "Chị em ơi, set này xinh quá luôn nè!"
 - Ambient sound: Mô tả rõ background audio (cafe noise, street sounds, music beat)
 - QUAN TRỌNG: Mỗi scene prompt PHẢI nhắc lại voice description để Veo 3.1 giữ consistency
-- Vietnamese script: Viết tự nhiên, ${voiceStyle.includes('saigon') ? 'giọng miền Nam - dùng "nè", "hen", "nghen", "luôn", "quá trời"' : 'giọng miền Bắc - dùng "nhé", "ạ", "cực kỳ", "tuyệt vời"'}`;
+- Vietnamese script: Viết tự nhiên, ${voiceStyle.includes('saigon') ? 'giọng miền Nam - dùng "nè", "hen", "nghen", "luôn", "quá trời"' : 'giọng miền Bắc - dùng "nhé", "ạ", "cực kỳ", "tuyệt vời"'}
+
+🎯 VOICE STYLE: REVIEWER TRẢI NGHIỆM TỰ NHIÊN (BẮT BUỘC):
+- Nói như chia sẻ trải nghiệm thật, KHÔNG NHƯ QUẢNG CÁO
+- ❌ KHÔNG nêu giá cụ thể (199K, 500K...) → Nói "giá hợp lý", "hợp túi tiền"
+- ❌ KHÔNG hard sell (MUA NGAY! CHỐT! NHANH TAY!) → Nói "link dưới nha", "tham khảo"
+- ❌ KHÔNG tạo FOMO giả (chỉ còn 3 cái, sale hôm nay!) → Nói "đang có đợt giá tốt" nếu cần
+- ✅ Kể trải nghiệm thật: mua → mở → dùng → cảm nhận
+- ✅ Honest take: có ưu điểm VÀ nhược điểm nhỏ
+- ✅ CTA mềm: "link dưới", "bạn nào quan tâm tham khảo"
+- ✅ Filler tự nhiên: "Hmm...", "Nè...", "Mà...", "Thì..."`;
          };
          const voiceAnchorInstruction = getVoiceAnchorInstruction();
 
@@ -1968,10 +1978,10 @@ Tập trung vào sản phẩm, không cần model đầy đủ. Phù hợp cho: 
 - 85mm f/8 lens, ISO 100, product focus sharp
 
 📝 TEXT OVERLAYS (tự động tạo):
-- Scene 1: Hook (giá shock, social proof, mystery)
-- Scene 2: Feature (chất liệu, công nghệ đặc biệt)
-- Scene 3: Benefit (tôn dáng, che khuyết điểm, thoải mái)
-- Scene 4: CTA (link, flash sale, giảm giá)
+- Scene 1: Hook (first impression, social proof, curiosity)
+- Scene 2: Feature (chất liệu, thiết kế đặc biệt)
+- Scene 3: Benefit (tôn dáng, thoải mái, trải nghiệm)
+- Scene 4: CTA (link, chia sẻ, tham khảo)
 
 📦 FASHION FOUNDATIONS VOCABULARY (nếu là delicate wear):
 ✅ USE: "corsetry-style bodice", "fitted architecture", "supportive construction", "shaping technology"
@@ -2599,10 +2609,10 @@ ${(() => {
 })()}
 
 🎯 CONVERSION HOOKS:
-- Price shock: "Toàn bộ chỉ [X]K!"
-- Rating bait: "Có set chỉ 2/10... đoán xem set nào?"
+- Experience: "Set này mặc thoải mái lắm nè!"
+- Rating bait: "Set nào đẹp nhất? Comment ngay!"
 - Vote: "Bạn chọn set mấy? Comment ngay!"
-- Urgency: "Set [X] đang sale, chỉ còn [N] cái!"`;
+- Social proof: "Mấy bạn mình cũng ưng set này!"`;
          } else if (cinematicStyle === 'asmr_cinematic') {
             cinematicStyleInstructions = `\n\n🎤 CINEMATIC STYLE: ASMR (${finalDuration}s)
 Sound-driven affiliate content — fabric rustling, zipper sounds, texture close-ups.
@@ -3531,7 +3541,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
 
          // 🔴 VIRAL HOOK ENFORCEMENT — Compact version for token efficiency
          if (!lookbookMode) {
-            systemInstruction += `\n\n🔴 VIRAL HOOK (MANDATORY): First 3s = 80% success\nScene 1 MUST have 0-3s hook element. JSON must include "viralHooks" field.\nAffiliate hooks: Price shock/Social proof/Problem-solution/Quick mystery (CVR focused)\n❌ NO: Static poses, no hook element, slow starts`;
+            systemInstruction += `\n\n🔴 VIRAL HOOK (MANDATORY): First 3s = 80% success\nScene 1 MUST have 0-3s hook element. JSON must include "viralHooks" field.\nAffiliate hooks: Curiosity/First impression/Experience sharing/Social proof (trust-driven)\n❌ NO: Static poses, no hook element, slow starts, hard sell, specific prices`;
          }
 
          const response = await ai.models.generateContent({

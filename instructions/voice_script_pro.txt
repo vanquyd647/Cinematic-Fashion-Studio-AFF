@@ -10,9 +10,10 @@ Cập nhật: 2026-06
 ================================================
 
 **NGUYÊN TẮC CỐT LÕI:**
-> "Giọng nói tự nhiên + chuyên nghiệp = Tin tưởng = Chuyển đổi"
-> Không sến, không bán hàng nhạt, không robot.
-> Nói như đang chia sẻ với bạn thân — nhưng có chiến lược.
+> "Giọng nói tự nhiên + trải nghiệm thật = Tin tưởng = Chuyển đổi"
+> Không sến, không bán hàng lộ liễu, không robot.
+> Nói như đang chia sẻ trải nghiệm với bạn thân — chân thật, có chiến lược.
+> ⚠️ KHÔNG nêu giá cụ thể, KHÔNG hard sell, KHÔNG tạo FOMO giả.
 
 **3 TẦNG VOICE QUALITY:**
 
@@ -75,20 +76,20 @@ Cập nhật: 2026-06
 
 ---
 
-**PROFILE 4: CHỊ BÁN HÀNG SÀNH ĐỎ (Best for: TikTok Shop, live-selling vibe)**
+**PROFILE 4: CHỊ SÀNH ĐIỆU KINH NGHIỆM (Best for: TikTok Shop, experience sharing)**
 ```json
 {
-  "voice_profile": "Vietnamese female 28-45, Southern warmth",
-  "vocal_tone": "Energetic, persuasive, street-smart, urgent but honest",
-  "speech_pace": "Fast (170-200 words/min), rhythmic selling cadence",
-  "energy_level": "8/10 — high energy without being annoying",
-  "key_trait": "Experienced seller confidence, deal-maker energy",
-  "breathing_pattern": "Quick breaths between selling points",
-  "signature_phrases": "Rapid-fire benefits, price emphasis, urgency"
+  "voice_profile": "Vietnamese female 28-40, Southern warmth",
+  "vocal_tone": "Confident, experienced, knowledgeable, warm sharing",
+  "speech_pace": "Medium-fast (160-180 words/min), conversational cadence",
+  "energy_level": "6-7/10 — natural enthusiasm, not pushy",
+  "key_trait": "Experienced buyer sharing genuine finds",
+  "breathing_pattern": "Natural conversational pauses",
+  "signature_phrases": "Experience-based observations, honest comparisons, soft recommendations"
 }
 ```
-- **Khi dùng:** Flash sales, budget deals, mass-market products
-- **Ví dụ:** "Nhanh nhanh chị em ơi! Giá này chỉ hôm nay thôi nha! Lụa thật 100%, mặc mát, form chuẩn, ship free toàn quốc! Chỉ còn 30 cái cuối!"
+- **Khi dùng:** TikTok Shop, product sharing, experience reviews
+- **Ví dụ:** "Mình mua nhiều kiểu này rồi, cái này form tốt hơn mấy cái trước nhiều. Lụa thật nha, mặc mát lắm. Bạn nào quan tâm thì mình để link."
 
 ---
 
@@ -113,18 +114,18 @@ Cập nhật: 2026-06
 
 **TEMPLATE 1: AIDA SCRIPT (Attention → Interest → Desire → Action)**
 ```
-[0-3s] ATTENTION: "Ê bạn ơi! Cái này hot lắm nè!" (Hook line)
-[3-8s] INTEREST: "100% lụa tự nhiên, mặc lên mát cả ngày" (Feature)
+[0-3s] ATTENTION: "Nè mọi người! Mình mua thử cái này..." (Hook line)
+[3-8s] INTEREST: "Lụa tự nhiên, mặc lên mát cả ngày" (Feature)
 [8-16s] DESIRE: "Mình mặc đi event được khen hoài luôn á" (Benefit/proof)
-[16-24s] ACTION: "Link bên dưới nha, sale chỉ hôm nay thôi!" (CTA)
+[16-24s] ACTION: "Link bên dưới nha, bạn nào thích xem thử!" (CTA)
 ```
 
 **TEMPLATE 2: PAS SCRIPT (Problem → Agitate → Solution)**
 ```
-[0-3s] PROBLEM: "Ai cũng gặp: tìm mãi không ra áo đi biển vừa ý" (Pain point)
+[0-3s] PROBLEM: "Tìm mãi mới được cái áo đi biển vừa ý..." (Pain point)
 [3-8s] AGITATE: "Mua online sợ khác hình, ra tiệm thì đắt" (Amplify pain)
-[8-16s] SOLUTION: "Cho đến khi mình thấy cái này... Chất đẹp, form chuẩn, giá student" (Product)
-[16-24s] ACTION: "Gõ link bên dưới xem chi tiết nha! Freeship toàn quốc!" (CTA)
+[8-16s] SOLUTION: "Cho đến khi mình thấy cái này... chất đẹp, form chuẩn, mình hài lòng" (Product)
+[16-24s] ACTION: "Mình để link nha, quan tâm thì tham khảo!" (CTA)
 ```
 
 **TEMPLATE 3: STORY SCRIPT (Narrative → Connection)**
@@ -132,24 +133,24 @@ Cập nhật: 2026-06
 [0-3s] SETUP: "Hôm qua mình đi event, ai cũng hỏi mặc gì..." (Story hook)
 [3-12s] STORY: "Thật ra mình mua online, chỉ có [X]K thôi á. Mà lúc mặc lên..." (Journey)
 [12-20s] PAYOFF: "Được khen suốt buổi! Chị sếp còn hỏi mua ở đâu nè" (Social proof)
-[20-24s] CTA: "Mình để link nha, đang sale nữa!" (Action)
+[20-24s] CTA: "Mình để link nha, bạn nào muốn tham khảo!" (Action)
 ```
 
 **TEMPLATE 4: LISTICLE SCRIPT (Feature stacking)**
 ```
-[0-2s] HOOK: "3 lý do phải mua cái [product] này!" 
-[2-8s] REASON 1: "Thứ nhất: chất liệu [X] mát cực kỳ"
+[0-2s] HOOK: "3 lý do mình thích cái [product] này!" 
+[2-8s] REASON 1: "Thứ nhất: chất liệu mát cực kỳ"
 [8-14s] REASON 2: "Thứ hai: form dáng chuẩn, mặc ai cũng đẹp"
-[14-20s] REASON 3: "Thứ ba: giá chỉ [X]K mà chất lượng như hàng [X]K"
-[20-24s] CTA: "Không tin thử đi! Link bên dưới nha"
+[14-20s] REASON 3: "Thứ ba: chất lượng mình hài lòng lắm luôn"
+[20-24s] CTA: "Bạn nào đang tìm thì thử nha! Link dưới"
 ```
 
-**TEMPLATE 5: COMPARISON SCRIPT (Value justification)**
+**TEMPLATE 5: COMPARISON SCRIPT (Experience comparison)**
 ```
-[0-3s] HOOK: "So sánh [Product] [X]K vs [Brand] [Y]K"
-[3-12s] COMPARE: "Cùng chất liệu, cùng form, cùng kiểu may..."
-[12-18s] VERDICT: "Chất lượng gần như nhau mà giá chênh gấp đôi!"
-[18-24s] CTA: "Chọn thông minh nha mọi người! Link..."
+[0-3s] HOOK: "So với mấy cái mình mua trước..."
+[3-12s] COMPARE: "Cùng chất liệu, cùng form, nhưng cái này..."
+[12-18s] VERDICT: "Mặc lên thoải mái hơn hẳn, chất cầm thấy khác"
+[18-24s] CTA: "Mình để link cho bạn nào cần tham khảo nha!"
 ```
 
 ================================================
@@ -171,20 +172,20 @@ Cập nhật: 2026-06
 [MEDIUM] "Chất lụa mướt tay, mặc lên mát lịm"
 ```
 
-**Pattern 2: STAIRCASE (Bậc thang) — Building Energy**
+**Pattern 2: STAIRCASE (Bậc thang) — Building Excitement**
 ```
 [SOFT] "Bạn biết gì không..." →
-[MEDIUM] "Mình vừa tìm được sản phẩm này..." →
-[LOUD] "MÀ GIÁ CHỈ CÓ 199K THÔI Á!" →
-[NORMAL] "Link bên dưới nha mọi người"
+[MEDIUM] "Mình vừa tìm được cái này..." →
+[LOUD] "Mặc lên tôn dáng quá trời!" →
+[NORMAL] "Mình để link nha mọi người"
 ```
 
-**Pattern 3: WHISPER-PUNCH (Thì thầm → Đấm) — Impact**
+**Pattern 3: WHISPER-REVEAL (Thì thầm → Bất ngờ) — Impact**
 ```
 [WHISPER] "Mình nói nhỏ nha..." →
 [PAUSE 0.3s] →
-[LOUD] "ĐANG FLASH SALE 50%!" →
-[NORMAL] "Nhanh lên kẻo hết!"
+[EXCITED] "Cái này hay lắm luôn!" →
+[NORMAL] "Để mình kể cho nghe..."
 ```
 
 **Pattern 4: CONVERSATIONAL (Trò chuyện) — Relatable**
@@ -254,31 +255,35 @@ Cập nhật: 2026-06
 
 | Vietnamese (Chuyên nghiệp) | Ý nghĩa | Khi dùng |
 |----------------------------|----------|----------|
-| "Chất lượng vượt tầm giá" | Quality beyond price | Value products |
-| "Đáng từng đồng" | Worth every penny | Premium products |
+| "Chất lượng mình hài lòng" | Quality satisfaction | Value products |
+| "Đáng để thử" | Worth trying | Any product |
 | "Một chiếc thay mười chiếc" | One replaces ten | Versatile pieces |
 | "Mặc đi đâu cũng đẹp" | Beautiful anywhere | Versatile items |
 | "Phom dáng không kén người" | Universally flattering | Mass-market |
 | "Mix được cả chục bộ" | Mixes into dozens of outfits | Staple items |
 | "Đầu tư thông minh cho tủ đồ" | Smart wardrobe investment | Quality basics |
 | "Mua 1 được cả set" | Buy one get full set | Bundle deals |
-| "Freeship + đổi trả 30 ngày" | Free shipping + 30-day return | Trust builder |
-| "Best seller tháng, không phải tự nhiên" | Monthly bestseller, earned | Social proof |
+| "Đang có đợt giá tốt" | Good price period | Soft promotion |
+| "Nhiều bạn mình cũng mua" | Friends bought too | Natural social proof |
 
 ---
 
-**🟣 NHÓM 5: CTA (Call-to-Action) CHUYÊN NGHIỆP**
+**🟣 NHÓM 5: CTA (Call-to-Action) TỰ NHIÊN**
 
 | Level | Vietnamese CTA | Khi dùng | Tone |
 |-------|---------------|----------|------|
+| Whisper | "Link dưới nha, xem không mua cũng được" | Lifestyle content | Chill |
 | Soft | "Tìm hiểu thêm bên dưới nha" | Cold audience | Gentle |
 | Soft | "Link chi tiết ở bio nha mọi người" | Educational content | Informative |
-| Medium | "Link mua bên dưới, đang giảm nè" | Warm audience | Encouraging |
-| Medium | "Gõ vào link ở dưới xem thêm nha" | Product review | Helpful |
-| Strong | "ĐẶT NGAY kẻo hết nha!" | Hot audience | Urgent |
-| Strong | "Link góc dưới, chốt liền đi chị em!" | Flash sale | Action |
-| Strong | "NHANH TAY! Chỉ còn [X] cái cuối!" | Limited stock | FOMO |
-| Ultra | "MUA NGAY đi, giá này không lặp lại!" | Final sale | Maximum urgency |
+| Soft | "Mình để link, bạn nào thích thì tham khảo" | Review content | Sharing |
+| Medium | "Link bên dưới nha, đang có đợt giá tốt" | Warm audience | Encouraging |
+| Medium | "Mình gắn link rồi, quan tâm thì xem thử" | Product review | Helpful |
+
+⚠️ KHÔNG DÙNG CTA STRONG/ULTRA — quá pushy, phản tác dụng trên TikTok:
+❌ "ĐẶT NGAY kẻo hết nha!"
+❌ "Link góc dưới, chốt liền đi chị em!"  
+❌ "NHANH TAY! Chỉ còn [X] cái cuối!"
+❌ "MUA NGAY đi, giá này không lặp lại!"
 
 ================================================
 🎤 VEO 3.1 AUDIO PROMPTING — HƯỚNG DẪN TẠO ÂM THANH
@@ -460,9 +465,9 @@ Giá tốt nữa, link dưới nha mọi người!"
 | Casual/Everyday | <200K | TikTok | Profile 1: Bạn thân |
 | Professional | 300-600K | Both | Profile 2: Chị đẹp |
 | Premium/Luxury | >600K | Both | Profile 5: Minimalist |
-| Flash Sale/Deal | Any | TikTok | Profile 4: Chị sành điệu |
+| Experience Share | Any | TikTok | Profile 4: Chị sành điệu kinh nghiệm |
 | Review/Compare | >300K | FB Reels | Profile 3: Reviewer |
-| Mass-market | <150K | TikTok | Profile 4: Chị sành điệu |
+| Mass-market | <150K | TikTok | Profile 1: Bạn thân |
 | TikTok Shop | Any | TikTok | Profile 1 or 4 |
 
 **SCENE-BY-SCENE VOICE GUIDE:**
@@ -512,129 +517,282 @@ Dùng từ chuyên ngành thời trang. Tập trung CHẤT LIỆU + THIẾT KẾ
 
 ✅ "Bộ ren Pháp thủ công này — sang trọng chưa nè? 
 Lụa satin mướt như nước, form ôm vừa vặn tôn dáng cực chuẩn. 
-Mặc vào là lên đời phong cách liền! Link dưới nha, đang sale cực sốc!"
+Mặc vào là lên đời phong cách liền! Link dưới nha, bạn nào thích tham khảo!"
 
 ================================================
-🎯 TIKTOK AFFILIATE FASHION — CÁCH NÓI CHUẨN VIDEO BÁN HÀNG 2026
+🎯 TIKTOK AFFILIATE FASHION — REVIEWER TRẢI NGHIỆM TỰ NHIÊN 2026
 ================================================
 
-⚠️ QUAN TRỌNG: Voice script phải NÓI NHƯ NGƯỜI THẬT đang review chia sẻ,
-KHÔNG NÓI NHƯ ROBOT đọc quảng cáo!
+⚠️ TRIẾT LÝ MỚI: Nói như CHIA SẺ TRẢI NGHIỆM thật, KHÔNG phải bán hàng.
+Gen Z ghét quảng cáo truyền thống → Blend sản phẩm vào nội dung tự nhiên.
+KHÔNG hard sell. KHÔNG nhắc giá cụ thể. KHÔNG ép mua.
+Mục tiêu: Người xem CẢM THẤY muốn mua vì TRUST, không vì bị push.
 
-**A. HOOK MỞ ĐẦU — DỪNG SCROLL NGAY (0-2s):**
+================================================
+🧑‍🎤 VOICE PERSONA LIBRARY — PHONG CÁCH REVIEWER TỰ NHIÊN
+================================================
 
-| Kiểu Hook | Ví dụ | Khi dùng |
-|-----------|-------|----------|
-| Hỏi trực tiếp | "Ai cũng hỏi mình mặc gì, đây nè!" | Outfit hot, nhiều comment |
-| Giá shock | "89K mà mặc lên trông như 500K luôn á!" | Sản phẩm giá rẻ bất ngờ |
-| Bí mật | "Mình giấu mấy bạn cái này lâu rồi..." | Tạo tò mò, exclusive |
-| So sánh | "Cùng chất mà rẻ bằng 1/3 hàng hiệu!" | Value proposition |
-| Trend | "Cái trend này đang viral TikTok luôn nè!" | Riding trend |
-| Phản ứng | "Ơ trời ơi! Mở ra đẹp quá chừng!" | Unboxing, first impression |
-| Thách thức | "Thử order về xem có đẹp như hình không!" | Review thật |
-| Con số | "3 lý do mình mua lại lần 2!" | Listicle, repurchase |
+**PERSONA A: REVIEWER TRẢI NGHIỆM CHÂN THẬT (Core persona)**
+> Concept: Như bạn thân đang kể chuyện mua sắm đời thường
+> Tâm lý: "Mình mua thử, dùng thật, kể lại cho bạn nghe"
+> Không bao giờ: Nói giá cụ thể, hối thúc mua, cam kết hiệu quả
+> Luôn: Kể trải nghiệm thật, có ưu có nhược, emotion tự nhiên
+```
+Giọng: Bình thường, không diễn, như đang facetime bạn thân
+Tốc độ: Nói tự nhiên, có lúc nhanh (hào hứng), có lúc chậm (suy nghĩ)
+Năng lượng: 5-6/10 — đủ hào hứng nhưng KHÔNG quá phấn khích
+Filler: "Hmm", "À", "Thật ra là...", "Mà nè", "Nói thiệt nha"
+```
+- Ví dụ: "Hmm... nói thiệt nha, ban đầu mình cũng hơi lo order online. Nhưng mà mở ra... ơ, mềm thiệt nè! Mặc cả ngày đi làm không bí. Cái duy nhất là ít màu thôi, mà chất thì ổn lắm."
 
-**B. CHUYỂN Ý GIỮA SCENES — LIỀN MẠCH TỰ NHIÊN:**
+**PERSONA B: CHỊ REVIEWER SÀNH ĐIỆU (Experience-first)**
+> Concept: Người nhiều kinh nghiệm mua sắm, chia sẻ góc nhìn chuyên môn
+> Tâm lý: "Mình mua nhiều rồi, cái này mình thấy đáng thử"
+> Không bao giờ: So sánh giá trực tiếp, tạo FOMO giả, over-hype
+> Luôn: Đặt sản phẩm trong context cuộc sống thật
+```
+Giọng: Tự tin, calm, biết mình đang nói gì
+Tốc độ: Vừa phải, deliberate — mỗi câu có trọng lượng
+Năng lượng: 6/10 — confident nhưng understated
+Signature: "Thì thiệt ra...", "Cá nhân mình thấy...", "So với mấy cái mình mua trước..."
+```
+- Ví dụ: "So với mấy cái mình mua trước, cái này form tốt hơn nhiều. Chất vải cầm lên là thấy khác liền. Mà cái mình thích nhất là mặc đi làm hay đi chơi đều ổn."
+
+**PERSONA C: NGƯỜI DÙNG THẬT — LIFESTYLE SHARING**
+> Concept: Đơn giản là chia sẻ 1 ngày bình thường có sản phẩm trong đó
+> Tâm lý: "Hôm nay mình mặc cái này đi [activity]..."
+> Không bao giờ: Dùng từ quảng cáo, push CTA, spotlight sản phẩm quá mức
+> Luôn: Để sản phẩm blend tự nhiên vào ngày thường
+```
+Giọng: Relaxed, diary-vibe, soft energy
+Tốc độ: Chậm tự nhiên, không vội
+Năng lượng: 4-5/10 — bình thản, real life
+Filler: "Hmm", "Á", "Hôm nay thì...", "Mà nè..."
+```
+- Ví dụ: "Hôm nay đi cafe với bạn, mình mặc cái váy mới này nè. Chất mềm, đi cả ngày thoải mái. Bạn mình hỏi mua ở đâu, mình để link dưới nha."
+
+**PERSONA D: HONEST REVIEWER — PROS/CONS FORMAT**
+> Concept: Review công bằng, có điểm tốt VÀ điểm chưa tốt
+> Tâm lý: "Mình nói thật cho bạn đỡ mất tiền oan"
+> Không bao giờ: 100% khen, fake surprise, bao che khuyết điểm
+> Luôn: Balanced opinion, cân nhắc thật sự
+```
+Giọng: Trầm tĩnh, khách quan, có suy nghĩ
+Tốc độ: Vừa, có pause suy nghĩ trước khi đánh giá
+Năng lượng: 5/10 — neutral, credible
+Structure: "Thích" → "Chưa thích" → "Tổng thể thì..."
+```
+- Ví dụ: "OK mình nói thẳng nha. Thích: chất vải mềm thật sự, mặc mát. Chưa thích: hơi ít màu, chỉ có 3 màu. Tổng thể: nếu bạn cần 1 cái basic tốt thì đáng thử lắm."
+
+================================================
+🚫 NGUYÊN TẮC "KHÔNG" — TRÁNH HOÀN TOÀN
+================================================
+
+**❌ TUYỆT ĐỐI KHÔNG LÀM:**
+
+1. ❌ KHÔNG NÊU GIÁ CỤ THỂ: "Chỉ 199K!" "Sale 50%!" "Giá gốc 500K giờ 250K!"
+   ✅ THAY BẰNG: "Giá hợp lý lắm" / "Hợp túi tiền" / "Mình bất ngờ với giá"
+
+2. ❌ KHÔNG TẠO FOMO GIẢ: "Chỉ còn 3 cái!" "Sale chỉ hôm nay!" "Hết là hết!"
+   ✅ THAY BẰNG: "Hình như đợt này có ưu đãi" / "Đang giá tốt"
+
+3. ❌ KHÔNG HỐI THÚC MUA: "MUA NGAY!" "Chốt liền!" "Nhanh tay lên!"
+   ✅ THAY BẰNG: "Link dưới nha, bạn nào quan tâm xem thử" / "Mình để link"
+
+4. ❌ KHÔNG DÙNG ABSOLUTE CLAIM: "Tốt nhất!" "Đẹp nhất!" "Số 1!"
+   ✅ THAY BẰNG: "Mình thấy rất ổn" / "Thuộc top mình mua" / "Cái hay là..."
+
+5. ❌ KHÔNG SO SÁNH GIÁ: "Rẻ bằng 1/3 hàng hiệu!" "Chất lượng 500K giá 99K!"
+   ✅ THAY BẰNG: "Chất lượng mình hài lòng" / "Mặc lên không thua gì hàng đắt tiền"
+
+6. ❌ KHÔNG DÙNG TỪ QUẢNG CÁO: "Sản phẩm hot hit" "Deal khủng" "Giá sốc"
+   ✅ THAY BẰNG: Mô tả cảm xúc thật: "Mình bất ngờ" / "Thích thiệt" / "Ưng ghê"
+
+================================================
+🎯 HOOK MỞ ĐẦU — DỪNG SCROLL TỰ NHIÊN (0-2s)
+================================================
+
+| Kiểu Hook | Ví dụ | Tâm lý |
+|-----------|-------|--------|
+| Trải nghiệm thật | "Order thử cái này về, kết quả bất ngờ..." | Tò mò chân thật |
+| Câu hỏi bạn bè | "Ai cũng hỏi mình mặc gì, nè!" | Social proof tự nhiên |
+| Bí mật chia sẻ | "Mình tìm được cái này hay lắm..." | Exclusive nhẹ nhàng |
+| First impression | "Mở ra thấy... hmm, đẹp thiệt nè!" | Honest reaction |
+| Story opening | "Hôm qua đi event, mọi người cứ hỏi..." | Storytelling |
+| Problem sharing | "Tìm mãi mới được cái vừa ý..." | Relatable |
+| Repurchase | "Mua lại lần 2 rồi, nói cho nghe vì sao..." | Trust signal |
+| Comparison | "So với mấy cái trước mình mua..." | Kinh nghiệm |
+
+**⚠️ KHÔNG DÙNG CÁC HOOK SAU:**
+❌ "89K mà mặc lên trông như 500K!" — Giá cụ thể + so sánh giả
+❌ "FLASH SALE 50%!" — Quảng cáo lộ liễu
+❌ "Hôm nay là ngày cuối!" — FOMO giả
+
+================================================
+🔄 CHUYỂN Ý GIỮA SCENES — TỰ NHIÊN NHƯ NÓI CHUYỆN
+================================================
 
 ❌ SAI (robot): "Tiếp theo là chất liệu. Chất liệu rất tốt."
-✅ ĐÚNG (tự nhiên): "Mà nè, sờ thử coi — mềm kiểu này nè! Mướt lắm luôn á!"
+✅ ĐÚNG (tự nhiên): "Mà nè, sờ thử coi — mềm kiểu này nè!"
 
-❌ SAI (cứng): "Bây giờ mình sẽ cho các bạn xem fit."
-✅ ĐÚNG (flow): "Nè thử mặc vào xem nào... Ầy! Tôn dáng ghê chưa!"
+❌ SAI (quảng cáo): "Bây giờ mình sẽ nói về ưu điểm của sản phẩm."
+✅ ĐÚNG (chia sẻ): "Cái mình thích nhất ở nó là..."
 
 | Chuyển ý | Câu nói tự nhiên |
 |----------|------------------|
 | Hook → Feature | "Mà cái hay là..." / "Biết vì sao mình thích không?" |
-| Feature → Benefit | "Nè mặc lên thì..." / "Mà cái đặc biệt là..." |
-| Benefit → Proof | "Không tin à? Coi nè..." / "Mình chứng minh cho coi" |
-| Proof → CTA | "Nói thiệt nha..." / "Ưng quá rồi thì..." |
+| Feature → Trải nghiệm | "Nè mặc lên thì..." / "Mà đặc biệt là..." |
+| Trải nghiệm → Honest take | "Nói thiệt nha..." / "Cá nhân mình thấy..." |
+| Honest take → Chia sẻ | "Nếu bạn đang tìm... thì thử coi" / "Mình để link" |
 
-**C. MÔ TẢ SẢN PHẨM — NGÔN NGỮ TIKTOK TỰ NHIÊN (KHÔNG CATALOGUE):**
+================================================
+🗣️ MÔ TẢ SẢN PHẨM — NGÔN NGỮ TRẢI NGHIỆM (KHÔNG CATALOGUE)
+================================================
 
 ❌ "Áo sơ mi nữ chất liệu cotton cao cấp, dáng regular fit."
-✅ "Cái sơ mi này cotton mà mềm lắm nè! Dáng rộng vừa, mặc thoải mái cả ngày luôn."
+✅ "Cái sơ mi này cotton mà mềm lắm nè! Mặc cả ngày đi làm thoải mái luôn."
 
 ❌ "Váy midi chiết eo, đuôi cá, chất liệu chiffon."
-✅ "Cái váy này nè — mặc vào eo thon hẳn! Đuôi xòe nhẹ, đi lại bay bay đẹp lắm!"
+✅ "Cái váy này nè — mặc vào eo thon hẳn! Đi lại bay bay đẹp lắm!"
 
-❌ "Set bơi hai mảnh, chất thun co giãn 4 chiều."
-✅ "Set bơi này co giãn thoải mái, mặc đi biển selfie xịn luôn á!"
+| Thay vì nói (catalogue) | Nói kiểu trải nghiệm |
+|--------------------------|---------------------|
+| "Chất liệu cao cấp" | "Sờ vào mềm thiệt, mình thích" |
+| "Form dáng chuẩn body" | "Mặc vào tôn dáng lắm!" |
+| "Thiết kế tinh tế" | "Cái chi tiết này nè — xinh ghê!" |
+| "Phù hợp nhiều dịp" | "Đi cafe, đi chơi, đi làm đều ổn!" |
+| "Sản phẩm best seller" | "Mấy bạn mình cũng mua luôn rồi" |
+| "Giảm giá ưu đãi" | "Đang có đợt giá tốt" |
+| "Chất lượng vượt tầm giá" | "Mình hài lòng với chất lượng" |
+| "Giá shock" | "Giá hợp lý lắm" |
 
-| Thay vì nói (catalogue) | Nói kiểu TikTok |
-|--------------------------|-----------------|
-| "Chất liệu cao cấp" | "Sờ mà mê luôn á!" |
-| "Form dáng chuẩn body" | "Mặc vào ôm vừa vặn, tôn dáng lắm!" |
-| "Thiết kế tinh tế" | "Cái chi tiết này nè — quá xịn!" |
-| "Phù hợp nhiều dịp" | "Đi cafe, đi chơi, đi date đều ổn!" |
-| "Đa dạng size" | "Có đủ size S đến XXL luôn nha!" |
-| "Sản phẩm best seller" | "Cháy hàng mấy lần rồi đó!" |
-| "Giảm giá ưu đãi" | "Giá này mình cũng bất ngờ luôn!" |
+================================================
+🎬 CTA KẾT THÚC — NHẸ NHÀNG, TÔN TRỌNG NGƯỜI XEM
+================================================
 
-**D. CTA KẾT THÚC — TỰ NHIÊN, KHÔNG ÉP:**
+> Nguyên tắc: CTA phải như đang CHIA SẺ cho bạn, không phải ÉP bạn.
+> Mức độ push tối đa là "Medium" — KHÔNG BAO GIỜ dùng Strong/Ultra.
 
-| Level | Câu CTA kiểu TikTok |
-|-------|---------------------|
-| Soft CTA | "Mình để link bên dưới nha, ai thích thì xem thử!" |
-| Soft CTA | "Comment 'muốn' để mình gửi link nha!" |
-| Medium CTA | "Gõ vào link ở dưới, đang giảm chỉ hôm nay thôi!" |
-| Medium CTA | "Link ghim comment đầu tiên nha mọi người!" |
-| Strong CTA | "Nhanh tay lên! Mình vào giỏ hàng thấy sắp hết rồi!" |
-| Strong CTA | "Nhấn giỏ hàng cam bên dưới, chốt liền đi!" |
+| Level | Câu CTA tự nhiên |
+|-------|------------------|
+| Whisper | "Mình để link, ai thích thì tham khảo nha" |
+| Whisper | "Link dưới nha, xem không mua cũng được" |
+| Soft | "Bạn nào đang tìm kiểu này thì xem thử nha!" |
+| Soft | "Mình để link bên dưới, quan tâm thì coi thêm" |
+| Medium | "Link dưới nha, đang có đợt giá tốt!" |
+| Medium | "Mình gắn link rồi, bạn nào ưng thì xem thử!" |
 
-**E. PATTERN NÓI THEO LOẠI VIDEO:**
+**❌ CTA CẤM DÙNG:**
+❌ "MUA NGAY kẻo hết!" — Quá pushy
+❌ "Chốt liền đi chị em!" — Ép buộc
+❌ "NHANH TAY! Chỉ còn X cái!" — FOMO giả
+❌ "Sale chỉ hôm nay!" — Urgency giả
 
-**📦 UNBOXING (Mở hộp):**
-"Nè order về rồi nè! Mở ra coi... [pause] Ơ đẹp thiệt luôn á! 
-Nè coi chất vải nè — mềm, không nhăn. Thử mặc lên coi... 
-[mặc] Ầy! Vừa vặn luôn! Giá chỉ [X]K mà chất thế này thì quá ổn!"
+================================================
+📝 PATTERN NÓI THEO LOẠI VIDEO — PHONG CÁCH TỰ NHIÊN
+================================================
 
-**👗 THỬ ĐỒ (Try-on):**
-"Mình mới mua cái này, thử cho mọi người coi nha! 
-[mặc] Nè, coi form nè — eo thon, vai suông. 
-Mà nó co giãn nữa, ngồi xuống đứng lên thoải mái. Link dưới nha!"
+**📦 UNBOXING — Phản ứng thật:**
+"Order thử cái này về, coi nào... [mở] Hmm, đóng gói cẩn thận ghê.
+Nè coi chất vải nè — mềm, không nhăn. Thử mặc lên coi...
+[mặc] Ồ, vừa vặn luôn! Chất thì mình hài lòng. Link dưới nha ai muốn xem."
 
-**🔥 BEFORE-AFTER:**
-"Trước khi mặc outfit này — bình thường thôi...
-[chuyển] BÙM! Khác hẳn luôn! 
-Mặc vào lên đời phong cách liền! Ai muốn thì link dưới nha!"
+**👗 THỬ ĐỒ — Chia sẻ thật:**
+"Mình mua cái này, thử cho mọi người coi nha!
+[mặc] Nè, coi form nè — tôn dáng lắm luôn.
+Co giãn nữa, ngồi xuống đứng lên thoải mái. Mình ưng rồi nè!"
 
-**👀 REVIEW THẬT:**
-"Nói thật nha — mình mua thử vì thấy viral quá. 
-Giao hàng 2 ngày, đóng gói cẩn thận. Mặc thử... 
-Ưu điểm: chất tốt, form chuẩn. Nhược: hơi ít màu. Tổng: 9/10!"
+**🔥 BEFORE-AFTER — Storytelling:**
+"Hôm nay thử phối outfit mới...
+Trước: bình thường thôi. [chuyển] Mặc vào: khác hẳn luôn!
+Cảm giác lên level liền á. Bạn nào thích kiểu này mình để link nha."
 
-**F. NGỮ ĐIỆU & BREATHING (QUAN TRỌNG CHO VEO 3.1):**
+**👀 REVIEW THẬT — Honest take:**
+"Nói thiệt nha — mình mua thử vì thấy viral quá.
+Giao hàng nhanh, đóng gói ổn. Mặc thử thì:
+Thích: chất vải tốt, mặc mát. Chưa ưng: hơi ít màu. Tổng: 9/10 nha!"
+
+**🌿 LIFESTYLE — Day-in-life:**
+"Hôm nay đi cafe với bạn, mặc thử cái váy mới mua.
+Đi từ sáng đến chiều vẫn thoải mái, không nhăn.
+Mấy bạn khen hoài luôn á. Ai hỏi thì mình để link dưới nha!"
+
+**💭 STORYTELLING — Kể chuyện thật:**
+"Hôm trước đi event, mặc cái này — ai cũng hỏi mua ở đâu.
+Thật ra mình tìm trên mạng á, lúc đầu cũng lo.
+Nhưng mà nhận về, mặc lên xinh thiệt luôn. Để link cho bạn nào muốn tham khảo!"
+
+**🔍 SO SÁNH — Kinh nghiệm cá nhân:**
+"So với mấy cái mình mua trước, cái này form tốt hơn nhiều.
+Chất vải cầm lên là thấy khác liền — mềm, rũ tự nhiên.
+Mà mình thích nhất là mặc đi đâu cũng hợp. Chia sẻ cho bạn nào cần nha!"
+
+================================================
+🎵 NGỮ ĐIỆU & BREATHING — TỰ NHIÊN NHƯ ĐỜI THƯỜNG
+================================================
 
 | Thời điểm | Ngữ điệu | Lý do |
 |-----------|----------|-------|
-| Hook (0-2s) | Cao, nhanh, bất ngờ | Dừng scroll |
-| Feature (3-8s) | Trung bình, rõ ràng | Truyền đạt info |
-| Reaction (mặc thử) | Tự nhiên, "ồ/á/ầy" | Authentic feel |
-| Price reveal | Nhấn mạnh, chậm lại | Focus vào giá |
-| CTA (cuối) | Thân thiện, nhẹ nhàng | Không ép, tự nhiên |
+| Hook (0-2s) | Bình thường → hơi bất ngờ | Tự nhiên, không diễn |
+| Feature (3-8s) | Trung bình, rõ ràng | Chia sẻ thông tin |
+| Reaction (mặc thử) | Tự nhiên, "hmm/ồ/nè" | Phản ứng thật |
+| Đánh giá | Trầm tĩnh, suy nghĩ | Tạo credibility |
+| CTA (cuối) | Nhẹ nhàng, thân thiện | Chia sẻ, không ép |
 
 ⚠️ BREATHING RULES:
 - Thở tự nhiên giữa các câu (0.3-0.5s)
-- Pause trước price reveal (0.5s) — tạo suspense
-- Không nói liên tù tì — cho phép im lặng ngắn
-- "Hmm..." / "Nè..." / "Mà..." = filler tự nhiên người Việt dùng
+- Pause trước nhận xét quan trọng (0.3s) — tạo effect suy nghĩ
+- Không nói liên tù tì — im lặng ngắn = tự nhiên
+- "Hmm..." / "Nè..." / "Mà..." / "Thì..." = filler tự nhiên
+- ❌ KHÔNG pause trước "price shock" — vì không nêu giá cụ thể
 
-**G. LỖI THƯỜNG GẶP TRONG VOICE SCRIPT AFFILIATE:**
+================================================
+🧠 TÂM LÝ BÁN HÀNG TỰ NHIÊN — CONVERSION QUA TRUST
+================================================
+
+**NGUYÊN TẮC CỐT LÕI:**
+> Người mua quyết định vì TIN TƯỞNG, không vì bị ép.
+> Content tốt = Người xem TỰ MUỐN tìm hiểu thêm.
+> 59% user TikTok mua hàng impulse → Nhưng vì THÍCH, không vì bị push.
+
+**5 YẾU TỐ TẠO TRUST TỰ NHIÊN:**
+
+1. **Trải nghiệm thật:** Kể chuyện mua → mở hộp → dùng → cảm nhận
+2. **Honest take:** "Mình thích A, chưa ưng B" — có pros VÀ cons
+3. **Social proof nhẹ:** "Bạn mình cũng mua" / "Mọi người hỏi mua ở đâu"
+4. **Context cuộc sống:** Sản phẩm trong ngày thường, không spotlight quá mức
+5. **CTA mềm:** "Link dưới nha" — và DỪNG. Không thêm urgency.
+
+**CÔNG THỨC SCRIPT TỐI ƯU:**
+```
+[Hook tự nhiên] → 
+[Trải nghiệm thật + Cảm xúc] → 
+[1-2 pros + 1 con nhỏ] → 
+[CTA nhẹ nhàng]
+```
+
+**LỖI THƯỜNG GẶP — VOICE SCRIPT AFFILIATE:**
 
 1. ❌ NÓI NHƯ ĐỌC BÁO: "Sản phẩm này được làm từ chất liệu cotton 100%"
-   ✅ FIX: "Cotton 100% mà mềm ơi là mềm!"
+   ✅ FIX: "Cotton mà mềm ơi là mềm!"
 
 2. ❌ LIỆT KÊ FEATURES: "Chất liệu tốt. Đường may đẹp. Giá hợp lý."
-   ✅ FIX: "Nè coi đường may nè — tỉ mỉ lắm! Giá này thì quá ổn luôn!"
+   ✅ FIX: "Nè coi đường may nè — tỉ mỉ ghê! Mà chất thì ổn lắm luôn!"
 
 3. ❌ QUẢNG CÁO LỘ LIỄU: "MUA NGAY NGAY BÂY GIỜ KẺO HẾT!!!!"
-   ✅ FIX: "Mình để link nha, đợt này đang có giá tốt nè!"
+   ✅ FIX: "Mình để link nha, bạn nào thích thì xem thử!"
 
-4. ❌ DÙNG TỪ VIẾT: "Xin chào mọi người, hôm nay mình sẽ review..."
-   ✅ FIX: "Ê mọi người! Cái này hot lắm nè!"
+4. ❌ NÊU GIÁ CỤ THỂ: "Chỉ 199K!" "Giá gạch 500K sale 250K!"
+   ✅ FIX: "Giá hợp lý lắm" / "Mình bất ngờ với giá" / KHÔNG nhắc số
 
-5. ❌ GIỌNG MONOTONE: Không có cao thấp, không có cảm xúc
-   ✅ FIX: Thêm reaction markers: "[surprised]", "[excited]", "[whispering]"
+5. ❌ DÙNG TỪ VIẾT: "Xin chào mọi người, hôm nay mình sẽ review..."
+   ✅ FIX: "Nè mọi người! Mình mua thử cái này..."
+
+6. ❌ OVER-HYPE: "ĐỈNH QUÁ! TUYỆT VỜI! BEST EVER!"
+   ✅ FIX: "Mình thấy ổn, mình thích" — bình thường, chân thật
+
+7. ❌ FAKE SURPRISE: "OMG WOWWW!" — diễn quá
+   ✅ FIX: "Hmm... đẹp thiệt nè" — reaction nhẹ, genuine
 
 ================================================
 🎤 LIP-SYNC PRECISION — ĐỒNG BỘ MIỆNG CHUẨN (VEO 3.1)
