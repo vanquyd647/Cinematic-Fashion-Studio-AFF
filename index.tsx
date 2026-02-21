@@ -145,7 +145,7 @@ const App = () => {
    // Additional Description - User custom notes
    const [additionalDescription, setAdditionalDescription] = useState<string>('');
 
-   // Video Duration - Flexible 8-54s, default 24s optimal for affiliate
+   // Video Duration - 8s increments (8-48s), default 24s optimal for affiliate
    const [videoDuration, setVideoDuration] = useState<number>(24);
 
    const [brief, setBrief] = useState(INITIAL_BRIEF);
@@ -1281,6 +1281,9 @@ TRANSITION_TO_NEXT: [How this flows to next scene]
 8. EVERY SCENE must INCLUDE "[SAME_LOCATION], [LIGHTING]" — environment anchor (prevents background drift)
 9. EVERY SCENE must END with garment physics: how the fabric behaves during the motion described
 10. ACCESSORIES (hat, bag, jewelry, sunglasses) must be mentioned in EVERY scene — they disappear if not reminded
+15. VISIBILITY CONTINUITY: When scene N+1 reveals a detail hidden in scene N (e.g., model turns showing back), describe that detail in scene N's prompt: "red dress with V-neck front AND criss-cross back straps, model begins turning..." — prevents AI hallucinating unseen details
+16. 360° OUTFIT ANCHOR: Every scene MUST include both VISIBLE and OCCLUDED outfit details — e.g., "fitted bodice (front visible), open back with thin straps (rear, revealed when turning)"
+17. LIP-SYNC: When model faces camera + speaks → sync: "lip-sync", MAX 15 words/scene. When model's back is shown or product close-up → sync: "voiceover", no word limit. Each scene voiceConfig MUST specify sync type explicitly.
 
 Now create the REFINED SCENES:
 `;
@@ -1930,7 +1933,17 @@ Storytelling cho phép đa dạng bối cảnh theo mạch truyện.
 - ✅ Café: "coffee machine steaming, soft jazz, cup clinks"
 - ✅ Nature: "birds chirping, wind through leaves, distant water"
 - ✅ Indoor: "fabric rustling with movement, soft footsteps on wood, ambient room tone"
-- Audio PHẢI match với physical interactions trong scene`
+- Audio PHẢI match với physical interactions trong scene
+
+👁️ GROUP 6 — VISIBILITY CONTINUITY (CHỐNG HALLUCINATE CHI TIẾT BỊ KHUẤT):
+- Khi scene sau REVEAL chi tiết bị khuất ở scene trước → MÔ TẢ chi tiết đó TRƯỚC KHI nó xuất hiện
+- ✅ "red dress with V-neck front AND criss-cross back straps" (mô tả cả mặt trước + sau DÙ chưa thấy sau)
+- ✅ "model begins turning, revealing open back with thin spaghetti straps" (mô tả TRƯỚC KHI xoay xong)
+- ❌ CẤM: Để AI tự tưởng tượng mặt sau/bên chưa thấy — SẼ HALLUCINATE sai màu/pattern/chi tiết
+- masterPrompt.outfit PHẢI chứa MÔ TẢ 360°: FRONT (neckline, bodice) + BACK (open/closed, zipper, strap) + SIDES (seam, pocket) + HEM
+- Mỗi scene PHẢI ghi: VISIBLE (đang thấy) + WILL_REVEAL (sẽ thấy khi chuyển scene/xoay)
+- PHỤ KIỆN (mũ, kính, túi, vòng) bị che tạm thời → ghi note: "clutch bag at left hip (temporarily hidden, visible next scene)"
+- COLOR ANCHOR: Ghi hex color + nhắc lại mỗi scene (tránh color drift: đỏ → hồng)`
             : '';
 
          // � DISPLAY TYPE INSTRUCTIONS - Unified affiliate mode
@@ -5145,31 +5158,20 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                            ))}
                         </div>
                         
-                        {/* Custom Input with Range Slider */}
+                        {/* Range Slider - 8s increments */}
                         <div className="space-y-2">
                            <input
                               type="range"
                               min="8"
-                              max="54"
-                              step="2"
+                              max="48"
+                              step="8"
                               value={videoDuration}
                               onChange={(e) => setVideoDuration(parseInt(e.target.value))}
                               className="w-full h-1 bg-zinc-700/50 rounded-xl appearance-none cursor-pointer accent-purple-500"
                            />
                            <div className="flex items-center gap-2">
-                              <input
-                                 type="number"
-                                 min="8"
-                                 max="54"
-                                 step="1"
-                                 value={videoDuration}
-                                 onChange={(e) => {
-                                    const val = parseInt(e.target.value);
-                                    if (val >= 8 && val <= 54) setVideoDuration(val);
-                                 }}
-                                 className="w-16 px-2 py-1 bg-zinc-950/60 border border-zinc-700/40 rounded-xl text-[10px] text-center text-zinc-300 focus:border-purple-500 focus:outline-none"
-                              />
-                              <span className="text-[9px] text-zinc-500">seconds (8-54s, tuỳ chỉnh tự do)</span>
+                              <span className="text-[10px] text-zinc-300 font-medium">{videoDuration}s = {Math.floor(videoDuration / 8)} scenes × 8s</span>
+                              <span className="text-[9px] text-zinc-500 ml-auto">Veo 3.1: 8s/clip</span>
                            </div>
                         </div>
                         
@@ -5240,9 +5242,11 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                      </div>
                      
                      <p className="text-[9px] text-emerald-400/70">
-                        {voiceStyle === 'no_voice' 
-                           ? '🔇 Không có giọng nói — chỉ ambient sound + music nền'
-                           : `🎙️ Veo 3.1 tạo giọng ${voiceStyle.includes('saigon') ? 'miền Nam Sài Gòn' : 'miền Bắc Hà Nội'} — cùng 1 giọng cho tất cả scenes`}
+                        {lookbookMode
+                           ? '⚠️ Lookbook Mode = chỉ ảnh tĩnh — voice không được sử dụng. Tắt Lookbook để dùng voice.'
+                           : voiceStyle === 'no_voice' 
+                              ? '🔇 Không có giọng nói — chỉ ambient sound + music nền'
+                              : `🎙️ Veo 3.1 tạo giọng ${voiceStyle.includes('saigon') ? 'miền Nam Sài Gòn' : 'miền Bắc Hà Nội'} — cùng 1 giọng cho tất cả scenes`}
                      </p>
                   </div>
 
