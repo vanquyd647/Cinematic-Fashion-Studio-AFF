@@ -28,6 +28,7 @@ import {
    REVIEW_CINEMATIC_GUIDE,
    TIKTOK_BANNED_WORDS_GUIDE,
    REAL_LOCATION_RULES,
+   NO_VOICE_PRODUCT_FOCUS,
    INITIAL_BRIEF,
    BODY_TEMPLATES,
    PRODUCT_TYPE_GROUPS,
@@ -1464,16 +1465,16 @@ Các kiểu combo phổ biến:
                // Fashion basics
                body_real: '💪 BODY REAL: Model mặc thử + xoay 360° | Scene flow: Outfit reveal → Front pose → Spin showcase → Detail close-up | Camera: Medium tracking, low angle power shot | Must show: Fit on body, fabric movement, full silhouette',
                before_after: '✨ BEFORE-AFTER: Cầm đồ → Mặc vào → Wow | Scene flow: Holding product → Quick transition → Full outfit styled | Camera: Static → jump cut → tracking | Hook: "Wait for it..."',
-               before_after_fashion_show: '👗 BEFORE-AFTER FASHION SHOW: Biến hình + Catwalk | Scene flow: Casual look → transition → runway walk | Camera: Static → slow-mo → tracking | NO voice, pure visual',
+               before_after_fashion_show: '👗 BEFORE-AFTER FASHION SHOW: Biến hình + Catwalk | Scene flow: Casual look → transition → runway walk | Camera: Static → slow-mo → tracking | NO voice, pure visual | Beat-sync: Pose snap on drops, walk on beats, reveal on bass drop | Text: Hook "Wait..." → Feature → CTA',
                mirror_ootd: '🪞 MIRROR OOTD: Phone selfie mirror style | Scene flow: Walk to mirror → Show outfit → Pose → Detail | Camera: Simulated phone-held, mirror reflection | Voice: Commentary on outfit',
-               fit_check: '✅ FIT CHECK: Quick outfit beats | Scene flow: Front snap → Side → Back → Full | Camera: Quick cuts on beat drop | NO voice, music-synced, trending beat',
+               fit_check: '✅ FIT CHECK: Quick outfit beats | Scene flow: Front snap → Side → Back → Full | Camera: Quick cuts on beat drop, minimum 4 angle changes/scene | NO voice, music-synced, trending beat | Beat-sync: Every pose = 1 beat, transition = beat drop | Text overlay: Size/fit info per scene | Motion: Snap poses, confident energy, continuous movement',
                grwm: '💅 GRWM: Getting ready narrative | Scene flow: Base → Makeup/Hair → Outfit selection → Full look reveal | Camera: Close-up → medium → full body | Voice: Storytelling, casual',
                try_on_haul: '🛍️ TRY-ON HAUL: Multi-piece showcase | Scene flow: Unpack → Try each piece → Rate/Review → Best pick | Camera: Mix close-up + full body | Voice: Honest review commentary',
-               ootd_novoice: '📸 OOTD PURE: Clean outfit showcase | Scene flow: Full look → Movement → Detail → Pose | Camera: Cinematic, clean cuts | NO voice/text, raw aesthetic footage',
+               ootd_novoice: '📸 OOTD PURE: Clean outfit showcase | Scene flow: Full look → Movement → Detail → Pose | Camera: Cinematic, clean cuts, ≥4 angle changes/scene | NO voice/script | Beat-sync: All movement on beat (walk=beat, pose snap=drop, spin=bar change) | Text overlays: Hook text scene 1, feature text mid, CTA text final | Motion: Walk-in → confident pose → spin reveal → detail zoom → hair toss → final pose | Ambient: Trending music 80% + fabric sounds + heels/footsteps | Energy: Professional TikToker — mỗi 2s đổi angle/pose',
                ootd_grwm: '👗 OOTD+GRWM: Lifestyle getting ready | Scene flow: Morning routine → Outfit pick → Get dressed → Final reveal + exit | Camera: Lifestyle vlog | Voice: Day story',
                personal_branding: '⭐ PERSONAL BRANDING: Day in life + style | Scene flow: Morning → Work/Activity → Style moment → Signature pose | Camera: Vlog + cinematic | Voice: Brand story',
                style_challenge: '🎯 STYLE CHALLENGE: Themed outfit series | Scene flow: Challenge reveal → Attempt → Showcase → Rate | Camera: Dynamic, split possible | Voice: Engaging commentary',
-               outfit_change_viral: '🔄 OUTFIT CHANGE: Beat-synced changes | Scene flow: Pose → Kick/Jump/Spin → New outfit → Repeat | Camera: Static, quick cuts on beat | NO voice, trending music MUST',
+               outfit_change_viral: '🔄 OUTFIT CHANGE: Beat-synced changes | Scene flow: Pose → Kick/Jump/Spin → New outfit → Repeat | Camera: Static, quick cuts EXACTLY on beat | NO voice, trending music MUST | Beat-sync: Outfit change = bass drop, pose = beat, transition = bar | Text: Hook "X outfit trong Xs" scene 1, CTA scene cuối | Motion: Snap/kick trigger → instant change → confident pose → repeat | Each outfit ≤ 2s screen time',
                // Viral 2026
                cinematic_hook_reveal: '🎬 CINEMATIC REVEAL: Mystery → Reveal | Scene flow: Silhouette/blur → Build curiosity → Beat drop → Full stunning reveal | Camera: Slow push-in → pull-back reveal | Hook: Maximum curiosity in 2s',
                aesthetic_grwm: '✨ AESTHETIC GRWM: Soft girl prep | Scene flow: Soft wake up → Skincare → Makeup → Outfit → Mirror check | Camera: Warm tones, dreamy | Voice: Soft, ASMR-adjacent',
@@ -1486,7 +1487,7 @@ Các kiểu combo phổ biến:
                // New 2026 mid-year
                pov_storytelling: '📖 POV: First-person narrative | Scene flow: "POV: bạn là..." text → Immersive product experience → Emotional payoff → CTA | Camera: POV angles, first-person | Hook: Strong POV text',
                split_screen_compare: '📱 SPLIT SCREEN: Visual proof | Scene flow: Before/After side by side OR 2 products compared → Winner reveal | Camera: Fixed split | Hook: "Cái nào TỐT hơn?"',
-               asmr_unbox: '🎧 ASMR UNBOX: Satisfying unbox | Scene flow: Package close-up → Slow open → Texture sounds → Product reveal | Camera: Macro close-ups | NO voice, ASMR sounds only',
+               asmr_unbox: '🎧 ASMR UNBOX: Satisfying unbox | Scene flow: Package close-up → Slow open → Texture sounds → Product reveal | Camera: Macro close-ups | NO voice, ASMR sounds only | Beat-sync: Gentle — slow cuts on soft beats | Audio: Packaging crinkle 90%, tape peel, fabric unfold, product placement sounds | Text: Product name + price scene 1, quality callout mid, CTA final | Motion: Slow deliberate hands, satisfying reveals, texture appreciation',
                speed_styling: '⚡ SPEED STYLING: Timelapse dress-up | Scene flow: Basic start → Sped-up styling → Real-time final reveal → Pose | Camera: Static → speed up → slow-mo reveal | Music: Upbeat',
                closet_raid: '👗 CLOSET RAID: Wardrobe browse | Scene flow: Open closet → Browse → Pull out pieces → Try on → Final look | Camera: POV + mirror | Voice: Natural decision process',
                price_reveal_game: '💰 VALUE REVEAL: Guess the value | Scene flow: Show product → "Đoán xem chất lượng sao?" text → Build tension → Quality reveal | Camera: Close-up → reveal | Hook: Engaging question, max engagement',
@@ -1645,11 +1646,54 @@ Các kiểu combo phổ biến:
          const getVoiceAnchorInstruction = (): string => {
             if (voiceStyle === 'no_voice') return `
 
-🎙️ VOICE MODE: NO VOICE (MUSIC ONLY)
-- KHÔNG tạo voiceConfig cho bất kỳ scene nào
-- KHÔNG dialogue, KHÔNG narration
-- Chỉ có ambient sound + music
-- masterPrompt.voiceAnchor = null`;
+🎙️ VOICE MODE: NO VOICE — PRODUCT-FOCUSED (MUSIC + TEXT + MOTION)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️ CRITICAL: Chế độ KHÔNG có giọng nói — Video "nói" bằng HÌNH ẢNH + ÂM NHẠC + CHỮ.
+
+📌 RULES BẮT BUỘC:
+1. KHÔNG tạo voiceConfig, script, dialogue cho bất kỳ scene nào
+2. masterPrompt.voiceAnchor = null
+3. Music/beat-sync là BACKBONE — mọi chuyển động theo nhịp nhạc
+4. TEXT OVERLAYS thay thế voice — ít nhất 1 text overlay per scene
+5. Product screen time ≥ 80% — sản phẩm LUÔN visible
+6. Camera angle changes ≥ 3 per scene (viewer không bored)
+7. Ambient sounds phải describe (fabric rustling, heels, environment)
+
+🎵 BEAT-SYNC CHOREOGRAPHY (BẮT BUỘC):
+- Mỗi scene 8s phải có ≥2 beat-drop moments
+- Model movement ON BEAT (mỗi bước = 1 beat)
+- Pose changes SNAP on beat drops
+- Camera transitions on beat
+- JSON PHẢI có "beatSync" object với BPM + dropTimestamps + motionCues
+
+📝 TEXT OVERLAY SYSTEM (THAY THẾ VOICE):
+- Scene 1: Hook text (max 5 từ, bold, pop-up effect)
+- Scene 2+: Product feature text (material, fit, quality)
+- Scene cuối: CTA text ("Link dưới nha 👇" / "Save lại mua nhé!")
+- Position: TOP 15% hoặc BOTTOM 15% (KHÔNG che sản phẩm)
+- JSON PHẢI có "textOverlays" array
+
+💃 PROFESSIONAL TIKTOKER MOTION:
+- THE CONFIDENT WALK-IN: 4 bước = 4 beats, drop → pose snap
+- THE SPIN REVEAL: Still → drop → 360° spin → fabric settles
+- THE FIT SNAP: Quick pose changes on EVERY beat drop
+- THE SLOW GLIDE: Ultra slow-mo, mỗi step = 2-3 beats
+- THE DETAIL HUNT: Macro zoom-in on drop, pull back between
+- THE HAIR TOSS: Walk → drop → hair toss + confident look
+- THE TRANSITION SNAP: Snap/clap → instant outfit change
+
+🔊 AMBIENT SOUND (thay thế voice):
+- Layer 1: Music bed (trending sound, 70-80% volume)
+- Layer 2: Product sounds (fabric rustling, zipper, heels)
+- Layer 3: Environment (room tone, street ambience)
+- Mỗi scene prompt PHẢI mô tả: "No dialogue. Music at [BPM] BPM. [ambient sounds]."
+
+📦 JSON OUTPUT — NO voiceConfig:
+- scenes[].voiceConfig = KHÔNG CÓ
+- scenes[].script = KHÔNG CÓ
+- Thay bằng: scenes[].textOverlay = { text, position, timing, style }
+- metadata.beatSync = { bpm, musicMood, dropTimestamps }
+- metadata.textOverlays = [...all text overlays...]`;
 
             const voiceProfiles: Record<string, { profile: string; characteristics: string; accent: string; emotional: string }> = {
                'saigon_female': {
@@ -1953,7 +1997,15 @@ Storytelling cho phép đa dạng bối cảnh theo mạch truyện.
 - masterPrompt.outfit PHẢI chứa MÔ TẢ 360°: FRONT (neckline, bodice) + BACK (open/closed, zipper, strap) + SIDES (seam, pocket) + HEM
 - Mỗi scene PHẢI ghi: VISIBLE (đang thấy) + WILL_REVEAL (sẽ thấy khi chuyển scene/xoay)
 - PHỤ KIỆN (mũ, kính, túi, vòng) bị che tạm thời → ghi note: "clutch bag at left hip (temporarily hidden, visible next scene)"
-- COLOR ANCHOR: Ghi hex color + nhắc lại mỗi scene (tránh color drift: đỏ → hồng)`
+- COLOR ANCHOR: Ghi hex color + nhắc lại mỗi scene (tránh color drift: đỏ → hồng)${voiceStyle === 'no_voice' ? `
+
+🎵 GROUP 7 — NO-VOICE BEAT-SYNC MOTION (KHI KHÔNG CÓ GIỌNG NÓI):
+- Music là BACKBONE — mọi chuyển động PHẢI theo nhịp nhạc
+- Beat map: 1 beat = 1 bước chân HOẶC 1 micro-movement
+- Beat DROP = pose SNAP / outfit REVEAL / camera CUT (moment lớn nhất)
+- Bar change (mỗi 4-8 beats) = scene transition, angle switch
+- Pose variety ≥ 5 unique poses per 8s scene (đổi pose mỗi 1.5s)
+- KHÔNG BAO GIỜ đứng yên > 1.5s — luôn có micro-movement (hair touch, weight shift, fabric adjust)` : ''}`
             : '';
 
          // � DISPLAY TYPE INSTRUCTIONS - Unified affiliate mode
@@ -2032,7 +2084,35 @@ Lấy ưu điểm của cả 2 modes.
 `;
          }
 
-         // 🛡️ PHẦN CŨ ĐÃ BỊ LOẠI BỎ - bắt đầu phần code tiếp theo
+         // � NO-VOICE DISPLAY ENHANCEMENT — Add text overlay + beat-sync to display instructions
+         if (voiceStyle === 'no_voice' && !lookbookMode) {
+            displayInstructions += `
+
+🔇 NO-VOICE DISPLAY ENHANCEMENT:
+Video KHÔNG có giọng nói — TEXT OVERLAYS là cách giao tiếp chính.
+
+📝 TEXT OVERLAY CHOREOGRAPHY (BẮT BUỘC):
+- Scene 1 (Hook): Text POP-UP effect (fade-in 0.3s) → max 5 từ → gây tò mò
+  Examples: "Đồ 200K mà đỉnh?" / "Outfit dưới 300K" / "Ai nói rẻ xấu?"
+- Scene giữa (Feature): TYPEWRITER effect → highlight 1-2 feature key
+  Examples: "Vải cotton 100%" / "Co giãn 4 chiều" / "Tôn dáng cực kỳ"
+- Scene cuối (CTA): SLIDE-IN effect → urgency + action
+  Examples: "Link ở bio nha 👇" / "Save lại mua nhé!" / "Còn ít lắm!"
+
+🎵 MUSIC-DRIVEN PACING (thay thế voice pacing):
+- Movement ON BEAT — mỗi bước chân = 1 beat
+- Pose changes SNAP on beat drops — không smooth transition
+- Camera cuts ALIGNED with music bars (không cut giữa bar)
+- Product REVEAL timing = biggest beat drop trong bài
+
+💃 ENHANCED MOTION (bù cho không có voice):
+- 3x nhiều camera angle changes hơn video có voice
+- Continuous movement — KHÔNG BAO GIỜ đứng yên quá 1.5s
+- Dynamic energy: walk-in → spin → pose snap → detail zoom → pull back
+- Facial expressions expressive hơn (mỉm cười, ngạc nhiên, tự tin)`;
+         }
+
+         // �🛡️ PHẦN CŨ ĐÃ BỊ LOẠI BỎ - bắt đầu phần code tiếp theo
          // REMOVED - All old mode text generation (walkinModeText2, walkinModeText, marketingModeText, walkin16_9Text)
          // Replaced by displayInstructions (fashion_model / product_focus / mixed)
 
@@ -3508,6 +3588,8 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
          }
          // Voice module only when voice is enabled
          if (needsVoice) baseModules.push(VOICE_SCRIPT_PRO);
+         // No-voice product focus module — comprehensive guide for music+text+motion driven videos
+         if (!needsVoice) baseModules.push(NO_VOICE_PRODUCT_FOCUS);
          // Safety vocabulary for ALL fashion & sensitive products (prevent prompt flagging)
          if (isFashionProduct || isIntimateProduct || isBeautyProduct) baseModules.push(SAFETY_VOCABULARY_GUIDE);
          // Non-fashion products still need basic scene rules
@@ -3542,6 +3624,39 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
          // 🔴 VIRAL HOOK ENFORCEMENT — Compact version for token efficiency
          if (!lookbookMode) {
             systemInstruction += `\n\n🔴 VIRAL HOOK (MANDATORY): First 3s = 80% success\nScene 1 MUST have 0-3s hook element. JSON must include "viralHooks" field.\nAffiliate hooks: Curiosity/First impression/Experience sharing/Social proof (trust-driven)\n❌ NO: Static poses, no hook element, slow starts, hard sell, specific prices`;
+         }
+
+         // 🎵 NO-VOICE ENFORCEMENT — Text overlay + beat-sync + product-focused motion
+         if (!needsVoice && !lookbookMode) {
+            systemInstruction += `\n\n🎵 NO-VOICE ENFORCEMENT (MANDATORY):
+Video KHÔNG CÓ GIỌNG NÓI — tất cả communication qua TEXT + MUSIC + MOTION.
+
+📌 JSON OUTPUT BẮT BUỘC khi no_voice:
+- scenes[].voiceConfig = KHÔNG CÓ (field không tồn tại)
+- scenes[].script = KHÔNG CÓ
+- scenes[].textOverlay = { text: string, position: "top"|"bottom"|"center", timing: "0-2s", style: "bold_pop"|"typewriter"|"slide_in" }
+- metadata.beatSync = { bpm: number, musicMood: string, dropTimestamps: number[] }
+- metadata.audioDesign = { musicBed: string, productSounds: string[], ambientLayer: string }
+- metadata.textOverlays = [{ sceneIndex: number, text: string, purpose: "hook"|"feature"|"benefit"|"cta" }]
+
+🎵 BEAT-SYNC RULES:
+- Mỗi scene 8s = ít nhất 2 beat-drop moments
+- Model POSE SNAP on beat drops (chuyển pose đúng nhịp)
+- Camera CUT/TRANSITION on beat (không cut giữa beat)
+- Product REVEAL on bass drop (moment mạnh nhất = reveal)
+
+📝 TEXT OVERLAY RULES:
+- Scene 1: HOOK TEXT (max 5 từ, gây tò mò: "Chiếc váy 200K này..." / "Ai nói đồ rẻ xấu?")
+- Scene giữa: FEATURE TEXT (chất liệu, size, thiết kế đặc biệt)
+- Scene cuối: CTA TEXT ("Link dưới nha 👇" / "Save lại đi!")
+- Font: Bold sans-serif, drop shadow, readable on all backgrounds
+- Position: TOP 15% hoặc BOTTOM 15% — KHÔNG BAO GIỜ che sản phẩm
+
+🔇 AMBIENT SOUND DESIGN:
+- Music bed: 70-80% volume, trending TikTok sound
+- Product sounds: fabric rustling, zipper, heels clicking, packaging
+- Room tone: matched to location (street buzz, room silence, nature)
+- Mỗi scene prompt PHẢI describe ambient sounds cụ thể`;
          }
 
          const response = await ai.models.generateContent({
@@ -5222,7 +5337,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                         <span className={`text-[9px] px-2 py-0.5 rounded ${
                            voiceStyle === 'no_voice' ? 'text-zinc-500 bg-zinc-800/50' : 'text-emerald-400 bg-emerald-500/10'
                         }`}>
-                           {voiceStyle === 'no_voice' ? '🔇 No Voice' : 
+                           {voiceStyle === 'no_voice' ? '🎵 Product Focus' : 
                             voiceStyle === 'saigon_female' ? '🇻🇳 Sài Gòn Nữ' :
                             voiceStyle === 'saigon_male' ? '🇻🇳 Sài Gòn Nam' :
                             voiceStyle === 'hanoi_female' ? '🇻🇳 Hà Nội Nữ' : '🇻🇳 Hà Nội Nam'}
@@ -5235,7 +5350,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                            { value: 'saigon_male' as const, label: 'SG Nam', icon: '👨', desc: 'Giọng Sài Gòn nam' },
                            { value: 'hanoi_female' as const, label: 'HN Nữ', icon: '👩', desc: 'Giọng Hà Nội nữ' },
                            { value: 'hanoi_male' as const, label: 'HN Nam', icon: '👨', desc: 'Giọng Hà Nội nam' },
-                           { value: 'no_voice' as const, label: 'No Voice', icon: '🔇', desc: 'Music only' }
+                           { value: 'no_voice' as const, label: 'No Voice', icon: '🔇', desc: 'Music + Text + Motion' }
                         ].map(opt => (
                            <button
                               key={opt.value}
@@ -5255,9 +5370,28 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
                         {lookbookMode
                            ? '⚠️ Lookbook Mode = chỉ ảnh tĩnh — voice không được sử dụng. Tắt Lookbook để dùng voice.'
                            : voiceStyle === 'no_voice' 
-                              ? '🔇 Không có giọng nói — chỉ ambient sound + music nền'
+                              ? '🎵 Product Focus — Music + Text overlays + Beat-sync motion. Không voice, sản phẩm là ngôi sao!'
                               : `🎙️ Veo 3.1 tạo giọng ${voiceStyle.includes('saigon') ? 'miền Nam Sài Gòn' : 'miền Bắc Hà Nội'} — cùng 1 giọng cho tất cả scenes`}
                      </p>
+                     
+                     {/* No-voice feature highlights */}
+                     {voiceStyle === 'no_voice' && !lookbookMode && (
+                        <div className="bg-zinc-900/60 rounded-lg p-2.5 border border-zinc-700/30 space-y-1">
+                           <div className="text-[9px] font-semibold text-purple-400">✨ No-Voice Product Focus Mode</div>
+                           <div className="grid grid-cols-2 gap-1">
+                              {[
+                                 { icon: '🎵', text: 'Beat-sync motion' },
+                                 { icon: '📝', text: 'Text overlays thay voice' },
+                                 { icon: '💃', text: 'TikToker choreography' },
+                                 { icon: '📦', text: 'Product 80%+ screen time' },
+                              ].map(f => (
+                                 <div key={f.text} className="flex items-center gap-1 text-[8px] text-zinc-400">
+                                    <span>{f.icon}</span>{f.text}
+                                 </div>
+                              ))}
+                           </div>
+                        </div>
+                     )}
                   </div>
 
                   {/* ═══════════ SECTION: Generate ═══════════ */}

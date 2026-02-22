@@ -22,6 +22,7 @@ import UNBOXING_CINEMATIC_GUIDE from '../instructions/unboxing_cinematic_guide.t
 import REVIEW_CINEMATIC_GUIDE from '../instructions/review_cinematic_guide.txt?raw';
 import TIKTOK_BANNED_WORDS_GUIDE from '../instructions/tiktok_banned_words_guide.txt?raw';
 import REAL_LOCATION_RULES from '../instructions/real_location_rules.txt?raw';
+import NO_VOICE_PRODUCT_FOCUS from '../instructions/no_voice_product_focus.txt?raw';
 
 // Export instructions
 export {
@@ -47,7 +48,8 @@ export {
   UNBOXING_CINEMATIC_GUIDE,
   REVIEW_CINEMATIC_GUIDE,
   TIKTOK_BANNED_WORDS_GUIDE,
-  REAL_LOCATION_RULES
+  REAL_LOCATION_RULES,
+  NO_VOICE_PRODUCT_FOCUS
 };
 
 // Export data constants
