@@ -2014,26 +2014,65 @@ Storytelling cho phép đa dạng bối cảnh theo mạch truyện.
          if (displayType === 'product_focus') {
             displayInstructions = `
 📦 PRODUCT-FOCUSED DISPLAY MODE:
-Tập trung vào sản phẩm, không cần model đầy đủ. Phù hợp cho: fashion foundations, phụ kiện, giày dép.
+Sản phẩm là NGÔI SAO — mọi góc quay, ánh sáng, chuyển động đều phục vụ sản phẩm.
+Product screen time ≥ 80% — sản phẩm LUÔN visible và là focal point.
 
-🎥 CAMERA ANGLES:
-- Scene 1 (0-8s): Split-screen front/back hoặc 360° rotation
-- Scene 2 (8-16s): Macro fabric close-up, texture detail
-- Scene 3 (16-24s): Side profile 90°, tilt-up showing shape/fit
-- Scene 4 (24-32s): Full reveal, overhead flatlay hoặc mannequin front
+🎯 3 CÁCH THỰC HIỆN (AI tự chọn phù hợp nhất với product type):
 
-🧍 MANNEQUIN SETUP (nếu dùng):
+👤 STYLE A — ON-MODEL PRODUCT FOCUS (Model mặc, camera focus sản phẩm):
+Model MẶC sản phẩm nhưng camera LUÔN focus vào sản phẩm, không phải model.
+Phù hợp: Váy, áo, quần, đầm, set đồ — mọi fashion item mặc được.
+- Camera: 70% close-up/medium sản phẩm, 30% full-body context
+- Model role: Mannequin sống — di chuyển để SHOWCASE sản phẩm
+- Movement: Xoay người show fabric, kéo vải show stretch, chạm detail
+- Focus pull: Background (model face) blur → Foreground (product) sharp
+- Hands: Chạm sản phẩm, kéo dây, chỉnh cổ, vuốt vải — tay LUÔN tương tác sản phẩm
+- Scene flow:
+  Scene 1: Full body reveal (model walk-in, outfit visible head-to-toe)
+  Scene 2: Fabric close-up (hands touching, texture, drape, movement)
+  Scene 3: Detail hunt (stitching, button, label, unique design element)
+  Scene 4: Fit showcase (model xoay 360°, side profile, how it hugs body)
+  Scene 5+: Benefits demo (stretch test, comfort show, styling options)
+
+🧍 STYLE B — MANNEQUIN/TORSO (Không cần model):
+Sản phẩm trên mannequin hoặc torso — clean, professional, catalog style.
+Phù hợp: Fashion foundations, phụ kiện nhỏ, giày dép, nón/mũ.
 - Professional white torso mannequin (thân người trắng mờ)
 - 3-point lighting: 5000K key + 4500K fill + rim backlight
 - 9ft seamless white/grey backdrop
 - Rotate 15-30° giữa các scenes
 - 85mm f/8 lens, ISO 100, product focus sharp
+- Scene flow:
+  Scene 1: Front view rotation (0° → 45°)
+  Scene 2: Detail zoom (macro stitching, fabric, hardware)
+  Scene 3: Side/back view (90° → 180°)
+  Scene 4: Full 360° glamour shot
 
-📝 TEXT OVERLAYS (tự động tạo):
-- Scene 1: Hook (first impression, social proof, curiosity)
+🎨 STYLE C — FLATLAY/OVERHEAD (Trải phẳng):
+Sản phẩm flatlay trên bề mặt aesthetic — overhead bird's eye view.
+Phù hợp: Set đồ, combo, phụ kiện, unboxing layout.
+- Clean surface: marble, wood, fabric backdrop
+- Overhead camera (bird's eye) — sản phẩm trải phẳng
+- Hands-in-frame: Tay vào frame chạm/sắp xếp sản phẩm
+- Props: Hoa, nến, packaging, accessories bổ sung
+- Scene flow:
+  Scene 1: Overhead full layout reveal
+  Scene 2: Hand picks up item, shows detail
+  Scene 3: Styling arrangement, zoom on texture
+  Scene 4: Final aesthetic shot + CTA
+
+📝 TEXT OVERLAYS (BẮT BUỘC cho Product Focus):
+- Scene 1: Hook (first impression, curiosity trigger)
 - Scene 2: Feature (chất liệu, thiết kế đặc biệt)
 - Scene 3: Benefit (tôn dáng, thoải mái, trải nghiệm)
 - Scene 4: CTA (link, chia sẻ, tham khảo)
+
+📷 CAMERA TECHNIQUE (ÁP DỤNG CHO CẢ 3 STYLES):
+- Macro lens moments: ≥1 scene có macro close-up (texture, weave, print)
+- Focus pull: Foreground product sharp ↔ background soft
+- Slow orbit/rotation: Sản phẩm hoặc camera xoay chậm
+- Dynamic angles: ≥3 angle changes per scene (top, side, front, 45°, low)
+- Lighting shifts: Rim light catch fabric sheen, backlight silhouette
 
 📦 FASHION FOUNDATIONS VOCABULARY (nếu là delicate wear):
 ✅ USE: "corsetry-style bodice", "fitted architecture", "supportive construction", "shaping technology"
@@ -2913,7 +2952,7 @@ ${scenes >= 5 ? `- Scenes 4-${scenes - 1}: CRITERIA 5 + DEEP DIVE
          // Affiliate-specific studio recommendations based on displayType
          const getStudioAffiliateGuidance = () => {
             if (displayType === 'product_focus') {
-               return '\n💡 PRODUCT_FOCUS → Clean studio: White/grey/cream seamless backdrop, minimal props, even lighting';
+               return '\n💡 PRODUCT_FOCUS → Studio: White/grey seamless OR lifestyle backdrop — macro lens, 3-point lighting, product as hero';
             } else if (displayType === 'fashion_model') {
                return '\n💡 FASHION_MODEL → Lifestyle studio: Themed backdrop, 2-3 props (chair/plant/frame), warm lighting';
             } else {
@@ -4136,7 +4175,7 @@ Video KHÔNG CÓ GIỌNG NÓI — tất cả communication qua TEXT + MUSIC + MO
                                  : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600'}`}
                         >
                            <span className="font-bold">📦 Product Focus</span>
-                           <span className="text-[8px] text-zinc-500 ml-1.5">Mannequin/Close-ups</span>
+                           <span className="text-[8px] text-zinc-500 ml-1.5">On-Model / Mannequin / Flatlay</span>
                         </button>
                         <button
                            onClick={() => setDisplayType('mixed')}
@@ -4151,7 +4190,7 @@ Video KHÔNG CÓ GIỌNG NÓI — tất cả communication qua TEXT + MUSIC + MO
                      </div>
                      <div className="text-[8px] text-zinc-500 bg-zinc-950/40 p-2 rounded-xl border border-zinc-800/30">
                         {displayType === 'fashion_model' && <>👗 Model mặc sản phẩm, poses động</>}
-                        {displayType === 'product_focus' && <>📦 Mannequin/flat lay/close-up</>}
+                        {displayType === 'product_focus' && <>📦 Sản phẩm là ngôi sao — On-Model / Mannequin / Flatlay</>}
                         {displayType === 'mixed' && <>🎨 Model + product shots kết hợp</>}
                      </div>
                   </div>
