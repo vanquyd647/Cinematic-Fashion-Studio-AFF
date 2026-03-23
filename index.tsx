@@ -814,9 +814,15 @@ Product LIGHT (white/cream) → Backdrop with texture/color (grey/color)
             // Build Master Prompt string from JSON
             const mp = jsonData.masterPrompt;
             const masterContent = [
-               // CRITICAL: Face preservation MUST be first
-               mp.facePreservation || "Exact facial features of the reference image, mirroring the subject's unique facial structure, eye shape, nose bridge, lip contour, and skin tone with photorealistic fidelity",
-               mp.subject,
+               ...(displayType === 'product_focus'
+                  ? [
+                     mp.subject || 'Product displayed on a professional mannequin torso, no human face visible'
+                  ]
+                  : [
+                     // CRITICAL: Face preservation MUST be first
+                     mp.facePreservation || "Exact facial features of the reference image, mirroring the subject's unique facial structure, eye shape, nose bridge, lip contour, and skin tone with photorealistic fidelity",
+                     mp.subject
+                  ]),
                mp.outfit,
                mp.pose,
                `Shot on location at ${mp.environment}`,
@@ -1007,7 +1013,7 @@ Product LIGHT (white/cream) → Backdrop with texture/color (grey/color)
 
       // If still no master prompt found, try to extract first substantial paragraph
       let masterContent = masterMatch ? cleanSection(masterMatch[0], /SECTION 1:.*?\n?|MASTER PROMPT:?\s*|COMMON MASTER PROMPT:?\s*/i) : "";
-      if (!masterContent && text.includes("Exact facial features")) {
+      if (!masterContent && displayType !== 'product_focus' && text.includes("Exact facial features")) {
          const exactMatch = text.match(/Exact facial features[\s\S]*?(?=\n\n|Image 1|SCENE 1|$)/i);
          if (exactMatch) masterContent = exactMatch[0].trim();
       }
@@ -2017,26 +2023,14 @@ Storytelling cho phép đa dạng bối cảnh theo mạch truyện.
 Sản phẩm là NGÔI SAO — mọi góc quay, ánh sáng, chuyển động đều phục vụ sản phẩm.
 Product screen time ≥ 80% — sản phẩm LUÔN visible và là focal point.
 
-🎯 3 CÁCH THỰC HIỆN (AI tự chọn phù hợp nhất với product type):
+🎯 CÁCH THỰC HIỆN DUY NHẤT (BẮT BUỘC):
 
-👤 STYLE A — ON-MODEL PRODUCT FOCUS (Model mặc, camera focus sản phẩm):
-Model MẶC sản phẩm nhưng camera LUÔN focus vào sản phẩm, không phải model.
-Phù hợp: Váy, áo, quần, đầm, set đồ — mọi fashion item mặc được.
-- Camera: 70% close-up/medium sản phẩm, 30% full-body context
-- Model role: Mannequin sống — di chuyển để SHOWCASE sản phẩm
-- Movement: Xoay người show fabric, kéo vải show stretch, chạm detail
-- Focus pull: Background (model face) blur → Foreground (product) sharp
-- Hands: Chạm sản phẩm, kéo dây, chỉnh cổ, vuốt vải — tay LUÔN tương tác sản phẩm
-- Scene flow:
-  Scene 1: Full body reveal (model walk-in, outfit visible head-to-toe)
-  Scene 2: Fabric close-up (hands touching, texture, drape, movement)
-  Scene 3: Detail hunt (stitching, button, label, unique design element)
-  Scene 4: Fit showcase (model xoay 360°, side profile, how it hugs body)
-  Scene 5+: Benefits demo (stretch test, comfort show, styling options)
-
-🧍 STYLE B — MANNEQUIN/TORSO (Không cần model):
+🧍 STYLE — MANNEQUIN/TORSO ONLY:
 Sản phẩm trên mannequin hoặc torso — clean, professional, catalog style.
-Phù hợp: Fashion foundations, phụ kiện nhỏ, giày dép, nón/mũ.
+KHÔNG dùng người mẫu thật. KHÔNG mô tả khuôn mặt. KHÔNG face close-up.
+- Subject bắt buộc: mannequin / torso / product only
+- Cấm từ khóa: model face, facial features, eyes, lips, smile, hair, makeup, portrait
+- Camera tập trung 100% vào sản phẩm, form dáng, chất liệu, chi tiết hoàn thiện
 - Professional white torso mannequin (thân người trắng mờ)
 - 3-point lighting: 5000K key + 4500K fill + rim backlight
 - 9ft seamless white/grey backdrop
@@ -2048,18 +2042,7 @@ Phù hợp: Fashion foundations, phụ kiện nhỏ, giày dép, nón/mũ.
   Scene 3: Side/back view (90° → 180°)
   Scene 4: Full 360° glamour shot
 
-🎨 STYLE C — FLATLAY/OVERHEAD (Trải phẳng):
-Sản phẩm flatlay trên bề mặt aesthetic — overhead bird's eye view.
-Phù hợp: Set đồ, combo, phụ kiện, unboxing layout.
-- Clean surface: marble, wood, fabric backdrop
-- Overhead camera (bird's eye) — sản phẩm trải phẳng
-- Hands-in-frame: Tay vào frame chạm/sắp xếp sản phẩm
-- Props: Hoa, nến, packaging, accessories bổ sung
-- Scene flow:
-  Scene 1: Overhead full layout reveal
-  Scene 2: Hand picks up item, shows detail
-  Scene 3: Styling arrangement, zoom on texture
-  Scene 4: Final aesthetic shot + CTA
+📌 BỔ SUNG (OPTIONAL): Flatlay/overhead được phép như scene phụ, nhưng vẫn no-face/no-person.
 
 📝 TEXT OVERLAYS (BẮT BUỘC cho Product Focus):
 - Scene 1: Hook (first impression, curiosity trigger)
@@ -3082,7 +3065,13 @@ AI PHẢI output định dạng JSON để tối ưu workflow Image-to-Video.`;
          // Lookup selected face preset
          const selectedFacePreset = FACE_PRESETS.find(p => p.value === facePreset) || FACE_PRESETS[0];
 
-         const faceReferenceText = faceImage
+         const faceReferenceText = displayType === 'product_focus'
+            ? `\n\n🚫 FACE MODE: DISABLED FOR PRODUCT_FOCUS
+⚠️ CRITICAL: Product Focus dùng mannequin/product-only.
+- Ignore face reference image and face preset.
+- Do NOT describe any human facial features.
+- Subject must remain mannequin torso or product layout in all scenes/images.`
+            : faceImage
             ? `\n\n🔴 FACE REFERENCE: UPLOADED ✅
 ⚠️ CRITICAL: Face Reference image is attached FIRST (before outfit).
 - Use EXACT facial features from Face Reference image
@@ -3596,7 +3585,7 @@ Maintain color palette and lighting atmosphere across scenes. Fast cuts OK but v
 
 
             // Face Reference image FIRST (with label)
-            ...(faceImage ? [{ text: '\n\n📸 IMAGE 1 - FACE REFERENCE (Use this face):' }, { inlineData: { mimeType: faceData.mimeType, data: faceData.data } }] : []),
+            ...(faceImage && displayType !== 'product_focus' ? [{ text: '\n\n📸 IMAGE 1 - FACE REFERENCE (Use this face):' }, { inlineData: { mimeType: faceData.mimeType, data: faceData.data } }] : []),
             // Outfit Reference image SECOND (with label) - FASHION FOUNDATIONS AWARE
             { text: getOutfitLabel() },
             { inlineData: { mimeType: outfitData.mimeType, data: outfitData.data } }
@@ -4175,7 +4164,7 @@ Video KHÔNG CÓ GIỌNG NÓI — tất cả communication qua TEXT + MUSIC + MO
                                  : 'bg-zinc-950/40 border-zinc-700/40 text-zinc-400 hover:border-zinc-600'}`}
                         >
                            <span className="font-bold">📦 Product Focus</span>
-                           <span className="text-[8px] text-zinc-500 ml-1.5">On-Model / Mannequin / Flatlay</span>
+                           <span className="text-[8px] text-zinc-500 ml-1.5">Mannequin / Flatlay only (No face)</span>
                         </button>
                         <button
                            onClick={() => setDisplayType('mixed')}
@@ -4190,7 +4179,7 @@ Video KHÔNG CÓ GIỌNG NÓI — tất cả communication qua TEXT + MUSIC + MO
                      </div>
                      <div className="text-[8px] text-zinc-500 bg-zinc-950/40 p-2 rounded-xl border border-zinc-800/30">
                         {displayType === 'fashion_model' && <>👗 Model mặc sản phẩm, poses động</>}
-                        {displayType === 'product_focus' && <>📦 Sản phẩm là ngôi sao — On-Model / Mannequin / Flatlay</>}
+                        {displayType === 'product_focus' && <>📦 Sản phẩm là ngôi sao — chỉ mannequin/flatlay, không mô tả khuôn mặt</>}
                         {displayType === 'mixed' && <>🎨 Model + product shots kết hợp</>}
                      </div>
                   </div>
